@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://1wye34y7qnhe"]
+[gd_scene load_steps=3 format=3 uid="uid://1wye34y7qnhe"]
 
 [ext_resource type="PackedScene" uid="uid://mq5u7di7yh8m" path="res://src/back_to_start_menu_button/BackToStartMenuButton.tscn" id="1_8sw2a"]
+[ext_resource type="PackedScene" uid="uid://c5dvnfrvyjol6" path="res://src/battlefield_outdoors/BattlefieldOutdoors.tscn" id="2_35wcq"]
 
 [node name="Gameplay" type="Control"]
 layout_mode = 3
@@ -9,6 +10,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="BattlefieldOutdoors" parent="." instance=ExtResource("2_35wcq")]
+layout_mode = 1
 
 [node name="BackToStartMenuButton" parent="." instance=ExtResource("1_8sw2a")]
 layout_mode = 1
