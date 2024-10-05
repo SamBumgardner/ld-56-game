@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://d0wnwi5rcyku"]
+[gd_scene load_steps=10 format=3 uid="uid://d0wnwi5rcyku"]
 
 [ext_resource type="Theme" uid="uid://dk5iv042psfw" path="res://assets/themes/Default.tres" id="1_rotuw"]
 [ext_resource type="Texture2D" uid="uid://bic3i142epdt3" path="res://assets/art/placeholder_threat.png" id="2_doqwf"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://r7a1wa1ifq57" path="res://assets/art/placeholder_close_button.png" id="4_vii54"]
 [ext_resource type="PackedScene" uid="uid://cf7gpoxw4lyd4" path="res://src/indoor_preparation/screen_displays/shared/upgrade_choice_display.tscn" id="4_vtj8y"]
 [ext_resource type="Script" path="res://src/indoor_preparation/screen_displays/shared/character_detail/character_detail_upgrades.gd" id="6_1f48f"]
+[ext_resource type="PackedScene" uid="uid://bop47lfc6joit" path="res://src/indoor_preparation/screen_displays/shared/character_detail/dynamic_info_panel.tscn" id="8_yjqcy"]
 
 [node name="CharacterDetail" type="Control"]
 layout_mode = 3
@@ -149,41 +150,8 @@ layout_mode = 2
 [node name="UpgradeChoiceDisplay5" parent="UpgradeSelection/MarginContainer/VBoxContainer" instance=ExtResource("4_vtj8y")]
 layout_mode = 2
 
-[node name="DynamicInfoPanel" type="PanelContainer" parent="."]
+[node name="DynamicInfoPanel" parent="." instance=ExtResource("8_yjqcy")]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.31
-anchor_top = 0.4
-anchor_right = 0.8
-anchor_bottom = 0.98
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="DynamicInfoPanel"]
-layout_mode = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
-
-[node name="VBoxContainer" type="VBoxContainer" parent="DynamicInfoPanel/MarginContainer"]
-layout_mode = 2
-
-[node name="Header" type="Label" parent="DynamicInfoPanel/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "Details"
-horizontal_alignment = 1
-
-[node name="Panel" type="PanelContainer" parent="DynamicInfoPanel/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="No Information" type="Label" parent="DynamicInfoPanel/MarginContainer/VBoxContainer/Panel"]
-layout_mode = 2
-text = "Hover or Select Icons
-For Detailed Information"
-horizontal_alignment = 1
 
 [node name="IconAndCost" type="VBoxContainer" parent="."]
 layout_mode = 1

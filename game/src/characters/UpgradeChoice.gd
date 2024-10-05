@@ -14,8 +14,8 @@ static var upgrade_funcs: Dictionary = {
 }
 
 @export var name: String
-@export var description: String
-@export var visual_summary: String
+@export_multiline var description: String
+@export_multiline var visual_summary: String
 @export var icon_ref: Texture2D
 
 @export var upgrade_type: UpgradeType
