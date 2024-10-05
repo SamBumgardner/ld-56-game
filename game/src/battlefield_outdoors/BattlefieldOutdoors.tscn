@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5dvnfrvyjol6"]
+
+[ext_resource type="PackedScene" uid="uid://b6k6baalu42w7" path="res://src/battlefield_outdoors_hud/BattlefieldOutdoorsHud.tscn" id="1_wxoya"]
+
+[node name="BattlefieldOutdoors" type="Node2D"]
+
+[node name="BattlefieldOutdoorsHud" parent="." instance=ExtResource("1_wxoya")]

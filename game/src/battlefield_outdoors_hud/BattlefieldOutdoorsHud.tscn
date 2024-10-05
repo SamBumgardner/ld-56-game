@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6k6baalu42w7"]
+
+[ext_resource type="Theme" uid="uid://dk5iv042psfw" path="res://assets/themes/Default.tres" id="1_tswyb"]
+
+[node name="BattlefieldOutdoorsHud" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("1_tswyb")
+
+[node name="HealthTrackerPanel" type="Panel" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HealthTrackerRow" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HealthLabel" type="Label" parent="MarginContainer/HealthTrackerRow"]
+layout_mode = 2
+text = "Health:
+"
+
+[node name="HealthCurrent" type="Label" parent="MarginContainer/HealthTrackerRow"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "0"
+horizontal_alignment = 2
+
+[node name="HealthDivider" type="Label" parent="MarginContainer/HealthTrackerRow"]
+layout_mode = 2
+text = "/"
+
+[node name="HealthMaximum" type="Label" parent="MarginContainer/HealthTrackerRow"]
+layout_mode = 2
+text = "1000"
