@@ -61,6 +61,10 @@ func _on_mock_attack_button_pressed() -> void:
 
 
 func _on_mock_reroll_button_pressed() -> void:
+    if Database.war_transport_health_current <= 0:
+        print_debug('Player requested a roll without any health.')
+        return
+
     print_debug('Player requested a roll without any troops.')
     warning_out_of_troops.visible = true
 
