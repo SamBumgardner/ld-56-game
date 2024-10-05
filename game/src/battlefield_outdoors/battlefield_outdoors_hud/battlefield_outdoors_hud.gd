@@ -28,10 +28,12 @@ func _ready():
     barrier_strength_scaled.emit()
 
 
-# Sum dice results, ignoring `StatType` of dice and barrier.
+# Sum dice results, multiplying dice that match the target StatType.
 func _get_war_transport_damage_reduction_amount() -> int:
-    return combat_math_formulas.sum_dice_amounts(
-        Database.current_character_die_slots
+    return combat_math_formulas.total_dice_with_matching_stat_type_multiplier(
+        Database.current_character_die_slots,
+        Database.current_barrier_stat_type_to_overcome,
+        Database.current_matching_stat_type_multiplier
     )
 
 
