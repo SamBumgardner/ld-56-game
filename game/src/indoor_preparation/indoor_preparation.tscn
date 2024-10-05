@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://b73yb04wjxq8"]
+[gd_scene load_steps=6 format=3 uid="uid://b73yb04wjxq8"]
 
 [ext_resource type="Texture2D" uid="uid://l3l2yqfmprg5" path="res://assets/art/ld_56_indoors.jpg" id="1_f348j"]
 [ext_resource type="Theme" uid="uid://dk5iv042psfw" path="res://assets/themes/Default.tres" id="2_bky62"]
-[ext_resource type="PackedScene" uid="uid://7vx27hr83tx0" path="res://src/indoor_preparation/ScreenDisplays/home_display.tscn" id="3_eot0a"]
-[ext_resource type="PackedScene" uid="uid://dw8jtxw6u5x40" path="res://src/indoor_preparation/ScreenDisplays/browse_hires/browse_hires.tscn" id="4_note4"]
+[ext_resource type="PackedScene" uid="uid://7vx27hr83tx0" path="res://src/indoor_preparation/screen_displays/home_display.tscn" id="3_eot0a"]
+[ext_resource type="PackedScene" uid="uid://dw8jtxw6u5x40" path="res://src/indoor_preparation/screen_displays/browse_hires/browse_hires.tscn" id="4_note4"]
+[ext_resource type="PackedScene" uid="uid://d0wnwi5rcyku" path="res://src/indoor_preparation/screen_displays/hire_detail.tscn" id="5_q2udj"]
 
 [node name="IndoorPreparation" type="Control"]
 layout_mode = 3
@@ -37,4 +38,8 @@ visible = false
 layout_mode = 1
 
 [node name="HirePreviewDisplay" parent="Screen" instance=ExtResource("4_note4")]
+visible = false
+layout_mode = 1
+
+[node name="HireDetail" parent="Screen" instance=ExtResource("5_q2udj")]
 layout_mode = 1
