@@ -7,12 +7,18 @@ enum StatType {
 	CHAOS,
 }
 
-const _initial_barriers_overcome_count : int = 0
-const _initial_war_transport_health_maximum : int = 1000
+static var string_to_stat_type: Dictionary = {
+    "might": StatType.MIGHT,
+    "wit": StatType.WIT,
+    "chaos": StatType.CHAOS,
+}
 
-var barriers_overcome_count : int
-var war_transport_health_current : int
-var war_transport_health_maximum : int
+const _initial_barriers_overcome_count: int = 0
+const _initial_war_transport_health_maximum: int = 1000
+
+var barriers_overcome_count: int
+var war_transport_health_current: int
+var war_transport_health_maximum: int
 
 func _ready():
 	reset_values()
@@ -23,13 +29,13 @@ func reset_values() -> void:
 
 	set_war_transport_health_to_maximum()
 
-func set_barriers_overcome_count(updated_count : int) -> void:
+func set_barriers_overcome_count(updated_count: int) -> void:
 	barriers_overcome_count = updated_count
 
-func set_war_transport_health_current(updated_health : int) -> void:
+func set_war_transport_health_current(updated_health: int) -> void:
 	war_transport_health_current = updated_health
 
-func set_war_transport_health_maximum(updated_health : int) -> void:
+func set_war_transport_health_maximum(updated_health: int) -> void:
 	war_transport_health_maximum = updated_health
 
 func set_war_transport_health_to_maximum() -> void:

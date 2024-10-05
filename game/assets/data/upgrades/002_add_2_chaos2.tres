@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="UpgradeChoice" load_steps=2 format=3 uid="uid://bq1rld7wvl3fk"]
+
+[ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="1_5rpl6"]
+
+[resource]
+script = ExtResource("1_5rpl6")
+name = "Tinker"
+description = "One step closer to a bigger boom..."
+visual_summary = ""
+upgrade_type = 1
+number_of_times = 2
+remove_action_name = ""
+new_action_string = "chaos_2"
