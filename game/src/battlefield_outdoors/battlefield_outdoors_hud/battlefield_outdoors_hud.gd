@@ -4,6 +4,7 @@ signal barrier_strength_scaled
 signal dice_roll_requested
 
 @onready var barriers = $TopBar/Trackers/BarriersOvercomeTracker/Current
+@onready var combat_math_formulas = CombatMathFormulas.new()
 @onready var health_current = $TopBar/Trackers/HealthTracker/HealthCurrent
 @onready var health_maximum = $TopBar/Trackers/HealthTracker/HealthMaximum
 @onready var warning_out_of_health = (
@@ -28,6 +29,13 @@ func _ready():
     )
 
 
+# Sum dice results, ignoring `StatType` of dice and barrier.
+func _get_war_transport_damage_reduction_amount() -> int:
+    return combat_math_formulas.sum_dice_amounts(
+        Database.current_character_die_slots
+    )
+
+
 func _on_mock_attack_button_pressed() -> void:
     warning_out_of_troops.visible = false
 
@@ -39,7 +47,9 @@ func _on_mock_attack_button_pressed() -> void:
 
     var updated_health = Database.war_transport_health_current
 
-    var war_transport_damage_reduction_amount = 0
+    var war_transport_damage_reduction_amount = (
+        _get_war_transport_damage_reduction_amount()
+    )
     var damage_amount = (
         Database.current_barrier_cost_to_overcome_number
         - war_transport_damage_reduction_amount
