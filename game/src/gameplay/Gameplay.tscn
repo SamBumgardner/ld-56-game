@@ -11,8 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BackToStartMenuButton" parent="." instance=ExtResource("1_8sw2a")]
-layout_direction = 3
+[node name="BackToStartMenuButton2" parent="." instance=ExtResource("1_8sw2a")]
 layout_mode = 1
 
 [node name="BattlefieldOutdoors" parent="." instance=ExtResource("2_35wcq")]
