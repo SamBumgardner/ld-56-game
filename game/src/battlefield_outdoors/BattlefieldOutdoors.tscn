@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://c5dvnfrvyjol6"]
+[gd_scene load_steps=5 format=3 uid="uid://c5dvnfrvyjol6"]
 
+[ext_resource type="Theme" uid="uid://dk5iv042psfw" path="res://assets/themes/Default.tres" id="1_cei1v"]
 [ext_resource type="PackedScene" uid="uid://b6k6baalu42w7" path="res://src/battlefield_outdoors_hud/BattlefieldOutdoorsHud.tscn" id="1_wxoya"]
 [ext_resource type="PackedScene" uid="uid://ceesyhnktnbd1" path="res://src/battlefield_outdoors_barrier/BattlefieldOutdoorsBarrier.tscn" id="2_p4mcn"]
 [ext_resource type="PackedScene" uid="uid://bwpa5wbo5ct7g" path="res://src/battlefield_outdoors_war_transport/BattlefieldOutdoorsWarTransport.tscn" id="3_etui0"]
@@ -11,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_cei1v")
 
 [node name="BattlefieldOutdoorsHud" parent="." instance=ExtResource("1_wxoya")]
 layout_mode = 1
