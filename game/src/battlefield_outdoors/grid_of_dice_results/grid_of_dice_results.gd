@@ -13,8 +13,14 @@ func _ready():
         )
 
 func roll_dice() -> void:
-    for character_die_slot in character_die_slots:
+    for character_die_slot_index in character_die_slots.size():
+        var character_die_slot: CharacterDieSlot = character_die_slots[
+            character_die_slot_index
+        ]
+
         if character_die_slot.is_frozen:
             continue
 
         character_die_slot.last_roll_result = character_die_slot.roll_action()
+
+        get_child(character_die_slot_index).set_action(character_die_slot.last_roll_result)

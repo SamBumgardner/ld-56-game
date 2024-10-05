@@ -12,4 +12,5 @@ func set_action(action: Action) -> void:
         visible = false
         return
 
-    $Amount.text = action.amount
+    $Amount.text = str(action.amount)
+    visible = true
