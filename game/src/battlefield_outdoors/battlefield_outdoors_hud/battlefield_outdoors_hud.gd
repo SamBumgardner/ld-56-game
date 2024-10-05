@@ -100,7 +100,7 @@ func _scale_up_barrier_strength() -> void:
         Database.current_barrier_cost_to_overcome_number)
     Database.set_current_barrier_cost_to_overcome_number(
         Database.current_barrier_cost_to_overcome_number
-        + mock_scale_amount
+        + Database.barriers_linear_scale_amount
     )
     barrier_strength_scaled.emit()
 
