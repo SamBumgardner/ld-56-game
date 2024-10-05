@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://cf7gpoxw4lyd4"]
+
+[ext_resource type="Texture2D" uid="uid://8icadmy2cp3f" path="res://assets/art/upgrade_icon_placeholder.png" id="1_3it24"]
+
+[node name="UpgradeChoiceDisplay" type="HBoxContainer"]
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_constants/separation = 10
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 2
+texture_normal = ExtResource("1_3it24")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "or"
+
+[node name="TextureButton2" type="TextureButton" parent="."]
+layout_mode = 2
+texture_normal = ExtResource("1_3it24")
