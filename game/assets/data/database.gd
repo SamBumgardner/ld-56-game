@@ -19,7 +19,9 @@ static var stat_type_to_icon: Dictionary = {
     StatType.CHAOS: preload("res://assets/art/MAGIC_icon_64x64.png"),
 }
 
+const _initial_barriers_linear_scale_amount: int = 10
 const _initial_barriers_overcome_count: int = 0
+const _initial_barriers_cost_to_overcome_number: int = 0
 const _initial_character_die_slots: Array[CharacterDieSlot] = []
 const _initial_war_transport_health_maximum: int = 1000
 
@@ -29,6 +31,7 @@ const _character_factories: Array[CharacterFactory] = [
 ]
 
 var barriers_overcome_count: int
+var barriers_linear_scale_amount: int
 var current_barrier_cost_to_overcome_number: int
 var current_character_die_slots: Array[CharacterDieSlot]
 var war_transport_health_current: int
@@ -46,6 +49,10 @@ func _ready():
 
 func reset_values() -> void:
     set_barriers_overcome_count(_initial_barriers_overcome_count)
+    set_barriers_linear_scale_amount(_initial_barriers_linear_scale_amount)
+    set_current_barrier_cost_to_overcome_number(
+        _initial_barriers_cost_to_overcome_number
+    )
     set_current_character_die_slots(_initial_character_die_slots)
     set_war_transport_health_maximum(_initial_war_transport_health_maximum)
 
@@ -55,6 +62,9 @@ func debug_initialize_characters() -> void:
     hired_characters = []
     for factory: CharacterFactory in _character_factories:
         hired_characters.append(factory.instantiate())
+
+func set_barriers_linear_scale_amount(updated_number: int) -> void:
+    barriers_linear_scale_amount = updated_number
 
 func set_barriers_overcome_count(updated_count: int) -> void:
     barriers_overcome_count = updated_count
