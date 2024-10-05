@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvpdxuf4a56pf"]
+
+[ext_resource type="PackedScene" uid="uid://d0wnwi5rcyku" path="res://src/indoor_preparation/screen_displays/shared/character_detail.tscn" id="1_i2m3f"]
+[ext_resource type="PackedScene" uid="uid://b4xnwcpb30o20" path="res://src/indoor_preparation/screen_displays/crew_member_detail/upgrade_prompt.tscn" id="2_wa450"]
+
+[node name="CrewMemberDetail" instance=ExtResource("1_i2m3f")]
+
+[node name="UpgradePrompt" parent="IconAndCost" index="1" instance=ExtResource("2_wa450")]
+layout_mode = 2
