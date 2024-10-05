@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c657hnb6jsp15"]
+[gd_scene load_steps=3 format=3 uid="uid://cib1fq003l5jx"]
 
 [ext_resource type="Theme" uid="uid://dk5iv042psfw" path="res://assets/themes/Default.tres" id="1_4cvkc"]
+[ext_resource type="Script" path="res://src/indoor_preparation/screen_displays/shared/screen_notification.gd" id="2_hcuqa"]
 
 [node name="ScreenNotification" type="Control"]
 layout_mode = 3
@@ -12,6 +13,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_4cvkc")
+script = ExtResource("2_hcuqa")
 
 [node name="PC" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -66,3 +68,4 @@ fill_mode = 1
 show_percentage = false
 
 [node name="ExpirationTimer" type="Timer" parent="."]
+one_shot = true
