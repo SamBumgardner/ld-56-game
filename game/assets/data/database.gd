@@ -19,11 +19,11 @@ static var stat_type_to_icon: Dictionary = {
     StatType.CHAOS: preload("res://assets/art/MAGIC_icon_64x64.png"),
 }
 
-const _initial_barriers_linear_scale_amount: int = 10
+const _initial_barriers_linear_scale_amount: int = 1
 const _initial_barriers_overcome_count: int = 0
 const _initial_barriers_cost_to_overcome_number: int = 0
 const _initial_character_die_slots: Array[CharacterDieSlot] = []
-const _initial_war_transport_health_maximum: int = 1000
+const _initial_war_transport_health_maximum: int = 10
 
 const _character_factories: Array[CharacterFactory] = [
     preload("res://assets/data/characters/001_mouse_char.tres"),
