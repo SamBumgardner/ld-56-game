@@ -11,8 +11,19 @@ config_version=5
 [application]
 
 config/name="LD 56"
+run/main_scene="res://src/start_menu/StartMenu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Database="*res://assets/data/database.gd"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="canvas_items"
 
 [rendering]
 
