@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://dw8jtxw6u5x40"]
+
+[ext_resource type="Theme" uid="uid://dk5iv042psfw" path="res://assets/themes/Default.tres" id="1_08ss0"]
+[ext_resource type="PackedScene" uid="uid://emsj3qtryn1x" path="res://src/indoor_preparation/ScreenDisplays/browse_hires/new_hire_preview.tscn" id="2_b5o7f"]
+
+[node name="HirePreviewDisplay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_08ss0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_right = 0.95
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_08ss0")
+theme_override_font_sizes/font_size = 64
+text = "APPLICANTS"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="NewHirePreview" parent="VBoxContainer/GridContainer" instance=ExtResource("2_b5o7f")]
+layout_mode = 2
+
+[node name="NewHirePreview2" parent="VBoxContainer/GridContainer" instance=ExtResource("2_b5o7f")]
+layout_mode = 2
+
+[node name="NewHirePreview3" parent="VBoxContainer/GridContainer" instance=ExtResource("2_b5o7f")]
+layout_mode = 2
+
+[node name="NewHirePreview4" parent="VBoxContainer/GridContainer" instance=ExtResource("2_b5o7f")]
+layout_mode = 2

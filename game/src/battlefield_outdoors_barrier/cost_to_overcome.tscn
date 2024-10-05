@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtevvqhyal8xj"]
+
+[ext_resource type="Texture2D" uid="uid://4nvogy60mpq3" path="res://icon.svg" id="1_fi3qp"]
+
+[node name="CostToOvercome" type="HBoxContainer"]
+size_flags_horizontal = 4
+
+[node name="Amount" type="Label" parent="."]
+layout_mode = 2
+text = "21"
+
+[node name="Symbol" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_fi3qp")
+expand_mode = 2
