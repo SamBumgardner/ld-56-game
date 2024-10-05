@@ -9,6 +9,18 @@ var upgrade_level: int
 var upgrades: Array[UpgradeSelector]
 var upgrade_choice_history: Array[int]
 
+func _init(_name: String, _description: String, _portrait: Texture2D,
+        _icon: Texture2D, _actions: ActionSelector, _upgrade_level: int,
+        _upgrades: Array[UpgradeSelector]) -> void:
+    name = _name
+    description = _description
+    portrait = _portrait
+    icon = _icon
+    actions = _actions
+    upgrade_level = _upgrade_level
+    upgrades = _upgrades
+    upgrade_choice_history = []
+
 func upgrade(level, choice_idx) -> void:
     var upgrade_to_apply: Callable = upgrades[level].get_upgrade_action(choice_idx)
     upgrade_to_apply.call(actions)
