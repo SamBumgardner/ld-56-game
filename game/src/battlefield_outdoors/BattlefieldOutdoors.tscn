@@ -46,3 +46,4 @@ grow_vertical = 2
 layout_mode = 1
 
 [connection signal="barrier_strength_scaled" from="BattlefieldOutdoorsHud" to="AnchorOfBarrier/BattlefieldOutdoorsBarrier" method="_on_battlefield_outdoors_hud_barrier_strength_scaled"]
+[connection signal="dice_roll_requested" from="BattlefieldOutdoorsHud" to="AnchorOfWarTransport/BattlefieldOutdoorsWarTransport" method="_on_battlefield_outdoors_hud_dice_roll_requested"]
