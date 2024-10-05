@@ -22,7 +22,28 @@ anchor_top = 0.5
 anchor_bottom = 0.5
 grow_vertical = 2
 
-[node name="BattlefieldOutdoorsBarrier" parent="AnchorOfBarrier" instance=ExtResource("2_p4mcn")]
+[node name="BattlefieldOutdoorsBarriersColumn" type="VBoxContainer" parent="AnchorOfBarrier"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -176.0
+offset_right = 128.0
+offset_bottom = 176.0
+grow_vertical = 2
+
+[node name="BarrierTop" parent="AnchorOfBarrier/BattlefieldOutdoorsBarriersColumn" instance=ExtResource("2_p4mcn")]
+layout_mode = 2
+cost_to_overcome_number = 10
+display_name = "Security Gate"
+
+[node name="HSeparator" type="HSeparator" parent="AnchorOfBarrier/BattlefieldOutdoorsBarriersColumn"]
+layout_mode = 2
+
+[node name="BarrierBottom" parent="AnchorOfBarrier/BattlefieldOutdoorsBarriersColumn" instance=ExtResource("2_p4mcn")]
+layout_mode = 2
+cost_to_overcome_number = 20
+display_name = "Pyramid"
 
 [node name="AnchorOfWarTransport" type="Control" parent="."]
 layout_direction = 2
