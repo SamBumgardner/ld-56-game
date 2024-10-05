@@ -4,7 +4,7 @@
 [ext_resource type="Theme" uid="uid://dk5iv042psfw" path="res://assets/themes/Default.tres" id="2_bky62"]
 [ext_resource type="PackedScene" uid="uid://7vx27hr83tx0" path="res://src/indoor_preparation/screen_displays/home_display.tscn" id="3_eot0a"]
 [ext_resource type="PackedScene" uid="uid://dw8jtxw6u5x40" path="res://src/indoor_preparation/screen_displays/browse_hires/browse_hires.tscn" id="4_note4"]
-[ext_resource type="PackedScene" uid="uid://d0wnwi5rcyku" path="res://src/indoor_preparation/screen_displays/hire_detail.tscn" id="5_q2udj"]
+[ext_resource type="PackedScene" uid="uid://d0wnwi5rcyku" path="res://src/indoor_preparation/screen_displays/shared/character_detail.tscn" id="5_q2udj"]
 
 [node name="IndoorPreparation" type="Control"]
 layout_mode = 3
