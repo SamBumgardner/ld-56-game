@@ -19,7 +19,6 @@ func _ready() -> void:
 
 func display_notification(notification_type: ScreenNotificationType, body_text: String,
         duration: float) -> void:
-    # TODO: use notification type 
     match notification_type:
         ScreenNotificationType.NOTIFY:
             header.text = "Notification"

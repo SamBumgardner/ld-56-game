@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://cdb8nv77bouh1"]
 
-[ext_resource type="PackedScene" uid="uid://d0wnwi5rcyku" path="res://src/indoor_preparation/screen_displays/shared/character_detail.tscn" id="1_mlfm0"]
+[ext_resource type="PackedScene" uid="uid://d0wnwi5rcyku" path="res://src/indoor_preparation/screen_displays/shared/character_detail/character_detail.tscn" id="1_mlfm0"]
 [ext_resource type="PackedScene" uid="uid://byvjel7rc8ms0" path="res://src/indoor_preparation/screen_displays/hire_detail/hire_prompt.tscn" id="2_36qio"]
 
 [node name="HireDetail" instance=ExtResource("1_mlfm0")]
 
-[node name="HirePrompt" parent="IconAndCost" index="1" instance=ExtResource("2_36qio")]
+[node name="HirePrompt" parent="IconAndCost" index="0" instance=ExtResource("2_36qio")]
 layout_mode = 2

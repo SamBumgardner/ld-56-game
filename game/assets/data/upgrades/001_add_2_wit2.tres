@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="UpgradeChoice" load_steps=2 format=3 uid="uid://dxqo75jjc8jjq"]
+[gd_resource type="Resource" script_class="UpgradeChoice" load_steps=3 format=3 uid="uid://dxqo75jjc8jjq"]
 
+[ext_resource type="Texture2D" uid="uid://8icadmy2cp3f" path="res://assets/art/upgrade_icon_placeholder.png" id="1_2j0p7"]
 [ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="1_y6gyi"]
 
 [resource]
@@ -7,6 +8,7 @@ script = ExtResource("1_y6gyi")
 name = "Study"
 description = "Wit enhanced through diligence."
 visual_summary = ""
+icon_ref = ExtResource("1_2j0p7")
 upgrade_type = 1
 number_of_times = 2
 remove_action_name = ""
