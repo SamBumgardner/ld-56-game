@@ -1,5 +1,5 @@
-class_name Action extends RefCounted
+class_name Action extends Resource
 
-var name: String
-var stat_type: Database.StatType
-var amount: int
+@export var name: String
+@export var stat_type: Database.StatType
+@export var amount: int
