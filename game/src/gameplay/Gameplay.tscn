@@ -15,3 +15,4 @@ grow_vertical = 2
 layout_mode = 1
 
 [node name="BattlefieldOutdoors" parent="." instance=ExtResource("2_35wcq")]
+layout_mode = 1
