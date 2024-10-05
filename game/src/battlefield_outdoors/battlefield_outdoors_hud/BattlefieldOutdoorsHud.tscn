@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b6k6baalu42w7"]
 
-[ext_resource type="Script" path="res://src/battlefield_outdoors_hud/battlefield_outdoors_hud.gd" id="1_3j823"]
+[ext_resource type="Script" path="res://src/battlefield_outdoors/battlefield_outdoors_hud/battlefield_outdoors_hud.gd" id="1_3j823"]
 [ext_resource type="LabelSettings" uid="uid://2bu6p3hkt8lk" path="res://assets/label_settings/ColorWarning.tres" id="2_p0vkd"]
 
 [node name="BattlefieldOutdoorsHud" type="Control"]

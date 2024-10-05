@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ceesyhnktnbd1"]
 
 [ext_resource type="Texture2D" uid="uid://4nvogy60mpq3" path="res://icon.svg" id="1_3np5d"]
-[ext_resource type="Script" path="res://src/battlefield_outdoors_barrier/battlefield_outdoors_barrier.gd" id="1_jgx0l"]
+[ext_resource type="Script" path="res://src/battlefield_outdoors/battlefield_outdoors_barrier/battlefield_outdoors_barrier.gd" id="1_jgx0l"]
 
 [node name="BattlefieldOutdoorsBarrier" type="VBoxContainer"]
 offset_right = 40.0
