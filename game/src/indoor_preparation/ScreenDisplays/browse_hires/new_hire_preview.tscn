@@ -23,77 +23,104 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="NewHirePreview" type="HBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="NewHirePreview" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
+theme_override_constants/separation = 10
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/NewHirePreview"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/NewHirePreview"]
 layout_mode = 2
+size_flags_vertical = 4
 mouse_filter = 2
 texture = ExtResource("1_sufm1")
-expand_mode = 2
+stretch_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/NewHirePreview"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/NewHirePreview"]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/NewHirePreview/VBoxContainer"]
-layout_mode = 2
-mouse_filter = 2
-
-[node name="Name" type="Label" parent="MarginContainer/NewHirePreview/VBoxContainer/HBoxContainer"]
+[node name="Name" type="Label" parent="MarginContainer/VBoxContainer/NewHirePreview/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
-text = "Name"
+text = "Mint"
 
-[node name="Description" type="Label" parent="MarginContainer/NewHirePreview/VBoxContainer"]
+[node name="Description" type="Label" parent="MarginContainer/VBoxContainer/NewHirePreview/VBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
-text = "Description text is max 15 words."
+text = "A drifter named for greener times. Seeks the thrill of discovering new frontiers."
 autowrap_mode = 2
 
-[node name="ActionsPreview" type="HBoxContainer" parent="MarginContainer/NewHirePreview/VBoxContainer"]
+[node name="ActionsPreview" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 size_flags_vertical = 10
 mouse_filter = 2
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/NewHirePreview/VBoxContainer/ActionsPreview"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/ActionsPreview"]
 layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
 mouse_filter = 2
 texture = ExtResource("2_uq1gx")
 expand_mode = 2
+stretch_mode = 4
 
-[node name="TextureRect2" type="TextureRect" parent="MarginContainer/NewHirePreview/VBoxContainer/ActionsPreview"]
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/VBoxContainer/ActionsPreview"]
 layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
 mouse_filter = 2
 texture = ExtResource("2_uq1gx")
 expand_mode = 2
+stretch_mode = 4
 
-[node name="TextureRect3" type="TextureRect" parent="MarginContainer/NewHirePreview/VBoxContainer/ActionsPreview"]
+[node name="TextureRect3" type="TextureRect" parent="MarginContainer/VBoxContainer/ActionsPreview"]
 layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
 mouse_filter = 2
 texture = ExtResource("2_uq1gx")
 expand_mode = 2
+stretch_mode = 4
 
-[node name="TextureRect4" type="TextureRect" parent="MarginContainer/NewHirePreview/VBoxContainer/ActionsPreview"]
+[node name="ActionsPreview2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
+size_flags_vertical = 10
 mouse_filter = 2
-texture = ExtResource("2_uq1gx")
-expand_mode = 2
 
-[node name="TextureRect5" type="TextureRect" parent="MarginContainer/NewHirePreview/VBoxContainer/ActionsPreview"]
+[node name="TextureRect4" type="TextureRect" parent="MarginContainer/VBoxContainer/ActionsPreview2"]
 layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
 mouse_filter = 2
 texture = ExtResource("2_uq1gx")
 expand_mode = 2
+stretch_mode = 4
 
-[node name="TextureRect6" type="TextureRect" parent="MarginContainer/NewHirePreview/VBoxContainer/ActionsPreview"]
+[node name="TextureRect5" type="TextureRect" parent="MarginContainer/VBoxContainer/ActionsPreview2"]
 layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
 mouse_filter = 2
 texture = ExtResource("2_uq1gx")
 expand_mode = 2
+stretch_mode = 4
+
+[node name="TextureRect6" type="TextureRect" parent="MarginContainer/VBoxContainer/ActionsPreview2"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
+mouse_filter = 2
+texture = ExtResource("2_uq1gx")
+expand_mode = 2
+stretch_mode = 4
