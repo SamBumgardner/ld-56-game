@@ -2,7 +2,7 @@
 extends Node
 
 enum StatType {
-    MIGHT,
-    WIT,
-    CHAOS,
+	MIGHT,
+	WIT,
+	CHAOS,
 }
