@@ -2,13 +2,15 @@ extends Control
 
 signal barrier_strength_scaled
 
-@onready var barriers = $TopBar/HBoxContainer/BarriersOvercomeTracker/Current
-@onready var health_current = $TopBar/HBoxContainer/HealthTracker/HealthCurrent
-@onready var health_maximum = $TopBar/HBoxContainer/HealthTracker/HealthMaximum
-@onready var warning_out_of_troops = (
-    $MarginContainer2/VBoxContainer/WarningOutOfTroops
+@onready var barriers = $TopBar/Trackers/BarriersOvercomeTracker/Current
+@onready var health_current = $TopBar/Trackers/HealthTracker/HealthCurrent
+@onready var health_maximum = $TopBar/Trackers/HealthTracker/HealthMaximum
+@onready var warning_out_of_health = (
+    $CentralControls/VBoxContainer/Warnings/WarningOutOfHealth
 )
-@onready var warning_out_of_health = $MarginContainer2/VBoxContainer/WarningOutOfHealth
+@onready var warning_out_of_troops = (
+    $CentralControls/VBoxContainer/Warnings/WarningOutOfTroops
+)
 
 var mock_initial_damage_amount = 21
 var mock_scale_amount = 10

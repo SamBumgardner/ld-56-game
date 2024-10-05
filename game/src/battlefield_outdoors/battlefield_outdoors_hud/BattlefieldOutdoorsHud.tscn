@@ -20,49 +20,50 @@ offset_bottom = 40.0
 [node name="Panel" type="Panel" parent="TopBar"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TopBar"]
+[node name="Trackers" type="HBoxContainer" parent="TopBar"]
 layout_mode = 2
 
-[node name="HealthTracker" type="HBoxContainer" parent="TopBar/HBoxContainer"]
+[node name="HealthTracker" type="HBoxContainer" parent="TopBar/Trackers"]
 layout_mode = 2
 
-[node name="HealthLabel" type="Label" parent="TopBar/HBoxContainer/HealthTracker"]
+[node name="HealthLabel" type="Label" parent="TopBar/Trackers/HealthTracker"]
 layout_mode = 2
 text = "Health:
 "
 
-[node name="HealthCurrent" type="Label" parent="TopBar/HBoxContainer/HealthTracker"]
+[node name="HealthCurrent" type="Label" parent="TopBar/Trackers/HealthTracker"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 text = "0"
 horizontal_alignment = 2
 
-[node name="HealthDivider" type="Label" parent="TopBar/HBoxContainer/HealthTracker"]
+[node name="HealthDivider" type="Label" parent="TopBar/Trackers/HealthTracker"]
 layout_mode = 2
 text = "/"
 
-[node name="HealthMaximum" type="Label" parent="TopBar/HBoxContainer/HealthTracker"]
+[node name="HealthMaximum" type="Label" parent="TopBar/Trackers/HealthTracker"]
 layout_mode = 2
 text = "1000"
 
-[node name="BarriersOvercomeTracker" type="HBoxContainer" parent="TopBar/HBoxContainer"]
+[node name="BarriersOvercomeTracker" type="HBoxContainer" parent="TopBar/Trackers"]
 layout_mode = 2
 
-[node name="Current" type="Label" parent="TopBar/HBoxContainer/BarriersOvercomeTracker"]
+[node name="Current" type="Label" parent="TopBar/Trackers/BarriersOvercomeTracker"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 text = "0"
 horizontal_alignment = 2
 
-[node name="X" type="Label" parent="TopBar/HBoxContainer/BarriersOvercomeTracker"]
+[node name="X" type="Label" parent="TopBar/Trackers/BarriersOvercomeTracker"]
 layout_mode = 2
 text = "x"
 
-[node name="Label" type="Label" parent="TopBar/HBoxContainer/BarriersOvercomeTracker"]
+[node name="Label" type="Label" parent="TopBar/Trackers/BarriersOvercomeTracker"]
 layout_mode = 2
 text = "Barriers"
 
-[node name="MarginContainer2" type="MarginContainer" parent="."]
+[node name="CentralControls" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -72,32 +73,34 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="MarginContainer2"]
+[node name="Panel" type="Panel" parent="CentralControls"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2"]
-custom_minimum_size = Vector2(0, 60)
+[node name="VBoxContainer" type="VBoxContainer" parent="CentralControls"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2/VBoxContainer"]
+[node name="Buttons" type="HBoxContainer" parent="CentralControls/VBoxContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="MockRerollButton" type="Button" parent="MarginContainer2/VBoxContainer/HBoxContainer"]
+[node name="MockRerollButton" type="Button" parent="CentralControls/VBoxContainer/Buttons"]
 layout_mode = 2
 text = "Reroll"
 
-[node name="MockAttackButton" type="Button" parent="MarginContainer2/VBoxContainer/HBoxContainer"]
+[node name="MockAttackButton" type="Button" parent="CentralControls/VBoxContainer/Buttons"]
 layout_mode = 2
 text = "Charge!"
 
-[node name="WarningOutOfHealth" type="Label" parent="MarginContainer2/VBoxContainer"]
+[node name="Warnings" type="MarginContainer" parent="CentralControls/VBoxContainer"]
+layout_mode = 2
+
+[node name="WarningOutOfHealth" type="Label" parent="CentralControls/VBoxContainer/Warnings"]
 visible = false
 layout_mode = 2
 text = "Game Over"
 horizontal_alignment = 1
 
-[node name="WarningOutOfTroops" type="Label" parent="MarginContainer2/VBoxContainer"]
+[node name="WarningOutOfTroops" type="Label" parent="CentralControls/VBoxContainer/Warnings"]
 visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0, 0, 1)
@@ -105,5 +108,5 @@ text = "Buy troops before rolling."
 label_settings = ExtResource("2_p0vkd")
 horizontal_alignment = 1
 
-[connection signal="pressed" from="MarginContainer2/VBoxContainer/HBoxContainer/MockRerollButton" to="." method="_on_mock_reroll_button_pressed"]
-[connection signal="pressed" from="MarginContainer2/VBoxContainer/HBoxContainer/MockAttackButton" to="." method="_on_mock_attack_button_pressed"]
+[connection signal="pressed" from="CentralControls/VBoxContainer/Buttons/MockRerollButton" to="." method="_on_mock_reroll_button_pressed"]
+[connection signal="pressed" from="CentralControls/VBoxContainer/Buttons/MockAttackButton" to="." method="_on_mock_attack_button_pressed"]
