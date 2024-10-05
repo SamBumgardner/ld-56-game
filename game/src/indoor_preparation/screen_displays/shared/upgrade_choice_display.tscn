@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cf7gpoxw4lyd4"]
+[gd_scene load_steps=4 format=3 uid="uid://cf7gpoxw4lyd4"]
 
 [ext_resource type="Texture2D" uid="uid://8icadmy2cp3f" path="res://assets/art/upgrade_icon_placeholder.png" id="1_3it24"]
 [ext_resource type="Script" path="res://src/indoor_preparation/screen_displays/shared/upgrade_choice_display.gd" id="1_i8aii"]
+[ext_resource type="Theme" uid="uid://c34dsuakeic5x" path="res://assets/themes/upgrade_button_theme.tres" id="2_d8k51"]
 
 [node name="UpgradeChoiceDisplay" type="PanelContainer"]
 offset_right = 101.0
@@ -16,14 +17,18 @@ size_flags_horizontal = 4
 size_flags_vertical = 6
 theme_override_constants/separation = 10
 
-[node name="TextureButton" type="TextureButton" parent="HBoxContainer"]
+[node name="Button" type="Button" parent="HBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("1_3it24")
+theme = ExtResource("2_d8k51")
+icon = ExtResource("1_3it24")
+flat = true
 
 [node name="Label" type="Label" parent="HBoxContainer"]
 layout_mode = 2
 text = "or"
 
-[node name="TextureButton2" type="TextureButton" parent="HBoxContainer"]
+[node name="Button2" type="Button" parent="HBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("1_3it24")
+theme = ExtResource("2_d8k51")
+icon = ExtResource("1_3it24")
+flat = true
