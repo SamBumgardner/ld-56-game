@@ -17,7 +17,25 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="DieResult4" parent="." instance=ExtResource("1_qmi72")]
+visible = false
 layout_mode = 2
 
 [node name="DieResult5" parent="." instance=ExtResource("1_qmi72")]
+visible = false
+layout_mode = 2
+
+[node name="DieResult6" parent="." instance=ExtResource("1_qmi72")]
+visible = false
+layout_mode = 2
+
+[node name="DieResult7" parent="." instance=ExtResource("1_qmi72")]
+visible = false
+layout_mode = 2
+
+[node name="DieResult8" parent="." instance=ExtResource("1_qmi72")]
+visible = false
+layout_mode = 2
+
+[node name="DieResult9" parent="." instance=ExtResource("1_qmi72")]
+visible = false
 layout_mode = 2
