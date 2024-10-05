@@ -2,6 +2,9 @@ class_name ActionSelector extends RefCounted
 
 var _actions: Array[Action]
 
+func _init(__actions: Array[Action]) -> void:
+    _actions = __actions
+
 func roll_action() -> Action:
     return _actions.pick_random()
 

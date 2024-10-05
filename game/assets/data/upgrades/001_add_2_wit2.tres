@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="UpgradeChoice" load_steps=2 format=3 uid="uid://dxqo75jjc8jjq"]
+
+[ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="1_y6gyi"]
+
+[resource]
+script = ExtResource("1_y6gyi")
+name = "Study"
+description = "Wit enhanced through diligence."
+visual_summary = ""
+upgrade_type = 1
+number_of_times = 2
+remove_action_name = ""
+new_action_string = "wit_2"

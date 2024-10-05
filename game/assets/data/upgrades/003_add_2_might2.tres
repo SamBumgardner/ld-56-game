@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="UpgradeChoice" load_steps=2 format=3 uid="uid://drlywucrqnxrb"]
+
+[ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="1_fw1cs"]
+
+[resource]
+script = ExtResource("1_fw1cs")
+name = "Combat Training"
+description = "The sims DO pay off!"
+visual_summary = ""
+upgrade_type = 1
+number_of_times = 2
+remove_action_name = ""
+new_action_string = "might_2"

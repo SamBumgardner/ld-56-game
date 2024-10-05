@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://b73yb04wjxq8"]
+
+[ext_resource type="Texture2D" uid="uid://l3l2yqfmprg5" path="res://assets/art/ld_56_indoors.jpg" id="1_f348j"]
+[ext_resource type="Theme" uid="uid://dk5iv042psfw" path="res://assets/themes/Default.tres" id="2_bky62"]
+[ext_resource type="PackedScene" uid="uid://7vx27hr83tx0" path="res://src/indoor_preparation/screen_displays/home_display.tscn" id="3_eot0a"]
+[ext_resource type="PackedScene" uid="uid://dw8jtxw6u5x40" path="res://src/indoor_preparation/screen_displays/browse_hires/browse_hires.tscn" id="4_note4"]
+[ext_resource type="PackedScene" uid="uid://d0wnwi5rcyku" path="res://src/indoor_preparation/screen_displays/hire_detail.tscn" id="5_q2udj"]
+
+[node name="IndoorPreparation" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_bky62")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("1_f348j")
+expand_mode = 1
+
+[node name="Screen" type="Control" parent="."]
+clip_contents = true
+layout_mode = 1
+anchor_left = 0.275
+anchor_top = 0.08
+anchor_right = 0.72
+anchor_bottom = 0.57
+offset_bottom = 40.0
+
+[node name="HomeDisplay" parent="Screen" instance=ExtResource("3_eot0a")]
+layout_mode = 1
+
+[node name="HirePreviewDisplay" parent="Screen" instance=ExtResource("4_note4")]
+visible = false
+layout_mode = 1
+
+[node name="HireDetail" parent="Screen" instance=ExtResource("5_q2udj")]
+visible = false
+layout_mode = 1
