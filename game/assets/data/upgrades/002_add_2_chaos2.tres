@@ -1,12 +1,14 @@
-[gd_resource type="Resource" script_class="UpgradeChoice" load_steps=2 format=3 uid="uid://bq1rld7wvl3fk"]
+[gd_resource type="Resource" script_class="UpgradeChoice" load_steps=3 format=3 uid="uid://bq1rld7wvl3fk"]
 
 [ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="1_5rpl6"]
+[ext_resource type="Texture2D" uid="uid://umd2xpupuc32" path="res://assets/art/upgrade_icon_placeholder_2.png" id="1_efj53"]
 
 [resource]
 script = ExtResource("1_5rpl6")
 name = "Tinker"
 description = "One step closer to a bigger boom..."
 visual_summary = ""
+icon_ref = ExtResource("1_efj53")
 upgrade_type = 1
 number_of_times = 2
 remove_action_name = ""

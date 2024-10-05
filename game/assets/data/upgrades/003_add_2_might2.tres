@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="UpgradeChoice" load_steps=2 format=3 uid="uid://drlywucrqnxrb"]
+[gd_resource type="Resource" script_class="UpgradeChoice" load_steps=3 format=3 uid="uid://drlywucrqnxrb"]
 
+[ext_resource type="Texture2D" uid="uid://bstcco0tewek1" path="res://assets/art/upgrade_icon_placeholder_3.png" id="1_4gplk"]
 [ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="1_fw1cs"]
 
 [resource]
@@ -7,6 +8,7 @@ script = ExtResource("1_fw1cs")
 name = "Combat Training"
 description = "The sims DO pay off!"
 visual_summary = ""
+icon_ref = ExtResource("1_4gplk")
 upgrade_type = 1
 number_of_times = 2
 remove_action_name = ""

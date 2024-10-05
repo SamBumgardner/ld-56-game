@@ -13,6 +13,12 @@ static var string_to_stat_type: Dictionary = {
     "chaos": StatType.CHAOS,
 }
 
+static var stat_type_to_icon: Dictionary = {
+    StatType.MIGHT: preload("res://assets/art/ATTACK_icon_64x64.png"),
+    StatType.WIT: preload("res://assets/art/HEAL_icon_64x64.png"),
+    StatType.CHAOS: preload("res://assets/art/MAGIC_icon_64x64.png"),
+}
+
 const _initial_barriers_overcome_count: int = 0
 const _initial_character_die_slots: Array[CharacterDieSlot] = []
 const _initial_war_transport_health_maximum: int = 1000
