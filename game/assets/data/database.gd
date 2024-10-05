@@ -14,6 +14,7 @@ static var string_to_stat_type: Dictionary = {
 }
 
 const _initial_barriers_overcome_count: int = 0
+const _initial_character_die_slots: Array[CharacterDieSlot] = []
 const _initial_war_transport_health_maximum: int = 1000
 
 const _character_factories: Array[CharacterFactory] = [
@@ -23,6 +24,7 @@ const _character_factories: Array[CharacterFactory] = [
 
 var barriers_overcome_count: int
 var current_barrier_cost_to_overcome_number: int
+var current_character_die_slots: Array[CharacterDieSlot]
 var war_transport_health_current: int
 var war_transport_health_maximum: int
 var hired_characters: Array[Character]
@@ -38,6 +40,7 @@ func _ready():
 
 func reset_values() -> void:
     set_barriers_overcome_count(_initial_barriers_overcome_count)
+    set_current_character_die_slots(_initial_character_die_slots)
     set_war_transport_health_maximum(_initial_war_transport_health_maximum)
 
     set_war_transport_health_to_maximum()
@@ -52,6 +55,11 @@ func set_barriers_overcome_count(updated_count: int) -> void:
 
 func set_current_barrier_cost_to_overcome_number(updated_number: int) -> void:
     current_barrier_cost_to_overcome_number = updated_number
+
+func set_current_character_die_slots(
+    updated_slots: Array[CharacterDieSlot]
+) -> void:
+    current_character_die_slots = updated_slots
 
 func set_war_transport_health_current(updated_health: int) -> void:
     war_transport_health_current = updated_health

@@ -1,5 +1,7 @@
 extends GridContainer
 
+signal character_die_slots_rolled
+
 var character_die_slots: Array[CharacterDieSlot] = []
 
 # Should match `get_child_count()`.
@@ -17,7 +19,7 @@ func roll_dice() -> void:
                 maximum_slots,
                 ' exceeded, stopping rolls.'
             )
-            return
+            break
 
         var character_die_slot: CharacterDieSlot = character_die_slots[
             character_die_slot_index
@@ -34,6 +36,8 @@ func roll_dice() -> void:
             character_die_slot.last_roll_result
         )
 
+    Database.set_current_character_die_slots(character_die_slots)
+
 
 func _initialize_character_die_slots(characters) -> void:
     character_die_slots = []
@@ -44,3 +48,5 @@ func _initialize_character_die_slots(characters) -> void:
                 characters[hired_character_index]
             )
         )
+
+    Database.set_current_character_die_slots(character_die_slots)
