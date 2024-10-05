@@ -35,7 +35,7 @@ size_flags_vertical = 3
 mouse_filter = 2
 theme_override_constants/separation = 10
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/NewHirePreview"]
+[node name="Portrait" type="TextureRect" parent="MarginContainer/VBoxContainer/NewHirePreview"]
 layout_mode = 2
 size_flags_vertical = 4
 mouse_filter = 2
