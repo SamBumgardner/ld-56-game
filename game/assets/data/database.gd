@@ -11,6 +11,7 @@ const _initial_barriers_overcome_count : int = 0
 const _initial_war_transport_health_maximum : int = 1000
 
 var barriers_overcome_count : int
+var current_barrier_cost_to_overcome_number : int
 var war_transport_health_current : int
 var war_transport_health_maximum : int
 
@@ -25,6 +26,9 @@ func reset_values() -> void:
 
 func set_barriers_overcome_count(updated_count : int) -> void:
     barriers_overcome_count = updated_count
+
+func set_current_barrier_cost_to_overcome_number(updated_number : int) -> void:
+    current_barrier_cost_to_overcome_number = updated_number
 
 func set_war_transport_health_current(updated_health : int) -> void:
     war_transport_health_current = updated_health

@@ -44,3 +44,5 @@ grow_vertical = 2
 
 [node name="BattlefieldOutdoorsHud" parent="." instance=ExtResource("1_wxoya")]
 layout_mode = 1
+
+[connection signal="barrier_strength_scaled" from="BattlefieldOutdoorsHud" to="AnchorOfBarrier/BattlefieldOutdoorsBarrier" method="_on_battlefield_outdoors_hud_barrier_strength_scaled"]
