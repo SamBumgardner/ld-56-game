@@ -23,6 +23,11 @@ anchor_bottom = 0.5
 grow_vertical = 2
 
 [node name="BattlefieldOutdoorsBarrier" parent="AnchorOfBarrier" instance=ExtResource("2_p4mcn")]
+layout_mode = 1
+offset_right = 128.0
+offset_bottom = 174.0
+cost_to_overcome_number = 10
+display_name = "Security Gate"
 
 [node name="AnchorOfWarTransport" type="Control" parent="."]
 layout_direction = 2
@@ -39,3 +44,5 @@ grow_vertical = 2
 
 [node name="BattlefieldOutdoorsHud" parent="." instance=ExtResource("1_wxoya")]
 layout_mode = 1
+
+[connection signal="barrier_strength_scaled" from="BattlefieldOutdoorsHud" to="AnchorOfBarrier/BattlefieldOutdoorsBarrier" method="_on_battlefield_outdoors_hud_barrier_strength_scaled"]

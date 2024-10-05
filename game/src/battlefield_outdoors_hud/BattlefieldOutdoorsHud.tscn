@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b6k6baalu42w7"]
+[gd_scene load_steps=3 format=3 uid="uid://b6k6baalu42w7"]
 
 [ext_resource type="Script" path="res://src/battlefield_outdoors_hud/battlefield_outdoors_hud.gd" id="1_3j823"]
+[ext_resource type="LabelSettings" uid="uid://2bu6p3hkt8lk" path="res://assets/label_settings/ColorWarning.tres" id="2_p0vkd"]
 
 [node name="BattlefieldOutdoorsHud" type="Control"]
 layout_mode = 3
@@ -91,6 +92,7 @@ layout_mode = 2
 text = "Charge!"
 
 [node name="WarningOutOfHealth" type="Label" parent="MarginContainer2/VBoxContainer"]
+visible = false
 layout_mode = 2
 text = "Game Over"
 horizontal_alignment = 1
@@ -100,6 +102,8 @@ visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 text = "Buy troops before rolling."
+label_settings = ExtResource("2_p0vkd")
+horizontal_alignment = 1
 
 [connection signal="pressed" from="MarginContainer2/VBoxContainer/HBoxContainer/MockRerollButton" to="." method="_on_mock_reroll_button_pressed"]
 [connection signal="pressed" from="MarginContainer2/VBoxContainer/HBoxContainer/MockAttackButton" to="." method="_on_mock_attack_button_pressed"]
