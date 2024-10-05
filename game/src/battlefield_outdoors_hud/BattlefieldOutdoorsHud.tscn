@@ -11,35 +11,55 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3j823")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="TopBar" type="MarginContainer" parent="."]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="HealthTrackerPanel" type="Panel" parent="MarginContainer"]
+[node name="Panel" type="Panel" parent="TopBar"]
 layout_mode = 2
 
-[node name="HealthTrackerRow" type="HBoxContainer" parent="MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="TopBar"]
 layout_mode = 2
 
-[node name="HealthLabel" type="Label" parent="MarginContainer/HealthTrackerRow"]
+[node name="HealthTracker" type="HBoxContainer" parent="TopBar/HBoxContainer"]
+layout_mode = 2
+
+[node name="HealthLabel" type="Label" parent="TopBar/HBoxContainer/HealthTracker"]
 layout_mode = 2
 text = "Health:
 "
 
-[node name="HealthCurrent" type="Label" parent="MarginContainer/HealthTrackerRow"]
+[node name="HealthCurrent" type="Label" parent="TopBar/HBoxContainer/HealthTracker"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 text = "0"
 horizontal_alignment = 2
 
-[node name="HealthDivider" type="Label" parent="MarginContainer/HealthTrackerRow"]
+[node name="HealthDivider" type="Label" parent="TopBar/HBoxContainer/HealthTracker"]
 layout_mode = 2
 text = "/"
 
-[node name="HealthMaximum" type="Label" parent="MarginContainer/HealthTrackerRow"]
+[node name="HealthMaximum" type="Label" parent="TopBar/HBoxContainer/HealthTracker"]
 layout_mode = 2
 text = "1000"
+
+[node name="BarriersOvercomeTracker" type="HBoxContainer" parent="TopBar/HBoxContainer"]
+layout_mode = 2
+
+[node name="Current" type="Label" parent="TopBar/HBoxContainer/BarriersOvercomeTracker"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "0"
+horizontal_alignment = 2
+
+[node name="X" type="Label" parent="TopBar/HBoxContainer/BarriersOvercomeTracker"]
+layout_mode = 2
+text = "x"
+
+[node name="Label" type="Label" parent="TopBar/HBoxContainer/BarriersOvercomeTracker"]
+layout_mode = 2
+text = "Barriers"
 
 [node name="MarginContainer2" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -69,6 +89,11 @@ text = "Reroll"
 [node name="MockAttackButton" type="Button" parent="MarginContainer2/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "Charge!"
+
+[node name="WarningOutOfHealth" type="Label" parent="MarginContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Game Over"
+horizontal_alignment = 1
 
 [node name="WarningOutOfTroops" type="Label" parent="MarginContainer2/VBoxContainer"]
 visible = false
