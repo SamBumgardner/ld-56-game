@@ -11,6 +11,6 @@ func _init(_name: String, _stat_type: Database.StatType,
     amount = _amount
 
 static func _parse_action_string(action_string: String) -> Action:
-    var action_params: Array[String] = action_string.split("_")
+    var action_params: PackedStringArray = action_string.split("_")
     return Action.new(action_string, Database.string_to_stat_type[action_params[0]],
         action_params[1].to_int())

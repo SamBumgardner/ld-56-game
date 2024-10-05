@@ -16,19 +16,36 @@ static var string_to_stat_type: Dictionary = {
 const _initial_barriers_overcome_count: int = 0
 const _initial_war_transport_health_maximum: int = 1000
 
+const _character_factories: Array[CharacterFactory] = [
+    preload("res://assets/data/characters/001_mouse_char.tres"),
+    preload("res://assets/data/characters/002_lizard_char.tres"),
+]
+
 var barriers_overcome_count: int
 var current_barrier_cost_to_overcome_number: int
 var war_transport_health_current: int
 var war_transport_health_maximum: int
+var hired_characters: Array[Character]
 
 func _ready():
+    debug_initialize_characters()
     reset_values()
+    
+    # validate that characters were created & that they can roll actions.
+    print(hired_characters)
+    for character in hired_characters:
+        print(character.roll_action().name)
 
 func reset_values() -> void:
     set_barriers_overcome_count(_initial_barriers_overcome_count)
     set_war_transport_health_maximum(_initial_war_transport_health_maximum)
 
     set_war_transport_health_to_maximum()
+
+func debug_initialize_characters() -> void:
+    hired_characters = []
+    for factory: CharacterFactory in _character_factories:
+        hired_characters.append(factory.instantiate())
 
 func set_barriers_overcome_count(updated_count: int) -> void:
     barriers_overcome_count = updated_count

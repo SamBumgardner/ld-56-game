@@ -34,7 +34,6 @@ anchor_bottom = 0.57
 offset_bottom = 40.0
 
 [node name="HomeDisplay" parent="Screen" instance=ExtResource("3_eot0a")]
-visible = false
 layout_mode = 1
 
 [node name="HirePreviewDisplay" parent="Screen" instance=ExtResource("4_note4")]
@@ -42,4 +41,5 @@ visible = false
 layout_mode = 1
 
 [node name="HireDetail" parent="Screen" instance=ExtResource("5_q2udj")]
+visible = false
 layout_mode = 1
