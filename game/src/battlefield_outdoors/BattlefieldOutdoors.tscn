@@ -14,9 +14,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_cei1v")
 
-[node name="BattlefieldOutdoorsHud" parent="." instance=ExtResource("1_wxoya")]
-layout_mode = 1
-
 [node name="AnchorOfBarrier" type="Control" parent="."]
 layout_direction = 3
 layout_mode = 1
@@ -39,3 +36,6 @@ offset_bottom = 20.0
 grow_vertical = 2
 
 [node name="BattlefieldOutdoorsWarTransport" parent="AnchorOfWarTransport" instance=ExtResource("3_etui0")]
+
+[node name="BattlefieldOutdoorsHud" parent="." instance=ExtResource("1_wxoya")]
+layout_mode = 1
