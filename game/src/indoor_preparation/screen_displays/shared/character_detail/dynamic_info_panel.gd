@@ -14,6 +14,9 @@ var selected_upgrade: UpgradeChoice
 var previewed_upgrade: UpgradeChoice
 var is_previewing: bool = false
 
+func _ready() -> void:
+    select_upgrade_data(Database._character_factories[0].upgrades[0].choices[0])
+
 func select_upgrade_data(upgrade_choice: UpgradeChoice):
     selected_upgrade = upgrade_choice
     update_display_elements()

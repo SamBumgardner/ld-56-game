@@ -1,15 +1,41 @@
 class_name UpgradeChoiceDisplay extends PanelContainer
 
-@onready var upgrade_button_1: Button = $HBoxContainer/Button
+signal upgrade_hovered(upgrade: UpgradeChoice)
+signal upgrade_exited(upgrade: UpgradeChoice)
+signal upgrade_selected(upgrade: UpgradeChoice)
+
 @onready var or_label: Label = $HBoxContainer/Label
-@onready var upgrade_button_2: Button = $HBoxContainer/Button2
+@onready var upgrade_buttons: Array[Button] = [
+    $HBoxContainer/Button,
+    $HBoxContainer/Button2,
+]
+
+var upgrades: Array[UpgradeChoice]
+
+func _ready() -> void:
+    for i in range(upgrade_buttons.size()):
+        upgrade_buttons[i].connect("mouse_entered", _emit_decorated_hover.bind(i))
+        upgrade_buttons[i].connect("mouse_exited", _emit_decorated_hover.bind(i))
+        upgrade_buttons[i].connect("pressed", _emit_decorated_select.bind(i))
 
 func set_upgrade_choice_data(upgrade_selector: UpgradeSelector) -> void:
-    upgrade_button_1.icon = upgrade_selector.get_choice_data(0).icon_ref
-    upgrade_button_2.icon = upgrade_selector.get_choice_data(1).icon_ref
+    upgrades = []
+    for i in range(upgrade_buttons.size()):
+        upgrades.append(upgrade_selector.get_choice_data(i))
+        upgrades[i].icon = upgrades[i].icon_ref
+
     for child in get_children():
         child.show()
 
 func hide_upgrade_choice_info() -> void:
     for child in get_children():
         child.hide()
+
+func _emit_decorated_hover(button_idx: int) -> void:
+    upgrade_hovered.emit(upgrades[button_idx] if button_idx < upgrades.size() else null)
+
+func _emit_decorated_exit(button_idx: int) -> void:
+    upgrade_exited.emit(upgrades[button_idx] if button_idx < upgrades.size() else null)
+
+func _emit_decorated_select(button_idx: int) -> void:
+    upgrade_selected.emit(upgrades[button_idx] if button_idx < upgrades.size() else null)
