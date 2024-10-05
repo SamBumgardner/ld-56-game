@@ -1,6 +1,7 @@
 extends Control
 
 signal barrier_strength_scaled
+signal dice_roll_requested
 
 @onready var barriers = $TopBar/Trackers/BarriersOvercomeTracker/Current
 @onready var health_current = $TopBar/Trackers/HealthTracker/HealthCurrent
@@ -65,8 +66,12 @@ func _on_mock_reroll_button_pressed() -> void:
         print_debug('Player requested a roll without any health.')
         return
 
-    print_debug('Player requested a roll without any troops.')
-    warning_out_of_troops.visible = true
+    if Database.hired_characters.size() == 0:
+        print_debug('Player requested a roll without any troops.')
+        warning_out_of_troops.visible = true
+        return
+
+    dice_roll_requested.emit()
 
 
 func _reduce_war_transport_health(amount_to_subtract : int) -> int:

@@ -6,5 +6,13 @@ var character: Character = null
 var is_frozen: bool = false
 var last_roll_result: Action = null
 
+
 func _init(_character: Character) -> void:
     character = _character
+
+
+func roll_action() -> Action:
+    if is_frozen:
+        return null
+
+    return character.roll_action()
