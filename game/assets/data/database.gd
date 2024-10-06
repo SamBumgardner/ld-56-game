@@ -22,6 +22,7 @@ static var stat_type_to_icon: Dictionary = {
 const _initial_barriers_overcome_count: int = 0
 const _initial_character_die_slots: Array[CharacterDieSlot] = []
 const _initial_war_transport_health_maximum: int = 1000
+const _initial_money: int = 100
 
 const _character_factories: Array[CharacterFactory] = [
     preload("res://assets/data/characters/001_mouse_char.tres"),
@@ -47,10 +48,13 @@ var current_barrier_cost_to_overcome_number: int
 var current_character_die_slots: Array[CharacterDieSlot]
 var war_transport_health_current: int
 var war_transport_health_maximum: int
+
 var hired_characters: Array[Character]
 var unhired_characters: Array[Character]
 var applicants: Array[Character]
 var should_generate_new_applicants: bool
+
+var current_money: int
 
 func _ready():
     reset_values()
@@ -59,6 +63,7 @@ func reset_values() -> void:
     set_barriers_overcome_count(_initial_barriers_overcome_count)
     set_current_character_die_slots(_initial_character_die_slots)
     set_war_transport_health_maximum(_initial_war_transport_health_maximum)
+    set_money(_initial_money)
 
     set_war_transport_health_to_maximum()
     initialize_characters()
@@ -123,3 +128,6 @@ func set_war_transport_health_maximum(updated_health: int) -> void:
 
 func set_war_transport_health_to_maximum() -> void:
     set_war_transport_health_current(_initial_war_transport_health_maximum)
+
+func set_money(updated_money: int) -> void:
+    current_money = updated_money
