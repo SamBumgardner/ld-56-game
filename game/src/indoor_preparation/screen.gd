@@ -18,6 +18,7 @@ const HIRE_SUCCESS_DURATION: float = 3
 @onready var hire_preview_display: BrowseHires = $HirePreviewDisplay
 @onready var hire_detail_display: HireDetail = $HireDetail
 @onready var character_detail_display: CrewMemberDetail = $CharacterDetail
+@onready var notification_dimmer: ColorRect = $NotificationDimmer
 @onready var screen_notification: ScreenNotification = $ScreenNotification
 
 var current_view: ScreenViews = ScreenViews.HOME
@@ -76,6 +77,7 @@ func _on_cancel() -> void:
             _delay_callback(home_display.show)
 
 func _on_hiring_success(character: Character) -> void:
+    notification_dimmer.show()
     screen_notification.display_notification(
         ScreenNotification.ScreenNotificationType.NOTIFY,
         HIRE_SUCCESS_FORMAT % character.name,
@@ -90,6 +92,7 @@ func _hide_all_screen_displays() -> void:
     hire_preview_display.hide()
     hire_detail_display.hide()
     character_detail_display.hide()
+    notification_dimmer.hide()
 
 func _input(event: InputEvent) -> void:
     if event.is_action_pressed("ui_cancel"):
