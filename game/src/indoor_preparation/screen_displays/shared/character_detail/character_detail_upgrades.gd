@@ -9,3 +9,16 @@ func set_character_data(character: Character) -> void:
             upgrade_choices[i].show()
         else:
             upgrade_choices[i].hide_upgrade_choice_info()
+
+func get_all_upgrade_button_signal_connects() -> Dictionary:
+    var result = {
+        "hovered": [],
+        "exited": [],
+        "selected": [],
+    }
+    for upgrade_choice_display in upgrade_choices:
+        result["hovered"].append(upgrade_choice_display.upgrade_hovered.connect)
+        result["exited"].append(upgrade_choice_display.upgrade_exited.connect)
+        result["selected"].append(upgrade_choice_display.upgrade_selected.connect)
+    
+    return result

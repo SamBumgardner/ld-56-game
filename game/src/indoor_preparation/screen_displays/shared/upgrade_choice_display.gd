@@ -15,14 +15,14 @@ var upgrades: Array[UpgradeChoice]
 func _ready() -> void:
     for i in range(upgrade_buttons.size()):
         upgrade_buttons[i].connect("mouse_entered", _emit_decorated_hover.bind(i))
-        upgrade_buttons[i].connect("mouse_exited", _emit_decorated_hover.bind(i))
+        upgrade_buttons[i].connect("mouse_exited", _emit_decorated_exit.bind(i))
         upgrade_buttons[i].connect("pressed", _emit_decorated_select.bind(i))
 
 func set_upgrade_choice_data(upgrade_selector: UpgradeSelector) -> void:
     upgrades = []
     for i in range(upgrade_buttons.size()):
         upgrades.append(upgrade_selector.get_choice_data(i))
-        upgrades[i].icon = upgrades[i].icon_ref
+        upgrade_buttons[i].icon = upgrades[i].icon_ref
 
     for child in get_children():
         child.show()

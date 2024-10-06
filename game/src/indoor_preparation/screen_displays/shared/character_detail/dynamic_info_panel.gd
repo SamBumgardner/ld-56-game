@@ -14,15 +14,18 @@ var selected_upgrade: UpgradeChoice
 var previewed_upgrade: UpgradeChoice
 var is_previewing: bool = false
 
-func _ready() -> void:
-    select_upgrade_data(Database._character_factories[0].upgrades[0].choices[0])
-
 func select_upgrade_data(upgrade_choice: UpgradeChoice):
     selected_upgrade = upgrade_choice
     update_display_elements()
 
 func preview_upgrade_data(upgrade_choice: UpgradeChoice):
+    is_previewing = true
     previewed_upgrade = upgrade_choice
+    update_display_elements()
+
+func stop_previewing_upgrade_data(_upgrade_choice: UpgradeChoice):
+    previewed_upgrade = null
+    is_previewing = false
     update_display_elements()
 
 func update_display_elements():
@@ -30,6 +33,8 @@ func update_display_elements():
     if is_previewing and selected_upgrade != previewed_upgrade:
         upgrade_details_container.modulate = Color(1, 1, 1, .5)
         upgrade_to_display = previewed_upgrade
+    else:
+        upgrade_details_container.modulate = Color.WHITE
     
     if upgrade_to_display == null:
         upgrade_details_container.hide()
