@@ -57,6 +57,7 @@ func set_action(action: Action) -> void:
     cost_to_overcome_stat_type_texture.texture = Database.stat_type_to_icon[
         action.stat_type
     ]
+    Database.set_current_barrier_stat_type_to_overcome(action.stat_type)
     $CostToOvercome.visible = true
 
 

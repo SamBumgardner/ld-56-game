@@ -1,9 +1,33 @@
 extends Node2D
 
 
-func _on_battlefield_outdoors_hud_dice_roll_requested():
+@onready var combat_math_formulas = CombatMathFormulas.new()
+@onready var dice_total_value = (
+    $HBoxContainer/MarginContainer/VBoxContainer2/DiceTotal/Value
+)
+@onready var grid_of_dice_results = (
+    $HBoxContainer/VBoxContainer/GridOfDiceResults
+)
+
+
+# TODO: Call when the barrier changes.
+func refresh() -> void:
+    dice_total_value.text = str(_get_war_transport_damage_reduction_amount())
+
+
+# Sum dice results, multiplying dice that match the target StatType.
+func _get_war_transport_damage_reduction_amount() -> int:
+    return combat_math_formulas.total_dice_with_matching_stat_type_multiplier(
+        Database.current_character_die_slots,
+        Database.current_barrier_stat_type_to_overcome,
+        Database.current_matching_stat_type_multiplier
+    )
+
+
+func _on_battlefield_outdoors_hud_dice_roll_requested() -> void:
     _roll_dice()
 
 
-func _roll_dice():
-    $VBoxContainer/GridOfDiceResults.roll_dice()
+func _roll_dice() -> void:
+    grid_of_dice_results.roll_dice()
+    dice_total_value.text = str(_get_war_transport_damage_reduction_amount())
