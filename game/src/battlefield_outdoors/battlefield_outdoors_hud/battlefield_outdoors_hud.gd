@@ -14,9 +14,6 @@ signal dice_roll_requested
     $CentralControls/VBoxContainer/Warnings/WarningOutOfTroops
 )
 
-var mock_initial_damage_amount = 21
-var mock_scale_amount = 10
-
 
 func _ready():
     warning_out_of_health.visible = false
@@ -25,14 +22,18 @@ func _ready():
     _set_health_text()
 
     Database.set_current_barrier_cost_to_overcome_number(
-        mock_initial_damage_amount
+        Database.current_barrier_cost_to_overcome_number
+        + Database.barriers_linear_scale_amount
     )
+    barrier_strength_scaled.emit()
 
 
-# Sum dice results, ignoring `StatType` of dice and barrier.
+# Sum dice results, multiplying dice that match the target StatType.
 func _get_war_transport_damage_reduction_amount() -> int:
-    return combat_math_formulas.sum_dice_amounts(
-        Database.current_character_die_slots
+    return combat_math_formulas.total_dice_with_matching_stat_type_multiplier(
+        Database.current_character_die_slots,
+        Database.current_barrier_stat_type_to_overcome,
+        Database.current_matching_stat_type_multiplier
     )
 
 
@@ -101,7 +102,7 @@ func _scale_up_barrier_strength() -> void:
         Database.current_barrier_cost_to_overcome_number)
     Database.set_current_barrier_cost_to_overcome_number(
         Database.current_barrier_cost_to_overcome_number
-        + mock_scale_amount
+        + Database.barriers_linear_scale_amount
     )
     barrier_strength_scaled.emit()
 

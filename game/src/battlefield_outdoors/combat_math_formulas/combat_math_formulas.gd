@@ -24,10 +24,46 @@ func sum_dice_amounts(
     )
 
 
+# Sum dice results, multiplying dice that match the target StatType.
+func total_dice_with_matching_stat_type_multiplier(
+    character_die_slots: Array[CharacterDieSlot],
+    target_stat_type: Database.StatType,
+    matching_stat_type_multiplier: int
+) -> int:
+    # Type `Array[Action]`.
+    var populated_character_die_results = _get_populated_die_rolls(
+        character_die_slots
+    )
+
+    # Type `Array[int]`.
+    var multiplied_character_die_results_list = populated_character_die_results.map(
+        _handle_get_action_amount_with_matching_stat_type_multiplier(
+            target_stat_type,
+            matching_stat_type_multiplier
+        )
+    )
+
+    return multiplied_character_die_results_list.reduce(
+        _sum_integers,
+        default_damage_amount
+    )
+
+
 #region Private methods
 
 func _get_action_amount(action: Action) -> int:
     return action.amount
+
+
+func _handle_get_action_amount_with_matching_stat_type_multiplier(
+    target_stat_type: Database.StatType,
+    matching_stat_type_multiplier: int
+):
+    return func (action: Action) -> int: return (
+        action.amount * matching_stat_type_multiplier
+            if action.stat_type == matching_stat_type_multiplier
+            else action.amount
+    )
 
 
 func _get_character_die_slot_last_roll_result(
