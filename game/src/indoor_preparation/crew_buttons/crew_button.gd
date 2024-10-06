@@ -11,8 +11,8 @@ var instantiated_character: Character
 
 func _ready() -> void:
     visible = false
+    focus_mode = FocusMode.FOCUS_NONE
     _on_initial_setup(database.hired_characters)
-    pressed.connect(_on_pressed)
 
 func _enable_button(character: Character) -> void:
     character_hired = true
@@ -28,8 +28,9 @@ func _on_new_character_hired(character: Character) -> void:
     if character.name == character_factory.name:
         _enable_button(character)
 
-func _on_pressed() -> void:
-    crew_member_selected.emit(instantiated_character)
+func _toggled(toggled_on: bool) -> void:
+    if toggled_on:
+        crew_member_selected.emit(instantiated_character)
 
 func _on_view_canceled() -> void:
     button_pressed = false

@@ -1,6 +1,7 @@
 class_name Screen extends Control
 
 signal left_character_detail_display()
+signal left_hire_detail_display()
 
 enum ScreenViews {
     HOME,
@@ -21,6 +22,8 @@ func _ready() -> void:
     hire_preview_display.applicant_selected.connect(_applicant_selected_from_hiring_preview)
     hire_preview_display.cancel_button.pressed.connect(_on_cancel)
     hire_detail_display.exit_button.pressed.connect(_on_cancel)
+    left_hire_detail_display.connect(hire_detail_display.exited_display)
+    left_character_detail_display.connect(character_detail_display.exited_display)
     character_detail_display.exit_button.pressed.connect(_on_cancel)
 
 func _transition_to_hire_preview_display() -> void:

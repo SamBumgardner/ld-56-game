@@ -10,6 +10,11 @@ func set_character_data(character: Character) -> void:
         else:
             upgrade_choices[i].hide_upgrade_choice_info()
 
+func unpress_all_upgrade_buttons() -> void:
+    for upgrade_choice in upgrade_choices:
+        upgrade_choice.unpress_all_upgrade_buttons()
+
+
 func get_all_upgrade_button_signal_connects() -> Dictionary:
     var result = {
         "hovered": [],

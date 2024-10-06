@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://8icadmy2cp3f" path="res://assets/art/upgrade_icon_placeholder.png" id="1_3it24"]
 [ext_resource type="Script" path="res://src/indoor_preparation/screen_displays/shared/upgrade_choice_display.gd" id="1_i8aii"]
 [ext_resource type="Theme" uid="uid://c34dsuakeic5x" path="res://assets/themes/upgrade_button_theme.tres" id="2_d8k51"]
-[ext_resource type="ButtonGroup" path="res://src/indoor_preparation/screen_displays/shared/upgrade_buttons.tres" id="3_7pgfm"]
+[ext_resource type="ButtonGroup" uid="uid://cqp1ir8lngdbq" path="res://src/indoor_preparation/screen_displays/shared/upgrade_buttons.tres" id="3_7pgfm"]
 
 [node name="UpgradeChoiceDisplay" type="PanelContainer"]
 offset_right = 101.0
