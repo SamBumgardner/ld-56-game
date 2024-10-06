@@ -107,6 +107,7 @@ func set_current_applicants(new_applicants: Array[Character]) -> void:
 
 func hire_character(character: Character) -> void:
     unhired_characters.erase(character)
+    applicants.erase(character)
     hired_characters.append(character)
 
 func set_barriers_overcome_count(updated_count: int) -> void:

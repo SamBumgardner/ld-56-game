@@ -7,6 +7,8 @@ class_name CharacterDetail extends Control
 @onready var character_icon: TextureRect = $IconAndCost/CharacterIcon
 @onready var exit_button: Button = $ExitButton
 
+var character: Character
+
 func _ready() -> void:
     var connect_callables: Dictionary = upgrade_selection.get_all_upgrade_button_signal_connects()
     for connection: Callable in connect_callables["hovered"]:
@@ -16,10 +18,11 @@ func _ready() -> void:
     for connection: Callable in connect_callables["exited"]:
         connection.call(dynamic_info_panel.stop_previewing_upgrade_data)
 
-func set_character_data(character: Character):
-    character_summary.set_character_data(character)
-    upgrade_selection.set_character_data(character)
-    character_icon.texture = character.icon
+func set_character_data(new_character: Character):
+    character_summary.set_character_data(new_character)
+    upgrade_selection.set_character_data(new_character)
+    character_icon.texture = new_character.icon
+    character = new_character
 
 func exited_display() -> void:
     upgrade_selection.unpress_all_upgrade_buttons()
