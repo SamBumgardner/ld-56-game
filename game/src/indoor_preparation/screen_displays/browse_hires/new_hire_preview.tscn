@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://emsj3qtryn1x"]
+[gd_scene load_steps=4 format=3 uid="uid://emsj3qtryn1x"]
 
 [ext_resource type="Texture2D" uid="uid://dsi835iplnoul" path="res://assets/art/placeholder_ally.png" id="1_sufm1"]
+[ext_resource type="Script" path="res://src/indoor_preparation/screen_displays/browse_hires/new_hire_preview.gd" id="1_yy8kg"]
 [ext_resource type="Texture2D" uid="uid://c812lqrvhyq01" path="res://assets/art/ATTACK_icon_64x64.png" id="2_uq1gx"]
 
 [node name="MarginContainer" type="MarginContainer"]
@@ -11,6 +12,7 @@ offset_bottom = 146.0
 grow_horizontal = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+script = ExtResource("1_yy8kg")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 2
@@ -59,13 +61,48 @@ theme_override_font_sizes/font_size = 12
 text = "A drifter named for greener times. Seeks the thrill of discovering new frontiers."
 autowrap_mode = 2
 
-[node name="ActionsPreview" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Cost" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+clip_contents = false
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+bbcode_enabled = true
+text = "[center]Cost:
+[img=25%]res://assets/art/ATTACK_icon_64x64.png[/img] 500"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+shortcut_keys_enabled = false
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="ActionsPreview" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 size_flags_vertical = 10
 mouse_filter = 2
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/ActionsPreview"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ActionsPreview"]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 3
@@ -74,7 +111,7 @@ texture = ExtResource("2_uq1gx")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="TextureRect2" type="TextureRect" parent="MarginContainer/VBoxContainer/ActionsPreview"]
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ActionsPreview"]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 3
@@ -83,7 +120,7 @@ texture = ExtResource("2_uq1gx")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="TextureRect3" type="TextureRect" parent="MarginContainer/VBoxContainer/ActionsPreview"]
+[node name="TextureRect3" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ActionsPreview"]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 3
@@ -92,13 +129,13 @@ texture = ExtResource("2_uq1gx")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="ActionsPreview2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="ActionsPreview2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 size_flags_vertical = 10
 mouse_filter = 2
 
-[node name="TextureRect4" type="TextureRect" parent="MarginContainer/VBoxContainer/ActionsPreview2"]
+[node name="TextureRect4" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ActionsPreview2"]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 3
@@ -107,7 +144,7 @@ texture = ExtResource("2_uq1gx")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="TextureRect5" type="TextureRect" parent="MarginContainer/VBoxContainer/ActionsPreview2"]
+[node name="TextureRect5" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ActionsPreview2"]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 3
@@ -116,7 +153,7 @@ texture = ExtResource("2_uq1gx")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="TextureRect6" type="TextureRect" parent="MarginContainer/VBoxContainer/ActionsPreview2"]
+[node name="TextureRect6" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ActionsPreview2"]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 3

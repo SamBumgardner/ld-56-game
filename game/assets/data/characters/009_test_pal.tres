@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="CharacterFactory" load_steps=9 format=3 uid="uid://bo6i4mxety0iv"]
+
+[ext_resource type="Texture2D" uid="uid://cmdqbv4iraqg6" path="res://assets/art/MAGIC_icon_64x64.png" id="1_uyi8k"]
+[ext_resource type="Texture2D" uid="uid://bic3i142epdt3" path="res://assets/art/placeholder_threat.png" id="2_tw1wx"]
+[ext_resource type="Script" path="res://src/characters/CharacterFactory.gd" id="3_lbp0t"]
+[ext_resource type="Script" path="res://src/characters/UpgradeSelector.gd" id="4_rym2d"]
+[ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="5_yjrbh"]
+[ext_resource type="Resource" uid="uid://dxqo75jjc8jjq" path="res://assets/data/upgrades/001_add_2_wit2.tres" id="6_sxtre"]
+[ext_resource type="Resource" uid="uid://bq1rld7wvl3fk" path="res://assets/data/upgrades/002_add_2_chaos2.tres" id="7_no2p3"]
+
+[sub_resource type="Resource" id="Resource_8vmh3"]
+script = ExtResource("4_rym2d")
+choices = Array[ExtResource("5_yjrbh")]([ExtResource("6_sxtre"), ExtResource("7_no2p3")])
+price = 0
+
+[resource]
+script = ExtResource("3_lbp0t")
+name = "Test_009"
+description = "This is test character 009. I hope we have time to replace them someday"
+portrait = ExtResource("2_tw1wx")
+icon = ExtResource("1_uyi8k")
+starting_action_strings = Array[String](["chaos_2", "chaos_1", "wit_1", "might_1", "might_2"])
+upgrade_level = 0
+upgrades = Array[ExtResource("4_rym2d")]([SubResource("Resource_8vmh3")])

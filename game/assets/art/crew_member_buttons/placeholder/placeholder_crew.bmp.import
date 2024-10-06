@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://cccfyr5chl1jk"
+path="res://.godot/imported/placeholder_crew.bmp-23645ec773de1921fe1c5a473f6e926c.res"
+
+[deps]
+
+source_file="res://assets/art/crew_member_buttons/placeholder/placeholder_crew.bmp"
+dest_files=["res://.godot/imported/placeholder_crew.bmp-23645ec773de1921fe1c5a473f6e926c.res"]
+
+[params]
+
+create_from=1
+threshold=0.5
