@@ -13,6 +13,8 @@ enum ScreenViews {
 const SCREEN_LOAD_DELAY: float = .1
 const HIRE_SUCCESS_FORMAT: String = "Successfully hired %s!"
 const HIRE_SUCCESS_DURATION: float = 3
+const HIRE_FAIL_FORMAT: String = "Failed to hire %s.\nReason: %s"
+const HIRE_FAIL_DURATION: float = 2
 
 @onready var home_display: HomeDisplay = $HomeDisplay
 @onready var hire_preview_display: BrowseHires = $HirePreviewDisplay
@@ -62,6 +64,7 @@ func _on_crew_member_selected(character: Character) -> void:
 
 func _on_cancel() -> void:
     _hide_all_screen_displays()
+    _cancel_notifications()
     match current_view:
         ScreenViews.HOME:
             _delay_callback(home_display.show)
@@ -87,12 +90,26 @@ func _on_hiring_success(character: Character) -> void:
         _transition_to_hire_preview_display,
         CONNECT_ONE_SHOT)
 
+func _on_hiring_failure(character: Character, reason: String) -> void:
+    notification_dimmer.show()
+    screen_notification.display_notification(
+        ScreenNotification.ScreenNotificationType.ERROR,
+        HIRE_FAIL_FORMAT % [character.name, reason],
+        HIRE_FAIL_DURATION
+    )
+    screen_notification.notification_expired.connect(
+        _cancel_notifications,
+        CONNECT_ONE_SHOT)
+
 func _hide_all_screen_displays() -> void:
     home_display.hide()
     hire_preview_display.hide()
     hire_detail_display.hide()
     character_detail_display.hide()
+
+func _cancel_notifications() -> void:
     notification_dimmer.hide()
+    screen_notification.cancel()
 
 func _input(event: InputEvent) -> void:
     if event.is_action_pressed("ui_cancel"):

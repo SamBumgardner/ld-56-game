@@ -4,6 +4,7 @@ signal hiring_success(character: Character)
 signal hiring_failure(character: Character)
 
 const APPLICANT_COUNT: int = 4
+const PURCHASE_FAIL_POOR_REASON: String = "INSUFFICIENT_FUNDS"
 
 @onready var database: Database = $"/root/Database"
 @onready var screen: Screen = $Screen
@@ -18,6 +19,7 @@ func _ready() -> void:
         hiring_success.connect(crew_button._on_new_character_hired)
     screen.hire_detail_display.hire_purchase_pressed.connect(_on_hire_purchase_attempted)
     hiring_success.connect(screen._on_hiring_success)
+    hiring_failure.connect(screen._on_hiring_failure)
     
     if database.should_generate_new_applicants:
         # do the steps to generate new hires.
@@ -32,7 +34,6 @@ func _ready() -> void:
 func _on_hire_purchase_attempted(character: Character) -> void:
     # check money is sufficent
     if database.current_money >= character.hiring_cost:
-        # if yes, tell screen to do success notification and update database. Also crew button
         database.set_money(database.current_money - character.hiring_cost)
         database.hire_character(character)
         applicants = database.applicants
@@ -41,4 +42,4 @@ func _on_hire_purchase_attempted(character: Character) -> void:
         hiring_success.emit(character)
     else:
         # TODO: could add a "reason" to this event for notification display
-        hiring_failure.emit(character)
+        hiring_failure.emit(character, PURCHASE_FAIL_POOR_REASON)

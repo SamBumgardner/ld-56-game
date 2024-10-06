@@ -22,7 +22,7 @@ static var stat_type_to_icon: Dictionary = {
 const _initial_barriers_overcome_count: int = 0
 const _initial_character_die_slots: Array[CharacterDieSlot] = []
 const _initial_war_transport_health_maximum: int = 1000
-const _initial_money: int = 100
+const _initial_money: int = 10
 
 const _character_factories: Array[CharacterFactory] = [
     preload("res://assets/data/characters/001_mouse_char.tres"),
