@@ -10,7 +10,6 @@ description = "One step closer to a bigger boom..."
 visual_summary = "[center]Add:
 [img=30%]res://assets/art/MAGIC_icon_64x64.png[/img]2  [img=30%]res://assets/art/MAGIC_icon_64x64.png[/img]2"
 icon_ref = ExtResource("1_efj53")
-cost = 15
 upgrade_type = 1
 number_of_times = 2
 remove_action_name = ""
