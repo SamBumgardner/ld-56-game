@@ -47,7 +47,7 @@ layout_mode = 2
 [node name="NewHirePreview4" parent="VBoxContainer/GridContainer" instance=ExtResource("2_b5o7f")]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="."]
+[node name="CancelButton" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.98

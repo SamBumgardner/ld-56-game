@@ -1,8 +1,15 @@
 class_name BrowseHires extends Control
 
+signal applicant_selected(character: Character)
+
 @onready var new_hire_previews: Array[Node] = $VBoxContainer/GridContainer.get_children()
+@onready var cancel_button: Button = $CancelButton
 
 func _ready() -> void:
+    for preview in new_hire_previews:
+        preview.pressed.connect(_on_hire_preview_pressed)
+    
+    # TODO: remove this temp setup eventually
     set_new_applicants($"/root/Database".hired_characters)
 
 func set_new_applicants(applicants: Array[Character]) -> void:
@@ -12,3 +19,6 @@ func set_new_applicants(applicants: Array[Character]) -> void:
             new_hire_previews[i].show()
         else:
             new_hire_previews[i].hide()
+
+func _on_hire_preview_pressed(character: Character) -> void:
+    applicant_selected.emit(character)

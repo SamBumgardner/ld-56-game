@@ -1,5 +1,7 @@
 class_name NewHirePreview extends MarginContainer
 
+signal pressed(character: Character)
+
 const cost_format_string: String = "[center]Cost:\n[img=25%%]res://assets/art/ATTACK_icon_64x64.png[/img] %s"
 
 @onready var button: Button = $Button
@@ -11,11 +13,13 @@ const cost_format_string: String = "[center]Cost:\n[img=25%%]res://assets/art/AT
 @onready var action_previews_2: Array[Node] = $MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ActionsPreview2.get_children()
 
 var action_previews: Array[Node]
+var displayed_character: Character
 
 func _ready() -> void:
     action_previews = []
     action_previews.append_array(action_previews_1)
     action_previews.append_array(action_previews_2)
+    button.pressed.connect(_on_button_pressed)
 
 func set_character_data(character: Character) -> void:
     portrait.texture = character.icon
@@ -23,6 +27,7 @@ func set_character_data(character: Character) -> void:
     description.text = character.description
     cost_label.text = cost_format_string % character.hiring_cost
     _set_action_previews(character.actions.get_all())
+    displayed_character = character
     
 func _set_action_previews(actions: Array[Action]) -> void:
     for i in range(action_previews.size()):
@@ -31,3 +36,6 @@ func _set_action_previews(actions: Array[Action]) -> void:
             action_previews[i].show()
         else:
             action_previews[i].hide()
+
+func _on_button_pressed() -> void:
+    pressed.emit(displayed_character)
