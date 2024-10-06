@@ -43,7 +43,7 @@ func _get_random_display_name() -> String:
 
 func refresh() -> void:
     var random_display_name = _get_random_display_name()
-    var random_stat_type = _stat_type_list.pick_random()
+    var random_stat_type = Database.StatType.values().pick_random()
 
     display_name_label.text = random_display_name
     var overcome_action = Action.new(
