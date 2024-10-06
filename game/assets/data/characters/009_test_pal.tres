@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CharacterFactory" load_steps=9 format=3 uid="uid://0vs353n6etxe"]
+[gd_resource type="Resource" script_class="CharacterFactory" load_steps=9 format=3 uid="uid://bo6i4mxety0iv"]
 
 [ext_resource type="Texture2D" uid="uid://cmdqbv4iraqg6" path="res://assets/art/MAGIC_icon_64x64.png" id="1_uyi8k"]
 [ext_resource type="Texture2D" uid="uid://bic3i142epdt3" path="res://assets/art/placeholder_threat.png" id="2_tw1wx"]
