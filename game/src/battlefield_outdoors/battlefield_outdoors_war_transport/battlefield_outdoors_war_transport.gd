@@ -3,10 +3,10 @@ extends Node2D
 
 @onready var combat_math_formulas = CombatMathFormulas.new()
 @onready var dice_total_value = (
-    $HBoxContainer/MarginContainer/VBoxContainer2/DiceTotal/Value
+    $Columns/CalculationsColumn/Rows/DiceTotal/Value
 )
 @onready var grid_of_dice_results = (
-    $HBoxContainer/VBoxContainer/GridOfDiceResults
+    $Columns/UnitsColumn/GridOfDiceResults
 )
 
 
