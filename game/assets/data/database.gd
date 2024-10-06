@@ -49,6 +49,7 @@ var war_transport_health_current: int
 var war_transport_health_maximum: int
 var hired_characters: Array[Character]
 var unhired_characters: Array[Character]
+var applicants: Array[Character]
 var should_generate_new_applicants: bool
 
 func _ready():
@@ -67,6 +68,7 @@ func initialize_characters() -> void:
     var characters: Array = _character_factories.map(func(x): return x.instantiate())
     hired_characters = []
     unhired_characters = []
+    applicants = []
     for i in range(characters.size()):
         if i in _starting_character_idxs:
             hired_characters.append(characters[i])
@@ -75,6 +77,7 @@ func initialize_characters() -> void:
     
     hire_character(get_random_unhired(1)[0])
 
+# TODO: Could move this to indoor_preparation class if we want the logic out of the DB.
 func get_random_unhired(count: int) -> Array[Character]:
     if count >= unhired_characters.size():
         return unhired_characters
@@ -83,6 +86,8 @@ func get_random_unhired(count: int) -> Array[Character]:
         var random_selections: Array[int] = []
         for i in range(count):
             var selected_index: int = possible_indices.pick_random()
+            if selected_index in random_selections:
+                selected_index = possible_indices.pick_random()
             while selected_index in random_selections:
                 selected_index = (selected_index + 1) % unhired_characters.size()
             random_selections.append(selected_index)
@@ -91,6 +96,9 @@ func get_random_unhired(count: int) -> Array[Character]:
         for idx: int in random_selections:
             selected_characters.append(unhired_characters[idx])
         return selected_characters
+
+func set_current_applicants(new_applicants: Array[Character]) -> void:
+    applicants = new_applicants
 
 func hire_character(character: Character) -> void:
     unhired_characters.erase(character)

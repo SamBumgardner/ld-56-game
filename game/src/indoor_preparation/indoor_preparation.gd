@@ -16,6 +16,9 @@ func _ready() -> void:
     if database.should_generate_new_applicants:
         # do the steps to generate new hires.
         applicants = database.get_random_unhired(APPLICANT_COUNT)
+        database.set_current_applicants(applicants)
         database.should_generate_new_applicants = false
+    else:
+        applicants = database.applicants
     
     screen.register_applicants_for_display(applicants)
