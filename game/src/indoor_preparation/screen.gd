@@ -34,6 +34,7 @@ func _ready() -> void:
     left_hire_detail_display.connect(hire_detail_display.exited_display)
     left_character_detail_display.connect(character_detail_display.exited_display)
     character_detail_display.exit_button.pressed.connect(_on_cancel)
+    screen_notification.notification_expired.connect(_on_notification_expired_default)
 
 func register_applicants_for_display(applicants: Array[Character]) -> void:
     hire_preview_display.set_new_applicants(applicants)
@@ -99,9 +100,6 @@ func _on_hiring_failure(character: Character, reason: String) -> void:
         HIRE_FAIL_FORMAT % [character.name, reason],
         HIRE_FAIL_DURATION
     )
-    screen_notification.notification_expired.connect(
-        _cancel_notifications,
-        CONNECT_ONE_SHOT)
 
 func _hide_all_screen_displays() -> void:
     home_display.hide()
@@ -110,8 +108,11 @@ func _hide_all_screen_displays() -> void:
     character_detail_display.hide()
 
 func _cancel_notifications() -> void:
-    notification_dimmer.hide()
     screen_notification.cancel()
+
+func _on_notification_expired_default():
+    notification_dimmer.hide()
+    screen_notification.hide()
 
 func _input(event: InputEvent) -> void:
     if event.is_action_pressed("ui_cancel"):
