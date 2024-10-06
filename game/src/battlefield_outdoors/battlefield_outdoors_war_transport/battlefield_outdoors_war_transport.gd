@@ -24,6 +24,10 @@ func _get_war_transport_damage_reduction_amount() -> int:
     )
 
 
+func _on_battlefield_outdoors_barrier_barrier_stat_type_updated():
+    refresh()
+
+
 func _on_battlefield_outdoors_hud_dice_roll_requested() -> void:
     _roll_dice()
 
