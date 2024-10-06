@@ -35,6 +35,27 @@ layout_mode = 2
 [node name="Rows" type="VBoxContainer" parent="Columns/CalculationsColumn"]
 layout_mode = 2
 
+[node name="Label" type="Label" parent="Columns/CalculationsColumn/Rows"]
+layout_mode = 2
+text = "Calculations:"
+
+[node name="CalculationStatTypeMatch" type="HBoxContainer" parent="Columns/CalculationsColumn/Rows"]
+layout_mode = 2
+
+[node name="Symbol" type="TextureRect" parent="Columns/CalculationsColumn/Rows/CalculationStatTypeMatch"]
+layout_mode = 2
+texture = ExtResource("2_aqe0i")
+
+[node name="Label" type="Label" parent="Columns/CalculationsColumn/Rows/CalculationStatTypeMatch"]
+layout_mode = 2
+text = "x 2 = "
+
+[node name="Value" type="Label" parent="Columns/CalculationsColumn/Rows/CalculationStatTypeMatch"]
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="Columns/CalculationsColumn/Rows"]
+layout_mode = 2
+
 [node name="DiceTotal" type="HBoxContainer" parent="Columns/CalculationsColumn/Rows"]
 layout_mode = 2
 
