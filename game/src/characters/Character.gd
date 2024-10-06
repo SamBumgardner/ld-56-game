@@ -24,7 +24,7 @@ func _init(_name: String, _description: String, _portrait: Texture2D,
     upgrades = _upgrades
     upgrade_choice_history = []
     for i: int in range(upgrades.size()):
-        upgrade_choice_history.append(1)
+        upgrade_choice_history.append(-1)
     hiring_cost = _hiring_cost
 
 func upgrade(level, choice_idx) -> void:

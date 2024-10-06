@@ -1,5 +1,7 @@
 class_name UpgradeCostPrompt extends Node
 
+signal upgrade_purchase_pressed(upgrade_choice: UpgradeChoice)
+
 @onready var cost_display: RichTextLabel = $MarginContainer/VBoxContainer/CostDisplay
 @onready var purchase_button: Button = $MarginContainer/VBoxContainer/PurchaseButton
 
@@ -15,6 +17,7 @@ var previewed_upgrade: UpgradeChoice
 var is_previewing: bool = false
 
 func _ready() -> void:
+    purchase_button.pressed.connect(_on_purchase_button_pressed)
     update_display_elements(false, false)
 
 func select_upgrade_cost(upgrade_choice: UpgradeChoice, level_purchased: bool,
@@ -65,3 +68,6 @@ func clear_upgrade_data():
     selected_upgrade_purchased = false
     previewed_upgrade = null
     update_display_elements(false, false)
+
+func _on_purchase_button_pressed():
+    upgrade_purchase_pressed.emit(selected_upgrade)

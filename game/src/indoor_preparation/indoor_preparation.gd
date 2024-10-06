@@ -20,6 +20,7 @@ func _ready() -> void:
         screen.left_character_detail_display.connect(crew_button._on_view_canceled)
         hiring_success.connect(crew_button._on_new_character_hired)
     screen.hire_detail_display.hire_purchase_pressed.connect(_on_hire_purchase_attempted)
+    screen.character_detail_display.upgrade_purchase_pressed.connect(_on_upgrade_purchase_attempted)
     hiring_success.connect(screen._on_hiring_success)
     hiring_failure.connect(screen._on_hiring_failure)
     
@@ -44,10 +45,10 @@ func _on_hire_purchase_attempted(character: Character) -> void:
     else:
         hiring_failure.emit(character, PURCHASE_FAIL_POOR_REASON)
 
-func _on_upgrade_purchase_attempted(character: Character, upgrade_level: int,
-        choice_idx: int, cost: int):
-    if database.current_money >= cost:
-        database.set_money(database.current_money - cost)
+func _on_upgrade_purchase_attempted(character: Character, upgrade_choice: UpgradeChoice,
+        upgrade_level: int, choice_idx: int):
+    if database.current_money >= upgrade_choice.cost:
+        database.set_money(database.current_money - upgrade_choice.cost)
         character.upgrade(upgrade_level, choice_idx)
         screen.refresh_upgrade_display()
         upgrade_success.emit(character)
