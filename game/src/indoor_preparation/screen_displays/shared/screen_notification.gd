@@ -6,7 +6,6 @@ enum ScreenNotificationType {
 }
 
 signal notification_expired()
-signal notification_cancelled()
 
 @onready var expiration_timer: Timer = $ExpirationTimer
 @onready var header: Label = $PC/MC/VBC/Header
@@ -37,8 +36,9 @@ func display_notification(notification_type: ScreenNotificationType, body_text: 
     expiration_timer.start(duration)
 
 func cancel():
-    hide()
-    notification_cancelled.emit()
+    if visible:
+        notification_expired.emit()
+        hide()
 
 func _process(_delta: float) -> void:
     if not expiration_timer.is_stopped():

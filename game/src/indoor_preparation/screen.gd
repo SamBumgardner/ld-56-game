@@ -63,21 +63,23 @@ func _on_crew_member_selected(character: Character) -> void:
     _delay_callback(character_detail_display.show)
 
 func _on_cancel() -> void:
-    _hide_all_screen_displays()
-    _cancel_notifications()
-    match current_view:
-        ScreenViews.HOME:
-            _delay_callback(home_display.show)
-        ScreenViews.BROWSE_HIRES:
-            current_view = ScreenViews.HOME
-            _delay_callback(home_display.show)
-        ScreenViews.HIRE_DETAIL:
-            current_view = ScreenViews.BROWSE_HIRES
-            _delay_callback(hire_preview_display.show)
-        ScreenViews.CREW_MEMBER_DETAIL:
-            left_character_detail_display.emit()
-            current_view = ScreenViews.HOME
-            _delay_callback(home_display.show)
+    if screen_notification.visible:
+        _cancel_notifications()
+    else:
+        _hide_all_screen_displays()
+        match current_view:
+            ScreenViews.HOME:
+                _delay_callback(home_display.show)
+            ScreenViews.BROWSE_HIRES:
+                current_view = ScreenViews.HOME
+                _delay_callback(home_display.show)
+            ScreenViews.HIRE_DETAIL:
+                current_view = ScreenViews.BROWSE_HIRES
+                _delay_callback(hire_preview_display.show)
+            ScreenViews.CREW_MEMBER_DETAIL:
+                left_character_detail_display.emit()
+                current_view = ScreenViews.HOME
+                _delay_callback(home_display.show)
 
 func _on_hiring_success(character: Character) -> void:
     notification_dimmer.show()
