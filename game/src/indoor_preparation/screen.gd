@@ -18,6 +18,7 @@ const SCREEN_LOAD_DELAY: float = .1
 @onready var character_detail_display: CrewMemberDetail = $CharacterDetail
 
 var current_view: ScreenViews = ScreenViews.HOME
+var loading_delay_tween: Tween
 
 func _ready() -> void:
     home_display.view_applicants_button_pressed.connect(_transition_to_hire_preview_display)
@@ -29,9 +30,11 @@ func _ready() -> void:
     character_detail_display.exit_button.pressed.connect(_on_cancel)
 
 func _delay_callback(callback: Callable) -> void:
-    var delay_tween = create_tween()
-    delay_tween.tween_interval(SCREEN_LOAD_DELAY)
-    delay_tween.tween_callback(callback)
+    if loading_delay_tween != null and loading_delay_tween.is_running():
+        loading_delay_tween.stop()
+    loading_delay_tween = create_tween()
+    loading_delay_tween.tween_interval(SCREEN_LOAD_DELAY)
+    loading_delay_tween.tween_callback(callback)
 
 func _transition_to_hire_preview_display() -> void:
     _hide_all_screen_displays()
