@@ -10,6 +10,7 @@ description = "The sims DO pay off!"
 visual_summary = "[center]Add:
 [img=30%]res://assets/art/ATTACK_icon_64x64.png[/img]2  [img=30%]res://assets/art/ATTACK_icon_64x64.png[/img]2"
 icon_ref = ExtResource("1_4gplk")
+cost = 12
 upgrade_type = 1
 number_of_times = 2
 remove_action_name = ""

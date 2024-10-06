@@ -21,7 +21,7 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
-[node name="HireButton" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="PurchaseButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "HIRE"
