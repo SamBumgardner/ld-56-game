@@ -1,6 +1,8 @@
 class_name DynamicInfoPanel extends PanelContainer
 
 const cost_format_string: String = "[right]Cost: [img=15%%]res://assets/art/ATTACK_icon_64x64.png[/img]%s"
+const already_purchased_string: String = "[right]Purchased!"
+const no_longer_available_string: String = "[right]Unavailable"
 
 @export var display_optional_cost_text: bool = true
 
@@ -16,24 +18,30 @@ const cost_format_string: String = "[right]Cost: [img=15%%]res://assets/art/ATTA
 @onready var optional_cost_info: RichTextLabel = $MarginContainer/VBoxContainer/Panel/MarginContainer/OptionalCostInfo
 
 var selected_upgrade: UpgradeChoice
+var selected_level_purchased: bool = false
+var selected_upgrade_purchased: bool = false
 var previewed_upgrade: UpgradeChoice
 var is_previewing: bool = false
 
-func select_upgrade_data(upgrade_choice: UpgradeChoice):
+func select_upgrade_data(upgrade_choice: UpgradeChoice, upgrade_level_purchased: bool,
+        this_purchased: bool):
     selected_upgrade = upgrade_choice
-    update_display_elements()
+    selected_level_purchased = upgrade_level_purchased
+    selected_upgrade_purchased = this_purchased
+    update_display_elements(upgrade_level_purchased, this_purchased)
 
-func preview_upgrade_data(upgrade_choice: UpgradeChoice):
+func preview_upgrade_data(upgrade_choice: UpgradeChoice, upgrade_level_purchased: bool,
+        this_purchased: bool):
     is_previewing = true
     previewed_upgrade = upgrade_choice
-    update_display_elements()
+    update_display_elements(upgrade_level_purchased, this_purchased)
 
 func stop_previewing_upgrade_data(_upgrade_choice: UpgradeChoice):
     previewed_upgrade = null
     is_previewing = false
-    update_display_elements()
+    update_display_elements(selected_level_purchased, selected_upgrade_purchased)
 
-func update_display_elements():
+func update_display_elements(level_purchased: bool, this_purchased: bool):
     var upgrade_to_display: UpgradeChoice = selected_upgrade
     if is_previewing and selected_upgrade != previewed_upgrade:
         upgrade_details_container.modulate = Color(1, 1, 1, .5)
@@ -54,7 +62,12 @@ func update_display_elements():
         upgrade_description.text = upgrade_to_display.description
         visual_summary.text = upgrade_to_display.visual_summary
         if display_optional_cost_text:
-            optional_cost_info.text = cost_format_string % upgrade_to_display.cost
+            if not level_purchased:
+                optional_cost_info.text = cost_format_string % upgrade_to_display.cost
+            elif this_purchased:
+                optional_cost_info.text = already_purchased_string
+            else:
+                optional_cost_info.text = no_longer_available_string
             optional_cost_info.show()
         else:
             optional_cost_info.hide()
@@ -64,5 +77,7 @@ func update_display_elements():
 
 func clear_upgrade_data():
     selected_upgrade = null
+    selected_level_purchased = false
+    selected_upgrade_purchased = false
     previewed_upgrade = null
-    update_display_elements()
+    update_display_elements(false, false)
