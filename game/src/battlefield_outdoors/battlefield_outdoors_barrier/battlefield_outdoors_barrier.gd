@@ -21,12 +21,6 @@ var random_display_name_root_list = [
     'Security Gate'
 ]
 
-var _stat_type_list = [
-    Database.StatType.CHAOS,
-    Database.StatType.MIGHT,
-    Database.StatType.WIT
-]
-
 
 func _ready():
     cost_to_overcome_number_label.text = str(cost_to_overcome_number)
