@@ -30,4 +30,4 @@ func _on_battlefield_outdoors_hud_dice_roll_requested() -> void:
 
 func _roll_dice() -> void:
     grid_of_dice_results.roll_dice()
-    dice_total_value.text = str(_get_war_transport_damage_reduction_amount())
+    refresh()
