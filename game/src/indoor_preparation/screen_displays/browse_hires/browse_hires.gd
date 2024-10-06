@@ -3,6 +3,7 @@ class_name BrowseHires extends Control
 signal applicant_selected(character: Character)
 
 @onready var new_hire_previews: Array[Node] = $VBoxContainer/GridContainer.get_children()
+@onready var cancel_button: Button = $CancelButton
 
 func _ready() -> void:
     for preview in new_hire_previews:

@@ -17,6 +17,9 @@ var current_view: ScreenViews = ScreenViews.HOME
 func _ready() -> void:
     home_display.view_applicants_button_pressed.connect(_transition_to_hire_preview_display)
     hire_preview_display.applicant_selected.connect(_applicant_selected_from_hiring_preview)
+    hire_preview_display.cancel_button.pressed.connect(_on_cancel)
+    hire_detail_display.exit_button.pressed.connect(_on_cancel)
+    character_detail_display.exit_button.pressed.connect(_on_cancel)
 
 func _transition_to_hire_preview_display() -> void:
     _hide_all_screen_displays()

@@ -2,6 +2,7 @@ class_name HomeDisplay extends Control
 
 signal view_applicants_button_pressed()
 
+
 @onready var view_applicants_button: Button = $MarginContainer/Button
 
 func _ready() -> void:
