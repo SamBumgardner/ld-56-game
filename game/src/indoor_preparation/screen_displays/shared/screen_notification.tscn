@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://cib1fq003l5jx"]
+[gd_scene load_steps=4 format=3 uid="uid://cib1fq003l5jx"]
 
 [ext_resource type="Theme" uid="uid://dk5iv042psfw" path="res://assets/themes/Default.tres" id="1_4cvkc"]
 [ext_resource type="Script" path="res://src/indoor_preparation/screen_displays/shared/screen_notification.gd" id="2_hcuqa"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o8x8g"]
+bg_color = Color(0.93845, 0.93845, 0.93845, 1)
 
 [node name="ScreenNotification" type="Control"]
 layout_mode = 3
@@ -28,6 +31,7 @@ offset_right = 106.5
 offset_bottom = 28.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_o8x8g")
 
 [node name="MC" type="MarginContainer" parent="PC"]
 layout_mode = 2

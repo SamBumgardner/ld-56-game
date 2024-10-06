@@ -30,9 +30,15 @@ func display_notification(notification_type: ScreenNotificationType, body_text: 
     expiration_max = duration
     expiration_bar.max_value = expiration_max
     expiration_bar.value = expiration_max
+    show()
+    
     expiration_timer.one_shot = true
     expiration_timer.start(duration)
 
+func cancel():
+    if visible:
+        notification_expired.emit()
+        hide()
 
 func _process(_delta: float) -> void:
     if not expiration_timer.is_stopped():
