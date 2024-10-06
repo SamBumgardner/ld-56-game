@@ -49,6 +49,7 @@ var war_transport_health_current: int
 var war_transport_health_maximum: int
 var hired_characters: Array[Character]
 var unhired_characters: Array[Character]
+var should_generate_new_applicants: bool
 
 func _ready():
     reset_values()
@@ -60,6 +61,7 @@ func reset_values() -> void:
 
     set_war_transport_health_to_maximum()
     initialize_characters()
+    should_generate_new_applicants = true
 
 func initialize_characters() -> void:
     var characters: Array = _character_factories.map(func(x): return x.instantiate())
@@ -71,9 +73,9 @@ func initialize_characters() -> void:
         else:
             unhired_characters.append(characters[i])
     
-    hire_character(select_random_unhired(1)[0])
+    hire_character(get_random_unhired(1)[0])
 
-func select_random_unhired(count: int) -> Array[Character]:
+func get_random_unhired(count: int) -> Array[Character]:
     if count >= unhired_characters.size():
         return unhired_characters
     else:
