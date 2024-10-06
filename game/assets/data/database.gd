@@ -24,7 +24,7 @@ const _initial_barriers_stat_type_to_overcome: StatType = StatType.MIGHT
 const _initial_barriers_overcome_count: int = 0
 const _initial_barriers_cost_to_overcome_number: int = 0
 const _initial_character_die_slots: Array[CharacterDieSlot] = []
-const _initial_money: int = 10
+const _initial_money: int = 50
 const _initial_matching_stat_type_multiplier: int = 2
 const _initial_war_transport_health_maximum: int = 10
 

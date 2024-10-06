@@ -45,6 +45,7 @@ func register_applicants_for_display(applicants: Array[Character]) -> void:
 
 func refresh_upgrade_display() -> void:
     if current_view == ScreenViews.CREW_MEMBER_DETAIL:
+        character_detail_display.set_character_data(character_detail_display.character)
         character_detail_display.refresh_upgrade_display()
 
 func _delay_callback(callback: Callable) -> void:
