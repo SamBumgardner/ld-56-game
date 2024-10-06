@@ -1,7 +1,9 @@
 class_name IndoorPreparation extends Control
 
 signal hiring_success(character: Character)
-signal hiring_failure(character: Character)
+signal hiring_failure(character: Character, reason: String)
+signal upgrade_success(character: Character)
+signal upgrade_failure(character: Character, reason: String)
 
 const APPLICANT_COUNT: int = 4
 const PURCHASE_FAIL_POOR_REASON: String = "INSUFFICIENT_FUNDS"
@@ -22,7 +24,6 @@ func _ready() -> void:
     hiring_failure.connect(screen._on_hiring_failure)
     
     if database.should_generate_new_applicants:
-        # do the steps to generate new hires.
         applicants = database.get_random_unhired(APPLICANT_COUNT)
         database.set_current_applicants(applicants)
         database.should_generate_new_applicants = false
@@ -41,5 +42,14 @@ func _on_hire_purchase_attempted(character: Character) -> void:
         screen.register_applicants_for_display(applicants)
         hiring_success.emit(character)
     else:
-        # TODO: could add a "reason" to this event for notification display
         hiring_failure.emit(character, PURCHASE_FAIL_POOR_REASON)
+
+func _on_upgrade_purchase_attempted(character: Character, upgrade_level: int,
+        choice_idx: int, cost: int):
+    if database.current_money >= cost:
+        database.set_money(database.current_money - cost)
+        character.upgrade(upgrade_level, choice_idx)
+        screen.refresh_upgrade_display()
+        upgrade_success.emit(character)
+    else:
+        upgrade_failure.emit(character, PURCHASE_FAIL_POOR_REASON)

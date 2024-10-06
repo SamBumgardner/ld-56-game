@@ -18,14 +18,27 @@ func _ready() -> void:
         upgrade_buttons[i].connect("mouse_exited", _emit_decorated_exit.bind(i))
         upgrade_buttons[i].connect("pressed", _emit_decorated_select.bind(i))
 
-func set_upgrade_choice_data(upgrade_selector: UpgradeSelector) -> void:
+func set_upgrade_choice_data(upgrade_selector: UpgradeSelector, purchased_idx: int) -> void:
+    var already_purchased: bool = \
+        purchased_idx in range(upgrade_selector.get_all_choice_data().size())
+        
     upgrades = []
     for i in range(upgrade_buttons.size()):
         upgrades.append(upgrade_selector.get_choice_data(i))
         upgrade_buttons[i].icon = upgrades[i].icon_ref
-
+        upgrade_buttons[i].self_modulate = Color.WHITE
+        if already_purchased:
+            _set_button_display_purchased(i, purchased_idx)
+    
     for child in get_children():
         child.show()
+
+func _set_button_display_purchased(button_idx: int, purchased_idx: int) -> void:
+    upgrade_buttons[button_idx].disabled = true
+    if button_idx != purchased_idx:
+        upgrade_buttons[button_idx].self_modulate = Color.GRAY
+    else:
+        upgrade_buttons[button_idx].self_modulate = Color.YELLOW
 
 func hide_upgrade_choice_info() -> void:
     for child in get_children():

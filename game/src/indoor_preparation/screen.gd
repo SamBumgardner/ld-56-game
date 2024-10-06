@@ -39,6 +39,10 @@ func _ready() -> void:
 func register_applicants_for_display(applicants: Array[Character]) -> void:
     hire_preview_display.set_new_applicants(applicants)
 
+func refresh_upgrade_display() -> void:
+    if current_view == ScreenViews.CREW_MEMBER_DETAIL:
+        character_detail_display.refresh_upgrade_display()
+
 func _delay_callback(callback: Callable) -> void:
     if loading_delay_tween != null and loading_delay_tween.is_running():
         loading_delay_tween.stop()
