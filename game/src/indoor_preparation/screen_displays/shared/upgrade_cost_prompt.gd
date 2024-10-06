@@ -10,6 +10,9 @@ var selected_upgrade: UpgradeChoice
 var previewed_upgrade: UpgradeChoice
 var is_previewing: bool = false
 
+func _ready() -> void:
+    update_display_elements()
+
 func select_upgrade_cost(upgrade_choice: UpgradeChoice):
     selected_upgrade = upgrade_choice
     update_display_elements()
@@ -34,9 +37,13 @@ func update_display_elements():
     
     if upgrade_to_display == null:
         cost_display.text = empty_cost_message
-        purchase_button.disabled = true
     else:
         cost_display.text = cost_format_string % upgrade_to_display.cost
+
+    if selected_upgrade == null:
+        cost_display.modulate = Color(1, 1, 1, .5)
+        purchase_button.disabled = true
+    else:
         purchase_button.disabled = false
 
 func clear_upgrade_data():

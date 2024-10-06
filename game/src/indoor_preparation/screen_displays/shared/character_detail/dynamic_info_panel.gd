@@ -2,7 +2,7 @@ class_name DynamicInfoPanel extends PanelContainer
 
 const cost_format_string: String = "[right]Cost: [img=15%%]res://assets/art/ATTACK_icon_64x64.png[/img]%s"
 
-@export var display_optional_cost_text: bool = false
+@export var display_optional_cost_text: bool = true
 
 @onready var upgrade_details_container: Control = $MarginContainer/VBoxContainer/Panel/MarginContainer/UpgradeDetailsContainer
 @onready var upgrade_icons: Array[TextureRect] = [
