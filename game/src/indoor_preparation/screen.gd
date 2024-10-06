@@ -15,6 +15,10 @@ const HIRE_SUCCESS_FORMAT: String = "Successfully hired %s!"
 const HIRE_SUCCESS_DURATION: float = 3
 const HIRE_FAIL_FORMAT: String = "Failed to hire %s.\nReason: %s"
 const HIRE_FAIL_DURATION: float = 2
+const UPGRADE_SUCCESS_FORMAT: String = "Successfully upgraded %s!"
+const UPGRADE_SUCCESS_DURATION: float = 2
+const UPGRADE_FAIL_FORMAT: String = "Failed to upgrade %s.\nReason: %s"
+const UPGRADE_FAIL_DURATION: float = 2
 
 @onready var home_display: HomeDisplay = $HomeDisplay
 @onready var hire_preview_display: BrowseHires = $HirePreviewDisplay
@@ -38,6 +42,10 @@ func _ready() -> void:
 
 func register_applicants_for_display(applicants: Array[Character]) -> void:
     hire_preview_display.set_new_applicants(applicants)
+
+func refresh_upgrade_display() -> void:
+    if current_view == ScreenViews.CREW_MEMBER_DETAIL:
+        character_detail_display.refresh_upgrade_display()
 
 func _delay_callback(callback: Callable) -> void:
     if loading_delay_tween != null and loading_delay_tween.is_running():
@@ -99,6 +107,22 @@ func _on_hiring_failure(character: Character, reason: String) -> void:
         ScreenNotification.ScreenNotificationType.ERROR,
         HIRE_FAIL_FORMAT % [character.name, reason],
         HIRE_FAIL_DURATION
+    )
+
+func _on_upgrade_success(character: Character):
+    notification_dimmer.show()
+    screen_notification.display_notification(
+        ScreenNotification.ScreenNotificationType.NOTIFY,
+        UPGRADE_SUCCESS_FORMAT % character.name,
+        UPGRADE_SUCCESS_DURATION
+    )
+
+func _on_upgrade_failure(character: Character, reason: String):
+    notification_dimmer.show()
+    screen_notification.display_notification(
+        ScreenNotification.ScreenNotificationType.ERROR,
+        UPGRADE_FAIL_FORMAT % [character.name, reason],
+        UPGRADE_FAIL_DURATION
     )
 
 func _hide_all_screen_displays() -> void:

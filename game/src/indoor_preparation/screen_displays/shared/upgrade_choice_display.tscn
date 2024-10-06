@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cf7gpoxw4lyd4"]
+[gd_scene load_steps=6 format=3 uid="uid://cf7gpoxw4lyd4"]
 
 [ext_resource type="Texture2D" uid="uid://8icadmy2cp3f" path="res://assets/art/upgrade_icon_placeholder.png" id="1_3it24"]
 [ext_resource type="Script" path="res://src/indoor_preparation/screen_displays/shared/upgrade_choice_display.gd" id="1_i8aii"]
 [ext_resource type="Theme" uid="uid://c34dsuakeic5x" path="res://assets/themes/upgrade_button_theme.tres" id="2_d8k51"]
 [ext_resource type="ButtonGroup" uid="uid://cqp1ir8lngdbq" path="res://src/indoor_preparation/screen_displays/shared/upgrade_buttons.tres" id="3_7pgfm"]
+[ext_resource type="Texture2D" uid="uid://dj3i46p3r3b0f" path="res://assets/art/upgrade_purchased_icon.png" id="5_ksrid"]
 
 [node name="UpgradeChoiceDisplay" type="PanelContainer"]
 offset_right = 101.0
@@ -26,6 +27,24 @@ button_group = ExtResource("3_7pgfm")
 icon = ExtResource("1_3it24")
 flat = true
 
+[node name="PurchasedIcon" type="TextureRect" parent="HBoxContainer/Button"]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -12.0
+offset_top = -12.0
+offset_right = 12.0
+offset_bottom = 12.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("5_ksrid")
+stretch_mode = 2
+
 [node name="Label" type="Label" parent="HBoxContainer"]
 layout_mode = 2
 text = "or"
@@ -37,3 +56,21 @@ toggle_mode = true
 button_group = ExtResource("3_7pgfm")
 icon = ExtResource("1_3it24")
 flat = true
+
+[node name="PurchasedIcon2" type="TextureRect" parent="HBoxContainer/Button2"]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -12.0
+offset_top = -12.0
+offset_right = 12.0
+offset_bottom = 12.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("5_ksrid")
+stretch_mode = 2

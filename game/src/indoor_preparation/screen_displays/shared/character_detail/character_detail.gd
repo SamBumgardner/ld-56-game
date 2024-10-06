@@ -21,8 +21,12 @@ func _ready() -> void:
 func set_character_data(new_character: Character):
     character_summary.set_character_data(new_character)
     upgrade_selection.set_character_data(new_character)
+    dynamic_info_panel.clear_upgrade_data()
     character_icon.texture = new_character.icon
     character = new_character
 
 func exited_display() -> void:
     upgrade_selection.unpress_all_upgrade_buttons()
+
+func refresh_upgrade_display():
+    upgrade_selection.set_character_data(character)
