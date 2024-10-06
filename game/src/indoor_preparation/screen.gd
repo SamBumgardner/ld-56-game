@@ -29,6 +29,9 @@ func _ready() -> void:
     left_character_detail_display.connect(character_detail_display.exited_display)
     character_detail_display.exit_button.pressed.connect(_on_cancel)
 
+func register_applicants_for_display(applicants: Array[Character]) -> void:
+    hire_preview_display.set_new_applicants(applicants)
+
 func _delay_callback(callback: Callable) -> void:
     if loading_delay_tween != null and loading_delay_tween.is_running():
         loading_delay_tween.stop()

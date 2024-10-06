@@ -8,9 +8,6 @@ signal applicant_selected(character: Character)
 func _ready() -> void:
     for preview in new_hire_previews:
         preview.pressed.connect(_on_hire_preview_pressed)
-    
-    # TODO: remove this temp setup eventually
-    set_new_applicants($"/root/Database".hired_characters)
 
 func set_new_applicants(applicants: Array[Character]) -> void:
     for i in range(new_hire_previews.size()):
