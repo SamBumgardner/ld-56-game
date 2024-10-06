@@ -81,8 +81,6 @@ func reset_values() -> void:
     initialize_characters()
     should_generate_new_applicants = true
 
-#region Setters
-
 func initialize_characters() -> void:
     var characters: Array = _character_factories.map(func(x): return x.instantiate())
     hired_characters = []
@@ -151,5 +149,3 @@ func set_war_transport_health_maximum(updated_health: int) -> void:
 
 func set_war_transport_health_to_maximum() -> void:
     set_war_transport_health_current(_initial_war_transport_health_maximum)
-
-#endregion Setters
