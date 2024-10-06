@@ -1,12 +1,10 @@
-class_name CostPrompt extends Node
+class_name UpgradeCostPrompt extends Node
 
 @onready var cost_display: RichTextLabel = $MarginContainer/VBoxContainer/CostDisplay
 @onready var purchase_button: Button = $MarginContainer/VBoxContainer/PurchaseButton
 
-var empty_cost_message: String = """Cost:
-N/A"""
-var cost_format_string: String = """[center]Hiring Cost:
-[img=15%%]res://assets/art/ATTACK_icon_64x64.png[/img]%s"""
+var empty_cost_message = "[center]Upgrade\nCost:\n "
+var cost_format_string = "[center]Upgrade\nCost:\n[img=15%%]res://assets/art/ATTACK_icon_64x64.png[/img]%s"
 
 var selected_upgrade: UpgradeChoice
 var previewed_upgrade: UpgradeChoice

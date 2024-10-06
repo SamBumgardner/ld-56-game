@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://b4xnwcpb30o20"]
 
-[ext_resource type="Script" path="res://src/indoor_preparation/screen_displays/crew_member_detail/upgrade_prompt.gd" id="1_x6w75"]
+[ext_resource type="Script" path="res://src/indoor_preparation/screen_displays/shared/upgrade_cost_prompt.gd" id="1_r5pou"]
 
 [node name="UpgradePrompt" type="PanelContainer"]
-script = ExtResource("1_x6w75")
+script = ExtResource("1_r5pou")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2

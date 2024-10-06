@@ -1,6 +1,6 @@
 class_name CrewMemberDetail extends CharacterDetail
 
-@onready var upgrade_prompt: UpgradePrompt = $IconAndCost/UpgradePrompt
+@onready var upgrade_prompt: UpgradeCostPrompt = $IconAndCost/UpgradePrompt
 
 func _ready() -> void:
     super()

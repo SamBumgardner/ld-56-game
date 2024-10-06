@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://byvjel7rc8ms0"]
+[gd_scene load_steps=2 format=3 uid="uid://byvjel7rc8ms0"]
+
+[ext_resource type="Script" path="res://src/indoor_preparation/screen_displays/hire_detail/hire_prompt.gd" id="1_8agtl"]
 
 [node name="HirePrompt" type="PanelContainer"]
+script = ExtResource("1_8agtl")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2

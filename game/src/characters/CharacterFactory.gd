@@ -8,7 +8,7 @@ class_name CharacterFactory extends Resource
 @export var upgrade_level: int
 @export var upgrades: Array[UpgradeSelector]
 
-func instantiate() -> Character:
+func instantiate(hiring_cost: int = 10) -> Character:
     var starting_actions = _build_starting_actions()
     var action_selector = ActionSelector.new(starting_actions)
     return Character.new(
@@ -18,7 +18,8 @@ func instantiate() -> Character:
         icon,
         action_selector,
         upgrade_level,
-        upgrades
+        upgrades,
+        hiring_cost
     )
 
 func _build_starting_actions() -> Array[Action]:
