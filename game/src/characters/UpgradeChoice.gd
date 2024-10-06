@@ -17,6 +17,7 @@ static var upgrade_funcs: Dictionary = {
 @export_multiline var description: String
 @export_multiline var visual_summary: String
 @export var icon_ref: Texture2D
+@export var cost: int
 
 @export var upgrade_type: UpgradeType
 @export var number_of_times: int = 1
