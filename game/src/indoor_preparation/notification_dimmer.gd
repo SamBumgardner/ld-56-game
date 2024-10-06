@@ -5,9 +5,9 @@ const FADE_IN_DURATION: float = .5
 var fade_in_tween: Tween
 
 func _ready() -> void:
-    visibility_changed.connect(_on_show)
+    visibility_changed.connect(_on_visibility_changed)
 
-func _on_show():
+func _on_visibility_changed():
     if visible:
         self_modulate = Color.TRANSPARENT
         if fade_in_tween != null and fade_in_tween.is_running():
