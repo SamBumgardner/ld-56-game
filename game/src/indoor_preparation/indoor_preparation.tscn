@@ -39,7 +39,6 @@ visible = false
 layout_mode = 1
 
 [node name="HirePreviewDisplay" parent="Screen" instance=ExtResource("4_note4")]
-visible = false
 layout_mode = 1
 
 [node name="HireDetail" parent="Screen" instance=ExtResource("5_lncqs")]
@@ -47,4 +46,5 @@ visible = false
 layout_mode = 1
 
 [node name="CharacterDetail" parent="Screen" instance=ExtResource("6_4pq4g")]
+visible = false
 layout_mode = 1
