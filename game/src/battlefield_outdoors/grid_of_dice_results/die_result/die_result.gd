@@ -13,4 +13,5 @@ func set_action(action: Action) -> void:
         return
 
     $Amount.text = str(action.amount)
+    $Symbol.texture = Database.stat_type_to_icon[action.stat_type]
     visible = true
