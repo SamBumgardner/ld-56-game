@@ -1,5 +1,7 @@
 class_name Screen extends Control
 
+signal left_character_detail_display()
+
 enum ScreenViews {
     HOME,
     BROWSE_HIRES,
@@ -32,6 +34,12 @@ func _applicant_selected_from_hiring_preview(character: Character) -> void:
     hire_detail_display.set_character_data(character)
     hire_detail_display.show()
 
+func _on_crew_member_selected(character: Character) -> void:
+    _hide_all_screen_displays()
+    current_view = ScreenViews.CREW_MEMBER_DETAIL
+    character_detail_display.set_character_data(character)
+    character_detail_display.show()
+
 func _on_cancel() -> void:
     _hide_all_screen_displays()
     match current_view:
@@ -44,6 +52,7 @@ func _on_cancel() -> void:
             current_view = ScreenViews.BROWSE_HIRES
             hire_preview_display.show()
         ScreenViews.CREW_MEMBER_DETAIL:
+            left_character_detail_display.emit()
             current_view = ScreenViews.HOME
             home_display.show()
 
