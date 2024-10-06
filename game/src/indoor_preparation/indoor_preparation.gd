@@ -23,6 +23,8 @@ func _ready() -> void:
     screen.character_detail_display.upgrade_purchase_pressed.connect(_on_upgrade_purchase_attempted)
     hiring_success.connect(screen._on_hiring_success)
     hiring_failure.connect(screen._on_hiring_failure)
+    upgrade_success.connect(screen._on_upgrade_success)
+    upgrade_failure.connect(screen._on_upgrade_failure)
     
     if database.should_generate_new_applicants:
         applicants = database.get_random_unhired(APPLICANT_COUNT)
