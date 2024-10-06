@@ -26,6 +26,7 @@ layout_mode = 2
 texture = ExtResource("1_3np5d")
 
 [node name="BarrierName" type="Label" parent="."]
+custom_minimum_size = Vector2(1, 0)
 layout_mode = 2
 text = "Nice Boulder"
 horizontal_alignment = 1
