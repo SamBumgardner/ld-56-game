@@ -7,10 +7,16 @@ enum ScreenNotificationType {
 
 signal notification_expired()
 
+const inner_modulate_info: Color = Color(0.475, 0.498, 0.671)
+const inner_modulate_error: Color = Color(0.752, 0.401, 0.28)
+const theme_info: Theme = preload("res://assets/themes/Notification_Info.tres")
+const theme_error: Theme = preload("res://assets/themes/Notification_Error.tres")
+
 @onready var expiration_timer: Timer = $ExpirationTimer
 @onready var header: Label = $PC/MC/VBC/Header
 @onready var body: Label = $PC/MC/VBC/PC2/MC2/VBC2/Body
 @onready var expiration_bar: ProgressBar = $PC/MC/VBC/PC2/MC2/VBC2/ExpirationBar
+@onready var inner_panel: PanelContainer = $PC/MC/VBC/PC2
 var expiration_max: float
 
 func _ready() -> void:
@@ -22,10 +28,12 @@ func display_notification(notification_type: ScreenNotificationType, body_text: 
     match notification_type:
         ScreenNotificationType.NOTIFY:
             header.text = "Notification"
-            #TODO: set theme to be normal
+            theme = theme_info
+            inner_panel.self_modulate = inner_modulate_info
         ScreenNotificationType.ERROR:
             header.text = "ERROR"
-            #TODO: set theme to be "error" red and whatnot
+            theme = theme_error
+            inner_panel.self_modulate = inner_modulate_error
     body.text = body_text
     expiration_max = duration
     expiration_bar.max_value = expiration_max

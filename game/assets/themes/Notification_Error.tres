@@ -1,0 +1,34 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://dq0psiuuo404u"]
+
+[ext_resource type="FontFile" uid="uid://ck0ltu3wyr11x" path="res://assets/fonts/Roboto/Roboto-Black.ttf" id="1_a3j6q"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_khhf2"]
+bg_color = Color(0.258824, 0, 0.0588235, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ohfbx"]
+bg_color = Color(0.643137, 0, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+expand_margin_top = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uo7c4"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+expand_margin_top = 2.0
+expand_margin_bottom = 2.0
+
+[resource]
+default_font = ExtResource("1_a3j6q")
+Button/constants/outline_size = 5
+Label/colors/font_outline_color = Color(0.194893, 1.24839e-07, 1.02278e-07, 1)
+Label/constants/outline_size = 7
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_khhf2")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_ohfbx")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_uo7c4")
+RichTextLabel/constants/outline_size = 5
