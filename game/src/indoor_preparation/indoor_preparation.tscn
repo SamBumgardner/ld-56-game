@@ -1,12 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://b73yb04wjxq8"]
+[gd_scene load_steps=12 format=3 uid="uid://b73yb04wjxq8"]
 
 [ext_resource type="Texture2D" uid="uid://l3l2yqfmprg5" path="res://assets/art/ld_56_indoors.jpg" id="1_f348j"]
+[ext_resource type="Script" path="res://src/indoor_preparation/indoor_preparation.gd" id="2_0rynj"]
 [ext_resource type="Theme" uid="uid://dk5iv042psfw" path="res://assets/themes/Default.tres" id="2_bky62"]
 [ext_resource type="Script" path="res://src/indoor_preparation/screen.gd" id="3_culvi"]
 [ext_resource type="PackedScene" uid="uid://7vx27hr83tx0" path="res://src/indoor_preparation/screen_displays/home_display.tscn" id="3_eot0a"]
 [ext_resource type="PackedScene" uid="uid://dw8jtxw6u5x40" path="res://src/indoor_preparation/screen_displays/browse_hires/browse_hires.tscn" id="4_note4"]
 [ext_resource type="PackedScene" uid="uid://cdb8nv77bouh1" path="res://src/indoor_preparation/screen_displays/hire_detail/hire_detail.tscn" id="5_lncqs"]
 [ext_resource type="PackedScene" uid="uid://bvpdxuf4a56pf" path="res://src/indoor_preparation/screen_displays/crew_member_detail/crew_member_detail.tscn" id="6_4pq4g"]
+[ext_resource type="PackedScene" uid="uid://dj3cohh45iw0d" path="res://src/indoor_preparation/crew_buttons/crew_button.tscn" id="8_40muy"]
+[ext_resource type="Resource" uid="uid://cghmtnhtq1aeh" path="res://assets/data/characters/001_mouse_char.tres" id="9_51070"]
+[ext_resource type="Resource" uid="uid://duswkektwj6hb" path="res://assets/data/characters/002_lizard_char.tres" id="10_lfrlp"]
 
 [node name="IndoorPreparation" type="Control"]
 layout_mode = 3
@@ -16,6 +20,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_bky62")
+script = ExtResource("2_0rynj")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
@@ -50,3 +55,36 @@ layout_mode = 1
 [node name="CharacterDetail" parent="Screen" instance=ExtResource("6_4pq4g")]
 visible = false
 layout_mode = 1
+
+[node name="CrewButtons" type="Control" parent="."]
+anchors_preset = 0
+
+[node name="CrewButton" parent="CrewButtons" instance=ExtResource("8_40muy")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 214.0
+offset_top = 409.0
+offset_right = 464.0
+offset_bottom = 659.0
+grow_horizontal = 1
+grow_vertical = 1
+character_factory = ExtResource("9_51070")
+
+[node name="CrewButton2" parent="CrewButtons" instance=ExtResource("8_40muy")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 12.0
+offset_top = 360.0
+offset_right = 262.0
+offset_bottom = 610.0
+grow_horizontal = 1
+grow_vertical = 1
+character_factory = ExtResource("10_lfrlp")

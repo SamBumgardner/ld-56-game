@@ -16,10 +16,10 @@ func _ready() -> void:
     for connection: Callable in connect_callables["exited"]:
         connection.call(dynamic_info_panel.stop_previewing_upgrade_data)
 
-    #if self == get_tree().current_scene:
-        set_character_data(database.hired_characters[0])
-
 func set_character_data(character: Character):
     character_summary.set_character_data(character)
     upgrade_selection.set_character_data(character)
     character_icon.texture = character.icon
+
+func exited_display() -> void:
+    upgrade_selection.unpress_all_upgrade_buttons()

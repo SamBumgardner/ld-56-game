@@ -31,6 +31,10 @@ func hide_upgrade_choice_info() -> void:
     for child in get_children():
         child.hide()
 
+func unpress_all_upgrade_buttons() -> void:
+    for button: Button in upgrade_buttons:
+        button.button_pressed = false
+
 func _emit_decorated_hover(button_idx: int) -> void:
     upgrade_hovered.emit(upgrades[button_idx] if button_idx < upgrades.size() else null)
 
