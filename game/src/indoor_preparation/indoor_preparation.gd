@@ -17,6 +17,7 @@ func _ready() -> void:
         screen.left_character_detail_display.connect(crew_button._on_view_canceled)
         hiring_success.connect(crew_button._on_new_character_hired)
     screen.hire_detail_display.hire_purchase_pressed.connect(_on_hire_purchase_attempted)
+    hiring_success.connect(screen._on_hiring_success)
     
     if database.should_generate_new_applicants:
         # do the steps to generate new hires.

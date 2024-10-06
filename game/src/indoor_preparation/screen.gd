@@ -11,11 +11,14 @@ enum ScreenViews {
 }
 
 const SCREEN_LOAD_DELAY: float = .1
+const HIRE_SUCCESS_FORMAT: String = "Successfully hired %s!"
+const HIRE_SUCCESS_DURATION: float = 3
 
 @onready var home_display: HomeDisplay = $HomeDisplay
 @onready var hire_preview_display: BrowseHires = $HirePreviewDisplay
 @onready var hire_detail_display: HireDetail = $HireDetail
 @onready var character_detail_display: CrewMemberDetail = $CharacterDetail
+@onready var screen_notification: ScreenNotification = $ScreenNotification
 
 var current_view: ScreenViews = ScreenViews.HOME
 var loading_delay_tween: Tween
@@ -71,6 +74,16 @@ func _on_cancel() -> void:
             left_character_detail_display.emit()
             current_view = ScreenViews.HOME
             _delay_callback(home_display.show)
+
+func _on_hiring_success(character: Character) -> void:
+    screen_notification.display_notification(
+        ScreenNotification.ScreenNotificationType.NOTIFY,
+        HIRE_SUCCESS_FORMAT % character.name,
+        HIRE_SUCCESS_DURATION
+    )
+    screen_notification.notification_expired.connect(
+        _transition_to_hire_preview_display,
+        CONNECT_ONE_SHOT)
 
 func _hide_all_screen_displays() -> void:
     home_display.hide()
