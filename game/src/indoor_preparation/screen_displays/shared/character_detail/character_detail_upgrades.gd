@@ -5,7 +5,8 @@ class_name CharacterDetailUpgrades extends Control
 func set_character_data(character: Character) -> void:
     for i in range(upgrade_choices.size()):
         if i < character.upgrades.size():
-            upgrade_choices[i].set_upgrade_choice_data(character.upgrades[i])
+            upgrade_choices[i].set_upgrade_choice_data(character.upgrades[i],
+                character.upgrade_choice_history[i])
             upgrade_choices[i].show()
         else:
             upgrade_choices[i].hide_upgrade_choice_info()

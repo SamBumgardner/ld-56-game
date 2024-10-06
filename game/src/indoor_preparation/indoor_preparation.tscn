@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b73yb04wjxq8"]
+[gd_scene load_steps=24 format=3 uid="uid://b73yb04wjxq8"]
 
 [ext_resource type="Texture2D" uid="uid://l3l2yqfmprg5" path="res://assets/art/ld_56_indoors.jpg" id="1_f348j"]
 [ext_resource type="Script" path="res://src/indoor_preparation/indoor_preparation.gd" id="2_0rynj"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://bvpdxuf4a56pf" path="res://src/indoor_preparation/screen_displays/crew_member_detail/crew_member_detail.tscn" id="6_4pq4g"]
 [ext_resource type="PackedScene" uid="uid://dj3cohh45iw0d" path="res://src/indoor_preparation/crew_buttons/crew_button.tscn" id="8_40muy"]
 [ext_resource type="Resource" uid="uid://cghmtnhtq1aeh" path="res://assets/data/characters/001_mouse_char.tres" id="9_51070"]
+[ext_resource type="PackedScene" uid="uid://cib1fq003l5jx" path="res://src/indoor_preparation/screen_displays/shared/screen_notification.tscn" id="9_b6hiw"]
+[ext_resource type="Script" path="res://src/indoor_preparation/notification_dimmer.gd" id="9_d2y4p"]
 [ext_resource type="Resource" uid="uid://duswkektwj6hb" path="res://assets/data/characters/002_lizard_char.tres" id="10_lfrlp"]
 [ext_resource type="Resource" uid="uid://b3l83j0ql7m0e" path="res://assets/data/characters/003_test_pal.tres" id="12_tfexc"]
 [ext_resource type="Resource" uid="uid://bfkdaseurpvu6" path="res://assets/data/characters/004_test_pal.tres" id="13_1osln"]
@@ -63,6 +65,21 @@ visible = false
 layout_mode = 1
 
 [node name="CharacterDetail" parent="Screen" instance=ExtResource("6_4pq4g")]
+visible = false
+layout_mode = 1
+
+[node name="NotificationDimmer" type="ColorRect" parent="Screen"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.447059)
+script = ExtResource("9_d2y4p")
+
+[node name="ScreenNotification" parent="Screen" instance=ExtResource("9_b6hiw")]
 visible = false
 layout_mode = 1
 

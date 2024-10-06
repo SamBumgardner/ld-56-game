@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://src/indoor_preparation/screen_displays/shared/upgrade_cost_prompt.gd" id="1_r5pou"]
 
 [node name="UpgradePrompt" type="PanelContainer"]
+custom_minimum_size = Vector2(95, 0)
 script = ExtResource("1_r5pou")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]

@@ -11,6 +11,7 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0kclb"]
 
 [resource]
+Button/colors/icon_disabled_color = Color(1, 1, 1, 1)
 Button/colors/icon_focus_color = Color(0.470588, 1, 1, 1)
 Button/colors/icon_hover_color = Color(0.836825, 0.892038, 1.15514e-06, 1)
 Button/colors/icon_pressed_color = Color(0.470588, 1, 1, 1)
