@@ -8,7 +8,7 @@
 [ext_resource type="Resource" uid="uid://dxqo75jjc8jjq" path="res://assets/data/upgrades/001_add_2_wit2.tres" id="4_7vuqt"]
 [ext_resource type="Resource" uid="uid://bq1rld7wvl3fk" path="res://assets/data/upgrades/002_add_2_chaos2.tres" id="5_1xc4x"]
 [ext_resource type="Resource" uid="uid://drlywucrqnxrb" path="res://assets/data/upgrades/003_add_2_might2.tres" id="8_bchqw"]
-[ext_resource type="Resource" uid="uid://c2i0mvjqn4nab" path="res://assets/data/upgrades/004_add_1_chaos4.tres" id="8_lxjgw"]
+[ext_resource type="Resource" path="res://assets/data/upgrades/004_add_1_chaos4.tres" id="8_lxjgw"]
 
 [sub_resource type="Resource" id="Resource_8vmh3"]
 script = ExtResource("2_tu5gk")

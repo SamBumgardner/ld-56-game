@@ -1,6 +1,7 @@
 class_name Gameplay extends Control
 
 @onready var outdoor_canvas: CanvasLayer = $OutdoorBattleMode
+@onready var outdoor_root: BattlefieldOutdoors = $OutdoorBattleMode/BattlefieldOutdoors
 @onready var indoor_canvas: CanvasLayer = $IndoorPrepMode
 @onready var indoor_root: IndoorPreparation = $IndoorPrepMode/IndoorPreparation
 @onready var transition_cover: CanvasLayer = $TransitionCover
@@ -39,6 +40,7 @@ func go_outside() -> void:
         indoor_canvas.hide()
         outdoor_canvas.show()
         indoor_root.transition_out()
+        outdoor_root.transition_in()
     
     mode_transition_cover.hide()
     transition_cover.show()

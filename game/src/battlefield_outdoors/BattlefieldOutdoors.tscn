@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://c5dvnfrvyjol6"]
+[gd_scene load_steps=7 format=3 uid="uid://c5dvnfrvyjol6"]
 
 [ext_resource type="Theme" uid="uid://dk5iv042psfw" path="res://assets/themes/Default.tres" id="1_cei1v"]
 [ext_resource type="PackedScene" uid="uid://b6k6baalu42w7" path="res://src/battlefield_outdoors/battlefield_outdoors_hud/BattlefieldOutdoorsHud.tscn" id="1_wxoya"]
+[ext_resource type="Script" path="res://src/battlefield_outdoors/battlefield_outdoors.gd" id="2_ni2i7"]
 [ext_resource type="PackedScene" uid="uid://ceesyhnktnbd1" path="res://src/battlefield_outdoors/battlefield_outdoors_barrier/BattlefieldOutdoorsBarrier.tscn" id="2_p4mcn"]
 [ext_resource type="PackedScene" uid="uid://bwpa5wbo5ct7g" path="res://src/battlefield_outdoors/battlefield_outdoors_war_transport/BattlefieldOutdoorsWarTransport.tscn" id="3_etui0"]
 [ext_resource type="PackedScene" uid="uid://cwx53f7dgoboq" path="res://src/shared_ui/money_display/money_display.tscn" id="5_0m00p"]
@@ -14,6 +15,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_cei1v")
+script = ExtResource("2_ni2i7")
 
 [node name="AnchorOfBarrier" type="Control" parent="."]
 layout_direction = 3
