@@ -1,6 +1,6 @@
 class_name ModeTransitionCover extends ColorRect
 
-const TRANSITION_DURATION: float = 1
+const TRANSITION_DURATION: float = .25
 
 var fade_tween: Tween
 

@@ -6,7 +6,14 @@ class_name Gameplay extends Control
 @onready var transition_cover: CanvasLayer = $TransitionCover
 @onready var mode_transition_cover: ModeTransitionCover = $TransitionCover/ModeTransitionCover
 
-func go_inside():
+@onready var go_inside_button: Button = $OutdoorBattleMode/BattlefieldOutdoors/GoInsideButton
+@onready var go_outside_button: Button = $IndoorPrepMode/IndoorPreparation/GoOutsideButton
+
+func _ready() -> void:
+    go_inside_button.pressed.connect(go_inside)
+    go_outside_button.pressed.connect(go_outside)
+
+func go_inside() -> void:
     # we can do fancier stuff, like take a callback to only do once the screen's 
     # hidden from the calling state. We'll just make assumptions for now, since we only
     # have two states to manage.
@@ -26,11 +33,12 @@ func go_inside():
     # happen until the fade in was completely done) we could add more callbacks to 
     # different parts of the process.
 
-func go_outside():
+func go_outside() -> void:
     # see go_inside, same idea here
     var transition_while_hidden = func():
         indoor_canvas.hide()
         outdoor_canvas.show()
+        indoor_root.transition_out()
     
     mode_transition_cover.hide()
     transition_cover.show()

@@ -264,3 +264,15 @@ offset_bottom = 765.0
 grow_horizontal = 1
 grow_vertical = 1
 character_factory = ExtResource("21_71v0u")
+
+[node name="GoOutsideButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -44.0
+offset_right = 44.0
+offset_bottom = 46.0
+grow_horizontal = 2
+text = "Go Outside
+To Battle"
