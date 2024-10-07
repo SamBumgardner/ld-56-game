@@ -12,8 +12,8 @@ func _ready():
     set_action(action)
 
 
-func set_action(action: Action) -> void:
-    die_result.set_action(action)
+func set_action(incoming_action: Action) -> void:
+    die_result.set_action(incoming_action)
     action = die_result.action
     _set_frozen_status_label()
 

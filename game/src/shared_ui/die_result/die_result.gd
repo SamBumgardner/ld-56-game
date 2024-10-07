@@ -9,11 +9,12 @@ func _ready():
     set_action(action)
 
 
-func set_action(action: Action) -> void:
-    if action == null:
+func set_action(incoming_action: Action) -> void:
+    if incoming_action == null:
         visible = false
         return
 
+    action = incoming_action
     amount.text = str(action.amount)
     symbol.texture = Database.stat_type_to_icon[action.stat_type]
     visible = true
