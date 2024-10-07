@@ -14,7 +14,6 @@ func set_character_data(character: Character) -> void:
 func _set_action_previews(actions: Array[Action]) -> void:
     for i in range(action_previews.size()):
         if i < actions.size():
-            action_previews[i].texture = Database.stat_type_to_icon[actions[i].stat_type]
-            action_previews[i].show()
+            action_previews[i].set_action(actions[i])
         else:
-            action_previews[i].hide()
+            action_previews[i].set_action(null)
