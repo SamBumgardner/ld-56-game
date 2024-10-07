@@ -4,6 +4,11 @@ const COINS_PER_SECOND: float = 30.0
 const MAX_DURATION: float = 3
 const MIN_DURATION: float = .1
 
+const COLOR_CHANGE_DURATION: float = 2
+const COLOR_INCREASE: Color = Color.GREEN
+const COLOR_DECREASE: Color = Color.DARK_ORANGE
+const COLOR_INSUFFICIENT: Color = Color.RED
+
 @onready var database: Database = $"/root/Database"
 @onready var amount_label: Label = $MarginContainer/HBoxContainer/Amount
 
@@ -12,15 +17,33 @@ var current_display_value: int:
         current_display_value = new_value
         amount_label.text = String.num_int64(new_value)
 var value_tween: Tween
+var color_tween: Tween
 
 func _ready() -> void:
     database.money_changed.connect(_on_money_changed)
     current_display_value = database.current_money
 
 func force_display_resolution():
-    value_tween.custom_step(MAX_DURATION)
+    if value_tween != null and value_tween.is_running():
+        value_tween.custom_step(MAX_DURATION)
+    if color_tween != null and color_tween.is_running():
+        color_tween.custom_step(COLOR_CHANGE_DURATION)
 
-func _on_money_changed(new_money_value) -> void:
+func _on_money_changed(new_money_value, old_money_value) -> void:
+    _set_up_value_tween(new_money_value)
+    _set_up_color_tween(new_money_value, old_money_value)
+
+func _set_up_color_tween(new_money_value, old_money_value) -> void:
+    if color_tween != null and color_tween.is_running():
+        color_tween.stop()
+    
+    amount_label.modulate = COLOR_INCREASE if new_money_value > old_money_value else COLOR_DECREASE
+    color_tween = create_tween()
+    color_tween.set_ease(Tween.EASE_OUT)
+    color_tween.set_trans(Tween.TRANS_CUBIC)
+    color_tween.tween_property(amount_label, "modulate", Color.WHITE, COLOR_CHANGE_DURATION)
+
+func _set_up_value_tween(new_money_value) -> void:
     if value_tween != null and value_tween.is_running():
         value_tween.stop()
 
