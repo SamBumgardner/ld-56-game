@@ -1,16 +1,20 @@
 class_name BattlefieldOutdoorsWarTransport extends Node2D
 
 
-@onready var combat_math_calculations_hud = $Columns/CombatMathCalculationsHud
-@onready var combat_math_formulas = CombatMathFormulas.new()
-@onready var grid_of_dice_results: GridOfDiceResults = (
+@onready var combat_math_calculations_hud: MarginContainer = (
+    $Columns/CombatMathCalculationsHud
+)
+@onready var combat_math_formulas: CombatMathFormulas = CombatMathFormulas.new()
+@onready var grid_of_dice_results: GridContainer = (
     $Columns/Units/GridOfDiceResults
 )
 
 
 # TODO: Call when the barrier changes.
 func refresh() -> void:
-    combat_math_calculations_hud.refresh()
+    # Handle edge case of load order, ignore unloaded child.
+    if combat_math_calculations_hud != null:
+        combat_math_calculations_hud.refresh()
 
 
 # Sum dice results, multiplying dice that match the target StatType.

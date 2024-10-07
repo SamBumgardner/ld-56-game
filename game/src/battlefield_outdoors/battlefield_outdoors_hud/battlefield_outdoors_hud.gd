@@ -7,6 +7,9 @@ signal dice_roll_requested
 @onready var combat_math_formulas = CombatMathFormulas.new()
 @onready var health_current = $TopBar/Trackers/HealthTracker/HealthCurrent
 @onready var health_maximum = $TopBar/Trackers/HealthTracker/HealthMaximum
+@onready var warning_only_frozen_troops = (
+    $CentralControls/VBoxContainer/Warnings/WarningOnlyFrozenTroops
+)
 @onready var warning_out_of_health = (
     $CentralControls/VBoxContainer/Warnings/WarningOutOfHealth
 )
@@ -16,8 +19,7 @@ signal dice_roll_requested
 
 
 func _ready():
-    warning_out_of_health.visible = false
-    warning_out_of_troops.visible = false
+    _hide_warnings()
 
     _set_health_text()
 
@@ -37,8 +39,18 @@ func _get_war_transport_damage_reduction_amount() -> int:
     )
 
 
-func _on_mock_attack_button_pressed() -> void:
+func _hide_warnings() -> void:
+    warning_out_of_health.visible = false
+    _hide_roll_warnings()
+
+
+func _hide_roll_warnings() -> void:
+    warning_only_frozen_troops.visible = false
     warning_out_of_troops.visible = false
+
+
+func _on_mock_attack_button_pressed() -> void:
+    _hide_roll_warnings()
 
     if Database.war_transport_health_current <= 0:
         warning_out_of_health.visible = true
@@ -83,6 +95,18 @@ func _on_mock_reroll_button_pressed() -> void:
         print_debug('Player requested a roll without any troops.')
         warning_out_of_troops.visible = true
         return
+
+    if Database.current_character_die_slots.all(
+        func(character_die_slot: CharacterDieSlot) -> bool: return (
+            character_die_slot.is_frozen
+        )
+    ):
+        print_debug('Player requested a roll with only frozen troops.')
+        warning_only_frozen_troops.visible = true
+        return
+
+    # Player is rolling at least one character die.
+    _hide_roll_warnings()
 
     dice_roll_requested.emit()
 

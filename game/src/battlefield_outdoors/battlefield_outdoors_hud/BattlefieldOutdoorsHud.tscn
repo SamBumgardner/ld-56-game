@@ -94,6 +94,14 @@ text = "Charge!"
 [node name="Warnings" type="MarginContainer" parent="CentralControls/VBoxContainer"]
 layout_mode = 2
 
+[node name="WarningOnlyFrozenTroops" type="Label" parent="CentralControls/VBoxContainer/Warnings"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+text = "Buy or unfreeze troops before rolling."
+label_settings = ExtResource("2_p0vkd")
+horizontal_alignment = 1
+
 [node name="WarningOutOfHealth" type="Label" parent="CentralControls/VBoxContainer/Warnings"]
 visible = false
 layout_mode = 2
