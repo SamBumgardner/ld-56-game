@@ -23,11 +23,62 @@ layout_mode = 2
 layout_mode = 2
 texture = ExtResource("1_d8qxi")
 
-[node name="Label" type="Label" parent="Rows/CalculationStatTypeMatch"]
+[node name="ModifierEquation" type="Label" parent="Rows/CalculationStatTypeMatch"]
 layout_mode = 2
 text = "x 2 = "
 
 [node name="Value" type="Label" parent="Rows/CalculationStatTypeMatch"]
+layout_mode = 2
+text = "0"
+
+[node name="CalculationRemaining" type="HBoxContainer" parent="Rows"]
+layout_mode = 2
+
+[node name="UnusedStatTypes" type="GridContainer" parent="Rows/CalculationRemaining"]
+layout_mode = 2
+columns = 3
+
+[node name="TextureRect1" type="TextureRect" parent="Rows/CalculationRemaining/UnusedStatTypes"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("1_d8qxi")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Rows/CalculationRemaining/UnusedStatTypes"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("1_d8qxi")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="Rows/CalculationRemaining/UnusedStatTypes"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("1_d8qxi")
+expand_mode = 1
+
+[node name="TextureRect4" type="TextureRect" parent="Rows/CalculationRemaining/UnusedStatTypes"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("1_d8qxi")
+expand_mode = 1
+
+[node name="TextureRect5" type="TextureRect" parent="Rows/CalculationRemaining/UnusedStatTypes"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("1_d8qxi")
+expand_mode = 1
+
+[node name="TextureRect6" type="TextureRect" parent="Rows/CalculationRemaining/UnusedStatTypes"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("1_d8qxi")
+expand_mode = 1
+
+[node name="ModifierEquation" type="Label" parent="Rows/CalculationRemaining"]
+layout_mode = 2
+text = "x 1 ="
+
+[node name="Value" type="Label" parent="Rows/CalculationRemaining"]
 layout_mode = 2
 text = "0"
 
