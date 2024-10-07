@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://b73yb04wjxq8"]
+[gd_scene load_steps=25 format=3 uid="uid://b73yb04wjxq8"]
 
 [ext_resource type="Texture2D" uid="uid://l3l2yqfmprg5" path="res://assets/art/ld_56_indoors.jpg" id="1_f348j"]
 [ext_resource type="Script" path="res://src/indoor_preparation/indoor_preparation.gd" id="2_0rynj"]
@@ -23,6 +23,7 @@
 [ext_resource type="Resource" uid="uid://4vcpwnnptf5r" path="res://assets/data/characters/010_test_pal.tres" id="19_qmf8k"]
 [ext_resource type="Resource" uid="uid://1nhgxq12mwuo" path="res://assets/data/characters/011_test_pal.tres" id="20_pbwmt"]
 [ext_resource type="Resource" uid="uid://beppcdvy1b3s0" path="res://assets/data/characters/012_test_pal.tres" id="21_71v0u"]
+[ext_resource type="PackedScene" uid="uid://cwx53f7dgoboq" path="res://src/shared_ui/money_display/money_display.tscn" id="24_16sle"]
 
 [node name="IndoorPreparation" type="Control"]
 layout_mode = 3
@@ -35,6 +36,7 @@ theme = ExtResource("2_bky62")
 script = ExtResource("2_0rynj")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
 offset_right = 1280.0
 offset_bottom = 720.0
 texture = ExtResource("1_f348j")
@@ -276,3 +278,8 @@ offset_bottom = 46.0
 grow_horizontal = 2
 text = "Go Outside
 To Battle"
+
+[node name="MoneyDisplay" parent="." instance=ExtResource("24_16sle")]
+layout_mode = 1
+anchors_preset = -1
+offset_right = -60.0

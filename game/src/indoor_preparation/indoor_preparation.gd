@@ -11,6 +11,7 @@ const PURCHASE_FAIL_POOR_REASON: String = "INSUFFICIENT_FUNDS"
 @onready var database: Database = $"/root/Database"
 @onready var screen: Screen = $Screen
 @onready var crew_buttons: Array[Node] = $CrewButtons.get_children()
+@onready var money_display: MoneyDisplay = $MoneyDisplay
 
 var applicants: Array[Character] = []
 
@@ -40,6 +41,7 @@ func transition_in() -> void:
     
     screen.register_applicants_for_display(applicants)
     screen.return_to_home_display()
+    money_display.force_display_resolution()
 
 func transition_out() -> void:
     process_mode = PROCESS_MODE_DISABLED

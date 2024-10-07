@@ -60,6 +60,8 @@ func _on_mock_attack_button_pressed() -> void:
         _reduce_war_transport_health(damage_amount)
 
     if updated_health > 0:
+        print_debug("*** EARNING MONEY **** Probably clean this up later.")
+        Database.set_money(Database.current_money + randi_range(1, 100))
         _scale_up_barrier_strength()
         Database.set_barriers_overcome_count(
             Database.barriers_overcome_count

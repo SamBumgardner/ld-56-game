@@ -1,6 +1,8 @@
 # Defines variables shared across scenes with the correct data types.
 extends Node
 
+signal money_changed(new_value: int)
+
 enum StatType {
     MIGHT,
     WIT,
@@ -158,3 +160,4 @@ func set_war_transport_health_to_maximum() -> void:
 
 func set_money(updated_money: int) -> void:
     current_money = updated_money
+    money_changed.emit(current_money)
