@@ -30,9 +30,14 @@ func refresh() -> void:
     ]
     subtotal_stat_type_match_value.text = str(_get_subtotal_stat_type_match())
     _set_non_match_icons_to_grid()
-    subtotal_remaining_value.text = str(
-        _get_war_transport_damage_reduction_amount()
-        - _get_subtotal_stat_type_match()
+    subtotal_remaining_value.text = str(_get_subtotal_remaining_value())
+
+
+func _get_subtotal_remaining_value() -> int:
+    return combat_math_formulas.total_dice_leftover(
+        Database.current_character_die_slots,
+        Database.current_barrier_stat_type_to_overcome,
+        Database.current_matching_stat_type_multiplier
     )
 
 
