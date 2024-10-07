@@ -33,6 +33,11 @@ func go_inside() -> void:
     # if we had more complex states (we wanted to make sure real-time events didn't
     # happen until the fade in was completely done) we could add more callbacks to 
     # different parts of the process.
+    var zoom_in_tween = create_tween()
+    zoom_in_tween.set_ease(Tween.EASE_OUT)
+    zoom_in_tween.set_trans(Tween.TRANS_CUBIC)
+    zoom_in_tween.tween_property(outdoor_canvas, "scale", Vector2.ONE * 2, .5)
+    zoom_in_tween.tween_property(outdoor_canvas, "scale", Vector2.ONE, .25)
 
 func go_outside() -> void:
     # see go_inside, same idea here
@@ -45,3 +50,9 @@ func go_outside() -> void:
     mode_transition_cover.hide()
     transition_cover.show()
     mode_transition_cover.fade_in_out(transition_while_hidden)
+
+    var zoom_out_tween = create_tween()
+    zoom_out_tween.set_ease(Tween.EASE_OUT)
+    zoom_out_tween.set_trans(Tween.TRANS_CUBIC)
+    zoom_out_tween.tween_property(indoor_canvas, "scale", Vector2.ONE * .9, .5)
+    zoom_out_tween.tween_property(indoor_canvas, "scale", Vector2.ONE, .25)
