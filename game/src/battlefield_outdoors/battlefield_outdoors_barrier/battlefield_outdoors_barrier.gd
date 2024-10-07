@@ -1,5 +1,7 @@
 extends VBoxContainer
 
+signal barrier_stat_type_updated
+
 @export var action = null
 @export var cost_to_overcome_number = 1
 @export var display_name = ""
@@ -57,6 +59,11 @@ func set_action(action: Action) -> void:
     cost_to_overcome_stat_type_texture.texture = Database.stat_type_to_icon[
         action.stat_type
     ]
+
+    if Database.current_barrier_stat_type_to_overcome != action.stat_type:
+        Database.set_current_barrier_stat_type_to_overcome(action.stat_type)
+        barrier_stat_type_updated.emit()
+
     $CostToOvercome.visible = true
 
 
