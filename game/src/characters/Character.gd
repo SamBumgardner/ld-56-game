@@ -34,6 +34,7 @@ func upgrade(level, choice_idx) -> void:
         push_warning("upgrade history not pre-filled, filling gap now")
         upgrade_choice_history.append(UPGRADE_HISTORY_UNSET)
     upgrade_choice_history[level] = choice_idx
+    upgrade_level = level + 1
 
 func roll_action() -> Action:
     return actions.roll_action()

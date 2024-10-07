@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="UpgradeChoice" load_steps=3 format=3 uid="uid://c2i0mvjqn4nab"]
+
+[ext_resource type="Texture2D" uid="uid://umd2xpupuc32" path="res://assets/art/upgrade_icon_placeholder_2.png" id="1_4cssh"]
+[ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="2_stgbf"]
+
+[resource]
+script = ExtResource("2_stgbf")
+name = "Refine"
+description = "Distilled to perfection."
+visual_summary = "[center]Add:
+[img=30%]res://assets/art/MAGIC_icon_64x64.png[/img]2  [img=30%]res://assets/art/MAGIC_icon_64x64.png[/img]2"
+icon_ref = ExtResource("1_4cssh")
+cost = 30
+upgrade_type = 1
+number_of_times = 1
+remove_action_name = ""
+new_action_string = "chaos_4"

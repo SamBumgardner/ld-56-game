@@ -19,6 +19,8 @@ const UPGRADE_SUCCESS_FORMAT: String = "Successfully upgraded %s!"
 const UPGRADE_SUCCESS_DURATION: float = 2
 const UPGRADE_FAIL_FORMAT: String = "Failed to upgrade %s.\nReason: %s"
 const UPGRADE_FAIL_DURATION: float = 2
+const UPGRADE_LOCK_MESSAGE: String = "Cannot view upgrade.\nReason: MISSING_PREVIOUS_UPGRADE"
+const UPGRADE_LOCK_DURATION: float = 2
 
 @onready var home_display: HomeDisplay = $HomeDisplay
 @onready var hire_preview_display: BrowseHires = $HirePreviewDisplay
@@ -35,9 +37,11 @@ func _ready() -> void:
     hire_preview_display.applicant_selected.connect(_applicant_selected_from_hiring_preview)
     hire_preview_display.cancel_button.pressed.connect(_on_cancel)
     hire_detail_display.exit_button.pressed.connect(_on_cancel)
+    hire_detail_display.upgrade_selection.locked_upgrade_clicked.connect(_on_locked_upgrade_clicked)
+    character_detail_display.upgrade_selection.locked_upgrade_clicked.connect(_on_locked_upgrade_clicked)
+    character_detail_display.exit_button.pressed.connect(_on_cancel)
     left_hire_detail_display.connect(hire_detail_display.exited_display)
     left_character_detail_display.connect(character_detail_display.exited_display)
-    character_detail_display.exit_button.pressed.connect(_on_cancel)
     screen_notification.notification_expired.connect(_on_notification_expired_default)
 
 func register_applicants_for_display(applicants: Array[Character]) -> void:
@@ -130,6 +134,14 @@ func _on_upgrade_failure(character: Character, reason: String):
         ScreenNotification.ScreenNotificationType.ERROR,
         UPGRADE_FAIL_FORMAT % [character.name, reason],
         UPGRADE_FAIL_DURATION
+    )
+
+func _on_locked_upgrade_clicked():
+    notification_dimmer.show()
+    screen_notification.display_notification(
+        ScreenNotification.ScreenNotificationType.ERROR,
+        UPGRADE_LOCK_MESSAGE,
+        UPGRADE_LOCK_DURATION
     )
 
 func _hide_all_screen_displays() -> void:
