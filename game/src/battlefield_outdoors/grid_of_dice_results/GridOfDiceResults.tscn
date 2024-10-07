@@ -1,44 +1,44 @@
 [gd_scene load_steps=3 format=3 uid="uid://cbgigx6pdctmh"]
 
 [ext_resource type="Script" path="res://src/battlefield_outdoors/grid_of_dice_results/grid_of_dice_results.gd" id="1_3o0tt"]
-[ext_resource type="PackedScene" uid="uid://dqfr40hi455qx" path="res://src/battlefield_outdoors/grid_of_dice_results/lockable_die_result/LockableDieResult.tscn" id="3_85ont"]
+[ext_resource type="PackedScene" uid="uid://dqfr40hi455qx" path="res://src/battlefield_outdoors/grid_of_dice_results/freezable_die_result/FreezableDieResult.tscn" id="3_85ont"]
 
 [node name="GridOfDiceResults" type="GridContainer"]
 columns = 3
 script = ExtResource("1_3o0tt")
 
-[node name="LockableDieResult1" parent="." instance=ExtResource("3_85ont")]
+[node name="FreezableDieResult1" parent="." instance=ExtResource("3_85ont")]
 visible = false
 layout_mode = 2
 
-[node name="LockableDieResult2" parent="." instance=ExtResource("3_85ont")]
+[node name="FreezableDieResult2" parent="." instance=ExtResource("3_85ont")]
 visible = false
 layout_mode = 2
 
-[node name="LockableDieResult3" parent="." instance=ExtResource("3_85ont")]
+[node name="FreezableDieResult3" parent="." instance=ExtResource("3_85ont")]
 visible = false
 layout_mode = 2
 
-[node name="LockableDieResult4" parent="." instance=ExtResource("3_85ont")]
+[node name="FreezableDieResult4" parent="." instance=ExtResource("3_85ont")]
 visible = false
 layout_mode = 2
 
-[node name="LockableDieResult5" parent="." instance=ExtResource("3_85ont")]
+[node name="FreezableDieResult5" parent="." instance=ExtResource("3_85ont")]
 visible = false
 layout_mode = 2
 
-[node name="LockableDieResult6" parent="." instance=ExtResource("3_85ont")]
+[node name="FreezableDieResult6" parent="." instance=ExtResource("3_85ont")]
 visible = false
 layout_mode = 2
 
-[node name="LockableDieResult7" parent="." instance=ExtResource("3_85ont")]
+[node name="FreezableDieResult7" parent="." instance=ExtResource("3_85ont")]
 visible = false
 layout_mode = 2
 
-[node name="LockableDieResult8" parent="." instance=ExtResource("3_85ont")]
+[node name="FreezableDieResult8" parent="." instance=ExtResource("3_85ont")]
 visible = false
 layout_mode = 2
 
-[node name="LockableDieResult9" parent="." instance=ExtResource("3_85ont")]
+[node name="FreezableDieResult9" parent="." instance=ExtResource("3_85ont")]
 visible = false
 layout_mode = 2
