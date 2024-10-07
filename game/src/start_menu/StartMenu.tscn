@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://cg47m1iqb0uxk"]
+[gd_scene load_steps=5 format=3 uid="uid://cg47m1iqb0uxk"]
 
 [ext_resource type="Script" path="res://src/start_menu/start_menu.gd" id="1_1710u"]
 [ext_resource type="Theme" uid="uid://p47cuq8mu72p" path="res://assets/themes/StartMenu.tres" id="1_io06w"]
 [ext_resource type="Theme" uid="uid://dxolpwravnfdn" path="res://assets/themes/StartMenuButtons.tres" id="3_qd2mb"]
+
+[sub_resource type="Theme" id="Theme_jy1ow"]
+default_font_size = 128
 
 [node name="StartMenu" type="Control"]
 layout_mode = 3
@@ -28,8 +31,15 @@ offset_bottom = 139.5
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_jy1ow")
+text = "Tusk to Dusk"
+
 [node name="SubTitle" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 text = "Ludum Dare 56 Game Jam Entry"
 
 [node name="Buttons" type="CenterContainer" parent="VBoxContainer"]
