@@ -49,8 +49,9 @@ For Detailed Information"
 horizontal_alignment = 1
 
 [node name="UpgradeDetailsContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer"]
-visible = false
 layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 10
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/UpgradeDetailsContainer"]
 layout_mode = 2
