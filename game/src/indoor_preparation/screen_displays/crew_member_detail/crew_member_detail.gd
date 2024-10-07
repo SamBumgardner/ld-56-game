@@ -28,3 +28,7 @@ func _on_upgrade_button_pressed(upgrade_choice: UpgradeChoice):
             break
 
     upgrade_purchase_pressed.emit(character, upgrade_choice, upgrade_level, choice_idx)
+
+func refresh_upgrade_display():
+    super()
+    upgrade_prompt.clear_upgrade_data()

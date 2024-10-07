@@ -9,3 +9,7 @@ var cost_format_string: String = """[center]Hiring Cost:
 
 func set_character_data(character: Character) -> void:
     cost_display.text = cost_format_string % character.hiring_cost
+    purchase_button.disabled = false
+
+func disable_buy():
+    purchase_button.disabled = true
