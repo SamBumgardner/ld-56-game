@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bwpa5wbo5ct7g"]
+[gd_scene load_steps=5 format=3 uid="uid://bwpa5wbo5ct7g"]
 
 [ext_resource type="PackedScene" uid="uid://cbgigx6pdctmh" path="res://src/battlefield_outdoors/grid_of_dice_results/GridOfDiceResults.tscn" id="1_depth"]
 [ext_resource type="Script" path="res://src/battlefield_outdoors/battlefield_outdoors_war_transport/battlefield_outdoors_war_transport.gd" id="1_o8nwd"]
 [ext_resource type="Texture2D" uid="uid://4nvogy60mpq3" path="res://icon.svg" id="2_aqe0i"]
+[ext_resource type="PackedScene" uid="uid://cg02ahrm1dodf" path="res://src/battlefield_outdoors/combat_math_calculations_hud/CombatMathCalculationsHud.tscn" id="4_2x5nk"]
 
 [node name="BattlefieldOutdoorsWarTransport" type="Node2D"]
 script = ExtResource("1_o8nwd")
@@ -26,44 +27,5 @@ layout_mode = 2
 text = "Elephant in the Room"
 horizontal_alignment = 1
 
-[node name="Calculations" type="MarginContainer" parent="Columns"]
+[node name="CombatMathCalculationsHud" parent="Columns" instance=ExtResource("4_2x5nk")]
 layout_mode = 2
-
-[node name="Panel" type="Panel" parent="Columns/Calculations"]
-layout_mode = 2
-
-[node name="Rows" type="VBoxContainer" parent="Columns/Calculations"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Columns/Calculations/Rows"]
-layout_mode = 2
-text = "Calculations:"
-
-[node name="CalculationStatTypeMatch" type="HBoxContainer" parent="Columns/Calculations/Rows"]
-layout_mode = 2
-
-[node name="Symbol" type="TextureRect" parent="Columns/Calculations/Rows/CalculationStatTypeMatch"]
-layout_mode = 2
-texture = ExtResource("2_aqe0i")
-
-[node name="Label" type="Label" parent="Columns/Calculations/Rows/CalculationStatTypeMatch"]
-layout_mode = 2
-text = "x 2 = "
-
-[node name="Value" type="Label" parent="Columns/Calculations/Rows/CalculationStatTypeMatch"]
-layout_mode = 2
-text = "0"
-
-[node name="HSeparator" type="HSeparator" parent="Columns/Calculations/Rows"]
-layout_mode = 2
-
-[node name="DiceTotal" type="HBoxContainer" parent="Columns/Calculations/Rows"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Columns/Calculations/Rows/DiceTotal"]
-layout_mode = 2
-text = "Total:"
-
-[node name="Value" type="Label" parent="Columns/Calculations/Rows/DiceTotal"]
-layout_mode = 2
-text = "0"

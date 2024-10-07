@@ -1,10 +1,8 @@
 extends Node2D
 
 
+@onready var combat_math_calculations_hud = $Columns/CombatMathCalculationsHud
 @onready var combat_math_formulas = CombatMathFormulas.new()
-@onready var dice_total_value = (
-    $Columns/Calculations/Rows/DiceTotal/Value
-)
 @onready var grid_of_dice_results = (
     $Columns/Units/GridOfDiceResults
 )
@@ -12,7 +10,7 @@ extends Node2D
 
 # TODO: Call when the barrier changes.
 func refresh() -> void:
-    dice_total_value.text = str(_get_war_transport_damage_reduction_amount())
+    combat_math_calculations_hud.refresh()
 
 
 # Sum dice results, multiplying dice that match the target StatType.
@@ -24,7 +22,7 @@ func _get_war_transport_damage_reduction_amount() -> int:
     )
 
 
-func _on_battlefield_outdoors_barrier_barrier_stat_type_updated():
+func _on_battlefield_outdoors_barrier_barrier_stat_type_updated() -> void:
     refresh()
 
 
