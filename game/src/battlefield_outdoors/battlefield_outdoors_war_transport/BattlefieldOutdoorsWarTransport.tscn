@@ -11,59 +11,59 @@ script = ExtResource("1_o8nwd")
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="UnitsColumn" type="VBoxContainer" parent="Columns"]
+[node name="Units" type="VBoxContainer" parent="Columns"]
 layout_mode = 2
 
-[node name="GridOfDiceResults" parent="Columns/UnitsColumn" instance=ExtResource("1_depth")]
+[node name="GridOfDiceResults" parent="Columns/Units" instance=ExtResource("1_depth")]
 layout_mode = 2
 
-[node name="WarTransportRect" type="TextureRect" parent="Columns/UnitsColumn"]
+[node name="WarTransportRect" type="TextureRect" parent="Columns/Units"]
 layout_mode = 2
 texture = ExtResource("2_aqe0i")
 
-[node name="WarTransportName" type="Label" parent="Columns/UnitsColumn"]
+[node name="WarTransportName" type="Label" parent="Columns/Units"]
 layout_mode = 2
 text = "Elephant in the Room"
 horizontal_alignment = 1
 
-[node name="CalculationsColumn" type="MarginContainer" parent="Columns"]
+[node name="Calculations" type="MarginContainer" parent="Columns"]
 layout_mode = 2
 
-[node name="Panel" type="Panel" parent="Columns/CalculationsColumn"]
+[node name="Panel" type="Panel" parent="Columns/Calculations"]
 layout_mode = 2
 
-[node name="Rows" type="VBoxContainer" parent="Columns/CalculationsColumn"]
+[node name="Rows" type="VBoxContainer" parent="Columns/Calculations"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Columns/CalculationsColumn/Rows"]
+[node name="Label" type="Label" parent="Columns/Calculations/Rows"]
 layout_mode = 2
 text = "Calculations:"
 
-[node name="CalculationStatTypeMatch" type="HBoxContainer" parent="Columns/CalculationsColumn/Rows"]
+[node name="CalculationStatTypeMatch" type="HBoxContainer" parent="Columns/Calculations/Rows"]
 layout_mode = 2
 
-[node name="Symbol" type="TextureRect" parent="Columns/CalculationsColumn/Rows/CalculationStatTypeMatch"]
+[node name="Symbol" type="TextureRect" parent="Columns/Calculations/Rows/CalculationStatTypeMatch"]
 layout_mode = 2
 texture = ExtResource("2_aqe0i")
 
-[node name="Label" type="Label" parent="Columns/CalculationsColumn/Rows/CalculationStatTypeMatch"]
+[node name="Label" type="Label" parent="Columns/Calculations/Rows/CalculationStatTypeMatch"]
 layout_mode = 2
 text = "x 2 = "
 
-[node name="Value" type="Label" parent="Columns/CalculationsColumn/Rows/CalculationStatTypeMatch"]
+[node name="Value" type="Label" parent="Columns/Calculations/Rows/CalculationStatTypeMatch"]
 layout_mode = 2
 text = "0"
 
-[node name="HSeparator" type="HSeparator" parent="Columns/CalculationsColumn/Rows"]
+[node name="HSeparator" type="HSeparator" parent="Columns/Calculations/Rows"]
 layout_mode = 2
 
-[node name="DiceTotal" type="HBoxContainer" parent="Columns/CalculationsColumn/Rows"]
+[node name="DiceTotal" type="HBoxContainer" parent="Columns/Calculations/Rows"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Columns/CalculationsColumn/Rows/DiceTotal"]
+[node name="Label" type="Label" parent="Columns/Calculations/Rows/DiceTotal"]
 layout_mode = 2
 text = "Total:"
 
-[node name="Value" type="Label" parent="Columns/CalculationsColumn/Rows/DiceTotal"]
+[node name="Value" type="Label" parent="Columns/Calculations/Rows/DiceTotal"]
 layout_mode = 2
 text = "0"
