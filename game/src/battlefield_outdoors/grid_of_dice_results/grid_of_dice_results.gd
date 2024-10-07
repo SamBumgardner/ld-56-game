@@ -1,4 +1,4 @@
-extends GridContainer
+class_name GridOfDiceResults extends GridContainer
 
 signal character_die_slots_rolled
 
@@ -10,7 +10,7 @@ var current_visible_count: int
 var maximum_slots = 9
 
 func _ready():
-    _initialize_character_die_slots(Database.hired_characters)
+    initialize_character_die_slots(Database.hired_characters)
     _reveal_populated_die_slots()
 
 
@@ -44,13 +44,17 @@ func roll_dice() -> void:
     _reveal_populated_die_slots()
 
 
-func _initialize_character_die_slots(characters) -> void:
+func initialize_character_die_slots(characters) -> void:
     character_die_slots = []
 
     for hired_character_index in characters.size():
+        var is_frozen = false
+        if hired_character_index < Database.current_character_die_slots.size():
+            is_frozen = Database.current_character_die_slots[hired_character_index].is_frozen
         character_die_slots.append(
             CharacterDieSlot.new(
-                characters[hired_character_index]
+                characters[hired_character_index],
+                is_frozen
             )
         )
 

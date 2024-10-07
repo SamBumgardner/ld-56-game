@@ -1,11 +1,11 @@
-extends Node2D
+class_name BattlefieldOutdoorsWarTransport extends Node2D
 
 
 @onready var combat_math_calculations_hud: MarginContainer = (
     $Columns/CombatMathCalculationsHud
 )
 @onready var combat_math_formulas: CombatMathFormulas = CombatMathFormulas.new()
-@onready var grid_of_dice_results: GridContainer = (
+@onready var grid_of_dice_results: GridOfDiceResults = (
     $Columns/Units/GridOfDiceResults
 )
 

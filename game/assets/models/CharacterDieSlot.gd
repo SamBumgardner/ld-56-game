@@ -7,8 +7,9 @@ var is_frozen: bool = false
 var last_roll_result: Action = null
 
 
-func _init(_character: Character) -> void:
+func _init(_character: Character, _is_frozen: bool = false) -> void:
     character = _character
+    is_frozen = _is_frozen
 
 
 func roll_action() -> Action:
