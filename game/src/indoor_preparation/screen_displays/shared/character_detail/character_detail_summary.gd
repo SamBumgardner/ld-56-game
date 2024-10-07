@@ -3,7 +3,7 @@ class_name CharacterDetailSummary extends Control
 @onready var portrait: TextureRect = $Portrait
 @onready var name_label: Label = $VBoxContainer/Name
 @onready var description_label: Label = $VBoxContainer/Description
-@onready var action_previews: Array[Node] = $VBoxContainer/ActionsPreview.get_children()
+@onready var action_previews: Array[Node] = $VBoxContainer/ActionsBackground/MarginContainer/ActionsPreview.get_children().slice(1)
 
 func set_character_data(character: Character) -> void:
     portrait.texture = character.portrait

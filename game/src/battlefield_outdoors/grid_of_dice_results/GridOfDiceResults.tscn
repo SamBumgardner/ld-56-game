@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cbgigx6pdctmh"]
 
 [ext_resource type="Script" path="res://src/battlefield_outdoors/grid_of_dice_results/grid_of_dice_results.gd" id="1_3o0tt"]
-[ext_resource type="PackedScene" uid="uid://lw7wcqkoqifj" path="res://src/battlefield_outdoors/grid_of_dice_results/die_result/DieResult.tscn" id="1_qmi72"]
+[ext_resource type="PackedScene" uid="uid://lw7wcqkoqifj" path="res://src/shared_ui/die_result/DieResult.tscn" id="1_qmi72"]
 
 [node name="GridOfDiceResults" type="GridContainer"]
 columns = 3

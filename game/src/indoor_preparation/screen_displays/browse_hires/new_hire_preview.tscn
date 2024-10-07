@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dsi835iplnoul" path="res://assets/art/placeholder_ally.png" id="1_sufm1"]
 [ext_resource type="Script" path="res://src/indoor_preparation/screen_displays/browse_hires/new_hire_preview.gd" id="1_yy8kg"]
-[ext_resource type="PackedScene" uid="uid://lw7wcqkoqifj" path="res://src/battlefield_outdoors/grid_of_dice_results/die_result/DieResult.tscn" id="3_jlg8d"]
+[ext_resource type="PackedScene" uid="uid://lw7wcqkoqifj" path="res://src/shared_ui/die_result/DieResult.tscn" id="3_jlg8d"]
 
 [node name="MarginContainer" type="MarginContainer"]
 custom_minimum_size = Vector2(0, 64)
