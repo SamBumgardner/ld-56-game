@@ -76,26 +76,26 @@ size_flags_horizontal = 10
 texture = ExtResource("4_o5aea")
 stretch_mode = 2
 
-[node name="Power Container" type="PanelContainer" parent="MainContents/BarrierDetails/StatsContainer"]
+[node name="PowerContainer" type="PanelContainer" parent="MainContents/BarrierDetails/StatsContainer"]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="MainContents/BarrierDetails/StatsContainer/Power Container"]
+[node name="MarginContainer" type="MarginContainer" parent="MainContents/BarrierDetails/StatsContainer/PowerContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="MainContents/BarrierDetails/StatsContainer/Power Container/MarginContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="MainContents/BarrierDetails/StatsContainer/PowerContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="PowerLabel" type="Label" parent="MainContents/BarrierDetails/StatsContainer/Power Container/MarginContainer/HBoxContainer2"]
+[node name="PowerLabel" type="Label" parent="MainContents/BarrierDetails/StatsContainer/PowerContainer/MarginContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 2
 theme_override_font_sizes/font_size = 24
 text = "Total Power:"
 
-[node name="PowerValue" type="Label" parent="MainContents/BarrierDetails/StatsContainer/Power Container/MarginContainer/HBoxContainer2"]
+[node name="PowerValue" type="Label" parent="MainContents/BarrierDetails/StatsContainer/PowerContainer/MarginContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 32

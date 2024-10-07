@@ -43,6 +43,7 @@ func transition_in() -> void:
     
     screen.register_applicants_for_display(applicants)
     screen.return_to_home_display()
+    screen.home_display.set_barrier(database.current_barrier_data)
     money_display.force_display_resolution()
 
 func transition_out() -> void:
