@@ -69,6 +69,7 @@ func _applicant_selected_from_hiring_preview(character: Character) -> void:
 
 func _on_crew_member_selected(character: Character) -> void:
     _hide_all_screen_displays()
+    _cancel_notifications()
     current_view = ScreenViews.CREW_MEMBER_DETAIL
     character_detail_display.set_character_data(character)
     _delay_callback(character_detail_display.show)
@@ -110,6 +111,9 @@ func _on_hiring_failure(character: Character, reason: String) -> void:
         HIRE_FAIL_FORMAT % [character.name, reason],
         HIRE_FAIL_DURATION
     )
+    screen_notification.notification_expired.connect(
+        hire_detail_display.set_character_data.bind(character),
+        CONNECT_ONE_SHOT)
 
 func _on_upgrade_success(character: Character):
     character_detail_display.refresh_upgrade_view()
