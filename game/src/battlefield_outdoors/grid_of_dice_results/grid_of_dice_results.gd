@@ -56,6 +56,16 @@ func _initialize_character_die_slots(characters) -> void:
 
     Database.set_current_character_die_slots(character_die_slots)
 
+    _add_sequential_indexes_to_children()
+
+
+# Add indexes so children may freeze database die results.
+func _add_sequential_indexes_to_children():
+    for character_die_slot_index in character_die_slots.size():
+        get_child(character_die_slot_index).current_character_die_slot_index = (
+            character_die_slot_index
+        )
+
 
 func _reveal_populated_die_slots() -> void:
     var visible_count = Database.current_character_die_slots.size()
