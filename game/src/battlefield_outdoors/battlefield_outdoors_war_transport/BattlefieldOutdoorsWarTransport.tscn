@@ -52,6 +52,7 @@ text = "x 2 = "
 
 [node name="Value" type="Label" parent="Columns/CalculationsColumn/Rows/CalculationStatTypeMatch"]
 layout_mode = 2
+text = "0"
 
 [node name="HSeparator" type="HSeparator" parent="Columns/CalculationsColumn/Rows"]
 layout_mode = 2
