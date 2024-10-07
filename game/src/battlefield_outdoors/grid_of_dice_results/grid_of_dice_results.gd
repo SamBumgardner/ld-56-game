@@ -48,9 +48,13 @@ func initialize_character_die_slots(characters) -> void:
     character_die_slots = []
 
     for hired_character_index in characters.size():
+        var is_frozen = false
+        if hired_character_index < Database.current_character_die_slots.size():
+            is_frozen = Database.current_character_die_slots[hired_character_index].is_frozen
         character_die_slots.append(
             CharacterDieSlot.new(
-                characters[hired_character_index]
+                characters[hired_character_index],
+                is_frozen
             )
         )
 
