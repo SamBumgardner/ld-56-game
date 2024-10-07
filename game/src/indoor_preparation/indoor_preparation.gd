@@ -26,6 +26,11 @@ func _ready() -> void:
     upgrade_success.connect(screen._on_upgrade_success)
     upgrade_failure.connect(screen._on_upgrade_failure)
     
+    if get_tree().current_scene == self:
+        transition_in()
+
+func transition_in() -> void:
+    process_mode = PROCESS_MODE_INHERIT
     if database.should_generate_new_applicants:
         applicants = database.get_random_unhired(APPLICANT_COUNT)
         database.set_current_applicants(applicants)
@@ -34,6 +39,10 @@ func _ready() -> void:
         applicants = database.applicants
     
     screen.register_applicants_for_display(applicants)
+    screen.return_to_home_display()
+
+func transition_out() -> void:
+    process_mode = PROCESS_MODE_DISABLED
 
 func _on_hire_purchase_attempted(character: Character) -> void:
     # check money is sufficent

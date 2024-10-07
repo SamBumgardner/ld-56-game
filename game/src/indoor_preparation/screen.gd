@@ -43,6 +43,12 @@ func _ready() -> void:
 func register_applicants_for_display(applicants: Array[Character]) -> void:
     hire_preview_display.set_new_applicants(applicants)
 
+func return_to_home_display() -> void:
+    _cancel_notifications()
+    _hide_all_screen_displays()
+    current_view = ScreenViews.HOME
+    _delay_callback(home_display.show)
+
 func refresh_upgrade_display() -> void:
     if current_view == ScreenViews.CREW_MEMBER_DETAIL:
         character_detail_display.set_character_data(character_detail_display.character)
