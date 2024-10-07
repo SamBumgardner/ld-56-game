@@ -4,6 +4,7 @@ signal hiring_success(character: Character)
 signal hiring_failure(character: Character, reason: String)
 signal upgrade_success(character: Character)
 signal upgrade_failure(character: Character, reason: String)
+signal insufficient_funds()
 
 const APPLICANT_COUNT: int = 4
 const PURCHASE_FAIL_POOR_REASON: String = "INSUFFICIENT_FUNDS"
@@ -11,6 +12,7 @@ const PURCHASE_FAIL_POOR_REASON: String = "INSUFFICIENT_FUNDS"
 @onready var database: Database = $"/root/Database"
 @onready var screen: Screen = $Screen
 @onready var crew_buttons: Array[Node] = $CrewButtons.get_children()
+@onready var money_display: MoneyDisplay = $MoneyDisplay
 
 var applicants: Array[Character] = []
 
@@ -25,6 +27,7 @@ func _ready() -> void:
     hiring_failure.connect(screen._on_hiring_failure)
     upgrade_success.connect(screen._on_upgrade_success)
     upgrade_failure.connect(screen._on_upgrade_failure)
+    insufficient_funds.connect(money_display._on_insufficient_funds)
     
     if get_tree().current_scene == self:
         transition_in()
@@ -40,6 +43,7 @@ func transition_in() -> void:
     
     screen.register_applicants_for_display(applicants)
     screen.return_to_home_display()
+    money_display.force_display_resolution()
 
 func transition_out() -> void:
     process_mode = PROCESS_MODE_DISABLED
@@ -55,6 +59,7 @@ func _on_hire_purchase_attempted(character: Character) -> void:
         hiring_success.emit(character)
     else:
         hiring_failure.emit(character, PURCHASE_FAIL_POOR_REASON)
+        insufficient_funds.emit()
 
 func _on_upgrade_purchase_attempted(character: Character, upgrade_choice: UpgradeChoice,
         upgrade_level: int, choice_idx: int):
@@ -65,3 +70,4 @@ func _on_upgrade_purchase_attempted(character: Character, upgrade_choice: Upgrad
         upgrade_success.emit(character)
     else:
         upgrade_failure.emit(character, PURCHASE_FAIL_POOR_REASON)
+        insufficient_funds.emit()
