@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c812lqrvhyq01" path="res://assets/art/ATTACK_icon_64x64.png" id="3_cs4wt"]
 [ext_resource type="Script" path="res://src/indoor_preparation/screen_displays/shared/character_detail/character_detail_summary.gd" id="3_q3ltp"]
 [ext_resource type="Texture2D" uid="uid://r7a1wa1ifq57" path="res://assets/art/placeholder_close_button.png" id="4_vii54"]
-[ext_resource type="PackedScene" uid="uid://cf7gpoxw4lyd4" path="res://src/indoor_preparation/screen_displays/shared/upgrade_choice_display.tscn" id="4_vtj8y"]
+[ext_resource type="PackedScene" uid="uid://cf7gpoxw4lyd4" path="res://src/indoor_preparation/screen_displays/shared/upgrades/upgrade_choice_display.tscn" id="4_vtj8y"]
 [ext_resource type="PackedScene" uid="uid://lw7wcqkoqifj" path="res://src/shared_ui/die_result/DieResult.tscn" id="5_mb6um"]
 [ext_resource type="Script" path="res://src/indoor_preparation/screen_displays/shared/character_detail/character_detail_upgrades.gd" id="6_1f48f"]
 [ext_resource type="PackedScene" uid="uid://vsu1s8qjdne8" path="res://src/indoor_preparation/screen_displays/shared/character_detail/dynamic_info_panel.tscn" id="8_yjqcy"]
