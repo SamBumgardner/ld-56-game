@@ -53,6 +53,8 @@ var barriers_overcome_count: int
 var barriers_linear_scale_amount: int
 var current_barrier_stat_type_to_overcome: StatType
 var current_barrier_cost_to_overcome_number: int
+var current_barrier_data: BarrierData
+
 var current_character_die_slots: Array[CharacterDieSlot]
 var current_matching_stat_type_multiplier: int
 var war_transport_health_current: int
@@ -76,6 +78,9 @@ func reset_values() -> void:
     )
     set_current_barrier_stat_type_to_overcome(
         _initial_barriers_stat_type_to_overcome
+    )
+    set_current_barrier_data(
+        null
     )
     set_current_character_die_slots(_initial_character_die_slots)
     set_current_matching_stat_type_multiplier(
@@ -140,6 +145,9 @@ func set_current_barrier_stat_type_to_overcome(updated_stat_type: StatType) -> v
 
 func set_current_barrier_cost_to_overcome_number(updated_number: int) -> void:
     current_barrier_cost_to_overcome_number = updated_number
+
+func set_current_barrier_data(updated_barrier_data: BarrierData) -> void:
+    current_barrier_data = updated_barrier_data
 
 func set_current_character_die_slots(
     updated_slots: Array[CharacterDieSlot]

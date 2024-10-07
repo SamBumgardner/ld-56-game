@@ -2,27 +2,31 @@ extends VBoxContainer
 
 signal barrier_stat_type_updated
 
-@export var action = null
-@export var cost_to_overcome_number = 1
-@export var display_name = ""
-
-@onready var cost_to_overcome_number_label = $CostToOvercome/Amount
-@onready var cost_to_overcome_stat_type_texture = $CostToOvercome/Symbol
-@onready var display_name_label = $BarrierName
-
-var random_display_name_adjective_list = [
+const random_display_name_adjective_list = [
     'Looming',
     'Menacing',
     'Nice',
     'Worn'
 ]
 
-var random_display_name_root_list = [
+const random_display_name_root_list = [
     'Boulder',
     'Pyramid',
     'Security Gate'
 ]
 
+@export var cost_to_overcome_number = 1
+@export var display_name = ""
+@export var default_graphic: Texture2D = preload("res://icon.svg")
+
+@onready var cost_to_overcome_number_label: Label = $CostToOvercome/Amount
+@onready var cost_to_overcome_stat_type_texture: TextureRect = $CostToOvercome/Symbol
+@onready var display_name_label: Label = $BarrierName
+@onready var barrier_texture_rect: TextureRect = $BarrierRect
+
+## technically we don't have to store this here, but since this is the progenitor of the barrier
+## it seemed handy to have around.
+var current_barrier_data: BarrierData
 
 func _ready():
     cost_to_overcome_number_label.text = str(cost_to_overcome_number)
@@ -36,33 +40,34 @@ func _get_random_display_name() -> String:
         + random_display_name_root_list.pick_random()
     )
 
-
-func refresh() -> void:
+func _generate_barrier_data() -> BarrierData:
     var random_display_name = _get_random_display_name()
     var random_stat_type = Database.StatType.values().pick_random()
+    return BarrierData.new(random_display_name, random_stat_type,
+        Database.current_barrier_cost_to_overcome_number, default_graphic)
+        
 
-    display_name_label.text = random_display_name
-    var overcome_action = Action.new(
-        random_display_name,
-        random_stat_type,
-        Database.current_barrier_cost_to_overcome_number
-    )
-    set_action(overcome_action)
+func refresh() -> void:
+    current_barrier_data = _generate_barrier_data()
+    _update_display(current_barrier_data)
+
+    if Database.current_barrier_stat_type_to_overcome != current_barrier_data.weakness_type:
+        Database.set_current_barrier_stat_type_to_overcome(current_barrier_data.weakness_type)
+        barrier_stat_type_updated.emit()
+    Database.set_current_barrier_data(current_barrier_data)
 
 
-func set_action(action: Action) -> void:
-    if action == null:
+func _update_display(barrier_data: BarrierData) -> void:
+    if barrier_data == null:
         $CostToOvercome.visible = false
         return
-
-    cost_to_overcome_number_label.text = str(action.amount)
+    
+    display_name_label.text = current_barrier_data.name
+    barrier_texture_rect.texture = current_barrier_data.graphic
+    cost_to_overcome_number_label.text = str(current_barrier_data.cost_to_overcome)
     cost_to_overcome_stat_type_texture.texture = Database.stat_type_to_icon[
-        action.stat_type
+        current_barrier_data.weakness_type
     ]
-
-    if Database.current_barrier_stat_type_to_overcome != action.stat_type:
-        Database.set_current_barrier_stat_type_to_overcome(action.stat_type)
-        barrier_stat_type_updated.emit()
 
     $CostToOvercome.visible = true
 

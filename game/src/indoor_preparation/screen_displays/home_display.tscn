@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://src/indoor_preparation/screen_displays/home_display.gd" id="1_b3nrn"]
 [ext_resource type="Theme" uid="uid://dk5iv042psfw" path="res://assets/themes/Default.tres" id="1_itrie"]
-[ext_resource type="PackedScene" path="res://src/battlefield_outdoors_barrier/cost_to_overcome.tscn" id="2_i0isj"]
+[ext_resource type="PackedScene" uid="uid://c4lm0cbsw0u68" path="res://src/battlefield_outdoors_barrier/cost_to_overcome.tscn" id="2_i0isj"]
 [ext_resource type="Texture2D" uid="uid://bic3i142epdt3" path="res://assets/art/placeholder_threat.png" id="3_4hdf6"]
 
 [node name="HomeDisplay" type="Control"]
