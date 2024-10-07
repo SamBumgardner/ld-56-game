@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://1wye34y7qnhe"]
+[gd_scene load_steps=7 format=3 uid="uid://1wye34y7qnhe"]
 
 [ext_resource type="PackedScene" uid="uid://mq5u7di7yh8m" path="res://src/back_to_start_menu_button/BackToStartMenuButton.tscn" id="1_8sw2a"]
+[ext_resource type="Script" path="res://src/gameplay/gameplay.gd" id="1_exjrn"]
+[ext_resource type="Theme" uid="uid://dk5iv042psfw" path="res://assets/themes/Default.tres" id="1_hbifn"]
 [ext_resource type="PackedScene" uid="uid://c5dvnfrvyjol6" path="res://src/battlefield_outdoors/BattlefieldOutdoors.tscn" id="2_35wcq"]
+[ext_resource type="PackedScene" uid="uid://b73yb04wjxq8" path="res://src/indoor_preparation/indoor_preparation.tscn" id="4_qkdrp"]
+[ext_resource type="PackedScene" uid="uid://cqks4bltxh7sq" path="res://src/transition_cover/mode_transition_cover.tscn" id="6_blf36"]
 
 [node name="Gameplay" type="Control"]
 layout_mode = 3
@@ -10,9 +14,23 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_hbifn")
+script = ExtResource("1_exjrn")
 
-[node name="BattlefieldOutdoors" parent="." instance=ExtResource("2_35wcq")]
-layout_mode = 1
+[node name="OutdoorBattleMode" type="CanvasLayer" parent="."]
+visible = false
 
-[node name="BackToStartMenuButton" parent="." instance=ExtResource("1_8sw2a")]
-layout_mode = 1
+[node name="BattlefieldOutdoors" parent="OutdoorBattleMode" instance=ExtResource("2_35wcq")]
+
+[node name="BackToStartMenuButton" parent="OutdoorBattleMode" instance=ExtResource("1_8sw2a")]
+
+[node name="IndoorPrepMode" type="CanvasLayer" parent="."]
+layer = 2
+visible = false
+
+[node name="IndoorPreparation" parent="IndoorPrepMode" instance=ExtResource("4_qkdrp")]
+
+[node name="TransitionCover" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="ModeTransitionCover" parent="TransitionCover" instance=ExtResource("6_blf36")]

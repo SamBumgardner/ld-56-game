@@ -26,6 +26,9 @@ func _ready() -> void:
     upgrade_success.connect(screen._on_upgrade_success)
     upgrade_failure.connect(screen._on_upgrade_failure)
     
+    transition_in()
+
+func transition_in() -> void:
     if database.should_generate_new_applicants:
         applicants = database.get_random_unhired(APPLICANT_COUNT)
         database.set_current_applicants(applicants)
