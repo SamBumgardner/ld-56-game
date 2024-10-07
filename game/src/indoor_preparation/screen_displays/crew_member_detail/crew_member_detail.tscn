@@ -9,3 +9,6 @@ script = ExtResource("2_47e65")
 
 [node name="UpgradePrompt" parent="IconAndCost" index="1" instance=ExtResource("2_wa450")]
 layout_mode = 2
+
+[node name="OptionalHeader" parent="." index="5"]
+visible = false
