@@ -15,4 +15,5 @@ func set_character_data(new_character: Character):
 func _on_hire_button_pressed():
     upgrade_selection.unpress_all_upgrade_buttons()
     dynamic_info_panel.clear_upgrade_data()
+    hire_cost_prompt.disable_buy()
     hire_purchase_pressed.emit(character)

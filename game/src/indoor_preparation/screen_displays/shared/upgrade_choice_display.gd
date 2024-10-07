@@ -24,6 +24,11 @@ func _ready() -> void:
         upgrade_buttons[i].connect("mouse_exited", _emit_decorated_exit.bind(i))
         upgrade_buttons[i].connect("pressed", _emit_decorated_select.bind(i))
 
+func resend_pressed_button():
+    for button: Button in upgrade_buttons:
+        if button.button_pressed:
+            button.pressed.emit()
+
 func set_upgrade_choice_data(upgrade_selector: UpgradeSelector, purchased_idx: int) -> void:
     purchased_upgrade_idx = purchased_idx
     upgrade_level_purchased = \

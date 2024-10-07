@@ -1,8 +1,19 @@
 class_name CharacterDetailUpgrades extends Control
 
 @onready var upgrade_choices: Array[Node] = $MarginContainer/VBoxContainer.get_children().slice(1)
+var character: Character
 
-func set_character_data(character: Character) -> void:
+func set_character_data(new_character: Character) -> void:
+    character = new_character
+    refresh_display_while_retaining_pressed()
+    unpress_all_upgrade_buttons()
+
+func refresh_and_resend_pushed_button_info() -> void:
+    refresh_display_while_retaining_pressed()
+    for upgrade_choice in upgrade_choices:
+        upgrade_choice.resend_pressed_button()
+
+func refresh_display_while_retaining_pressed() -> void:
     for i in range(upgrade_choices.size()):
         if i < character.upgrades.size():
             upgrade_choices[i].set_upgrade_choice_data(character.upgrades[i],
@@ -10,7 +21,6 @@ func set_character_data(character: Character) -> void:
             upgrade_choices[i].show()
         else:
             upgrade_choices[i].hide_upgrade_choice_info()
-    unpress_all_upgrade_buttons()
 
 func unpress_all_upgrade_buttons() -> void:
     for upgrade_choice in upgrade_choices:

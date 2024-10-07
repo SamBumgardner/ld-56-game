@@ -49,11 +49,6 @@ func return_to_home_display() -> void:
     current_view = ScreenViews.HOME
     _delay_callback(home_display.show)
 
-func refresh_upgrade_display() -> void:
-    if current_view == ScreenViews.CREW_MEMBER_DETAIL:
-        character_detail_display.set_character_data(character_detail_display.character)
-        character_detail_display.refresh_upgrade_display()
-
 func _delay_callback(callback: Callable) -> void:
     if loading_delay_tween != null and loading_delay_tween.is_running():
         loading_delay_tween.stop()
@@ -117,6 +112,7 @@ func _on_hiring_failure(character: Character, reason: String) -> void:
     )
 
 func _on_upgrade_success(character: Character):
+    character_detail_display.refresh_upgrade_view()
     notification_dimmer.show()
     screen_notification.display_notification(
         ScreenNotification.ScreenNotificationType.NOTIFY,

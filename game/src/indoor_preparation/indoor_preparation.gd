@@ -66,7 +66,6 @@ func _on_upgrade_purchase_attempted(character: Character, upgrade_choice: Upgrad
     if database.current_money >= upgrade_choice.cost:
         database.set_money(database.current_money - upgrade_choice.cost)
         character.upgrade(upgrade_level, choice_idx)
-        screen.refresh_upgrade_display()
         upgrade_success.emit(character)
     else:
         upgrade_failure.emit(character, PURCHASE_FAIL_POOR_REASON)
