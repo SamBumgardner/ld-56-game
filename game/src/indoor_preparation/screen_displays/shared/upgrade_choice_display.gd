@@ -13,6 +13,7 @@ signal upgrade_selected(upgrade: UpgradeChoice, upgrade_level_purchased: bool, t
     $HBoxContainer/Button/PurchasedIcon,
     $HBoxContainer/Button2/PurchasedIcon2
 ]
+@onready var lock_panel: Node = $LockedPanel
 
 var upgrades: Array[UpgradeChoice]
 var upgrade_level_purchased: bool
@@ -59,6 +60,12 @@ func hide_upgrade_choice_info() -> void:
 func unpress_all_upgrade_buttons() -> void:
     for button: Button in upgrade_buttons:
         button.button_pressed = false
+
+func lock_display() -> void:
+    lock_panel.show()
+
+func unlock_display() -> void:
+    lock_panel.hide()
 
 func _emit_decorated_hover(button_idx: int) -> void:
     upgrade_hovered.emit(

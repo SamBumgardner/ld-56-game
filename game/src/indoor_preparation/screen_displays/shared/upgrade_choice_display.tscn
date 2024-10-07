@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cf7gpoxw4lyd4"]
+[gd_scene load_steps=7 format=3 uid="uid://cf7gpoxw4lyd4"]
 
 [ext_resource type="Texture2D" uid="uid://8icadmy2cp3f" path="res://assets/art/upgrade_icon_placeholder.png" id="1_3it24"]
 [ext_resource type="Script" path="res://src/indoor_preparation/screen_displays/shared/upgrade_choice_display.gd" id="1_i8aii"]
 [ext_resource type="Theme" uid="uid://c34dsuakeic5x" path="res://assets/themes/upgrade_button_theme.tres" id="2_d8k51"]
 [ext_resource type="ButtonGroup" uid="uid://cqp1ir8lngdbq" path="res://src/indoor_preparation/screen_displays/shared/upgrade_buttons.tres" id="3_7pgfm"]
 [ext_resource type="Texture2D" uid="uid://dj3i46p3r3b0f" path="res://assets/art/upgrade_purchased_icon.png" id="5_ksrid"]
+[ext_resource type="Texture2D" uid="uid://c8dsnvyqbn3fh" path="res://assets/art/lock_icon.png" id="6_e34su"]
 
 [node name="UpgradeChoiceDisplay" type="PanelContainer"]
 offset_right = 101.0
@@ -73,4 +74,14 @@ offset_bottom = 12.0
 grow_horizontal = 0
 grow_vertical = 0
 texture = ExtResource("5_ksrid")
+stretch_mode = 2
+
+[node name="LockedPanel" type="PanelContainer" parent="."]
+layout_mode = 2
+
+[node name="LockIcon" type="TextureRect" parent="LockedPanel"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("6_e34su")
 stretch_mode = 2
