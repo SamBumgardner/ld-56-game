@@ -110,7 +110,7 @@ func _handle_get_action_amount_with_matching_stat_type_multiplier(
 ):
     return func(action: Action) -> int: return (
         action.amount * matching_stat_type_multiplier
-            if action.stat_type == matching_stat_type_multiplier
+            if action.stat_type == target_stat_type
             else action.amount
     )
 
