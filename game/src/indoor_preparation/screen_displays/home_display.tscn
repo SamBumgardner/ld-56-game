@@ -40,6 +40,7 @@ horizontal_alignment = 1
 
 [node name="BarrierDetails" type="HBoxContainer" parent="MainContents"]
 layout_mode = 2
+alignment = 1
 
 [node name="Image" type="TextureRect" parent="MainContents/BarrierDetails"]
 layout_mode = 2
