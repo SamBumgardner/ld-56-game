@@ -27,6 +27,3 @@ func set_character_data(new_character: Character):
 
 func exited_display() -> void:
     upgrade_selection.unpress_all_upgrade_buttons()
-
-func refresh_upgrade_display():
-    upgrade_selection.set_character_data(character)

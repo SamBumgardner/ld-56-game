@@ -29,6 +29,10 @@ func _on_upgrade_button_pressed(upgrade_choice: UpgradeChoice):
 
     upgrade_purchase_pressed.emit(character, upgrade_choice, upgrade_level, choice_idx)
 
-func refresh_upgrade_display():
-    super()
+func set_character_data(new_character: Character):
+    super(new_character)
     upgrade_prompt.clear_upgrade_data()
+
+func refresh_upgrade_view():
+    character_summary.set_character_data(character)
+    upgrade_selection.refresh_and_resend_pushed_button_info()
