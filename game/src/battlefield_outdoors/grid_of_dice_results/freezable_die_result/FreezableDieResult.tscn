@@ -11,6 +11,8 @@ script = ExtResource("1_e7gc8")
 [node name="DieResult" parent="." instance=ExtResource("2_wlc05")]
 layout_mode = 2
 
-[node name="FrozenStatusLabel" type="Label" parent="."]
+[node name="FrozenStatusToggle" type="Button" parent="."]
 layout_mode = 2
 text = "Unfrozen"
+
+[connection signal="pressed" from="FrozenStatusToggle" to="." method="_on_frozen_status_toggle_pressed"]

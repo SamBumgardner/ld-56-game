@@ -5,7 +5,7 @@ extends HBoxContainer
 @export var is_frozen: bool = false
 
 @onready var die_result = $DieResult
-@onready var frozen_status_label = $FrozenStatusLabel
+@onready var frozen_status_toggle = $FrozenStatusToggle
 
 
 func _ready():
@@ -15,7 +15,7 @@ func _ready():
 func set_action(incoming_action: Action) -> void:
     die_result.set_action(incoming_action)
     action = die_result.action
-    _set_frozen_status_label()
+    _set_frozen_status_toggle()
 
 
 func _build_frozen_status_label_text():
@@ -28,5 +28,12 @@ func _build_frozen_status_label_text():
     return 'Unfrozen'
 
 
-func _set_frozen_status_label():
-    frozen_status_label.text = _build_frozen_status_label_text()
+func _set_frozen_status_toggle():
+    var incoming_text = _build_frozen_status_label_text()
+    frozen_status_toggle.text = incoming_text
+    frozen_status_toggle.visible = incoming_text != ''
+
+
+func _on_frozen_status_toggle_pressed():
+    is_frozen = !is_frozen
+    _set_frozen_status_toggle()
