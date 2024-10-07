@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dsi835iplnoul" path="res://assets/art/placeholder_ally.png" id="1_sufm1"]
 [ext_resource type="Script" path="res://src/indoor_preparation/screen_displays/browse_hires/new_hire_preview.gd" id="1_yy8kg"]
-[ext_resource type="Texture2D" uid="uid://c812lqrvhyq01" path="res://assets/art/ATTACK_icon_64x64.png" id="2_uq1gx"]
+[ext_resource type="PackedScene" uid="uid://lw7wcqkoqifj" path="res://src/shared_ui/die_result/DieResult.tscn" id="3_jlg8d"]
 
 [node name="MarginContainer" type="MarginContainer"]
 custom_minimum_size = Vector2(0, 64)
@@ -102,32 +102,14 @@ layout_mode = 2
 size_flags_vertical = 10
 mouse_filter = 2
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ActionsPreview"]
+[node name="DieResult" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ActionsPreview" instance=ExtResource("3_jlg8d")]
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 3
-mouse_filter = 2
-texture = ExtResource("2_uq1gx")
-expand_mode = 2
-stretch_mode = 4
 
-[node name="TextureRect2" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ActionsPreview"]
+[node name="DieResult2" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ActionsPreview" instance=ExtResource("3_jlg8d")]
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 3
-mouse_filter = 2
-texture = ExtResource("2_uq1gx")
-expand_mode = 2
-stretch_mode = 4
 
-[node name="TextureRect3" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ActionsPreview"]
+[node name="DieResult3" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ActionsPreview" instance=ExtResource("3_jlg8d")]
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 3
-mouse_filter = 2
-texture = ExtResource("2_uq1gx")
-expand_mode = 2
-stretch_mode = 4
 
 [node name="ActionsPreview2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 24)
@@ -135,29 +117,11 @@ layout_mode = 2
 size_flags_vertical = 10
 mouse_filter = 2
 
-[node name="TextureRect4" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ActionsPreview2"]
+[node name="DieResult4" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ActionsPreview2" instance=ExtResource("3_jlg8d")]
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 3
-mouse_filter = 2
-texture = ExtResource("2_uq1gx")
-expand_mode = 2
-stretch_mode = 4
 
-[node name="TextureRect5" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ActionsPreview2"]
+[node name="DieResult5" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ActionsPreview2" instance=ExtResource("3_jlg8d")]
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 3
-mouse_filter = 2
-texture = ExtResource("2_uq1gx")
-expand_mode = 2
-stretch_mode = 4
 
-[node name="TextureRect6" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ActionsPreview2"]
+[node name="DieResult6" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ActionsPreview2" instance=ExtResource("3_jlg8d")]
 layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 3
-mouse_filter = 2
-texture = ExtResource("2_uq1gx")
-expand_mode = 2
-stretch_mode = 4
