@@ -85,3 +85,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("6_e34su")
 stretch_mode = 2
+
+[node name="LockClicked" type="Button" parent="LockedPanel"]
+layout_mode = 2
+flat = true

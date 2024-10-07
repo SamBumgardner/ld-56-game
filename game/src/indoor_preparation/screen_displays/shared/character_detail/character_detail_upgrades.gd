@@ -1,7 +1,13 @@
 class_name CharacterDetailUpgrades extends Control
 
+signal locked_upgrade_clicked()
+
 @onready var upgrade_choices: Array[Node] = $MarginContainer/VBoxContainer.get_children().slice(1)
 var character: Character
+
+func _ready() -> void:
+    for upgrade_choice in upgrade_choices:
+        upgrade_choice.lock_click.pressed.connect(locked_upgrade_clicked.emit)
 
 func set_character_data(new_character: Character) -> void:
     character = new_character

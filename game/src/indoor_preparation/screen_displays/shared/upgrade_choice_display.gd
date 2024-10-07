@@ -14,6 +14,7 @@ signal upgrade_selected(upgrade: UpgradeChoice, upgrade_level_purchased: bool, t
     $HBoxContainer/Button2/PurchasedIcon2
 ]
 @onready var lock_panel: Node = $LockedPanel
+@onready var lock_click: Button = $LockedPanel/LockClicked
 
 var upgrades: Array[UpgradeChoice]
 var upgrade_level_purchased: bool
