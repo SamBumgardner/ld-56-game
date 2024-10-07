@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bwpa5wbo5ct7g"]
+[gd_scene load_steps=6 format=3 uid="uid://bwpa5wbo5ct7g"]
 
 [ext_resource type="PackedScene" uid="uid://cbgigx6pdctmh" path="res://src/battlefield_outdoors/grid_of_dice_results/GridOfDiceResults.tscn" id="1_depth"]
 [ext_resource type="Script" path="res://src/battlefield_outdoors/battlefield_outdoors_war_transport/battlefield_outdoors_war_transport.gd" id="1_o8nwd"]
+[ext_resource type="Theme" uid="uid://dk5iv042psfw" path="res://assets/themes/Default.tres" id="2_58oda"]
 [ext_resource type="Texture2D" uid="uid://4nvogy60mpq3" path="res://icon.svg" id="2_aqe0i"]
 [ext_resource type="PackedScene" uid="uid://cg02ahrm1dodf" path="res://src/battlefield_outdoors/combat_math_calculations_hud/CombatMathCalculationsHud.tscn" id="4_2x5nk"]
 
@@ -11,6 +12,7 @@ script = ExtResource("1_o8nwd")
 [node name="Columns" type="HBoxContainer" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
+theme = ExtResource("2_58oda")
 
 [node name="Units" type="VBoxContainer" parent="Columns"]
 layout_mode = 2
