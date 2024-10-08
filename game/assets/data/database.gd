@@ -29,6 +29,7 @@ const _initial_character_die_slots: Array[CharacterDieSlot] = []
 const _initial_money: int = 50
 const _initial_matching_stat_type_multiplier: int = 2
 const _initial_war_transport_health_maximum: int = 10
+const _initial_war_transport_hull_polled_coordinates: Vector2 = Vector2.ONE
 
 const _character_factories: Array[CharacterFactory] = [
     preload("res://assets/data/characters/001_mouse_char.tres"),
@@ -59,6 +60,7 @@ var current_character_die_slots: Array[CharacterDieSlot]
 var current_matching_stat_type_multiplier: int
 var war_transport_health_current: int
 var war_transport_health_maximum: int
+var war_transport_hull_polled_coordinates: Vector2
 
 var hired_characters: Array[Character]
 var unhired_characters: Array[Character]
@@ -87,6 +89,9 @@ func reset_values() -> void:
         _initial_matching_stat_type_multiplier
     )
     set_war_transport_health_maximum(_initial_war_transport_health_maximum)
+    set_war_transport_hull_polled_coordinates(
+        _initial_war_transport_hull_polled_coordinates
+    )
     set_money(_initial_money)
 
     set_war_transport_health_to_maximum()
@@ -165,6 +170,9 @@ func set_war_transport_health_maximum(updated_health: int) -> void:
 
 func set_war_transport_health_to_maximum() -> void:
     set_war_transport_health_current(_initial_war_transport_health_maximum)
+
+func set_war_transport_hull_polled_coordinates(coordinates: Vector2) -> void:
+    war_transport_hull_polled_coordinates = coordinates
 
 func set_money(updated_money: int) -> void:
     var old_money = current_money

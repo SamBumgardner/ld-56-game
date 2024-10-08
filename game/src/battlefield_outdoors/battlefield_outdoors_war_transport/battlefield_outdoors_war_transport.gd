@@ -8,6 +8,15 @@ class_name BattlefieldOutdoorsWarTransport extends Node2D
 @onready var grid_of_dice_results: GridOfDiceResults = (
     $Columns/Units/GridOfDiceResults
 )
+@onready var war_transport_hull_anchor_point: Control = (
+    $Columns/Units/WarTransportRect/HullAnchorPoint
+)
+
+
+func _ready():
+    Database.set_war_transport_hull_polled_coordinates(
+        _get_war_transport_hull_coordinates()
+    )
 
 
 # TODO: Call when the barrier changes.
@@ -24,6 +33,10 @@ func _get_war_transport_damage_reduction_amount() -> int:
         Database.current_barrier_stat_type_to_overcome,
         Database.current_matching_stat_type_multiplier
     )
+
+
+func _get_war_transport_hull_coordinates() -> Vector2:
+    return war_transport_hull_anchor_point.get_screen_position()
 
 
 func _on_battlefield_outdoors_barrier_barrier_stat_type_updated() -> void:

@@ -24,6 +24,20 @@ layout_mode = 2
 layout_mode = 2
 texture = ExtResource("2_aqe0i")
 
+[node name="HullAnchorPoint" type="Control" parent="Columns/Units/WarTransportRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -77.0
+offset_top = -64.0
+offset_right = -77.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="WarTransportName" type="Label" parent="Columns/Units"]
 layout_mode = 2
 text = "Elephant in the Room"
@@ -31,3 +45,13 @@ horizontal_alignment = 1
 
 [node name="CombatMathCalculationsHud" parent="Columns" instance=ExtResource("4_2x5nk")]
 layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Start"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Quit"
