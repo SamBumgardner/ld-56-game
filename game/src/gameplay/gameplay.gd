@@ -36,8 +36,13 @@ func go_inside() -> void:
     var zoom_in_tween = create_tween()
     zoom_in_tween.set_ease(Tween.EASE_OUT)
     zoom_in_tween.set_trans(Tween.TRANS_CUBIC)
-    zoom_in_tween.tween_property(outdoor_canvas, "scale", Vector2.ONE * 2, .5)
-    zoom_in_tween.tween_property(outdoor_canvas, "scale", Vector2.ONE, .25)
+    var war_transport_hull_coordinates = (
+        Database.war_transport_hull_polled_coordinates
+    )
+    zoom_in_tween.tween_property(outdoor_canvas, "scale",
+        war_transport_hull_coordinates * 2, .5)
+    zoom_in_tween.tween_property(outdoor_canvas, "scale",
+        war_transport_hull_coordinates, .25)
 
 func go_outside() -> void:
     # see go_inside, same idea here
