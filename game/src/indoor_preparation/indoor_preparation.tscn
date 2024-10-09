@@ -55,6 +55,7 @@ theme = ExtResource("4_u741y")
 script = ExtResource("3_culvi")
 
 [node name="HomeDisplay" parent="Screen" instance=ExtResource("3_eot0a")]
+visible = false
 layout_mode = 1
 
 [node name="HirePreviewDisplay" parent="Screen" instance=ExtResource("4_note4")]
@@ -64,12 +65,9 @@ layout_mode = 1
 [node name="HireDetail" parent="Screen" instance=ExtResource("5_lncqs")]
 visible = false
 layout_mode = 1
-theme = ExtResource("2_bky62")
 
 [node name="CharacterDetail" parent="Screen" instance=ExtResource("6_4pq4g")]
-visible = false
 layout_mode = 1
-theme = ExtResource("2_bky62")
 
 [node name="NotificationDimmer" type="ColorRect" parent="Screen"]
 visible = false
