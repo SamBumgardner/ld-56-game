@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://emsj3qtryn1x"]
+[gd_scene load_steps=5 format=3 uid="uid://emsj3qtryn1x"]
 
 [ext_resource type="Texture2D" uid="uid://dsi835iplnoul" path="res://assets/art/placeholder_ally.png" id="1_sufm1"]
 [ext_resource type="Script" path="res://src/indoor_preparation/screen_displays/browse_hires/new_hire_preview.gd" id="1_yy8kg"]
 [ext_resource type="PackedScene" uid="uid://lw7wcqkoqifj" path="res://src/shared_ui/die_result/DieResult.tscn" id="3_jlg8d"]
+[ext_resource type="Theme" uid="uid://dmwrgmv8lathf" path="res://assets/themes/ScreenTheme.tres" id="4_yjvkr"]
 
 [node name="MarginContainer" type="MarginContainer"]
 custom_minimum_size = Vector2(0, 64)
@@ -104,12 +105,15 @@ mouse_filter = 2
 
 [node name="DieResult" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ActionsPreview" instance=ExtResource("3_jlg8d")]
 layout_mode = 2
+theme = ExtResource("4_yjvkr")
 
 [node name="DieResult2" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ActionsPreview" instance=ExtResource("3_jlg8d")]
 layout_mode = 2
+theme = ExtResource("4_yjvkr")
 
 [node name="DieResult3" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ActionsPreview" instance=ExtResource("3_jlg8d")]
 layout_mode = 2
+theme = ExtResource("4_yjvkr")
 
 [node name="ActionsPreview2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 24)
@@ -119,9 +123,12 @@ mouse_filter = 2
 
 [node name="DieResult4" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ActionsPreview2" instance=ExtResource("3_jlg8d")]
 layout_mode = 2
+theme = ExtResource("4_yjvkr")
 
 [node name="DieResult5" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ActionsPreview2" instance=ExtResource("3_jlg8d")]
 layout_mode = 2
+theme = ExtResource("4_yjvkr")
 
 [node name="DieResult6" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ActionsPreview2" instance=ExtResource("3_jlg8d")]
 layout_mode = 2
+theme = ExtResource("4_yjvkr")
