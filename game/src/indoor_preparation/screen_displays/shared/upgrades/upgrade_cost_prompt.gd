@@ -5,7 +5,7 @@ signal upgrade_purchase_pressed(upgrade_choice: UpgradeChoice)
 @onready var cost_display: RichTextLabel = $MarginContainer/VBoxContainer/CostDisplay
 @onready var purchase_button: Button = $MarginContainer/VBoxContainer/PurchaseButton
 
-const already_purchased_string: String = "[center]Already\nPurchased!\n "
+const already_purchased_string: String = "[center]Bought!\n "
 const not_available_string: String = "[center]Not\nAvailable\n "
 const empty_cost_message = "[center]Upgrade\nCost:\n "
 const cost_format_string = "[center]Upgrade\nCost:\n[img=15%%]res://assets/art/ATTACK_icon_64x64.png[/img]%s"

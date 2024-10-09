@@ -1,7 +1,7 @@
 class_name DynamicInfoPanel extends PanelContainer
 
 const cost_format_string: String = "[right]Cost: [img=15%%]res://assets/art/ATTACK_icon_64x64.png[/img]%s"
-const already_purchased_string: String = "[right]Purchased!"
+const already_purchased_string: String = "[right]Bought!"
 const no_longer_available_string: String = "[right]Unavailable"
 
 @export var display_optional_cost_text: bool = true
