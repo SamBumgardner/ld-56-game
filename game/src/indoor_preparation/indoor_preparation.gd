@@ -27,7 +27,7 @@ func _ready() -> void:
     hiring_failure.connect(screen._on_hiring_failure)
     upgrade_success.connect(screen._on_upgrade_success)
     upgrade_failure.connect(screen._on_upgrade_failure)
-    insufficient_funds.connect(money_display._on_insufficient_funds)
+    insufficient_funds.connect(money_display._on_insufficient_resource)
     
     if get_tree().current_scene == self:
         transition_in()

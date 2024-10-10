@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://src/battlefield_outdoors/battlefield_outdoors.gd" id="2_ni2i7"]
 [ext_resource type="PackedScene" uid="uid://ceesyhnktnbd1" path="res://src/battlefield_outdoors/battlefield_outdoors_barrier/BattlefieldOutdoorsBarrier.tscn" id="2_p4mcn"]
 [ext_resource type="PackedScene" uid="uid://bwpa5wbo5ct7g" path="res://src/battlefield_outdoors/battlefield_outdoors_war_transport/BattlefieldOutdoorsWarTransport.tscn" id="3_etui0"]
-[ext_resource type="PackedScene" uid="uid://cwx53f7dgoboq" path="res://src/shared_ui/money_display/money_display.tscn" id="5_0m00p"]
+[ext_resource type="PackedScene" uid="uid://cnbbp4gy833n" path="res://src/shared_ui/resource_display/money_display.tscn" id="6_5ug6o"]
 
 [node name="BattlefieldOutdoors" type="Control"]
 layout_mode = 3
@@ -60,7 +60,7 @@ grow_horizontal = 2
 text = "Manage Crew
 Inside "
 
-[node name="MoneyDisplay" parent="." instance=ExtResource("5_0m00p")]
+[node name="MoneyDisplay" parent="." instance=ExtResource("6_5ug6o")]
 layout_mode = 1
 anchors_preset = -1
 offset_right = -60.0

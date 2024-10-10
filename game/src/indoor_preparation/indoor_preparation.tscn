@@ -24,7 +24,7 @@
 [ext_resource type="Resource" uid="uid://4vcpwnnptf5r" path="res://assets/data/characters/010_test_pal.tres" id="19_qmf8k"]
 [ext_resource type="Resource" uid="uid://1nhgxq12mwuo" path="res://assets/data/characters/011_test_pal.tres" id="20_pbwmt"]
 [ext_resource type="Resource" uid="uid://beppcdvy1b3s0" path="res://assets/data/characters/012_test_pal.tres" id="21_71v0u"]
-[ext_resource type="PackedScene" uid="uid://cwx53f7dgoboq" path="res://src/shared_ui/money_display/money_display.tscn" id="24_16sle"]
+[ext_resource type="PackedScene" uid="uid://cnbbp4gy833n" path="res://src/shared_ui/resource_display/money_display.tscn" id="25_dg1g1"]
 
 [node name="IndoorPreparation" type="Control"]
 layout_mode = 3
@@ -281,7 +281,7 @@ grow_horizontal = 2
 text = "Go Outside
 To Battle"
 
-[node name="MoneyDisplay" parent="." instance=ExtResource("24_16sle")]
+[node name="MoneyDisplay" parent="." instance=ExtResource("25_dg1g1")]
 layout_mode = 1
 anchors_preset = -1
 offset_right = -60.0
