@@ -23,6 +23,7 @@ var position_tween: Tween
 
 ## children are responsible for connecting "value_changed" events and setting inital amount
 func _ready() -> void:
+    await get_tree().process_frame
     start_position = position
 
 func force_display_resolution():
