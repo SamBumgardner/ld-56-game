@@ -1,5 +1,6 @@
 class_name BattlefieldOutdoorsWarTransport extends Node2D
 
+signal insufficient_fuel()
 
 @onready var combat_math_calculations_hud: MarginContainer = (
     $Columns/CombatMathCalculationsHud
@@ -31,7 +32,11 @@ func _on_battlefield_outdoors_barrier_barrier_stat_type_updated() -> void:
 
 
 func _on_battlefield_outdoors_hud_dice_roll_requested() -> void:
-    _roll_dice()
+    if Database.current_fuel < Database.current_reroll_fuel_cost:
+        insufficient_fuel.emit()
+    else:
+        Database.set_fuel(Database.current_fuel - Database.current_reroll_fuel_cost)
+        _roll_dice()
 
 
 func _roll_dice() -> void:

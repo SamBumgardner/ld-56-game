@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://b73yb04wjxq8"]
+[gd_scene load_steps=27 format=3 uid="uid://b73yb04wjxq8"]
 
 [ext_resource type="Texture2D" uid="uid://l3l2yqfmprg5" path="res://assets/art/ld_56_indoors.jpg" id="1_f348j"]
 [ext_resource type="Script" path="res://src/indoor_preparation/indoor_preparation.gd" id="2_0rynj"]
@@ -24,7 +24,8 @@
 [ext_resource type="Resource" uid="uid://4vcpwnnptf5r" path="res://assets/data/characters/010_test_pal.tres" id="19_qmf8k"]
 [ext_resource type="Resource" uid="uid://1nhgxq12mwuo" path="res://assets/data/characters/011_test_pal.tres" id="20_pbwmt"]
 [ext_resource type="Resource" uid="uid://beppcdvy1b3s0" path="res://assets/data/characters/012_test_pal.tres" id="21_71v0u"]
-[ext_resource type="PackedScene" uid="uid://cwx53f7dgoboq" path="res://src/shared_ui/money_display/money_display.tscn" id="24_16sle"]
+[ext_resource type="PackedScene" uid="uid://cnbbp4gy833n" path="res://src/shared_ui/resource_display/money_display.tscn" id="25_dg1g1"]
+[ext_resource type="PackedScene" uid="uid://cjb6144n5q1b1" path="res://fuel_display.tscn" id="26_fgbkb"]
 
 [node name="IndoorPreparation" type="Control"]
 layout_mode = 3
@@ -281,7 +282,19 @@ grow_horizontal = 2
 text = "Go Outside
 To Battle"
 
-[node name="MoneyDisplay" parent="." instance=ExtResource("24_16sle")]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -150.0
 offset_right = -60.0
+offset_bottom = 68.0
+grow_horizontal = 0
+theme_override_constants/separation = 0
+
+[node name="MoneyDisplay" parent="VBoxContainer" instance=ExtResource("25_dg1g1")]
+layout_mode = 2
+
+[node name="FuelDisplay" parent="VBoxContainer" instance=ExtResource("26_fgbkb")]
+layout_mode = 2
