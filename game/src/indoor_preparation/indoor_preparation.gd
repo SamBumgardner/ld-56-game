@@ -12,7 +12,7 @@ const PURCHASE_FAIL_POOR_REASON: String = "INSUFFICIENT_FUNDS"
 @onready var database: Database = $"/root/Database"
 @onready var screen: Screen = $Screen
 @onready var crew_buttons: Array[Node] = $CrewButtons.get_children()
-@onready var money_display: MoneyDisplay = $MoneyDisplay
+@onready var money_display: MoneyDisplay = $VBoxContainer/MoneyDisplay
 
 var applicants: Array[Character] = []
 

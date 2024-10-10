@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c5dvnfrvyjol6"]
+[gd_scene load_steps=8 format=3 uid="uid://c5dvnfrvyjol6"]
 
 [ext_resource type="Theme" uid="uid://dk5iv042psfw" path="res://assets/themes/Default.tres" id="1_cei1v"]
 [ext_resource type="PackedScene" uid="uid://b6k6baalu42w7" path="res://src/battlefield_outdoors/battlefield_outdoors_hud/BattlefieldOutdoorsHud.tscn" id="1_wxoya"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ceesyhnktnbd1" path="res://src/battlefield_outdoors/battlefield_outdoors_barrier/BattlefieldOutdoorsBarrier.tscn" id="2_p4mcn"]
 [ext_resource type="PackedScene" uid="uid://bwpa5wbo5ct7g" path="res://src/battlefield_outdoors/battlefield_outdoors_war_transport/BattlefieldOutdoorsWarTransport.tscn" id="3_etui0"]
 [ext_resource type="PackedScene" uid="uid://cnbbp4gy833n" path="res://src/shared_ui/resource_display/money_display.tscn" id="6_5ug6o"]
+[ext_resource type="PackedScene" uid="uid://cjb6144n5q1b1" path="res://fuel_display.tscn" id="7_vyhqw"]
 
 [node name="BattlefieldOutdoors" type="Control"]
 layout_mode = 3
@@ -60,10 +61,22 @@ grow_horizontal = 2
 text = "Manage Crew
 Inside "
 
-[node name="MoneyDisplay" parent="." instance=ExtResource("6_5ug6o")]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -150.0
 offset_right = -60.0
+offset_bottom = 68.0
+grow_horizontal = 0
+theme_override_constants/separation = 0
+
+[node name="MoneyDisplay" parent="VBoxContainer" instance=ExtResource("6_5ug6o")]
+layout_mode = 2
+
+[node name="FuelDisplay" parent="VBoxContainer" instance=ExtResource("7_vyhqw")]
+layout_mode = 2
 
 [connection signal="barrier_stat_type_updated" from="AnchorOfBarrier/BattlefieldOutdoorsBarrier" to="AnchorOfWarTransport/BattlefieldOutdoorsWarTransport" method="_on_battlefield_outdoors_barrier_barrier_stat_type_updated"]
 [connection signal="barrier_strength_scaled" from="BattlefieldOutdoorsHud" to="AnchorOfBarrier/BattlefieldOutdoorsBarrier" method="_on_battlefield_outdoors_hud_barrier_strength_scaled"]
