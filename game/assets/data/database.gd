@@ -33,6 +33,8 @@ const _initial_fuel: int = 2
 const _initial_matching_stat_type_multiplier: int = 2
 const _initial_war_transport_health_maximum: int = 10
 
+const _maximum_fuel: int = 10
+
 const _character_factories: Array[CharacterFactory] = [
     preload("res://assets/data/characters/001_mouse_char.tres"),
     preload("res://assets/data/characters/002_lizard_char.tres"),
@@ -180,8 +182,8 @@ func set_money(updated_money: int) -> void:
 
 func set_fuel(updated_fuel: int) -> void:
     var old_fuel = current_fuel
-    current_fuel = updated_fuel
-    fuel_changed.emit(updated_fuel, old_fuel)
+    current_fuel = min(updated_fuel, _maximum_fuel)
+    fuel_changed.emit(current_fuel, old_fuel)
 
 func set_reroll_fuel_cost(updated_cost: int) -> void:
     current_reroll_fuel_cost = updated_cost

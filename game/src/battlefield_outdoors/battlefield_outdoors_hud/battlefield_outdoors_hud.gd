@@ -78,6 +78,7 @@ func _on_mock_attack_button_pressed() -> void:
     if updated_health > 0:
         print_debug("*** EARNING MONEY **** Probably clean this up later.")
         Database.set_money(Database.current_money + randi_range(1, 100))
+        Database.set_fuel(Database.current_fuel + randi_range(1,3))
         _scale_up_barrier_strength()
         Database.set_barriers_overcome_count(
             Database.barriers_overcome_count

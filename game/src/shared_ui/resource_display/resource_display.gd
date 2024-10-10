@@ -50,7 +50,7 @@ func shake_display(_value: float):
 
 func _on_resource_changed(new_value, old_value) -> void:
     _set_up_value_tween(new_value)
-    var color = COLOR_INCREASE if new_value > old_value else COLOR_DECREASE
+    var color = COLOR_INCREASE if new_value >= old_value else COLOR_DECREASE
     _set_up_color_tween(color)
 
 func _set_up_color_tween(color: Color) -> void:
