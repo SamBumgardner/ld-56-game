@@ -2,6 +2,7 @@
 extends Node
 
 signal money_changed(new_value: int, old_value: int)
+signal fuel_changed(new_value: int, old_value: int)
 
 enum StatType {
     MIGHT,
@@ -27,6 +28,7 @@ const _initial_barriers_overcome_count: int = 0
 const _initial_barriers_cost_to_overcome_number: int = 0
 const _initial_character_die_slots: Array[CharacterDieSlot] = []
 const _initial_money: int = 50
+const _initial_fuel: int = 2
 const _initial_matching_stat_type_multiplier: int = 2
 const _initial_war_transport_health_maximum: int = 10
 
@@ -66,6 +68,7 @@ var applicants: Array[Character]
 var should_generate_new_applicants: bool
 
 var current_money: int
+var current_fuel: int
 
 func _ready():
     reset_values()
@@ -88,6 +91,7 @@ func reset_values() -> void:
     )
     set_war_transport_health_maximum(_initial_war_transport_health_maximum)
     set_money(_initial_money)
+    set_fuel(_initial_fuel)
 
     set_war_transport_health_to_maximum()
     initialize_characters()
@@ -170,3 +174,8 @@ func set_money(updated_money: int) -> void:
     var old_money = current_money
     current_money = updated_money
     money_changed.emit(updated_money, old_money)
+
+func set_fuel(updated_fuel: int) -> void:
+    var old_fuel = current_fuel
+    current_fuel = updated_fuel
+    fuel_changed.emit(updated_fuel, old_fuel)
