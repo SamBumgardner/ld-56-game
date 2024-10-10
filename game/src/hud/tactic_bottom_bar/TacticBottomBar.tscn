@@ -1,0 +1,152 @@
+[gd_scene load_steps=2 format=3 uid="uid://whyn3wcrnv7k"]
+
+[ext_resource type="Theme" uid="uid://dk5iv042psfw" path="res://assets/themes/Default.tres" id="1_il85l"]
+
+[node name="TacticBottomBar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_il85l")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Picker" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Panel" type="Panel" parent="HBoxContainer/Picker"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Content" type="VBoxContainer" parent="HBoxContainer/Picker"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="HBoxContainer/Picker/Content"]
+layout_mode = 2
+text = "Pick a Crew Member"
+
+[node name="Picker" type="GridContainer" parent="HBoxContainer/Picker/Content"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ButtonAndDetail" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ButtonAndDetail" type="VBoxContainer" parent="HBoxContainer/ButtonAndDetail"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -36.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/ButtonAndDetail/ButtonAndDetail"]
+visible = false
+layout_mode = 2
+
+[node name="RerollButton" type="Button" parent="HBoxContainer/ButtonAndDetail/ButtonAndDetail/CenterContainer"]
+layout_mode = 2
+text = "3 Rerolls Remain"
+
+[node name="Detail" type="Control" parent="HBoxContainer/ButtonAndDetail/ButtonAndDetail"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Panel" type="Panel" parent="HBoxContainer/ButtonAndDetail/ButtonAndDetail/Detail"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Detail" type="VBoxContainer" parent="HBoxContainer/ButtonAndDetail/ButtonAndDetail/Detail"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/ButtonAndDetail/ButtonAndDetail/Detail/Detail"]
+layout_mode = 2
+
+[node name="CrewActions" type="VBoxContainer" parent="HBoxContainer/ButtonAndDetail/ButtonAndDetail/Detail/Detail/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="HBoxContainer/ButtonAndDetail/ButtonAndDetail/Detail/Detail/HBoxContainer/CrewActions"]
+layout_mode = 2
+text = "Crew Actions"
+
+[node name="Calculations" type="VBoxContainer" parent="HBoxContainer/ButtonAndDetail/ButtonAndDetail/Detail/Detail/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="HBoxContainer/ButtonAndDetail/ButtonAndDetail/Detail/Detail/HBoxContainer/Calculations"]
+layout_mode = 2
+text = "Calculations"
+
+[node name="Total" type="VBoxContainer" parent="HBoxContainer/ButtonAndDetail/ButtonAndDetail/Detail/Detail/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="HBoxContainer/ButtonAndDetail/ButtonAndDetail/Detail/Detail/HBoxContainer/Total"]
+layout_mode = 2
+text = "Total"
+
+[node name="Label" type="Label" parent="HBoxContainer/ButtonAndDetail/ButtonAndDetail/Detail/Detail"]
+layout_mode = 2
+text = "Character Roll Information"
+
+[node name="GridContainer" type="GridContainer" parent="HBoxContainer/ButtonAndDetail/ButtonAndDetail/Detail/Detail"]
+layout_mode = 2
+
+[node name="BarrierInformation" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Panel" type="Panel" parent="HBoxContainer/BarrierInformation"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BarrierInformation" type="VBoxContainer" parent="HBoxContainer/BarrierInformation"]
+layout_mode = 2
+offset_left = 4.0
+offset_right = 427.0
+offset_bottom = 24.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="HBoxContainer/BarrierInformation/BarrierInformation"]
+layout_mode = 2
+text = "Barrier Information"
