@@ -36,6 +36,46 @@ size_flags_horizontal = 0
 layout_mode = 2
 size_flags_horizontal = 0
 
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="CrewMemberSelector" type="PanelContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(275, 275)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 0
+
+[node name="MockRerollButton" type="Button" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Reroll
+(Costs 1 Fuel)"
+
+[node name="CrewSummary" type="PanelContainer" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(680, 200)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 10
+
+[node name="BarrierPreview" type="PanelContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(275, 275)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 8
+
 [node name="CentralControls" type="MarginContainer" parent="."]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 1
@@ -56,11 +96,6 @@ layout_mode = 2
 [node name="Buttons" type="HBoxContainer" parent="CentralControls/VBoxContainer"]
 layout_mode = 2
 alignment = 1
-
-[node name="MockRerollButton" type="Button" parent="CentralControls/VBoxContainer/Buttons"]
-layout_mode = 2
-text = "Reroll
-(Costs 1 Fuel)"
 
 [node name="MockAttackButton" type="Button" parent="CentralControls/VBoxContainer/Buttons"]
 layout_mode = 2
@@ -110,5 +145,5 @@ grow_horizontal = 2
 text = "Manage Crew
 Inside "
 
-[connection signal="pressed" from="CentralControls/VBoxContainer/Buttons/MockRerollButton" to="." method="_on_mock_reroll_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/MockRerollButton" to="." method="_on_mock_reroll_button_pressed"]
 [connection signal="pressed" from="CentralControls/VBoxContainer/Buttons/MockAttackButton" to="." method="_on_mock_attack_button_pressed"]
