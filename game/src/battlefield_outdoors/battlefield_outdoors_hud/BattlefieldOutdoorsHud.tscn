@@ -57,12 +57,38 @@ size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_constants/separation = 0
 
-[node name="MockRerollButton" type="Button" parent="HBoxContainer/VBoxContainer"]
+[node name="Control" type="Control" parent="HBoxContainer/VBoxContainer"]
+z_index = 1
+custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
+
+[node name="MockRerollButton" type="Button" parent="HBoxContainer/VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -55.0
+offset_top = -54.0
+offset_right = 55.0
+grow_horizontal = 2
+grow_vertical = 0
 size_flags_horizontal = 4
 size_flags_vertical = 8
 text = "Reroll
 (Costs 1 Fuel)"
+
+[node name="FuelDisplay" parent="HBoxContainer/VBoxContainer/Control" instance=ExtResource("3_n5xb3")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.85
+anchor_top = 1.0
+anchor_right = 0.85
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_bottom = 0.0
+grow_vertical = 0
 
 [node name="CrewSummary" type="PanelContainer" parent="HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(680, 200)
@@ -145,5 +171,5 @@ grow_horizontal = 2
 text = "Manage Crew
 Inside "
 
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/MockRerollButton" to="." method="_on_mock_reroll_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Control/MockRerollButton" to="." method="_on_mock_reroll_button_pressed"]
 [connection signal="pressed" from="CentralControls/VBoxContainer/Buttons/MockAttackButton" to="." method="_on_mock_attack_button_pressed"]

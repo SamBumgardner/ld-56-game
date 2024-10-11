@@ -21,6 +21,7 @@ const REROLL_FAIL_DURATION = 2
 )
 @onready var screen_notification: ScreenNotification = $ScreenNotification
 @onready var fuel_display: FuelDisplay = $TopBar/Trackers/FuelDisplay
+@onready var bottom_bar_fuel: FuelDisplay = $HBoxContainer/VBoxContainer/Control/FuelDisplay
 
 
 func _ready():
@@ -150,4 +151,5 @@ func _on_insufficient_fuel() -> void:
         REROLL_FAIL_DURATION
     )
     fuel_display._on_insufficient_resource()
+    bottom_bar_fuel._on_insufficient_resource()
     
