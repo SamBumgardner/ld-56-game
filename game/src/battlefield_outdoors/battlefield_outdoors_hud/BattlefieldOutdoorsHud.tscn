@@ -30,9 +30,11 @@ layout_mode = 2
 
 [node name="MoneyDisplay" parent="TopBar/Trackers" instance=ExtResource("2_ualkn")]
 layout_mode = 2
+size_flags_horizontal = 0
 
 [node name="FuelDisplay" parent="TopBar/Trackers" instance=ExtResource("3_n5xb3")]
 layout_mode = 2
+size_flags_horizontal = 0
 
 [node name="CentralControls" type="MarginContainer" parent="."]
 custom_minimum_size = Vector2(0, 60)

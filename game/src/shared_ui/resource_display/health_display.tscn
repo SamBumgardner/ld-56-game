@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://da57hkojchohp"]
+[gd_scene load_steps=2 format=3 uid="uid://da57hkojchohp"]
+
+[ext_resource type="Theme" uid="uid://faamfnysmojx" path="res://assets/themes/health_display.tres" id="1_ayytc"]
 
 [node name="HealthDisplay" type="PanelContainer"]
+theme = ExtResource("1_ayytc")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
