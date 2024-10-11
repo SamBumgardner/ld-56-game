@@ -57,6 +57,11 @@ layout_mode = 2
 layout_mode = 2
 alignment = 1
 
+[node name="MockRerollButton" type="Button" parent="CentralControls/VBoxContainer/Buttons"]
+layout_mode = 2
+text = "Reroll
+(Costs 1 Fuel)"
+
 [node name="MockAttackButton" type="Button" parent="CentralControls/VBoxContainer/Buttons"]
 layout_mode = 2
 text = "Charge!"
@@ -93,41 +98,6 @@ anchors_preset = -1
 anchor_top = 0.3
 anchor_bottom = 0.3
 
-[node name="BottomBar" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="Columns" type="HBoxContainer" parent="BottomBar"]
-layout_mode = 2
-
-[node name="MarginContainer1" type="MarginContainer" parent="BottomBar/Columns"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="MarginContainer2" type="MarginContainer" parent="BottomBar/Columns"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="VBoxContainer" type="VBoxContainer" parent="BottomBar/Columns/MarginContainer2"]
-layout_mode = 2
-
-[node name="CenterContainer" type="CenterContainer" parent="BottomBar/Columns/MarginContainer2/VBoxContainer"]
-layout_mode = 2
-
-[node name="MockRerollButton" type="Button" parent="BottomBar/Columns/MarginContainer2/VBoxContainer/CenterContainer"]
-layout_mode = 2
-text = "Reroll
-(Costs 1 Fuel)"
-
-[node name="MarginContainer3" type="MarginContainer" parent="BottomBar/Columns"]
-layout_mode = 2
-size_flags_horizontal = 3
-
 [node name="GoInsideButton" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 5
@@ -140,5 +110,5 @@ grow_horizontal = 2
 text = "Manage Crew
 Inside "
 
+[connection signal="pressed" from="CentralControls/VBoxContainer/Buttons/MockRerollButton" to="." method="_on_mock_reroll_button_pressed"]
 [connection signal="pressed" from="CentralControls/VBoxContainer/Buttons/MockAttackButton" to="." method="_on_mock_attack_button_pressed"]
-[connection signal="pressed" from="BottomBar/Columns/MarginContainer2/VBoxContainer/CenterContainer/MockRerollButton" to="." method="_on_mock_reroll_button_pressed"]
