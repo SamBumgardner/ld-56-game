@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://7vx27hr83tx0"]
 
 [ext_resource type="Script" path="res://src/indoor_preparation/screen_displays/home_display.gd" id="1_b3nrn"]
-[ext_resource type="Theme" uid="uid://dk5iv042psfw" path="res://assets/themes/Default.tres" id="1_itrie"]
+[ext_resource type="Theme" uid="uid://dmwrgmv8lathf" path="res://assets/themes/ScreenTheme.tres" id="1_d2gyf"]
 [ext_resource type="Texture2D" uid="uid://bic3i142epdt3" path="res://assets/art/placeholder_threat.png" id="3_4hdf6"]
 [ext_resource type="Texture2D" uid="uid://cmdqbv4iraqg6" path="res://assets/art/MAGIC_icon_64x64.png" id="4_o5aea"]
 
@@ -12,7 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_itrie")
+theme = ExtResource("1_d2gyf")
 script = ExtResource("1_b3nrn")
 
 [node name="MainContents" type="VBoxContainer" parent="."]
@@ -27,7 +27,7 @@ grow_horizontal = 2
 
 [node name="Header" type="Label" parent="MainContents"]
 layout_mode = 2
-theme = ExtResource("1_itrie")
+theme = ExtResource("1_d2gyf")
 theme_override_font_sizes/font_size = 24
 text = "NEXT THREAT"
 horizontal_alignment = 1

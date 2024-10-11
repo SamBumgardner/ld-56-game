@@ -2,9 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://dqfvwly0xyo0k" path="res://assets/art/tiny_silver_coin.png" id="1_4nm3l"]
 [ext_resource type="Theme" uid="uid://dk5iv042psfw" path="res://assets/themes/Default.tres" id="1_w3l85"]
-[ext_resource type="Script" path="res://src/shared_ui/money_display/money_display.gd" id="2_ahh2l"]
+[ext_resource type="Script" path="res://src/shared_ui/resource_display/resource_display.gd" id="2_g7dbd"]
 
-[node name="MoneyDisplay" type="PanelContainer"]
+[node name="ResourceDisplay" type="PanelContainer"]
 custom_minimum_size = Vector2(150, 0)
 anchors_preset = 1
 anchor_left = 1.0
@@ -13,7 +13,7 @@ offset_left = -126.0
 offset_bottom = 68.0
 grow_horizontal = 0
 theme = ExtResource("1_w3l85")
-script = ExtResource("2_ahh2l")
+script = ExtResource("2_g7dbd")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -25,7 +25,7 @@ theme_override_constants/margin_bottom = 10
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="MoneyIcon" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+[node name="ResourceIcon" type="TextureRect" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("1_4nm3l")
 stretch_mode = 2

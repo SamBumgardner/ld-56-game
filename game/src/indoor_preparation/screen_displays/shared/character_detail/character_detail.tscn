@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://d0wnwi5rcyku"]
 
-[ext_resource type="Theme" uid="uid://dk5iv042psfw" path="res://assets/themes/Default.tres" id="1_rotuw"]
+[ext_resource type="Theme" uid="uid://dmwrgmv8lathf" path="res://assets/themes/ScreenTheme.tres" id="1_te1yn"]
 [ext_resource type="Texture2D" uid="uid://bic3i142epdt3" path="res://assets/art/placeholder_threat.png" id="2_doqwf"]
 [ext_resource type="Script" path="res://src/indoor_preparation/screen_displays/shared/character_detail/character_detail.gd" id="2_tnvk2"]
 [ext_resource type="Texture2D" uid="uid://c812lqrvhyq01" path="res://assets/art/ATTACK_icon_64x64.png" id="3_cs4wt"]
@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cf7gpoxw4lyd4" path="res://src/indoor_preparation/screen_displays/shared/upgrades/upgrade_choice_display.tscn" id="4_vtj8y"]
 [ext_resource type="PackedScene" uid="uid://lw7wcqkoqifj" path="res://src/shared_ui/die_result/DieResult.tscn" id="5_mb6um"]
 [ext_resource type="Script" path="res://src/indoor_preparation/screen_displays/shared/character_detail/character_detail_upgrades.gd" id="6_1f48f"]
-[ext_resource type="PackedScene" uid="uid://vsu1s8qjdne8" path="res://src/indoor_preparation/screen_displays/shared/character_detail/dynamic_info_panel.tscn" id="8_yjqcy"]
+[ext_resource type="PackedScene" uid="uid://dj3qjxeo1h7wm" path="res://src/indoor_preparation/screen_displays/shared/character_detail/dynamic_info_panel.tscn" id="8_yjqcy"]
 
 [node name="CharacterDetail" type="Control"]
 layout_mode = 3
@@ -18,7 +18,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_rotuw")
+theme = ExtResource("1_te1yn")
 script = ExtResource("2_tnvk2")
 
 [node name="BasicSummary" type="HBoxContainer" parent="."]
@@ -44,7 +44,7 @@ size_flags_horizontal = 3
 [node name="Name" type="Label" parent="BasicSummary/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
-theme = ExtResource("1_rotuw")
+theme = ExtResource("1_te1yn")
 theme_override_font_sizes/font_size = 48
 text = "Placeholder"
 justification_flags = 129
@@ -79,27 +79,35 @@ text = "Actions:"
 
 [node name="DieResult" parent="BasicSummary/VBoxContainer/ActionsBackground/MarginContainer/ActionsPreview" instance=ExtResource("5_mb6um")]
 layout_mode = 2
+theme = ExtResource("1_te1yn")
 
 [node name="DieResult2" parent="BasicSummary/VBoxContainer/ActionsBackground/MarginContainer/ActionsPreview" instance=ExtResource("5_mb6um")]
 layout_mode = 2
+theme = ExtResource("1_te1yn")
 
 [node name="DieResult3" parent="BasicSummary/VBoxContainer/ActionsBackground/MarginContainer/ActionsPreview" instance=ExtResource("5_mb6um")]
 layout_mode = 2
+theme = ExtResource("1_te1yn")
 
 [node name="DieResult4" parent="BasicSummary/VBoxContainer/ActionsBackground/MarginContainer/ActionsPreview" instance=ExtResource("5_mb6um")]
 layout_mode = 2
+theme = ExtResource("1_te1yn")
 
 [node name="DieResult5" parent="BasicSummary/VBoxContainer/ActionsBackground/MarginContainer/ActionsPreview" instance=ExtResource("5_mb6um")]
 layout_mode = 2
+theme = ExtResource("1_te1yn")
 
 [node name="DieResult6" parent="BasicSummary/VBoxContainer/ActionsBackground/MarginContainer/ActionsPreview" instance=ExtResource("5_mb6um")]
 layout_mode = 2
+theme = ExtResource("1_te1yn")
 
 [node name="DieResult7" parent="BasicSummary/VBoxContainer/ActionsBackground/MarginContainer/ActionsPreview" instance=ExtResource("5_mb6um")]
 layout_mode = 2
+theme = ExtResource("1_te1yn")
 
 [node name="DieResult8" parent="BasicSummary/VBoxContainer/ActionsBackground/MarginContainer/ActionsPreview" instance=ExtResource("5_mb6um")]
 layout_mode = 2
+theme = ExtResource("1_te1yn")
 
 [node name="UpgradeSelection" type="PanelContainer" parent="."]
 clip_contents = true

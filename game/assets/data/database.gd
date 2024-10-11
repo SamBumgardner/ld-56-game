@@ -2,6 +2,7 @@
 extends Node
 
 signal money_changed(new_value: int, old_value: int)
+signal fuel_changed(new_value: int, old_value: int)
 
 enum StatType {
     MIGHT,
@@ -25,11 +26,15 @@ const _initial_barriers_linear_scale_amount: int = 1
 const _initial_barriers_stat_type_to_overcome: StatType = StatType.MIGHT
 const _initial_barriers_overcome_count: int = 0
 const _initial_barriers_cost_to_overcome_number: int = 0
+const _initial_reroll_fuel_cost = 1
 const _initial_character_die_slots: Array[CharacterDieSlot] = []
 const _initial_money: int = 50
+const _initial_fuel: int = 2
 const _initial_matching_stat_type_multiplier: int = 2
 const _initial_war_transport_health_maximum: int = 10
 const _initial_war_transport_hull_polled_coordinates: Vector2 = Vector2.ONE
+
+const _maximum_fuel: int = 10
 
 const _character_factories: Array[CharacterFactory] = [
     preload("res://assets/data/characters/001_mouse_char.tres"),
@@ -56,6 +61,7 @@ var current_barrier_stat_type_to_overcome: StatType
 var current_barrier_cost_to_overcome_number: int
 var current_barrier_data: BarrierData
 
+var current_reroll_fuel_cost: int
 var current_character_die_slots: Array[CharacterDieSlot]
 var current_matching_stat_type_multiplier: int
 var war_transport_health_current: int
@@ -68,6 +74,7 @@ var applicants: Array[Character]
 var should_generate_new_applicants: bool
 
 var current_money: int
+var current_fuel: int
 
 func _ready():
     reset_values()
@@ -93,6 +100,8 @@ func reset_values() -> void:
         _initial_war_transport_hull_polled_coordinates
     )
     set_money(_initial_money)
+    set_fuel(_initial_fuel)
+    set_reroll_fuel_cost(_initial_reroll_fuel_cost)
 
     set_war_transport_health_to_maximum()
     initialize_characters()
@@ -178,3 +187,11 @@ func set_money(updated_money: int) -> void:
     var old_money = current_money
     current_money = updated_money
     money_changed.emit(updated_money, old_money)
+
+func set_fuel(updated_fuel: int) -> void:
+    var old_fuel = current_fuel
+    current_fuel = min(updated_fuel, _maximum_fuel)
+    fuel_changed.emit(current_fuel, old_fuel)
+
+func set_reroll_fuel_cost(updated_cost: int) -> void:
+    current_reroll_fuel_cost = updated_cost

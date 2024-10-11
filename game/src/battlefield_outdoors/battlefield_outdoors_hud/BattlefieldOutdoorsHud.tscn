@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b6k6baalu42w7"]
+[gd_scene load_steps=4 format=3 uid="uid://b6k6baalu42w7"]
 
 [ext_resource type="Script" path="res://src/battlefield_outdoors/battlefield_outdoors_hud/battlefield_outdoors_hud.gd" id="1_3j823"]
 [ext_resource type="LabelSettings" uid="uid://2bu6p3hkt8lk" path="res://assets/label_settings/ColorWarning.tres" id="2_p0vkd"]
+[ext_resource type="PackedScene" uid="uid://cib1fq003l5jx" path="res://src/indoor_preparation/screen_displays/shared/screen_notification.tscn" id="3_rl23t"]
 
 [node name="BattlefieldOutdoorsHud" type="Control"]
 layout_mode = 3
@@ -83,10 +84,6 @@ layout_mode = 2
 layout_mode = 2
 alignment = 1
 
-[node name="MockRerollButton" type="Button" parent="CentralControls/VBoxContainer/Buttons"]
-layout_mode = 2
-text = "Reroll"
-
 [node name="MockAttackButton" type="Button" parent="CentralControls/VBoxContainer/Buttons"]
 layout_mode = 2
 text = "Charge!"
@@ -116,5 +113,47 @@ text = "Buy troops before rolling."
 label_settings = ExtResource("2_p0vkd")
 horizontal_alignment = 1
 
-[connection signal="pressed" from="CentralControls/VBoxContainer/Buttons/MockRerollButton" to="." method="_on_mock_reroll_button_pressed"]
+[node name="ScreenNotification" parent="." instance=ExtResource("3_rl23t")]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.3
+anchor_bottom = 0.3
+
+[node name="BottomBar" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Columns" type="HBoxContainer" parent="BottomBar"]
+layout_mode = 2
+
+[node name="MarginContainer1" type="MarginContainer" parent="BottomBar/Columns"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="BottomBar/Columns"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BottomBar/Columns/MarginContainer2"]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="BottomBar/Columns/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="MockRerollButton" type="Button" parent="BottomBar/Columns/MarginContainer2/VBoxContainer/CenterContainer"]
+layout_mode = 2
+text = "Reroll
+(Costs 1 Fuel)"
+
+[node name="MarginContainer3" type="MarginContainer" parent="BottomBar/Columns"]
+layout_mode = 2
+size_flags_horizontal = 3
+
 [connection signal="pressed" from="CentralControls/VBoxContainer/Buttons/MockAttackButton" to="." method="_on_mock_attack_button_pressed"]
+[connection signal="pressed" from="BottomBar/Columns/MarginContainer2/VBoxContainer/CenterContainer/MockRerollButton" to="." method="_on_mock_reroll_button_pressed"]

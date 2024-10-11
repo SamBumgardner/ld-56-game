@@ -12,7 +12,7 @@ const PURCHASE_FAIL_POOR_REASON: String = "INSUFFICIENT_FUNDS"
 @onready var database: Database = $"/root/Database"
 @onready var screen: Screen = $Screen
 @onready var crew_buttons: Array[Node] = $CrewButtons.get_children()
-@onready var money_display: MoneyDisplay = $MoneyDisplay
+@onready var money_display: MoneyDisplay = $VBoxContainer/MoneyDisplay
 
 var applicants: Array[Character] = []
 
@@ -27,7 +27,7 @@ func _ready() -> void:
     hiring_failure.connect(screen._on_hiring_failure)
     upgrade_success.connect(screen._on_upgrade_success)
     upgrade_failure.connect(screen._on_upgrade_failure)
-    insufficient_funds.connect(money_display._on_insufficient_funds)
+    insufficient_funds.connect(money_display._on_insufficient_resource)
     
     if get_tree().current_scene == self:
         transition_in()

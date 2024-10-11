@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnbbp4gy833n"]
+
+[ext_resource type="PackedScene" uid="uid://cwx53f7dgoboq" path="res://src/shared_ui/resource_display/resource_display.tscn" id="1_iljxo"]
+[ext_resource type="Script" path="res://src/shared_ui/resource_display/money_display.gd" id="2_4p4or"]
+
+[node name="MoneyDisplay" instance=ExtResource("1_iljxo")]
+script = ExtResource("2_4p4or")

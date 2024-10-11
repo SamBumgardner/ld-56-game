@@ -1,7 +1,7 @@
 extends Control
 
 @onready var quit_button = (
-    $VBoxContainer/QuitButton
+    $VBoxContainer/Buttons/ButtonRows/QuitButton
 )
 
 

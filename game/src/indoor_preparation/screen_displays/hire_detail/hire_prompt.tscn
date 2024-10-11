@@ -22,7 +22,7 @@ text = "[center]Hiring Cost:
 [img=25%]res://assets/art/ATTACK_icon_64x64.png[/img]500"
 fit_content = true
 scroll_active = false
-autowrap_mode = 0
+autowrap_mode = 2
 
 [node name="PurchaseButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2

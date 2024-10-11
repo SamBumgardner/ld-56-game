@@ -1,7 +1,10 @@
-extends Control
+class_name BattlefieldOutdoorsHud extends Control
 
 signal barrier_strength_scaled
 signal dice_roll_requested
+
+const REROLL_FAIL_MESSAGE = "Failed to shuffle unlocked actions.\nReason: INSUFFICIENT_FUEL"
+const REROLL_FAIL_DURATION = 2
 
 @onready var barriers = $TopBar/Trackers/BarriersOvercomeTracker/Current
 @onready var combat_math_formulas = CombatMathFormulas.new()
@@ -16,6 +19,7 @@ signal dice_roll_requested
 @onready var warning_out_of_troops = (
     $CentralControls/VBoxContainer/Warnings/WarningOutOfTroops
 )
+@onready var screen_notification: ScreenNotification = $ScreenNotification
 
 
 func _ready():
@@ -74,6 +78,7 @@ func _on_mock_attack_button_pressed() -> void:
     if updated_health > 0:
         print_debug("*** EARNING MONEY **** Probably clean this up later.")
         Database.set_money(Database.current_money + randi_range(1, 100))
+        Database.set_fuel(Database.current_fuel + randi_range(1,3))
         _scale_up_barrier_strength()
         Database.set_barriers_overcome_count(
             Database.barriers_overcome_count
@@ -136,3 +141,11 @@ func _scale_up_barrier_strength() -> void:
 func _set_health_text() -> void:
     health_current.text = str(Database.war_transport_health_current)
     health_maximum.text = str(Database.war_transport_health_maximum)
+
+func _on_insufficient_fuel() -> void:
+    screen_notification.display_notification(
+        ScreenNotification.ScreenNotificationType.ERROR,
+        REROLL_FAIL_MESSAGE,
+        REROLL_FAIL_DURATION
+    )
+    
