@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b6k6baalu42w7"]
+[gd_scene load_steps=10 format=3 uid="uid://b6k6baalu42w7"]
 
 [ext_resource type="Script" path="res://src/battlefield_outdoors/battlefield_outdoors_hud/battlefield_outdoors_hud.gd" id="1_3j823"]
 [ext_resource type="PackedScene" uid="uid://da57hkojchohp" path="res://src/shared_ui/resource_display/health_display.tscn" id="2_6fssr"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cjb6144n5q1b1" path="res://src/shared_ui/resource_display/fuel_display.tscn" id="3_n5xb3"]
 [ext_resource type="PackedScene" uid="uid://cib1fq003l5jx" path="res://src/indoor_preparation/screen_displays/shared/screen_notification.tscn" id="3_rl23t"]
 [ext_resource type="PackedScene" uid="uid://cf5qy6u2j3hhw" path="res://assets/themes/fuel_display_mini.tscn" id="5_3m24g"]
+[ext_resource type="Texture2D" uid="uid://c812lqrvhyq01" path="res://assets/art/ATTACK_icon_64x64.png" id="6_r4yqa"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8a5xg"]
 content_margin_left = 5.0
@@ -238,9 +239,24 @@ theme_override_constants/margin_bottom = 5
 [node name="PanelContainer" type="PanelContainer" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay"]
 layout_mode = 2
 
-[node name="MockAttackButton" type="Button" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay/PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay/PanelContainer"]
 layout_mode = 2
-size_flags_vertical = 8
+
+[node name="TotalHeader" type="Label" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Total Power:"
+
+[node name="TotalValue" type="Label" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 48
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MockAttackButton" type="Button" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
 text = "Charge!"
 
 [node name="Right" type="VBoxContainer" parent="BottomInfoDisplay"]
@@ -264,13 +280,108 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_8a5xg")
 
 [node name="PanelTitle" type="Label" parent="BottomInfoDisplay/Right/TopEdge/TitleContainer"]
 layout_mode = 2
-text = "Barrier Preview"
+text = "Next Barrier"
 
 [node name="BarrierPreview" type="PanelContainer" parent="BottomInfoDisplay/Right"]
 custom_minimum_size = Vector2(275, 210)
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 8
+
+[node name="VB" type="VBoxContainer" parent="BottomInfoDisplay/Right/BarrierPreview"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="NameContainer" type="PanelContainer" parent="BottomInfoDisplay/Right/BarrierPreview/VB"]
+layout_mode = 2
+
+[node name="MC" type="MarginContainer" parent="BottomInfoDisplay/Right/BarrierPreview/VB/NameContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="Name" type="Label" parent="BottomInfoDisplay/Right/BarrierPreview/VB/NameContainer/MC"]
+layout_mode = 2
+text = "The Immovable Object"
+horizontal_alignment = 1
+
+[node name="StatsContainer" type="MarginContainer" parent="BottomInfoDisplay/Right/BarrierPreview/VB"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VB" type="VBoxContainer" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer"]
+custom_minimum_size = Vector2(0, 190)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="TotalPowerContainer" type="PanelContainer" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer/VB"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer/VB/TotalPowerContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer/VB/TotalPowerContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="TotalPowerHeader" type="Label" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer/VB/TotalPowerContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Total Power:"
+
+[node name="TotalPowerValue" type="Label" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer/VB/TotalPowerContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_font_sizes/font_size = 48
+text = "75"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HB" type="HBoxContainer" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer/VB"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="WeaknessContainer" type="PanelContainer" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer/VB/HB"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer/VB/HB/WeaknessContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer/VB/HB/WeaknessContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="WeaknessHeader" type="Label" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer/VB/HB/WeaknessContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Weakness:"
+
+[node name="WeaknessIcon" type="TextureRect" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer/VB/HB/WeaknessContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+texture = ExtResource("6_r4yqa")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="SpecialContainer" type="PanelContainer" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer/VB/HB"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer/VB/HB/SpecialContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer/VB/HB/SpecialContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="SpecialHeader" type="Label" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer/VB/HB/SpecialContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Special:"
 
 [node name="CentralControls" type="MarginContainer" parent="."]
 custom_minimum_size = Vector2(0, 60)
@@ -338,4 +449,4 @@ text = "Manage Crew
 Inside "
 
 [connection signal="pressed" from="BottomInfoDisplay/Center/TopEdge/MockRerollButton" to="." method="_on_mock_reroll_button_pressed"]
-[connection signal="pressed" from="BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay/PanelContainer/MockAttackButton" to="." method="_on_mock_attack_button_pressed"]
+[connection signal="pressed" from="BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay/PanelContainer/VBoxContainer/MockAttackButton" to="." method="_on_mock_attack_button_pressed"]
