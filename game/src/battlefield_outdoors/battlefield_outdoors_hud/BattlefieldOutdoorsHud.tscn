@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b6k6baalu42w7"]
+[gd_scene load_steps=11 format=3 uid="uid://b6k6baalu42w7"]
 
 [ext_resource type="Script" path="res://src/battlefield_outdoors/battlefield_outdoors_hud/battlefield_outdoors_hud.gd" id="1_3j823"]
 [ext_resource type="PackedScene" uid="uid://da57hkojchohp" path="res://src/shared_ui/resource_display/health_display.tscn" id="2_6fssr"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cjb6144n5q1b1" path="res://src/shared_ui/resource_display/fuel_display.tscn" id="3_n5xb3"]
 [ext_resource type="PackedScene" uid="uid://cib1fq003l5jx" path="res://src/indoor_preparation/screen_displays/shared/screen_notification.tscn" id="3_rl23t"]
 [ext_resource type="PackedScene" uid="uid://cf5qy6u2j3hhw" path="res://assets/themes/fuel_display_mini.tscn" id="5_3m24g"]
+[ext_resource type="PackedScene" uid="uid://cg02ahrm1dodf" path="res://src/battlefield_outdoors/combat_math_calculations_hud/CombatMathCalculationsHud.tscn" id="6_30blh"]
 [ext_resource type="Texture2D" uid="uid://c812lqrvhyq01" path="res://assets/art/ATTACK_icon_64x64.png" id="6_r4yqa"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8a5xg"]
@@ -226,6 +227,9 @@ theme_override_constants/margin_bottom = 5
 [node name="PC" type="PanelContainer" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CalculationsDisplay"]
 layout_mode = 2
 
+[node name="CombatMathCalculationsHud" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CalculationsDisplay" instance=ExtResource("6_30blh")]
+layout_mode = 2
+
 [node name="TotalPowerDisplay" type="MarginContainer" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections"]
 clip_contents = true
 custom_minimum_size = Vector2(150, 0)
@@ -243,10 +247,12 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="TotalHeader" type="Label" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay/PanelContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 text = "Total Power:"
 
 [node name="TotalValue" type="Label" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay/PanelContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 1
 theme_override_font_sizes/font_size = 48
@@ -431,6 +437,7 @@ horizontal_alignment = 1
 
 [node name="ScreenNotification" parent="." instance=ExtResource("3_rl23t")]
 visible = false
+z_index = 1
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.3

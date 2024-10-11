@@ -10,24 +10,35 @@
 script = ExtResource("1_o8nwd")
 
 [node name="Columns" type="HBoxContainer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -96.5
+offset_right = 96.5
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 0
 theme = ExtResource("2_58oda")
 
 [node name="Units" type="VBoxContainer" parent="Columns"]
 layout_mode = 2
+size_flags_horizontal = 4
 
 [node name="GridOfDiceResults" parent="Columns/Units" instance=ExtResource("1_depth")]
 layout_mode = 2
 
 [node name="WarTransportRect" type="TextureRect" parent="Columns/Units"]
 layout_mode = 2
+size_flags_horizontal = 4
 texture = ExtResource("2_aqe0i")
+stretch_mode = 4
 
 [node name="WarTransportName" type="Label" parent="Columns/Units"]
 layout_mode = 2
+size_flags_horizontal = 4
 text = "Elephant in the Room"
 horizontal_alignment = 1
 
 [node name="CombatMathCalculationsHud" parent="Columns" instance=ExtResource("4_2x5nk")]
+visible = false
 layout_mode = 2

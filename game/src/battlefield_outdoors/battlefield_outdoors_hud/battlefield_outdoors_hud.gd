@@ -22,6 +22,7 @@ const REROLL_FAIL_DURATION = 2
 @onready var screen_notification: ScreenNotification = $ScreenNotification
 @onready var fuel_display: FuelDisplay = $TopBar/Trackers/FuelDisplay
 @onready var bottom_bar_fuel: FuelDisplay = $BottomInfoDisplay/Center/TopEdge/FuelDisplayMini
+@onready var calculations_hud: CombatMathCalculationsHud = $BottomInfoDisplay/Center/CrewStatus/StatusSections/CalculationsDisplay/CombatMathCalculationsHud
 
 
 func _ready():
@@ -116,6 +117,7 @@ func _on_mock_reroll_button_pressed() -> void:
     _hide_roll_warnings()
 
     dice_roll_requested.emit()
+    calculations_hud.refresh()
 
 
 func _reduce_war_transport_health(amount_to_subtract : int) -> int:
