@@ -17,6 +17,7 @@ theme = ExtResource("1_cei1v")
 script = ExtResource("2_ni2i7")
 
 [node name="AnchorOfBarrier" type="Control" parent="."]
+visible = false
 layout_direction = 3
 layout_mode = 1
 anchors_preset = 4
@@ -46,6 +47,7 @@ offset_bottom = 20.0
 grow_vertical = 2
 
 [node name="BattlefieldOutdoorsWarTransport" parent="AnchorOfWarTransport" instance=ExtResource("3_etui0")]
+visible = false
 
 [connection signal="barrier_stat_type_updated" from="AnchorOfBarrier/BattlefieldOutdoorsBarrier" to="AnchorOfWarTransport/BattlefieldOutdoorsWarTransport" method="_on_battlefield_outdoors_barrier_barrier_stat_type_updated"]
 [connection signal="barrier_strength_scaled" from="BattlefieldOutdoorsHud" to="AnchorOfBarrier/BattlefieldOutdoorsBarrier" method="_on_battlefield_outdoors_hud_barrier_strength_scaled"]

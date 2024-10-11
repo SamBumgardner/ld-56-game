@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b6k6baalu42w7"]
+[gd_scene load_steps=9 format=3 uid="uid://b6k6baalu42w7"]
 
 [ext_resource type="Script" path="res://src/battlefield_outdoors/battlefield_outdoors_hud/battlefield_outdoors_hud.gd" id="1_3j823"]
 [ext_resource type="PackedScene" uid="uid://da57hkojchohp" path="res://src/shared_ui/resource_display/health_display.tscn" id="2_6fssr"]
@@ -6,10 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://cnbbp4gy833n" path="res://src/shared_ui/resource_display/money_display.tscn" id="2_ualkn"]
 [ext_resource type="PackedScene" uid="uid://cjb6144n5q1b1" path="res://src/shared_ui/resource_display/fuel_display.tscn" id="3_n5xb3"]
 [ext_resource type="PackedScene" uid="uid://cib1fq003l5jx" path="res://src/indoor_preparation/screen_displays/shared/screen_notification.tscn" id="3_rl23t"]
+[ext_resource type="PackedScene" uid="uid://cf5qy6u2j3hhw" path="res://assets/themes/fuel_display_mini.tscn" id="5_3m24g"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8a5xg"]
 content_margin_left = 5.0
-content_margin_top = 5.0
+content_margin_top = 2.0
 content_margin_right = 5.0
 bg_color = Color(0.180392, 0.180392, 0.180392, 1)
 corner_radius_top_left = 10
@@ -53,63 +54,86 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="CrewMemberSelector" type="PanelContainer" parent="BottomInfoDisplay"]
+[node name="Left" type="VBoxContainer" parent="BottomInfoDisplay"]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 0
+
+[node name="TopEdge" type="Control" parent="BottomInfoDisplay/Left"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="TitleContainer" type="PanelContainer" parent="BottomInfoDisplay/Left/TopEdge"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8a5xg")
+
+[node name="PanelTitle" type="Label" parent="BottomInfoDisplay/Left/TopEdge/TitleContainer"]
+layout_mode = 2
+text = "Crew"
+
+[node name="CrewMemberSelector" type="PanelContainer" parent="BottomInfoDisplay/Left"]
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 8
 
-[node name="MarginContainer" type="MarginContainer" parent="BottomInfoDisplay/CrewMemberSelector"]
+[node name="MarginContainer" type="MarginContainer" parent="BottomInfoDisplay/Left/CrewMemberSelector"]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="GridContainer" type="GridContainer" parent="BottomInfoDisplay/CrewMemberSelector/MarginContainer"]
+[node name="GridContainer" type="GridContainer" parent="BottomInfoDisplay/Left/CrewMemberSelector/MarginContainer"]
 layout_mode = 2
 columns = 3
 
-[node name="Button" type="Button" parent="BottomInfoDisplay/CrewMemberSelector/MarginContainer/GridContainer"]
+[node name="Button" type="Button" parent="BottomInfoDisplay/Left/CrewMemberSelector/MarginContainer/GridContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 disabled = true
 
-[node name="Button2" type="Button" parent="BottomInfoDisplay/CrewMemberSelector/MarginContainer/GridContainer"]
+[node name="Button2" type="Button" parent="BottomInfoDisplay/Left/CrewMemberSelector/MarginContainer/GridContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 disabled = true
 
-[node name="Button3" type="Button" parent="BottomInfoDisplay/CrewMemberSelector/MarginContainer/GridContainer"]
+[node name="Button3" type="Button" parent="BottomInfoDisplay/Left/CrewMemberSelector/MarginContainer/GridContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 disabled = true
 
-[node name="Button4" type="Button" parent="BottomInfoDisplay/CrewMemberSelector/MarginContainer/GridContainer"]
+[node name="Button4" type="Button" parent="BottomInfoDisplay/Left/CrewMemberSelector/MarginContainer/GridContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 disabled = true
 
-[node name="Button5" type="Button" parent="BottomInfoDisplay/CrewMemberSelector/MarginContainer/GridContainer"]
+[node name="Button5" type="Button" parent="BottomInfoDisplay/Left/CrewMemberSelector/MarginContainer/GridContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 disabled = true
 
-[node name="Button6" type="Button" parent="BottomInfoDisplay/CrewMemberSelector/MarginContainer/GridContainer"]
+[node name="Button6" type="Button" parent="BottomInfoDisplay/Left/CrewMemberSelector/MarginContainer/GridContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 disabled = true
 
-[node name="Button7" type="Button" parent="BottomInfoDisplay/CrewMemberSelector/MarginContainer/GridContainer"]
+[node name="Button7" type="Button" parent="BottomInfoDisplay/Left/CrewMemberSelector/MarginContainer/GridContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 disabled = true
 
-[node name="Button8" type="Button" parent="BottomInfoDisplay/CrewMemberSelector/MarginContainer/GridContainer"]
+[node name="Button8" type="Button" parent="BottomInfoDisplay/Left/CrewMemberSelector/MarginContainer/GridContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 disabled = true
 
-[node name="Button9" type="Button" parent="BottomInfoDisplay/CrewMemberSelector/MarginContainer/GridContainer"]
+[node name="Button9" type="Button" parent="BottomInfoDisplay/Left/CrewMemberSelector/MarginContainer/GridContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 disabled = true
@@ -120,12 +144,12 @@ size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_constants/separation = 0
 
-[node name="TopEdgeButtons" type="Control" parent="BottomInfoDisplay/Center"]
+[node name="TopEdge" type="Control" parent="BottomInfoDisplay/Center"]
 z_index = 1
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="BottomInfoDisplay/Center/TopEdgeButtons"]
+[node name="TitleContainer" type="PanelContainer" parent="BottomInfoDisplay/Center/TopEdge"]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 1.0
@@ -134,11 +158,12 @@ offset_left = 20.0
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_8a5xg")
 
-[node name="PanelTitle" type="Label" parent="BottomInfoDisplay/Center/TopEdgeButtons/PanelContainer"]
+[node name="PanelTitle" type="Label" parent="BottomInfoDisplay/Center/TopEdge/TitleContainer"]
 layout_mode = 2
-text = "Crew Status"
+text = "Status
+"
 
-[node name="MockRerollButton" type="Button" parent="BottomInfoDisplay/Center/TopEdgeButtons"]
+[node name="MockRerollButton" type="Button" parent="BottomInfoDisplay/Center/TopEdge"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -155,28 +180,29 @@ size_flags_vertical = 8
 text = "Reroll
 (Costs 1 Fuel)"
 
-[node name="FuelDisplay" parent="BottomInfoDisplay/Center/TopEdgeButtons" instance=ExtResource("3_n5xb3")]
+[node name="FuelDisplayMini" parent="BottomInfoDisplay/Center/TopEdge" instance=ExtResource("5_3m24g")]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.85
+anchor_left = 0.5
 anchor_top = 1.0
-anchor_right = 0.85
+anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -150.0
+offset_left = 200.0
+offset_right = 30.0
 offset_bottom = 0.0
+grow_horizontal = 2
 grow_vertical = 0
 
 [node name="CrewStatus" type="PanelContainer" parent="BottomInfoDisplay/Center"]
 custom_minimum_size = Vector2(680, 200)
 layout_mode = 2
-size_flags_horizontal = 6
 size_flags_vertical = 10
 
-[node name="HB" type="HBoxContainer" parent="BottomInfoDisplay/Center/CrewStatus"]
+[node name="StatusSections" type="HBoxContainer" parent="BottomInfoDisplay/Center/CrewStatus"]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="CrewActionsDisplay" type="MarginContainer" parent="BottomInfoDisplay/Center/CrewStatus/HB"]
+[node name="CrewActionsDisplay" type="MarginContainer" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 5
@@ -184,10 +210,10 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="PC" type="PanelContainer" parent="BottomInfoDisplay/Center/CrewStatus/HB/CrewActionsDisplay"]
+[node name="PC" type="PanelContainer" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CrewActionsDisplay"]
 layout_mode = 2
 
-[node name="CalculationsDisplay" type="MarginContainer" parent="BottomInfoDisplay/Center/CrewStatus/HB"]
+[node name="CalculationsDisplay" type="MarginContainer" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 8
@@ -196,10 +222,10 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="PC" type="PanelContainer" parent="BottomInfoDisplay/Center/CrewStatus/HB/CalculationsDisplay"]
+[node name="PC" type="PanelContainer" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CalculationsDisplay"]
 layout_mode = 2
 
-[node name="TotalPowerDisplay" type="MarginContainer" parent="BottomInfoDisplay/Center/CrewStatus/HB"]
+[node name="TotalPowerDisplay" type="MarginContainer" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections"]
 clip_contents = true
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
@@ -209,11 +235,39 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="PanelContainer" type="PanelContainer" parent="BottomInfoDisplay/Center/CrewStatus/HB/TotalPowerDisplay"]
+[node name="PanelContainer" type="PanelContainer" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay"]
 layout_mode = 2
 
-[node name="BarrierPreview" type="PanelContainer" parent="BottomInfoDisplay"]
-custom_minimum_size = Vector2(275, 275)
+[node name="MockAttackButton" type="Button" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Charge!"
+
+[node name="Right" type="VBoxContainer" parent="BottomInfoDisplay"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 8
+theme_override_constants/separation = 0
+
+[node name="TopEdge" type="Control" parent="BottomInfoDisplay/Right"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="TitleContainer" type="PanelContainer" parent="BottomInfoDisplay/Right/TopEdge"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8a5xg")
+
+[node name="PanelTitle" type="Label" parent="BottomInfoDisplay/Right/TopEdge/TitleContainer"]
+layout_mode = 2
+text = "Barrier Preview"
+
+[node name="BarrierPreview" type="PanelContainer" parent="BottomInfoDisplay/Right"]
+custom_minimum_size = Vector2(275, 210)
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 8
@@ -238,10 +292,6 @@ layout_mode = 2
 [node name="Buttons" type="HBoxContainer" parent="CentralControls/VBoxContainer"]
 layout_mode = 2
 alignment = 1
-
-[node name="MockAttackButton" type="Button" parent="CentralControls/VBoxContainer/Buttons"]
-layout_mode = 2
-text = "Charge!"
 
 [node name="Warnings" type="MarginContainer" parent="CentralControls/VBoxContainer"]
 layout_mode = 2
@@ -287,5 +337,5 @@ grow_horizontal = 2
 text = "Manage Crew
 Inside "
 
-[connection signal="pressed" from="BottomInfoDisplay/Center/TopEdgeButtons/MockRerollButton" to="." method="_on_mock_reroll_button_pressed"]
-[connection signal="pressed" from="CentralControls/VBoxContainer/Buttons/MockAttackButton" to="." method="_on_mock_attack_button_pressed"]
+[connection signal="pressed" from="BottomInfoDisplay/Center/TopEdge/MockRerollButton" to="." method="_on_mock_reroll_button_pressed"]
+[connection signal="pressed" from="BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay/PanelContainer/MockAttackButton" to="." method="_on_mock_attack_button_pressed"]
