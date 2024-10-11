@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://da57hkojchohp"]
+
+[node name="HealthDisplay" type="PanelContainer"]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HealthLabel" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Health:
+"
+
+[node name="HealthCurrent" type="Label" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "0"
+horizontal_alignment = 2
+
+[node name="HealthDivider" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "/"
+
+[node name="HealthMaximum" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "1000"

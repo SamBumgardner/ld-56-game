@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6k6baalu42w7"]
+[gd_scene load_steps=7 format=3 uid="uid://b6k6baalu42w7"]
 
 [ext_resource type="Script" path="res://src/battlefield_outdoors/battlefield_outdoors_hud/battlefield_outdoors_hud.gd" id="1_3j823"]
+[ext_resource type="PackedScene" uid="uid://da57hkojchohp" path="res://src/shared_ui/resource_display/health_display.tscn" id="2_6fssr"]
 [ext_resource type="LabelSettings" uid="uid://2bu6p3hkt8lk" path="res://assets/label_settings/ColorWarning.tres" id="2_p0vkd"]
+[ext_resource type="PackedScene" uid="uid://cnbbp4gy833n" path="res://src/shared_ui/resource_display/money_display.tscn" id="2_ualkn"]
+[ext_resource type="PackedScene" uid="uid://cjb6144n5q1b1" path="res://src/shared_ui/resource_display/fuel_display.tscn" id="3_n5xb3"]
 [ext_resource type="PackedScene" uid="uid://cib1fq003l5jx" path="res://src/indoor_preparation/screen_displays/shared/screen_notification.tscn" id="3_rl23t"]
 
 [node name="BattlefieldOutdoorsHud" type="Control"]
@@ -18,50 +21,18 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Panel" type="Panel" parent="TopBar"]
+[node name="Trackers" type="VBoxContainer" parent="TopBar"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="HealthDisplay" parent="TopBar/Trackers" instance=ExtResource("2_6fssr")]
 layout_mode = 2
 
-[node name="Trackers" type="HBoxContainer" parent="TopBar"]
+[node name="MoneyDisplay" parent="TopBar/Trackers" instance=ExtResource("2_ualkn")]
 layout_mode = 2
 
-[node name="HealthTracker" type="HBoxContainer" parent="TopBar/Trackers"]
+[node name="FuelDisplay" parent="TopBar/Trackers" instance=ExtResource("3_n5xb3")]
 layout_mode = 2
-
-[node name="HealthLabel" type="Label" parent="TopBar/Trackers/HealthTracker"]
-layout_mode = 2
-text = "Health:
-"
-
-[node name="HealthCurrent" type="Label" parent="TopBar/Trackers/HealthTracker"]
-custom_minimum_size = Vector2(50, 0)
-layout_mode = 2
-text = "0"
-horizontal_alignment = 2
-
-[node name="HealthDivider" type="Label" parent="TopBar/Trackers/HealthTracker"]
-layout_mode = 2
-text = "/"
-
-[node name="HealthMaximum" type="Label" parent="TopBar/Trackers/HealthTracker"]
-layout_mode = 2
-text = "1000"
-
-[node name="BarriersOvercomeTracker" type="HBoxContainer" parent="TopBar/Trackers"]
-layout_mode = 2
-
-[node name="Current" type="Label" parent="TopBar/Trackers/BarriersOvercomeTracker"]
-custom_minimum_size = Vector2(50, 0)
-layout_mode = 2
-text = "0"
-horizontal_alignment = 2
-
-[node name="X" type="Label" parent="TopBar/Trackers/BarriersOvercomeTracker"]
-layout_mode = 2
-text = "x"
-
-[node name="Label" type="Label" parent="TopBar/Trackers/BarriersOvercomeTracker"]
-layout_mode = 2
-text = "Barriers"
 
 [node name="CentralControls" type="MarginContainer" parent="."]
 custom_minimum_size = Vector2(0, 60)
@@ -154,6 +125,18 @@ text = "Reroll
 [node name="MarginContainer3" type="MarginContainer" parent="BottomBar/Columns"]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="GoInsideButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -4.0
+offset_right = 4.0
+offset_bottom = 8.0
+grow_horizontal = 2
+text = "Manage Crew
+Inside "
 
 [connection signal="pressed" from="CentralControls/VBoxContainer/Buttons/MockAttackButton" to="." method="_on_mock_attack_button_pressed"]
 [connection signal="pressed" from="BottomBar/Columns/MarginContainer2/VBoxContainer/CenterContainer/MockRerollButton" to="." method="_on_mock_reroll_button_pressed"]

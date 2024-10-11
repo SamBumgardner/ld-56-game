@@ -7,7 +7,7 @@ class_name Gameplay extends Control
 @onready var transition_cover: CanvasLayer = $TransitionCover
 @onready var mode_transition_cover: ModeTransitionCover = $TransitionCover/ModeTransitionCover
 
-@onready var go_inside_button: Button = $OutdoorBattleMode/BattlefieldOutdoors/GoInsideButton
+@onready var go_inside_button: Button = $OutdoorBattleMode/BattlefieldOutdoors/BattlefieldOutdoorsHud/GoInsideButton
 @onready var go_outside_button: Button = $IndoorPrepMode/IndoorPreparation/GoOutsideButton
 
 func _ready() -> void:
