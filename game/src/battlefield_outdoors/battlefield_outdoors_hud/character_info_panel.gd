@@ -1,7 +1,7 @@
 class_name CharacterInfoPanel extends PanelContainer
 
 const UPGRADE_FORMAT: String = "Upgrades:\n%s"
-const FADE_DURATION: float = .5
+const FADE_DURATION: float = .25
 const FORCE_END_STEP_DURATION: float = FADE_DURATION * 3
 
 @onready var portrait: TextureRect = $MC/VB/Summary/Portrait
