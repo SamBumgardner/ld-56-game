@@ -27,6 +27,13 @@ func _ready():
 
 
 func _initialize_volumes():
+    print_debug(
+        'Initial slider values of SFX and music are: (',
+        sfx_slider.value,
+        ',',
+        music_slider.value,
+        ')'
+    )
     sfx_slider.value = int(
         SoundManager.get_sound_volume() * setting_to_percentage_ratio
     )
@@ -46,10 +53,7 @@ func _on_music_volume_percentage_slider_drag_ended(value_changed):
     if !value_changed:
         return
 
-    SoundManager.set_sound_volume(
-        roundf(music_slider.value) / setting_to_percentage_ratio
-    )
-    print_debug('Updated music volume: ', SoundManager.get_sound_volume())
+    _set_music_volume_from_slider()
 
 
 func _on_sfx_volume_percentage_slider_drag_ended(value_changed):
@@ -57,12 +61,9 @@ func _on_sfx_volume_percentage_slider_drag_ended(value_changed):
         audio_manager.on_sfx_volume_updated()
         return
 
-    SoundManager.set_sound_volume(
-        roundf(sfx_slider.value) / setting_to_percentage_ratio
-    )
+    _set_sfx_volume_from_slider()
 
     audio_manager.on_sfx_volume_updated()
-    print_debug('Updated sound volume: ', SoundManager.get_sound_volume())
 
 
 func _on_music_volume_percentage_slider_value_changed(value):
@@ -71,3 +72,21 @@ func _on_music_volume_percentage_slider_value_changed(value):
 
 func _on_sfx_volume_percentage_slider_value_changed(value):
     sfx_volume_percentage_display.text = str(value) + '%'
+
+
+func _slider_value_to_volume(slider_value: float) -> float:
+    var rounded_percentage = roundf(slider_value)
+    return rounded_percentage / setting_to_percentage_ratio
+
+
+#region Set volume
+
+func _set_music_volume_from_slider() -> void:
+    SoundManager.set_music_volume(_slider_value_to_volume(music_slider.value))
+
+
+func _set_sfx_volume_from_slider() -> void:
+    SoundManager.set_sound_volume(_slider_value_to_volume(sfx_slider.value))
+
+
+#endregion Set volume
