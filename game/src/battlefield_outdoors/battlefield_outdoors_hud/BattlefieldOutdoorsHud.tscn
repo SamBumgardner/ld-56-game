@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b6k6baalu42w7"]
+[gd_scene load_steps=19 format=3 uid="uid://b6k6baalu42w7"]
 
 [ext_resource type="Script" path="res://src/battlefield_outdoors/battlefield_outdoors_hud/battlefield_outdoors_hud.gd" id="1_3j823"]
 [ext_resource type="PackedScene" uid="uid://da57hkojchohp" path="res://src/shared_ui/resource_display/health_display.tscn" id="2_6fssr"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cg02ahrm1dodf" path="res://src/battlefield_outdoors/combat_math_calculations_hud/CombatMathCalculationsHud.tscn" id="6_30blh"]
 [ext_resource type="PackedScene" uid="uid://dr7v1vu064ukv" path="res://src/shared_ui/character_action_display/character_action_display.tscn" id="6_ihvc6"]
 [ext_resource type="Texture2D" uid="uid://c812lqrvhyq01" path="res://assets/art/ATTACK_icon_64x64.png" id="6_r4yqa"]
+[ext_resource type="Script" path="res://src/battlefield_outdoors/battlefield_outdoors_hud/reroll_button.gd" id="7_xg4o8"]
 [ext_resource type="Script" path="res://src/battlefield_outdoors/battlefield_outdoors_hud/total_power_display.gd" id="9_cb4ss"]
 [ext_resource type="Script" path="res://src/battlefield_outdoors/battlefield_outdoors_hud/barrier_preview.gd" id="9_iui7q"]
 [ext_resource type="PackedScene" uid="uid://vnu6f53bf3ur" path="res://src/battlefield_outdoors/battlefield_outdoors_hud/character_info_panel.tscn" id="16_oou66"]
@@ -173,6 +174,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 8
 text = "Reroll
 (Costs 1 Fuel)"
+script = ExtResource("7_xg4o8")
 
 [node name="FuelDisplayMini" parent="BottomInfoDisplay/Center/TopEdge" instance=ExtResource("5_3m24g")]
 layout_mode = 1
