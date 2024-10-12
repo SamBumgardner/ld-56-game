@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b6k6baalu42w7"]
+[gd_scene load_steps=17 format=3 uid="uid://b6k6baalu42w7"]
 
 [ext_resource type="Script" path="res://src/battlefield_outdoors/battlefield_outdoors_hud/battlefield_outdoors_hud.gd" id="1_3j823"]
 [ext_resource type="PackedScene" uid="uid://da57hkojchohp" path="res://src/shared_ui/resource_display/health_display.tscn" id="2_6fssr"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cjb6144n5q1b1" path="res://src/shared_ui/resource_display/fuel_display.tscn" id="3_n5xb3"]
 [ext_resource type="PackedScene" uid="uid://cib1fq003l5jx" path="res://src/indoor_preparation/screen_displays/shared/screen_notification.tscn" id="3_rl23t"]
 [ext_resource type="PackedScene" uid="uid://cf5qy6u2j3hhw" path="res://assets/themes/fuel_display_mini.tscn" id="5_3m24g"]
+[ext_resource type="Script" path="res://src/battlefield_outdoors/battlefield_outdoors_hud/crew_selector/crew_member_selector.gd" id="5_vpr4d"]
 [ext_resource type="PackedScene" uid="uid://cpjm8ajr3ey5l" path="res://src/battlefield_outdoors/battlefield_outdoors_hud/crew_selector/crew_selector_button.tscn" id="5_yqnmx"]
 [ext_resource type="Script" path="res://src/battlefield_outdoors/battlefield_outdoors_hud/crew_actions_display.gd" id="6_6ykrh"]
 [ext_resource type="PackedScene" uid="uid://cg02ahrm1dodf" path="res://src/battlefield_outdoors/combat_math_calculations_hud/CombatMathCalculationsHud.tscn" id="6_30blh"]
@@ -88,6 +89,7 @@ text = "Crew"
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 8
+script = ExtResource("5_vpr4d")
 
 [node name="MC" type="MarginContainer" parent="BottomInfoDisplay/Left/CrewMemberSelector"]
 layout_mode = 2
