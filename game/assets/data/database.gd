@@ -218,3 +218,11 @@ func get_character_die_slot(character_idx: int) -> CharacterDieSlot:
     if character_idx < current_character_die_slots.size():
         result = current_character_die_slots[character_idx]
     return result
+
+func get_die_slot_by_character(character: Character) -> CharacterDieSlot:
+    var result: CharacterDieSlot = null
+    for die_slot: CharacterDieSlot in current_character_die_slots:
+        if die_slot.character == character:
+            result = die_slot
+            break
+    return result
