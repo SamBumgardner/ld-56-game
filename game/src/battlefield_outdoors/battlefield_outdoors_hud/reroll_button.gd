@@ -3,7 +3,7 @@ class_name RerollButton extends Button
 signal hovered_available_reroll
 signal exited_available_reroll
 
-const REROLL_COOLDOWN: float = 1.0
+@export var reroll_cooldown: float = 1.5
 
 func _ready() -> void:
     mouse_entered.connect(_on_mouse_entered)
@@ -31,7 +31,7 @@ func _on_disabled_changed():
 func _on_pressed():
     _set_disabled(true)
     var cooldown_tween = create_tween()
-    cooldown_tween.tween_callback(_on_cooldown_complete).set_delay(REROLL_COOLDOWN)
+    cooldown_tween.tween_callback(_on_cooldown_complete).set_delay(reroll_cooldown)
 
 func _on_cooldown_complete():
     _set_disabled(false)
