@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://cv5b1rttk0pt3"]
+[gd_scene load_steps=4 format=3 uid="uid://h1fowbxngb70"]
 
 [ext_resource type="Script" path="res://src/audio_manager/audio_manager.gd" id="1_eh3tu"]
+[ext_resource type="AudioStream" uid="uid://bnwxx5jm4stl6" path="res://assets/audio/101_sfx_select.wav" id="2_x7bd4"]
+[ext_resource type="AudioStream" uid="uid://db75wtlmke61f" path="res://assets/audio/101_sfx_button.wav" id="2_xtd0e"]
 
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_eh3tu")
+sfx_button_click = ExtResource("2_x7bd4")
+sfx_button_hover = ExtResource("2_xtd0e")
