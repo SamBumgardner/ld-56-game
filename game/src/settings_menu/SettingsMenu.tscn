@@ -26,37 +26,57 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer2"]
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "Settings"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer2"]
+[node name="VolumeSettings" type="VBoxContainer" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_wa1ao")
 
-[node name="Label2" type="Label" parent="CenterContainer/VBoxContainer2/VBoxContainer"]
+[node name="SfxDescription" type="HBoxContainer" parent="CenterContainer/VBoxContainer/VolumeSettings"]
 layout_mode = 2
-text = "SFX"
-horizontal_alignment = 1
 
-[node name="SfxVolumePercentageSlider" type="HSlider" parent="CenterContainer/VBoxContainer2/VBoxContainer"]
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/VolumeSettings/SfxDescription"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SFX:"
+horizontal_alignment = 2
+
+[node name="SfxVolumePercentage" type="Label" parent="CenterContainer/VBoxContainer/VolumeSettings/SfxDescription"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0%"
+
+[node name="SfxVolumePercentageSlider" type="HSlider" parent="CenterContainer/VBoxContainer/VolumeSettings"]
 layout_mode = 2
 tick_count = 1
 
-[node name="Label3" type="Label" parent="CenterContainer/VBoxContainer2/VBoxContainer"]
+[node name="MusicDescription" type="HBoxContainer" parent="CenterContainer/VBoxContainer/VolumeSettings"]
 layout_mode = 2
-text = "Music"
-horizontal_alignment = 1
 
-[node name="MusicVolumePercentageSlider" type="HSlider" parent="CenterContainer/VBoxContainer2/VBoxContainer"]
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/VolumeSettings/MusicDescription"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Music:"
+horizontal_alignment = 2
+
+[node name="MusicVolumePercentage" type="Label" parent="CenterContainer/VBoxContainer/VolumeSettings/MusicDescription"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0%"
+
+[node name="MusicVolumePercentageSlider" type="HSlider" parent="CenterContainer/VBoxContainer/VolumeSettings"]
 layout_mode = 2
 rounded = true
 tick_count = 1
 
 [node name="BackToStartMenuButton" parent="." instance=ExtResource("4_lsi3h")]
 
-[connection signal="drag_ended" from="CenterContainer/VBoxContainer2/VBoxContainer/SfxVolumePercentageSlider" to="." method="_on_sfx_volume_percentage_slider_drag_ended"]
-[connection signal="drag_ended" from="CenterContainer/VBoxContainer2/VBoxContainer/MusicVolumePercentageSlider" to="." method="_on_music_volume_percentage_slider_drag_ended"]
+[connection signal="drag_ended" from="CenterContainer/VBoxContainer/VolumeSettings/SfxVolumePercentageSlider" to="." method="_on_sfx_volume_percentage_slider_drag_ended"]
+[connection signal="value_changed" from="CenterContainer/VBoxContainer/VolumeSettings/SfxVolumePercentageSlider" to="." method="_on_sfx_volume_percentage_slider_value_changed"]
+[connection signal="drag_ended" from="CenterContainer/VBoxContainer/VolumeSettings/MusicVolumePercentageSlider" to="." method="_on_music_volume_percentage_slider_drag_ended"]
+[connection signal="value_changed" from="CenterContainer/VBoxContainer/VolumeSettings/MusicVolumePercentageSlider" to="." method="_on_music_volume_percentage_slider_value_changed"]
