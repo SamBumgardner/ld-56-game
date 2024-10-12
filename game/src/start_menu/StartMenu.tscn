@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cg47m1iqb0uxk"]
+[gd_scene load_steps=6 format=3 uid="uid://cg47m1iqb0uxk"]
 
 [ext_resource type="Script" path="res://src/start_menu/start_menu.gd" id="1_1710u"]
 [ext_resource type="Theme" uid="uid://p47cuq8mu72p" path="res://assets/themes/StartMenu.tres" id="1_io06w"]
+[ext_resource type="PackedScene" uid="uid://cv5b1rttk0pt3" path="res://src/audio_manager/AudioManager.tscn" id="3_kgn8u"]
 [ext_resource type="Theme" uid="uid://dxolpwravnfdn" path="res://assets/themes/StartMenuButtons.tres" id="3_qd2mb"]
 
 [sub_resource type="Theme" id="Theme_jy1ow"]
@@ -16,6 +17,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_io06w")
 script = ExtResource("1_1710u")
+
+[node name="AudioManager" parent="." instance=ExtResource("3_kgn8u")]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
