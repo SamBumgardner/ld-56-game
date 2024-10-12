@@ -8,3 +8,4 @@ func _ready() -> void:
 
 func transition_in() -> void:
     Database.initialize_missing_die_slots()
+    battlefield_outdoors_hud.refresh_calculations()

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="CharacterFactory" load_steps=9 format=3 uid="uid://cghmtnhtq1aeh"]
 
-[ext_resource type="Texture2D" uid="uid://bu66la2403v7p" path="res://assets/art/HEAL_icon_64x64.png" id="1_53jm2"]
+[ext_resource type="Texture2D" uid="uid://dbxuu6rqen0ed" path="res://assets/art/character_icons/001_character_icon.png" id="1_8hva4"]
 [ext_resource type="Script" path="res://src/characters/CharacterFactory.gd" id="1_p523u"]
 [ext_resource type="Script" path="res://src/characters/UpgradeSelector.gd" id="2_5viq7"]
 [ext_resource type="Texture2D" uid="uid://bic3i142epdt3" path="res://assets/art/placeholder_threat.png" id="2_x50hj"]
@@ -18,7 +18,7 @@ script = ExtResource("1_p523u")
 name = "Mint"
 description = "A drifter named for greener times. Seeks the thrill of discovering new frontiers."
 portrait = ExtResource("2_x50hj")
-icon = ExtResource("1_53jm2")
+icon = ExtResource("1_8hva4")
 starting_action_strings = Array[String](["might_1", "might_2", "wit_1", "wit_2"])
 upgrade_level = 0
 upgrades = Array[ExtResource("2_5viq7")]([SubResource("Resource_whl3n")])

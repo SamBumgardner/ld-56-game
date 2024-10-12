@@ -160,3 +160,6 @@ func _on_insufficient_fuel() -> void:
     fuel_display._on_insufficient_resource()
     bottom_bar_fuel._on_insufficient_resource()
     
+func refresh_calculations() -> void:
+    calculations_hud.refresh()
+    total_power_display.refresh()
