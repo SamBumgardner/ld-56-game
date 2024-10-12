@@ -227,38 +227,47 @@ theme_override_constants/v_separation = 15
 columns = 3
 
 [node name="CharacterActionDisplay" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CrewActionsDisplay/PC/GC" instance=ExtResource("6_ihvc6")]
+self_modulate = Color(1, 1, 1, 0.392157)
 layout_mode = 2
 size_flags_horizontal = 6
 
 [node name="CharacterActionDisplay2" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CrewActionsDisplay/PC/GC" instance=ExtResource("6_ihvc6")]
+self_modulate = Color(1, 1, 1, 0.392157)
 layout_mode = 2
 size_flags_horizontal = 6
 
 [node name="CharacterActionDisplay3" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CrewActionsDisplay/PC/GC" instance=ExtResource("6_ihvc6")]
+self_modulate = Color(1, 1, 1, 0.392157)
 layout_mode = 2
 size_flags_horizontal = 6
 
 [node name="CharacterActionDisplay4" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CrewActionsDisplay/PC/GC" instance=ExtResource("6_ihvc6")]
+self_modulate = Color(1, 1, 1, 0.392157)
 layout_mode = 2
 size_flags_horizontal = 6
 
 [node name="CharacterActionDisplay5" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CrewActionsDisplay/PC/GC" instance=ExtResource("6_ihvc6")]
+self_modulate = Color(1, 1, 1, 0.392157)
 layout_mode = 2
 size_flags_horizontal = 6
 
 [node name="CharacterActionDisplay6" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CrewActionsDisplay/PC/GC" instance=ExtResource("6_ihvc6")]
+self_modulate = Color(1, 1, 1, 0.392157)
 layout_mode = 2
 size_flags_horizontal = 6
 
 [node name="CharacterActionDisplay7" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CrewActionsDisplay/PC/GC" instance=ExtResource("6_ihvc6")]
+self_modulate = Color(1, 1, 1, 0.392157)
 layout_mode = 2
 size_flags_horizontal = 6
 
 [node name="CharacterActionDisplay8" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CrewActionsDisplay/PC/GC" instance=ExtResource("6_ihvc6")]
+self_modulate = Color(1, 1, 1, 0.392157)
 layout_mode = 2
 size_flags_horizontal = 6
 
 [node name="CharacterActionDisplay9" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CrewActionsDisplay/PC/GC" instance=ExtResource("6_ihvc6")]
+self_modulate = Color(1, 1, 1, 0.392157)
 layout_mode = 2
 size_flags_horizontal = 6
 
