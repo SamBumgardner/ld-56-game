@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b6k6baalu42w7"]
+[gd_scene load_steps=15 format=3 uid="uid://b6k6baalu42w7"]
 
 [ext_resource type="Script" path="res://src/battlefield_outdoors/battlefield_outdoors_hud/battlefield_outdoors_hud.gd" id="1_3j823"]
 [ext_resource type="PackedScene" uid="uid://da57hkojchohp" path="res://src/shared_ui/resource_display/health_display.tscn" id="2_6fssr"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://cg02ahrm1dodf" path="res://src/battlefield_outdoors/combat_math_calculations_hud/CombatMathCalculationsHud.tscn" id="6_30blh"]
 [ext_resource type="PackedScene" uid="uid://dr7v1vu064ukv" path="res://src/shared_ui/character_action_display/character_action_display.tscn" id="6_ihvc6"]
 [ext_resource type="Texture2D" uid="uid://c812lqrvhyq01" path="res://assets/art/ATTACK_icon_64x64.png" id="6_r4yqa"]
+[ext_resource type="Script" path="res://src/battlefield_outdoors/battlefield_outdoors_hud/total_power_display.gd" id="9_cb4ss"]
+[ext_resource type="Script" path="res://src/battlefield_outdoors/battlefield_outdoors_hud/barrier_preview.gd" id="9_iui7q"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8a5xg"]
 content_margin_left = 5.0
@@ -269,9 +271,6 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="PC" type="PanelContainer" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CalculationsDisplay"]
-layout_mode = 2
-
 [node name="CombatMathCalculationsHud" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CalculationsDisplay" instance=ExtResource("6_30blh")]
 layout_mode = 2
 
@@ -284,6 +283,7 @@ theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
+script = ExtResource("9_cb4ss")
 
 [node name="PanelContainer" type="PanelContainer" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay"]
 layout_mode = 2
@@ -292,12 +292,10 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="TotalHeader" type="Label" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay/PanelContainer/VBoxContainer"]
-visible = false
 layout_mode = 2
 text = "Total Power:"
 
 [node name="TotalValue" type="Label" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay/PanelContainer/VBoxContainer"]
-visible = false
 layout_mode = 2
 size_flags_vertical = 1
 theme_override_font_sizes/font_size = 48
@@ -338,6 +336,7 @@ custom_minimum_size = Vector2(275, 210)
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 8
+script = ExtResource("9_iui7q")
 
 [node name="VB" type="VBoxContainer" parent="BottomInfoDisplay/Right/BarrierPreview"]
 layout_mode = 2

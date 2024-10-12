@@ -23,6 +23,8 @@ const REROLL_FAIL_DURATION = 2
 @onready var fuel_display: FuelDisplay = $TopBar/Trackers/FuelDisplay
 @onready var bottom_bar_fuel: FuelDisplay = $BottomInfoDisplay/Center/TopEdge/FuelDisplayMini
 @onready var calculations_hud: CombatMathCalculationsHud = $BottomInfoDisplay/Center/CrewStatus/StatusSections/CalculationsDisplay/CombatMathCalculationsHud
+@onready var barrier_preview: BarrierPreview = $BottomInfoDisplay/Right/BarrierPreview
+@onready var total_power_display: TotalPowerDisplay = $BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay
 
 func _ready():
     _hide_warnings()
@@ -30,6 +32,8 @@ func _ready():
     _set_health_text()
     
     barrier_strength_scaled.connect(calculations_hud.refresh)
+    barrier_strength_scaled.connect(barrier_preview.refresh)
+    barrier_strength_scaled.connect(total_power_display.refresh)
     Database.set_current_barrier_cost_to_overcome_number(
         Database.current_barrier_cost_to_overcome_number
         + Database.barriers_linear_scale_amount
@@ -118,6 +122,7 @@ func _on_mock_reroll_button_pressed() -> void:
 
     dice_roll_requested.emit()
     calculations_hud.refresh()
+    total_power_display.refresh()
 
 
 func _reduce_war_transport_health(amount_to_subtract : int) -> int:
