@@ -20,6 +20,7 @@ const REROLL_FAIL_DURATION = 2
     $CentralControls/VBoxContainer/Warnings/WarningOutOfTroops
 )
 @onready var screen_notification: ScreenNotification = $ScreenNotification
+@onready var character_info_panel: CharacterInfoPanel = $CharacterInfoPanel
 @onready var crew_member_selector: CrewMemberSelector = $BottomInfoDisplay/Left/CrewMemberSelector
 @onready var fuel_display: FuelDisplay = $TopBar/Trackers/FuelDisplay
 @onready var bottom_bar_fuel: FuelDisplay = $BottomInfoDisplay/Center/TopEdge/FuelDisplayMini
@@ -35,8 +36,10 @@ func _ready():
 
     for crew_selector_button in crew_member_selector.crew_selector_buttons:
         crew_selector_button.character_selected.connect(crew_actions_display._on_character_selected)
+        crew_selector_button.character_selected.connect(_on_character_selection_changed)
     for character_action_display in crew_actions_display.action_displays:
         character_action_display.character_selected.connect(crew_member_selector._on_character_selected)
+        character_action_display.character_selected.connect(_on_character_selection_changed)
     
     barrier_strength_scaled.connect(calculations_hud.refresh)
     barrier_strength_scaled.connect(barrier_preview.refresh)
@@ -170,3 +173,10 @@ func _on_insufficient_fuel() -> void:
 func refresh_calculations() -> void:
     calculations_hud.refresh()
     total_power_display.refresh()
+
+func _on_character_selection_changed(character: Character, selected_state: bool) -> void:
+    if selected_state:
+        character_info_panel.set_character(character)
+        character_info_panel.show()
+    else:
+        character_info_panel.hide()

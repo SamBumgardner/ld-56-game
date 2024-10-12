@@ -7,7 +7,7 @@
 
 [node name="CharacterInfoPanel" type="PanelContainer"]
 custom_minimum_size = Vector2(240, 248)
-anchors_preset = -1
+anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_top = -115.0
@@ -71,7 +71,6 @@ layout_mode = 2
 text = "Actions:"
 
 [node name="ActionsContainer" type="GridContainer" parent="MC/VB/Actions"]
-visible = false
 layout_mode = 2
 columns = 3
 

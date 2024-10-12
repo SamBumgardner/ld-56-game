@@ -12,7 +12,7 @@ func set_character(character: Character):
     portrait.texture = character.portrait
     name_label.text = character.name
     upgrade_label.text = UPGRADE_FORMAT % character.upgrade_level
-    # do the thing to populate character die results from their list of actions
+
     var possible_actions: Array[Action] = character.actions.get_all()
     for i: int in possible_die_results.size():
         var action: Action = null
