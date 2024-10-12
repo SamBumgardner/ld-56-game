@@ -25,6 +25,9 @@ func _ready():
 func _on_quit_button_mouse_entered():
     SoundManager.play_ui_sound(sfx_button_hover)
 
+func _on_settings_button_mouse_entered():
+    SoundManager.play_ui_sound(sfx_button_hover)
+
 func _on_start_button_mouse_entered():
     SoundManager.play_ui_sound(sfx_button_hover)
 
@@ -33,6 +36,9 @@ func _on_start_button_mouse_entered():
 #region Button press
 
 func _on_quit_button_pressed():
+    SoundManager.play_ui_sound(sfx_button_click)
+
+func _on_settings_button_pressed():
     SoundManager.play_ui_sound(sfx_button_click)
 
 func _on_start_button_pressed():
