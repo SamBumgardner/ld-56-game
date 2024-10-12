@@ -49,13 +49,17 @@ text = "Ludum Dare 56 Game Jam Entry"
 layout_mode = 2
 
 [node name="ButtonRows" type="VBoxContainer" parent="VBoxContainer/Buttons"]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(240, 0)
 layout_mode = 2
 theme = ExtResource("3_qd2mb")
 
 [node name="StartButton" type="Button" parent="VBoxContainer/Buttons/ButtonRows"]
 layout_mode = 2
 text = "Start"
+
+[node name="SettingsButton" type="Button" parent="VBoxContainer/Buttons/ButtonRows"]
+layout_mode = 2
+text = "Settings"
 
 [node name="QuitButton" type="Button" parent="VBoxContainer/Buttons/ButtonRows"]
 layout_mode = 2
@@ -64,6 +68,9 @@ text = "Quit"
 [connection signal="mouse_entered" from="VBoxContainer/Buttons/ButtonRows/StartButton" to="AudioManager" method="_on_start_button_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/Buttons/ButtonRows/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Buttons/ButtonRows/StartButton" to="AudioManager" method="_on_start_button_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/Buttons/ButtonRows/SettingsButton" to="AudioManager" method="_on_settings_button_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/Buttons/ButtonRows/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Buttons/ButtonRows/SettingsButton" to="AudioManager" method="_on_settings_button_pressed"]
 [connection signal="mouse_entered" from="VBoxContainer/Buttons/ButtonRows/QuitButton" to="AudioManager" method="_on_quit_button_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/Buttons/ButtonRows/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Buttons/ButtonRows/QuitButton" to="AudioManager" method="_on_quit_button_pressed"]
