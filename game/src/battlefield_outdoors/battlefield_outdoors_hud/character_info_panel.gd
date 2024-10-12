@@ -86,7 +86,7 @@ func _apply_fade_in_steps(tween: Tween) -> Tween:
     return tween
 
 func _apply_fade_out_steps(tween: Tween) -> Tween:
-    tween.tween_property(self, "modulate", Color.TRANSPARENT, modulate.a / Color.WHITE.a * FADE_DURATION)
+    tween.tween_property(self, "modulate", Color.WHITE, modulate.a / Color.WHITE.a * FADE_DURATION)
     tween.tween_callback(hide)
     tween.tween_callback(_clear_displayed_character)
 
