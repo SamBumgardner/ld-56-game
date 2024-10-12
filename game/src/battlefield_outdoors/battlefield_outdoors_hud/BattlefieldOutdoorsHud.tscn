@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b6k6baalu42w7"]
+[gd_scene load_steps=16 format=3 uid="uid://b6k6baalu42w7"]
 
 [ext_resource type="Script" path="res://src/battlefield_outdoors/battlefield_outdoors_hud/battlefield_outdoors_hud.gd" id="1_3j823"]
 [ext_resource type="PackedScene" uid="uid://da57hkojchohp" path="res://src/shared_ui/resource_display/health_display.tscn" id="2_6fssr"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cjb6144n5q1b1" path="res://src/shared_ui/resource_display/fuel_display.tscn" id="3_n5xb3"]
 [ext_resource type="PackedScene" uid="uid://cib1fq003l5jx" path="res://src/indoor_preparation/screen_displays/shared/screen_notification.tscn" id="3_rl23t"]
 [ext_resource type="PackedScene" uid="uid://cf5qy6u2j3hhw" path="res://assets/themes/fuel_display_mini.tscn" id="5_3m24g"]
+[ext_resource type="PackedScene" uid="uid://cpjm8ajr3ey5l" path="res://src/battlefield_outdoors/battlefield_outdoors_hud/crew_selector/crew_selector_button.tscn" id="5_yqnmx"]
 [ext_resource type="Script" path="res://src/battlefield_outdoors/battlefield_outdoors_hud/crew_actions_display.gd" id="6_6ykrh"]
 [ext_resource type="PackedScene" uid="uid://cg02ahrm1dodf" path="res://src/battlefield_outdoors/combat_math_calculations_hud/CombatMathCalculationsHud.tscn" id="6_30blh"]
 [ext_resource type="PackedScene" uid="uid://dr7v1vu064ukv" path="res://src/shared_ui/character_action_display/character_action_display.tscn" id="6_ihvc6"]
@@ -88,61 +89,44 @@ layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 8
 
-[node name="MarginContainer" type="MarginContainer" parent="BottomInfoDisplay/Left/CrewMemberSelector"]
+[node name="MC" type="MarginContainer" parent="BottomInfoDisplay/Left/CrewMemberSelector"]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="GridContainer" type="GridContainer" parent="BottomInfoDisplay/Left/CrewMemberSelector/MarginContainer"]
+[node name="GC" type="GridContainer" parent="BottomInfoDisplay/Left/CrewMemberSelector/MC"]
+custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 columns = 3
 
-[node name="Button" type="Button" parent="BottomInfoDisplay/Left/CrewMemberSelector/MarginContainer/GridContainer"]
-custom_minimum_size = Vector2(64, 64)
+[node name="CrewSelectorButton" parent="BottomInfoDisplay/Left/CrewMemberSelector/MC/GC" instance=ExtResource("5_yqnmx")]
 layout_mode = 2
-disabled = true
 
-[node name="Button2" type="Button" parent="BottomInfoDisplay/Left/CrewMemberSelector/MarginContainer/GridContainer"]
-custom_minimum_size = Vector2(64, 64)
+[node name="CrewSelectorButton2" parent="BottomInfoDisplay/Left/CrewMemberSelector/MC/GC" instance=ExtResource("5_yqnmx")]
 layout_mode = 2
-disabled = true
 
-[node name="Button3" type="Button" parent="BottomInfoDisplay/Left/CrewMemberSelector/MarginContainer/GridContainer"]
-custom_minimum_size = Vector2(64, 64)
+[node name="CrewSelectorButton3" parent="BottomInfoDisplay/Left/CrewMemberSelector/MC/GC" instance=ExtResource("5_yqnmx")]
 layout_mode = 2
-disabled = true
 
-[node name="Button4" type="Button" parent="BottomInfoDisplay/Left/CrewMemberSelector/MarginContainer/GridContainer"]
-custom_minimum_size = Vector2(64, 64)
+[node name="CrewSelectorButton4" parent="BottomInfoDisplay/Left/CrewMemberSelector/MC/GC" instance=ExtResource("5_yqnmx")]
 layout_mode = 2
-disabled = true
 
-[node name="Button5" type="Button" parent="BottomInfoDisplay/Left/CrewMemberSelector/MarginContainer/GridContainer"]
-custom_minimum_size = Vector2(64, 64)
+[node name="CrewSelectorButton5" parent="BottomInfoDisplay/Left/CrewMemberSelector/MC/GC" instance=ExtResource("5_yqnmx")]
 layout_mode = 2
-disabled = true
 
-[node name="Button6" type="Button" parent="BottomInfoDisplay/Left/CrewMemberSelector/MarginContainer/GridContainer"]
-custom_minimum_size = Vector2(64, 64)
+[node name="CrewSelectorButton6" parent="BottomInfoDisplay/Left/CrewMemberSelector/MC/GC" instance=ExtResource("5_yqnmx")]
 layout_mode = 2
-disabled = true
 
-[node name="Button7" type="Button" parent="BottomInfoDisplay/Left/CrewMemberSelector/MarginContainer/GridContainer"]
-custom_minimum_size = Vector2(64, 64)
+[node name="CrewSelectorButton7" parent="BottomInfoDisplay/Left/CrewMemberSelector/MC/GC" instance=ExtResource("5_yqnmx")]
 layout_mode = 2
-disabled = true
 
-[node name="Button8" type="Button" parent="BottomInfoDisplay/Left/CrewMemberSelector/MarginContainer/GridContainer"]
-custom_minimum_size = Vector2(64, 64)
+[node name="CrewSelectorButton8" parent="BottomInfoDisplay/Left/CrewMemberSelector/MC/GC" instance=ExtResource("5_yqnmx")]
 layout_mode = 2
-disabled = true
 
-[node name="Button9" type="Button" parent="BottomInfoDisplay/Left/CrewMemberSelector/MarginContainer/GridContainer"]
-custom_minimum_size = Vector2(64, 64)
+[node name="CrewSelectorButton9" parent="BottomInfoDisplay/Left/CrewMemberSelector/MC/GC" instance=ExtResource("5_yqnmx")]
 layout_mode = 2
-disabled = true
 
 [node name="Center" type="VBoxContainer" parent="BottomInfoDisplay"]
 layout_mode = 2
