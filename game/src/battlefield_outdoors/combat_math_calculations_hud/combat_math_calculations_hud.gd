@@ -1,4 +1,4 @@
-extends MarginContainer
+class_name CombatMathCalculationsHud extends MarginContainer
 
 
 @onready var combat_math_formulas = CombatMathFormulas.new()

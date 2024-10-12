@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://src/start_menu/start_menu.gd" id="1_1710u"]
 [ext_resource type="Theme" uid="uid://p47cuq8mu72p" path="res://assets/themes/StartMenu.tres" id="1_io06w"]
-[ext_resource type="PackedScene" uid="uid://cv5b1rttk0pt3" path="res://src/audio_manager/AudioManager.tscn" id="3_kgn8u"]
+[ext_resource type="PackedScene" uid="uid://h1fowbxngb70" path="res://src/audio_manager/AudioManager.tscn" id="3_kgn8u"]
 [ext_resource type="Theme" uid="uid://dxolpwravnfdn" path="res://assets/themes/StartMenuButtons.tres" id="3_qd2mb"]
 
 [sub_resource type="Theme" id="Theme_jy1ow"]
@@ -65,6 +65,10 @@ text = "Settings"
 layout_mode = 2
 text = "Quit"
 
+[connection signal="mouse_entered" from="VBoxContainer/Buttons/ButtonRows/StartButton" to="AudioManager" method="_on_start_button_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/Buttons/ButtonRows/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Buttons/ButtonRows/StartButton" to="AudioManager" method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Buttons/ButtonRows/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/Buttons/ButtonRows/QuitButton" to="AudioManager" method="_on_quit_button_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/Buttons/ButtonRows/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Buttons/ButtonRows/QuitButton" to="AudioManager" method="_on_quit_button_pressed"]

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="CharacterFactory" load_steps=12 format=3 uid="uid://duswkektwj6hb"]
 
 [ext_resource type="Script" path="res://src/characters/CharacterFactory.gd" id="1_4stka"]
-[ext_resource type="Texture2D" uid="uid://cmdqbv4iraqg6" path="res://assets/art/MAGIC_icon_64x64.png" id="1_bcu0a"]
+[ext_resource type="Texture2D" uid="uid://b4wr53ye568ee" path="res://assets/art/character_icons/002_character_icon.png" id="1_2223a"]
 [ext_resource type="Texture2D" uid="uid://bic3i142epdt3" path="res://assets/art/placeholder_threat.png" id="2_gwf10"]
 [ext_resource type="Script" path="res://src/characters/UpgradeSelector.gd" id="2_tu5gk"]
 [ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="3_2m36r"]
@@ -25,7 +25,7 @@ script = ExtResource("1_4stka")
 name = "Scorch"
 description = "Loyalty, bravery, and a touch of pyromania; there's no better ally in a pinch."
 portrait = ExtResource("2_gwf10")
-icon = ExtResource("1_bcu0a")
+icon = ExtResource("1_2223a")
 starting_action_strings = Array[String](["chaos_2", "chaos_1", "wit_1", "might_1"])
 upgrade_level = 0
 upgrades = Array[ExtResource("2_tu5gk")]([SubResource("Resource_8vmh3"), SubResource("Resource_dkaqe")])

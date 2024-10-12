@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="CharacterFactory" load_steps=9 format=3 uid="uid://cg2gt1s2ilepn"]
 
-[ext_resource type="Texture2D" uid="uid://cmdqbv4iraqg6" path="res://assets/art/MAGIC_icon_64x64.png" id="1_isjja"]
+[ext_resource type="Texture2D" uid="uid://dbxuu6rqen0ed" path="res://assets/art/character_icons/001_character_icon.png" id="1_anvwx"]
 [ext_resource type="Texture2D" uid="uid://bic3i142epdt3" path="res://assets/art/placeholder_threat.png" id="2_c7m6a"]
 [ext_resource type="Script" path="res://src/characters/CharacterFactory.gd" id="3_fak1a"]
 [ext_resource type="Script" path="res://src/characters/UpgradeSelector.gd" id="4_tl2nv"]
@@ -18,7 +18,7 @@ script = ExtResource("3_fak1a")
 name = "Test_008"
 description = "This is test character 008. I hope we have time to replace them someday"
 portrait = ExtResource("2_c7m6a")
-icon = ExtResource("1_isjja")
+icon = ExtResource("1_anvwx")
 starting_action_strings = Array[String](["chaos_2", "chaos_1", "wit_1", "might_1", "might_2"])
 upgrade_level = 0
 upgrades = Array[ExtResource("4_tl2nv")]([SubResource("Resource_8vmh3")])

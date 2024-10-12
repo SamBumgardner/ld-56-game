@@ -6,10 +6,10 @@ signal dice_roll_requested
 const REROLL_FAIL_MESSAGE = "Failed to shuffle unlocked actions.\nReason: INSUFFICIENT_FUEL"
 const REROLL_FAIL_DURATION = 2
 
-@onready var barriers = $TopBar/Trackers/BarriersOvercomeTracker/Current
+#@onready var barriers = $TopBar/Trackers/BarriersOvercomeTracker/Current
 @onready var combat_math_formulas = CombatMathFormulas.new()
-@onready var health_current = $TopBar/Trackers/HealthTracker/HealthCurrent
-@onready var health_maximum = $TopBar/Trackers/HealthTracker/HealthMaximum
+@onready var health_current = $TopBar/Trackers/HealthDisplay/MarginContainer/HBoxContainer/HealthCurrent
+@onready var health_maximum = $TopBar/Trackers/HealthDisplay/MarginContainer/HBoxContainer/HealthMaximum
 @onready var warning_only_frozen_troops = (
     $CentralControls/VBoxContainer/Warnings/WarningOnlyFrozenTroops
 )
@@ -20,13 +20,20 @@ const REROLL_FAIL_DURATION = 2
     $CentralControls/VBoxContainer/Warnings/WarningOutOfTroops
 )
 @onready var screen_notification: ScreenNotification = $ScreenNotification
-
+@onready var fuel_display: FuelDisplay = $TopBar/Trackers/FuelDisplay
+@onready var bottom_bar_fuel: FuelDisplay = $BottomInfoDisplay/Center/TopEdge/FuelDisplayMini
+@onready var calculations_hud: CombatMathCalculationsHud = $BottomInfoDisplay/Center/CrewStatus/StatusSections/CalculationsDisplay/CombatMathCalculationsHud
+@onready var barrier_preview: BarrierPreview = $BottomInfoDisplay/Right/BarrierPreview
+@onready var total_power_display: TotalPowerDisplay = $BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay
 
 func _ready():
     _hide_warnings()
 
     _set_health_text()
-
+    
+    barrier_strength_scaled.connect(calculations_hud.refresh)
+    barrier_strength_scaled.connect(barrier_preview.refresh)
+    barrier_strength_scaled.connect(total_power_display.refresh)
     Database.set_current_barrier_cost_to_overcome_number(
         Database.current_barrier_cost_to_overcome_number
         + Database.barriers_linear_scale_amount
@@ -84,7 +91,7 @@ func _on_mock_attack_button_pressed() -> void:
             Database.barriers_overcome_count
             + 1
         )
-        barriers.text = str(Database.barriers_overcome_count)
+        #barriers.text = str(Database.barriers_overcome_count)
         return
 
     print_debug('Game over, health has reached ', updated_health)
@@ -114,6 +121,8 @@ func _on_mock_reroll_button_pressed() -> void:
     _hide_roll_warnings()
 
     dice_roll_requested.emit()
+    calculations_hud.refresh()
+    total_power_display.refresh()
 
 
 func _reduce_war_transport_health(amount_to_subtract : int) -> int:
@@ -148,4 +157,9 @@ func _on_insufficient_fuel() -> void:
         REROLL_FAIL_MESSAGE,
         REROLL_FAIL_DURATION
     )
+    fuel_display._on_insufficient_resource()
+    bottom_bar_fuel._on_insufficient_resource()
     
+func refresh_calculations() -> void:
+    calculations_hud.refresh()
+    total_power_display.refresh()

@@ -6,6 +6,7 @@
 
 [node name="FuelDisplay" instance=ExtResource("1_fpvsb")]
 script = ExtResource("2_vpq8u")
+unit_change_per_second = 6
 
 [node name="ResourceIcon" parent="MarginContainer/HBoxContainer" index="0"]
 texture = ExtResource("3_vhbvh")
