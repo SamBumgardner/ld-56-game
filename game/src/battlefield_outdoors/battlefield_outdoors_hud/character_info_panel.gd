@@ -1,5 +1,7 @@
 class_name CharacterInfoPanel extends PanelContainer
 
+signal character_selected(character: Character, selected_state: bool)
+
 const LOCK_TEXT: String = "Lock Current Action"
 const UNLOCK_TEXT: String = "Unlock Current Action"
 const UPGRADE_FORMAT: String = "Upgrades:\n%s"
@@ -13,6 +15,7 @@ const FORCE_END_STEP_DURATION: float = FADE_DURATION * 3
 @onready var current_die_result: DieResult = $MC/VB/Current/CurrentAction/MC/HB/DieResult
 @onready var lock_button: Button = $MC/VB/Current/LockButton
 @onready var lock_display: Control = $MC/VB/Current/CurrentAction/LockedBorder
+@onready var close_button: Button = $CloseButton
 
 var displayed_character: Character
 var target_character: Character
@@ -24,6 +27,7 @@ var display_transition_tween: Tween
 func _ready() -> void:
     Database.die_slot_changed.connect(_on_die_slot_changed)
     lock_button.pressed.connect(_toggle_freeze)
+    close_button.pressed.connect(_on_close_button)
 
 func display_character(new_character: Character):
     if new_character == null:
@@ -106,3 +110,7 @@ func _toggle_freeze() -> void:
             displayed_character,
             not lock_display.visible # TODO: refactor. this is bad, but display's what I've got to work with.
         )
+
+func _on_close_button() -> void:
+    display_character(null)
+    character_selected.emit(target_character, false)
