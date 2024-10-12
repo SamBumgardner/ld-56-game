@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://src/gameplay/gameplay.gd" id="1_exjrn"]
 [ext_resource type="Theme" uid="uid://dk5iv042psfw" path="res://assets/themes/Default.tres" id="1_hbifn"]
 [ext_resource type="PackedScene" uid="uid://c5dvnfrvyjol6" path="res://src/battlefield_outdoors/BattlefieldOutdoors.tscn" id="2_35wcq"]
-[ext_resource type="PackedScene" uid="uid://cv5b1rttk0pt3" path="res://src/audio_manager/AudioManager.tscn" id="3_o8xt6"]
+[ext_resource type="PackedScene" uid="uid://h1fowbxngb70" path="res://src/audio_manager/AudioManager.tscn" id="3_o8xt6"]
 [ext_resource type="PackedScene" uid="uid://b73yb04wjxq8" path="res://src/indoor_preparation/indoor_preparation.tscn" id="4_qkdrp"]
 [ext_resource type="PackedScene" uid="uid://cqks4bltxh7sq" path="res://src/transition_cover/mode_transition_cover.tscn" id="6_blf36"]
 
