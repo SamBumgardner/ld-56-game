@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dr7v1vu064ukv"]
+[gd_scene load_steps=10 format=3 uid="uid://dr7v1vu064ukv"]
 
 [ext_resource type="Script" path="res://src/shared_ui/character_action_display/character_action_display.gd" id="2_11qdl"]
 [ext_resource type="PackedScene" uid="uid://lw7wcqkoqifj" path="res://src/shared_ui/die_result/DieResult.tscn" id="2_lvo8c"]
 [ext_resource type="ButtonGroup" uid="uid://khy30hd6v13" path="res://src/shared_ui/character_action_display/crew_actions_button_group.tres" id="3_613ya"]
+[ext_resource type="StyleBox" uid="uid://cd562v0o6vhto" path="res://assets/themes/style_boxes/yellow_border_stylebox.tres" id="3_flghc"]
 [ext_resource type="Texture2D" uid="uid://4nvogy60mpq3" path="res://icon.svg" id="3_sibwu"]
+[ext_resource type="StyleBox" uid="uid://218yva3nynfq" path="res://assets/themes/style_boxes/yellow_glow_stylebox.tres" id="4_i8af1"]
 [ext_resource type="Texture2D" uid="uid://c8dsnvyqbn3fh" path="res://assets/art/lock_icon.png" id="4_mbq58"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xrpyl"]
@@ -18,19 +20,11 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eahfv"]
-draw_center = false
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0.968627, 1, 0, 1)
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l3xg7"]
 
 [node name="CharacterActionDisplay" type="TextureRect"]
-self_modulate = Color(1, 1, 1, 0.686275)
-custom_minimum_size = Vector2(48, 48)
+self_modulate = Color(1, 1, 1, 0.588235)
+custom_minimum_size = Vector2(60, 60)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -53,14 +47,16 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_xrpyl")
 
 [node name="Button" type="Button" parent="."]
+show_behind_parent = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_eahfv")
-theme_override_styles/hover = SubResource("StyleBoxFlat_eahfv")
+theme_override_styles/hover_pressed = ExtResource("3_flghc")
+theme_override_styles/hover = ExtResource("3_flghc")
+theme_override_styles/pressed = ExtResource("4_i8af1")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_l3xg7")
 toggle_mode = true
 button_group = ExtResource("3_613ya")

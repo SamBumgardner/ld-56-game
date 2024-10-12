@@ -13,7 +13,7 @@ func _ready() -> void:
 func set_character(new_character: Character) -> void:
     character = new_character
     if character != null:
-        texture = character.icon
+        texture = character.portrait
         show()
     else:
         hide()
