@@ -1,0 +1,122 @@
+[gd_scene load_steps=4 format=3 uid="uid://vnu6f53bf3ur"]
+
+[ext_resource type="Theme" uid="uid://dk5iv042psfw" path="res://assets/themes/Default.tres" id="1_e7u35"]
+[ext_resource type="Texture2D" uid="uid://bic3i142epdt3" path="res://assets/art/placeholder_threat.png" id="1_jchug"]
+[ext_resource type="PackedScene" uid="uid://lw7wcqkoqifj" path="res://src/shared_ui/die_result/DieResult.tscn" id="3_hsll6"]
+
+[node name="CharacterInfoPanel" type="PanelContainer"]
+custom_minimum_size = Vector2(240, 248)
+anchors_preset = -1
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -115.0
+offset_right = 200.0
+offset_bottom = 115.0
+grow_vertical = 0
+theme = ExtResource("1_e7u35")
+
+[node name="MC" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VB" type="VBoxContainer" parent="MC"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="HB" type="HBoxContainer" parent="MC/VB"]
+layout_mode = 2
+
+[node name="Portrait" type="TextureRect" parent="MC/VB/HB"]
+layout_mode = 2
+texture = ExtResource("1_jchug")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="VB" type="VBoxContainer" parent="MC/VB/HB"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Name" type="Label" parent="MC/VB/HB/VB"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Mint"
+
+[node name="PC" type="PanelContainer" parent="MC/VB/HB/VB"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MC" type="MarginContainer" parent="MC/VB/HB/VB/PC"]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="UpgradeLevel" type="Label" parent="MC/VB/HB/VB/PC/MC"]
+layout_mode = 2
+text = "Upgrades:
+2"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MC/VB"]
+layout_mode = 2
+
+[node name="ActionsHeader" type="Label" parent="MC/VB/VBoxContainer"]
+layout_mode = 2
+text = "Actions:"
+
+[node name="ActionsContainer" type="GridContainer" parent="MC/VB/VBoxContainer"]
+visible = false
+layout_mode = 2
+columns = 3
+
+[node name="DieResult" parent="MC/VB/VBoxContainer/ActionsContainer" instance=ExtResource("3_hsll6")]
+layout_mode = 2
+
+[node name="DieResult2" parent="MC/VB/VBoxContainer/ActionsContainer" instance=ExtResource("3_hsll6")]
+layout_mode = 2
+
+[node name="DieResult3" parent="MC/VB/VBoxContainer/ActionsContainer" instance=ExtResource("3_hsll6")]
+layout_mode = 2
+
+[node name="DieResult4" parent="MC/VB/VBoxContainer/ActionsContainer" instance=ExtResource("3_hsll6")]
+layout_mode = 2
+
+[node name="DieResult5" parent="MC/VB/VBoxContainer/ActionsContainer" instance=ExtResource("3_hsll6")]
+layout_mode = 2
+
+[node name="DieResult6" parent="MC/VB/VBoxContainer/ActionsContainer" instance=ExtResource("3_hsll6")]
+layout_mode = 2
+
+[node name="DieResult7" parent="MC/VB/VBoxContainer/ActionsContainer" instance=ExtResource("3_hsll6")]
+layout_mode = 2
+
+[node name="DieResult8" parent="MC/VB/VBoxContainer/ActionsContainer" instance=ExtResource("3_hsll6")]
+layout_mode = 2
+
+[node name="DieResult9" parent="MC/VB/VBoxContainer/ActionsContainer" instance=ExtResource("3_hsll6")]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MC/VB"]
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="MC/VB/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="CurrentActionContainer" type="HBoxContainer" parent="MC/VB/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="CurrentHeader" type="Label" parent="MC/VB/PanelContainer/MarginContainer/CurrentActionContainer"]
+layout_mode = 2
+text = "Current Action:"
+
+[node name="DieResult" parent="MC/VB/PanelContainer/MarginContainer/CurrentActionContainer" instance=ExtResource("3_hsll6")]
+layout_mode = 2
