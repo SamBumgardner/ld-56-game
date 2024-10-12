@@ -20,7 +20,7 @@ const REROLL_FAIL_DURATION = 2
     $CentralControls/VBoxContainer/Warnings/WarningOutOfTroops
 )
 @onready var screen_notification: ScreenNotification = $ScreenNotification
-@onready var character_info_panel: CharacterInfoPanel = $CharacterInfoPanel
+@onready var character_info_panel: CharacterInfoPanel = $BottomInfoDisplay/Center/CrewStatus/StatusSections/CrewActionsDisplay/CharacterInfoPanel
 @onready var crew_member_selector: CrewMemberSelector = $BottomInfoDisplay/Left/CrewMemberSelector
 @onready var fuel_display: FuelDisplay = $TopBar/Trackers/FuelDisplay
 @onready var bottom_bar_fuel: FuelDisplay = $BottomInfoDisplay/Center/TopEdge/FuelDisplayMini

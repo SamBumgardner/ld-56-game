@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b6k6baalu42w7"]
+[gd_scene load_steps=19 format=3 uid="uid://b6k6baalu42w7"]
 
 [ext_resource type="Script" path="res://src/battlefield_outdoors/battlefield_outdoors_hud/battlefield_outdoors_hud.gd" id="1_3j823"]
 [ext_resource type="PackedScene" uid="uid://da57hkojchohp" path="res://src/shared_ui/resource_display/health_display.tscn" id="2_6fssr"]
@@ -24,6 +24,9 @@ content_margin_right = 5.0
 bg_color = Color(0.180392, 0.180392, 0.180392, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_idgb0"]
+bg_color = Color(0.133333, 0.133333, 0.133333, 1)
 
 [node name="BattlefieldOutdoorsHud" type="Control"]
 layout_mode = 3
@@ -249,10 +252,17 @@ size_flags_horizontal = 6
 layout_mode = 2
 size_flags_horizontal = 6
 
+[node name="CharacterInfoPanel" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CrewActionsDisplay" instance=ExtResource("16_oou66")]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_idgb0")
+
 [node name="CalculationsDisplay" type="MarginContainer" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections"]
-custom_minimum_size = Vector2(150, 0)
+custom_minimum_size = Vector2(150, 200)
 layout_mode = 2
 size_flags_horizontal = 8
+size_flags_vertical = 8
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
@@ -263,9 +273,10 @@ layout_mode = 2
 
 [node name="TotalPowerDisplay" type="MarginContainer" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections"]
 clip_contents = true
-custom_minimum_size = Vector2(150, 0)
+custom_minimum_size = Vector2(150, 200)
 layout_mode = 2
 size_flags_horizontal = 8
+size_flags_vertical = 8
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
@@ -485,21 +496,6 @@ offset_bottom = 8.0
 grow_horizontal = 2
 text = "Manage Crew
 Inside "
-
-[node name="CharacterInfoPanel" parent="." instance=ExtResource("16_oou66")]
-visible = false
-modulate = Color(1, 1, 1, 0)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.3
-anchor_top = 0.6
-anchor_right = 0.3
-anchor_bottom = 0.6
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 0.0
-offset_bottom = 0.0
-grow_vertical = 0
 
 [connection signal="pressed" from="BottomInfoDisplay/Center/TopEdge/MockRerollButton" to="." method="_on_mock_reroll_button_pressed"]
 [connection signal="pressed" from="BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay/PanelContainer/VBoxContainer/MockAttackButton" to="." method="_on_mock_attack_button_pressed"]
