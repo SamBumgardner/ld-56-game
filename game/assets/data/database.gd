@@ -4,6 +4,7 @@ extends Node
 signal money_changed(new_value: int, old_value: int)
 signal fuel_changed(new_value: int, old_value: int)
 signal die_slots_set(new_value: Array[CharacterDieSlot])
+signal die_slot_changed(changed_die_slot: CharacterDieSlot)
 
 enum StatType {
     MIGHT,
@@ -239,6 +240,18 @@ func get_character_die_slot(character_idx: int) -> CharacterDieSlot:
         result = current_character_die_slots[character_idx]
     return result
 
+func get_die_slot_by_character(character: Character) -> CharacterDieSlot:
+    var result: CharacterDieSlot = null
+    for die_slot: CharacterDieSlot in current_character_die_slots:
+        if die_slot.character == character:
+            result = die_slot
+            break
+    return result
+
+func set_die_slot_frozen_status(character: Character, new_freeze: bool) -> void:
+    var die_slot = get_die_slot_by_character(character)
+    die_slot.is_frozen = new_freeze
+    die_slot_changed.emit(die_slot)
 
 func _ready_audio_volumes() -> void:
     set_audio_volume_initialized(false)

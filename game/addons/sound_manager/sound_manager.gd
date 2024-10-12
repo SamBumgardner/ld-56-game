@@ -148,7 +148,7 @@ func set_music_volume(volume_between_0_and_1: float) -> void:
 
 
 func play_music(resource: AudioStream, crossfade_duration: float = 0.0, override_bus: String = "") -> AudioStreamPlayer:
-    return music.play(resource, 0.0,  0.0, crossfade_duration, override_bus)
+    return music.play(resource, 0.0, 0.0, crossfade_duration, override_bus)
 
 
 func play_music_from_position(resource: AudioStream, position: float = 0.0, crossfade_duration: float = 0.0, override_bus: String = "") -> AudioStreamPlayer:
