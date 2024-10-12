@@ -7,13 +7,17 @@
 
 [node name="CharacterInfoPanel" type="PanelContainer"]
 custom_minimum_size = Vector2(240, 248)
-anchors_preset = 4
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
+anchor_right = 0.5
 anchor_bottom = 0.5
-offset_top = -115.0
-offset_right = 200.0
-offset_bottom = 115.0
-grow_vertical = 0
+offset_left = -120.0
+offset_top = -139.5
+offset_right = 120.0
+offset_bottom = 139.5
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("1_e7u35")
 script = ExtResource("2_b64bf")
 
