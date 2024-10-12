@@ -55,10 +55,11 @@ func _on_die_slot_update(changed_die_slot: CharacterDieSlot) -> void:
         refresh()
 
 func _process(_delta: float):
-    if rolling_display and character_die_slot != null:
+    if rolling_display and character_die_slot != null and not character_die_slot.is_frozen:
         _set_up_rolling_tween()
 
-    if not rolling_display and (rolling_tween != null and rolling_tween.is_running()):
+    if ((not rolling_display or (character_die_slot != null and character_die_slot.is_frozen))
+            and (rolling_tween != null and rolling_tween.is_running())):
         rolling_tween.stop()
         refresh()
 
@@ -74,3 +75,6 @@ func _cycle_die_result_display(rand_value: float) -> void:
     var actions: Array[Action] = character_die_slot.character.actions.get_all()
     var action_index: int = ceil(rand_value * actions.size()) - 1
     die_result.set_action(actions[action_index])
+
+func set_rolling_display(new_rolling_display: bool):
+    rolling_display = new_rolling_display

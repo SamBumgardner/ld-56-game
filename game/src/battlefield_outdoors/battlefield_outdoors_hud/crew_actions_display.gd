@@ -22,7 +22,15 @@ func _on_character_selected(selected_character: Character, button_end_state: boo
         if button_end_state:
             action_display.button.button_pressed = (
                 action_display.character_die_slot != null
-                and action_display.character_die_slot.character == selected_character 
+                and action_display.character_die_slot.character == selected_character
             )
         else:
             action_display.button.button_pressed = false
+
+func _start_preview_reroll() -> void:
+    for action_display in action_displays:
+        action_display.set_rolling_display(true)
+
+func _stop_preview_reroll() -> void:
+    for action_display in action_displays:
+        action_display.set_rolling_display(false)

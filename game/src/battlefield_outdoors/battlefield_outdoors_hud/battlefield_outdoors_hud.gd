@@ -28,6 +28,7 @@ const REROLL_FAIL_DURATION = 2
 @onready var calculations_hud: CombatMathCalculationsHud = $BottomInfoDisplay/Center/CrewStatus/StatusSections/CalculationsDisplay/CombatMathCalculationsHud
 @onready var barrier_preview: BarrierPreview = $BottomInfoDisplay/Right/BarrierPreview
 @onready var total_power_display: TotalPowerDisplay = $BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay
+@onready var reroll_button: Button = $BottomInfoDisplay/Center/TopEdge/RerollButton
 
 func _ready():
     _hide_warnings()
@@ -45,6 +46,9 @@ func _ready():
     character_info_panel.character_selected.connect(crew_member_selector._on_character_selected)
     character_info_panel.character_selected.connect(crew_actions_display._on_character_selected)
 
+    reroll_button.mouse_entered.connect(crew_actions_display._start_preview_reroll)
+    reroll_button.mouse_exited.connect(crew_actions_display._stop_preview_reroll)
+ 
     barrier_strength_scaled.connect(calculations_hud.refresh)
     barrier_strength_scaled.connect(barrier_preview.refresh)
     barrier_strength_scaled.connect(total_power_display.refresh)
