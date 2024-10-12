@@ -15,7 +15,8 @@ const theme_error: Theme = preload("res://assets/themes/Notification_Error.tres"
 @onready var expiration_timer: Timer = $ExpirationTimer
 @onready var header: Label = $PC/MC/VBC/Header
 @onready var body: Label = $PC/MC/VBC/PC2/MC2/VBC2/Body
-@onready var expiration_bar: ProgressBar = $PC/MC/VBC/PC2/MC2/VBC2/ExpirationBar
+@onready var close_button: Button = $PC/MC/VBC/PC2/MC2/VBC2/Button
+@onready var expiration_bar: ProgressBar = $PC/MC/VBC/PC2/MC2/VBC2/Button/ExpirationBar
 @onready var inner_panel: PanelContainer = $PC/MC/VBC/PC2
 
 @onready var start_position: Vector2 = self.position
@@ -23,6 +24,7 @@ var expiration_max: float
 var shake_tween: Tween
 
 func _ready() -> void:
+    close_button.pressed.connect(cancel)
     if self == get_tree().current_scene:
         display_notification(ScreenNotificationType.NOTIFY, "This is a test notification", 3)
 

@@ -66,8 +66,19 @@ layout_mode = 2
 layout_mode = 2
 text = "%s was hired successfully!"
 
-[node name="ExpirationBar" type="ProgressBar" parent="PC/MC/VBC/PC2/MC2/VBC2"]
+[node name="Button" type="Button" parent="PC/MC/VBC/PC2/MC2/VBC2"]
 layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 12
+text = "Close"
+
+[node name="ExpirationBar" type="ProgressBar" parent="PC/MC/VBC/PC2/MC2/VBC2/Button"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
 value = 50.0
 fill_mode = 1
 show_percentage = false
