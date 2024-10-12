@@ -3,6 +3,7 @@ extends Node
 
 signal money_changed(new_value: int, old_value: int)
 signal fuel_changed(new_value: int, old_value: int)
+signal die_slots_set(new_value: Array[CharacterDieSlot])
 
 enum StatType {
     MIGHT,
@@ -114,10 +115,23 @@ func initialize_characters() -> void:
             unhired_characters.append(characters[i])
     
     hire_character(get_random_unhired(1)[0])
+    initialize_missing_die_slots()
 
+func initialize_missing_die_slots() -> void:
+    var current_die_slots: Array[CharacterDieSlot] = current_character_die_slots
     for character: Character in hired_characters:
-        var new_die_slot: CharacterDieSlot = CharacterDieSlot.new(character)
-        current_character_die_slots.append(new_die_slot)
+        var has_die_slot: bool = false
+        for die_slot: CharacterDieSlot in current_die_slots:
+            if die_slot.character == character:
+                has_die_slot = true
+                break
+
+        if not has_die_slot:
+            var new_die_slot = CharacterDieSlot.new(character, false)
+            new_die_slot.last_roll_result = new_die_slot.roll_action()
+            current_die_slots.append(new_die_slot)
+
+    set_current_character_die_slots(current_die_slots)
 
 # TODO: Could move this to indoor_preparation class if we want the logic out of the DB.
 func get_random_unhired(count: int) -> Array[Character]:
@@ -166,6 +180,7 @@ func set_current_character_die_slots(
     updated_slots: Array[CharacterDieSlot]
 ) -> void:
     current_character_die_slots = updated_slots
+    die_slots_set.emit()
 
 func set_current_matching_stat_type_multiplier(updated_number: int) -> void:
     current_matching_stat_type_multiplier = updated_number

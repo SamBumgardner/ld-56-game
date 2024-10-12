@@ -7,4 +7,4 @@ func _ready() -> void:
     war_transport.insufficient_fuel.connect(battlefield_outdoors_hud._on_insufficient_fuel)
 
 func transition_in() -> void:
-    war_transport.grid_of_dice_results.initialize_character_die_slots(Database.hired_characters)
+    Database.initialize_missing_die_slots()

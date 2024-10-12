@@ -5,6 +5,7 @@ class_name CrewActionsDisplay extends MarginContainer
 
 func _ready() -> void:
     refresh()
+    database.die_slots_set.connect(refresh)
 
 func refresh():
     var die_slots = database.current_character_die_slots
