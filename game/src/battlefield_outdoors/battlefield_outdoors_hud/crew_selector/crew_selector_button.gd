@@ -19,4 +19,4 @@ func set_character(new_character: Character) -> void:
         hide()
 
 func _on_button_pressed() -> void:
-    character_selected.emit()
+    character_selected.emit(character)

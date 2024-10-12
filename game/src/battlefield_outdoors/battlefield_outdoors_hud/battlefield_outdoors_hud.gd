@@ -23,6 +23,7 @@ const REROLL_FAIL_DURATION = 2
 @onready var crew_member_selector: CrewMemberSelector = $BottomInfoDisplay/Left/CrewMemberSelector
 @onready var fuel_display: FuelDisplay = $TopBar/Trackers/FuelDisplay
 @onready var bottom_bar_fuel: FuelDisplay = $BottomInfoDisplay/Center/TopEdge/FuelDisplayMini
+@onready var crew_actions_display: CrewActionsDisplay = $BottomInfoDisplay/Center/CrewStatus/StatusSections/CrewActionsDisplay
 @onready var calculations_hud: CombatMathCalculationsHud = $BottomInfoDisplay/Center/CrewStatus/StatusSections/CalculationsDisplay/CombatMathCalculationsHud
 @onready var barrier_preview: BarrierPreview = $BottomInfoDisplay/Right/BarrierPreview
 @onready var total_power_display: TotalPowerDisplay = $BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay
@@ -31,6 +32,11 @@ func _ready():
     _hide_warnings()
 
     _set_health_text()
+
+    for crew_selector_button in crew_member_selector.crew_selector_buttons:
+        crew_selector_button.character_selected.connect(crew_actions_display._on_character_selected)
+    for character_action_display in crew_actions_display.action_displays:
+        character_action_display.character_selected.connect(crew_member_selector._on_character_selected)
     
     barrier_strength_scaled.connect(calculations_hud.refresh)
     barrier_strength_scaled.connect(barrier_preview.refresh)
