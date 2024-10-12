@@ -5,3 +5,6 @@
 
 # Already imported assets
 assets/fonts/Roboto/
+
+# Already imported plugin
+addons/sound_manager/
