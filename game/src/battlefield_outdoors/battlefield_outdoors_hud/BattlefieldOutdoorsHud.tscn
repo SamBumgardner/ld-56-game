@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b6k6baalu42w7"]
+[gd_scene load_steps=13 format=3 uid="uid://b6k6baalu42w7"]
 
 [ext_resource type="Script" path="res://src/battlefield_outdoors/battlefield_outdoors_hud/battlefield_outdoors_hud.gd" id="1_3j823"]
 [ext_resource type="PackedScene" uid="uid://da57hkojchohp" path="res://src/shared_ui/resource_display/health_display.tscn" id="2_6fssr"]
@@ -7,7 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://cjb6144n5q1b1" path="res://src/shared_ui/resource_display/fuel_display.tscn" id="3_n5xb3"]
 [ext_resource type="PackedScene" uid="uid://cib1fq003l5jx" path="res://src/indoor_preparation/screen_displays/shared/screen_notification.tscn" id="3_rl23t"]
 [ext_resource type="PackedScene" uid="uid://cf5qy6u2j3hhw" path="res://assets/themes/fuel_display_mini.tscn" id="5_3m24g"]
+[ext_resource type="Script" path="res://src/battlefield_outdoors/battlefield_outdoors_hud/crew_actions_display.gd" id="6_6ykrh"]
 [ext_resource type="PackedScene" uid="uid://cg02ahrm1dodf" path="res://src/battlefield_outdoors/combat_math_calculations_hud/CombatMathCalculationsHud.tscn" id="6_30blh"]
+[ext_resource type="PackedScene" uid="uid://dr7v1vu064ukv" path="res://src/shared_ui/character_action_display/character_action_display.tscn" id="6_ihvc6"]
 [ext_resource type="Texture2D" uid="uid://c812lqrvhyq01" path="res://assets/art/ATTACK_icon_64x64.png" id="6_r4yqa"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8a5xg"]
@@ -211,9 +213,52 @@ theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
+script = ExtResource("6_6ykrh")
 
 [node name="PC" type="PanelContainer" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CrewActionsDisplay"]
 layout_mode = 2
+
+[node name="GC" type="GridContainer" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CrewActionsDisplay/PC"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/v_separation = 15
+columns = 3
+
+[node name="CharacterActionDisplay" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CrewActionsDisplay/PC/GC" instance=ExtResource("6_ihvc6")]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="CharacterActionDisplay2" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CrewActionsDisplay/PC/GC" instance=ExtResource("6_ihvc6")]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="CharacterActionDisplay3" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CrewActionsDisplay/PC/GC" instance=ExtResource("6_ihvc6")]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="CharacterActionDisplay4" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CrewActionsDisplay/PC/GC" instance=ExtResource("6_ihvc6")]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="CharacterActionDisplay5" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CrewActionsDisplay/PC/GC" instance=ExtResource("6_ihvc6")]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="CharacterActionDisplay6" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CrewActionsDisplay/PC/GC" instance=ExtResource("6_ihvc6")]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="CharacterActionDisplay7" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CrewActionsDisplay/PC/GC" instance=ExtResource("6_ihvc6")]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="CharacterActionDisplay8" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CrewActionsDisplay/PC/GC" instance=ExtResource("6_ihvc6")]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="CharacterActionDisplay9" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CrewActionsDisplay/PC/GC" instance=ExtResource("6_ihvc6")]
+layout_mode = 2
+size_flags_horizontal = 6
 
 [node name="CalculationsDisplay" type="MarginContainer" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections"]
 custom_minimum_size = Vector2(150, 0)

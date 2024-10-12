@@ -89,7 +89,7 @@ func reset_values() -> void:
     set_current_barrier_data(
         null
     )
-    set_current_character_die_slots(_initial_character_die_slots)
+    set_current_character_die_slots(_initial_character_die_slots.duplicate())
     set_current_matching_stat_type_multiplier(
         _initial_matching_stat_type_multiplier
     )
@@ -114,6 +114,10 @@ func initialize_characters() -> void:
             unhired_characters.append(characters[i])
     
     hire_character(get_random_unhired(1)[0])
+
+    for character: Character in hired_characters:
+        var new_die_slot: CharacterDieSlot = CharacterDieSlot.new(character)
+        current_character_die_slots.append(new_die_slot)
 
 # TODO: Could move this to indoor_preparation class if we want the logic out of the DB.
 func get_random_unhired(count: int) -> Array[Character]:
@@ -187,3 +191,9 @@ func set_fuel(updated_fuel: int) -> void:
 
 func set_reroll_fuel_cost(updated_cost: int) -> void:
     current_reroll_fuel_cost = updated_cost
+
+func get_character_die_slot(character_idx: int) -> CharacterDieSlot:
+    var result: CharacterDieSlot = null
+    if character_idx < current_character_die_slots.size():
+        result = current_character_die_slots[character_idx]
+    return result

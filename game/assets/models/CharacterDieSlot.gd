@@ -9,8 +9,9 @@ var last_roll_result: Action = null
 
 func _init(_character: Character, _is_frozen: bool = false) -> void:
     character = _character
-    is_frozen = _is_frozen
+    last_roll_result = _character.roll_action()
 
+    is_frozen = _is_frozen
 
 func roll_action() -> Action:
     if is_frozen:

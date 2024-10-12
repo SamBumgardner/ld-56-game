@@ -1,4 +1,4 @@
-extends PanelContainer
+class_name DieResult extends PanelContainer
 
 @export var action: Action = null
 
