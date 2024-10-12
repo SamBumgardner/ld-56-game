@@ -8,4 +8,3 @@ game/assets/fonts/Roboto/
 
 # Already imported plugin
 game/addons/sound_manager/
-game/addons/sound_manager/sound_manager.gd
