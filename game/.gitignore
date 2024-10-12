@@ -4,7 +4,4 @@
 *.tmp
 
 # Already imported assets
-game/assets/fonts/Roboto/
-
-# Already imported plugin
-game/addons/sound_manager/
+assets/fonts/Roboto/
