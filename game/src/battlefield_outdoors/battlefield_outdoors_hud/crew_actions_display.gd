@@ -15,6 +15,7 @@ func refresh():
             action_displays[i].set_character_die_slot(die_slots[i])
         else:
             action_displays[i].set_character_die_slot(null)
+        action_displays[i].button.button_pressed = false
 
 func _on_character_selected(selected_character: Character, button_end_state: bool) -> void:
     for action_display in action_displays:

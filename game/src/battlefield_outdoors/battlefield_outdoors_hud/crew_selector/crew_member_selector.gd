@@ -13,6 +13,7 @@ func refresh() -> void:
             character = hired_characters[i]
 
         crew_selector_buttons[i].set_character(character)
+        crew_selector_buttons[i].button.button_pressed = false
 
 func _on_character_selected(selected_character: Character, button_end_state: bool) -> void:
     for crew_selector_button in crew_selector_buttons:
