@@ -14,6 +14,9 @@ func refresh() -> void:
 
         crew_selector_buttons[i].set_character(character)
 
-func _on_character_selected(selected_character: Character) -> void:
+func _on_character_selected(selected_character: Character, button_end_state: bool) -> void:
     for crew_selector_button in crew_selector_buttons:
-        crew_selector_button.button.button_pressed = crew_selector_button.character == selected_character
+        if button_end_state:
+            crew_selector_button.button.button_pressed = crew_selector_button.character == selected_character
+        else:
+            crew_selector_button.button.button_pressed = false

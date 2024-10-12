@@ -1,6 +1,6 @@
 class_name CrewSelectorButton extends TextureRect
 
-signal character_selected(character: Character)
+signal character_selected(character: Character, button_end_state: bool)
 
 @onready var button: Button = $Button
 
@@ -19,4 +19,4 @@ func set_character(new_character: Character) -> void:
         hide()
 
 func _on_button_pressed() -> void:
-    character_selected.emit(character)
+    character_selected.emit(character, button.button_pressed)

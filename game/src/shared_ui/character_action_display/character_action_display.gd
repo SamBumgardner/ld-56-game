@@ -1,6 +1,7 @@
 class_name CharacterActionDisplay extends TextureRect
 
-signal character_selected(character: Character)
+signal character_selected(character: Character, button_end_state: bool)
+
 
 @onready var die_result: DieResult = $DieResult
 @onready var frozen_background: Control = $FrozenBackground
@@ -37,4 +38,4 @@ func _handle_freeze_roll_action(event: InputEvent):
         get_viewport().set_input_as_handled()
 
 func _on_button_pressed() -> void:
-    character_selected.emit(character_die_slot.character)
+    character_selected.emit(character_die_slot.character, button.button_pressed)
