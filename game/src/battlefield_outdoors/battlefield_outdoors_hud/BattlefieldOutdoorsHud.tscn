@@ -1,8 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6k6baalu42w7"]
+[gd_scene load_steps=15 format=3 uid="uid://b6k6baalu42w7"]
 
 [ext_resource type="Script" path="res://src/battlefield_outdoors/battlefield_outdoors_hud/battlefield_outdoors_hud.gd" id="1_3j823"]
+[ext_resource type="PackedScene" uid="uid://da57hkojchohp" path="res://src/shared_ui/resource_display/health_display.tscn" id="2_6fssr"]
 [ext_resource type="LabelSettings" uid="uid://2bu6p3hkt8lk" path="res://assets/label_settings/ColorWarning.tres" id="2_p0vkd"]
+[ext_resource type="PackedScene" uid="uid://cnbbp4gy833n" path="res://src/shared_ui/resource_display/money_display.tscn" id="2_ualkn"]
+[ext_resource type="PackedScene" uid="uid://cjb6144n5q1b1" path="res://src/shared_ui/resource_display/fuel_display.tscn" id="3_n5xb3"]
 [ext_resource type="PackedScene" uid="uid://cib1fq003l5jx" path="res://src/indoor_preparation/screen_displays/shared/screen_notification.tscn" id="3_rl23t"]
+[ext_resource type="PackedScene" uid="uid://cf5qy6u2j3hhw" path="res://assets/themes/fuel_display_mini.tscn" id="5_3m24g"]
+[ext_resource type="Script" path="res://src/battlefield_outdoors/battlefield_outdoors_hud/crew_actions_display.gd" id="6_6ykrh"]
+[ext_resource type="PackedScene" uid="uid://cg02ahrm1dodf" path="res://src/battlefield_outdoors/combat_math_calculations_hud/CombatMathCalculationsHud.tscn" id="6_30blh"]
+[ext_resource type="PackedScene" uid="uid://dr7v1vu064ukv" path="res://src/shared_ui/character_action_display/character_action_display.tscn" id="6_ihvc6"]
+[ext_resource type="Texture2D" uid="uid://c812lqrvhyq01" path="res://assets/art/ATTACK_icon_64x64.png" id="6_r4yqa"]
+[ext_resource type="Script" path="res://src/battlefield_outdoors/battlefield_outdoors_hud/total_power_display.gd" id="9_cb4ss"]
+[ext_resource type="Script" path="res://src/battlefield_outdoors/battlefield_outdoors_hud/barrier_preview.gd" id="9_iui7q"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8a5xg"]
+content_margin_left = 5.0
+content_margin_top = 2.0
+content_margin_right = 5.0
+bg_color = Color(0.180392, 0.180392, 0.180392, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
 
 [node name="BattlefieldOutdoorsHud" type="Control"]
 layout_mode = 3
@@ -18,50 +36,411 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Panel" type="Panel" parent="TopBar"]
+[node name="Trackers" type="VBoxContainer" parent="TopBar"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="HealthDisplay" parent="TopBar/Trackers" instance=ExtResource("2_6fssr")]
 layout_mode = 2
 
-[node name="Trackers" type="HBoxContainer" parent="TopBar"]
+[node name="MoneyDisplay" parent="TopBar/Trackers" instance=ExtResource("2_ualkn")]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="FuelDisplay" parent="TopBar/Trackers" instance=ExtResource("3_n5xb3")]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="BottomInfoDisplay" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Left" type="VBoxContainer" parent="BottomInfoDisplay"]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 0
+
+[node name="TopEdge" type="Control" parent="BottomInfoDisplay/Left"]
+custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 
-[node name="HealthTracker" type="HBoxContainer" parent="TopBar/Trackers"]
+[node name="TitleContainer" type="PanelContainer" parent="BottomInfoDisplay/Left/TopEdge"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8a5xg")
+
+[node name="PanelTitle" type="Label" parent="BottomInfoDisplay/Left/TopEdge/TitleContainer"]
+layout_mode = 2
+text = "Crew"
+
+[node name="CrewMemberSelector" type="PanelContainer" parent="BottomInfoDisplay/Left"]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="BottomInfoDisplay/Left/CrewMemberSelector"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="GridContainer" type="GridContainer" parent="BottomInfoDisplay/Left/CrewMemberSelector/MarginContainer"]
+layout_mode = 2
+columns = 3
+
+[node name="Button" type="Button" parent="BottomInfoDisplay/Left/CrewMemberSelector/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+disabled = true
+
+[node name="Button2" type="Button" parent="BottomInfoDisplay/Left/CrewMemberSelector/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+disabled = true
+
+[node name="Button3" type="Button" parent="BottomInfoDisplay/Left/CrewMemberSelector/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+disabled = true
+
+[node name="Button4" type="Button" parent="BottomInfoDisplay/Left/CrewMemberSelector/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+disabled = true
+
+[node name="Button5" type="Button" parent="BottomInfoDisplay/Left/CrewMemberSelector/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+disabled = true
+
+[node name="Button6" type="Button" parent="BottomInfoDisplay/Left/CrewMemberSelector/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+disabled = true
+
+[node name="Button7" type="Button" parent="BottomInfoDisplay/Left/CrewMemberSelector/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+disabled = true
+
+[node name="Button8" type="Button" parent="BottomInfoDisplay/Left/CrewMemberSelector/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+disabled = true
+
+[node name="Button9" type="Button" parent="BottomInfoDisplay/Left/CrewMemberSelector/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+disabled = true
+
+[node name="Center" type="VBoxContainer" parent="BottomInfoDisplay"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 0
+
+[node name="TopEdge" type="Control" parent="BottomInfoDisplay/Center"]
+z_index = 1
+custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 
-[node name="HealthLabel" type="Label" parent="TopBar/Trackers/HealthTracker"]
+[node name="TitleContainer" type="PanelContainer" parent="BottomInfoDisplay/Center/TopEdge"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8a5xg")
+
+[node name="PanelTitle" type="Label" parent="BottomInfoDisplay/Center/TopEdge/TitleContainer"]
 layout_mode = 2
-text = "Health:
+text = "Status
 "
 
-[node name="HealthCurrent" type="Label" parent="TopBar/Trackers/HealthTracker"]
-custom_minimum_size = Vector2(50, 0)
-layout_mode = 2
-text = "0"
-horizontal_alignment = 2
+[node name="MockRerollButton" type="Button" parent="BottomInfoDisplay/Center/TopEdge"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -55.0
+offset_top = -54.0
+offset_right = 55.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Reroll
+(Costs 1 Fuel)"
 
-[node name="HealthDivider" type="Label" parent="TopBar/Trackers/HealthTracker"]
-layout_mode = 2
-text = "/"
+[node name="FuelDisplayMini" parent="BottomInfoDisplay/Center/TopEdge" instance=ExtResource("5_3m24g")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 200.0
+offset_right = 30.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 0
 
-[node name="HealthMaximum" type="Label" parent="TopBar/Trackers/HealthTracker"]
+[node name="CrewStatus" type="PanelContainer" parent="BottomInfoDisplay/Center"]
+custom_minimum_size = Vector2(680, 200)
 layout_mode = 2
-text = "1000"
+size_flags_vertical = 10
 
-[node name="BarriersOvercomeTracker" type="HBoxContainer" parent="TopBar/Trackers"]
+[node name="StatusSections" type="HBoxContainer" parent="BottomInfoDisplay/Center/CrewStatus"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="CrewActionsDisplay" type="MarginContainer" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+script = ExtResource("6_6ykrh")
+
+[node name="PC" type="PanelContainer" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CrewActionsDisplay"]
 layout_mode = 2
 
-[node name="Current" type="Label" parent="TopBar/Trackers/BarriersOvercomeTracker"]
-custom_minimum_size = Vector2(50, 0)
+[node name="GC" type="GridContainer" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CrewActionsDisplay/PC"]
 layout_mode = 2
-text = "0"
-horizontal_alignment = 2
+size_flags_vertical = 4
+theme_override_constants/v_separation = 15
+columns = 3
 
-[node name="X" type="Label" parent="TopBar/Trackers/BarriersOvercomeTracker"]
+[node name="CharacterActionDisplay" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CrewActionsDisplay/PC/GC" instance=ExtResource("6_ihvc6")]
+self_modulate = Color(1, 1, 1, 0.392157)
 layout_mode = 2
-text = "x"
+size_flags_horizontal = 6
 
-[node name="Label" type="Label" parent="TopBar/Trackers/BarriersOvercomeTracker"]
+[node name="CharacterActionDisplay2" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CrewActionsDisplay/PC/GC" instance=ExtResource("6_ihvc6")]
+self_modulate = Color(1, 1, 1, 0.392157)
 layout_mode = 2
-text = "Barriers"
+size_flags_horizontal = 6
+
+[node name="CharacterActionDisplay3" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CrewActionsDisplay/PC/GC" instance=ExtResource("6_ihvc6")]
+self_modulate = Color(1, 1, 1, 0.392157)
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="CharacterActionDisplay4" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CrewActionsDisplay/PC/GC" instance=ExtResource("6_ihvc6")]
+self_modulate = Color(1, 1, 1, 0.392157)
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="CharacterActionDisplay5" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CrewActionsDisplay/PC/GC" instance=ExtResource("6_ihvc6")]
+self_modulate = Color(1, 1, 1, 0.392157)
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="CharacterActionDisplay6" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CrewActionsDisplay/PC/GC" instance=ExtResource("6_ihvc6")]
+self_modulate = Color(1, 1, 1, 0.392157)
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="CharacterActionDisplay7" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CrewActionsDisplay/PC/GC" instance=ExtResource("6_ihvc6")]
+self_modulate = Color(1, 1, 1, 0.392157)
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="CharacterActionDisplay8" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CrewActionsDisplay/PC/GC" instance=ExtResource("6_ihvc6")]
+self_modulate = Color(1, 1, 1, 0.392157)
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="CharacterActionDisplay9" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CrewActionsDisplay/PC/GC" instance=ExtResource("6_ihvc6")]
+self_modulate = Color(1, 1, 1, 0.392157)
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="CalculationsDisplay" type="MarginContainer" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="CombatMathCalculationsHud" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CalculationsDisplay" instance=ExtResource("6_30blh")]
+layout_mode = 2
+
+[node name="TotalPowerDisplay" type="MarginContainer" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections"]
+clip_contents = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+script = ExtResource("9_cb4ss")
+
+[node name="PanelContainer" type="PanelContainer" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay/PanelContainer"]
+layout_mode = 2
+
+[node name="TotalHeader" type="Label" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Total Power:"
+
+[node name="TotalValue" type="Label" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 48
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MockAttackButton" type="Button" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Charge!"
+
+[node name="Right" type="VBoxContainer" parent="BottomInfoDisplay"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 8
+theme_override_constants/separation = 0
+
+[node name="TopEdge" type="Control" parent="BottomInfoDisplay/Right"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="TitleContainer" type="PanelContainer" parent="BottomInfoDisplay/Right/TopEdge"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8a5xg")
+
+[node name="PanelTitle" type="Label" parent="BottomInfoDisplay/Right/TopEdge/TitleContainer"]
+layout_mode = 2
+text = "Next Barrier"
+
+[node name="BarrierPreview" type="PanelContainer" parent="BottomInfoDisplay/Right"]
+custom_minimum_size = Vector2(275, 210)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 8
+script = ExtResource("9_iui7q")
+
+[node name="VB" type="VBoxContainer" parent="BottomInfoDisplay/Right/BarrierPreview"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="NameContainer" type="PanelContainer" parent="BottomInfoDisplay/Right/BarrierPreview/VB"]
+layout_mode = 2
+
+[node name="MC" type="MarginContainer" parent="BottomInfoDisplay/Right/BarrierPreview/VB/NameContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="Name" type="Label" parent="BottomInfoDisplay/Right/BarrierPreview/VB/NameContainer/MC"]
+layout_mode = 2
+text = "The Immovable Object"
+horizontal_alignment = 1
+
+[node name="StatsContainer" type="MarginContainer" parent="BottomInfoDisplay/Right/BarrierPreview/VB"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VB" type="VBoxContainer" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer"]
+custom_minimum_size = Vector2(0, 190)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="TotalPowerContainer" type="PanelContainer" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer/VB"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer/VB/TotalPowerContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer/VB/TotalPowerContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="TotalPowerHeader" type="Label" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer/VB/TotalPowerContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Total Power:"
+
+[node name="TotalPowerValue" type="Label" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer/VB/TotalPowerContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_font_sizes/font_size = 48
+text = "75"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HB" type="HBoxContainer" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer/VB"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="WeaknessContainer" type="PanelContainer" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer/VB/HB"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer/VB/HB/WeaknessContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer/VB/HB/WeaknessContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="WeaknessHeader" type="Label" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer/VB/HB/WeaknessContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Weakness:"
+
+[node name="WeaknessIcon" type="TextureRect" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer/VB/HB/WeaknessContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+texture = ExtResource("6_r4yqa")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="SpecialContainer" type="PanelContainer" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer/VB/HB"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer/VB/HB/SpecialContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer/VB/HB/SpecialContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="SpecialHeader" type="Label" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer/VB/HB/SpecialContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Special:"
 
 [node name="CentralControls" type="MarginContainer" parent="."]
 custom_minimum_size = Vector2(0, 60)
@@ -83,10 +462,6 @@ layout_mode = 2
 [node name="Buttons" type="HBoxContainer" parent="CentralControls/VBoxContainer"]
 layout_mode = 2
 alignment = 1
-
-[node name="MockAttackButton" type="Button" parent="CentralControls/VBoxContainer/Buttons"]
-layout_mode = 2
-text = "Charge!"
 
 [node name="Warnings" type="MarginContainer" parent="CentralControls/VBoxContainer"]
 layout_mode = 2
@@ -115,45 +490,23 @@ horizontal_alignment = 1
 
 [node name="ScreenNotification" parent="." instance=ExtResource("3_rl23t")]
 visible = false
+z_index = 1
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.3
 anchor_bottom = 0.3
 
-[node name="BottomBar" type="MarginContainer" parent="."]
+[node name="GoInsideButton" type="Button" parent="."]
 layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -4.0
+offset_right = 4.0
+offset_bottom = 8.0
 grow_horizontal = 2
-grow_vertical = 0
+text = "Manage Crew
+Inside "
 
-[node name="Columns" type="HBoxContainer" parent="BottomBar"]
-layout_mode = 2
-
-[node name="MarginContainer1" type="MarginContainer" parent="BottomBar/Columns"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="MarginContainer2" type="MarginContainer" parent="BottomBar/Columns"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="VBoxContainer" type="VBoxContainer" parent="BottomBar/Columns/MarginContainer2"]
-layout_mode = 2
-
-[node name="CenterContainer" type="CenterContainer" parent="BottomBar/Columns/MarginContainer2/VBoxContainer"]
-layout_mode = 2
-
-[node name="MockRerollButton" type="Button" parent="BottomBar/Columns/MarginContainer2/VBoxContainer/CenterContainer"]
-layout_mode = 2
-text = "Reroll
-(Costs 1 Fuel)"
-
-[node name="MarginContainer3" type="MarginContainer" parent="BottomBar/Columns"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[connection signal="pressed" from="CentralControls/VBoxContainer/Buttons/MockAttackButton" to="." method="_on_mock_attack_button_pressed"]
-[connection signal="pressed" from="BottomBar/Columns/MarginContainer2/VBoxContainer/CenterContainer/MockRerollButton" to="." method="_on_mock_reroll_button_pressed"]
+[connection signal="pressed" from="BottomInfoDisplay/Center/TopEdge/MockRerollButton" to="." method="_on_mock_reroll_button_pressed"]
+[connection signal="pressed" from="BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay/PanelContainer/VBoxContainer/MockAttackButton" to="." method="_on_mock_attack_button_pressed"]
