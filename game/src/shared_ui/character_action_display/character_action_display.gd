@@ -6,6 +6,7 @@ signal character_selected(character: Character, button_end_state: bool)
 @onready var frozen_background: Control = $FrozenBackground
 @onready var frozen_icon: TextureRect = $FrozenIcon
 @onready var button: Button = $Button
+@onready var value_changed_particles: CPUParticles2D = $Control/ValueChangedParticles
 
 var character_die_slot: CharacterDieSlot
 
@@ -17,8 +18,11 @@ func _ready() -> void:
     button.pressed.connect(_on_button_pressed)
     Database.die_slot_changed.connect(_on_die_slot_update)
 
-func refresh() -> void:
+func refresh(trigger_particles: bool = false) -> void:
     if character_die_slot != null:
+        if trigger_particles:
+            value_changed_particles.restart()
+
         texture = character_die_slot.character.icon
         die_result.set_action(character_die_slot.last_roll_result)
         show()
@@ -31,10 +35,9 @@ func refresh() -> void:
     else:
         hide()
 
-
-func set_character_die_slot(new_die_slot: CharacterDieSlot) -> void:
+func set_character_die_slot(new_die_slot: CharacterDieSlot, display_particles: bool = false) -> void:
     character_die_slot = new_die_slot
-    refresh()
+    refresh(display_particles)
 
 func toggle_freeze() -> void:
     Database.set_die_slot_frozen_status(

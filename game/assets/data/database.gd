@@ -3,7 +3,7 @@ extends Node
 
 signal money_changed(new_value: int, old_value: int)
 signal fuel_changed(new_value: int, old_value: int)
-signal die_slots_set(new_value: Array[CharacterDieSlot])
+signal die_slots_set(was_reroll: bool)
 signal die_slot_changed(changed_die_slot: CharacterDieSlot)
 
 enum StatType {
@@ -204,10 +204,11 @@ func set_current_barrier_data(updated_barrier_data: BarrierData) -> void:
     current_barrier_data = updated_barrier_data
 
 func set_current_character_die_slots(
-    updated_slots: Array[CharacterDieSlot]
+    updated_slots: Array[CharacterDieSlot],
+    was_reroll: bool = false
 ) -> void:
     current_character_die_slots = updated_slots
-    die_slots_set.emit()
+    die_slots_set.emit(was_reroll)
 
 func set_current_matching_stat_type_multiplier(updated_number: int) -> void:
     current_matching_stat_type_multiplier = updated_number
