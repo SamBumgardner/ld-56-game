@@ -1,5 +1,5 @@
 # Play audio triggered by signals.
-extends Node
+class_name AudioManager extends Node
 
 
 @export var sfx_button_click : AudioStream
@@ -20,6 +20,11 @@ func _ready():
     SoundManager.set_sound_volume(_default_volumes)
 
 
+# Listen for a custom signal in order to delay until volume is updated.
+func on_sfx_volume_updated():
+    SoundManager.play_ui_sound(sfx_button_click)
+
+
 #region Button mouse entered
 
 func _on_quit_button_mouse_entered():
@@ -32,6 +37,7 @@ func _on_start_button_mouse_entered():
     SoundManager.play_ui_sound(sfx_button_hover)
 
 #endregion Button mouse entered
+
 
 #region Button press
 
