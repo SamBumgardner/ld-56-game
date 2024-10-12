@@ -34,43 +34,43 @@ theme_override_constants/separation = 20
 layout_mode = 2
 text = "Settings"
 
-[node name="VolumeSettings" type="VBoxContainer" parent="CenterContainer/VBoxContainer"]
+[node name="SettingsVolume" type="VBoxContainer" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_wa1ao")
 
-[node name="SfxDescription" type="HBoxContainer" parent="CenterContainer/VBoxContainer/VolumeSettings"]
+[node name="SfxDescription" type="HBoxContainer" parent="CenterContainer/VBoxContainer/SettingsVolume"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/VolumeSettings/SfxDescription"]
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/SettingsVolume/SfxDescription"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "SFX:"
 horizontal_alignment = 2
 
-[node name="SfxVolumePercentage" type="Label" parent="CenterContainer/VBoxContainer/VolumeSettings/SfxDescription"]
+[node name="SfxVolumePercentage" type="Label" parent="CenterContainer/VBoxContainer/SettingsVolume/SfxDescription"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "0%"
 
-[node name="SfxVolumePercentageSlider" type="HSlider" parent="CenterContainer/VBoxContainer/VolumeSettings"]
+[node name="SfxVolumePercentageSlider" type="HSlider" parent="CenterContainer/VBoxContainer/SettingsVolume"]
 layout_mode = 2
 tick_count = 1
 
-[node name="MusicDescription" type="HBoxContainer" parent="CenterContainer/VBoxContainer/VolumeSettings"]
+[node name="MusicDescription" type="HBoxContainer" parent="CenterContainer/VBoxContainer/SettingsVolume"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/VolumeSettings/MusicDescription"]
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/SettingsVolume/MusicDescription"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Music:"
 horizontal_alignment = 2
 
-[node name="MusicVolumePercentage" type="Label" parent="CenterContainer/VBoxContainer/VolumeSettings/MusicDescription"]
+[node name="MusicVolumePercentage" type="Label" parent="CenterContainer/VBoxContainer/SettingsVolume/MusicDescription"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "0%"
 
-[node name="MusicVolumePercentageSlider" type="HSlider" parent="CenterContainer/VBoxContainer/VolumeSettings"]
+[node name="MusicVolumePercentageSlider" type="HSlider" parent="CenterContainer/VBoxContainer/SettingsVolume"]
 layout_mode = 2
 rounded = true
 tick_count = 1
@@ -82,9 +82,9 @@ text = "Reset to Defaults"
 
 [node name="BackToStartMenuButton" parent="." instance=ExtResource("4_lsi3h")]
 
-[connection signal="drag_ended" from="CenterContainer/VBoxContainer/VolumeSettings/SfxVolumePercentageSlider" to="." method="_on_sfx_volume_percentage_slider_drag_ended"]
-[connection signal="value_changed" from="CenterContainer/VBoxContainer/VolumeSettings/SfxVolumePercentageSlider" to="." method="_on_sfx_volume_percentage_slider_value_changed"]
-[connection signal="drag_ended" from="CenterContainer/VBoxContainer/VolumeSettings/MusicVolumePercentageSlider" to="." method="_on_music_volume_percentage_slider_drag_ended"]
-[connection signal="value_changed" from="CenterContainer/VBoxContainer/VolumeSettings/MusicVolumePercentageSlider" to="." method="_on_music_volume_percentage_slider_value_changed"]
+[connection signal="drag_ended" from="CenterContainer/VBoxContainer/SettingsVolume/SfxVolumePercentageSlider" to="." method="_on_sfx_volume_percentage_slider_drag_ended"]
+[connection signal="value_changed" from="CenterContainer/VBoxContainer/SettingsVolume/SfxVolumePercentageSlider" to="." method="_on_sfx_volume_percentage_slider_value_changed"]
+[connection signal="drag_ended" from="CenterContainer/VBoxContainer/SettingsVolume/MusicVolumePercentageSlider" to="." method="_on_music_volume_percentage_slider_drag_ended"]
+[connection signal="value_changed" from="CenterContainer/VBoxContainer/SettingsVolume/MusicVolumePercentageSlider" to="." method="_on_music_volume_percentage_slider_value_changed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/ResetToDefaultsButton" to="." method="_on_reset_to_defaults_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/ResetToDefaultsButton" to="." method="_on_button_pressed"]

@@ -3,16 +3,16 @@ extends Control
 
 @onready var audio_manager: AudioManager = $AudioManager
 @onready var music_slider: Slider = (
-    $CenterContainer/VBoxContainer/VolumeSettings/MusicVolumePercentageSlider
+    $CenterContainer/VBoxContainer/SettingsVolume/MusicVolumePercentageSlider
 )
 @onready var sfx_slider: Slider = (
-    $CenterContainer/VBoxContainer/VolumeSettings/SfxVolumePercentageSlider
+    $CenterContainer/VBoxContainer/SettingsVolume/SfxVolumePercentageSlider
 )
 @onready var music_volume_percentage_display: Label = (
-    $CenterContainer/VBoxContainer/VolumeSettings/MusicDescription/MusicVolumePercentage
+    $CenterContainer/VBoxContainer/SettingsVolume/MusicDescription/MusicVolumePercentage
 )
 @onready var sfx_volume_percentage_display: Label = (
-    $CenterContainer/VBoxContainer/VolumeSettings/SfxDescription/SfxVolumePercentage
+    $CenterContainer/VBoxContainer/SettingsVolume/SfxDescription/SfxVolumePercentage
 )
 
 
