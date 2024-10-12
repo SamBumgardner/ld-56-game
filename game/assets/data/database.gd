@@ -23,6 +23,7 @@ static var stat_type_to_icon: Dictionary = {
     StatType.CHAOS: preload("res://assets/art/MAGIC_icon_64x64.png"),
 }
 
+const _initial_audio_volume_initialized: bool = false
 const _initial_barriers_linear_scale_amount: int = 1
 const _initial_barriers_stat_type_to_overcome: StatType = StatType.MIGHT
 const _initial_barriers_overcome_count: int = 0
@@ -55,6 +56,7 @@ const _starting_character_idxs: Array[int] = [
     1,
 ]
 
+var audio_volume_initialized: bool
 var barriers_overcome_count: int
 var barriers_linear_scale_amount: int
 var current_barrier_stat_type_to_overcome: StatType
@@ -79,6 +81,7 @@ func _ready():
     reset_values()
 
 func reset_values() -> void:
+    set_audio_volume_initialized(_initial_audio_volume_initialized)
     set_barriers_overcome_count(_initial_barriers_overcome_count)
     set_barriers_linear_scale_amount(_initial_barriers_linear_scale_amount)
     set_current_barrier_cost_to_overcome_number(
@@ -160,6 +163,9 @@ func hire_character(character: Character) -> void:
     unhired_characters.erase(character)
     applicants.erase(character)
     hired_characters.append(character)
+
+func set_audio_volume_initialized(is_initialized: bool) -> void:
+    audio_volume_initialized = is_initialized
 
 func set_barriers_linear_scale_amount(updated_number: int) -> void:
     barriers_linear_scale_amount = updated_number
