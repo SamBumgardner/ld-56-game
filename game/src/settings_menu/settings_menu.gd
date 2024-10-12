@@ -1,9 +1,6 @@
 extends Control
 
 
-signal sfx_volume_updated
-
-
 @onready var audio_manager: AudioManager = $AudioManager
 @onready var music_slider: Slider = (
     $CenterContainer/VBoxContainer/VolumeSettings/MusicVolumePercentageSlider
