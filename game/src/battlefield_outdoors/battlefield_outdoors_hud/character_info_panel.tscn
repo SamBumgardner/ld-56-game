@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://vnu6f53bf3ur"]
+[gd_scene load_steps=8 format=3 uid="uid://vnu6f53bf3ur"]
 
 [ext_resource type="Theme" uid="uid://dk5iv042psfw" path="res://assets/themes/Default.tres" id="1_e7u35"]
 [ext_resource type="Texture2D" uid="uid://bic3i142epdt3" path="res://assets/art/placeholder_threat.png" id="1_jchug"]
 [ext_resource type="Script" path="res://src/battlefield_outdoors/battlefield_outdoors_hud/character_info_panel.gd" id="2_b64bf"]
 [ext_resource type="PackedScene" uid="uid://lw7wcqkoqifj" path="res://src/shared_ui/die_result/DieResult.tscn" id="3_hsll6"]
 [ext_resource type="Texture2D" uid="uid://c8dsnvyqbn3fh" path="res://assets/art/lock_icon.png" id="5_8swb4"]
+[ext_resource type="Texture2D" uid="uid://r7a1wa1ifq57" path="res://assets/art/placeholder_close_button.png" id="6_5bbwo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ho2i"]
 draw_center = false
@@ -160,3 +161,9 @@ expand_mode = 3
 [node name="LockButton" type="Button" parent="MC/VB/Current"]
 layout_mode = 2
 text = "Lock Current Action"
+
+[node name="CloseButton" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+icon = ExtResource("6_5bbwo")

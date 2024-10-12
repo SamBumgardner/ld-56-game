@@ -37,10 +37,14 @@ func _ready():
     for crew_selector_button in crew_member_selector.crew_selector_buttons:
         crew_selector_button.character_selected.connect(crew_actions_display._on_character_selected)
         crew_selector_button.character_selected.connect(_on_character_selection_changed)
+
     for character_action_display in crew_actions_display.action_displays:
         character_action_display.character_selected.connect(crew_member_selector._on_character_selected)
         character_action_display.character_selected.connect(_on_character_selection_changed)
     
+    character_info_panel.character_selected.connect(crew_member_selector._on_character_selected)
+    character_info_panel.character_selected.connect(crew_actions_display._on_character_selected)
+
     barrier_strength_scaled.connect(calculations_hud.refresh)
     barrier_strength_scaled.connect(barrier_preview.refresh)
     barrier_strength_scaled.connect(total_power_display.refresh)
