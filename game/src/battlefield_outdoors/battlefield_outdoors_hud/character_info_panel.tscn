@@ -1,9 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://vnu6f53bf3ur"]
+[gd_scene load_steps=7 format=3 uid="uid://vnu6f53bf3ur"]
 
 [ext_resource type="Theme" uid="uid://dk5iv042psfw" path="res://assets/themes/Default.tres" id="1_e7u35"]
 [ext_resource type="Texture2D" uid="uid://bic3i142epdt3" path="res://assets/art/placeholder_threat.png" id="1_jchug"]
 [ext_resource type="Script" path="res://src/battlefield_outdoors/battlefield_outdoors_hud/character_info_panel.gd" id="2_b64bf"]
 [ext_resource type="PackedScene" uid="uid://lw7wcqkoqifj" path="res://src/shared_ui/die_result/DieResult.tscn" id="3_hsll6"]
+[ext_resource type="Texture2D" uid="uid://c8dsnvyqbn3fh" path="res://assets/art/lock_icon.png" id="5_8swb4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ho2i"]
+draw_center = false
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 1, 0.866667, 0.392157)
 
 [node name="CharacterInfoPanel" type="PanelContainer"]
 custom_minimum_size = Vector2(240, 248)
@@ -105,23 +114,49 @@ layout_mode = 2
 [node name="DieResult9" parent="MC/VB/Actions/ActionsContainer" instance=ExtResource("3_hsll6")]
 layout_mode = 2
 
-[node name="CurrentAction" type="PanelContainer" parent="MC/VB"]
+[node name="Current" type="VBoxContainer" parent="MC/VB"]
+layout_mode = 2
+
+[node name="CurrentAction" type="PanelContainer" parent="MC/VB/Current"]
 layout_mode = 2
 size_flags_vertical = 10
 
-[node name="MC" type="MarginContainer" parent="MC/VB/CurrentAction"]
+[node name="MC" type="MarginContainer" parent="MC/VB/Current/CurrentAction"]
 layout_mode = 2
 theme_override_constants/margin_left = 2
 theme_override_constants/margin_top = 2
 theme_override_constants/margin_right = 2
 theme_override_constants/margin_bottom = 2
 
-[node name="HB" type="HBoxContainer" parent="MC/VB/CurrentAction/MC"]
+[node name="HB" type="HBoxContainer" parent="MC/VB/Current/CurrentAction/MC"]
 layout_mode = 2
 
-[node name="CurrentHeader" type="Label" parent="MC/VB/CurrentAction/MC/HB"]
+[node name="CurrentHeader" type="Label" parent="MC/VB/Current/CurrentAction/MC/HB"]
 layout_mode = 2
 text = "Current Action:"
 
-[node name="DieResult" parent="MC/VB/CurrentAction/MC/HB" instance=ExtResource("3_hsll6")]
+[node name="DieResult" parent="MC/VB/Current/CurrentAction/MC/HB" instance=ExtResource("3_hsll6")]
 layout_mode = 2
+
+[node name="LockedBorder" type="Panel" parent="MC/VB/Current/CurrentAction"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2ho2i")
+
+[node name="LockIcon" type="TextureRect" parent="MC/VB/Current/CurrentAction/LockedBorder"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_8swb4")
+expand_mode = 3
+
+[node name="LockButton" type="Button" parent="MC/VB/Current"]
+layout_mode = 2
+text = "Lock Current Action"

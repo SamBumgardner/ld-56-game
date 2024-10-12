@@ -502,13 +502,14 @@ modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.3
-anchor_top = 0.45
+anchor_top = 0.6
 anchor_right = 0.3
-anchor_bottom = 0.45
+anchor_bottom = 0.6
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 0.0
 offset_bottom = 0.0
+grow_vertical = 0
 
 [connection signal="pressed" from="BottomInfoDisplay/Center/TopEdge/MockRerollButton" to="." method="_on_mock_reroll_button_pressed"]
 [connection signal="pressed" from="BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay/PanelContainer/VBoxContainer/MockAttackButton" to="." method="_on_mock_attack_button_pressed"]
