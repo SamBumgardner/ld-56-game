@@ -24,12 +24,12 @@ const REROLL_FAIL_DURATION = 2
 @onready var bottom_bar_fuel: FuelDisplay = $BottomInfoDisplay/Center/TopEdge/FuelDisplayMini
 @onready var calculations_hud: CombatMathCalculationsHud = $BottomInfoDisplay/Center/CrewStatus/StatusSections/CalculationsDisplay/CombatMathCalculationsHud
 
-
 func _ready():
     _hide_warnings()
 
     _set_health_text()
-
+    
+    barrier_strength_scaled.connect(calculations_hud.refresh)
     Database.set_current_barrier_cost_to_overcome_number(
         Database.current_barrier_cost_to_overcome_number
         + Database.barriers_linear_scale_amount
