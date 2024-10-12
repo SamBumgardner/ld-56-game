@@ -172,6 +172,12 @@ func hire_character(character: Character) -> void:
     applicants.erase(character)
     hired_characters.append(character)
 
+func get_settings_default_audio_volume_music() -> float:
+    return _settings_default_audio_volume_music
+
+func get_settings_default_audio_volume_sfx() -> float:
+    return _settings_default_audio_volume_sfx
+
 func set_audio_volume_initialized(is_initialized: bool) -> void:
     audio_volume_initialized = is_initialized
 

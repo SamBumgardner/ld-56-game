@@ -28,6 +28,7 @@ grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 layout_mode = 2
+theme_override_constants/separation = 20
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
@@ -74,9 +75,16 @@ layout_mode = 2
 rounded = true
 tick_count = 1
 
+[node name="ResetToDefaultsButton" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_wa1ao")
+text = "Reset to Defaults"
+
 [node name="BackToStartMenuButton" parent="." instance=ExtResource("4_lsi3h")]
 
 [connection signal="drag_ended" from="CenterContainer/VBoxContainer/VolumeSettings/SfxVolumePercentageSlider" to="." method="_on_sfx_volume_percentage_slider_drag_ended"]
 [connection signal="value_changed" from="CenterContainer/VBoxContainer/VolumeSettings/SfxVolumePercentageSlider" to="." method="_on_sfx_volume_percentage_slider_value_changed"]
 [connection signal="drag_ended" from="CenterContainer/VBoxContainer/VolumeSettings/MusicVolumePercentageSlider" to="." method="_on_music_volume_percentage_slider_drag_ended"]
 [connection signal="value_changed" from="CenterContainer/VBoxContainer/VolumeSettings/MusicVolumePercentageSlider" to="." method="_on_music_volume_percentage_slider_value_changed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/ResetToDefaultsButton" to="." method="_on_reset_to_defaults_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/ResetToDefaultsButton" to="." method="_on_button_pressed"]
