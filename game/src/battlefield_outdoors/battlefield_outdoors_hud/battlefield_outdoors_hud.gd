@@ -176,7 +176,6 @@ func refresh_calculations() -> void:
 
 func _on_character_selection_changed(character: Character, selected_state: bool) -> void:
     if selected_state:
-        character_info_panel.set_character(character)
-        character_info_panel.show()
+        character_info_panel.display_character(character)
     else:
-        character_info_panel.hide()
+        character_info_panel.display_character(null)
