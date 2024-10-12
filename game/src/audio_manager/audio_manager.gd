@@ -6,18 +6,13 @@ class_name AudioManager extends Node
 @export var sfx_button_hover : AudioStream
 
 
-const _default_volumes: float = 0.5
-
-
 func _ready():
-    if Database.audio_volume_initialized:
-        return
+    if !Database.audio_volume_initialized:
+        Database.set_audio_volume_initialized(true)
 
-    Database.set_audio_volume_initialized(true)
-
-    SoundManager.set_ambient_sound_volume(_default_volumes)
-    SoundManager.set_music_volume(_default_volumes)
-    SoundManager.set_sound_volume(_default_volumes)
+    SoundManager.set_ambient_sound_volume(Database.audio_volume_sfx)
+    SoundManager.set_music_volume(Database.audio_volume_music)
+    SoundManager.set_sound_volume(Database.audio_volume_sfx)
 
 
 # Listen for a custom signal in order to delay until volume is updated.

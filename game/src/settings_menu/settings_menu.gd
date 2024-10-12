@@ -35,10 +35,10 @@ func _initialize_volumes():
         ')'
     )
     sfx_slider.value = int(
-        SoundManager.get_sound_volume() * setting_to_percentage_ratio
+        Database.audio_volume_sfx * setting_to_percentage_ratio
     )
     music_slider.value = int(
-        SoundManager.get_music_volume() * setting_to_percentage_ratio
+        Database.audio_volume_music * setting_to_percentage_ratio
     )
     print_debug(
         'Slider values of SFX and music are: (',
@@ -82,11 +82,14 @@ func _slider_value_to_volume(slider_value: float) -> float:
 #region Set volume
 
 func _set_music_volume_from_slider() -> void:
-    SoundManager.set_music_volume(_slider_value_to_volume(music_slider.value))
+    var updated_volume = _slider_value_to_volume(music_slider.value)
+    SoundManager.set_music_volume(updated_volume)
+    Database.set_audio_volume_music(updated_volume)
 
 
 func _set_sfx_volume_from_slider() -> void:
-    SoundManager.set_sound_volume(_slider_value_to_volume(sfx_slider.value))
-
+    var updated_volume = _slider_value_to_volume(sfx_slider.value)
+    SoundManager.set_sound_volume(updated_volume)
+    Database.set_audio_volume_sfx(updated_volume)
 
 #endregion Set volume

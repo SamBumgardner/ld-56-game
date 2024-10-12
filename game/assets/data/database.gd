@@ -23,7 +23,10 @@ static var stat_type_to_icon: Dictionary = {
     StatType.CHAOS: preload("res://assets/art/MAGIC_icon_64x64.png"),
 }
 
-const _initial_audio_volume_initialized: bool = false
+const _settings_default_audio_volume_music: float = 0.5
+const _settings_default_audio_volume_sfx: float = 0.5
+const _initial_audio_volume_music: float = 0.5
+const _initial_audio_volume_sfx: float = 0.5
 const _initial_barriers_linear_scale_amount: int = 1
 const _initial_barriers_stat_type_to_overcome: StatType = StatType.MIGHT
 const _initial_barriers_overcome_count: int = 0
@@ -57,6 +60,8 @@ const _starting_character_idxs: Array[int] = [
 ]
 
 var audio_volume_initialized: bool
+var audio_volume_music: float
+var audio_volume_sfx: float
 var barriers_overcome_count: int
 var barriers_linear_scale_amount: int
 var current_barrier_stat_type_to_overcome: StatType
@@ -77,11 +82,14 @@ var should_generate_new_applicants: bool
 var current_money: int
 var current_fuel: int
 
+
 func _ready():
+    _ready_audio_volumes()
     reset_values()
 
+
+# Excludes chosen settings for audio volume.
 func reset_values() -> void:
-    set_audio_volume_initialized(_initial_audio_volume_initialized)
     set_barriers_overcome_count(_initial_barriers_overcome_count)
     set_barriers_linear_scale_amount(_initial_barriers_linear_scale_amount)
     set_current_barrier_cost_to_overcome_number(
@@ -167,6 +175,12 @@ func hire_character(character: Character) -> void:
 func set_audio_volume_initialized(is_initialized: bool) -> void:
     audio_volume_initialized = is_initialized
 
+func set_audio_volume_music(volume: float) -> void:
+    audio_volume_music = volume
+
+func set_audio_volume_sfx(volume: float) -> void:
+    audio_volume_sfx = volume
+
 func set_barriers_linear_scale_amount(updated_number: int) -> void:
     barriers_linear_scale_amount = updated_number
 
@@ -218,3 +232,9 @@ func get_character_die_slot(character_idx: int) -> CharacterDieSlot:
     if character_idx < current_character_die_slots.size():
         result = current_character_die_slots[character_idx]
     return result
+
+
+func _ready_audio_volumes() -> void:
+    set_audio_volume_initialized(false)
+    set_audio_volume_music(_initial_audio_volume_music)
+    set_audio_volume_sfx(_initial_audio_volume_sfx)
