@@ -41,6 +41,7 @@ func go_inside() -> void:
     zoom_in_tween.set_ease(Tween.EASE_OUT)
     zoom_in_tween.set_trans(Tween.TRANS_CUBIC)
     zoom_in_tween.tween_property(outdoor_canvas, "scale", Vector2.ONE * 2, .5)
+    zoom_in_tween.tween_interval(.25)
     zoom_in_tween.tween_property(outdoor_canvas, "scale", Vector2.ONE, .25)
 
 func go_outside() -> void:
@@ -59,6 +60,7 @@ func go_outside() -> void:
     zoom_out_tween.set_ease(Tween.EASE_OUT)
     zoom_out_tween.set_trans(Tween.TRANS_CUBIC)
     zoom_out_tween.tween_property(indoor_canvas, "scale", Vector2.ONE * .9, .5)
+    zoom_out_tween.tween_interval(.25)
     zoom_out_tween.tween_property(indoor_canvas, "scale", Vector2.ONE, .25)
 
 func charge_zoom_in(duration):
