@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://cnphrbnb2wrnf"]
+
+[ext_resource type="PackedScene" uid="uid://jg6d8x31qb6t" path="res://src/battlefield_outdoors/battlefield_outdoors_hud/resource_change_line.tscn" id="1_0ym2h"]
+[ext_resource type="Script" path="res://src/battlefield_outdoors/battlefield_outdoors_hud/combat_results_summary.gd" id="1_ogv1q"]
+[ext_resource type="Texture2D" uid="uid://bu66la2403v7p" path="res://assets/art/HEAL_icon_64x64.png" id="2_gf5uu"]
+[ext_resource type="Texture2D" uid="uid://dqfvwly0xyo0k" path="res://assets/art/tiny_silver_coin.png" id="3_d7sk3"]
+[ext_resource type="Texture2D" uid="uid://dmhymsa3he1w6" path="res://assets/art/energy_icon.png" id="4_id32d"]
+
+[node name="CombatResultsSummary" type="VBoxContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.5
+offset_top = -11.5
+offset_right = 89.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ogv1q")
+
+[node name="HealthChange" parent="." instance=ExtResource("1_0ym2h")]
+layout_mode = 2
+texture = ExtResource("2_gf5uu")
+resource_name = "Health"
+
+[node name="MoneyChange" parent="." instance=ExtResource("1_0ym2h")]
+layout_mode = 2
+texture = ExtResource("3_d7sk3")
+resource_name = "Coin"
+
+[node name="FuelChange" parent="." instance=ExtResource("1_0ym2h")]
+layout_mode = 2
+texture = ExtResource("4_id32d")
+resource_name = "Fuel"

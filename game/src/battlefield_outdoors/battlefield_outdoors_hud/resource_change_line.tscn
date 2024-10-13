@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://jg6d8x31qb6t"]
+
+[ext_resource type="Texture2D" uid="uid://4nvogy60mpq3" path="res://icon.svg" id="1_3mib2"]
+[ext_resource type="Script" path="res://src/battlefield_outdoors/battlefield_outdoors_hud/resource_change_line.gd" id="1_diylt"]
+
+[node name="ResourceChangeLine" type="HBoxContainer"]
+script = ExtResource("1_diylt")
+
+[node name="ResourceIcon" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("1_3mib2")
+expand_mode = 3
+
+[node name="ResourceName" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "ResourceName"
+
+[node name="ChangeLabel" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "+XX"
