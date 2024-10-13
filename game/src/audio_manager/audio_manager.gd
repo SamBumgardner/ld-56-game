@@ -15,7 +15,7 @@ func _ready():
         Database.set_audio_volume_initialized(true)
 
     SoundManager.set_default_music_bus('Music')
-    SoundManager.set_default_ambient_sound_bus('SFX UI')
+    SoundManager.set_default_ambient_sound_bus(_bus_name_sfx_ui)
 
     SoundManager.set_ambient_sound_volume(Database.audio_volume_sfx)
     SoundManager.set_music_volume(Database.audio_volume_music)
