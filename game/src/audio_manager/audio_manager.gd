@@ -37,10 +37,28 @@ func _start_background_music():
 
 #region Button mouse entered
 
+func _on_character_info_panel_close_button_mouse_entered():
+    SoundManager.play_ui_sound(sfx_button_hover, _bus_name_sfx_ui)
+
+func _on_charge_button_mouse_entered():
+    SoundManager.play_ui_sound(sfx_button_hover, _bus_name_sfx_ui)
+
+func _on_close_screen_notification_button_mouse_entered():
+    SoundManager.play_ui_sound(sfx_button_hover, _bus_name_sfx_ui)
+
 func _on_exit_button_mouse_entered():
     SoundManager.play_ui_sound(sfx_button_hover, _bus_name_sfx_ui)
 
+func _on_go_inside_button_mouse_entered():
+    SoundManager.play_ui_sound(sfx_button_hover, _bus_name_sfx_ui)
+
+func _on_lock_button_mouse_entered():
+    SoundManager.play_ui_sound(sfx_button_hover, _bus_name_sfx_ui)
+
 func _on_quit_button_mouse_entered():
+    SoundManager.play_ui_sound(sfx_button_hover, _bus_name_sfx_ui)
+
+func _on_reroll_button_mouse_entered():
     SoundManager.play_ui_sound(sfx_button_hover, _bus_name_sfx_ui)
 
 func _on_reset_to_defaults_button_mouse_entered():
@@ -57,10 +75,28 @@ func _on_start_button_mouse_entered():
 
 #region Button press
 
+func _on_character_info_panel_close_button_pressed():
+    SoundManager.play_ui_sound(sfx_button_click, _bus_name_sfx_ui)
+
+func _on_charge_button_pressed():
+    SoundManager.play_ui_sound(sfx_button_click, _bus_name_sfx_ui)
+
+func _on_close_screen_notification_button_pressed():
+    SoundManager.play_ui_sound(sfx_button_click, _bus_name_sfx_ui)
+
 func _on_exit_button_pressed():
     SoundManager.play_ui_sound(sfx_button_click, _bus_name_sfx_ui)
 
+func _on_go_inside_button_pressed():
+    SoundManager.play_ui_sound(sfx_button_click, _bus_name_sfx_ui)
+
+func _on_lock_button_pressed():
+    SoundManager.play_ui_sound(sfx_button_click, _bus_name_sfx_ui)
+
 func _on_quit_button_pressed():
+    SoundManager.play_ui_sound(sfx_button_click, _bus_name_sfx_ui)
+
+func _on_reroll_button_pressed():
     SoundManager.play_ui_sound(sfx_button_click, _bus_name_sfx_ui)
 
 func _on_settings_button_pressed():

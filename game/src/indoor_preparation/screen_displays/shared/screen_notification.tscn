@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cib1fq003l5jx"]
+[gd_scene load_steps=5 format=3 uid="uid://cib1fq003l5jx"]
 
 [ext_resource type="Theme" uid="uid://dq0psiuuo404u" path="res://assets/themes/Notification_Error.tres" id="1_02cx6"]
 [ext_resource type="Script" path="res://src/indoor_preparation/screen_displays/shared/screen_notification.gd" id="2_hcuqa"]
+[ext_resource type="PackedScene" uid="uid://h1fowbxngb70" path="res://src/audio_manager/AudioManager.tscn" id="3_lrapv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2lwms"]
 bg_color = Color(1, 1, 1, 1)
@@ -17,6 +18,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_02cx6")
 script = ExtResource("2_hcuqa")
+
+[node name="AudioManager" parent="." instance=ExtResource("3_lrapv")]
 
 [node name="PC" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -85,3 +88,6 @@ show_percentage = false
 
 [node name="ExpirationTimer" type="Timer" parent="."]
 one_shot = true
+
+[connection signal="mouse_entered" from="PC/MC/VBC/PC2/MC2/VBC2/Button" to="AudioManager" method="_on_close_screen_notification_button_mouse_entered"]
+[connection signal="pressed" from="PC/MC/VBC/PC2/MC2/VBC2/Button" to="AudioManager" method="_on_close_screen_notification_button_pressed"]
