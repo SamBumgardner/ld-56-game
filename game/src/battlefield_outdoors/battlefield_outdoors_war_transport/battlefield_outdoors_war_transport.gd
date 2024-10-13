@@ -18,6 +18,13 @@ func charge_followthrough(target_global_position: Vector2, duration: float) -> v
     movement_tween.set_trans(Tween.TRANS_CUBIC)
     movement_tween.tween_property(self, "global_position", target_global_position, duration)
 
+func charge_knockback(duration: float) -> void:
+    const knockback_distance = Vector2(-200, 0)
+    movement_tween = clear_tween(movement_tween)
+    movement_tween.set_ease(Tween.EASE_OUT)
+    movement_tween.set_trans(Tween.TRANS_QUART)
+    movement_tween.tween_property(self, "global_position", global_position + knockback_distance, duration)
+
 func return_to_start_position(duration: float) -> void:
     movement_tween = clear_tween(movement_tween)
     movement_tween.tween_property(self, "position", start_position, duration)

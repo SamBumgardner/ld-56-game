@@ -83,10 +83,14 @@ func _on_charge_action(duration: float) -> void:
     war_transport.charge_to_target(barrier.global_position, duration)
 
 func _on_charge_impact(duration: float) -> void:
-    war_transport.charge_followthrough(war_transport.global_position + Vector2(200, 0), duration)
     _apply_combat_damage()
-    barrier.animate_destruction(duration)
     war_transport.hide_power(duration)
+    if Database.war_transport_health_current > 0:
+        war_transport.charge_followthrough(war_transport.global_position + Vector2(200, 0), duration)
+        barrier.animate_destruction(duration)
+    else:
+        war_transport.charge_knockback(duration / 2)
+
 
 func _apply_combat_damage() -> void:
     var updated_health = Database.war_transport_health_current
