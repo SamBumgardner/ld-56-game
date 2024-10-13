@@ -193,7 +193,7 @@ func _on_character_selection_changed(character: Character, selected_state: bool)
         character_info_panel.display_character(null)
 
 func _disable_interaction() -> void:
-    reroll_button.disabled = true
+    reroll_button._set_disabled(true)
     charge_button.disabled = true
     go_inside_button.disabled = true
     # implement "turn off" actions here
@@ -201,7 +201,7 @@ func _disable_interaction() -> void:
     crew_member_selector.disable_all()
 
 func _enable_interaction() -> void:
-    reroll_button.disabled = false
+    reroll_button._set_disabled(false)
     charge_button.disabled = false
     go_inside_button.disabled = false
     # fade in hud, more quickly this time
