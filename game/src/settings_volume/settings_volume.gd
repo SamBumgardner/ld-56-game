@@ -79,7 +79,7 @@ func _set_music_volume_from_slider() -> void:
 
 func _set_sfx_volume_from_slider() -> void:
     var updated_volume = _slider_value_to_volume(sfx_slider.value)
-    SoundManager.set_sound_volume(updated_volume)
+    SoundManager.set_ambient_sound_volume(updated_volume)
     Database.set_audio_volume_sfx(updated_volume)
 
 #endregion Set volume

@@ -41,7 +41,7 @@ func _set_sfx_volume_from_database_default() -> void:
         Database.get_settings_default_audio_volume_sfx()
         * setting_to_percentage_ratio
     )
-    SoundManager.set_sound_volume(updated_volume)
+    SoundManager.set_ambient_sound_volume(updated_volume)
     Database.set_audio_volume_sfx(updated_volume)
 
 #endregion Set volume
