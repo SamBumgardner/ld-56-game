@@ -8,6 +8,7 @@ signal charge_cooldown(duration: float)
 signal charge_finish()
 
 signal health_empty()
+signal insufficient_fuel()
 
 @onready var war_transport: BattlefieldOutdoorsWarTransport = $AnchorOfWarTransport/BattlefieldOutdoorsWarTransport
 @onready var battlefield_outdoors_hud: BattlefieldOutdoorsHud = $BattlefieldOutdoorsHud
@@ -16,7 +17,8 @@ var combat_math_formulas: CombatMathFormulas = CombatMathFormulas.new()
 var charge_sequence_tween: Tween
 
 func _ready() -> void:
-    war_transport.insufficient_fuel.connect(battlefield_outdoors_hud._on_insufficient_fuel)
+    insufficient_fuel.connect(battlefield_outdoors_hud._on_insufficient_fuel)
+    battlefield_outdoors_hud.dice_roll_requested.connect(_on_roll_requested)
     battlefield_outdoors_hud.initiate_charge_requested.connect(_begin_charge_sequence)
 
     _connect_hud_charge_events()
@@ -125,3 +127,26 @@ func _on_health_empty() -> void:
     game_over_sequence.tween_interval(2)
     game_over_sequence.tween_callback(
         get_tree().change_scene_to_packed.bind(preload("res://src/start_menu/StartMenu.tscn")))
+
+func _on_roll_requested():
+    if has_enough_fuel():
+        Database.set_fuel(Database.current_fuel - Database.current_reroll_fuel_cost)
+        roll_dice()
+
+func has_enough_fuel() -> bool:
+    var enough_fuel: bool = Database.current_fuel >= Database.current_reroll_fuel_cost
+    if not enough_fuel:
+        insufficient_fuel.emit()
+    return enough_fuel
+
+func roll_dice() -> void:
+    var character_die_slots = Database.current_character_die_slots
+    for i: int in character_die_slots.size():
+        var character_die_slot: CharacterDieSlot = character_die_slots[i]
+
+        if character_die_slot.is_frozen:
+            continue
+
+        character_die_slot.last_roll_result = character_die_slot.roll_action()
+
+    Database.set_current_character_die_slots(character_die_slots, true)

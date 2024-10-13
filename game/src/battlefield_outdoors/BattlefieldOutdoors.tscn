@@ -43,5 +43,3 @@ anchor_right = 0.5
 anchor_bottom = 0.4
 
 [node name="BattlefieldOutdoorsWarTransport" parent="AnchorOfWarTransport" instance=ExtResource("3_etui0")]
-
-[connection signal="dice_roll_requested" from="BattlefieldOutdoorsHud" to="AnchorOfWarTransport/BattlefieldOutdoorsWarTransport" method="_on_battlefield_outdoors_hud_dice_roll_requested"]
