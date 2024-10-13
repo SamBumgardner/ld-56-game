@@ -35,3 +35,12 @@ func _start_preview_reroll() -> void:
 func _stop_preview_reroll() -> void:
     for action_display in action_displays:
         action_display.set_rolling_display(false)
+
+func disable_all() -> void:
+    for action_display in action_displays:
+        action_display.button.button_pressed = false
+        action_display.disable()
+
+func enable_all() -> void:
+    for action_display in action_displays:
+        action_display.enable()

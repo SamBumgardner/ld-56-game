@@ -21,3 +21,12 @@ func _on_character_selected(selected_character: Character, button_end_state: boo
             crew_selector_button.button.button_pressed = crew_selector_button.character == selected_character
         else:
             crew_selector_button.button.button_pressed = false
+
+func disable_all() -> void:
+    for crew_selector in crew_selector_buttons:
+        crew_selector.disable()
+        crew_selector.button.button_pressed = false
+
+func enable_all() -> void:
+    for crew_selector in crew_selector_buttons:
+        crew_selector.enable()

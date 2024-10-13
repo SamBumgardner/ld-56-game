@@ -20,3 +20,9 @@ func set_character(new_character: Character) -> void:
 
 func _on_button_pressed() -> void:
     character_selected.emit(character, button.button_pressed)
+
+func disable() -> void:
+    button.disabled = true
+
+func enable() -> void:
+    button.disabled = false

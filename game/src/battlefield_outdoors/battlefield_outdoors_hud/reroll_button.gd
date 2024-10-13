@@ -4,6 +4,7 @@ signal hovered_available_reroll
 signal exited_available_reroll
 
 @export var reroll_cooldown: float = 1.5
+var cooldown_tween: Tween
 
 func _ready() -> void:
     mouse_entered.connect(_on_mouse_entered)
@@ -11,6 +12,8 @@ func _ready() -> void:
     pressed.connect(_on_pressed)
 
 func _set_disabled(new_value: bool):
+    if cooldown_tween != null and cooldown_tween.is_running():
+        cooldown_tween.kill()
     disabled = new_value
     _on_disabled_changed()
 
@@ -30,7 +33,7 @@ func _on_disabled_changed():
 
 func _on_pressed():
     _set_disabled(true)
-    var cooldown_tween = create_tween()
+    cooldown_tween = create_tween()
     cooldown_tween.tween_callback(_on_cooldown_complete).set_delay(reroll_cooldown)
 
 func _on_cooldown_complete():

@@ -20,6 +20,8 @@ const REROLL_FAIL_DURATION = 2
 @onready var warning_out_of_troops = (
     $CentralControls/VBoxContainer/Warnings/WarningOutOfTroops
 )
+@onready var bottom_info_display: Control = $BottomInfoDisplay
+@onready var top_bar_display: Control = $TopBar
 @onready var screen_notification: ScreenNotification = $ScreenNotification
 @onready var character_info_panel: CharacterInfoPanel = $CharacterInfoPanel
 @onready var crew_member_selector: CrewMemberSelector = $BottomInfoDisplay/Left/CrewMemberSelector
@@ -31,6 +33,7 @@ const REROLL_FAIL_DURATION = 2
 @onready var total_power_display: TotalPowerDisplay = $BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay
 @onready var reroll_button: RerollButton = $BottomInfoDisplay/Center/TopEdge/RerollButton
 @onready var charge_button: Button = $BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay/PanelContainer/VBoxContainer/ChargeButton
+@onready var go_inside_button: Button = $GoInsideButton
 
 func _ready():
     _hide_warnings()
@@ -191,20 +194,62 @@ func _on_character_selection_changed(character: Character, selected_state: bool)
     else:
         character_info_panel.display_character(null)
 
+func _disable_interaction() -> void:
+    reroll_button._set_disabled(true)
+    charge_button.disabled = true
+    go_inside_button.disabled = true
+    # implement "turn off" actions here
+    crew_actions_display.disable_all()
+    crew_member_selector.disable_all()
+    character_info_panel.display_character(null)
+
+func _charge_mode_fadeout(duration: float) -> void:
+    var fadeout_targets: Array[Control] = [
+        bottom_info_display,
+        screen_notification,
+        go_inside_button,
+        top_bar_display,
+    ]
+    for target: Control in fadeout_targets:
+        create_tween().tween_property(target, "modulate", Color.TRANSPARENT, duration)
+    
+func _charge_mode_fadein(duration: float) -> void:
+    var fadein_targets: Array[Control] = [
+        bottom_info_display,
+        screen_notification,
+        go_inside_button,
+        top_bar_display,
+    ]
+    for target: Control in fadein_targets:
+        create_tween().tween_property(target, "modulate", Color.WHITE, duration)
+
+func _enable_interaction() -> void:
+    reroll_button._set_disabled(false)
+    charge_button.disabled = false
+    go_inside_button.disabled = false
+    # fade in hud, more quickly this time
+    crew_actions_display.enable_all()
+    crew_member_selector.enable_all()
+
 func _on_charge_start() -> void:
     print("HUD charge start")
+    _disable_interaction()
 
 func _on_charge_warmup(duration: float) -> void:
     print("HUD charge warmup", duration)
+    _charge_mode_fadeout(duration)
 
 func _on_charge_action(duration: float) -> void:
     print("HUD charge action", duration)
 
 func _on_charge_impact(duration: float) -> void:
     print("HUD charge impact", duration)
+    # health reduced
 
 func _on_charge_cooldown(duration: float) -> void:
     print("HUD charge cooldown", duration)
+    # trigger refreshes & information updates
+    _charge_mode_fadein(duration)
 
 func _on_charge_finish() -> void:
-    print("HUD charge finish")
+    _enable_interaction()

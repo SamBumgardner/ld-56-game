@@ -31,6 +31,10 @@ func transition_in() -> void:
     battlefield_outdoors_hud.crew_member_selector.refresh()
     battlefield_outdoors_hud.refresh_calculations()
     battlefield_outdoors_hud.character_info_panel.display_character(null)
+    battlefield_outdoors_hud._enable_interaction()
+
+func transition_out() -> void:
+    battlefield_outdoors_hud._disable_interaction()
 
 func _begin_charge_sequence() -> void:
     if charge_sequence_tween != null and charge_sequence_tween.is_running():
