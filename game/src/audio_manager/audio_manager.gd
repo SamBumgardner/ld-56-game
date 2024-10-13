@@ -9,6 +9,7 @@ class_name AudioManager extends Node
 
 
 const _bus_name_music = 'Music'
+const _bus_name_sfx_reroll_button = 'SFX Reroll Button'
 const _bus_name_sfx_ui = 'SFX UI'
 const _default_audio_crossfade = 0.1
 const _reroll_audio_crossfade = 0.5
@@ -158,7 +159,7 @@ func _on_reroll_button_hovered_available_reroll():
     SoundManager.play_ambient_sound(
         sfx_dice_shake,
         _reroll_audio_crossfade,
-        _bus_name_sfx_ui
+        _bus_name_sfx_reroll_button
     )
 
 func _on_reroll_button_exited_available_reroll():

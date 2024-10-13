@@ -214,4 +214,16 @@ func _on_charge_button_mouse_entered():
 
     audio_manager.on_enabled_button_mouse_entered()
 
+func _on_go_inside_button_mouse_entered():
+    if go_inside_button.disabled:
+        return
+
+    audio_manager.on_enabled_button_mouse_entered()
+
+func _on_reroll_button_mouse_entered():
+    if reroll_button.disabled:
+        return
+
+    audio_manager.on_enabled_button_mouse_entered()
+
 #endregion Descendant SFX: enabled button mouse entered
