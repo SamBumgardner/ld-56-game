@@ -14,6 +14,16 @@ var combat_stat_display_tween: Tween
 func _ready() -> void:
     Database.health_changed.connect(_on_health_changed)
 
+func charge_warmup(duration: float) -> void:
+    movement_tween = clear_tween(movement_tween)
+    movement_tween.tween_method(horizontal_shake, 0, 0, duration)
+
+func horizontal_shake(_value: float):
+    var shake_offset = Vector2.ONE.rotated(randf_range(0, 6.29))
+    shake_offset.y = 0
+    var magnitude = 1
+    position = start_position + (shake_offset * magnitude)
+
 func charge_to_target(target_global_position: Vector2, duration: float) -> void:
     movement_tween = clear_tween(movement_tween)
     movement_tween.set_ease(Tween.EASE_IN)
