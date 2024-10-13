@@ -39,3 +39,10 @@ func _update_display(barrier_data: BarrierData) -> void:
 
 func _on_barrier_changed(_new_barrier: BarrierData):
     refresh()
+
+func _animate_destruction(duration) -> void:
+    # shake left & right
+    # trigger particles 
+    # start fade out
+    # start moving downward
+    pass
