@@ -7,6 +7,7 @@ signal charge_impact(duration: float)
 signal charge_cooldown(duration: float)
 signal charge_finish()
 
+signal dice_roll_started()
 signal health_empty()
 signal insufficient_fuel()
 
@@ -168,6 +169,7 @@ func _on_health_empty() -> void:
 
 func _on_roll_requested():
     if _has_enough_fuel():
+        dice_roll_started.emit()
         Database.set_fuel(Database.current_fuel - Database.current_reroll_fuel_cost)
         _roll_dice()
 

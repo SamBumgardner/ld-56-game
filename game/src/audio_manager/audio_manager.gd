@@ -139,13 +139,6 @@ func _on_purchase_button_pressed():
 func _on_quit_button_pressed():
     SoundManager.play_ui_sound(sfx_button_click, _bus_name_sfx_ui)
 
-func _on_reroll_button_pressed():
-    SoundManager.play_ambient_sound(
-        sfx_dice_landing,
-        _default_audio_crossfade,
-        _bus_name_sfx_ui
-    )
-
 func _on_settings_button_pressed():
     SoundManager.play_ui_sound(sfx_button_click, _bus_name_sfx_ui)
 
@@ -156,6 +149,13 @@ func _on_start_button_pressed():
 
 
 #region Dice reroll hovering
+
+func _on_battlefield_outdoors_dice_roll_started():
+    SoundManager.play_ambient_sound(
+        sfx_dice_landing,
+        _default_audio_crossfade,
+        _bus_name_sfx_ui
+    )
 
 # 2024-10-13 Known edge case: Due to the crossfade greater than 0,
 #  quickly leaving and then re-entering focus will stop the sound effect.
