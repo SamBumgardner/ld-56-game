@@ -21,7 +21,20 @@ func clear_tween(tween: Tween) -> Tween:
     
     return create_tween()
 
+func scale_power_display_font_size(power_value: int) -> void:
+    const font_size_multiplier: int = 3
+    const font_size_min: int = 16
+    const font_size_max: int = 256
+
+    var font_size = clamp(
+        power_value * font_size_multiplier,
+        font_size_min,
+        font_size_max)
+
+    power.set("theme_override_font_sizes/font_size", font_size)
+
 func display_power(power_value: int, duration: float):
+    scale_power_display_font_size(power_value)
     power.text = String.num_int64(power_value)
     power.modulate = Color.TRANSPARENT
 

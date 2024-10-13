@@ -44,7 +44,20 @@ func _update_display(barrier_data: BarrierData) -> void:
 func _on_barrier_changed(_new_barrier: BarrierData):
     refresh()
 
+func scale_power_display_font_size() -> void:
+    const font_size_multiplier: int = 3
+    const font_size_min: int = 16
+    const font_size_max: int = 108
+
+    var font_size = clamp(
+        current_barrier_data.cost_to_overcome * font_size_multiplier,
+        font_size_min,
+        font_size_max)
+
+    cost_to_overcome_number_label.set("theme_override_font_sizes/font_size", font_size)
+
 func display_power(duration: float):
+    scale_power_display_font_size()
     cost_to_overcome_container.modulate = Color.TRANSPARENT
 
     if power_fade_in_tween != null and power_fade_in_tween.is_valid():
