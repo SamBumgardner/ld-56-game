@@ -86,7 +86,6 @@ func _apply_combat_damage() -> void:
     if updated_health <= 0:
         health_empty.emit()
 
-
 func _on_charge_cooldown(_duration: float) -> void:
     _generate_and_scale_next_barrier()
     _apply_combat_rewards()

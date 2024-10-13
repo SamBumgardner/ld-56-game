@@ -69,14 +69,6 @@ func _hide_roll_warnings() -> void:
 func _on_mock_attack_button_pressed() -> void:
     _hide_roll_warnings()
 
-    if Database.war_transport_health_current <= 0:
-        warning_out_of_health.visible = true
-        return
-
-    #print_debug('Game over, health has reached ', updated_health)
-    #warning_out_of_health.visible = true
-
-
 func _on_mock_reroll_button_pressed() -> void:
     if Database.war_transport_health_current <= 0:
         print_debug('Player requested a roll without any health.')
