@@ -5,6 +5,7 @@ class_name AudioManager extends Node
 
 @export var sfx_button_click: AudioStream
 @export var sfx_button_hover: AudioStream
+@export var sfx_dice_landing: AudioStream
 @export var sfx_dice_shake: AudioStream
 
 
@@ -139,7 +140,11 @@ func _on_quit_button_pressed():
     SoundManager.play_ui_sound(sfx_button_click, _bus_name_sfx_ui)
 
 func _on_reroll_button_pressed():
-    SoundManager.play_ui_sound(sfx_button_click, _bus_name_sfx_ui)
+    SoundManager.play_ambient_sound(
+        sfx_dice_landing,
+        _default_audio_crossfade,
+        _bus_name_sfx_ui
+    )
 
 func _on_settings_button_pressed():
     SoundManager.play_ui_sound(sfx_button_click, _bus_name_sfx_ui)
