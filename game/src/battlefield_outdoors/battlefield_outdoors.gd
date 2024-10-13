@@ -24,6 +24,7 @@ func _ready() -> void:
     battlefield_outdoors_hud.initiate_charge_requested.connect(_begin_charge_sequence)
 
     _connect_hud_charge_events()
+    charge_warmup.connect(_on_charge_warmup)
     charge_action.connect(_on_charge_action)
     charge_impact.connect(_on_charge_impact)
     charge_cooldown.connect(_on_charge_cooldown)
@@ -68,6 +69,9 @@ func _begin_charge_sequence() -> void:
     charge_sequence_tween.tween_callback(charge_finish.emit)
 
     charge_start.emit()
+
+func _on_charge_warmup(duration: float) -> void:
+    barrier.display_power(duration)
 
 func _on_charge_action(duration: float) -> void:
     war_transport.charge_to_target(Vector2(640, 0), duration)

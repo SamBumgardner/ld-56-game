@@ -18,6 +18,7 @@ var anchor_position: Vector2:
         position = value
 var position_tween: Tween
 var disappear_tween: Tween
+var power_fade_in_tween: Tween
 
 func _ready():
     start_position = position
@@ -31,10 +32,6 @@ func refresh() -> void:
     _update_display(Database.current_barrier_data)
 
 func _update_display(barrier_data: BarrierData) -> void:
-    if barrier_data == null:
-        cost_to_overcome_container.visible = false
-        return
-    
     current_barrier_data = barrier_data
     
     display_name_label.text = current_barrier_data.name
@@ -44,10 +41,22 @@ func _update_display(barrier_data: BarrierData) -> void:
         current_barrier_data.weakness_type
     ]
 
-    cost_to_overcome_container.visible = true
-
 func _on_barrier_changed(_new_barrier: BarrierData):
     refresh()
+
+func display_power(duration: float):
+    cost_to_overcome_container.modulate = Color.TRANSPARENT
+
+    if power_fade_in_tween != null and power_fade_in_tween.is_valid():
+        power_fade_in_tween.stop()
+    power_fade_in_tween = create_tween()
+    power_fade_in_tween.tween_callback(cost_to_overcome_container.show)
+    power_fade_in_tween.tween_property(
+        cost_to_overcome_container,
+        "modulate",
+        Color.WHITE,
+        duration
+    )
 
 func animate_destruction(duration) -> void:
     if position_tween != null and position_tween.is_valid():
@@ -56,6 +65,7 @@ func animate_destruction(duration) -> void:
 
 func new_barrier_scroll_onscreen(duration: float, spawn_offset: Vector2) -> void:
     anchor_position = start_position + spawn_offset
+    cost_to_overcome_container.hide()
     show()
     modulate = Color.WHITE
 
