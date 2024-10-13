@@ -46,7 +46,7 @@ func toggle_freeze() -> void:
     )
 
 func _handle_freeze_roll_action(event: InputEvent):
-    if event.is_action_pressed("freeze_roll"):
+    if event.is_action_pressed("freeze_roll") and not button.disabled:
         toggle_freeze()
         get_viewport().set_input_as_handled()
 
@@ -81,3 +81,9 @@ func _cycle_die_result_display(rand_value: float) -> void:
 
 func set_rolling_display(new_rolling_display: bool):
     rolling_display = new_rolling_display
+
+func disable() -> void:
+    button.disabled = true
+
+func enable() -> void:
+    button.disabled = false

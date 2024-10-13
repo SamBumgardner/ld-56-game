@@ -31,6 +31,7 @@ const REROLL_FAIL_DURATION = 2
 @onready var total_power_display: TotalPowerDisplay = $BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay
 @onready var reroll_button: RerollButton = $BottomInfoDisplay/Center/TopEdge/RerollButton
 @onready var charge_button: Button = $BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay/PanelContainer/VBoxContainer/ChargeButton
+@onready var go_inside_button: Button = $GoInsideButton
 
 func _ready():
     _hide_warnings()
@@ -191,9 +192,25 @@ func _on_character_selection_changed(character: Character, selected_state: bool)
     else:
         character_info_panel.display_character(null)
 
+func _disable_interaction() -> void:
+    reroll_button.disabled = true
+    charge_button.disabled = true
+    go_inside_button.disabled = true
+    # implement "turn off" actions here
+    crew_actions_display.disable_all()
+    crew_member_selector.disable_all()
+
+func _enable_interaction() -> void:
+    reroll_button.disabled = false
+    charge_button.disabled = false
+    go_inside_button.disabled = false
+    # fade in hud, more quickly this time
+    crew_actions_display.enable_all()
+    crew_member_selector.enable_all()
+
 func _on_charge_start() -> void:
     print("HUD charge start")
-    # Disable buttons right away
+    _disable_interaction()
     # fade out HUD over the course of a while
 
 func _on_charge_warmup(duration: float) -> void:
@@ -210,5 +227,4 @@ func _on_charge_cooldown(duration: float) -> void:
     # trigger refreshes & information updates
 
 func _on_charge_finish() -> void:
-    print("HUD charge finish")
-    # fade in hud, more quickly this time
+    _enable_interaction()
