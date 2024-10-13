@@ -24,6 +24,7 @@ func _ready() -> void:
 
     _connect_hud_charge_events()
     charge_cooldown.connect(_on_charge_cooldown)
+    charge_action.connect(_on_charge_action)
     charge_impact.connect(_on_charge_impact)
 
     health_empty.connect(_on_health_empty)
@@ -66,6 +67,9 @@ func _begin_charge_sequence() -> void:
 
     charge_start.emit()
 
+func _on_charge_action(duration: float) -> void:
+    war_transport.charge_at_target(Vector2(640, 0), duration)
+
 func _on_charge_impact(_duration: float) -> void:
     _apply_combat_damage()
 
@@ -91,7 +95,8 @@ func _apply_combat_damage() -> void:
     if updated_health <= 0:
         health_empty.emit()
 
-func _on_charge_cooldown(_duration: float) -> void:
+func _on_charge_cooldown(duration: float) -> void:
+    war_transport.return_to_start_position(duration)
     _generate_and_scale_next_barrier()
     _apply_combat_rewards()
     battlefield_outdoors_hud.set_combat_results(combat_result)
