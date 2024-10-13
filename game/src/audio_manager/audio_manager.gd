@@ -46,3 +46,11 @@ func _on_start_button_pressed():
     SoundManager.play_ui_sound(sfx_button_click)
 
 #endregion Button press
+
+
+#region Slider drag ended
+
+func _on_music_volume_percentage_slider_drag_ended(value_changed):
+    SoundManager.play_ui_sound(sfx_button_click)
+
+#endregion Slider drag ended

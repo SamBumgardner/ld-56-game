@@ -55,4 +55,5 @@ tick_count = 1
 [connection signal="drag_ended" from="SfxVolumePercentageSlider" to="." method="_on_sfx_volume_percentage_slider_drag_ended"]
 [connection signal="value_changed" from="SfxVolumePercentageSlider" to="." method="_on_sfx_volume_percentage_slider_value_changed"]
 [connection signal="drag_ended" from="MusicVolumePercentageSlider" to="." method="_on_music_volume_percentage_slider_drag_ended"]
+[connection signal="drag_ended" from="MusicVolumePercentageSlider" to="AudioManager" method="_on_music_volume_percentage_slider_drag_ended"]
 [connection signal="value_changed" from="MusicVolumePercentageSlider" to="." method="_on_music_volume_percentage_slider_value_changed"]
