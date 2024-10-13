@@ -11,6 +11,7 @@ signal health_empty()
 signal insufficient_fuel()
 
 @onready var war_transport: BattlefieldOutdoorsWarTransport = $AnchorOfWarTransport/BattlefieldOutdoorsWarTransport
+@onready var barrier: BattlefieldOutdoorsBarrier = $AnchorOfBarrier/BattlefieldOutdoorsBarrier
 @onready var battlefield_outdoors_hud: BattlefieldOutdoorsHud = $BattlefieldOutdoorsHud
 
 var combat_math_formulas: CombatMathFormulas = CombatMathFormulas.new()
@@ -23,8 +24,11 @@ func _ready() -> void:
     battlefield_outdoors_hud.initiate_charge_requested.connect(_begin_charge_sequence)
 
     _connect_hud_charge_events()
-    charge_cooldown.connect(_on_charge_cooldown)
+    charge_warmup.connect(_on_charge_warmup)
+    charge_action.connect(_on_charge_action)
     charge_impact.connect(_on_charge_impact)
+    charge_cooldown.connect(_on_charge_cooldown)
+    charge_finish.connect(_on_charge_finish)
 
     health_empty.connect(_on_health_empty)
 
@@ -66,8 +70,28 @@ func _begin_charge_sequence() -> void:
 
     charge_start.emit()
 
-func _on_charge_impact(_duration: float) -> void:
+func _on_charge_warmup(duration: float) -> void:
+    var player_strength = combat_math_formulas.total_dice_with_matching_stat_type_multiplier(
+        Database.current_character_die_slots,
+        Database.current_barrier_stat_type_to_overcome,
+        Database.current_matching_stat_type_multiplier
+    )
+    barrier.display_power(duration)
+    war_transport.display_combat_stats(player_strength, duration)
+    war_transport.charge_warmup(duration)
+
+func _on_charge_action(duration: float) -> void:
+    war_transport.charge_to_target(barrier.start_global_position, duration)
+
+func _on_charge_impact(duration: float) -> void:
     _apply_combat_damage()
+    if Database.war_transport_health_current > 0:
+        war_transport.charge_followthrough(war_transport.global_position + Vector2(200, 0), duration)
+        barrier.animate_destruction(duration)
+    else:
+        war_transport.hide_power(duration)
+        war_transport.charge_knockback(duration / 2)
+
 
 func _apply_combat_damage() -> void:
     var updated_health = Database.war_transport_health_current
@@ -91,10 +115,15 @@ func _apply_combat_damage() -> void:
     if updated_health <= 0:
         health_empty.emit()
 
-func _on_charge_cooldown(_duration: float) -> void:
+func _on_charge_cooldown(duration: float) -> void:
+    war_transport.hide_power(duration)
+    war_transport.return_to_start_position(duration)
     _generate_and_scale_next_barrier()
     _apply_combat_rewards()
     battlefield_outdoors_hud.set_combat_results(combat_result)
+
+func _on_charge_finish() -> void:
+    barrier.new_barrier_scroll_onscreen(2, Vector2(500, 0))
 
 func _generate_and_scale_next_barrier() -> void:
     var new_barrier: BarrierData = _generate_barrier_data()

@@ -1,39 +1,62 @@
 [gd_scene load_steps=5 format=3 uid="uid://bwpa5wbo5ct7g"]
 
-[ext_resource type="PackedScene" uid="uid://cbgigx6pdctmh" path="res://src/battlefield_outdoors/grid_of_dice_results/GridOfDiceResults.tscn" id="1_depth"]
 [ext_resource type="Script" path="res://src/battlefield_outdoors/battlefield_outdoors_war_transport/battlefield_outdoors_war_transport.gd" id="1_o8nwd"]
 [ext_resource type="Theme" uid="uid://dk5iv042psfw" path="res://assets/themes/Default.tres" id="2_58oda"]
 [ext_resource type="Texture2D" uid="uid://4nvogy60mpq3" path="res://icon.svg" id="2_aqe0i"]
 
-[node name="BattlefieldOutdoorsWarTransport" type="Node2D"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ivaum"]
+bg_color = Color(0.6, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="BattlefieldOutdoorsWarTransport" type="Sprite2D"]
+texture = ExtResource("2_aqe0i")
 script = ExtResource("1_o8nwd")
 
-[node name="Columns" type="HBoxContainer" parent="."]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -96.5
-offset_right = 96.5
-offset_bottom = 160.0
+[node name="Columns" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -64.0
+offset_right = -64.0
+offset_bottom = -64.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 theme = ExtResource("2_58oda")
 
-[node name="Units" type="VBoxContainer" parent="Columns"]
-layout_mode = 2
-size_flags_horizontal = 4
+[node name="HealthBar" type="MarginContainer" parent="Columns"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
 
-[node name="GridOfDiceResults" parent="Columns/Units" instance=ExtResource("1_depth")]
+[node name="Health" type="ProgressBar" parent="Columns/HealthBar"]
 layout_mode = 2
+size_flags_vertical = 1
+theme_override_styles/fill = SubResource("StyleBoxFlat_ivaum")
+max_value = 10.0
+value = 5.0
+show_percentage = false
 
-[node name="WarTransportRect" type="TextureRect" parent="Columns/Units"]
+[node name="Label" type="Label" parent="Columns/HealthBar"]
 layout_mode = 2
-size_flags_horizontal = 4
-texture = ExtResource("2_aqe0i")
-stretch_mode = 4
-
-[node name="WarTransportName" type="Label" parent="Columns/Units"]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Elephant in the Room"
+text = "0 / 10"
 horizontal_alignment = 1
+
+[node name="Power" type="Label" parent="Columns"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 48
+text = "50"
