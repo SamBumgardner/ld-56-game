@@ -142,7 +142,9 @@ func _charge_mode_fadeout(duration: float) -> void:
         top_bar_display,
     ]
     for target: Control in fadeout_targets:
-        create_tween().tween_property(target, "modulate", Color.TRANSPARENT, duration)
+        var fadeout_tween: Tween = create_tween()
+        fadeout_tween.tween_property(target, "modulate", Color.TRANSPARENT, duration)
+        fadeout_tween.tween_callback(target.hide)
     
 func _charge_mode_fadein(duration: float) -> void:
     var fadein_targets: Array[Control] = [
@@ -152,7 +154,9 @@ func _charge_mode_fadein(duration: float) -> void:
         top_bar_display,
     ]
     for target: Control in fadein_targets:
-        create_tween().tween_property(target, "modulate", Color.WHITE, duration)
+        var fadein_tween: Tween = create_tween()
+        fadein_tween.tween_callback(target.show)
+        fadein_tween.tween_property(target, "modulate", Color.WHITE, duration)
 
 func _enable_interaction() -> void:
     reroll_button._set_disabled(false)
