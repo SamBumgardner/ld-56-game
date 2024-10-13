@@ -6,6 +6,7 @@ signal dice_roll_requested
 const REROLL_FAIL_MESSAGE = "Failed to shuffle unlocked actions.\nReason: INSUFFICIENT_FUEL"
 const REROLL_FAIL_DURATION = 2
 
+@onready var audio_manager: AudioManager = $AudioManager
 #@onready var barriers = $TopBar/Trackers/BarriersOvercomeTracker/Current
 @onready var combat_math_formulas = CombatMathFormulas.new()
 @onready var health_current = $TopBar/Trackers/HealthDisplay/MarginContainer/HBoxContainer/HealthCurrent
@@ -142,7 +143,9 @@ func _charge_mode_fadeout(duration: float) -> void:
         top_bar_display,
     ]
     for target: Control in fadeout_targets:
-        create_tween().tween_property(target, "modulate", Color.TRANSPARENT, duration)
+        var fadeout_tween: Tween = create_tween()
+        fadeout_tween.tween_property(target, "modulate", Color.TRANSPARENT, duration)
+        fadeout_tween.tween_callback(target.hide)
     
 func _charge_mode_fadein(duration: float) -> void:
     var fadein_targets: Array[Control] = [
@@ -152,7 +155,9 @@ func _charge_mode_fadein(duration: float) -> void:
         top_bar_display,
     ]
     for target: Control in fadein_targets:
-        create_tween().tween_property(target, "modulate", Color.WHITE, duration)
+        var fadein_tween: Tween = create_tween()
+        fadein_tween.tween_callback(target.show)
+        fadein_tween.tween_property(target, "modulate", Color.WHITE, duration)
 
 func _enable_interaction() -> void:
     reroll_button._set_disabled(false)
@@ -199,3 +204,26 @@ func _on_charge_cooldown(duration: float) -> void:
 func _on_charge_finish() -> void:
     unset_resource_update_delay()
     _enable_interaction()
+
+
+#region Descendant SFX: enabled button mouse entered
+
+func _on_charge_button_mouse_entered():
+    if charge_button.disabled:
+        return
+
+    audio_manager.on_enabled_button_mouse_entered()
+
+func _on_go_inside_button_mouse_entered():
+    if go_inside_button.disabled:
+        return
+
+    audio_manager.on_enabled_button_mouse_entered()
+
+func _on_reroll_button_mouse_entered():
+    if reroll_button.disabled:
+        return
+
+    audio_manager.on_enabled_button_mouse_entered()
+
+#endregion Descendant SFX: enabled button mouse entered
