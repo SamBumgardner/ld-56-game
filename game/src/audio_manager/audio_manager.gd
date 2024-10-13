@@ -2,8 +2,8 @@
 class_name AudioManager extends Node
 
 
-@export var sfx_button_click : AudioStream
-@export var sfx_button_hover : AudioStream
+@export var sfx_button_click: AudioStream
+@export var sfx_button_hover: AudioStream
 
 
 func _ready():

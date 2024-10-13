@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://s1xgcuqegtmf"]
+[gd_scene load_steps=7 format=3 uid="uid://s1xgcuqegtmf"]
 
 [ext_resource type="Theme" uid="uid://p47cuq8mu72p" path="res://assets/themes/StartMenu.tres" id="1_581ss"]
 [ext_resource type="Script" path="res://src/settings_menu/settings_menu.gd" id="1_tjwhj"]
 [ext_resource type="Theme" uid="uid://dk5iv042psfw" path="res://assets/themes/Default.tres" id="1_wa1ao"]
 [ext_resource type="PackedScene" uid="uid://h1fowbxngb70" path="res://src/audio_manager/AudioManager.tscn" id="2_dyaxl"]
+[ext_resource type="PackedScene" uid="uid://ugy2sqawdp8y" path="res://src/settings_volume/SettingsVolume.tscn" id="4_0gnbp"]
 [ext_resource type="PackedScene" uid="uid://mq5u7di7yh8m" path="res://src/back_to_start_menu_button/BackToStartMenuButton.tscn" id="4_lsi3h"]
 
 [node name="SettingsMenu" type="Control"]
@@ -34,46 +35,8 @@ theme_override_constants/separation = 20
 layout_mode = 2
 text = "Settings"
 
-[node name="SettingsVolume" type="VBoxContainer" parent="CenterContainer/VBoxContainer"]
+[node name="SettingsVolume" parent="CenterContainer/VBoxContainer" instance=ExtResource("4_0gnbp")]
 layout_mode = 2
-theme = ExtResource("1_wa1ao")
-
-[node name="SfxDescription" type="HBoxContainer" parent="CenterContainer/VBoxContainer/SettingsVolume"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/SettingsVolume/SfxDescription"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "SFX:"
-horizontal_alignment = 2
-
-[node name="SfxVolumePercentage" type="Label" parent="CenterContainer/VBoxContainer/SettingsVolume/SfxDescription"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "0%"
-
-[node name="SfxVolumePercentageSlider" type="HSlider" parent="CenterContainer/VBoxContainer/SettingsVolume"]
-layout_mode = 2
-tick_count = 1
-
-[node name="MusicDescription" type="HBoxContainer" parent="CenterContainer/VBoxContainer/SettingsVolume"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/SettingsVolume/MusicDescription"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Music:"
-horizontal_alignment = 2
-
-[node name="MusicVolumePercentage" type="Label" parent="CenterContainer/VBoxContainer/SettingsVolume/MusicDescription"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "0%"
-
-[node name="MusicVolumePercentageSlider" type="HSlider" parent="CenterContainer/VBoxContainer/SettingsVolume"]
-layout_mode = 2
-rounded = true
-tick_count = 1
 
 [node name="ResetToDefaultsButton" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
@@ -82,9 +45,5 @@ text = "Reset to Defaults"
 
 [node name="BackToStartMenuButton" parent="." instance=ExtResource("4_lsi3h")]
 
-[connection signal="drag_ended" from="CenterContainer/VBoxContainer/SettingsVolume/SfxVolumePercentageSlider" to="." method="_on_sfx_volume_percentage_slider_drag_ended"]
-[connection signal="value_changed" from="CenterContainer/VBoxContainer/SettingsVolume/SfxVolumePercentageSlider" to="." method="_on_sfx_volume_percentage_slider_value_changed"]
-[connection signal="drag_ended" from="CenterContainer/VBoxContainer/SettingsVolume/MusicVolumePercentageSlider" to="." method="_on_music_volume_percentage_slider_drag_ended"]
-[connection signal="value_changed" from="CenterContainer/VBoxContainer/SettingsVolume/MusicVolumePercentageSlider" to="." method="_on_music_volume_percentage_slider_value_changed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/ResetToDefaultsButton" to="." method="_on_reset_to_defaults_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/ResetToDefaultsButton" to="." method="_on_button_pressed"]
