@@ -129,17 +129,17 @@ func _on_health_empty() -> void:
         get_tree().change_scene_to_packed.bind(preload("res://src/start_menu/StartMenu.tscn")))
 
 func _on_roll_requested():
-    if has_enough_fuel():
+    if _has_enough_fuel():
         Database.set_fuel(Database.current_fuel - Database.current_reroll_fuel_cost)
-        roll_dice()
+        _roll_dice()
 
-func has_enough_fuel() -> bool:
+func _has_enough_fuel() -> bool:
     var enough_fuel: bool = Database.current_fuel >= Database.current_reroll_fuel_cost
     if not enough_fuel:
         insufficient_fuel.emit()
     return enough_fuel
 
-func roll_dice() -> void:
+func _roll_dice() -> void:
     var character_die_slots = Database.current_character_die_slots
     for i: int in character_die_slots.size():
         var character_die_slot: CharacterDieSlot = character_die_slots[i]
