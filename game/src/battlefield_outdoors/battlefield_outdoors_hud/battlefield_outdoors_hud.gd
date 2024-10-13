@@ -20,6 +20,7 @@ const REROLL_FAIL_DURATION = 2
 @onready var warning_out_of_troops = (
     $CentralControls/VBoxContainer/Warnings/WarningOutOfTroops
 )
+@onready var bottom_info_display: Control = $BottomInfoDisplay
 @onready var screen_notification: ScreenNotification = $ScreenNotification
 @onready var character_info_panel: CharacterInfoPanel = $CharacterInfoPanel
 @onready var crew_member_selector: CrewMemberSelector = $BottomInfoDisplay/Left/CrewMemberSelector
@@ -201,6 +202,24 @@ func _disable_interaction() -> void:
     crew_member_selector.disable_all()
     character_info_panel.display_character(null)
 
+func _charge_mode_fadeout(duration: float) -> void:
+    var fadeout_targets: Array[Control] = [
+        bottom_info_display,
+        screen_notification,
+        go_inside_button,
+    ]
+    for target: Control in fadeout_targets:
+        create_tween().tween_property(target, "modulate", Color.TRANSPARENT, duration)
+    
+func _charge_mode_fadein(duration: float) -> void:
+    var fadein_targets: Array[Control] = [
+        bottom_info_display,
+        screen_notification,
+        go_inside_button,
+    ]
+    for target: Control in fadein_targets:
+        create_tween().tween_property(target, "modulate", Color.WHITE, duration)
+
 func _enable_interaction() -> void:
     reroll_button._set_disabled(false)
     charge_button.disabled = false
@@ -212,20 +231,22 @@ func _enable_interaction() -> void:
 func _on_charge_start() -> void:
     print("HUD charge start")
     _disable_interaction()
-    # fade out HUD over the course of a while
 
 func _on_charge_warmup(duration: float) -> void:
     print("HUD charge warmup", duration)
+    _charge_mode_fadeout(duration)
 
 func _on_charge_action(duration: float) -> void:
     print("HUD charge action", duration)
 
 func _on_charge_impact(duration: float) -> void:
     print("HUD charge impact", duration)
+    # health reduced
 
 func _on_charge_cooldown(duration: float) -> void:
     print("HUD charge cooldown", duration)
     # trigger refreshes & information updates
+    _charge_mode_fadein(duration)
 
 func _on_charge_finish() -> void:
     _enable_interaction()
