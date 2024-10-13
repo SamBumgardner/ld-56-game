@@ -33,9 +33,11 @@ size_flags_horizontal = 4
 
 [node name="Amount" type="Label" parent="Control/CostToOvercome"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 48
 text = "21"
 
 [node name="Symbol" type="TextureRect" parent="Control/CostToOvercome"]
+visible = false
 layout_mode = 2
 texture = ExtResource("1_3np5d")
 expand_mode = 2

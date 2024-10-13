@@ -1,8 +1,10 @@
 class_name BattlefieldOutdoorsWarTransport extends Sprite2D
 
+@onready var power: Label = $Columns/Power
 @onready var start_position = position
 
 var movement_tween: Tween
+var power_display_tween: Tween
 
 func charge_to_target(target_global_position: Vector2, duration: float) -> void:
     print_debug("global postion %s" % global_position)
@@ -18,3 +20,32 @@ func clear_tween(tween: Tween) -> Tween:
         tween.kill()
     
     return create_tween()
+
+func display_power(power_value: int, duration: float):
+    power.text = String.num_int64(power_value)
+    power.modulate = Color.TRANSPARENT
+
+    if power_display_tween != null and power_display_tween.is_valid():
+        power_display_tween.stop()
+    power_display_tween = create_tween()
+    power_display_tween.tween_callback(power.show)
+    power_display_tween.tween_property(
+        power,
+        "modulate",
+        Color.WHITE,
+        duration
+    )
+
+func hide_power(duration: float):
+    power.modulate = Color.WHITE
+
+    if power_display_tween != null and power_display_tween.is_valid():
+        power_display_tween.stop()
+    power_display_tween = create_tween()
+    power_display_tween.tween_property(
+        power,
+        "modulate",
+        Color.TRANSPARENT,
+        duration
+    )
+    power_display_tween.tween_callback(power.hide)

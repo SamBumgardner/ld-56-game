@@ -71,7 +71,13 @@ func _begin_charge_sequence() -> void:
     charge_start.emit()
 
 func _on_charge_warmup(duration: float) -> void:
+    var player_strength = combat_math_formulas.total_dice_with_matching_stat_type_multiplier(
+        Database.current_character_die_slots,
+        Database.current_barrier_stat_type_to_overcome,
+        Database.current_matching_stat_type_multiplier
+    )
     barrier.display_power(duration)
+    war_transport.display_power(player_strength, duration)
 
 func _on_charge_action(duration: float) -> void:
     war_transport.charge_to_target(Vector2(640, 0), duration)
@@ -79,6 +85,7 @@ func _on_charge_action(duration: float) -> void:
 func _on_charge_impact(duration: float) -> void:
     _apply_combat_damage()
     barrier.animate_destruction(duration)
+    war_transport.hide_power(duration)
 
 func _apply_combat_damage() -> void:
     var updated_health = Database.war_transport_health_current
