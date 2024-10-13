@@ -1,8 +1,9 @@
-[gd_scene load_steps=27 format=3 uid="uid://b73yb04wjxq8"]
+[gd_scene load_steps=28 format=3 uid="uid://b73yb04wjxq8"]
 
 [ext_resource type="Texture2D" uid="uid://l3l2yqfmprg5" path="res://assets/art/ld_56_indoors.jpg" id="1_f348j"]
 [ext_resource type="Script" path="res://src/indoor_preparation/indoor_preparation.gd" id="2_0rynj"]
 [ext_resource type="Theme" uid="uid://dk5iv042psfw" path="res://assets/themes/Default.tres" id="2_bky62"]
+[ext_resource type="PackedScene" uid="uid://h1fowbxngb70" path="res://src/audio_manager/AudioManager.tscn" id="3_3bed5"]
 [ext_resource type="Script" path="res://src/indoor_preparation/screen.gd" id="3_culvi"]
 [ext_resource type="PackedScene" uid="uid://7vx27hr83tx0" path="res://src/indoor_preparation/screen_displays/home_display.tscn" id="3_eot0a"]
 [ext_resource type="PackedScene" uid="uid://dw8jtxw6u5x40" path="res://src/indoor_preparation/screen_displays/browse_hires/browse_hires.tscn" id="4_note4"]
@@ -25,7 +26,7 @@
 [ext_resource type="Resource" uid="uid://1nhgxq12mwuo" path="res://assets/data/characters/011_test_pal.tres" id="20_pbwmt"]
 [ext_resource type="Resource" uid="uid://beppcdvy1b3s0" path="res://assets/data/characters/012_test_pal.tres" id="21_71v0u"]
 [ext_resource type="PackedScene" uid="uid://cnbbp4gy833n" path="res://src/shared_ui/resource_display/money_display.tscn" id="25_dg1g1"]
-[ext_resource type="PackedScene" path="res://src/shared_ui/resource_display/fuel_display.tscn" id="26_fgbkb"]
+[ext_resource type="PackedScene" uid="uid://cjb6144n5q1b1" path="res://src/shared_ui/resource_display/fuel_display.tscn" id="26_fgbkb"]
 
 [node name="IndoorPreparation" type="Control"]
 layout_mode = 3
@@ -36,6 +37,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_bky62")
 script = ExtResource("2_0rynj")
+
+[node name="AudioManager" parent="." instance=ExtResource("3_3bed5")]
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
@@ -298,3 +301,6 @@ layout_mode = 2
 
 [node name="FuelDisplay" parent="VBoxContainer" instance=ExtResource("26_fgbkb")]
 layout_mode = 2
+
+[connection signal="mouse_entered" from="GoOutsideButton" to="AudioManager" method="_on_go_outside_button_mouse_entered"]
+[connection signal="pressed" from="GoOutsideButton" to="AudioManager" method="_on_go_outside_button_pressed"]

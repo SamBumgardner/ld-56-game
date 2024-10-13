@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://7vx27hr83tx0"]
+[gd_scene load_steps=6 format=3 uid="uid://7vx27hr83tx0"]
 
 [ext_resource type="Script" path="res://src/indoor_preparation/screen_displays/home_display.gd" id="1_b3nrn"]
 [ext_resource type="Theme" uid="uid://dmwrgmv8lathf" path="res://assets/themes/ScreenTheme.tres" id="1_d2gyf"]
+[ext_resource type="PackedScene" uid="uid://h1fowbxngb70" path="res://src/audio_manager/AudioManager.tscn" id="3_2jj1q"]
 [ext_resource type="Texture2D" uid="uid://bic3i142epdt3" path="res://assets/art/placeholder_threat.png" id="3_4hdf6"]
 [ext_resource type="Texture2D" uid="uid://cmdqbv4iraqg6" path="res://assets/art/MAGIC_icon_64x64.png" id="4_o5aea"]
 
@@ -14,6 +15,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_d2gyf")
 script = ExtResource("1_b3nrn")
+
+[node name="AudioManager" parent="." instance=ExtResource("3_2jj1q")]
 
 [node name="MainContents" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -128,3 +131,6 @@ theme_override_constants/margin_bottom = 10
 [node name="Button" type="Button" parent="MarginContainer"]
 layout_mode = 2
 text = "BROWSE NEW HIRES"
+
+[connection signal="mouse_entered" from="MarginContainer/Button" to="AudioManager" method="_on_browse_new_hires_button_mouse_entered"]
+[connection signal="pressed" from="MarginContainer/Button" to="AudioManager" method="_on_browse_new_hires_button_pressed"]

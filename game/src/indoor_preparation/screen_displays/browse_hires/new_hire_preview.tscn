@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://emsj3qtryn1x"]
+[gd_scene load_steps=6 format=3 uid="uid://emsj3qtryn1x"]
 
 [ext_resource type="Texture2D" uid="uid://dsi835iplnoul" path="res://assets/art/placeholder_ally.png" id="1_sufm1"]
 [ext_resource type="Script" path="res://src/indoor_preparation/screen_displays/browse_hires/new_hire_preview.gd" id="1_yy8kg"]
+[ext_resource type="PackedScene" uid="uid://h1fowbxngb70" path="res://src/audio_manager/AudioManager.tscn" id="2_fnu7a"]
 [ext_resource type="PackedScene" uid="uid://lw7wcqkoqifj" path="res://src/shared_ui/die_result/DieResult.tscn" id="3_jlg8d"]
 [ext_resource type="Theme" uid="uid://dmwrgmv8lathf" path="res://assets/themes/ScreenTheme.tres" id="4_yjvkr"]
 
@@ -14,6 +15,8 @@ grow_horizontal = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_yy8kg")
+
+[node name="AudioManager" parent="." instance=ExtResource("2_fnu7a")]
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 2
@@ -132,3 +135,6 @@ theme = ExtResource("4_yjvkr")
 [node name="DieResult6" parent="MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ActionsPreview2" instance=ExtResource("3_jlg8d")]
 layout_mode = 2
 theme = ExtResource("4_yjvkr")
+
+[connection signal="mouse_entered" from="Button" to="AudioManager" method="_on_new_hire_preview_button_mouse_entered"]
+[connection signal="pressed" from="Button" to="AudioManager" method="_on_new_hire_preview_button_pressed"]

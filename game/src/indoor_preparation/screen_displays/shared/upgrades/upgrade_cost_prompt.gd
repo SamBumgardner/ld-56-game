@@ -2,6 +2,7 @@ class_name UpgradeCostPrompt extends Node
 
 signal upgrade_purchase_pressed(upgrade_choice: UpgradeChoice)
 
+@onready var audio_manager: AudioManager = $AudioManager
 @onready var cost_display: RichTextLabel = $MarginContainer/VBoxContainer/CostDisplay
 @onready var purchase_button: Button = $MarginContainer/VBoxContainer/PurchaseButton
 
@@ -68,6 +69,13 @@ func clear_upgrade_data():
     selected_upgrade_purchased = false
     previewed_upgrade = null
     update_display_elements(false, false)
+
+func _on_purchase_button_mouse_entered():
+    # Guardian check to only play a hover sound effect for an enabled button.
+    if purchase_button.disabled:
+        return
+
+    audio_manager.on_enabled_button_mouse_entered()
 
 func _on_purchase_button_pressed():
     upgrade_purchase_pressed.emit(selected_upgrade)
