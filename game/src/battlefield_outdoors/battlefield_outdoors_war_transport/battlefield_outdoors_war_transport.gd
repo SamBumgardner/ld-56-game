@@ -7,8 +7,15 @@ var movement_tween: Tween
 var power_display_tween: Tween
 
 func charge_to_target(target_global_position: Vector2, duration: float) -> void:
-    print_debug("global postion %s" % global_position)
     movement_tween = clear_tween(movement_tween)
+    movement_tween.set_ease(Tween.EASE_IN)
+    movement_tween.set_trans(Tween.TRANS_EXPO)
+    movement_tween.tween_property(self, "global_position", target_global_position, duration)
+
+func charge_followthrough(target_global_position: Vector2, duration: float) -> void:
+    movement_tween = clear_tween(movement_tween)
+    movement_tween.set_ease(Tween.EASE_OUT)
+    movement_tween.set_trans(Tween.TRANS_CUBIC)
     movement_tween.tween_property(self, "global_position", target_global_position, duration)
 
 func return_to_start_position(duration: float) -> void:

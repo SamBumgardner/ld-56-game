@@ -80,9 +80,10 @@ func _on_charge_warmup(duration: float) -> void:
     war_transport.display_power(player_strength, duration)
 
 func _on_charge_action(duration: float) -> void:
-    war_transport.charge_to_target(Vector2(640, 0), duration)
+    war_transport.charge_to_target(barrier.global_position, duration)
 
 func _on_charge_impact(duration: float) -> void:
+    war_transport.charge_followthrough(war_transport.global_position + Vector2(200, 0), duration)
     _apply_combat_damage()
     barrier.animate_destruction(duration)
     war_transport.hide_power(duration)

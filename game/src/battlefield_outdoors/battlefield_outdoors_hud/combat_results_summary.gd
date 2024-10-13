@@ -20,11 +20,12 @@ func set_combat_results_bundled(combat_result: CombatResult):
     fuel_change_display.set_change_amount(combat_result.fuel_change)
 
 func display_combat_results():
-    show()
     modulate = Color.WHITE
     position = start_position
 
     var display_tween: Tween = create_tween()
+    display_tween.tween_interval(.5)
+    display_tween.tween_callback(show)
     display_tween.tween_property(self, "modulate", Color.TRANSPARENT, DISPLAY_DURATION)
     display_tween.parallel().tween_property(self, "position", start_position + FLOAT_OFFSET, DISPLAY_DURATION)
     display_tween.tween_callback(hide)
