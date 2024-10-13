@@ -38,6 +38,7 @@ func _stop_preview_reroll() -> void:
 
 func disable_all() -> void:
     for action_display in action_displays:
+        action_display.button.button_pressed = false
         action_display.disable()
 
 func enable_all() -> void:

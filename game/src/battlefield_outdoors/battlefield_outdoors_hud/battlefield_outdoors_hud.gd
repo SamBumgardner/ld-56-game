@@ -199,6 +199,7 @@ func _disable_interaction() -> void:
     # implement "turn off" actions here
     crew_actions_display.disable_all()
     crew_member_selector.disable_all()
+    character_info_panel.display_character(null)
 
 func _enable_interaction() -> void:
     reroll_button._set_disabled(false)
