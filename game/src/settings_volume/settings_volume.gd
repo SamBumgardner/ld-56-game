@@ -39,6 +39,12 @@ func _on_music_volume_percentage_slider_drag_ended(value_changed: bool) -> void:
     _set_music_volume_from_slider()
 
 
+func _on_music_volume_percentage_slider_value_changed(value):
+    music_volume_percentage_display.text = _build_volume_percentage_display(
+        value
+    )
+
+
 func _on_sfx_volume_percentage_slider_drag_ended(value_changed: bool) -> void:
     if !value_changed:
         audio_manager.on_sfx_volume_updated()
@@ -47,12 +53,6 @@ func _on_sfx_volume_percentage_slider_drag_ended(value_changed: bool) -> void:
     _set_sfx_volume_from_slider()
 
     audio_manager.on_sfx_volume_updated()
-
-
-func _on_music_volume_percentage_slider_value_changed(value):
-    music_volume_percentage_display.text = _build_volume_percentage_display(
-        value
-    )
 
 
 func _on_sfx_volume_percentage_slider_value_changed(value):
