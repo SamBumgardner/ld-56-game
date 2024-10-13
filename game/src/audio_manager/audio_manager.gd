@@ -39,6 +39,9 @@ func _start_background_music():
 func _on_quit_button_mouse_entered():
     SoundManager.play_ui_sound(sfx_button_hover, _bus_name_sfx_ui)
 
+func _on_reset_to_defaults_button_mouse_entered():
+    SoundManager.play_ui_sound(sfx_button_hover, _bus_name_sfx_ui)
+
 func _on_settings_button_mouse_entered():
     SoundManager.play_ui_sound(sfx_button_hover, _bus_name_sfx_ui)
 
