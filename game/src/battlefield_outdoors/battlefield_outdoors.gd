@@ -17,7 +17,7 @@ func _ready() -> void:
     battlefield_outdoors_hud.initiate_charge_requested.connect(_begin_charge_sequence)
 
     _connect_hud_charge_events()
-    charge_cooldown.connect(_generate_and_scale_next_barrier)
+    charge_cooldown.connect(_on_charge_cooldown)
 
     _generate_and_scale_next_barrier()
 
@@ -57,7 +57,11 @@ func _begin_charge_sequence() -> void:
 
     charge_start.emit()
 
-func _generate_and_scale_next_barrier(_arg1 = null) -> void:
+func _on_charge_cooldown(_duration: float) -> void:
+    _generate_and_scale_next_barrier()
+    _apply_combat_rewards()
+
+func _generate_and_scale_next_barrier() -> void:
     var new_barrier: BarrierData = _generate_barrier_data()
 
     if new_barrier.cost_to_overcome != Database.current_barrier_cost_to_overcome_number:
@@ -74,3 +78,11 @@ func _generate_barrier_data() -> BarrierData:
     var random_stat_type = Database.StatType.values().pick_random()
     return BarrierData.new(random_display_name, random_stat_type,
         cost_to_overcome)
+
+func _apply_combat_rewards() -> void:
+    Database.set_money(Database.current_money + randi_range(1, 100))
+    Database.set_fuel(Database.current_fuel + randi_range(1, 3))
+    Database.set_barriers_overcome_count(
+        Database.barriers_overcome_count
+        + 1
+    )
