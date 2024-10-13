@@ -23,6 +23,8 @@ func _ready() -> void:
     charge_cooldown.connect(_on_charge_cooldown)
     charge_impact.connect(_on_charge_impact)
 
+    health_empty.connect(_on_health_empty)
+
     _generate_and_scale_next_barrier()
 
 func _connect_hud_charge_events() -> void:
@@ -114,3 +116,13 @@ func _apply_combat_rewards() -> void:
         Database.barriers_overcome_count
         + 1
     )
+
+func _on_health_empty() -> void:
+    print_debug('Game over, health has reached ', Database.war_transport_health_current)
+    if charge_sequence_tween != null and charge_sequence_tween.is_valid():
+        charge_sequence_tween.kill()
+    # initiate some sequence of events for a cool game over
+    var game_over_sequence = create_tween()
+    game_over_sequence.tween_interval(2)
+    game_over_sequence.tween_callback(
+        get_tree().change_scene_to_packed.bind(preload("res://src/start_menu/StartMenu.tscn")))
