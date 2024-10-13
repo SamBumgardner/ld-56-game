@@ -12,6 +12,7 @@ signal insufficient_fuel()
 
 @onready var war_transport: BattlefieldOutdoorsWarTransport = $AnchorOfWarTransport/BattlefieldOutdoorsWarTransport
 @onready var battlefield_outdoors_hud: BattlefieldOutdoorsHud = $BattlefieldOutdoorsHud
+@onready var combat_results_summary: CombatResultsSummary = $CombatResultsSummary
 
 var combat_math_formulas: CombatMathFormulas = CombatMathFormulas.new()
 var charge_sequence_tween: Tween
@@ -91,6 +92,7 @@ func _apply_combat_damage() -> void:
 func _on_charge_cooldown(_duration: float) -> void:
     _generate_and_scale_next_barrier()
     _apply_combat_rewards()
+    combat_results_summary.display_combat_results()
 
 func _generate_and_scale_next_barrier() -> void:
     var new_barrier: BarrierData = _generate_barrier_data()
@@ -111,12 +113,17 @@ func _generate_barrier_data() -> BarrierData:
         cost_to_overcome)
 
 func _apply_combat_rewards() -> void:
-    Database.set_money(Database.current_money + randi_range(1, 100))
-    Database.set_fuel(Database.current_fuel + randi_range(1, 3))
+    var money_change = randi_range(1, 100)
+    var fuel_change = randi_range(1, 3)
+
+    Database.set_money(Database.current_money + money_change)
+    Database.set_fuel(Database.current_fuel + fuel_change)
     Database.set_barriers_overcome_count(
         Database.barriers_overcome_count
         + 1
     )
+
+    combat_results_summary.set_combat_results(0, money_change, fuel_change)
 
 func _on_health_empty() -> void:
     print_debug('Game over, health has reached ', Database.war_transport_health_current)

@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://c5dvnfrvyjol6"]
+[gd_scene load_steps=7 format=3 uid="uid://c5dvnfrvyjol6"]
 
 [ext_resource type="Theme" uid="uid://dk5iv042psfw" path="res://assets/themes/Default.tres" id="1_cei1v"]
 [ext_resource type="PackedScene" uid="uid://b6k6baalu42w7" path="res://src/battlefield_outdoors/battlefield_outdoors_hud/BattlefieldOutdoorsHud.tscn" id="1_wxoya"]
 [ext_resource type="Script" path="res://src/battlefield_outdoors/battlefield_outdoors.gd" id="2_ni2i7"]
 [ext_resource type="PackedScene" uid="uid://ceesyhnktnbd1" path="res://src/battlefield_outdoors/battlefield_outdoors_barrier/BattlefieldOutdoorsBarrier.tscn" id="2_p4mcn"]
 [ext_resource type="PackedScene" uid="uid://bwpa5wbo5ct7g" path="res://src/battlefield_outdoors/battlefield_outdoors_war_transport/BattlefieldOutdoorsWarTransport.tscn" id="3_etui0"]
+[ext_resource type="PackedScene" uid="uid://cnphrbnb2wrnf" path="res://src/battlefield_outdoors/battlefield_outdoors_hud/combat_results_summary.tscn" id="6_3fojy"]
 
 [node name="BattlefieldOutdoors" type="Control"]
 layout_mode = 3
@@ -43,3 +44,10 @@ anchor_right = 0.5
 anchor_bottom = 0.4
 
 [node name="BattlefieldOutdoorsWarTransport" parent="AnchorOfWarTransport" instance=ExtResource("3_etui0")]
+
+[node name="CombatResultsSummary" parent="." instance=ExtResource("6_3fojy")]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.3
+anchor_bottom = 0.3
