@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=3 uid="uid://ugy2sqawdp8y"]
+
+[ext_resource type="Theme" uid="uid://dk5iv042psfw" path="res://assets/themes/Default.tres" id="1_uw3rp"]
+[ext_resource type="Script" path="res://src/settings_volume/settings_volume.gd" id="2_iql87"]
+[ext_resource type="PackedScene" uid="uid://h1fowbxngb70" path="res://src/audio_manager/AudioManager.tscn" id="3_kvssd"]
+
+[node name="SettingsVolume" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_uw3rp")
+script = ExtResource("2_iql87")
+
+[node name="AudioManager" parent="." instance=ExtResource("3_kvssd")]
+
+[node name="SfxDescription" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SfxDescription"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SFX:"
+horizontal_alignment = 2
+
+[node name="SfxVolumePercentage" type="Label" parent="SfxDescription"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0%"
+
+[node name="SfxVolumePercentageSlider" type="HSlider" parent="."]
+layout_mode = 2
+tick_count = 1
+
+[node name="MusicDescription" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MusicDescription"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Music:"
+horizontal_alignment = 2
+
+[node name="MusicVolumePercentage" type="Label" parent="MusicDescription"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0%"
+
+[node name="MusicVolumePercentageSlider" type="HSlider" parent="."]
+layout_mode = 2
+rounded = true
+tick_count = 1
+
+[connection signal="drag_ended" from="SfxVolumePercentageSlider" to="." method="_on_sfx_volume_percentage_slider_drag_ended"]
+[connection signal="value_changed" from="SfxVolumePercentageSlider" to="." method="_on_sfx_volume_percentage_slider_value_changed"]
+[connection signal="drag_ended" from="MusicVolumePercentageSlider" to="." method="_on_music_volume_percentage_slider_drag_ended"]
+[connection signal="drag_ended" from="MusicVolumePercentageSlider" to="AudioManager" method="_on_music_volume_percentage_slider_drag_ended"]
+[connection signal="value_changed" from="MusicVolumePercentageSlider" to="." method="_on_music_volume_percentage_slider_value_changed"]

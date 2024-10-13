@@ -65,6 +65,7 @@ text = "Settings"
 layout_mode = 2
 text = "Quit"
 
+[connection signal="ready" from="." to="AudioManager" method="_on_start_menu_ready"]
 [connection signal="mouse_entered" from="VBoxContainer/Buttons/ButtonRows/StartButton" to="AudioManager" method="_on_start_button_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/Buttons/ButtonRows/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Buttons/ButtonRows/StartButton" to="AudioManager" method="_on_start_button_pressed"]
