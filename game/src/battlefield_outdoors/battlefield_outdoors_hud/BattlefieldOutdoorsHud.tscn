@@ -292,7 +292,7 @@ text = "100"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MockAttackButton" type="Button" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay/PanelContainer/VBoxContainer"]
+[node name="ChargeButton" type="Button" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay/PanelContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Charge!"
@@ -504,4 +504,4 @@ offset_bottom = 0.0
 grow_vertical = 0
 
 [connection signal="pressed" from="BottomInfoDisplay/Center/TopEdge/RerollButton" to="." method="_on_mock_reroll_button_pressed"]
-[connection signal="pressed" from="BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay/PanelContainer/VBoxContainer/MockAttackButton" to="." method="_on_mock_attack_button_pressed"]
+[connection signal="pressed" from="BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay/PanelContainer/VBoxContainer/ChargeButton" to="." method="_on_mock_attack_button_pressed"]
