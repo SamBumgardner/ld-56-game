@@ -34,4 +34,4 @@ func roll_dice() -> void:
             character_die_slot.last_roll_result
         )
 
-    Database.set_current_character_die_slots(character_die_slots)
+    Database.set_current_character_die_slots(character_die_slots, true)
