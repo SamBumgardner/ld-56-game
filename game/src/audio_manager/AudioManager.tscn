@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://src/audio_manager/audio_manager.gd" id="1_eh3tu"]
 [ext_resource type="AudioStream" uid="uid://cqskfy7h4l6m4" path="res://assets/audio/001_loop_music.ogg" id="2_nhmoc"]
-[ext_resource type="AudioStream" uid="uid://bnwxx5jm4stl6" path="res://assets/audio/101_sfx_select.wav" id="2_x7bd4"]
+[ext_resource type="AudioStream" uid="uid://bnwxx5jm4stl6" path="res://assets/audio/102_sfx_select.wav" id="2_x7bd4"]
 [ext_resource type="AudioStream" uid="uid://db75wtlmke61f" path="res://assets/audio/101_sfx_button.wav" id="2_xtd0e"]
 
 [node name="AudioManager" type="Node"]
