@@ -17,7 +17,7 @@ func _ready() -> void:
     battlefield_outdoors_hud.initiate_charge_requested.connect(_begin_charge_sequence)
 
     _connect_hud_charge_events()
-    charge_impact.connect(_generate_and_scale_next_barrier)
+    charge_cooldown.connect(_generate_and_scale_next_barrier)
 
     _generate_and_scale_next_barrier()
 
