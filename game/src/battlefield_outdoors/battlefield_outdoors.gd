@@ -15,6 +15,7 @@ signal insufficient_fuel()
 
 var combat_math_formulas: CombatMathFormulas = CombatMathFormulas.new()
 var charge_sequence_tween: Tween
+var combat_result: CombatResultsSummary.CombatResult = CombatResultsSummary.CombatResult.new()
 
 func _ready() -> void:
     insufficient_fuel.connect(battlefield_outdoors_hud._on_insufficient_fuel)
@@ -75,9 +76,11 @@ func _apply_combat_damage() -> void:
         Database.current_barrier_stat_type_to_overcome,
         Database.current_matching_stat_type_multiplier
     )
-    var damage_amount = (
-        Database.current_barrier_cost_to_overcome_number - player_strength
+    var damage_amount = max(
+        Database.current_barrier_cost_to_overcome_number - player_strength,
+        0
     )
+    combat_result.health_change = -damage_amount
 
     if damage_amount > 0:
         updated_health -= damage_amount
@@ -91,6 +94,7 @@ func _apply_combat_damage() -> void:
 func _on_charge_cooldown(_duration: float) -> void:
     _generate_and_scale_next_barrier()
     _apply_combat_rewards()
+    battlefield_outdoors_hud.set_combat_results(combat_result)
 
 func _generate_and_scale_next_barrier() -> void:
     var new_barrier: BarrierData = _generate_barrier_data()
@@ -111,8 +115,13 @@ func _generate_barrier_data() -> BarrierData:
         cost_to_overcome)
 
 func _apply_combat_rewards() -> void:
-    Database.set_money(Database.current_money + randi_range(1, 100))
-    Database.set_fuel(Database.current_fuel + randi_range(1, 3))
+    var money_change = randi_range(1, 100)
+    var fuel_change = randi_range(1, 3)
+    combat_result.money_change = money_change
+    combat_result.fuel_change = fuel_change
+
+    Database.set_money(Database.current_money + money_change)
+    Database.set_fuel(Database.current_fuel + fuel_change)
     Database.set_barriers_overcome_count(
         Database.barriers_overcome_count
         + 1

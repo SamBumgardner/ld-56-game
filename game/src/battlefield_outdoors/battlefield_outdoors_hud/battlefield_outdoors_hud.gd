@@ -33,6 +33,7 @@ const REROLL_FAIL_DURATION = 2
 @onready var reroll_button: RerollButton = $BottomInfoDisplay/Center/TopEdge/RerollButton
 @onready var charge_button: Button = $BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay/PanelContainer/VBoxContainer/ChargeButton
 @onready var go_inside_button: Button = $GoInsideButton
+@onready var combat_results_summary: CombatResultsSummary = $CombatResultsSummary
 
 @onready var resource_displays: Array[ResourceDisplay] = [
     $TopBar/Trackers/MoneyDisplay,
@@ -170,6 +171,9 @@ func unset_resource_update_delay() -> void:
     for resource_display: ResourceDisplay in resource_displays:
         resource_display.resource_change_start_delay = 0
 
+func set_combat_results(combat_results: CombatResultsSummary.CombatResult) -> void:
+    combat_results_summary.set_combat_results_bundled(combat_results)
+
 func _on_charge_start() -> void:
     print("HUD charge start")
     _disable_interaction()
@@ -189,6 +193,7 @@ func _on_charge_impact(duration: float) -> void:
 func _on_charge_cooldown(duration: float) -> void:
     print("HUD charge cooldown", duration)
     # trigger refreshes & information updates
+    combat_results_summary.display_combat_results()
     _charge_mode_fadein(duration)
 
 func _on_charge_finish() -> void:
