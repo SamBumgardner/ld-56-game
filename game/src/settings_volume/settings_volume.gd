@@ -44,6 +44,11 @@ func _on_music_volume_percentage_slider_value_changed(value):
         value
     )
 
+    # Set the background music volume while dragging to preview volume.
+    # Does not write to the database until release for better performance.
+    var updated_volume = _slider_value_to_volume(music_slider.value)
+    SoundManager.set_music_volume(updated_volume)
+
 
 func _on_sfx_volume_percentage_slider_drag_ended(value_changed: bool) -> void:
     if !value_changed:
