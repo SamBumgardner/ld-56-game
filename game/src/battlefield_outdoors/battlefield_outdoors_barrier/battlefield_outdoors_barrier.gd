@@ -11,8 +11,17 @@ class_name BattlefieldOutdoorsBarrier extends Sprite2D
 ## technically we don't have to store this here, but since this is the progenitor of the barrier
 ## it seemed handy to have around.
 var current_barrier_data: BarrierData
+var start_position: Vector2
+var anchor_position: Vector2:
+    set(value):
+        anchor_position = value
+        position = value
+var position_tween: Tween
+var disappear_tween: Tween
 
 func _ready():
+    start_position = position
+    anchor_position = position
     Database.barrier_changed.connect(_on_barrier_changed)
 
     cost_to_overcome_number_label.text = String.num_int64(Database.current_barrier_cost_to_overcome_number)
@@ -40,9 +49,38 @@ func _update_display(barrier_data: BarrierData) -> void:
 func _on_barrier_changed(_new_barrier: BarrierData):
     refresh()
 
-func _animate_destruction(duration) -> void:
-    # shake left & right
-    # trigger particles 
-    # start fade out
-    # start moving downward
-    pass
+func animate_destruction(duration) -> void:
+    if position_tween != null and position_tween.is_valid():
+        position_tween.stop()
+    _create_destruction_tweens(duration)
+
+func new_barrier_scroll_onscreen(duration: float, spawn_offset: Vector2) -> void:
+    anchor_position = start_position + spawn_offset
+    show()
+    modulate = Color.WHITE
+
+    if position_tween != null and position_tween.is_valid():
+        position_tween.stop()
+    if disappear_tween != null and disappear_tween.is_valid():
+        disappear_tween.stop()
+    position_tween = create_tween()
+    position_tween.tween_property(self, "anchor_position", start_position, duration)
+
+func _create_destruction_tweens(duration: float):
+    if position_tween != null and position_tween.is_valid():
+        position_tween.stop()
+    position_tween = create_tween()
+    position_tween.tween_method(horizontal_shake, 0, 0, duration)
+
+    if disappear_tween != null and disappear_tween.is_valid():
+        disappear_tween.stop()
+    disappear_tween = create_tween()
+    disappear_tween.tween_interval(duration / 2)
+    disappear_tween.tween_property(self, "modulate", Color.TRANSPARENT, duration / 2)
+    disappear_tween.tween_callback(hide)
+
+func horizontal_shake(_value: float):
+    var shake_offset = Vector2.ONE.rotated(randf_range(0, 6.29))
+    shake_offset.y = 0
+    var magnitude = 5
+    position = anchor_position + (shake_offset * magnitude)
