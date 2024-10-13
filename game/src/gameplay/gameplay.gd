@@ -14,10 +14,14 @@ func _ready() -> void:
     go_inside_button.pressed.connect(go_inside)
     go_outside_button.pressed.connect(go_outside)
 
+    outdoor_root.charge_warmup.connect(charge_zoom_in)
+    outdoor_root.charge_cooldown.connect(charge_zoom_out)
+
 func go_inside() -> void:
     # we can do fancier stuff, like take a callback to only do once the screen's 
     # hidden from the calling state. We'll just make assumptions for now, since we only
     # have two states to manage.
+    outdoor_root.transition_out()
 
     # prepare logical actions that need to happen on the transition in
     var transition_while_hidden = func():
@@ -56,3 +60,15 @@ func go_outside() -> void:
     zoom_out_tween.set_trans(Tween.TRANS_CUBIC)
     zoom_out_tween.tween_property(indoor_canvas, "scale", Vector2.ONE * .9, .5)
     zoom_out_tween.tween_property(indoor_canvas, "scale", Vector2.ONE, .25)
+
+func charge_zoom_in(duration):
+    var zoom_in_tween = create_tween()
+    zoom_in_tween.set_ease(Tween.EASE_OUT)
+    zoom_in_tween.set_trans(Tween.TRANS_CUBIC)
+    zoom_in_tween.tween_property(outdoor_canvas, "scale", Vector2.ONE * 1.1, duration)
+
+func charge_zoom_out(duration):
+    var zoom_in_tween = create_tween()
+    zoom_in_tween.set_ease(Tween.EASE_OUT)
+    zoom_in_tween.set_trans(Tween.TRANS_CUBIC)
+    zoom_in_tween.tween_property(outdoor_canvas, "scale", Vector2.ONE, duration)

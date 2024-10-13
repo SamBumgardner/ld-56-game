@@ -21,6 +21,7 @@ const REROLL_FAIL_DURATION = 2
     $CentralControls/VBoxContainer/Warnings/WarningOutOfTroops
 )
 @onready var bottom_info_display: Control = $BottomInfoDisplay
+@onready var top_bar_display: Control = $TopBar
 @onready var screen_notification: ScreenNotification = $ScreenNotification
 @onready var character_info_panel: CharacterInfoPanel = $CharacterInfoPanel
 @onready var crew_member_selector: CrewMemberSelector = $BottomInfoDisplay/Left/CrewMemberSelector
@@ -207,6 +208,7 @@ func _charge_mode_fadeout(duration: float) -> void:
         bottom_info_display,
         screen_notification,
         go_inside_button,
+        top_bar_display,
     ]
     for target: Control in fadeout_targets:
         create_tween().tween_property(target, "modulate", Color.TRANSPARENT, duration)
@@ -216,6 +218,7 @@ func _charge_mode_fadein(duration: float) -> void:
         bottom_info_display,
         screen_notification,
         go_inside_button,
+        top_bar_display,
     ]
     for target: Control in fadein_targets:
         create_tween().tween_property(target, "modulate", Color.WHITE, duration)
