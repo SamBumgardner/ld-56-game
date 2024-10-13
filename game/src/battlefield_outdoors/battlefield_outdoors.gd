@@ -77,18 +77,18 @@ func _on_charge_warmup(duration: float) -> void:
         Database.current_matching_stat_type_multiplier
     )
     barrier.display_power(duration)
-    war_transport.display_power(player_strength, duration)
+    war_transport.display_combat_stats(player_strength, duration)
 
 func _on_charge_action(duration: float) -> void:
     war_transport.charge_to_target(barrier.global_position, duration)
 
 func _on_charge_impact(duration: float) -> void:
     _apply_combat_damage()
-    war_transport.hide_power(duration)
     if Database.war_transport_health_current > 0:
         war_transport.charge_followthrough(war_transport.global_position + Vector2(200, 0), duration)
         barrier.animate_destruction(duration)
     else:
+        war_transport.hide_power(duration)
         war_transport.charge_knockback(duration / 2)
 
 
@@ -115,6 +115,7 @@ func _apply_combat_damage() -> void:
         health_empty.emit()
 
 func _on_charge_cooldown(duration: float) -> void:
+    war_transport.hide_power(duration)
     war_transport.return_to_start_position(duration)
     _generate_and_scale_next_barrier()
     _apply_combat_rewards()

@@ -1,10 +1,18 @@
 class_name BattlefieldOutdoorsWarTransport extends Sprite2D
 
+const HEALTH_LABEL_FORMAT: String = "%s / %s"
+
 @onready var power: Label = $Columns/Power
+@onready var health_container: Control = $Columns/HealthBar
+@onready var health_bar: ProgressBar = $Columns/HealthBar/Health
+@onready var health_label: Label = $Columns/HealthBar/Label
 @onready var start_position = position
 
 var movement_tween: Tween
-var power_display_tween: Tween
+var combat_stat_display_tween: Tween
+
+func _ready() -> void:
+    Database.health_changed.connect(_on_health_changed)
 
 func charge_to_target(target_global_position: Vector2, duration: float) -> void:
     movement_tween = clear_tween(movement_tween)
@@ -47,17 +55,37 @@ func scale_power_display_font_size(power_value: int) -> void:
 
     power.set("theme_override_font_sizes/font_size", font_size)
 
-func display_power(power_value: int, duration: float):
+func _on_health_changed(_new_value: int, _old_value: int) -> void:
+    update_health_display_values()
+
+func update_health_display_values() -> void:
+    var max_health = Database.war_transport_health_maximum
+    var current_health = Database.war_transport_health_current
+    health_bar.max_value = max_health
+    health_bar.value = current_health
+    health_label.text = HEALTH_LABEL_FORMAT % [current_health, max_health]
+
+func display_combat_stats(power_value: int, duration: float):
+    update_health_display_values()
     scale_power_display_font_size(power_value)
     power.text = String.num_int64(power_value)
     power.modulate = Color.TRANSPARENT
+    health_container.modulate = Color.TRANSPARENT
 
-    if power_display_tween != null and power_display_tween.is_valid():
-        power_display_tween.stop()
-    power_display_tween = create_tween()
-    power_display_tween.tween_callback(power.show)
-    power_display_tween.tween_property(
+    if combat_stat_display_tween != null and combat_stat_display_tween.is_valid():
+        combat_stat_display_tween.stop()
+    combat_stat_display_tween = create_tween()
+    combat_stat_display_tween.tween_callback(power.show)
+    combat_stat_display_tween.tween_callback(health_container.show)
+    combat_stat_display_tween.tween_property(
         power,
+        "modulate",
+        Color.WHITE,
+        duration
+    )
+    combat_stat_display_tween.parallel()
+    combat_stat_display_tween.tween_property(
+        health_container,
         "modulate",
         Color.WHITE,
         duration
@@ -66,13 +94,21 @@ func display_power(power_value: int, duration: float):
 func hide_power(duration: float):
     power.modulate = Color.WHITE
 
-    if power_display_tween != null and power_display_tween.is_valid():
-        power_display_tween.stop()
-    power_display_tween = create_tween()
-    power_display_tween.tween_property(
+    if combat_stat_display_tween != null and combat_stat_display_tween.is_valid():
+        combat_stat_display_tween.stop()
+    combat_stat_display_tween = create_tween()
+    combat_stat_display_tween.tween_property(
         power,
         "modulate",
         Color.TRANSPARENT,
         duration
     )
-    power_display_tween.tween_callback(power.hide)
+    combat_stat_display_tween.parallel()
+    combat_stat_display_tween.tween_property(
+        health_container,
+        "modulate",
+        Color.TRANSPARENT,
+        duration
+    )
+    combat_stat_display_tween.tween_callback(power.hide)
+    combat_stat_display_tween.tween_callback(health_container.hide)

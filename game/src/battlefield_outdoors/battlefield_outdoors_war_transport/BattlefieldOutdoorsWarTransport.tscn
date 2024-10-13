@@ -1,8 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://bwpa5wbo5ct7g"]
+[gd_scene load_steps=5 format=3 uid="uid://bwpa5wbo5ct7g"]
 
 [ext_resource type="Script" path="res://src/battlefield_outdoors/battlefield_outdoors_war_transport/battlefield_outdoors_war_transport.gd" id="1_o8nwd"]
 [ext_resource type="Theme" uid="uid://dk5iv042psfw" path="res://assets/themes/Default.tres" id="2_58oda"]
 [ext_resource type="Texture2D" uid="uid://4nvogy60mpq3" path="res://icon.svg" id="2_aqe0i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ivaum"]
+bg_color = Color(0.6, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [node name="BattlefieldOutdoorsWarTransport" type="Sprite2D"]
 texture = ExtResource("2_aqe0i")
@@ -21,16 +28,26 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_58oda")
 
-[node name="WarTransportName" type="Label" parent="Columns"]
+[node name="HealthBar" type="MarginContainer" parent="Columns"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
 anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
-size_flags_horizontal = 4
-text = "Elephant in the Room"
+
+[node name="Health" type="ProgressBar" parent="Columns/HealthBar"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_styles/fill = SubResource("StyleBoxFlat_ivaum")
+max_value = 10.0
+value = 5.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="Columns/HealthBar"]
+layout_mode = 2
+text = "0 / 10"
 horizontal_alignment = 1
 
 [node name="Power" type="Label" parent="Columns"]
