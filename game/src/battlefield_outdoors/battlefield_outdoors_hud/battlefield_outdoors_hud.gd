@@ -34,6 +34,12 @@ const REROLL_FAIL_DURATION = 2
 @onready var charge_button: Button = $BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay/PanelContainer/VBoxContainer/ChargeButton
 @onready var go_inside_button: Button = $GoInsideButton
 
+@onready var resource_displays: Array[ResourceDisplay] = [
+    $TopBar/Trackers/MoneyDisplay,
+    $TopBar/Trackers/FuelDisplay,
+    $BottomInfoDisplay/Center/TopEdge/FuelDisplayMini,
+]
+
 func _ready():
     _hide_warnings()
 
@@ -155,9 +161,19 @@ func _enable_interaction() -> void:
     crew_actions_display.enable_all()
     crew_member_selector.enable_all()
 
+## Want to save the "resource ticking up" stuff until after the elements are visible again.
+func increase_resource_update_delay() -> void:
+    for resource_display: ResourceDisplay in resource_displays:
+        resource_display.resource_change_start_delay = ChargeSequence.COOLDOWN_DURATION
+
+func unset_resource_update_delay() -> void:
+    for resource_display: ResourceDisplay in resource_displays:
+        resource_display.resource_change_start_delay = 0
+
 func _on_charge_start() -> void:
     print("HUD charge start")
     _disable_interaction()
+    increase_resource_update_delay()
 
 func _on_charge_warmup(duration: float) -> void:
     print("HUD charge warmup", duration)
@@ -176,4 +192,5 @@ func _on_charge_cooldown(duration: float) -> void:
     _charge_mode_fadein(duration)
 
 func _on_charge_finish() -> void:
+    unset_resource_update_delay()
     _enable_interaction()

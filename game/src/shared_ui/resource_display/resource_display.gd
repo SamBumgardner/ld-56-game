@@ -5,7 +5,6 @@ const MIN_DURATION: float = .1
 const COLOR_CHANGE_DURATION: float = 2
 
 @export var unit_change_per_second: int = 30
-@export var resource_change_start_delay: float = 0
 @export var COLOR_INCREASE: Color = Color.GREEN
 @export var COLOR_DECREASE: Color = Color.DARK_ORANGE
 @export var COLOR_INSUFFICIENT: Color = Color.RED
@@ -21,6 +20,7 @@ var current_display_value: int:
 var value_tween: Tween
 var color_tween: Tween
 var position_tween: Tween
+var resource_change_start_delay: float = 0
 
 ## children are responsible for connecting "value_changed" events and setting inital amount
 func _ready() -> void:
@@ -57,12 +57,14 @@ func _on_resource_changed(new_value, old_value) -> void:
 func _set_up_color_tween(color: Color) -> void:
     if color_tween != null and color_tween.is_running():
         color_tween.stop()
+
+    var modulate_callable: Callable = func(target): target.modulate = color
     
-    amount_label.modulate = color
     color_tween = create_tween()
     color_tween.set_ease(Tween.EASE_OUT)
     color_tween.set_trans(Tween.TRANS_CUBIC)
     color_tween.tween_interval(resource_change_start_delay)
+    color_tween.tween_callback(modulate_callable.bind(amount_label))
     color_tween.tween_property(amount_label, "modulate", Color.WHITE, COLOR_CHANGE_DURATION)
 
 func _set_up_value_tween(new_money_value) -> void:
