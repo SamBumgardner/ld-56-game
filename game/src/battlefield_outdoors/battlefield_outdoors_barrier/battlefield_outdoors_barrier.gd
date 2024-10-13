@@ -11,18 +11,18 @@ class_name BattlefieldOutdoorsBarrier extends Sprite2D
 ## technically we don't have to store this here, but since this is the progenitor of the barrier
 ## it seemed handy to have around.
 var current_barrier_data: BarrierData
-var start_position: Vector2
-var anchor_position: Vector2:
+var start_global_position: Vector2
+var anchor_global_position: Vector2:
     set(value):
-        anchor_position = value
-        position = value
+        anchor_global_position = value
+        global_position = value
 var position_tween: Tween
 var disappear_tween: Tween
 var power_fade_in_tween: Tween
 
 func _ready():
-    start_position = position
-    anchor_position = position
+    start_global_position = global_position
+    anchor_global_position = global_position
     Database.barrier_changed.connect(_on_barrier_changed)
 
     cost_to_overcome_number_label.text = String.num_int64(Database.current_barrier_cost_to_overcome_number)
@@ -77,7 +77,7 @@ func animate_destruction(duration) -> void:
     _create_destruction_tweens(duration)
 
 func new_barrier_scroll_onscreen(duration: float, spawn_offset: Vector2) -> void:
-    anchor_position = start_position + spawn_offset
+    anchor_global_position = start_global_position + spawn_offset
     cost_to_overcome_container.hide()
     show()
     modulate = Color.WHITE
@@ -87,7 +87,7 @@ func new_barrier_scroll_onscreen(duration: float, spawn_offset: Vector2) -> void
     if disappear_tween != null and disappear_tween.is_valid():
         disappear_tween.stop()
     position_tween = create_tween()
-    position_tween.tween_property(self, "anchor_position", start_position, duration)
+    position_tween.tween_property(self, "anchor_global_position", start_global_position, duration)
 
 func _create_destruction_tweens(duration: float):
     if position_tween != null and position_tween.is_valid():
@@ -106,4 +106,4 @@ func horizontal_shake(_value: float):
     var shake_offset = Vector2.ONE.rotated(randf_range(0, 6.29))
     shake_offset.y = 0
     var magnitude = 5
-    position = anchor_position + (shake_offset * magnitude)
+    global_position = anchor_global_position + (shake_offset * magnitude)

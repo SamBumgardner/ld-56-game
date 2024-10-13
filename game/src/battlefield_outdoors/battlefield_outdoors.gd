@@ -80,7 +80,7 @@ func _on_charge_warmup(duration: float) -> void:
     war_transport.display_combat_stats(player_strength, duration)
 
 func _on_charge_action(duration: float) -> void:
-    war_transport.charge_to_target(barrier.global_position, duration)
+    war_transport.charge_to_target(barrier.start_global_position, duration)
 
 func _on_charge_impact(duration: float) -> void:
     _apply_combat_damage()

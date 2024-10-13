@@ -30,7 +30,7 @@ func charge_knockback(duration: float) -> void:
     const knockback_distance = Vector2(-200, 0)
     movement_tween = clear_tween(movement_tween)
     movement_tween.set_ease(Tween.EASE_OUT)
-    movement_tween.set_trans(Tween.TRANS_QUART)
+    movement_tween.set_trans(Tween.TRANS_CIRC)
     movement_tween.tween_property(self, "global_position", global_position + knockback_distance, duration)
 
 func return_to_start_position(duration: float) -> void:
