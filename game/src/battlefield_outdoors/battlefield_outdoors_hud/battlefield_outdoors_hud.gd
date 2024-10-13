@@ -1,5 +1,6 @@
 class_name BattlefieldOutdoorsHud extends Control
 
+signal initiate_charge_requested
 signal barrier_strength_scaled
 signal dice_roll_requested
 
@@ -29,6 +30,7 @@ const REROLL_FAIL_DURATION = 2
 @onready var barrier_preview: BarrierPreview = $BottomInfoDisplay/Right/BarrierPreview
 @onready var total_power_display: TotalPowerDisplay = $BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay
 @onready var reroll_button: RerollButton = $BottomInfoDisplay/Center/TopEdge/RerollButton
+@onready var charge_button: Button = $BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay/PanelContainer/VBoxContainer/ChargeButton
 
 func _ready():
     _hide_warnings()
@@ -58,6 +60,7 @@ func _ready():
     )
     barrier_strength_scaled.emit()
 
+    charge_button.pressed.connect(initiate_charge_requested.emit)
 
 # Sum dice results, multiplying dice that match the target StatType.
 func _get_war_transport_damage_reduction_amount() -> int:
@@ -187,3 +190,21 @@ func _on_character_selection_changed(character: Character, selected_state: bool)
         character_info_panel.display_character(character)
     else:
         character_info_panel.display_character(null)
+
+func _on_charge_start() -> void:
+    print("HUD charge start")
+
+func _on_charge_warmup(duration: float) -> void:
+    print("HUD charge warmup", duration)
+
+func _on_charge_action(duration: float) -> void:
+    print("HUD charge action", duration)
+
+func _on_charge_impact(duration: float) -> void:
+    print("HUD charge impact", duration)
+
+func _on_charge_cooldown(duration: float) -> void:
+    print("HUD charge cooldown", duration)
+
+func _on_charge_finish() -> void:
+    print("HUD charge finish")
