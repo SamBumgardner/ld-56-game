@@ -1,10 +1,12 @@
 # Defines variables shared across scenes with the correct data types.
 extends Node
 
+signal health_changed(new_value: int, old_value: int)
 signal money_changed(new_value: int, old_value: int)
 signal fuel_changed(new_value: int, old_value: int)
 signal die_slots_set(was_reroll: bool)
 signal die_slot_changed(changed_die_slot: CharacterDieSlot)
+signal barrier_changed(new_barrier_data: BarrierData)
 
 enum StatType {
     MIGHT,
@@ -202,6 +204,7 @@ func set_current_barrier_cost_to_overcome_number(updated_number: int) -> void:
 
 func set_current_barrier_data(updated_barrier_data: BarrierData) -> void:
     current_barrier_data = updated_barrier_data
+    barrier_changed.emit(current_barrier_data)
 
 func set_current_character_die_slots(
     updated_slots: Array[CharacterDieSlot],
@@ -214,7 +217,9 @@ func set_current_matching_stat_type_multiplier(updated_number: int) -> void:
     current_matching_stat_type_multiplier = updated_number
 
 func set_war_transport_health_current(updated_health: int) -> void:
+    var old_health = war_transport_health_current
     war_transport_health_current = updated_health
+    health_changed.emit(updated_health, old_health)
 
 func set_war_transport_health_maximum(updated_health: int) -> void:
     war_transport_health_maximum = updated_health

@@ -1,7 +1,6 @@
 class_name BattlefieldOutdoorsHud extends Control
 
 signal initiate_charge_requested
-signal barrier_strength_scaled
 signal dice_roll_requested
 
 const REROLL_FAIL_MESSAGE = "Failed to shuffle unlocked actions.\nReason: INSUFFICIENT_FUEL"
@@ -38,7 +37,8 @@ const REROLL_FAIL_DURATION = 2
 func _ready():
     _hide_warnings()
 
-    _set_health_text()
+    _set_health_text(Database.war_transport_health_current)
+    Database.health_changed.connect(_set_health_text)
 
     for crew_selector_button in crew_member_selector.crew_selector_buttons:
         crew_selector_button.character_selected.connect(crew_actions_display._on_character_selected)
@@ -54,25 +54,7 @@ func _ready():
     reroll_button.hovered_available_reroll.connect(crew_actions_display._start_preview_reroll)
     reroll_button.exited_available_reroll.connect(crew_actions_display._stop_preview_reroll)
  
-    barrier_strength_scaled.connect(calculations_hud.refresh)
-    barrier_strength_scaled.connect(barrier_preview.refresh)
-    barrier_strength_scaled.connect(total_power_display.refresh)
-    Database.set_current_barrier_cost_to_overcome_number(
-        Database.current_barrier_cost_to_overcome_number
-        + Database.barriers_linear_scale_amount
-    )
-    barrier_strength_scaled.emit()
-
     charge_button.pressed.connect(initiate_charge_requested.emit)
-
-# Sum dice results, multiplying dice that match the target StatType.
-func _get_war_transport_damage_reduction_amount() -> int:
-    return combat_math_formulas.total_dice_with_matching_stat_type_multiplier(
-        Database.current_character_die_slots,
-        Database.current_barrier_stat_type_to_overcome,
-        Database.current_matching_stat_type_multiplier
-    )
-
 
 func _hide_warnings() -> void:
     warning_out_of_health.visible = false
@@ -86,41 +68,6 @@ func _hide_roll_warnings() -> void:
 
 func _on_mock_attack_button_pressed() -> void:
     _hide_roll_warnings()
-
-    if Database.war_transport_health_current <= 0:
-        warning_out_of_health.visible = true
-        return
-
-    print_debug('War transport rams into the barrier.')
-
-    var updated_health = Database.war_transport_health_current
-
-    var war_transport_damage_reduction_amount = (
-        _get_war_transport_damage_reduction_amount()
-    )
-    var damage_amount = (
-        Database.current_barrier_cost_to_overcome_number
-        - war_transport_damage_reduction_amount
-    )
-
-    if damage_amount > 0:
-        _reduce_war_transport_health(damage_amount)
-
-    if updated_health > 0:
-        print_debug("*** EARNING MONEY **** Probably clean this up later.")
-        Database.set_money(Database.current_money + randi_range(1, 100))
-        Database.set_fuel(Database.current_fuel + randi_range(1,3))
-        _scale_up_barrier_strength()
-        Database.set_barriers_overcome_count(
-            Database.barriers_overcome_count
-            + 1
-        )
-        #barriers.text = str(Database.barriers_overcome_count)
-        return
-
-    print_debug('Game over, health has reached ', updated_health)
-    warning_out_of_health.visible = true
-
 
 func _on_mock_reroll_button_pressed() -> void:
     if Database.war_transport_health_current <= 0:
@@ -148,31 +95,8 @@ func _on_mock_reroll_button_pressed() -> void:
     calculations_hud.refresh()
     total_power_display.refresh()
 
-
-func _reduce_war_transport_health(amount_to_subtract : int) -> int:
-    var updated_health = (
-        Database.war_transport_health_current
-        - amount_to_subtract
-    )
-    Database.set_war_transport_health_current(
-        updated_health
-    )
-    _set_health_text()
-    return updated_health
-
-
-func _scale_up_barrier_strength() -> void:
-    print_debug('Database.current_barrier_cost_to_overcome_number: ',
-        Database.current_barrier_cost_to_overcome_number)
-    Database.set_current_barrier_cost_to_overcome_number(
-        Database.current_barrier_cost_to_overcome_number
-        + Database.barriers_linear_scale_amount
-    )
-    barrier_strength_scaled.emit()
-
-
-func _set_health_text() -> void:
-    health_current.text = str(Database.war_transport_health_current)
+func _set_health_text(new_health: int, _old_health: int = 0) -> void:
+    health_current.text = str(new_health)
     health_maximum.text = str(Database.war_transport_health_maximum)
 
 func _on_insufficient_fuel() -> void:

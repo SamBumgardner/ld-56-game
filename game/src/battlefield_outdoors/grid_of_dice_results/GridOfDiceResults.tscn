@@ -1,11 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cbgigx6pdctmh"]
+[gd_scene load_steps=2 format=3 uid="uid://cbgigx6pdctmh"]
 
-[ext_resource type="Script" path="res://src/battlefield_outdoors/grid_of_dice_results/grid_of_dice_results.gd" id="1_3o0tt"]
 [ext_resource type="PackedScene" uid="uid://dqfr40hi455qx" path="res://src/battlefield_outdoors/grid_of_dice_results/freezable_die_result/FreezableDieResult.tscn" id="3_85ont"]
 
 [node name="GridOfDiceResults" type="GridContainer"]
 columns = 3
-script = ExtResource("1_3o0tt")
 
 [node name="FreezableDieResult1" parent="." instance=ExtResource("3_85ont")]
 visible = false
