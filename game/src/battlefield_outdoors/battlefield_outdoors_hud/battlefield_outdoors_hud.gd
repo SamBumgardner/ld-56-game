@@ -193,6 +193,8 @@ func _on_character_selection_changed(character: Character, selected_state: bool)
 
 func _on_charge_start() -> void:
     print("HUD charge start")
+    # Disable buttons right away
+    # fade out HUD over the course of a while
 
 func _on_charge_warmup(duration: float) -> void:
     print("HUD charge warmup", duration)
@@ -205,6 +207,8 @@ func _on_charge_impact(duration: float) -> void:
 
 func _on_charge_cooldown(duration: float) -> void:
     print("HUD charge cooldown", duration)
+    # trigger refreshes & information updates
 
 func _on_charge_finish() -> void:
     print("HUD charge finish")
+    # fade in hud, more quickly this time
