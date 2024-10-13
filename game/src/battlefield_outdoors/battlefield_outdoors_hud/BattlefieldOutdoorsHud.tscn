@@ -515,11 +515,11 @@ anchor_top = 0.4
 anchor_bottom = 0.4
 grow_vertical = 0
 
-[connection signal="mouse_entered" from="BottomInfoDisplay/Center/TopEdge/RerollButton" to="AudioManager" method="_on_reroll_button_mouse_entered"]
+[connection signal="mouse_entered" from="BottomInfoDisplay/Center/TopEdge/RerollButton" to="." method="_on_reroll_button_mouse_entered"]
 [connection signal="pressed" from="BottomInfoDisplay/Center/TopEdge/RerollButton" to="." method="_on_mock_reroll_button_pressed"]
 [connection signal="pressed" from="BottomInfoDisplay/Center/TopEdge/RerollButton" to="AudioManager" method="_on_reroll_button_pressed"]
-[connection signal="mouse_entered" from="BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay/PanelContainer/VBoxContainer/ChargeButton" to="AudioManager" method="_on_charge_button_mouse_entered"]
+[connection signal="mouse_entered" from="BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay/PanelContainer/VBoxContainer/ChargeButton" to="." method="_on_charge_button_mouse_entered"]
 [connection signal="pressed" from="BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay/PanelContainer/VBoxContainer/ChargeButton" to="." method="_on_mock_attack_button_pressed"]
 [connection signal="pressed" from="BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay/PanelContainer/VBoxContainer/ChargeButton" to="AudioManager" method="_on_charge_button_pressed"]
-[connection signal="mouse_entered" from="GoInsideButton" to="AudioManager" method="_on_go_inside_button_mouse_entered"]
+[connection signal="mouse_entered" from="GoInsideButton" to="." method="_on_go_inside_button_mouse_entered"]
 [connection signal="pressed" from="GoInsideButton" to="AudioManager" method="_on_go_inside_button_pressed"]

@@ -48,9 +48,6 @@ func _on_browse_new_hires_button_mouse_entered():
 func _on_character_info_panel_close_button_mouse_entered():
     SoundManager.play_ui_sound(sfx_button_hover, _bus_name_sfx_ui)
 
-func _on_charge_button_mouse_entered():
-    SoundManager.play_ui_sound(sfx_button_hover, _bus_name_sfx_ui)
-
 func _on_close_screen_notification_button_mouse_entered():
     SoundManager.play_ui_sound(sfx_button_hover, _bus_name_sfx_ui)
 
@@ -58,9 +55,6 @@ func _on_crew_member_detail_exit_button_mouse_entered():
     SoundManager.play_ui_sound(sfx_button_hover, _bus_name_sfx_ui)
 
 func _on_exit_button_mouse_entered():
-    SoundManager.play_ui_sound(sfx_button_hover, _bus_name_sfx_ui)
-
-func _on_go_inside_button_mouse_entered():
     SoundManager.play_ui_sound(sfx_button_hover, _bus_name_sfx_ui)
 
 func _on_go_outside_button_mouse_entered():
@@ -82,9 +76,6 @@ func _on_purchase_button_mouse_entered():
     SoundManager.play_ui_sound(sfx_button_hover, _bus_name_sfx_ui)
 
 func _on_quit_button_mouse_entered():
-    SoundManager.play_ui_sound(sfx_button_hover, _bus_name_sfx_ui)
-
-func _on_reroll_button_mouse_entered():
     SoundManager.play_ui_sound(sfx_button_hover, _bus_name_sfx_ui)
 
 func _on_reset_to_defaults_button_mouse_entered():
