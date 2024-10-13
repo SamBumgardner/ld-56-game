@@ -12,8 +12,8 @@ dest_files=["res://.godot/imported/001_loop_music.ogg-3c7ffa8940b05d3cfea44ba9a6
 
 [params]
 
-loop=false
-loop_offset=0
-bpm=0
+loop=true
+loop_offset=0.0
+bpm=100.0
 beat_count=0
 bar_beats=4
