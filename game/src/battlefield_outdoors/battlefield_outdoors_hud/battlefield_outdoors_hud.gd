@@ -33,6 +33,7 @@ const REROLL_FAIL_DURATION = 2
 @onready var reroll_button: RerollButton = $BottomInfoDisplay/Center/TopEdge/RerollButton
 @onready var charge_button: Button = $BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay/PanelContainer/VBoxContainer/ChargeButton
 @onready var go_inside_button: Button = $GoInsideButton
+@onready var combat_results_summary: CombatResultsSummary = $CombatResultsSummary
 
 func _ready():
     _hide_warnings()
@@ -155,6 +156,9 @@ func _enable_interaction() -> void:
     crew_actions_display.enable_all()
     crew_member_selector.enable_all()
 
+func set_combat_results(combat_results: CombatResultsSummary.CombatResult) -> void:
+    combat_results_summary.set_combat_results_bundled(combat_results)
+
 func _on_charge_start() -> void:
     print("HUD charge start")
     _disable_interaction()
@@ -173,6 +177,7 @@ func _on_charge_impact(duration: float) -> void:
 func _on_charge_cooldown(duration: float) -> void:
     print("HUD charge cooldown", duration)
     # trigger refreshes & information updates
+    combat_results_summary.display_combat_results()
     _charge_mode_fadein(duration)
 
 func _on_charge_finish() -> void:
