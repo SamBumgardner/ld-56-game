@@ -1,1 +1,1 @@
-class_name BattlefieldOutdoorsWarTransport extends Node2D
+class_name BattlefieldOutdoorsWarTransport extends Sprite2D
