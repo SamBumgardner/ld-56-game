@@ -1,33 +1,52 @@
-[gd_scene load_steps=3 format=3 uid="uid://ceesyhnktnbd1"]
+[gd_scene load_steps=4 format=3 uid="uid://ceesyhnktnbd1"]
 
 [ext_resource type="Texture2D" uid="uid://4nvogy60mpq3" path="res://icon.svg" id="1_3np5d"]
 [ext_resource type="Script" path="res://src/battlefield_outdoors/battlefield_outdoors_barrier/battlefield_outdoors_barrier.gd" id="1_jgx0l"]
+[ext_resource type="Theme" uid="uid://dk5iv042psfw" path="res://assets/themes/Default.tres" id="3_g1tfv"]
 
-[node name="BattlefieldOutdoorsBarrier" type="VBoxContainer"]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="BattlefieldOutdoorsBarrier" type="Sprite2D"]
+texture = ExtResource("1_3np5d")
 script = ExtResource("1_jgx0l")
 
-[node name="CostToOvercome" type="HBoxContainer" parent="."]
-layout_mode = 2
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -64.0
+offset_right = -64.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_g1tfv")
+
+[node name="CostToOvercome" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+grow_vertical = 0
 size_flags_horizontal = 4
 
-[node name="Amount" type="Label" parent="CostToOvercome"]
+[node name="Amount" type="Label" parent="Control/CostToOvercome"]
 layout_mode = 2
 text = "21"
 
-[node name="Symbol" type="TextureRect" parent="CostToOvercome"]
+[node name="Symbol" type="TextureRect" parent="Control/CostToOvercome"]
 layout_mode = 2
 texture = ExtResource("1_3np5d")
 expand_mode = 2
 
-[node name="BarrierRect" type="TextureRect" parent="."]
-layout_mode = 2
-texture = ExtResource("1_3np5d")
-
-[node name="BarrierName" type="Label" parent="."]
+[node name="BarrierName" type="Label" parent="Control"]
 custom_minimum_size = Vector2(1, 0)
-layout_mode = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
 text = "Nice Boulder"
 horizontal_alignment = 1
-autowrap_mode = 2

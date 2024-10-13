@@ -4,7 +4,7 @@ class_name BattlefieldOutdoorsWarTransport extends Sprite2D
 
 var movement_tween: Tween
 
-func charge_at_target(target_global_position: Vector2, duration: float) -> void:
+func charge_to_target(target_global_position: Vector2, duration: float) -> void:
     print_debug("global postion %s" % global_position)
     movement_tween = clear_tween(movement_tween)
     movement_tween.tween_property(self, "global_position", target_global_position, duration)

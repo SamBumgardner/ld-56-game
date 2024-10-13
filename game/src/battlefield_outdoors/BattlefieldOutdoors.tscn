@@ -17,17 +17,15 @@ theme = ExtResource("1_cei1v")
 script = ExtResource("2_ni2i7")
 
 [node name="AnchorOfBarrier" type="Control" parent="."]
-layout_direction = 3
 layout_mode = 1
-anchor_top = 0.4
-anchor_bottom = 0.4
-offset_top = -32.0
+anchor_left = 0.8
+anchor_top = 0.5
+anchor_right = 0.8
+anchor_bottom = 0.5
+grow_horizontal = 2
 grow_vertical = 2
 
 [node name="BattlefieldOutdoorsBarrier" parent="AnchorOfBarrier" instance=ExtResource("2_p4mcn")]
-layout_mode = 1
-offset_right = 128.0
-offset_bottom = 174.0
 cost_to_overcome_number = 10
 display_name = "Security Gate"
 
@@ -42,5 +40,7 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="BattlefieldOutdoorsWarTransport" parent="AnchorOfWarTransport" instance=ExtResource("3_etui0")]

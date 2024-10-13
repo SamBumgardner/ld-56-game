@@ -68,7 +68,7 @@ func _begin_charge_sequence() -> void:
     charge_start.emit()
 
 func _on_charge_action(duration: float) -> void:
-    war_transport.charge_at_target(Vector2(640, 0), duration)
+    war_transport.charge_to_target(Vector2(640, 0), duration)
 
 func _on_charge_impact(_duration: float) -> void:
     _apply_combat_damage()

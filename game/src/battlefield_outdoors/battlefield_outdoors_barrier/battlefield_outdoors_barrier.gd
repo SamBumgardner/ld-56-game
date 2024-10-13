@@ -1,12 +1,12 @@
-class_name BattlefieldOutdoorsBarrier extends VBoxContainer
+class_name BattlefieldOutdoorsBarrier extends Sprite2D
 
 @export var cost_to_overcome_number = 1
 @export var display_name = ""
 
-@onready var cost_to_overcome_number_label: Label = $CostToOvercome/Amount
-@onready var cost_to_overcome_stat_type_texture: TextureRect = $CostToOvercome/Symbol
-@onready var display_name_label: Label = $BarrierName
-@onready var barrier_texture_rect: TextureRect = $BarrierRect
+@onready var cost_to_overcome_container: Control = $Control/CostToOvercome
+@onready var cost_to_overcome_number_label: Label = $Control/CostToOvercome/Amount
+@onready var cost_to_overcome_stat_type_texture: TextureRect = $Control/CostToOvercome/Symbol
+@onready var display_name_label: Label = $Control/BarrierName
 
 ## technically we don't have to store this here, but since this is the progenitor of the barrier
 ## it seemed handy to have around.
@@ -23,19 +23,19 @@ func refresh() -> void:
 
 func _update_display(barrier_data: BarrierData) -> void:
     if barrier_data == null:
-        $CostToOvercome.visible = false
+        cost_to_overcome_container.visible = false
         return
     
     current_barrier_data = barrier_data
     
     display_name_label.text = current_barrier_data.name
-    barrier_texture_rect.texture = current_barrier_data.graphic
+    texture = current_barrier_data.graphic
     cost_to_overcome_number_label.text = str(current_barrier_data.cost_to_overcome)
     cost_to_overcome_stat_type_texture.texture = Database.stat_type_to_icon[
         current_barrier_data.weakness_type
     ]
 
-    $CostToOvercome.visible = true
+    cost_to_overcome_container.visible = true
 
 func _on_barrier_changed(_new_barrier: BarrierData):
     refresh()
