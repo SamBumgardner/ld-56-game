@@ -85,6 +85,20 @@ var should_generate_new_applicants: bool
 var current_money: int
 var current_fuel: int
 
+var hired_character_count: int:
+    get():
+        return hired_characters.size()
+    set(value):
+        push_error("attempted to set derived field. Don't do this")
+
+var purchased_upgrade_count: int:
+    get():
+        var total: int = 0
+        for character: Character in hired_characters:
+            total += character.upgrade_level
+        return total
+    set(value):
+        push_error("attempted to set derived field. Don't do this")
 
 func _ready():
     _ready_audio_volumes()
