@@ -7,9 +7,12 @@ signal charge_impact(duration: float)
 signal charge_cooldown(duration: float)
 signal charge_finish()
 
+signal health_empty()
+
 @onready var war_transport: BattlefieldOutdoorsWarTransport = $AnchorOfWarTransport/BattlefieldOutdoorsWarTransport
 @onready var battlefield_outdoors_hud: BattlefieldOutdoorsHud = $BattlefieldOutdoorsHud
 
+var combat_math_formulas: CombatMathFormulas = CombatMathFormulas.new()
 var charge_sequence_tween: Tween
 
 func _ready() -> void:
@@ -18,6 +21,7 @@ func _ready() -> void:
 
     _connect_hud_charge_events()
     charge_cooldown.connect(_on_charge_cooldown)
+    charge_impact.connect(_on_charge_impact)
 
     _generate_and_scale_next_barrier()
 
@@ -56,6 +60,30 @@ func _begin_charge_sequence() -> void:
     charge_sequence_tween.tween_callback(charge_finish.emit)
 
     charge_start.emit()
+
+func _on_charge_impact(_duration: float) -> void:
+    _apply_combat_damage()
+
+func _apply_combat_damage() -> void:
+    var updated_health = Database.war_transport_health_current
+    var player_strength = combat_math_formulas.total_dice_with_matching_stat_type_multiplier(
+        Database.current_character_die_slots,
+        Database.current_barrier_stat_type_to_overcome,
+        Database.current_matching_stat_type_multiplier
+    )
+    var damage_amount = (
+        Database.current_barrier_cost_to_overcome_number - player_strength
+    )
+
+    if damage_amount > 0:
+        updated_health -= damage_amount
+        Database.set_war_transport_health_current(
+            updated_health
+        )
+
+    if updated_health <= 0:
+        health_empty.emit()
+
 
 func _on_charge_cooldown(_duration: float) -> void:
     _generate_and_scale_next_barrier()

@@ -37,7 +37,8 @@ const REROLL_FAIL_DURATION = 2
 func _ready():
     _hide_warnings()
 
-    _set_health_text()
+    _set_health_text(Database.war_transport_health_current)
+    Database.health_changed.connect(_set_health_text)
 
     for crew_selector_button in crew_member_selector.crew_selector_buttons:
         crew_selector_button.character_selected.connect(crew_actions_display._on_character_selected)
@@ -54,15 +55,6 @@ func _ready():
     reroll_button.exited_available_reroll.connect(crew_actions_display._stop_preview_reroll)
  
     charge_button.pressed.connect(initiate_charge_requested.emit)
-
-# Sum dice results, multiplying dice that match the target StatType.
-func _get_war_transport_damage_reduction_amount() -> int:
-    return combat_math_formulas.total_dice_with_matching_stat_type_multiplier(
-        Database.current_character_die_slots,
-        Database.current_barrier_stat_type_to_overcome,
-        Database.current_matching_stat_type_multiplier
-    )
-
 
 func _hide_warnings() -> void:
     warning_out_of_health.visible = false
@@ -81,27 +73,8 @@ func _on_mock_attack_button_pressed() -> void:
         warning_out_of_health.visible = true
         return
 
-    print_debug('War transport rams into the barrier.')
-
-    var updated_health = Database.war_transport_health_current
-
-    var war_transport_damage_reduction_amount = (
-        _get_war_transport_damage_reduction_amount()
-    )
-    var damage_amount = (
-        Database.current_barrier_cost_to_overcome_number
-        - war_transport_damage_reduction_amount
-    )
-
-    if damage_amount > 0:
-        _reduce_war_transport_health(damage_amount)
-
-    if updated_health > 0:
-        #barriers.text = str(Database.barriers_overcome_count)
-        return
-
-    print_debug('Game over, health has reached ', updated_health)
-    warning_out_of_health.visible = true
+    #print_debug('Game over, health has reached ', updated_health)
+    #warning_out_of_health.visible = true
 
 
 func _on_mock_reroll_button_pressed() -> void:
@@ -130,23 +103,8 @@ func _on_mock_reroll_button_pressed() -> void:
     calculations_hud.refresh()
     total_power_display.refresh()
 
-
-func _reduce_war_transport_health(amount_to_subtract : int) -> int:
-    var updated_health = (
-        Database.war_transport_health_current
-        - amount_to_subtract
-    )
-    Database.set_war_transport_health_current(
-        updated_health
-    )
-    _set_health_text()
-    return updated_health
-
-
-
-
-func _set_health_text() -> void:
-    health_current.text = str(Database.war_transport_health_current)
+func _set_health_text(new_health: int, _old_health: int = 0) -> void:
+    health_current.text = str(new_health)
     health_maximum.text = str(Database.war_transport_health_maximum)
 
 func _on_insufficient_fuel() -> void:
