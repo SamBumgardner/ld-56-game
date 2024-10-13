@@ -17,6 +17,9 @@ func _ready() -> void:
     battlefield_outdoors_hud.initiate_charge_requested.connect(_begin_charge_sequence)
 
     _connect_hud_charge_events()
+    charge_impact.connect(_generate_and_scale_next_barrier)
+
+    _generate_and_scale_next_barrier()
 
 func _connect_hud_charge_events() -> void:
     charge_start.connect(battlefield_outdoors_hud._on_charge_start)
@@ -53,3 +56,21 @@ func _begin_charge_sequence() -> void:
     charge_sequence_tween.tween_callback(charge_finish.emit)
 
     charge_start.emit()
+
+func _generate_and_scale_next_barrier(_arg1 = null) -> void:
+    var new_barrier: BarrierData = _generate_barrier_data()
+
+    if new_barrier.cost_to_overcome != Database.current_barrier_cost_to_overcome_number:
+        Database.set_current_barrier_cost_to_overcome_number(new_barrier.cost_to_overcome)
+    if Database.current_barrier_stat_type_to_overcome != new_barrier.weakness_type:
+        Database.set_current_barrier_stat_type_to_overcome(new_barrier.weakness_type)
+
+    Database.set_current_barrier_data(new_barrier)
+
+func _generate_barrier_data() -> BarrierData:
+    var cost_to_overcome = Database.current_barrier_cost_to_overcome_number \
+        + Database.barriers_linear_scale_amount
+    var random_display_name = BarrierData._get_random_display_name()
+    var random_stat_type = Database.StatType.values().pick_random()
+    return BarrierData.new(random_display_name, random_stat_type,
+        cost_to_overcome)

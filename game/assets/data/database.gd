@@ -5,6 +5,7 @@ signal money_changed(new_value: int, old_value: int)
 signal fuel_changed(new_value: int, old_value: int)
 signal die_slots_set(was_reroll: bool)
 signal die_slot_changed(changed_die_slot: CharacterDieSlot)
+signal barrier_changed(new_barrier_data: BarrierData)
 
 enum StatType {
     MIGHT,
@@ -202,6 +203,7 @@ func set_current_barrier_cost_to_overcome_number(updated_number: int) -> void:
 
 func set_current_barrier_data(updated_barrier_data: BarrierData) -> void:
     current_barrier_data = updated_barrier_data
+    barrier_changed.emit(current_barrier_data)
 
 func set_current_character_die_slots(
     updated_slots: Array[CharacterDieSlot],

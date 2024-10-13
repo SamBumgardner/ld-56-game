@@ -1,7 +1,6 @@
 class_name BattlefieldOutdoorsHud extends Control
 
 signal initiate_charge_requested
-signal barrier_strength_scaled
 signal dice_roll_requested
 
 const REROLL_FAIL_MESSAGE = "Failed to shuffle unlocked actions.\nReason: INSUFFICIENT_FUEL"
@@ -54,15 +53,6 @@ func _ready():
     reroll_button.hovered_available_reroll.connect(crew_actions_display._start_preview_reroll)
     reroll_button.exited_available_reroll.connect(crew_actions_display._stop_preview_reroll)
  
-    barrier_strength_scaled.connect(calculations_hud.refresh)
-    barrier_strength_scaled.connect(barrier_preview.refresh)
-    barrier_strength_scaled.connect(total_power_display.refresh)
-    Database.set_current_barrier_cost_to_overcome_number(
-        Database.current_barrier_cost_to_overcome_number
-        + Database.barriers_linear_scale_amount
-    )
-    barrier_strength_scaled.emit()
-
     charge_button.pressed.connect(initiate_charge_requested.emit)
 
 # Sum dice results, multiplying dice that match the target StatType.
@@ -110,7 +100,6 @@ func _on_mock_attack_button_pressed() -> void:
         print_debug("*** EARNING MONEY **** Probably clean this up later.")
         Database.set_money(Database.current_money + randi_range(1, 100))
         Database.set_fuel(Database.current_fuel + randi_range(1,3))
-        _scale_up_barrier_strength()
         Database.set_barriers_overcome_count(
             Database.barriers_overcome_count
             + 1
@@ -161,14 +150,6 @@ func _reduce_war_transport_health(amount_to_subtract : int) -> int:
     return updated_health
 
 
-func _scale_up_barrier_strength() -> void:
-    print_debug('Database.current_barrier_cost_to_overcome_number: ',
-        Database.current_barrier_cost_to_overcome_number)
-    Database.set_current_barrier_cost_to_overcome_number(
-        Database.current_barrier_cost_to_overcome_number
-        + Database.barriers_linear_scale_amount
-    )
-    barrier_strength_scaled.emit()
 
 
 func _set_health_text() -> void:

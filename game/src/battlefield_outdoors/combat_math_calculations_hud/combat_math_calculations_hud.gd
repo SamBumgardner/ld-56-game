@@ -20,6 +20,7 @@ class_name CombatMathCalculationsHud extends MarginContainer
 
 
 func _ready():
+    Database.barrier_changed.connect(_on_barrier_changed)
     refresh()
 
 
@@ -32,6 +33,8 @@ func refresh() -> void:
     _set_non_match_icons_to_grid()
     subtotal_remaining_value.text = str(_get_subtotal_remaining_value())
 
+func _on_barrier_changed(_new_barrier: BarrierData):
+    refresh()
 
 func _get_subtotal_remaining_value() -> int:
     return combat_math_formulas.total_dice_leftover(

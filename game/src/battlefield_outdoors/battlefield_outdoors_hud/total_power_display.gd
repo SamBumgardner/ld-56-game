@@ -4,6 +4,7 @@ class_name TotalPowerDisplay extends MarginContainer
 @onready var total_value_label: Label = $PanelContainer/VBoxContainer/TotalValue
 
 func _ready() -> void:
+    Database.barrier_changed.connect(_on_barrier_changed)
     refresh()
 
 func refresh() -> void:
@@ -15,3 +16,6 @@ func _calculate_total_power() -> int:
         Database.current_barrier_stat_type_to_overcome,
         Database.current_matching_stat_type_multiplier
     )
+
+func _on_barrier_changed(_new_barrier: BarrierData):
+    refresh()
