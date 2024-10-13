@@ -1,6 +1,7 @@
 # Play audio triggered by signals.
 class_name AudioManager extends Node
 
+@export var background_music_default: AudioStream
 
 @export var sfx_button_click: AudioStream
 @export var sfx_button_hover: AudioStream
@@ -18,6 +19,14 @@ func _ready():
 # Listen for a custom signal in order to delay until volume is updated.
 func on_sfx_volume_updated():
     SoundManager.play_ui_sound(sfx_button_click)
+
+
+# After leaving the start menu, start playing the background music.
+func _start_background_music():
+    if SoundManager.is_music_playing():
+        return
+
+    SoundManager.play_music(background_music_default)
 
 
 #region Button mouse entered
@@ -46,6 +55,17 @@ func _on_start_button_pressed():
     SoundManager.play_ui_sound(sfx_button_click)
 
 #endregion Button press
+
+
+#region Scene arrival
+
+func _on_gameplay_ready():
+    _start_background_music()
+
+func _on_settings_menu_ready():
+    _start_background_music()
+
+#endregion Scene arrival
 
 
 #region Slider drag ended

@@ -45,5 +45,6 @@ text = "Reset to Defaults"
 
 [node name="BackToStartMenuButton" parent="." instance=ExtResource("4_lsi3h")]
 
+[connection signal="ready" from="." to="AudioManager" method="_on_settings_menu_ready"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/ResetToDefaultsButton" to="." method="_on_reset_to_defaults_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/ResetToDefaultsButton" to="." method="_on_button_pressed"]
