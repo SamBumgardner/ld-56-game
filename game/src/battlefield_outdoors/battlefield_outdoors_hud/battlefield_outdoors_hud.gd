@@ -59,8 +59,8 @@ func _ready():
     character_info_panel.character_selected.connect(crew_member_selector._on_character_selected)
     character_info_panel.character_selected.connect(crew_actions_display._on_character_selected)
 
-    reroll_button.hovered_available_reroll.connect(crew_actions_display._start_preview_reroll)
-    reroll_button.exited_available_reroll.connect(crew_actions_display._stop_preview_reroll)
+    reroll_button.hovered_available_reroll.connect(crew_actions_display.start_preview_reroll)
+    reroll_button.exited_available_reroll.connect(crew_actions_display.stop_preview_reroll)
  
     charge_button.pressed.connect(initiate_charge_requested.emit)
 
@@ -76,6 +76,12 @@ func _hide_roll_warnings() -> void:
 
 func _on_mock_attack_button_pressed() -> void:
     _hide_roll_warnings()
+
+func request_roll_preview_start() -> void:
+    crew_actions_display.start_preview_reroll()
+
+func request_roll_preview_stop() -> void:
+    crew_actions_display.stop_preview_reroll()
 
 func _on_mock_reroll_button_pressed() -> void:
     if Database.war_transport_health_current <= 0:
