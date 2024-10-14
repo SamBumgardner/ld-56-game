@@ -164,7 +164,7 @@ func _on_health_empty() -> void:
     var game_over_sequence = create_tween()
     game_over_sequence.tween_interval(2)
     game_over_sequence.tween_callback(
-        get_tree().change_scene_to_packed.bind(preload("res://src/start_menu/StartMenu.tscn")))
+        get_tree().change_scene_to_packed.bind(preload("res://src/game_over/game_over.tscn")))
 
 func _on_roll_requested():
     if _has_enough_fuel():
