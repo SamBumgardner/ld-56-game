@@ -1,11 +1,14 @@
 extends "./abstract_audio_player_pool.gd"
 
 
-func play(resource: AudioStream, fade_in_duration: float, override_bus: String = "") -> AudioStreamPlayer:
+func play(resource: AudioStream, fade_in_duration: float, override_bus: String = "", play_during_fade_fix: bool = false) -> AudioStreamPlayer:
     var player = get_busy_player_with_resource(resource)
 
     # If it's already playing then don't play it again
-    if is_instance_valid(player): return player
+    if is_instance_valid(player) and not play_during_fade_fix:
+        return player
+    elif is_instance_valid(player) and play_during_fade_fix:
+        fade_volume(player, -80, 0.0, fade_in_duration)
 
     player = prepare(resource, override_bus)
     fade_volume(player, -80.0, 0.0, fade_in_duration)
