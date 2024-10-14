@@ -92,7 +92,10 @@ func _on_charge_impact(duration: float) -> void:
     if Database.war_transport_health_current > 0:
         war_transport.charge_followthrough(war_transport.global_position + Vector2(200, 0), duration)
         barrier.animate_destruction(duration)
+        _apply_combat_rewards()
+        battlefield_outdoors_hud.set_combat_results(combat_result)
     else:
+        battlefield_outdoors_hud.set_combat_results(combat_result)
         war_transport.hide_power(duration)
         war_transport.defeated_knockback(duration)
 
@@ -123,12 +126,11 @@ func _on_charge_cooldown(duration: float) -> void:
     war_transport.hide_power(duration)
     war_transport.return_to_start_position(duration)
     _generate_and_scale_next_barrier()
-    _apply_combat_rewards()
-    battlefield_outdoors_hud.set_combat_results(combat_result)
 
 func _on_charge_finish() -> void:
     if _should_save_checkpoint():
         _save_checkpoint()
+    combat_result.clear()
     barrier.new_barrier_scroll_onscreen(2, Vector2(500, 0))
 
 func _generate_and_scale_next_barrier() -> void:

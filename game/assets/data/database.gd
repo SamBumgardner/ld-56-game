@@ -89,7 +89,6 @@ var should_generate_new_applicants: bool
 var current_money: int
 var current_fuel: int
 
-var use_saved_state = false
 var saved_state: GameplayInitValues
 
 var hired_character_count: int:
@@ -137,8 +136,6 @@ func load_from_init_values(init_values: GameplayInitValues):
     unhired_characters = init_values.unhired_characters
     applicants = init_values.applicants
     should_generate_new_applicants = init_values.should_generate_new_applicants
-
-    use_saved_state = false
 
 # Excludes chosen settings for audio volume.
 func reset_values() -> void:
