@@ -32,7 +32,10 @@ func _ready() -> void:
 
     health_empty.connect(_on_health_empty)
 
-    _generate_and_scale_next_barrier()
+    if Database.current_barrier_data == null:
+        _generate_and_scale_next_barrier()
+    else:
+       Database.set_current_barrier_data(Database.current_barrier_data)
 
 func _connect_hud_charge_events() -> void:
     charge_start.connect(battlefield_outdoors_hud._on_charge_start)

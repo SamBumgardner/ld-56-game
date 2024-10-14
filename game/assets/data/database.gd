@@ -85,6 +85,9 @@ var should_generate_new_applicants: bool
 var current_money: int
 var current_fuel: int
 
+var use_saved_state = false
+var saved_state: GameplayInitValues
+
 var hired_character_count: int:
     get():
         return hired_characters.size()
@@ -104,6 +107,34 @@ func _ready():
     _ready_audio_volumes()
     reset_values()
 
+# Like reset_values
+func load_from_init_values(init_values: GameplayInitValues):
+    set_barriers_overcome_count(init_values.barriers_overcome_count)
+    set_barriers_linear_scale_amount(init_values.barriers_linear_scale_amount)
+    set_current_barrier_cost_to_overcome_number(
+        init_values.current_barrier_cost_to_overcome_number
+    )
+    set_current_barrier_stat_type_to_overcome(
+        init_values.current_barrier_stat_type_to_overcome
+    )
+    if init_values.current_barrier_data != null:
+        set_current_barrier_data(init_values.current_barrier_data)
+    set_current_character_die_slots(init_values.current_character_die_slots.duplicate())
+    set_current_matching_stat_type_multiplier(
+        init_values.current_matching_stat_type_multiplier
+    )
+    set_war_transport_health_maximum(init_values.war_transport_health_maximum)
+    set_war_transport_health_current(init_values.war_transport_health_current)
+    set_money(init_values.current_money)
+    set_fuel(init_values.current_fuel)
+    set_reroll_fuel_cost(init_values.current_reroll_fuel_cost)
+
+    hired_characters = init_values.hired_characters
+    unhired_characters = init_values.unhired_characters
+    applicants = init_values.applicants
+    should_generate_new_applicants = init_values.should_generate_new_applicants
+
+    use_saved_state = false
 
 # Excludes chosen settings for audio volume.
 func reset_values() -> void:
@@ -114,9 +145,6 @@ func reset_values() -> void:
     )
     set_current_barrier_stat_type_to_overcome(
         _initial_barriers_stat_type_to_overcome
-    )
-    set_current_barrier_data(
-        null
     )
     set_current_character_die_slots(_initial_character_die_slots.duplicate())
     set_current_matching_stat_type_multiplier(
@@ -160,6 +188,9 @@ func initialize_missing_die_slots() -> void:
             current_die_slots.append(new_die_slot)
 
     set_current_character_die_slots(current_die_slots)
+
+func save_checkpoint():
+    saved_state = GameplayInitValues.new(true)
 
 # TODO: Could move this to indoor_preparation class if we want the logic out of the DB.
 func get_random_unhired(count: int) -> Array[Character]:
