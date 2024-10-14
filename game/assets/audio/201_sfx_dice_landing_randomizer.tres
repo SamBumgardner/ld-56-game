@@ -1,0 +1,11 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=4 format=3 uid="uid://bi1gg0y8r3t23"]
+
+[ext_resource type="AudioStream" uid="uid://cso5pucn4bnlv" path="res://assets/audio/104_sfx_dice_landing.wav" id="1_ico7m"]
+[ext_resource type="AudioStream" uid="uid://bre3wwctfnfcs" path="res://assets/audio/105_sfx_dice_landing.wav" id="2_fh401"]
+[ext_resource type="AudioStream" uid="uid://bufvy1824xig0" path="res://assets/audio/106_sfx_dice_landing.wav" id="3_nq52b"]
+
+[resource]
+streams_count = 3
+stream_0/stream = ExtResource("1_ico7m")
+stream_1/stream = ExtResource("2_fh401")
+stream_2/stream = ExtResource("3_nq52b")

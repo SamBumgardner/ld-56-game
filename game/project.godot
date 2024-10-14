@@ -15,6 +15,10 @@ run/main_scene="res://src/start_menu/StartMenu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="res://assets/audio/default_bus_layout.tres"
+
 [autoload]
 
 Database="*res://assets/data/database.gd"
