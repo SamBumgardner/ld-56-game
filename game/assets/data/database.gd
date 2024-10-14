@@ -306,6 +306,11 @@ func set_die_slot_frozen_status(character: Character, new_freeze: bool) -> void:
     die_slot.is_frozen = new_freeze
     die_slot_changed.emit(die_slot)
 
+func clear_all_frozen_status() -> void:
+    for die_slot: CharacterDieSlot in current_character_die_slots:
+        die_slot.is_frozen = false
+        die_slot_changed.emit(die_slot)
+
 func _ready_audio_volumes() -> void:
     set_audio_volume_initialized(false)
     set_audio_volume_music(_initial_audio_volume_music)

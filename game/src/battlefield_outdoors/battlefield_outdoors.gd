@@ -127,16 +127,20 @@ func _on_charge_cooldown(duration: float) -> void:
     war_transport.return_to_start_position(duration)
     _generate_and_scale_next_barrier()
     # clear all dice frozen status
+    Database.clear_all_frozen_status()
     battlefield_outdoors_hud.request_roll_preview_start()
 
 func _on_charge_finish() -> void:
     battlefield_outdoors_hud.request_roll_preview_stop()
     const free_reroll_cost = 0
     _on_roll_requested(free_reroll_cost)
+
     if _should_save_checkpoint():
         _save_checkpoint()
-    combat_result.clear()
+
     barrier.new_barrier_scroll_onscreen(2, Vector2(500, 0))
+
+    combat_result.clear()
 
 func _generate_and_scale_next_barrier() -> void:
     var new_barrier: BarrierData = _generate_barrier_data()
