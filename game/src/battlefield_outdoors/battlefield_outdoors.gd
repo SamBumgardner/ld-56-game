@@ -90,7 +90,7 @@ func _on_charge_impact(duration: float) -> void:
         barrier.animate_destruction(duration)
     else:
         war_transport.hide_power(duration)
-        war_transport.charge_knockback(duration / 2)
+        war_transport.defeated_knockback(duration)
 
 
 func _apply_combat_damage() -> void:
@@ -157,12 +157,15 @@ func _apply_combat_rewards() -> void:
     )
 
 func _on_health_empty() -> void:
-    print_debug('Game over, health has reached ', Database.war_transport_health_current)
     if charge_sequence_tween != null and charge_sequence_tween.is_valid():
+        charge_sequence_tween.stop()
         charge_sequence_tween.kill()
     # initiate some sequence of events for a cool game over
+    const game_over_duration: float = 5
     var game_over_sequence = create_tween()
-    game_over_sequence.tween_interval(2)
+    game_over_sequence.tween_interval(ChargeSequence.IMPACT_DURATION * 2)
+    game_over_sequence.tween_callback(war_transport.create_destruction_tweens.bind(game_over_duration))
+    game_over_sequence.tween_interval(game_over_duration)
     game_over_sequence.tween_callback(
         get_tree().change_scene_to_packed.bind(preload("res://src/game_over/game_over.tscn")))
 
