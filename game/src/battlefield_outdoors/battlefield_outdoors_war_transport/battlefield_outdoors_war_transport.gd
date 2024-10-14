@@ -6,6 +6,7 @@ const HEALTH_LABEL_FORMAT: String = "%s / %s"
 @onready var health_container: Control = $Columns/HealthBar
 @onready var health_bar: ProgressBar = $Columns/HealthBar/Health
 @onready var health_label: Label = $Columns/HealthBar/Label
+@onready var smoke_particles: CPUParticles2D = $Node2D/SmokeParticles
 @onready var start_position = position
 
 var movement_tween: Tween
@@ -41,14 +42,17 @@ func defeated_knockback(duration: float) -> void:
     movement_tween = clear_tween(movement_tween)
     movement_tween.set_ease(Tween.EASE_OUT)
     movement_tween.set_trans(Tween.TRANS_CIRC)
+    movement_tween.tween_callback(smoke_particles.restart)
     movement_tween.tween_property(self, "global_position", global_position + knockback_distance / 3, duration / 4)
     movement_tween.parallel()
     movement_tween.tween_property(self, "rotation", -.4, duration / 4)
     movement_tween.tween_interval(duration / 8)
+    movement_tween.tween_callback(smoke_particles.restart)
     movement_tween.tween_property(self, "global_position", global_position + knockback_distance, duration / 2)
     movement_tween.parallel()
     movement_tween.tween_property(self, "rotation", .6, duration / 2)
     movement_tween.tween_interval(duration / 4)
+    movement_tween.tween_callback(smoke_particles.restart)
     movement_tween.tween_property(self, "global_position", global_position + knockback_distance * 2, duration * 7 / 8)
     movement_tween.parallel()
     movement_tween.tween_property(self, "rotation", -.8, duration * 7 / 8)
