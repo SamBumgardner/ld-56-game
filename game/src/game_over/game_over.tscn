@@ -128,14 +128,14 @@ anchor_bottom = 0.9
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Button" type="Button" parent="ButtonContainer"]
+[node name="Retry" type="Button" parent="ButtonContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 6
 text = "Retry from 
 Last Checkpoint"
 
-[node name="Button2" type="Button" parent="ButtonContainer"]
+[node name="ToMainMenu" type="Button" parent="ButtonContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 6
