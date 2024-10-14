@@ -163,7 +163,8 @@ func _on_crew_actions_display_dice_visually_rolling_start():
     SoundManager.play_ambient_sound(
         sfx_dice_shake,
         _reroll_audio_crossfade,
-        _bus_name_sfx_ui
+        _bus_name_sfx_ui,
+        true
     )
 
 func _on_crew_actions_display_dice_visually_rolling_stop():
