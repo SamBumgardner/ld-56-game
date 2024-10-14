@@ -5,10 +5,14 @@ class_name AudioManager extends Node
 
 @export var sfx_button_click: AudioStream
 @export var sfx_button_hover: AudioStream
+@export var sfx_dice_landing: AudioStream
+@export var sfx_dice_shake: AudioStream
 
 
 const _bus_name_music = 'Music'
 const _bus_name_sfx_ui = 'SFX UI'
+const _default_audio_crossfade = 0.1
+const _reroll_audio_crossfade = 0.5
 
 
 func _ready():
@@ -135,9 +139,6 @@ func _on_purchase_button_pressed():
 func _on_quit_button_pressed():
     SoundManager.play_ui_sound(sfx_button_click, _bus_name_sfx_ui)
 
-func _on_reroll_button_pressed():
-    SoundManager.play_ui_sound(sfx_button_click, _bus_name_sfx_ui)
-
 func _on_settings_button_pressed():
     SoundManager.play_ui_sound(sfx_button_click, _bus_name_sfx_ui)
 
@@ -145,6 +146,31 @@ func _on_start_button_pressed():
     SoundManager.play_ui_sound(sfx_button_click, _bus_name_sfx_ui)
 
 #endregion Button press
+
+
+#region Dice reroll hovering
+
+func _on_battlefield_outdoors_dice_roll_started():
+    SoundManager.play_ambient_sound(
+        sfx_dice_landing,
+        _default_audio_crossfade,
+        _bus_name_sfx_ui
+    )
+
+# 2024-10-13 Known edge case: Due to the crossfade greater than 0,
+#  quickly leaving and then re-entering focus will stop the sound effect.
+func _on_crew_actions_display_dice_visually_rolling_start():
+    SoundManager.play_ambient_sound(
+        sfx_dice_shake,
+        _reroll_audio_crossfade,
+        _bus_name_sfx_ui,
+        true
+    )
+
+func _on_crew_actions_display_dice_visually_rolling_stop():
+    SoundManager.stop_ambient_sound(sfx_dice_shake, _reroll_audio_crossfade)
+
+#endregion Dice reroll hovering
 
 
 #region Scene arrival

@@ -118,8 +118,8 @@ func set_ambient_sound_volume(volume_between_0_and_1: float) -> void:
     AudioServer.set_bus_volume_db(AudioServer.get_bus_index(ambient_sounds.bus), linear_to_db(volume_between_0_and_1))
 
 
-func play_ambient_sound(resource: AudioStream, fade_in_duration: float = 0.0, override_bus: String = "") -> AudioStreamPlayer:
-    return ambient_sounds.play(resource, fade_in_duration, override_bus)
+func play_ambient_sound(resource: AudioStream, fade_in_duration: float = 0.0, override_bus: String = "", play_during_fade_fix: bool = false) -> AudioStreamPlayer:
+    return ambient_sounds.play(resource, fade_in_duration, override_bus, play_during_fade_fix)
 
 
 func stop_ambient_sound(resource: AudioStream, fade_out_duration: float = 0.0) -> void:

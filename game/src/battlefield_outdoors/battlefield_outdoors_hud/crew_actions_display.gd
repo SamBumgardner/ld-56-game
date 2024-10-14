@@ -1,5 +1,8 @@
 class_name CrewActionsDisplay extends MarginContainer
 
+signal dice_visually_rolling_start()
+signal dice_visually_rolling_stop()
+
 @onready var database: Database = $"/root/Database"
 @onready var action_displays: Array[Node] = $PC/GC.get_children()
 
@@ -29,12 +32,21 @@ func _on_character_selected(selected_character: Character, button_end_state: boo
             action_display.button.button_pressed = false
 
 func _start_preview_reroll() -> void:
+    var any_unfrozen: bool = false
     for action_display in action_displays:
         action_display.set_rolling_display(true)
+        if (action_display.character_die_slot != null
+                and not action_display.character_die_slot.is_frozen):
+            any_unfrozen = true
+    
+    if any_unfrozen:
+        dice_visually_rolling_start.emit()
 
 func _stop_preview_reroll() -> void:
     for action_display in action_displays:
         action_display.set_rolling_display(false)
+
+    dice_visually_rolling_stop.emit()
 
 func disable_all() -> void:
     for action_display in action_displays:
