@@ -30,11 +30,7 @@ func _on_main_menu_pressed() -> void:
 
 func _on_retry_pressed() -> void:
     # initalize the gameplay scene with appropriate "retry" parameters to start from last checkpoint.
-    Database.use_saved_state = true
-    Database.save_checkpoint()
-    Database.saved_state.war_transport_health_current = Database.saved_state.war_transport_health_maximum
-
-    if Database.use_saved_state and Database.saved_state != null:
+    if Database.saved_state != null:
         Database.load_from_init_values(Database.saved_state)
     else:
         Database.reset_values()

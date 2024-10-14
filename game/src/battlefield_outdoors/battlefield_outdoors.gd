@@ -127,6 +127,8 @@ func _on_charge_cooldown(duration: float) -> void:
     battlefield_outdoors_hud.set_combat_results(combat_result)
 
 func _on_charge_finish() -> void:
+    if _should_save_checkpoint():
+        _save_checkpoint()
     barrier.new_barrier_scroll_onscreen(2, Vector2(500, 0))
 
 func _generate_and_scale_next_barrier() -> void:
@@ -159,6 +161,13 @@ func _apply_combat_rewards() -> void:
         Database.barriers_overcome_count
         + 1
     )
+
+func _should_save_checkpoint() -> bool:
+    const BARRIERS_PER_CHECKPOINT = 5
+    return Database.barriers_overcome_count % BARRIERS_PER_CHECKPOINT == 0
+
+func _save_checkpoint() -> void:
+    Database.save_checkpoint()
 
 func _on_health_empty() -> void:
     if charge_sequence_tween != null and charge_sequence_tween.is_valid():
@@ -200,6 +209,6 @@ func _roll_dice() -> void:
 func _on_checkpoint_saved() -> void:
     battlefield_outdoors_hud.screen_notification.display_notification(
         ScreenNotification.ScreenNotificationType.NOTIFY,
-        Database.CHECKPOINT_SAVED,
+        Database.CHECKPOINT_SAVED_MESSAGE,
         Database.CHECKPOINT_SAVED_DURATION
     )

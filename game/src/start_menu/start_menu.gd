@@ -20,9 +20,6 @@ func _on_settings_button_pressed():
 
 
 func _on_start_button_pressed():
-    if Database.use_saved_state and Database.saved_state != null:
-        Database.load_from_init_values(Database.saved_state)
-    else:
-        Database.reset_values()
+    Database.reset_values()
 
     get_tree().change_scene_to_file("res://src/gameplay/Gameplay.tscn")

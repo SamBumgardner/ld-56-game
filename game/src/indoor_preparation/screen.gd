@@ -148,7 +148,7 @@ func on_checkpoint_saved():
     notification_dimmer.show()
     screen_notification.display_notification(
         ScreenNotification.ScreenNotificationType.NOTIFY,
-        Database.CHECKPOINT_SAVED,
+        Database.CHECKPOINT_SAVED_MESSAGE,
         Database.CHECKPOINT_SAVED_DURATION
     )
 
