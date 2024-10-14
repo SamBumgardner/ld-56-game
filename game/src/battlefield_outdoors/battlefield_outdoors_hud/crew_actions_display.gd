@@ -31,7 +31,7 @@ func _on_character_selected(selected_character: Character, button_end_state: boo
         else:
             action_display.button.button_pressed = false
 
-func _start_preview_reroll() -> void:
+func start_preview_reroll() -> void:
     var any_unfrozen: bool = false
     for action_display in action_displays:
         action_display.set_rolling_display(true)
@@ -42,7 +42,7 @@ func _start_preview_reroll() -> void:
     if any_unfrozen:
         dice_visually_rolling_start.emit()
 
-func _stop_preview_reroll() -> void:
+func stop_preview_reroll() -> void:
     for action_display in action_displays:
         action_display.set_rolling_display(false)
 
