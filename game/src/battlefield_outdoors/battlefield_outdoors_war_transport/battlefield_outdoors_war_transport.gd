@@ -6,6 +6,7 @@ const HEALTH_LABEL_FORMAT: String = "%s / %s"
 @onready var health_container: Control = $Columns/HealthBar
 @onready var health_bar: ProgressBar = $Columns/HealthBar/Health
 @onready var health_label: Label = $Columns/HealthBar/Label
+@onready var smoke_particles: CPUParticles2D = $Node2D/SmokeParticles
 @onready var start_position = position
 
 var movement_tween: Tween
@@ -16,13 +17,13 @@ func _ready() -> void:
 
 func charge_warmup(duration: float) -> void:
     movement_tween = clear_tween(movement_tween)
-    movement_tween.tween_method(horizontal_shake, 0, 0, duration)
+    movement_tween.tween_method(shake.bind(1, start_position, true), 0, 0, duration)
 
-func horizontal_shake(_value: float):
+func shake(_value: float, magnitude: int, root_position: Vector2, horizontal_only: bool):
     var shake_offset = Vector2.ONE.rotated(randf_range(0, 6.29))
-    shake_offset.y = 0
-    var magnitude = 1
-    position = start_position + (shake_offset * magnitude)
+    if horizontal_only:
+        shake_offset.y = 0
+    position = root_position + (shake_offset * magnitude)
 
 func charge_to_target(target_global_position: Vector2, duration: float) -> void:
     movement_tween = clear_tween(movement_tween)
@@ -36,16 +37,37 @@ func charge_followthrough(target_global_position: Vector2, duration: float) -> v
     movement_tween.set_trans(Tween.TRANS_CUBIC)
     movement_tween.tween_property(self, "global_position", target_global_position, duration)
 
-func charge_knockback(duration: float) -> void:
+func defeated_knockback(duration: float) -> void:
     const knockback_distance = Vector2(-200, 0)
     movement_tween = clear_tween(movement_tween)
     movement_tween.set_ease(Tween.EASE_OUT)
     movement_tween.set_trans(Tween.TRANS_CIRC)
-    movement_tween.tween_property(self, "global_position", global_position + knockback_distance, duration)
+    movement_tween.tween_callback(smoke_particles.restart)
+    movement_tween.tween_property(self, "global_position", global_position + knockback_distance / 3, duration / 4)
+    movement_tween.parallel()
+    movement_tween.tween_property(self, "rotation", -.4, duration / 4)
+    movement_tween.tween_interval(duration / 8)
+    movement_tween.tween_callback(smoke_particles.restart)
+    movement_tween.tween_property(self, "global_position", global_position + knockback_distance, duration / 2)
+    movement_tween.parallel()
+    movement_tween.tween_property(self, "rotation", .6, duration / 2)
+    movement_tween.tween_interval(duration / 4)
+    movement_tween.tween_callback(smoke_particles.restart)
+    movement_tween.tween_property(self, "global_position", global_position + knockback_distance * 2, duration * 7 / 8)
+    movement_tween.parallel()
+    movement_tween.tween_property(self, "rotation", -.8, duration * 7 / 8)
 
 func return_to_start_position(duration: float) -> void:
     movement_tween = clear_tween(movement_tween)
     movement_tween.tween_property(self, "position", start_position, duration)
+
+func create_destruction_tweens(duration: float):
+    movement_tween = clear_tween(movement_tween)
+    movement_tween.tween_method(shake.bind(2, position, false), 0, 0, duration)
+
+    var disappear_tween = create_tween()
+    disappear_tween.tween_property(self, "modulate", Color.TRANSPARENT, duration)
+    disappear_tween.tween_callback(hide)
 
 func clear_tween(tween: Tween) -> Tween:
     if tween != null and tween.is_running():

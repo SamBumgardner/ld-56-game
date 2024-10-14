@@ -33,7 +33,10 @@ func _ready() -> void:
 
     health_empty.connect(_on_health_empty)
 
-    _generate_and_scale_next_barrier()
+    if Database.current_barrier_data == null:
+        _generate_and_scale_next_barrier()
+    else:
+       Database.set_current_barrier_data(Database.current_barrier_data)
 
 func _connect_hud_charge_events() -> void:
     charge_start.connect(battlefield_outdoors_hud._on_charge_start)
@@ -89,9 +92,12 @@ func _on_charge_impact(duration: float) -> void:
     if Database.war_transport_health_current > 0:
         war_transport.charge_followthrough(war_transport.global_position + Vector2(200, 0), duration)
         barrier.animate_destruction(duration)
+        _apply_combat_rewards()
+        battlefield_outdoors_hud.set_combat_results(combat_result)
     else:
+        battlefield_outdoors_hud.set_combat_results(combat_result)
         war_transport.hide_power(duration)
-        war_transport.charge_knockback(duration / 2)
+        war_transport.defeated_knockback(duration)
 
 
 func _apply_combat_damage() -> void:
@@ -120,10 +126,11 @@ func _on_charge_cooldown(duration: float) -> void:
     war_transport.hide_power(duration)
     war_transport.return_to_start_position(duration)
     _generate_and_scale_next_barrier()
-    _apply_combat_rewards()
-    battlefield_outdoors_hud.set_combat_results(combat_result)
 
 func _on_charge_finish() -> void:
+    if _should_save_checkpoint():
+        _save_checkpoint()
+    combat_result.clear()
     barrier.new_barrier_scroll_onscreen(2, Vector2(500, 0))
 
 func _generate_and_scale_next_barrier() -> void:
@@ -157,15 +164,25 @@ func _apply_combat_rewards() -> void:
         + 1
     )
 
+func _should_save_checkpoint() -> bool:
+    const BARRIERS_PER_CHECKPOINT = 5
+    return Database.barriers_overcome_count % BARRIERS_PER_CHECKPOINT == 0
+
+func _save_checkpoint() -> void:
+    Database.save_checkpoint()
+
 func _on_health_empty() -> void:
-    print_debug('Game over, health has reached ', Database.war_transport_health_current)
     if charge_sequence_tween != null and charge_sequence_tween.is_valid():
+        charge_sequence_tween.stop()
         charge_sequence_tween.kill()
     # initiate some sequence of events for a cool game over
+    const game_over_duration: float = 5
     var game_over_sequence = create_tween()
-    game_over_sequence.tween_interval(2)
+    game_over_sequence.tween_interval(ChargeSequence.IMPACT_DURATION * 2)
+    game_over_sequence.tween_callback(war_transport.create_destruction_tweens.bind(game_over_duration))
+    game_over_sequence.tween_interval(game_over_duration)
     game_over_sequence.tween_callback(
-        get_tree().change_scene_to_packed.bind(preload("res://src/start_menu/StartMenu.tscn")))
+        get_tree().change_scene_to_packed.bind(preload("res://src/game_over/game_over.tscn")))
 
 func _on_roll_requested():
     if _has_enough_fuel():
@@ -190,3 +207,10 @@ func _roll_dice() -> void:
         character_die_slot.last_roll_result = character_die_slot.roll_action()
 
     Database.set_current_character_die_slots(character_die_slots, true)
+
+func _on_checkpoint_saved() -> void:
+    battlefield_outdoors_hud.screen_notification.display_notification(
+        ScreenNotification.ScreenNotificationType.CHECKPOINT,
+        Database.CHECKPOINT_SAVED_MESSAGE,
+        Database.CHECKPOINT_SAVED_DURATION
+    )

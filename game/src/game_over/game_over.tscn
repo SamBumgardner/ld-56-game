@@ -1,0 +1,143 @@
+[gd_scene load_steps=4 format=3 uid="uid://ctqciskxgauli"]
+
+[ext_resource type="Theme" uid="uid://dk5iv042psfw" path="res://assets/themes/Default.tres" id="1_7cxpj"]
+[ext_resource type="Script" path="res://src/game_over/game_over.gd" id="2_3djpi"]
+[ext_resource type="PackedScene" uid="uid://cksonu0m714vg" path="res://src/game_over/postgame_stat_line.tscn" id="2_gld74"]
+
+[node name="GameOver" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_7cxpj")
+color = Color(0, 0, 0, 1)
+script = ExtResource("2_3djpi")
+
+[node name="TitleContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.1
+anchor_right = 1.0
+anchor_bottom = 0.15
+grow_horizontal = 2
+
+[node name="Title" type="Label" parent="TitleContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Game Over"
+horizontal_alignment = 1
+
+[node name="Encouragement" type="Label" parent="TitleContainer"]
+layout_mode = 2
+text = "Getting closer..."
+horizontal_alignment = 1
+
+[node name="StatsContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -75.0
+offset_right = 150.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="StatsContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StatsContainer/MarginContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="StatsContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Statistics:
+"
+horizontal_alignment = 1
+
+[node name="Progress" type="VBoxContainer" parent="StatsContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Header" type="Label" parent="StatsContainer/MarginContainer/VBoxContainer/Progress"]
+layout_mode = 2
+text = "Progress:"
+
+[node name="BarriersDestroyed" parent="StatsContainer/MarginContainer/VBoxContainer/Progress" instance=ExtResource("2_gld74")]
+layout_mode = 2
+size_flags_horizontal = 8
+stat_display_name = "Barriers Destroyed"
+database_field_name = "barriers_overcome_count"
+
+[node name="FinalBarrierStrength" parent="StatsContainer/MarginContainer/VBoxContainer/Progress" instance=ExtResource("2_gld74")]
+layout_mode = 2
+stat_display_name = "Final Barrier Strength"
+database_field_name = "current_barrier_cost_to_overcome_number"
+
+[node name="Crew" type="VBoxContainer" parent="StatsContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Header" type="Label" parent="StatsContainer/MarginContainer/VBoxContainer/Crew"]
+layout_mode = 2
+text = "Crew:"
+
+[node name="NumberOfCrewMembers" parent="StatsContainer/MarginContainer/VBoxContainer/Crew" instance=ExtResource("2_gld74")]
+layout_mode = 2
+stat_display_name = "Crew Size"
+database_field_name = "hired_character_count"
+
+[node name="NumberOfUpgradesPurchased" parent="StatsContainer/MarginContainer/VBoxContainer/Crew" instance=ExtResource("2_gld74")]
+layout_mode = 2
+stat_display_name = "Upgrades Purchased"
+database_field_name = "purchased_upgrade_count"
+
+[node name="Resources" type="VBoxContainer" parent="StatsContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Header" type="Label" parent="StatsContainer/MarginContainer/VBoxContainer/Resources"]
+layout_mode = 2
+text = "Resources:
+"
+
+[node name="EndingMoney" parent="StatsContainer/MarginContainer/VBoxContainer/Resources" instance=ExtResource("2_gld74")]
+layout_mode = 2
+stat_display_name = "Ending Coin Count"
+database_field_name = "current_money"
+
+[node name="EndingFuel" parent="StatsContainer/MarginContainer/VBoxContainer/Resources" instance=ExtResource("2_gld74")]
+layout_mode = 2
+stat_display_name = "Ending Fuel Count"
+database_field_name = "current_fuel"
+
+[node name="ButtonContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3
+anchor_top = 0.9
+anchor_right = 0.7
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Retry" type="Button" parent="ButtonContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Retry from 
+Last Checkpoint"
+
+[node name="ToMainMenu" type="Button" parent="ButtonContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Return to
+Main Menu"

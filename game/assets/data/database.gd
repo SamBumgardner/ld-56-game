@@ -7,6 +7,7 @@ signal fuel_changed(new_value: int, old_value: int)
 signal die_slots_set(was_reroll: bool)
 signal die_slot_changed(changed_die_slot: CharacterDieSlot)
 signal barrier_changed(new_barrier_data: BarrierData)
+signal checkpoint_saved()
 
 enum StatType {
     MIGHT,
@@ -25,6 +26,9 @@ static var stat_type_to_icon: Dictionary = {
     StatType.WIT: preload("res://assets/art/HEAL_icon_64x64.png"),
     StatType.CHAOS: preload("res://assets/art/MAGIC_icon_64x64.png"),
 }
+
+const CHECKPOINT_SAVED_MESSAGE: String = "Checkpoint Reached!"
+const CHECKPOINT_SAVED_DURATION: float = 2
 
 const _settings_default_audio_volume_music: float = 0.5
 const _settings_default_audio_volume_sfx: float = 0.5
@@ -85,11 +89,53 @@ var should_generate_new_applicants: bool
 var current_money: int
 var current_fuel: int
 
+var saved_state: GameplayInitValues
+
+var hired_character_count: int:
+    get():
+        return hired_characters.size()
+    set(value):
+        push_error("attempted to set derived field. Don't do this")
+
+var purchased_upgrade_count: int:
+    get():
+        var total: int = 0
+        for character: Character in hired_characters:
+            total += character.upgrade_level
+        return total
+    set(value):
+        push_error("attempted to set derived field. Don't do this")
 
 func _ready():
     _ready_audio_volumes()
     reset_values()
 
+# Like reset_values
+func load_from_init_values(init_values: GameplayInitValues):
+    set_barriers_overcome_count(init_values.barriers_overcome_count)
+    set_barriers_linear_scale_amount(init_values.barriers_linear_scale_amount)
+    set_current_barrier_cost_to_overcome_number(
+        init_values.current_barrier_cost_to_overcome_number
+    )
+    set_current_barrier_stat_type_to_overcome(
+        init_values.current_barrier_stat_type_to_overcome
+    )
+    if init_values.current_barrier_data != null:
+        set_current_barrier_data(init_values.current_barrier_data)
+    set_current_character_die_slots(init_values.current_character_die_slots.duplicate())
+    set_current_matching_stat_type_multiplier(
+        init_values.current_matching_stat_type_multiplier
+    )
+    set_war_transport_health_maximum(init_values.war_transport_health_maximum)
+    set_war_transport_health_current(init_values.war_transport_health_current)
+    set_money(init_values.current_money)
+    set_fuel(init_values.current_fuel)
+    set_reroll_fuel_cost(init_values.current_reroll_fuel_cost)
+
+    hired_characters = init_values.hired_characters
+    unhired_characters = init_values.unhired_characters
+    applicants = init_values.applicants
+    should_generate_new_applicants = init_values.should_generate_new_applicants
 
 # Excludes chosen settings for audio volume.
 func reset_values() -> void:
@@ -100,9 +146,6 @@ func reset_values() -> void:
     )
     set_current_barrier_stat_type_to_overcome(
         _initial_barriers_stat_type_to_overcome
-    )
-    set_current_barrier_data(
-        null
     )
     set_current_character_die_slots(_initial_character_die_slots.duplicate())
     set_current_matching_stat_type_multiplier(
@@ -146,6 +189,10 @@ func initialize_missing_die_slots() -> void:
             current_die_slots.append(new_die_slot)
 
     set_current_character_die_slots(current_die_slots)
+
+func save_checkpoint():
+    saved_state = GameplayInitValues.new(true)
+    checkpoint_saved.emit()
 
 # TODO: Could move this to indoor_preparation class if we want the logic out of the DB.
 func get_random_unhired(count: int) -> Array[Character]:

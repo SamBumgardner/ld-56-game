@@ -24,7 +24,6 @@ func display_combat_results():
     position = start_position
 
     var display_tween: Tween = create_tween()
-    display_tween.tween_interval(.5)
     display_tween.tween_callback(show)
     display_tween.tween_property(self, "modulate", Color.TRANSPARENT, DISPLAY_DURATION)
     display_tween.parallel().tween_property(self, "position", start_position + FLOAT_OFFSET, DISPLAY_DURATION)
@@ -39,3 +38,8 @@ class CombatResult extends RefCounted:
         health_change = _health_change
         money_change = _money_change
         fuel_change = _fuel_change
+    
+    func clear() -> void:
+        health_change = 0
+        money_change = 0
+        fuel_change = 0

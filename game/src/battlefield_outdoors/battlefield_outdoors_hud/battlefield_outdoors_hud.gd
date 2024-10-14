@@ -170,7 +170,7 @@ func _enable_interaction() -> void:
 ## Want to save the "resource ticking up" stuff until after the elements are visible again.
 func increase_resource_update_delay() -> void:
     for resource_display: ResourceDisplay in resource_displays:
-        resource_display.resource_change_start_delay = ChargeSequence.COOLDOWN_DURATION
+        resource_display.resource_change_start_delay = ChargeSequence.COOLDOWN_DURATION + ChargeSequence.IMPACT_DURATION
 
 func unset_resource_update_delay() -> void:
     for resource_display: ResourceDisplay in resource_displays:
@@ -193,12 +193,12 @@ func _on_charge_action(duration: float) -> void:
 
 func _on_charge_impact(duration: float) -> void:
     print("HUD charge impact", duration)
+    combat_results_summary.display_combat_results()
     # health reduced
 
 func _on_charge_cooldown(duration: float) -> void:
     print("HUD charge cooldown", duration)
     # trigger refreshes & information updates
-    combat_results_summary.display_combat_results()
     _charge_mode_fadein(duration)
 
 func _on_charge_finish() -> void:
