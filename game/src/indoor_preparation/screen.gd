@@ -147,7 +147,7 @@ func _on_locked_upgrade_clicked():
 func on_checkpoint_saved():
     notification_dimmer.show()
     screen_notification.display_notification(
-        ScreenNotification.ScreenNotificationType.NOTIFY,
+        ScreenNotification.ScreenNotificationType.CHECKPOINT,
         Database.CHECKPOINT_SAVED_MESSAGE,
         Database.CHECKPOINT_SAVED_DURATION
     )

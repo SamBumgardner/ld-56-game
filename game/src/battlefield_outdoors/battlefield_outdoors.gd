@@ -208,7 +208,7 @@ func _roll_dice() -> void:
 
 func _on_checkpoint_saved() -> void:
     battlefield_outdoors_hud.screen_notification.display_notification(
-        ScreenNotification.ScreenNotificationType.NOTIFY,
+        ScreenNotification.ScreenNotificationType.CHECKPOINT,
         Database.CHECKPOINT_SAVED_MESSAGE,
         Database.CHECKPOINT_SAVED_DURATION
     )

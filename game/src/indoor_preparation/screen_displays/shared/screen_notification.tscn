@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cib1fq003l5jx"]
 
-[ext_resource type="Theme" uid="uid://dq0psiuuo404u" path="res://assets/themes/Notification_Error.tres" id="1_02cx6"]
+[ext_resource type="Theme" uid="uid://cmbvxb1mxsipc" path="res://assets/themes/Notification_Checkpoint.tres" id="1_cc4ps"]
 [ext_resource type="Script" path="res://src/indoor_preparation/screen_displays/shared/screen_notification.gd" id="2_hcuqa"]
 [ext_resource type="PackedScene" uid="uid://h1fowbxngb70" path="res://src/audio_manager/AudioManager.tscn" id="3_lrapv"]
 
@@ -16,7 +16,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_02cx6")
+theme = ExtResource("1_cc4ps")
 script = ExtResource("2_hcuqa")
 
 [node name="AudioManager" parent="." instance=ExtResource("3_lrapv")]
@@ -51,7 +51,7 @@ theme_override_font_sizes/font_size = 10
 text = "Notification"
 
 [node name="PC2" type="PanelContainer" parent="PC/MC/VBC"]
-self_modulate = Color(0.751693, 0.400591, 0.279681, 1)
+self_modulate = Color(0.38321, 0.572438, 0.302119, 1)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_2lwms")
 

@@ -509,9 +509,12 @@ grow_vertical = 0
 
 [node name="CombatResultsSummary" parent="." instance=ExtResource("18_lgpuc")]
 visible = false
+z_index = 1
 layout_mode = 1
 anchors_preset = -1
+anchor_left = 0.7
 anchor_top = 0.4
+anchor_right = 0.7
 anchor_bottom = 0.4
 grow_vertical = 0
 

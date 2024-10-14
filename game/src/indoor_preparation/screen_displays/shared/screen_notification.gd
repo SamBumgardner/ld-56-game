@@ -3,14 +3,17 @@ class_name ScreenNotification extends Control
 enum ScreenNotificationType {
     NOTIFY,
     ERROR,
+    CHECKPOINT,
 }
 
 signal notification_expired()
 
 const inner_modulate_info: Color = Color(0.475, 0.498, 0.671)
 const inner_modulate_error: Color = Color(0.752, 0.401, 0.28)
+const inner_modulate_checkpoint: Color = Color(0.383, 0.572, 0.302)
 const theme_info: Theme = preload("res://assets/themes/Notification_Info.tres")
 const theme_error: Theme = preload("res://assets/themes/Notification_Error.tres")
+const theme_checkpoint: Theme = preload("res://assets/themes/Notification_Checkpoint.tres")
 
 @onready var expiration_timer: Timer = $ExpirationTimer
 @onready var header: Label = $PC/MC/VBC/Header
@@ -40,6 +43,10 @@ func display_notification(notification_type: ScreenNotificationType, body_text: 
             theme = theme_error
             inner_panel.self_modulate = inner_modulate_error
             _create_shake_tween()
+        ScreenNotificationType.CHECKPOINT:
+            header.text = "Checkpoint"
+            theme = theme_checkpoint
+            inner_panel.self_modulate = inner_modulate_checkpoint
     body.text = body_text
     expiration_max = duration
     expiration_bar.max_value = expiration_max
