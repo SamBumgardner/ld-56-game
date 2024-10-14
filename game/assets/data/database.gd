@@ -7,6 +7,7 @@ signal fuel_changed(new_value: int, old_value: int)
 signal die_slots_set(was_reroll: bool)
 signal die_slot_changed(changed_die_slot: CharacterDieSlot)
 signal barrier_changed(new_barrier_data: BarrierData)
+signal checkpoint_saved()
 
 enum StatType {
     MIGHT,
@@ -25,6 +26,9 @@ static var stat_type_to_icon: Dictionary = {
     StatType.WIT: preload("res://assets/art/HEAL_icon_64x64.png"),
     StatType.CHAOS: preload("res://assets/art/MAGIC_icon_64x64.png"),
 }
+
+const CHECKPOINT_SAVED_MESSAGE: String = "Checkpoint Reached!"
+const CHECKPOINT_SAVED_DURATION: float = 2
 
 const _settings_default_audio_volume_music: float = 0.5
 const _settings_default_audio_volume_sfx: float = 0.5
@@ -191,6 +195,7 @@ func initialize_missing_die_slots() -> void:
 
 func save_checkpoint():
     saved_state = GameplayInitValues.new(true)
+    checkpoint_saved.emit()
 
 # TODO: Could move this to indoor_preparation class if we want the logic out of the DB.
 func get_random_unhired(count: int) -> Array[Character]:

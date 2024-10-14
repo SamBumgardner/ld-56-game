@@ -144,6 +144,14 @@ func _on_locked_upgrade_clicked():
         UPGRADE_LOCK_DURATION
     )
 
+func on_checkpoint_saved():
+    notification_dimmer.show()
+    screen_notification.display_notification(
+        ScreenNotification.ScreenNotificationType.NOTIFY,
+        Database.CHECKPOINT_SAVED,
+        Database.CHECKPOINT_SAVED_DURATION
+    )
+
 func _hide_all_screen_displays() -> void:
     home_display.hide()
     hire_preview_display.hide()

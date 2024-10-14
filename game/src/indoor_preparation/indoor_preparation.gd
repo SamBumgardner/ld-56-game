@@ -71,3 +71,6 @@ func _on_upgrade_purchase_attempted(character: Character, upgrade_choice: Upgrad
     else:
         upgrade_failure.emit(character, PURCHASE_FAIL_POOR_REASON)
         insufficient_funds.emit()
+
+func _on_checkpoint_saved() -> void:
+    screen.on_checkpoint_saved()

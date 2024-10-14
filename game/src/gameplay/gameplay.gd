@@ -1,5 +1,7 @@
 class_name Gameplay extends Control
 
+signal checkpoint_saved()
+
 @onready var outdoor_canvas: CanvasLayer = $OutdoorBattleMode
 @onready var outdoor_root: BattlefieldOutdoors = $OutdoorBattleMode/BattlefieldOutdoors
 @onready var indoor_canvas: CanvasLayer = $IndoorPrepMode
@@ -16,6 +18,10 @@ func _ready() -> void:
 
     outdoor_root.charge_warmup.connect(charge_zoom_in)
     outdoor_root.charge_cooldown.connect(charge_zoom_out)
+
+    Database.checkpoint_saved.connect(checkpoint_saved.emit)
+    checkpoint_saved.connect(outdoor_root._on_checkpoint_saved)
+    checkpoint_saved.connect(indoor_root._on_checkpoint_saved)
 
 func go_inside() -> void:
     # we can do fancier stuff, like take a callback to only do once the screen's 
@@ -74,3 +80,7 @@ func charge_zoom_out(duration):
     zoom_in_tween.set_ease(Tween.EASE_OUT)
     zoom_in_tween.set_trans(Tween.TRANS_CUBIC)
     zoom_in_tween.tween_property(outdoor_canvas, "scale", Vector2.ONE, duration)
+
+func _on_checkpoint_requested():
+    Database.save_checkpoint()
+    checkpoint_saved.emit()
