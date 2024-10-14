@@ -159,14 +159,14 @@ func _on_battlefield_outdoors_dice_roll_started():
 
 # 2024-10-13 Known edge case: Due to the crossfade greater than 0,
 #  quickly leaving and then re-entering focus will stop the sound effect.
-func _on_reroll_button_hovered_available_reroll():
+func _on_crew_actions_display_dice_visually_rolling_start():
     SoundManager.play_ambient_sound(
         sfx_dice_shake,
         _reroll_audio_crossfade,
         _bus_name_sfx_ui
     )
 
-func _on_reroll_button_exited_available_reroll():
+func _on_crew_actions_display_dice_visually_rolling_stop():
     SoundManager.stop_ambient_sound(sfx_dice_shake, _reroll_audio_crossfade)
 
 #endregion Dice reroll hovering

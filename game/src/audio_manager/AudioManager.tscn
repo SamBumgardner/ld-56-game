@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://bnwxx5jm4stl6" path="res://assets/audio/102_sfx_select.wav" id="2_x7bd4"]
 [ext_resource type="AudioStream" uid="uid://db75wtlmke61f" path="res://assets/audio/101_sfx_button.wav" id="2_xtd0e"]
 [ext_resource type="AudioStream" uid="uid://b6pu2ckub1qta" path="res://assets/audio/103_sfx_dice_shake.ogg" id="5_iam4r"]
-[ext_resource type="AudioStream" uid="uid://bi1gg0y8r3t23" path="res://assets/audio/201_sfx_dice_landing_randomizer.tres" id="5_rv2n8"]
+[ext_resource type="AudioStream" path="res://assets/audio/201_sfx_dice_landing_randomizer.tres" id="5_rv2n8"]
 
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_eh3tu")
