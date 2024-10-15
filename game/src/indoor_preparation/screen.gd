@@ -157,7 +157,7 @@ func on_new_applicants_arrived():
     notification_dimmer.show()
     screen_notification.display_notification(
         ScreenNotification.ScreenNotificationType.NOTIFY,
-        ApplicantOrchestrator.NEW_APPLICANTS_MESSAGE,
+        ApplicantOrchestrator.NEW_APPLICANTS_MESSAGE % Database.applicants.size(),
         ApplicantOrchestrator.NEW_APPLICANTS_DURATION,
     )
 

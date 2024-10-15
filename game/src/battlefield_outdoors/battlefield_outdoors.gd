@@ -228,6 +228,6 @@ func _on_checkpoint_saved() -> void:
 func _on_new_applicants_arrived() -> void:
     battlefield_outdoors_hud.screen_notification.queue_notification(
         ScreenNotification.ScreenNotificationType.NOTIFY,
-        ApplicantOrchestrator.NEW_APPLICANTS_MESSAGE,
+        ApplicantOrchestrator.NEW_APPLICANTS_MESSAGE % Database.applicants.size(),
         ApplicantOrchestrator.NEW_APPLICANTS_DURATION,
     )

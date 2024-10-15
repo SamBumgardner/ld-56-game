@@ -1,9 +1,9 @@
 class_name ApplicantOrchestrator extends Node
 
-signal new_applicants_arrived(new_applicants: Array[Character])
+signal new_applicants_arrived()
 
-const NEW_APPLICANTS_MESSAGE: String = "New applicants are looking for work."
-const NEW_APPLICANTS_DURATION: float = 2.0
+const NEW_APPLICANTS_MESSAGE: String = "Mercenaries are looking for work.\nCurrent number of applicants: %s"
+const NEW_APPLICANTS_DURATION: float = 3.0
 
 var first_hiring_round: int = 3
 var rounds_since_last_applicant: int = 0
@@ -19,12 +19,19 @@ func update_applicants():
 
     if current_round < first_hiring_round:
         return
+    
+    rounds_since_applicant_left += 1
+    rounds_since_last_applicant += 1
 
-    current_applicants = _applicants_leave(current_round, current_applicants)
-    current_applicants = _applicants_arrive(current_applicants, current_round, crew_size)
+    if rounds_since_last_applicant > 1:
+        current_applicants = _applicants_leave(current_round, current_applicants)
+    if rounds_since_last_applicant > 4:
+        current_applicants = _applicants_arrive(current_applicants, current_round, crew_size)
 
     Database.set_current_applicants(current_applicants)
-    new_applicants_arrived.emit()
+
+    if rounds_since_last_applicant == 0:
+        new_applicants_arrived.emit()
 
 
 func _applicants_leave(current_round: int, applicants: Array[Character]) -> Array[Character]:
@@ -63,13 +70,11 @@ func _calculate_leave_count(current_round: int) -> int:
     const unlucky_round_frequency: int = 5
     const unlucky_round_multiplier: float = 1.5
 
-    var leave_count: int = 0
-    if rounds_since_applicant_left > 1:
-        var leave_chance = leave_multiplier * rounds_since_applicant_left
-        if current_round % unlucky_round_frequency == 0:
-            leave_chance *= unlucky_round_multiplier
-        
-        leave_count = floor(leave_chance / randf())
+    var leave_chance = leave_multiplier * rounds_since_applicant_left
+    if current_round % unlucky_round_frequency == 0:
+        leave_chance *= unlucky_round_multiplier
+    
+    var leave_count = floor(leave_chance / randf())
 
     return leave_count
 
@@ -84,15 +89,21 @@ func _calculate_applicant_count(current_round: int, crew_size: int) -> int:
     const chance_per_time_crew_count_looped: float = .1
     const pity_chance: float = .05
     const lucky_round_frequency: int = 3
-    const lucky_round_multiplier: float = 1.5
+    const lucky_round_multiplier: float = 1.3
 
     var applicant_chance = float(current_round) / crew_size * chance_per_time_crew_count_looped
     applicant_chance += pity_chance * rounds_since_last_applicant
     if current_round % lucky_round_frequency == 0:
         applicant_chance *= lucky_round_multiplier
-
-    var applicant_count = floor(applicant_chance / randf())
-
+    
+    var applicant_count = 0
+    var application_roll = randf()
+    var scaling_factor = 1.2
+    while applicant_chance > 0 and applicant_count < Database.MAX_APPLICANTS:
+        applicant_chance -= application_roll
+        if applicant_chance > 0:
+            applicant_count += 1
+            application_roll *= scaling_factor
 
     return applicant_count
 
