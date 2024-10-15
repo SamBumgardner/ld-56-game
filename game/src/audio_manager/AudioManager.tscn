@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://h1fowbxngb70"]
+[gd_scene load_steps=11 format=3 uid="uid://h1fowbxngb70"]
 
 [ext_resource type="Script" path="res://src/audio_manager/audio_manager.gd" id="1_eh3tu"]
 [ext_resource type="AudioStream" uid="uid://cqskfy7h4l6m4" path="res://assets/audio/001_loop_music.ogg" id="2_nhmoc"]
@@ -8,6 +8,8 @@
 [ext_resource type="AudioStream" uid="uid://bi1gg0y8r3t23" path="res://assets/audio/201_sfx_dice_landing_randomizer.tres" id="5_rv2n8"]
 [ext_resource type="AudioStream" uid="uid://bgb2j55w0hct1" path="res://assets/audio/107_sfx_navigate_computer_menu.wav" id="7_0bqsn"]
 [ext_resource type="AudioStream" uid="uid://b06l7o6tdjt1b" path="res://assets/audio/108_sfx_navigate_computer_menu.wav" id="8_ko7jq"]
+[ext_resource type="AudioStream" uid="uid://d13u6to11k8f4" path="res://assets/audio/109_sfx_woosh.wav" id="9_5njtl"]
+[ext_resource type="AudioStream" uid="uid://hjldvirp4bwt" path="res://assets/audio/110_sfx_woosh.wav" id="10_th1gx"]
 
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_eh3tu")
@@ -18,3 +20,5 @@ sfx_dice_landing = ExtResource("5_rv2n8")
 sfx_dice_shake = ExtResource("5_iam4r")
 sfx_indoors_enter_a_menu = ExtResource("7_0bqsn")
 sfx_indoors_exit_a_menu = ExtResource("8_ko7jq")
+sfx_transition_gameplay_indoors_to_outdoors = ExtResource("9_5njtl")
+sfx_transition_gameplay_outdoors_to_indoors = ExtResource("10_th1gx")

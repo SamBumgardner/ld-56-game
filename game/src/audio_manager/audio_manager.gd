@@ -9,6 +9,8 @@ class_name AudioManager extends Node
 @export var sfx_dice_shake: AudioStream
 @export var sfx_indoors_enter_a_menu: AudioStream
 @export var sfx_indoors_exit_a_menu: AudioStream
+@export var sfx_transition_gameplay_indoors_to_outdoors: AudioStream
+@export var sfx_transition_gameplay_outdoors_to_indoors: AudioStream
 
 
 const _bus_name_music = 'Music'
@@ -117,10 +119,16 @@ func _on_exit_button_pressed():
     SoundManager.play_ui_sound(sfx_button_click, _bus_name_sfx_ui)
 
 func _on_go_inside_button_pressed():
-    SoundManager.play_ui_sound(sfx_button_click, _bus_name_sfx_ui)
+    SoundManager.play_ui_sound(
+        sfx_transition_gameplay_outdoors_to_indoors,
+        _bus_name_sfx_ui
+    )
 
 func _on_go_outside_button_pressed():
-    SoundManager.play_ui_sound(sfx_button_click, _bus_name_sfx_ui)
+    SoundManager.play_ui_sound(
+        sfx_transition_gameplay_indoors_to_outdoors,
+        _bus_name_sfx_ui
+    )
 
 func _on_hire_detail_exit_button_pressed():
     SoundManager.play_ui_sound(sfx_button_click, _bus_name_sfx_ui)
