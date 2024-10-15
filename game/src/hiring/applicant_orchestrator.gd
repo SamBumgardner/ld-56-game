@@ -10,7 +10,7 @@ var rounds_since_last_applicant: int = 0
 var rounds_since_applicant_left: int = 0
 
 func _ready() -> void:
-    rounds_since_last_applicant = 10
+    rounds_since_last_applicant = 4
 
 func update_applicants():
     var current_round: int = Database.barriers_overcome_count
@@ -83,7 +83,10 @@ func _pop_back_applicants(
         number_to_remove: int
         ) -> Array[Character]:
     
-    return current_applicants.slice(0, current_applicants.size() - number_to_remove)
+    if number_to_remove > current_applicants.size():
+        return []
+    else:
+        return current_applicants.slice(0, current_applicants.size() - number_to_remove)
 
 func _calculate_applicant_count(current_round: int, crew_size: int) -> int:
     const chance_per_time_crew_count_looped: float = .1
