@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dj3cohh45iw0d"]
+[gd_scene load_steps=8 format=3 uid="uid://dj3cohh45iw0d"]
 
 [ext_resource type="Texture2D" uid="uid://woajwoo0x5y4" path="res://assets/art/crew_member_buttons/placeholder/placeholder_crew.png" id="1_0is4p"]
 [ext_resource type="ButtonGroup" uid="uid://bjgmkn24yqbu4" path="res://src/indoor_preparation/crew_buttons/crew_buttons.tres" id="1_jddrr"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://83gpsthoyxsv" path="res://assets/art/crew_member_buttons/placeholder/placeholder_crew_highlight.png" id="3_114bo"]
 [ext_resource type="BitMap" uid="uid://cccfyr5chl1jk" path="res://assets/art/crew_member_buttons/placeholder/placeholder_crew.bmp" id="4_4dfub"]
 [ext_resource type="Script" path="res://src/indoor_preparation/crew_buttons/crew_button.gd" id="5_06drq"]
+[ext_resource type="PackedScene" uid="uid://h1fowbxngb70" path="res://src/audio_manager/AudioManager.tscn" id="7_0qb38"]
 
 [node name="CrewButton" type="TextureButton"]
 anchors_preset = 8
@@ -27,3 +28,7 @@ texture_hover = ExtResource("3_114bo")
 texture_focused = ExtResource("2_bm1w8")
 texture_click_mask = ExtResource("4_4dfub")
 script = ExtResource("5_06drq")
+
+[node name="AudioManager" parent="." instance=ExtResource("7_0qb38")]
+
+[connection signal="crew_member_selected" from="." to="AudioManager" method="_on_crew_button_crew_member_selected"]

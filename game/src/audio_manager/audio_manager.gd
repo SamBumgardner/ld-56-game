@@ -7,6 +7,8 @@ class_name AudioManager extends Node
 @export var sfx_button_hover: AudioStream
 @export var sfx_dice_landing: AudioStream
 @export var sfx_dice_shake: AudioStream
+@export var sfx_indoors_enter_a_menu: AudioStream
+@export var sfx_indoors_exit_a_menu: AudioStream
 
 
 const _bus_name_music = 'Music'
@@ -97,19 +99,19 @@ func _on_start_button_mouse_entered():
 #region Button press
 
 func _on_browse_new_hires_button_pressed():
-    SoundManager.play_ui_sound(sfx_button_click, _bus_name_sfx_ui)
+    SoundManager.play_ui_sound(sfx_indoors_enter_a_menu, _bus_name_sfx_ui)
 
 func _on_character_info_panel_close_button_pressed():
-    SoundManager.play_ui_sound(sfx_button_click, _bus_name_sfx_ui)
+    SoundManager.play_ui_sound(sfx_indoors_exit_a_menu, _bus_name_sfx_ui)
 
 func _on_charge_button_pressed():
     SoundManager.play_ui_sound(sfx_button_click, _bus_name_sfx_ui)
 
 func _on_close_screen_notification_button_pressed():
-    SoundManager.play_ui_sound(sfx_button_click, _bus_name_sfx_ui)
+    SoundManager.play_ui_sound(sfx_indoors_exit_a_menu, _bus_name_sfx_ui)
 
 func _on_crew_member_detail_exit_button_pressed():
-    SoundManager.play_ui_sound(sfx_button_click, _bus_name_sfx_ui)
+    SoundManager.play_ui_sound(sfx_indoors_exit_a_menu, _bus_name_sfx_ui)
 
 func _on_exit_button_pressed():
     SoundManager.play_ui_sound(sfx_button_click, _bus_name_sfx_ui)
@@ -124,13 +126,13 @@ func _on_hire_detail_exit_button_pressed():
     SoundManager.play_ui_sound(sfx_button_click, _bus_name_sfx_ui)
 
 func _on_hire_preview_display_cancel_button_pressed():
-    SoundManager.play_ui_sound(sfx_button_click, _bus_name_sfx_ui)
+    SoundManager.play_ui_sound(sfx_indoors_exit_a_menu, _bus_name_sfx_ui)
 
 func _on_lock_button_pressed():
     SoundManager.play_ui_sound(sfx_button_click, _bus_name_sfx_ui)
 
 func _on_new_hire_preview_button_pressed():
-    SoundManager.play_ui_sound(sfx_button_click, _bus_name_sfx_ui)
+    SoundManager.play_ui_sound(sfx_indoors_enter_a_menu, _bus_name_sfx_ui)
 
 # Reused for 2 buttons.
 func _on_purchase_button_pressed():
@@ -146,6 +148,21 @@ func _on_start_button_pressed():
     SoundManager.play_ui_sound(sfx_button_click, _bus_name_sfx_ui)
 
 #endregion Button press
+
+
+#region Character select
+# Selecting a character is treated like a menu navigation SFX for simplicity.
+
+func _on_crew_button_crew_member_selected(_character):
+    SoundManager.play_ui_sound(sfx_indoors_enter_a_menu, _bus_name_sfx_ui)
+
+func _on_crew_selector_button_character_selected(_character, _button_end_state):
+    SoundManager.play_ui_sound(sfx_indoors_enter_a_menu, _bus_name_sfx_ui)
+
+func _on_character_action_display_character_selected(_character, _button_end_state):
+    SoundManager.play_ui_sound(sfx_indoors_enter_a_menu, _bus_name_sfx_ui)
+
+#endregion
 
 
 #region Dice reroll hovering
