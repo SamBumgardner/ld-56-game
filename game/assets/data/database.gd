@@ -29,6 +29,7 @@ static var stat_type_to_icon: Dictionary = {
 
 const CHECKPOINT_SAVED_MESSAGE: String = "Checkpoint Reached!"
 const CHECKPOINT_SAVED_DURATION: float = 2
+const MAX_APPLICANTS: int = 4
 
 const _settings_default_audio_volume_music: float = 0.5
 const _settings_default_audio_volume_sfx: float = 0.5

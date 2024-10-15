@@ -2,34 +2,84 @@ class_name ApplicantOrchestrator extends Node
 
 signal new_applicants_arrived(new_applicants: Array[Character])
 
+var rounds_since_last_applicant: int = 0
+var rounds_since_applicant_left: int = 0
+
+func _ready() -> void:
+    rounds_since_last_applicant = 10
+
 func update_applicants(current_round: int):
     var current_applicants: Array[Character] = Database.applicants
     var crew_size: int = Database.hired_character_count
 
-    if current_applicants.size() > 1:
-        var num_to_remove: int = _calculate_leave_count()
-        current_applicants = _pop_back_applicants(current_applicants, num_to_remove)
-    
+    current_applicants = _applicants_leave(current_round, current_applicants)
+    _applicants_arrive(current_applicants, current_round, crew_size)
+
+
+func _applicants_leave(current_round: int, applicants: Array[Character]) -> Array[Character]:
+    var num_to_remove: int = _calculate_leave_count(current_round)
+
+    # reset rounds since left if applicants is empty or losing someone
+    if num_to_remove > 0 or applicants.is_empty():
+        rounds_since_applicant_left = 0
+
+    return _pop_back_applicants(applicants, num_to_remove)
+
+func _applicants_arrive(applicants: Array[Character], current_round: int, crew_size: int) -> void:
     var num_to_add: int = _calculate_applicant_count(current_round, crew_size)
+
     if num_to_add > 0:
         var new_applicants: Array[Character] = _select_new_applicants(num_to_add)
         for applicant: Character in new_applicants:
             _adjust_price(applicant, current_round, crew_size)
-        _cycle_applicants(new_applicants, current_applicants)
+        
+        if not new_applicants.is_empty():
+            rounds_since_last_applicant = 0
+        if new_applicants.size() + applicants.size() > Database.MAX_APPLICANTS:
+            rounds_since_applicant_left = 0
+        
+        _cycle_applicants(new_applicants, applicants)
 
         new_applicants_arrived.emit(new_applicants)
 
-func _calculate_leave_count() -> int:
-    return 0
+
+func _calculate_leave_count(current_round: int) -> int:
+    const leave_multiplier: float = .1
+    const unlucky_round_frequency: int = 5
+    const unlucky_round_multiplier: float = 1.5
+
+    var leave_count: int = 0
+    if rounds_since_applicant_left > 1:
+        var leave_chance = leave_multiplier * rounds_since_applicant_left
+        if current_round % unlucky_round_frequency == 0:
+            leave_chance *= unlucky_round_multiplier
+        
+        leave_count = floor(leave_chance / randf())
+
+    return leave_count
 
 func _pop_back_applicants(
         current_applicants: Array[Character],
         number_to_remove: int
         ) -> Array[Character]:
-    return []
+    
+    return current_applicants.slice(0, current_applicants.size() - number_to_remove)
 
 func _calculate_applicant_count(current_round: int, crew_size: int) -> int:
-    return 0
+    const chance_per_time_crew_count_looped: float = .1
+    const pity_chance: float = .05
+    const lucky_round_frequency: int = 3
+    const lucky_round_multiplier: float = 1.5
+
+    var applicant_chance = float(current_round) / crew_size * chance_per_time_crew_count_looped
+    applicant_chance += pity_chance * rounds_since_last_applicant
+    if current_round % lucky_round_frequency == 0:
+        applicant_chance *= lucky_round_multiplier
+
+    var applicant_count = floor(applicant_chance / randf())
+
+
+    return applicant_count
 
 func _select_new_applicants(count: int) -> Array[Character]:
     return []
