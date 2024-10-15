@@ -152,6 +152,15 @@ func on_checkpoint_saved():
         Database.CHECKPOINT_SAVED_DURATION
     )
 
+func on_new_applicants_arrived():
+    register_applicants_for_display(Database.applicants)
+    notification_dimmer.show()
+    screen_notification.display_notification(
+        ScreenNotification.ScreenNotificationType.NOTIFY,
+        ApplicantOrchestrator.NEW_APPLICANTS_MESSAGE,
+        ApplicantOrchestrator.NEW_APPLICANTS_DURATION,
+    )
+
 func _hide_all_screen_displays() -> void:
     home_display.hide()
     hire_preview_display.hide()

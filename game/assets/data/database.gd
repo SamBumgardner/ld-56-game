@@ -172,7 +172,7 @@ func initialize_characters() -> void:
         else:
             unhired_characters.append(characters[i])
     
-    hire_character(get_random_unhired(1)[0])
+    #hire_character(get_random_unhired(1)[0])
     initialize_missing_die_slots()
 
 func initialize_missing_die_slots() -> void:

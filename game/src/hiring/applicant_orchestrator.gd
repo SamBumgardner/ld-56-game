@@ -2,18 +2,29 @@ class_name ApplicantOrchestrator extends Node
 
 signal new_applicants_arrived(new_applicants: Array[Character])
 
+const NEW_APPLICANTS_MESSAGE: String = "New applicants are looking for work."
+const NEW_APPLICANTS_DURATION: float = 2.0
+
+var first_hiring_round: int = 3
 var rounds_since_last_applicant: int = 0
 var rounds_since_applicant_left: int = 0
 
 func _ready() -> void:
     rounds_since_last_applicant = 10
 
-func update_applicants(current_round: int):
+func update_applicants():
+    var current_round: int = Database.barriers_overcome_count
     var current_applicants: Array[Character] = Database.applicants
     var crew_size: int = Database.hired_character_count
 
+    if current_round < first_hiring_round:
+        return
+
     current_applicants = _applicants_leave(current_round, current_applicants)
-    _applicants_arrive(current_applicants, current_round, crew_size)
+    current_applicants = _applicants_arrive(current_applicants, current_round, crew_size)
+
+    Database.set_current_applicants(current_applicants)
+    new_applicants_arrived.emit()
 
 
 func _applicants_leave(current_round: int, applicants: Array[Character]) -> Array[Character]:
@@ -25,7 +36,11 @@ func _applicants_leave(current_round: int, applicants: Array[Character]) -> Arra
 
     return _pop_back_applicants(applicants, num_to_remove)
 
-func _applicants_arrive(applicants: Array[Character], current_round: int, crew_size: int) -> void:
+func _applicants_arrive(
+        applicants: Array[Character],
+        current_round: int,
+        crew_size: int
+        ) -> Array[Character]:
     var num_to_add: int = _calculate_applicant_count(current_round, crew_size)
 
     if num_to_add > 0:
@@ -38,9 +53,9 @@ func _applicants_arrive(applicants: Array[Character], current_round: int, crew_s
         if new_applicants.size() + applicants.size() > Database.MAX_APPLICANTS:
             rounds_since_applicant_left = 0
         
-        _cycle_applicants(new_applicants, applicants)
+        applicants = _cycle_applicants(new_applicants, applicants)
 
-        new_applicants_arrived.emit(new_applicants)
+    return applicants
 
 
 func _calculate_leave_count(current_round: int) -> int:
@@ -112,5 +127,5 @@ func _adjust_price(applicant: Character, current_round: int, crew_size: int) -> 
 func _cycle_applicants(new_applicants: Array[Character],
         current_applicants: Array[Character]
         ) -> Array[Character]:
-    new_applicants.append(current_applicants)
+    new_applicants.append_array(current_applicants)
     return new_applicants.slice(0, Database.MAX_APPLICANTS)

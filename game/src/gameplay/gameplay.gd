@@ -2,6 +2,7 @@ class_name Gameplay extends Control
 
 signal checkpoint_saved()
 
+@onready var applicant_orchestrator: ApplicantOrchestrator = $ApplicantOrchestrator
 @onready var outdoor_canvas: CanvasLayer = $OutdoorBattleMode
 @onready var outdoor_root: BattlefieldOutdoors = $OutdoorBattleMode/BattlefieldOutdoors
 @onready var indoor_canvas: CanvasLayer = $IndoorPrepMode
@@ -19,9 +20,14 @@ func _ready() -> void:
     outdoor_root.charge_warmup.connect(charge_zoom_in)
     outdoor_root.charge_cooldown.connect(charge_zoom_out)
 
+    outdoor_root.charge_finish.connect(applicant_orchestrator.update_applicants)
+
     Database.checkpoint_saved.connect(checkpoint_saved.emit)
     checkpoint_saved.connect(outdoor_root._on_checkpoint_saved)
     checkpoint_saved.connect(indoor_root._on_checkpoint_saved)
+
+    applicant_orchestrator.new_applicants_arrived.connect(outdoor_root._on_new_applicants_arrived)
+    applicant_orchestrator.new_applicants_arrived.connect(indoor_root._on_new_applicants_arrived)
 
 func go_inside() -> void:
     # we can do fancier stuff, like take a callback to only do once the screen's 

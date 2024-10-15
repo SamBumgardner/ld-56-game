@@ -26,6 +26,8 @@ const theme_checkpoint: Theme = preload("res://assets/themes/Notification_Checkp
 var expiration_max: float
 var shake_tween: Tween
 
+var notification_queue: Array[Callable] = []
+
 func _ready() -> void:
     close_button.pressed.connect(cancel)
     if self == get_tree().current_scene:
@@ -56,6 +58,12 @@ func display_notification(notification_type: ScreenNotificationType, body_text: 
     expiration_timer.one_shot = true
     expiration_timer.start(duration)
 
+# note: this won't play nice with some parts of how Indoors is set up right now
+func queue_notification(notification_type: ScreenNotificationType, body_text: String,
+        duration: float) -> void:
+    notification_queue.append(display_notification.bind(notification_type, body_text,
+        duration))
+
 func cancel():
     if visible:
         notification_expired.emit()
@@ -67,6 +75,9 @@ func _process(_delta: float) -> void:
     elif visible:
         notification_expired.emit()
         hide()
+
+    if notification_queue.size() > 0:
+        notification_queue.pop_front().call()
 
 func _create_shake_tween():
     if shake_tween != null and shake_tween.is_valid():
