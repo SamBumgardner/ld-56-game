@@ -10,7 +10,7 @@ var rounds_since_last_applicant: int = 0
 var rounds_since_applicant_left: int = 0
 
 func _ready() -> void:
-    rounds_since_last_applicant = 4
+    rounds_since_last_applicant = 10 - min(4, Database.barriers_overcome_count)
 
 func update_applicants():
     var current_round: int = Database.barriers_overcome_count
