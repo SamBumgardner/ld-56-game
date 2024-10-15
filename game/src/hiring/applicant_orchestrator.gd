@@ -82,7 +82,29 @@ func _calculate_applicant_count(current_round: int, crew_size: int) -> int:
     return applicant_count
 
 func _select_new_applicants(count: int) -> Array[Character]:
-    return []
+    var unhired_characters: Array[Character] = Database.unhired_characters
+    var current_applicants: Array[Character] = Database.applicants
+
+    var available_characters: Array[Character] = \
+        unhired_characters.filter(func(x): return x not in current_applicants)
+    
+    if count >= available_characters.size():
+        return available_characters
+    else:
+        var possible_indices: Array = range(available_characters.size())
+        var random_selections: Array[int] = []
+        for i in range(count):
+            var selected_index: int = possible_indices.pick_random()
+            if selected_index in random_selections:
+                selected_index = possible_indices.pick_random()
+            while selected_index in random_selections:
+                selected_index = (selected_index + 1) % available_characters.size()
+            random_selections.append(selected_index)
+        
+        var selected_characters: Array[Character] = []
+        for idx: int in random_selections:
+            selected_characters.append(available_characters[idx])
+        return selected_characters
 
 func _adjust_price(applicant: Character, current_round: int, crew_size: int) -> void:
     pass
@@ -90,4 +112,5 @@ func _adjust_price(applicant: Character, current_round: int, crew_size: int) -> 
 func _cycle_applicants(new_applicants: Array[Character],
         current_applicants: Array[Character]
         ) -> Array[Character]:
-    return []
+    new_applicants.append(current_applicants)
+    return new_applicants.slice(0, Database.MAX_APPLICANTS)
