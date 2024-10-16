@@ -25,7 +25,6 @@ button_group = ExtResource("1_jddrr")
 texture_normal = ExtResource("1_0is4p")
 texture_pressed = ExtResource("2_bm1w8")
 texture_hover = ExtResource("3_114bo")
-texture_focused = ExtResource("2_bm1w8")
 texture_click_mask = ExtResource("4_4dfub")
 script = ExtResource("5_06drq")
 

@@ -13,6 +13,7 @@ signal view_applicants_button_pressed()
 
 func _ready() -> void:
     view_applicants_button.pressed.connect(_propagate_applicants_button_pressed)
+    visibility_changed.connect(_on_visibility_changed)
 
 func refresh_crew_info():
     home_actions_display.refresh()
@@ -30,3 +31,9 @@ func set_barrier(barrier_data: BarrierData):
 
 func _propagate_applicants_button_pressed():
     view_applicants_button_pressed.emit()
+
+func _on_visibility_changed():
+    if visible:
+        home_actions_display.enable_all()
+    else:
+        home_actions_display.disable_all()

@@ -8,6 +8,9 @@ const FADE_IN_DURATION: float = 1
 
 @onready var database: Database = $"/root/Database"
 
+@onready var original_texture_hovered: Texture2D = texture_hover
+@onready var original_texture_normal: Texture2D = texture_normal
+
 var character_hired: bool = false
 var instantiated_character: Character
 var fade_in_tween: Tween
@@ -48,3 +51,9 @@ func _on_visibility_changed():
         fade_in_tween.set_ease(Tween.EASE_OUT)
         fade_in_tween.set_trans(Tween.TRANS_CUBIC)
         fade_in_tween.tween_property(self, "self_modulate", Color.WHITE, FADE_IN_DURATION)
+
+func mimic_hover_changed(mimic_hovered: bool):
+    if mimic_hovered:
+        texture_normal = original_texture_normal
+    else:
+        texture_normal = original_texture_hovered

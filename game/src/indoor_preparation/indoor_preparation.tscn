@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://b73yb04wjxq8"]
+[gd_scene load_steps=29 format=3 uid="uid://b73yb04wjxq8"]
 
 [ext_resource type="Texture2D" uid="uid://l3l2yqfmprg5" path="res://assets/art/ld_56_indoors.jpg" id="1_f348j"]
 [ext_resource type="Script" path="res://src/indoor_preparation/indoor_preparation.gd" id="2_0rynj"]
@@ -17,6 +17,7 @@
 [ext_resource type="Resource" uid="uid://duswkektwj6hb" path="res://assets/data/characters/002_lizard_char.tres" id="10_lfrlp"]
 [ext_resource type="Resource" uid="uid://b3l83j0ql7m0e" path="res://assets/data/characters/003_test_pal.tres" id="12_tfexc"]
 [ext_resource type="Resource" uid="uid://bfkdaseurpvu6" path="res://assets/data/characters/004_test_pal.tres" id="13_1osln"]
+[ext_resource type="Script" path="res://src/indoor_preparation/crew_buttons_parent.gd" id="13_2a042"]
 [ext_resource type="Resource" uid="uid://dexsvne2ukrlr" path="res://assets/data/characters/005_test_pal.tres" id="14_kx6ve"]
 [ext_resource type="Resource" uid="uid://bawjwhqx6mbin" path="res://assets/data/characters/006_test_pal.tres" id="15_nfr47"]
 [ext_resource type="Resource" uid="uid://h8yglehg8si2" path="res://assets/data/characters/007_test_pal.tres" id="16_pnxxu"]
@@ -92,6 +93,7 @@ layout_mode = 1
 
 [node name="CrewButtons" type="Control" parent="."]
 anchors_preset = 0
+script = ExtResource("13_2a042")
 
 [node name="CrewButton" parent="CrewButtons" instance=ExtResource("8_40muy")]
 layout_mode = 0
