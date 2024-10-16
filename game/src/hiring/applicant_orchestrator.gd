@@ -93,6 +93,7 @@ func _calculate_applicant_count(current_round: int, crew_size: int) -> int:
     const pity_chance: float = .05
     const lucky_round_frequency: int = 3
     const lucky_round_multiplier: float = 1.3
+    const required_pair_minimum: int = 2
 
     var applicant_chance = float(current_round) / crew_size * chance_per_time_crew_count_looped
     applicant_chance += pity_chance * rounds_since_last_applicant
@@ -107,6 +108,9 @@ func _calculate_applicant_count(current_round: int, crew_size: int) -> int:
         if applicant_chance > 0:
             applicant_count += 1
             application_roll *= scaling_factor
+    
+    if applicant_count > 0:
+        applicant_count = max(required_pair_minimum, applicant_count)
 
     return applicant_count
 
@@ -135,7 +139,7 @@ func _select_new_applicants(count: int) -> Array[Character]:
             selected_characters.append(available_characters[idx])
         return selected_characters
 
-func _adjust_price(applicant: Character, current_round: int, crew_size: int) -> void:
+func _adjust_price(applicant: Character, _current_round: int, crew_size: int) -> void:
     const sale_odds: float = .1
     const sale_mult: float = .8
     const slight_discount_odds: float = .3
@@ -144,7 +148,7 @@ func _adjust_price(applicant: Character, current_round: int, crew_size: int) -> 
     const overpriced_mult: float = 1.1
 
     var new_hiring_cost: int = (crew_size + 1) * 10
-    new_hiring_cost += floor(randi() % current_round / 2.0)
+    new_hiring_cost += floor(new_hiring_cost * randf_range(-.2, .2))
     var sale_percentage: float = 1.0
 
     var sale_roll: float = randf()
