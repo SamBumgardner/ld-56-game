@@ -1,7 +1,7 @@
 class_name TotalPowerDisplay extends MarginContainer
 
 @onready var combat_math_formulas: CombatMathFormulas = CombatMathFormulas.new()
-@onready var total_value_label: Label = $PanelContainer/VBoxContainer/TotalValue
+@export var total_value_label: Label
 
 func _ready() -> void:
     Database.barrier_changed.connect(_on_barrier_changed)

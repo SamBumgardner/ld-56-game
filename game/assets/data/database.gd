@@ -226,6 +226,7 @@ func hire_character(character: Character) -> void:
     applicants.erase(character)
     set_current_applicants(applicants)
     hired_characters.append(character)
+    Database.initialize_missing_die_slots()
 
 func get_settings_default_audio_volume_music() -> float:
     return _settings_default_audio_volume_music

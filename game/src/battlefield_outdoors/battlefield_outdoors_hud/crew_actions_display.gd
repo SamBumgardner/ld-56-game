@@ -1,14 +1,18 @@
-class_name CrewActionsDisplay extends MarginContainer
+class_name CrewActionsDisplay extends Control
 
 signal dice_visually_rolling_start()
 signal dice_visually_rolling_stop()
 
 @onready var database: Database = $"/root/Database"
-@onready var action_displays: Array[Node] = $PC/GC.get_children()
+var action_displays: Array[Node]
 
 func _ready() -> void:
+    action_displays = _get_child_action_displays()
     refresh()
     database.die_slots_set.connect(refresh)
+
+func _get_child_action_displays() -> Array[Node]:
+    return $PC/GC.get_children()
 
 func refresh(was_reroll: bool = false):
     var die_slots: Array[CharacterDieSlot] = database.current_character_die_slots
