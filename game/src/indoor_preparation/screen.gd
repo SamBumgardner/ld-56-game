@@ -99,6 +99,8 @@ func _on_cancel() -> void:
                 _delay_callback(home_display.show)
 
 func _on_hiring_success(character: Character) -> void:
+    home_display.refresh_crew_info()
+
     notification_dimmer.show()
     screen_notification.display_notification(
         ScreenNotification.ScreenNotificationType.NOTIFY,

@@ -10,16 +10,27 @@ const PURCHASE_FAIL_POOR_REASON: String = "INSUFFICIENT_FUNDS"
 
 @onready var database: Database = $"/root/Database"
 @onready var screen: Screen = $Screen
+@onready var crew_buttons_parent: CrewButtonsParent = $CrewButtons
 @onready var crew_buttons: Array[Node] = $CrewButtons.get_children()
 @onready var money_display: MoneyDisplay = $VBoxContainer/MoneyDisplay
 
 var applicants: Array[Character] = []
 
 func _ready() -> void:
+    for character_action_display in screen.home_display.home_actions_display.action_displays:
+        character_action_display.character_hover_changed.connect(
+            crew_buttons_parent._on_character_hover_changed)
+        character_action_display.character_selected.connect(
+            crew_buttons_parent._on_character_selected)
+        
     for crew_button in crew_buttons:
         crew_button.crew_member_selected.connect(screen._on_crew_member_selected)
+        crew_button.crew_member_deselected.connect(screen.return_to_home_display)
+        crew_button.crew_member_hover_changed.connect(
+            screen.home_display.home_actions_display._on_character_hovered)
         screen.left_character_detail_display.connect(crew_button._on_view_canceled)
         hiring_success.connect(crew_button._on_new_character_hired)
+        # tell the character_action_display owner when a character is hovered so it can update display appropriately
     screen.hire_detail_display.hire_purchase_pressed.connect(_on_hire_purchase_attempted)
     screen.character_detail_display.upgrade_purchase_pressed.connect(_on_upgrade_purchase_attempted)
     hiring_success.connect(screen._on_hiring_success)

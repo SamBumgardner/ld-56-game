@@ -1,14 +1,18 @@
-class_name CrewActionsDisplay extends MarginContainer
+class_name CrewActionsDisplay extends Control
 
 signal dice_visually_rolling_start()
 signal dice_visually_rolling_stop()
 
 @onready var database: Database = $"/root/Database"
-@onready var action_displays: Array[Node] = $PC/GC.get_children()
+var action_displays: Array[Node]
 
 func _ready() -> void:
+    action_displays = _get_child_action_displays()
     refresh()
     database.die_slots_set.connect(refresh)
+
+func _get_child_action_displays() -> Array[Node]:
+    return $PC/GC.get_children()
 
 func refresh(was_reroll: bool = false):
     var die_slots: Array[CharacterDieSlot] = database.current_character_die_slots
@@ -30,6 +34,16 @@ func _on_character_selected(selected_character: Character, button_end_state: boo
             )
         else:
             action_display.button.button_pressed = false
+
+func _on_character_hovered(selected_character: Character, is_hovered: bool):
+    for action_display in action_displays:
+        if (action_display.character_die_slot != null
+                and action_display.character_die_slot.character == selected_character
+                ):
+            if is_hovered:
+                action_display.modulate = Color.WHITE
+            else:
+                action_display.modulate = Color.YELLOW
 
 func start_preview_reroll() -> void:
     var any_unfrozen: bool = false

@@ -1,6 +1,7 @@
 class_name CharacterActionDisplay extends TextureRect
 
 signal character_selected(character: Character, button_end_state: bool)
+signal character_hover_changed(character: Character, is_hovered: bool)
 
 @onready var die_result: DieResult = $DieResult
 @onready var frozen_background: Control = $FrozenBackground
@@ -16,6 +17,8 @@ var rolling_tween: Tween
 func _ready() -> void:
     button.gui_input.connect(_handle_freeze_roll_action)
     button.pressed.connect(_on_button_pressed)
+    button.mouse_entered.connect(_on_button_hovered)
+    button.mouse_exited.connect(_on_button_hovered)
     Database.die_slot_changed.connect(_on_die_slot_update)
 
 func refresh(trigger_particles: bool = false) -> void:
@@ -52,6 +55,9 @@ func _handle_freeze_roll_action(event: InputEvent):
 
 func _on_button_pressed() -> void:
     character_selected.emit(character_die_slot.character, button.button_pressed)
+
+func _on_button_hovered() -> void:
+    character_hover_changed.emit(character_die_slot.character, button.is_hovered())
 
 func _on_die_slot_update(changed_die_slot: CharacterDieSlot) -> void:
     if changed_die_slot == character_die_slot:

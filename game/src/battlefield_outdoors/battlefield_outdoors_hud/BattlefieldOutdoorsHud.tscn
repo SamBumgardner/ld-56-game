@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://h1fowbxngb70" path="res://src/audio_manager/AudioManager.tscn" id="2_ffis0"]
 [ext_resource type="LabelSettings" uid="uid://2bu6p3hkt8lk" path="res://assets/label_settings/ColorWarning.tres" id="2_p0vkd"]
 [ext_resource type="PackedScene" uid="uid://cnbbp4gy833n" path="res://src/shared_ui/resource_display/money_display.tscn" id="2_ualkn"]
-[ext_resource type="PackedScene" uid="uid://cjb6144n5q1b1" path="res://src/shared_ui/resource_display/fuel_display.tscn" id="3_n5xb3"]
+[ext_resource type="PackedScene" path="res://src/shared_ui/resource_display/fuel_display.tscn" id="3_n5xb3"]
 [ext_resource type="PackedScene" uid="uid://cib1fq003l5jx" path="res://src/indoor_preparation/screen_displays/shared/screen_notification.tscn" id="3_rl23t"]
 [ext_resource type="PackedScene" uid="uid://cf5qy6u2j3hhw" path="res://assets/themes/fuel_display_mini.tscn" id="5_3m24g"]
 [ext_resource type="Script" path="res://src/battlefield_outdoors/battlefield_outdoors_hud/crew_selector/crew_member_selector.gd" id="5_vpr4d"]
@@ -17,9 +17,9 @@
 [ext_resource type="Script" path="res://src/battlefield_outdoors/battlefield_outdoors_hud/reroll_button.gd" id="7_xg4o8"]
 [ext_resource type="Script" path="res://src/battlefield_outdoors/battlefield_outdoors_hud/total_power_display.gd" id="9_cb4ss"]
 [ext_resource type="Script" path="res://src/battlefield_outdoors/battlefield_outdoors_hud/barrier_preview.gd" id="9_iui7q"]
-[ext_resource type="PackedScene" uid="uid://6tyicfyiq5gf" path="res://src/battlefield_outdoors/battlefield_outdoors_hud/character_info_panel.tscn" id="16_oou66"]
+[ext_resource type="PackedScene" uid="uid://vnu6f53bf3ur" path="res://src/battlefield_outdoors/battlefield_outdoors_hud/character_info_panel.tscn" id="16_oou66"]
 [ext_resource type="PackedScene" uid="uid://cnphrbnb2wrnf" path="res://src/battlefield_outdoors/battlefield_outdoors_hud/combat_results_summary.tscn" id="18_lgpuc"]
-[ext_resource type="PackedScene" uid="uid://b5yq7dbetb72t" path="res://src/shared_ui/resource_display/applicants_display.tscn" id="18_pekm7"]
+[ext_resource type="PackedScene" path="res://src/shared_ui/resource_display/applicants_display.tscn" id="18_pekm7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8a5xg"]
 content_margin_left = 5.0
@@ -268,7 +268,7 @@ theme_override_constants/margin_bottom = 5
 [node name="CombatMathCalculationsHud" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CalculationsDisplay" instance=ExtResource("6_30blh")]
 layout_mode = 2
 
-[node name="TotalPowerDisplay" type="MarginContainer" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections"]
+[node name="TotalPowerDisplay" type="MarginContainer" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections" node_paths=PackedStringArray("total_value_label")]
 clip_contents = true
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
@@ -278,6 +278,7 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 script = ExtResource("9_cb4ss")
+total_value_label = NodePath("PanelContainer/VBoxContainer/TotalValue")
 
 [node name="PanelContainer" type="PanelContainer" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay"]
 layout_mode = 2
