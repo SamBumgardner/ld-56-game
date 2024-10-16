@@ -25,10 +25,12 @@ func _ready() -> void:
         
     for crew_button in crew_buttons:
         crew_button.crew_member_selected.connect(screen._on_crew_member_selected)
+        crew_button.crew_member_deselected.connect(screen.return_to_home_display)
+        crew_button.crew_member_hover_changed.connect(
+            screen.home_display.home_actions_display._on_character_hovered)
         screen.left_character_detail_display.connect(crew_button._on_view_canceled)
         hiring_success.connect(crew_button._on_new_character_hired)
         # tell the character_action_display owner when a character is hovered so it can update display appropriately
-        # don't need to do actions because screen changes anyway.
     screen.hire_detail_display.hire_purchase_pressed.connect(_on_hire_purchase_attempted)
     screen.character_detail_display.upgrade_purchase_pressed.connect(_on_upgrade_purchase_attempted)
     hiring_success.connect(screen._on_hiring_success)

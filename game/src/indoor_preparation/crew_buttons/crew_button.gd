@@ -1,6 +1,8 @@
 class_name CrewButton extends TextureButton
 
 signal crew_member_selected(character: Character)
+signal crew_member_hover_changed(character: Character, is_hovered: bool)
+signal crew_member_deselected()
 
 const FADE_IN_DURATION: float = 1
 
@@ -17,6 +19,8 @@ var fade_in_tween: Tween
 
 func _ready() -> void:
     visibility_changed.connect(_on_visibility_changed)
+    mouse_entered.connect(_on_button_hovered)
+    mouse_exited.connect(_on_button_hovered)
     visible = false
     focus_mode = FocusMode.FOCUS_NONE
     _on_initial_setup(database.hired_characters)
@@ -38,6 +42,8 @@ func _on_new_character_hired(character: Character) -> void:
 func _toggled(toggled_on: bool) -> void:
     if toggled_on:
         crew_member_selected.emit(instantiated_character)
+    if not toggled_on:
+        crew_member_deselected.emit()
 
 func _on_view_canceled() -> void:
     button_pressed = false
@@ -57,3 +63,6 @@ func mimic_hover_changed(mimic_hovered: bool):
         texture_normal = original_texture_normal
     else:
         texture_normal = original_texture_hovered
+
+func _on_button_hovered() -> void:
+    crew_member_hover_changed.emit(instantiated_character, is_hovered())
