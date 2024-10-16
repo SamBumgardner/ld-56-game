@@ -4,6 +4,7 @@ extends Node
 signal health_changed(new_value: int, old_value: int)
 signal money_changed(new_value: int, old_value: int)
 signal fuel_changed(new_value: int, old_value: int)
+signal applicant_count_changed(new_value: int, old_value: int)
 signal die_slots_set(was_reroll: bool)
 signal die_slot_changed(changed_die_slot: CharacterDieSlot)
 signal barrier_changed(new_barrier_data: BarrierData)
@@ -29,6 +30,7 @@ static var stat_type_to_icon: Dictionary = {
 
 const CHECKPOINT_SAVED_MESSAGE: String = "Checkpoint Reached!"
 const CHECKPOINT_SAVED_DURATION: float = 2
+const MAX_APPLICANTS: int = 4
 
 const _settings_default_audio_volume_music: float = 0.5
 const _settings_default_audio_volume_sfx: float = 0.5
@@ -134,7 +136,7 @@ func load_from_init_values(init_values: GameplayInitValues):
 
     hired_characters = init_values.hired_characters
     unhired_characters = init_values.unhired_characters
-    applicants = init_values.applicants
+    set_current_applicants(applicants)
     should_generate_new_applicants = init_values.should_generate_new_applicants
 
 # Excludes chosen settings for audio volume.
@@ -164,14 +166,13 @@ func initialize_characters() -> void:
     var characters: Array = _character_factories.map(func(x): return x.instantiate())
     hired_characters = []
     unhired_characters = []
-    applicants = []
+    set_current_applicants([])
     for i in range(characters.size()):
         if i in _starting_character_idxs:
             hired_characters.append(characters[i])
         else:
             unhired_characters.append(characters[i])
     
-    hire_character(get_random_unhired(1)[0])
     initialize_missing_die_slots()
 
 func initialize_missing_die_slots() -> void:
@@ -215,11 +216,14 @@ func get_random_unhired(count: int) -> Array[Character]:
         return selected_characters
 
 func set_current_applicants(new_applicants: Array[Character]) -> void:
+    var old_count = applicants.size()
     applicants = new_applicants
+    applicant_count_changed.emit(new_applicants.size(), old_count)
 
 func hire_character(character: Character) -> void:
     unhired_characters.erase(character)
     applicants.erase(character)
+    set_current_applicants(applicants)
     hired_characters.append(character)
 
 func get_settings_default_audio_volume_music() -> float:

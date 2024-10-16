@@ -219,8 +219,15 @@ func _roll_dice() -> void:
     Database.set_current_character_die_slots(character_die_slots, true)
 
 func _on_checkpoint_saved() -> void:
-    battlefield_outdoors_hud.screen_notification.display_notification(
+    battlefield_outdoors_hud.screen_notification.queue_notification(
         ScreenNotification.ScreenNotificationType.CHECKPOINT,
         Database.CHECKPOINT_SAVED_MESSAGE,
         Database.CHECKPOINT_SAVED_DURATION
+    )
+
+func _on_new_applicants_arrived() -> void:
+    battlefield_outdoors_hud.screen_notification.queue_notification(
+        ScreenNotification.ScreenNotificationType.NOTIFY,
+        ApplicantOrchestrator.NEW_APPLICANTS_MESSAGE % Database.applicants.size(),
+        ApplicantOrchestrator.NEW_APPLICANTS_DURATION,
     )

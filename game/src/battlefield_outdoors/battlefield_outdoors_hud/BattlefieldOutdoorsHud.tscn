@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://b6k6baalu42w7"]
+[gd_scene load_steps=22 format=3 uid="uid://b6k6baalu42w7"]
 
 [ext_resource type="Script" path="res://src/battlefield_outdoors/battlefield_outdoors_hud/battlefield_outdoors_hud.gd" id="1_3j823"]
 [ext_resource type="PackedScene" uid="uid://da57hkojchohp" path="res://src/shared_ui/resource_display/health_display.tscn" id="2_6fssr"]
@@ -19,6 +19,7 @@
 [ext_resource type="Script" path="res://src/battlefield_outdoors/battlefield_outdoors_hud/barrier_preview.gd" id="9_iui7q"]
 [ext_resource type="PackedScene" uid="uid://6tyicfyiq5gf" path="res://src/battlefield_outdoors/battlefield_outdoors_hud/character_info_panel.tscn" id="16_oou66"]
 [ext_resource type="PackedScene" uid="uid://cnphrbnb2wrnf" path="res://src/battlefield_outdoors/battlefield_outdoors_hud/combat_results_summary.tscn" id="18_lgpuc"]
+[ext_resource type="PackedScene" uid="uid://b5yq7dbetb72t" path="res://src/shared_ui/resource_display/applicants_display.tscn" id="18_pekm7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8a5xg"]
 content_margin_left = 5.0
@@ -491,6 +492,17 @@ offset_bottom = 8.0
 grow_horizontal = 2
 text = "Manage Crew
 Inside "
+
+[node name="ApplicantsDisplay" parent="GoInsideButton" instance=ExtResource("18_pekm7")]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 5.0
+offset_right = 179.0
+offset_bottom = 29.0
 
 [node name="CharacterInfoPanel" parent="." instance=ExtResource("16_oou66")]
 visible = false

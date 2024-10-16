@@ -46,6 +46,7 @@ func _ready() -> void:
 
 func register_applicants_for_display(applicants: Array[Character]) -> void:
     hire_preview_display.set_new_applicants(applicants)
+    home_display.view_applicants_button.disabled = applicants.is_empty()
 
 func return_to_home_display() -> void:
     _cancel_notifications()
@@ -104,9 +105,14 @@ func _on_hiring_success(character: Character) -> void:
         HIRE_SUCCESS_FORMAT % character.name,
         HIRE_SUCCESS_DURATION
     )
-    screen_notification.notification_expired.connect(
-        _transition_to_hire_preview_display,
-        CONNECT_ONE_SHOT)
+    if Database.applicants.is_empty():
+        screen_notification.notification_expired.connect(
+            return_to_home_display,
+            CONNECT_ONE_SHOT)
+    else:
+        screen_notification.notification_expired.connect(
+            _transition_to_hire_preview_display,
+            CONNECT_ONE_SHOT)
 
 func _on_hiring_failure(character: Character, reason: String) -> void:
     notification_dimmer.show()
@@ -150,6 +156,15 @@ func on_checkpoint_saved():
         ScreenNotification.ScreenNotificationType.CHECKPOINT,
         Database.CHECKPOINT_SAVED_MESSAGE,
         Database.CHECKPOINT_SAVED_DURATION
+    )
+
+func on_new_applicants_arrived():
+    register_applicants_for_display(Database.applicants)
+    notification_dimmer.show()
+    screen_notification.display_notification(
+        ScreenNotification.ScreenNotificationType.NOTIFY,
+        ApplicantOrchestrator.NEW_APPLICANTS_MESSAGE % Database.applicants.size(),
+        ApplicantOrchestrator.NEW_APPLICANTS_DURATION,
     )
 
 func _hide_all_screen_displays() -> void:

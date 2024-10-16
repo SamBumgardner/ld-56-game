@@ -6,7 +6,6 @@ signal upgrade_success(character: Character)
 signal upgrade_failure(character: Character, reason: String)
 signal insufficient_funds()
 
-const APPLICANT_COUNT: int = 4
 const PURCHASE_FAIL_POOR_REASON: String = "INSUFFICIENT_FUNDS"
 
 @onready var database: Database = $"/root/Database"
@@ -34,12 +33,7 @@ func _ready() -> void:
 
 func transition_in() -> void:
     process_mode = PROCESS_MODE_INHERIT
-    if database.should_generate_new_applicants:
-        applicants = database.get_random_unhired(APPLICANT_COUNT)
-        database.set_current_applicants(applicants)
-        database.should_generate_new_applicants = false
-    else:
-        applicants = database.applicants
+    applicants = database.applicants
     
     screen.register_applicants_for_display(applicants)
     screen.return_to_home_display()
@@ -74,3 +68,6 @@ func _on_upgrade_purchase_attempted(character: Character, upgrade_choice: Upgrad
 
 func _on_checkpoint_saved() -> void:
     screen.on_checkpoint_saved()
+
+func _on_new_applicants_arrived() -> void:
+    screen.on_new_applicants_arrived()
