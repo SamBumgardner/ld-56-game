@@ -125,6 +125,7 @@ func _on_insufficient_fuel() -> void:
 func refresh_calculations() -> void:
     calculations_hud.refresh()
     total_power_display.refresh()
+    character_info_panel.refresh()
 
 func _on_character_selection_changed(character: Character, selected_state: bool) -> void:
     if selected_state:
