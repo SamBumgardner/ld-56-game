@@ -40,6 +40,9 @@ func transition_in() -> void:
     screen.home_display.set_barrier(database.current_barrier_data)
     money_display.force_display_resolution()
 
+    for button: Button in (crew_buttons as Array[Button]):
+        button.button_pressed = false
+
 func transition_out() -> void:
     process_mode = PROCESS_MODE_DISABLED
 
