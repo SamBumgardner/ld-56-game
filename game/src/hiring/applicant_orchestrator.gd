@@ -136,7 +136,28 @@ func _select_new_applicants(count: int) -> Array[Character]:
         return selected_characters
 
 func _adjust_price(applicant: Character, current_round: int, crew_size: int) -> void:
-    pass
+    const sale_odds: float = .1
+    const sale_mult: float = .8
+    const slight_discount_odds: float = .3
+    const discount_mult: float = .95
+    const normal_price_odds: float = .3
+    const overpriced_mult: float = 1.1
+
+    var new_hiring_cost: int = (crew_size + 1) * 10
+    new_hiring_cost += floor(randi() % current_round / 2.0)
+    var sale_percentage: float = 1.0
+
+    var sale_roll: float = randf()
+    if sale_roll < sale_odds:
+        sale_percentage = sale_mult
+    elif sale_roll < slight_discount_odds + sale_odds:
+        sale_percentage = discount_mult
+    elif sale_roll > normal_price_odds + slight_discount_odds + sale_odds:
+        sale_percentage = overpriced_mult
+    
+    new_hiring_cost = floor(new_hiring_cost * sale_percentage)
+    
+    applicant.hiring_cost = new_hiring_cost
 
 func _cycle_applicants(new_applicants: Array[Character],
         current_applicants: Array[Character]
