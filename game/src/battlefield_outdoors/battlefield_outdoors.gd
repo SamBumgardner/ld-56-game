@@ -161,7 +161,10 @@ func _generate_barrier_data() -> BarrierData:
         cost_to_overcome)
 
 func _apply_combat_rewards() -> void:
-    var money_change = randi_range(1, 100)
+    const money_per_round = 11
+    const variance_min = -3
+    const variance_max = 3
+    var money_change = money_per_round + randi_range(variance_min, variance_max)
     var fuel_change = randi_range(1, 3)
     combat_result.money_change = money_change
     combat_result.fuel_change = fuel_change

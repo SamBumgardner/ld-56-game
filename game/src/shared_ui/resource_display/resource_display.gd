@@ -26,7 +26,7 @@ var resource_change_start_delay: float = 0
 func _ready() -> void:
     await get_tree().process_frame
     label_start_position = amount_label.position
-
+    
 func force_display_resolution():
     if value_tween != null and value_tween.is_running():
         value_tween.custom_step(resource_change_start_delay + MAX_DURATION)
@@ -40,6 +40,9 @@ func _on_insufficient_resource() -> void:
     _create_position_tween()
 
 func _create_position_tween():
+    if label_start_position == Vector2.ZERO:
+        label_start_position = amount_label.position
+    
     if position_tween != null and position_tween.is_valid():
         position_tween.stop()
     position_tween = create_tween()
