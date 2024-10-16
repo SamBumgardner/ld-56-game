@@ -29,6 +29,23 @@ func _ready() -> void:
     lock_button.pressed.connect(_toggle_freeze)
     close_button.pressed.connect(_on_close_button)
 
+func refresh() -> void:
+    if displayed_character != null:
+        portrait.texture = displayed_character.portrait
+        name_label.text = displayed_character.name
+        upgrade_label.text = UPGRADE_FORMAT % displayed_character.upgrade_level
+
+        var possible_actions: Array[Action] = displayed_character.actions.get_all()
+        for i: int in possible_die_results.size():
+            var action: Action = null
+            if i < possible_actions.size():
+                action = possible_actions[i]
+            possible_die_results[i].set_action(action)
+
+        var character_die_slot: CharacterDieSlot = Database.get_die_slot_by_character(displayed_character)
+        _update_die_slot_display(character_die_slot)
+
+
 func display_character(new_character: Character):
     if new_character == null:
         target_character = null
@@ -53,19 +70,7 @@ func display_character(new_character: Character):
 
 func _update_displayed_data():
     displayed_character = target_character
-    portrait.texture = displayed_character.portrait
-    name_label.text = displayed_character.name
-    upgrade_label.text = UPGRADE_FORMAT % displayed_character.upgrade_level
-
-    var possible_actions: Array[Action] = displayed_character.actions.get_all()
-    for i: int in possible_die_results.size():
-        var action: Action = null
-        if i < possible_actions.size():
-            action = possible_actions[i]
-        possible_die_results[i].set_action(action)
-
-    var character_die_slot: CharacterDieSlot = Database.get_die_slot_by_character(displayed_character)
-    _update_die_slot_display(character_die_slot)
+    refresh()
 
 func _update_die_slot_display(die_slot: CharacterDieSlot) -> void:
     if die_slot != null:
