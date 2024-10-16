@@ -166,7 +166,11 @@ func _charge_mode_fadein(duration: float) -> void:
         fadein_tween.tween_property(target, "modulate", Color.WHITE, duration)
 
 func _enable_interaction() -> void:
-    reroll_button._set_disabled(false)
+    # delay added here to account for auto die roll
+    create_tween() \
+        .tween_callback(reroll_button._set_disabled.bind(false)) \
+        .set_delay(reroll_button.reroll_cooldown)
+    
     charge_button.disabled = false
     go_inside_button.disabled = false
     # fade in hud, more quickly this time

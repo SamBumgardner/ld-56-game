@@ -217,6 +217,7 @@ func _roll_dice() -> void:
         character_die_slot.last_roll_result = character_die_slot.roll_action()
 
     Database.set_current_character_die_slots(character_die_slots, true)
+    battlefield_outdoors_hud.refresh_calculations()
 
 func _on_checkpoint_saved() -> void:
     battlefield_outdoors_hud.screen_notification.queue_notification(

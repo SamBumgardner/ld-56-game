@@ -149,6 +149,7 @@ func reset_values() -> void:
     set_current_barrier_stat_type_to_overcome(
         _initial_barriers_stat_type_to_overcome
     )
+    set_current_barrier_data(null)
     set_current_character_die_slots(_initial_character_die_slots.duplicate())
     set_current_matching_stat_type_multiplier(
         _initial_matching_stat_type_multiplier
