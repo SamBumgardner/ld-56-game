@@ -238,6 +238,19 @@ func _on_settings_menu_ready():
 #endregion Scene arrival
 
 
+#region Scene cleanup
+
+# Stop looping gameplay sounds.
+func _on_gameplay_tree_exiting():
+    SoundManager.stop_ambient_sound(sfx_dice_shake, _reroll_audio_crossfade)
+    SoundManager.stop_ambient_sound(
+        sfx_war_transport_charge_idle,
+        _reroll_audio_crossfade
+    )
+
+#endregion Scene cleanup
+
+
 #region Slider drag ended
 
 func _on_music_volume_percentage_slider_drag_ended(_value_changed):
