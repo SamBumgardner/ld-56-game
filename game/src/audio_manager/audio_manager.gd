@@ -72,6 +72,9 @@ func _start_background_music():
 
 #region Button mouse entered
 
+func _on_back_button_mouse_entered():
+    SoundManager.play_ui_sound(sfx_button_hover, _bus_name_sfx_ui)
+
 func _on_browse_new_hires_button_mouse_entered():
     SoundManager.play_ui_sound(sfx_button_hover, _bus_name_sfx_ui)
 
