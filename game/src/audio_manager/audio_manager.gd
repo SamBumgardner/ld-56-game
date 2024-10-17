@@ -11,8 +11,9 @@ class_name AudioManager extends Node
 @export var sfx_indoors_exit_a_menu: AudioStream
 @export var sfx_transition_gameplay_indoors_to_outdoors: AudioStream
 @export var sfx_transition_gameplay_outdoors_to_indoors: AudioStream
-@export var sfx_war_transport_charge_idle: AudioStream
+@export var sfx_war_transport_charge_crush: AudioStream
 @export var sfx_war_transport_charge_forward: AudioStream
+@export var sfx_war_transport_charge_idle: AudioStream
 
 
 const _bus_name_music = 'Music'
@@ -215,6 +216,11 @@ func _on_crew_actions_display_dice_visually_rolling_start():
 func _on_crew_actions_display_dice_visually_rolling_stop():
     SoundManager.stop_ambient_sound(sfx_dice_shake, _reroll_audio_crossfade)
 
+    SoundManager.stop_ambient_sound(
+        sfx_war_transport_charge_idle,
+        _reroll_audio_crossfade
+    )
+
 #endregion Dice reroll hovering
 
 
@@ -238,6 +244,13 @@ func _on_music_volume_percentage_slider_drag_ended(_value_changed):
 
 
 #region War transport charge
+
+func _on_battlefield_outdoors_charge_impact(duration):
+    SoundManager.play_ambient_sound(
+        sfx_war_transport_charge_crush,
+        _charge_audio_crossfade,
+        _bus_name_sfx_ui
+    )
 
 func _on_battlefield_outdoors_charge_warmup(duration):
     SoundManager.play_ambient_sound(

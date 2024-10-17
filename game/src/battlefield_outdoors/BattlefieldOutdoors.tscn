@@ -48,5 +48,6 @@ grow_vertical = 2
 
 [node name="BattlefieldOutdoorsWarTransport" parent="AnchorOfWarTransport" instance=ExtResource("3_etui0")]
 
+[connection signal="charge_impact" from="." to="AudioManager" method="_on_battlefield_outdoors_charge_impact"]
 [connection signal="charge_warmup" from="." to="AudioManager" method="_on_battlefield_outdoors_charge_warmup"]
 [connection signal="dice_roll_started" from="." to="AudioManager" method="_on_battlefield_outdoors_dice_roll_started"]
