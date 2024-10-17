@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://ctqciskxgauli"]
+[gd_scene load_steps=5 format=3 uid="uid://ctqciskxgauli"]
 
 [ext_resource type="Theme" uid="uid://dk5iv042psfw" path="res://assets/themes/Default.tres" id="1_7cxpj"]
 [ext_resource type="Script" path="res://src/game_over/game_over.gd" id="2_3djpi"]
 [ext_resource type="PackedScene" uid="uid://cksonu0m714vg" path="res://src/game_over/postgame_stat_line.tscn" id="2_gld74"]
+[ext_resource type="PackedScene" uid="uid://h1fowbxngb70" path="res://src/audio_manager/AudioManager.tscn" id="4_jdc1x"]
 
 [node name="GameOver" type="ColorRect"]
 anchors_preset = 15
@@ -128,6 +129,8 @@ anchor_bottom = 0.9
 grow_horizontal = 2
 grow_vertical = 0
 
+[node name="AudioManager" parent="ButtonContainer" instance=ExtResource("4_jdc1x")]
+
 [node name="Retry" type="Button" parent="ButtonContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
@@ -141,3 +144,8 @@ layout_mode = 2
 size_flags_horizontal = 6
 text = "Return to
 Main Menu"
+
+[connection signal="mouse_entered" from="ButtonContainer/Retry" to="ButtonContainer/AudioManager" method="_on_retry_mouse_entered"]
+[connection signal="pressed" from="ButtonContainer/Retry" to="ButtonContainer/AudioManager" method="_on_retry_pressed"]
+[connection signal="mouse_entered" from="ButtonContainer/ToMainMenu" to="ButtonContainer/AudioManager" method="_on_to_main_menu_mouse_entered"]
+[connection signal="pressed" from="ButtonContainer/ToMainMenu" to="ButtonContainer/AudioManager" method="_on_to_main_menu_pressed"]
