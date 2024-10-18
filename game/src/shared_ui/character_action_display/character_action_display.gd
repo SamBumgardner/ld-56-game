@@ -3,6 +3,7 @@ class_name CharacterActionDisplay extends TextureRect
 signal character_selected(character: Character, button_end_state: bool)
 signal character_hover_changed(character: Character, is_hovered: bool)
 
+@onready var audio_manager: AudioManager = $AudioManager
 @onready var die_result: DieResult = $DieResult
 @onready var frozen_background: Control = $FrozenBackground
 @onready var frozen_icon: TextureRect = $FrozenIcon
@@ -50,6 +51,7 @@ func toggle_freeze() -> void:
         )
         return
 
+    audio_manager.on_toggle_freeze()
     Database.set_die_slot_frozen_status(
         character_die_slot.character,
         not character_die_slot.is_frozen

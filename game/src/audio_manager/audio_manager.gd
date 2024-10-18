@@ -49,6 +49,12 @@ func on_enabled_button_mouse_entered():
     SoundManager.play_ui_sound(sfx_button_hover, _bus_name_sfx_ui)
 
 
+# Listen for a custom signal in order to reuse layering of button connections
+#  that detect a right click signal.
+func on_toggle_freeze():
+    SoundManager.play_ui_sound(sfx_die_lock, _bus_name_sfx_ui)
+
+
 # After leaving the start menu, start playing the background music.
 func _start_background_music():
     if SoundManager.is_music_playing():
