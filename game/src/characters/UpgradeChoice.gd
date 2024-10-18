@@ -10,6 +10,8 @@ enum UpgradeType {
     COMBINE_MATCHES = 5,
     CHANGE_TYPE = 6,
     COMBINE_SPECIFIC = 7,
+    RESTORE_HEALTH = 8,
+    RESTORE_FUEL = 9,
 }
 
 enum StatTypeCriteria {
@@ -38,6 +40,8 @@ static var upgrade_funcs: Dictionary = {
     UpgradeType.COMBINE_MATCHES: _combine_matches,
     UpgradeType.CHANGE_TYPE: _change_type,
     UpgradeType.COMBINE_SPECIFIC: _combine_specific,
+    UpgradeType.RESTORE_HEALTH: _restore_health,
+    UpgradeType.RESTORE_FUEL: _restore_fuel,
 }
 
 @export var name: String
@@ -57,6 +61,7 @@ static var upgrade_funcs: Dictionary = {
 @export var sort_criteria: SortCriteria = SortCriteria.NONE
 @export var number_of_actions_to_affect: int = 1
 @export var change_to: StatTypeCriteria = StatTypeCriteria.NONE
+@export var restore_pct: float = 0
 
 @export var specific_combine_params: SpecificCombineParams
 
@@ -139,6 +144,16 @@ static func _combine_specific(upgrade: UpgradeChoice, action_selector: ActionSel
     var lost_action = _get_slice_according_to_sort(filtered_actions, params.lost_sort, 1)[0]
 
     _combine(retain_action, lost_action, action_selector)
+
+static func _restore_health(upgrade: UpgradeChoice, _action_selector: ActionSelector):
+    var desired_health: int = Database.war_transport_health_current
+    desired_health += ceil(Database.war_transport_health_maximum * upgrade.restore_pct)
+    Database.set_war_transport_health_current(desired_health)
+
+static func _restore_fuel(upgrade: UpgradeChoice, _action_selector: ActionSelector):
+    var desired_fuel: int = Database.current_fuel
+    desired_fuel += ceil(Database.maximum_fuel * upgrade.restore_pct)
+    Database.set_fuel(desired_fuel)
 
 ## Helper methods
 

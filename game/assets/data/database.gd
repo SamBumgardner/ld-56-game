@@ -54,7 +54,7 @@ const _initial_fuel: int = 2
 const _initial_matching_stat_type_multiplier: int = 2
 const _initial_war_transport_health_maximum: int = 10
 
-const _maximum_fuel: int = 10
+const maximum_fuel: int = 10
 
 const _character_factories: Array[CharacterFactory] = [
     preload("res://assets/data/characters/001_mouse_char.tres"),
@@ -67,13 +67,12 @@ const _character_factories: Array[CharacterFactory] = [
     preload("res://assets/data/characters/008_lizard_char.tres"),
     preload("res://assets/data/characters/009_snake_char.tres"),
     preload("res://assets/data/characters/010_mantis_char.tres"),
-    preload("res://assets/data/characters/011_test_pal.tres"),
-    preload("res://assets/data/characters/012_test_pal.tres"),
+    preload("res://assets/data/characters/011_rabbit_char.tres"),
+    preload("res://assets/data/characters/012_fish_char.tres"),
 ]
 const _starting_character_idxs: Array[int] = [
-    0,
-    1,
-    6
+    10,
+    11,
 ]
 
 var audio_volume_initialized: bool
@@ -279,8 +278,8 @@ func set_current_matching_stat_type_multiplier(updated_number: int) -> void:
 
 func set_war_transport_health_current(updated_health: int) -> void:
     var old_health = war_transport_health_current
-    war_transport_health_current = updated_health
-    health_changed.emit(updated_health, old_health)
+    war_transport_health_current = min(updated_health, war_transport_health_maximum)
+    health_changed.emit(war_transport_health_current, old_health)
 
 func set_war_transport_health_maximum(updated_health: int) -> void:
     war_transport_health_maximum = updated_health
@@ -295,7 +294,7 @@ func set_money(updated_money: int) -> void:
 
 func set_fuel(updated_fuel: int) -> void:
     var old_fuel = current_fuel
-    current_fuel = min(updated_fuel, _maximum_fuel)
+    current_fuel = min(updated_fuel, maximum_fuel)
     fuel_changed.emit(current_fuel, old_fuel)
 
 func set_reroll_fuel_cost(updated_cost: int) -> void:
