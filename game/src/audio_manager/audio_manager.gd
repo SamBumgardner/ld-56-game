@@ -77,6 +77,9 @@ func _on_close_screen_notification_button_mouse_entered():
 func _on_crew_member_detail_exit_button_mouse_entered():
     SoundManager.play_ui_sound(sfx_button_hover, _bus_name_sfx_ui)
 
+func _on_crew_selector_button_mouse_entered():
+    SoundManager.play_ui_sound(sfx_button_hover, _bus_name_sfx_ui)
+
 func _on_exit_button_mouse_entered():
     SoundManager.play_ui_sound(sfx_button_hover, _bus_name_sfx_ui)
 
