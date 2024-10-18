@@ -21,3 +21,6 @@ text = "ResourceName"
 layout_mode = 2
 size_flags_horizontal = 10
 text = "+XX"
+
+[node name="Units" type="Label" parent="."]
+layout_mode = 2

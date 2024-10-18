@@ -35,6 +35,9 @@ static var stat_type_to_icon: Dictionary = {
     StatType.CHAOS: preload("res://assets/art/MAGIC_icon_64x64.png"),
 }
 
+const DISTANCE_PER_BARRIER: int = 10
+const DISTANCE_VARIANCE_RANGE: int = 2
+
 const CHECKPOINT_SAVED_MESSAGE: String = "Checkpoint Reached!"
 const CHECKPOINT_SAVED_DURATION: float = 2
 const MAX_APPLICANTS: int = 4
@@ -51,6 +54,7 @@ const _settings_default_audio_volume_music: float = 0.5
 const _settings_default_audio_volume_sfx: float = 0.5
 const _initial_audio_volume_music: float = 0.5
 const _initial_audio_volume_sfx: float = 0.5
+
 
 const _initial_distance_remaining: int = 300
 const _initial_barriers_linear_scale_amount: int = 1

@@ -160,15 +160,24 @@ func _generate_barrier_data() -> BarrierData:
     return BarrierData.new(random_display_name, random_stat_type,
         cost_to_overcome)
 
-func _apply_combat_rewards() -> void:
+func _apply_combat_rewards(barrier_health: int = 0, excess_power: int = 0) -> void:
     const money_per_round = 11
     const variance_min = -3
     const variance_max = 3
+
+    var distance_change = Database.DISTANCE_PER_BARRIER
+    var distance_bonus = min(1, excess_power as float / barrier_health) + 1
+    distance_change = floor(distance_bonus * distance_change)
+    distance_change += (randi() % (Database.DISTANCE_VARIANCE_RANGE * 2)) - Database.DISTANCE_VARIANCE_RANGE
+
     var money_change = money_per_round + randi_range(variance_min, variance_max)
     var fuel_change = randi_range(1, 3)
+    
+    combat_result.distance_change = distance_change
     combat_result.money_change = money_change
     combat_result.fuel_change = fuel_change
 
+    Database.set_current_distance_remaining(Database.current_distance_remaining - distance_change)
     Database.set_money(Database.current_money + money_change)
     Database.set_fuel(Database.current_fuel + fuel_change)
     Database.set_barriers_overcome_count(

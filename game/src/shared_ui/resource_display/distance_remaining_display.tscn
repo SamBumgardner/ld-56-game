@@ -5,6 +5,7 @@
 
 [node name="DistanceRemainingDisplay" instance=ExtResource("1_66g0t")]
 script = ExtResource("2_di0xd")
+COLOR_DECREASE = Color(0, 1, 0, 1)
 
 [node name="ResourceIcon" parent="MarginContainer/HBoxContainer" index="0"]
 visible = false
