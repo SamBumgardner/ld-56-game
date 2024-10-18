@@ -1,18 +1,20 @@
 [gd_resource type="Resource" script_class="UpgradeChoice" load_steps=3 format=3 uid="uid://cif050uskomoe"]
 
-[ext_resource type="Texture2D" uid="uid://4nvogy60mpq3" path="res://icon.svg" id="1_ciry6"]
-[ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="2_y0yw5"]
+[ext_resource type="Texture2D" uid="uid://4nvogy60mpq3" path="res://icon.svg" id="1_4dlwh"]
+[ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="2_13sco"]
 
 [resource]
-script = ExtResource("2_y0yw5")
+script = ExtResource("2_13sco")
 name = "temp"
 description = "Temporary Description"
 visual_summary = "[center]Increase value of [img=30%]res://assets/art/HEAL_icon_64x64.png[/img] actions by [b]2[/b]"
-icon_ref = ExtResource("1_ciry6")
+icon_ref = ExtResource("1_4dlwh")
 cost = 0
-upgrade_type = 3
+upgrade_type = 2
 value_change_amount = 2
 number_of_times = 1
 remove_action_name = ""
 new_action_string = ""
-target_stat = 1
+filter_criteria = 1
+sort_criteria = -1
+number_of_actions_to_affect = 256
