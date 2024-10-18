@@ -4,6 +4,7 @@ class_name UpgradeChoice extends Resource
 enum UpgradeType {
     REPLACE,
     ADD,
+    RANDOM_UP
 }
 
 ## Add methods to this dictionary keyed by their unique UpgradeType.
@@ -11,6 +12,7 @@ enum UpgradeType {
 static var upgrade_funcs: Dictionary = {
     UpgradeType.REPLACE: _upgrade_replace,
     UpgradeType.ADD: _upgrade_add,
+    UpgradeType.RANDOM_UP: _upgrade_random_up,
 }
 
 @export var name: String
@@ -20,6 +22,7 @@ static var upgrade_funcs: Dictionary = {
 @export var cost: int
 
 @export var upgrade_type: UpgradeType
+@export var value_change_amount: int = 0
 @export var number_of_times: int = 1
 @export var remove_action_name: String
 @export var new_action_string: String
@@ -36,3 +39,10 @@ static func _upgrade_replace(upgrade: UpgradeChoice, action_selector: ActionSele
 
 static func _upgrade_add(upgrade: UpgradeChoice, action_selector: ActionSelector):
     action_selector.append(Action._parse_action_string(upgrade.new_action_string))
+
+static func _upgrade_random_up(upgrade: UpgradeChoice, action_selector: ActionSelector):
+    _up(action_selector.get_all().pick_random(), upgrade.value_change_amount)
+
+## Helper methods
+static func _up(action: Action, change_by: int):
+    action.amount += change_by
