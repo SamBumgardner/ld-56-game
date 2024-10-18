@@ -19,7 +19,7 @@ const _bus_name_music = 'Music'
 const _bus_name_sfx_ui = 'SFX UI'
 const _default_audio_crossfade = 0.1
 const _charge_audio_crossfade = 0
-const _reroll_audio_crossfade = 0
+const _reroll_audio_crossfade = 0.5
 
 
 func _ready():
@@ -208,7 +208,8 @@ func _on_crew_actions_display_dice_visually_rolling_start():
     SoundManager.play_ambient_sound(
         sfx_dice_shake,
         _reroll_audio_crossfade,
-        _bus_name_sfx_ui
+        _bus_name_sfx_ui,
+        true
     )
 
 func _on_crew_actions_display_dice_visually_rolling_stop():
