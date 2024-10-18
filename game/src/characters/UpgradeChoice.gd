@@ -8,9 +8,10 @@ enum UpgradeType {
     REMOVE = 3,
     COPY = 4,
     COMBINE_MATCHES = 5,
+    CHANGE_TYPE = 6,
 }
 
-enum FilterCriteria {
+enum StatTypeCriteria {
     NONE = -1,
     MIGHT = Database.StatType.MIGHT,
     WIT = Database.StatType.WIT,
@@ -33,6 +34,7 @@ static var upgrade_funcs: Dictionary = {
     UpgradeType.REMOVE: _remove,
     UpgradeType.COPY: _copy,
     UpgradeType.COMBINE_MATCHES: _combine_matches,
+    UpgradeType.CHANGE_TYPE: _change_type,
 }
 
 @export var name: String
@@ -47,9 +49,10 @@ static var upgrade_funcs: Dictionary = {
 @export var number_of_times: int = 1
 @export var remove_action_name: String
 @export var new_action_string: String
-@export var filter_criteria: FilterCriteria = FilterCriteria.NONE
+@export var filter_criteria: StatTypeCriteria = StatTypeCriteria.NONE
 @export var sort_criteria: SortCriteria = SortCriteria.NONE
 @export var number_of_actions_to_affect: int = 1
+@export var change_to: StatTypeCriteria = StatTypeCriteria.NONE
 
 func apply_changes(action_selector: ActionSelector) -> void:
     for i in range(number_of_times):
@@ -72,6 +75,12 @@ static func _up_stat(upgrade: UpgradeChoice, action_selector: ActionSelector):
     var filtered_copy: Array[Action] = _filter_according_to_criteria(actions, upgrade.filter_criteria)
     _get_slice_according_to_sort(filtered_copy, upgrade.sort_criteria, upgrade.number_of_actions_to_affect) \
         .map(_up.bind(upgrade.value_change_amount))
+
+static func _change_type(upgrade: UpgradeChoice, action_selector: ActionSelector):
+    var actions = action_selector.get_all()
+    var filtered_copy: Array[Action] = _filter_according_to_criteria(actions, upgrade.filter_criteria)
+    _get_slice_according_to_sort(filtered_copy, upgrade.sort_criteria, upgrade.number_of_actions_to_affect) \
+        .map(_change_to.bind(upgrade.change_to))
 
 static func _remove(upgrade: UpgradeChoice, action_selector: ActionSelector):
     var actions = action_selector.get_all()
@@ -115,6 +124,10 @@ static func _up(action: Action, change_by: int):
     action.amount += change_by
     action.name = Action.generate_action_name(action.stat_type, action.amount)
 
+static func _change_to(action: Action, change_to: Database.StatType):
+    action.stat_type = change_to
+    action.name = Action.generate_action_name(action.stat_type, action.amount)
+
 static func _combine(retain_action: Action, lost_action: Action, action_selector: ActionSelector):
     _up(retain_action, lost_action.amount)
     action_selector.remove(lost_action.name)
@@ -138,7 +151,7 @@ static func _get_slice_according_to_sort(
     
     return temp_copy.slice(0, number_to_get)
 
-static func _filter_according_to_criteria(actions: Array[Action], filter: FilterCriteria):
+static func _filter_according_to_criteria(actions: Array[Action], filter: StatTypeCriteria):
     if filter in Database.StatType.values():
         return actions.filter(_match_stat.bind(filter))
     else:

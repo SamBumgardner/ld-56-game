@@ -16,7 +16,7 @@
 [ext_resource type="Script" path="res://src/indoor_preparation/notification_dimmer.gd" id="9_d2y4p"]
 [ext_resource type="Resource" uid="uid://duswkektwj6hb" path="res://assets/data/characters/002_lizard_char.tres" id="10_lfrlp"]
 [ext_resource type="Resource" uid="uid://b3l83j0ql7m0e" path="res://assets/data/characters/003_test_pal.tres" id="12_tfexc"]
-[ext_resource type="Resource" uid="uid://bfkdaseurpvu6" path="res://assets/data/characters/004_test_pal.tres" id="13_1osln"]
+[ext_resource type="Resource" uid="uid://bfkdaseurpvu6" path="res://assets/data/characters/004_bird_char.tres" id="13_1osln"]
 [ext_resource type="Script" path="res://src/indoor_preparation/crew_buttons_parent.gd" id="13_2a042"]
 [ext_resource type="Resource" uid="uid://dexsvne2ukrlr" path="res://assets/data/characters/005_ape_char.tres" id="14_kx6ve"]
 [ext_resource type="Resource" uid="uid://bawjwhqx6mbin" path="res://assets/data/characters/006_test_pal.tres" id="15_nfr47"]
