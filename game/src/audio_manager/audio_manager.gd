@@ -248,14 +248,14 @@ func _on_music_volume_percentage_slider_drag_ended(_value_changed):
 
 #region War transport charge
 
-func _on_battlefield_outdoors_charge_impact(duration):
+func _on_battlefield_outdoors_charge_impact(_duration):
     SoundManager.play_ambient_sound(
         sfx_war_transport_charge_crush,
         _charge_audio_crossfade,
         _bus_name_sfx_ui
     )
 
-func _on_battlefield_outdoors_charge_warmup(duration):
+func _on_battlefield_outdoors_charge_warmup(_duration):
     SoundManager.play_ambient_sound(
         sfx_war_transport_charge_forward,
         _charge_audio_crossfade,
