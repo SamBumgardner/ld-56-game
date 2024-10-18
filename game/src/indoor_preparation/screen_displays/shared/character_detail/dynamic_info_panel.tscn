@@ -72,6 +72,7 @@ texture = ExtResource("3_aofsp")
 stretch_mode = 2
 
 [node name="UpgradeDescription" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/UpgradeDetailsContainer"]
+visible = false
 layout_mode = 2
 text = "Wit sharpened through diligence."
 horizontal_alignment = 1
