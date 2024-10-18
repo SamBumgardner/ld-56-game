@@ -63,3 +63,4 @@ visible = false
 [node name="ModeTransitionCover" parent="TransitionCover" instance=ExtResource("6_blf36")]
 
 [connection signal="ready" from="." to="AudioManager" method="_on_gameplay_ready"]
+[connection signal="tree_exiting" from="." to="AudioManager" method="_on_gameplay_tree_exiting"]

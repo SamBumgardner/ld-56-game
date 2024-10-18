@@ -3,6 +3,7 @@ class_name CharacterActionDisplay extends TextureRect
 signal character_selected(character: Character, button_end_state: bool)
 signal character_hover_changed(character: Character, is_hovered: bool)
 
+@onready var audio_manager: AudioManager = $AudioManager
 @onready var die_result: DieResult = $DieResult
 @onready var frozen_background: Control = $FrozenBackground
 @onready var frozen_icon: TextureRect = $FrozenIcon
@@ -43,6 +44,15 @@ func set_character_die_slot(new_die_slot: CharacterDieSlot, display_particles: b
     refresh(display_particles)
 
 func toggle_freeze() -> void:
+    if character_die_slot == null:
+        print_debug(
+            'Failed to toggle_freeze due to a'
+            + ' missing character_die_slot reference.'
+        )
+        return
+
+    audio_manager.on_toggle_freeze()
+
     Database.set_die_slot_frozen_status(
         character_die_slot.character,
         not character_die_slot.is_frozen
@@ -57,7 +67,21 @@ func _on_button_pressed() -> void:
     character_selected.emit(character_die_slot.character, button.button_pressed)
 
 func _on_button_hovered() -> void:
-    character_hover_changed.emit(character_die_slot.character, button.is_hovered())
+    if character_die_slot == null:
+        print_debug(
+            'Failed to hover due to a'
+            + ' missing character_die_slot reference.'
+        )
+        return
+
+    # Only play an SFX for entering, not exiting.
+    if not button.is_hovered():
+        audio_manager.on_enabled_button_mouse_entered()
+
+    character_hover_changed.emit(
+        character_die_slot.character,
+        button.is_hovered()
+    )
 
 func _on_die_slot_update(changed_die_slot: CharacterDieSlot) -> void:
     if changed_die_slot == character_die_slot:

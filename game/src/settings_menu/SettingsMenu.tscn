@@ -43,9 +43,16 @@ layout_mode = 2
 theme = ExtResource("1_wa1ao")
 text = "Reset to Defaults"
 
+[node name="BackButton" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_wa1ao")
+text = "Back"
+
 [node name="BackToStartMenuButton" parent="." instance=ExtResource("4_lsi3h")]
 
 [connection signal="ready" from="." to="AudioManager" method="_on_settings_menu_ready"]
 [connection signal="mouse_entered" from="CenterContainer/VBoxContainer/ResetToDefaultsButton" to="AudioManager" method="_on_reset_to_defaults_button_mouse_entered"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/ResetToDefaultsButton" to="." method="_on_reset_to_defaults_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/ResetToDefaultsButton" to="." method="_on_button_pressed"]
+[connection signal="mouse_entered" from="CenterContainer/VBoxContainer/BackButton" to="AudioManager" method="_on_back_button_mouse_entered"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

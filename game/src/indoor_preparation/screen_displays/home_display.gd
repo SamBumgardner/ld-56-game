@@ -2,6 +2,7 @@ class_name HomeDisplay extends Control
 
 signal view_applicants_button_pressed()
 
+@onready var audio_manager: AudioManager = $AudioManager
 @onready var main_contents: Control = $MainContents
 @onready var barrier_name: Label = $MainContents/BarrierName
 @onready var barrier_portrait: TextureRect = $MainContents/BarrierDetails/Image
@@ -37,3 +38,13 @@ func _on_visibility_changed():
         home_actions_display.enable_all()
     else:
         home_actions_display.disable_all()
+
+#region Descendant SFX: enabled button mouse entered
+
+func _on_button_mouse_entered():
+    if view_applicants_button.disabled:
+        return
+
+    audio_manager.on_enabled_button_mouse_entered()
+
+#endregion Descendant SFX: enabled button mouse entered
