@@ -40,6 +40,7 @@ const _initial_barriers_linear_scale_amount: int = 1
 const _initial_barriers_stat_type_to_overcome: StatType = StatType.MIGHT
 const _initial_barriers_overcome_count: int = 0
 const _initial_barriers_cost_to_overcome_number: int = 0
+const _initial_first_hiring_round: int = 3
 const _initial_reroll_fuel_cost = 1
 const _initial_character_die_slots: Array[CharacterDieSlot] = []
 const _initial_money: int = 0
@@ -80,6 +81,7 @@ var current_barrier_data: BarrierData
 var current_reroll_fuel_cost: int
 var current_character_die_slots: Array[CharacterDieSlot]
 var current_matching_stat_type_multiplier: int
+var first_hiring_round: int
 var war_transport_health_current: int
 var war_transport_health_maximum: int
 
@@ -145,6 +147,9 @@ func reset_values() -> void:
     set_barriers_linear_scale_amount(_initial_barriers_linear_scale_amount)
     set_current_barrier_cost_to_overcome_number(
         _initial_barriers_cost_to_overcome_number
+    )
+    set_first_hiring_round(
+        _initial_first_hiring_round
     )
     set_current_barrier_stat_type_to_overcome(
         _initial_barriers_stat_type_to_overcome
@@ -268,6 +273,9 @@ func set_current_character_die_slots(
 
 func set_current_matching_stat_type_multiplier(updated_number: int) -> void:
     current_matching_stat_type_multiplier = updated_number
+
+func set_first_hiring_round(updated_number: int) -> void:
+    first_hiring_round = updated_number
 
 func set_war_transport_health_current(updated_health: int) -> void:
     var old_health = war_transport_health_current

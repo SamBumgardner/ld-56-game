@@ -5,7 +5,6 @@ signal new_applicants_arrived()
 const NEW_APPLICANTS_MESSAGE: String = "Mercenaries are looking for work.\nCurrent number of applicants: %s"
 const NEW_APPLICANTS_DURATION: float = 3.0
 
-var first_hiring_round: int = 3
 var rounds_since_last_applicant: int = 0
 var rounds_since_applicant_left: int = 0
 
@@ -17,7 +16,7 @@ func update_applicants():
     var current_applicants: Array[Character] = Database.applicants
     var crew_size: int = Database.hired_character_count
 
-    if current_round < first_hiring_round:
+    if current_round < Database.first_hiring_round:
         return
     
     rounds_since_applicant_left += 1
