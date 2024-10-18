@@ -230,5 +230,5 @@ theme_override_constants/margin_bottom = 10
 layout_mode = 2
 text = "BROWSE NEW HIRES"
 
-[connection signal="mouse_entered" from="MarginContainer/Button" to="AudioManager" method="_on_browse_new_hires_button_mouse_entered"]
+[connection signal="mouse_entered" from="MarginContainer/Button" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="MarginContainer/Button" to="AudioManager" method="_on_browse_new_hires_button_pressed"]
