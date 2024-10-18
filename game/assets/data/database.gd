@@ -43,11 +43,12 @@ const _initial_barriers_cost_to_overcome_number: int = 0
 const _initial_first_hiring_round: int = 3
 const _initial_reroll_fuel_cost = 1
 const _initial_character_die_slots: Array[CharacterDieSlot] = []
+# Hardcoded maximum limit of 4 applicants at a time to fit the UI and logic.
+const _initial_initial_applicant_count: int = 0
 const _initial_money: int = 0
 const _initial_fuel: int = 2
 const _initial_matching_stat_type_multiplier: int = 2
 const _initial_war_transport_health_maximum: int = 10
-const _initial_applicant_count = 0
 
 const _maximum_fuel: int = 10
 
@@ -83,6 +84,7 @@ var current_reroll_fuel_cost: int
 var current_character_die_slots: Array[CharacterDieSlot]
 var current_matching_stat_type_multiplier: int
 var first_hiring_round: int
+var initial_applicant_count: int
 var war_transport_health_current: int
 var war_transport_health_maximum: int
 
@@ -160,6 +162,7 @@ func reset_values() -> void:
     set_current_matching_stat_type_multiplier(
         _initial_matching_stat_type_multiplier
     )
+    set_initial_applicant_count(_initial_initial_applicant_count)
     set_war_transport_health_maximum(_initial_war_transport_health_maximum)
     set_money(_initial_money)
     set_fuel(_initial_fuel)
@@ -277,6 +280,9 @@ func set_current_matching_stat_type_multiplier(updated_number: int) -> void:
 
 func set_first_hiring_round(updated_number: int) -> void:
     first_hiring_round = updated_number
+
+func set_initial_applicant_count(updated_number: int) -> void:
+    initial_applicant_count = updated_number
 
 func set_war_transport_health_current(updated_health: int) -> void:
     var old_health = war_transport_health_current
