@@ -24,13 +24,13 @@ change_to = -1
 script = ExtResource("1_rjhls")
 name = "temp"
 description = "Temporary Description"
-visual_summary = "[center]Increase [img=30%]res://assets/art/MAGIC_icon_64x64.png[/img] by 1
-Remove 1 non-[img=30%]res://assets/art/MAGIC_icon_64x64.png[/img]"
+visual_summary = "[center]Increase [img=30%]res://assets/art/MAGIC_icon_64x64.png[/img] by 2
+Remove random non-[img=30%]res://assets/art/MAGIC_icon_64x64.png[/img]"
 icon_ref = ExtResource("2_xdcbt")
-cost = null
+cost = 0
 additional_effect = SubResource("Resource_yiy8q")
 upgrade_type = 2
-value_change_amount = 1
+value_change_amount = 2
 number_of_times = 1
 remove_action_name = ""
 new_action_string = ""

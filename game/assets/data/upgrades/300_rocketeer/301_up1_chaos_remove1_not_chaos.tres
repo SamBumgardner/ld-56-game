@@ -25,9 +25,9 @@ script = ExtResource("1_20sqk")
 name = "temp"
 description = "Temporary Description"
 visual_summary = "[center]Increase [img=30%]res://assets/art/MAGIC_icon_64x64.png[/img] by 1
-Remove 1 non-[img=30%]res://assets/art/MAGIC_icon_64x64.png[/img]"
+Remove random non-[img=30%]res://assets/art/MAGIC_icon_64x64.png[/img]"
 icon_ref = ExtResource("2_v6c1u")
-cost = null
+cost = 0
 additional_effect = SubResource("Resource_yiy8q")
 upgrade_type = 2
 value_change_amount = 1

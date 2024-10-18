@@ -89,8 +89,9 @@ static func _change_type(upgrade: UpgradeChoice, action_selector: ActionSelector
 
 static func _remove(upgrade: UpgradeChoice, action_selector: ActionSelector):
     var actions = action_selector.get_all()
+    var filtered_copy: Array[Action] = _filter_according_to_criteria(actions, upgrade.filter_criteria, upgrade.invert_filter)
     var actions_to_remove = _get_slice_according_to_sort(
-        actions,
+        filtered_copy,
         upgrade.sort_criteria,
         upgrade.number_of_actions_to_affect)
     
@@ -127,12 +128,12 @@ static func _combine_specific(upgrade: UpgradeChoice, action_selector: ActionSel
     var params: SpecificCombineParams = upgrade.specific_combine_params
 
     # get retain action
-    var filtered_actions = action_selector.get_all() \
-        .filter(_filter_according_to_criteria.bind(params.retain_filter, params.retain_invert_filter))
+    var filtered_actions: Array[Action] = action_selector.get_all() 
+    filtered_actions = _filter_according_to_criteria(filtered_actions, params.retain_filter, params.retain_invert_filter)
     var retain_action = _get_slice_according_to_sort(filtered_actions, params.retain_sort, 1)[0]
         
-    filtered_actions = action_selector.get_all() \
-        .filter(_filter_according_to_criteria.bind(params.lost_filter, params.retain_invert_filter))
+    filtered_actions = action_selector.get_all() 
+    filtered_actions = _filter_according_to_criteria(filtered_actions, params.lost_filter, params.lost_invert_filter)
     var lost_action = _get_slice_according_to_sort(filtered_actions, params.lost_sort, 1)[0]
 
     _combine(retain_action, lost_action, action_selector)

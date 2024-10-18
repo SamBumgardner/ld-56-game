@@ -61,7 +61,7 @@ const _character_factories: Array[CharacterFactory] = [
     preload("res://assets/data/characters/003_test_pal.tres"),
     preload("res://assets/data/characters/004_bird_char.tres"),
     preload("res://assets/data/characters/005_ape_char.tres"),
-    preload("res://assets/data/characters/006_test_pal.tres"),
+    preload("res://assets/data/characters/006_mouse_char.tres"),
     preload("res://assets/data/characters/007_test_pal.tres"),
     preload("res://assets/data/characters/008_test_pal.tres"),
     preload("res://assets/data/characters/009_test_pal.tres"),
@@ -72,7 +72,7 @@ const _character_factories: Array[CharacterFactory] = [
 const _starting_character_idxs: Array[int] = [
     0,
     1,
-    3
+    5
 ]
 
 var audio_volume_initialized: bool
