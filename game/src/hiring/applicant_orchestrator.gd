@@ -11,6 +11,9 @@ var rounds_since_applicant_left: int = 0
 func _ready() -> void:
     rounds_since_last_applicant = 10 - min(4, Database.barriers_overcome_count)
 
+    if Database._initial_applicant_count > 0 and Database.applicants.is_empty():
+        Database.set_current_applicants(_select_new_applicants(Database._initial_applicant_count))
+
 func update_applicants():
     var current_round: int = Database.barriers_overcome_count
     var current_applicants: Array[Character] = Database.applicants

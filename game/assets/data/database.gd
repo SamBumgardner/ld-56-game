@@ -47,6 +47,7 @@ const _initial_money: int = 0
 const _initial_fuel: int = 2
 const _initial_matching_stat_type_multiplier: int = 2
 const _initial_war_transport_health_maximum: int = 10
+const _initial_applicant_count = 0
 
 const _maximum_fuel: int = 10
 
