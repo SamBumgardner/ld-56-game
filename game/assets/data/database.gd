@@ -72,6 +72,7 @@ const _character_factories: Array[CharacterFactory] = [
 const _starting_character_idxs: Array[int] = [
     0,
     1,
+    9
 ]
 
 var audio_volume_initialized: bool

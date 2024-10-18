@@ -8,7 +8,7 @@ script = ExtResource("2_ujgu1")
 name = "temp"
 description = "Temporary description"
 visual_summary = "[center]Add:
-[img=30%]res://assets/art/ATTACK_icon_64x64.png[/img]2  [img=30%]res://assets/art/ATTACK_icon_64x64.png[/img]7"
+[img=30%]res://assets/art/ATTACK_icon_64x64.png[/img]7"
 icon_ref = ExtResource("1_qvtf7")
 cost = 0
 upgrade_type = 1

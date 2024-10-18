@@ -104,7 +104,7 @@ static func _combine_matches(_upgrade: UpgradeChoice, action_selector: ActionSel
         matches_dict[action.name].append(action)
     
     for action_name: String in matches_dict.keys():
-        var matching_actions: Array[Action] = matches_dict[action_name]
+        var matching_actions: Array = matches_dict[action_name]
         while matching_actions.size() >= min_matches:
             _combine(matching_actions[0], matching_actions[1], action_selector)
 
@@ -115,7 +115,7 @@ static func _up(action: Action, change_by: int):
     action.name = Action.generate_action_name(action.stat_type, action.amount)
 
 static func _combine(retain_action: Action, lost_action: Action, action_selector: ActionSelector):
-    retain_action.up(lost_action.amount)
+    _up(retain_action, lost_action.amount)
     action_selector.remove(lost_action.name)
 
 static func _match_stat(action: Action, stat: Database.StatType):

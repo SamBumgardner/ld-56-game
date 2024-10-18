@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CharacterFactory" load_steps=20 format=3 uid="uid://4vcpwnnptf5r"]
+[gd_resource type="Resource" script_class="CharacterFactory" load_steps=21 format=3 uid="uid://4vcpwnnptf5r"]
 
 [ext_resource type="Texture2D" uid="uid://buhpfr0v6vyet" path="res://assets/art/character_icons/003_character_icon.png" id="1_6x7m7"]
 [ext_resource type="Texture2D" uid="uid://bic3i142epdt3" path="res://assets/art/placeholder_threat.png" id="2_2kud7"]
@@ -14,6 +14,7 @@
 [ext_resource type="Resource" uid="uid://bnxf56vju6ata" path="res://assets/data/upgrades/samurai/107_add_might10.tres" id="12_0x4d7"]
 [ext_resource type="Resource" uid="uid://beixjmmbosy2" path="res://assets/data/upgrades/samurai/108_add_might7_remove_lowest.tres" id="13_epxy5"]
 [ext_resource type="Resource" uid="uid://pwl4l8wxuv03" path="res://assets/data/upgrades/samurai/110_remove_2_lowest.tres" id="14_04gyj"]
+[ext_resource type="Resource" uid="uid://nok411ximfdx" path="res://assets/data/upgrades/samurai/109_up2_might.tres" id="14_4i5mc"]
 
 [sub_resource type="Resource" id="Resource_qva0b"]
 script = ExtResource("4_sm110")
@@ -37,13 +38,13 @@ price = 0
 
 [sub_resource type="Resource" id="Resource_wm7lw"]
 script = ExtResource("4_sm110")
-choices = Array[ExtResource("5_2oxke")]([ExtResource("10_4pqdw"), ExtResource("14_04gyj")])
+choices = Array[ExtResource("5_2oxke")]([ExtResource("14_4i5mc"), ExtResource("14_04gyj")])
 price = 0
 
 [resource]
 script = ExtResource("3_bid6u")
 name = "Blades"
-description = "A wandering warrior, always looking for opportunities to hone his blade."
+description = "A wandering warrior, always looking for opportunities to sharpen his skills."
 portrait = ExtResource("2_2kud7")
 icon = ExtResource("1_6x7m7")
 starting_action_strings = Array[String](["might_3", "might_2", "might_1"])

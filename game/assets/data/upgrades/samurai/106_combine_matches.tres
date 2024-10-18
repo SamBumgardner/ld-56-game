@@ -1,12 +1,14 @@
-[gd_resource type="Resource" script_class="UpgradeChoice" load_steps=2 format=3 uid="uid://bi3gponn5egot"]
+[gd_resource type="Resource" script_class="UpgradeChoice" load_steps=3 format=3 uid="uid://bi3gponn5egot"]
 
 [ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="1_lufm2"]
+[ext_resource type="Texture2D" uid="uid://8icadmy2cp3f" path="res://assets/art/upgrade_icon_placeholder.png" id="1_vakc6"]
 
 [resource]
 script = ExtResource("1_lufm2")
 name = "Temp"
 description = "Temporary Description"
 visual_summary = "Combine all matching actions"
+icon_ref = ExtResource("1_vakc6")
 cost = 0
 upgrade_type = 5
 value_change_amount = 0
