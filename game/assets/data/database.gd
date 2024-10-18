@@ -54,7 +54,7 @@ const _character_factories: Array[CharacterFactory] = [
     preload("res://assets/data/characters/002_lizard_char.tres"),
     preload("res://assets/data/characters/003_test_pal.tres"),
     preload("res://assets/data/characters/004_test_pal.tres"),
-    preload("res://assets/data/characters/005_test_pal.tres"),
+    preload("res://assets/data/characters/005_ape_char.tres"),
     preload("res://assets/data/characters/006_test_pal.tres"),
     preload("res://assets/data/characters/007_test_pal.tres"),
     preload("res://assets/data/characters/008_test_pal.tres"),

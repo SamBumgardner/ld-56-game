@@ -1,0 +1,52 @@
+[gd_resource type="Resource" script_class="CharacterFactory" load_steps=21 format=3 uid="uid://dexsvne2ukrlr"]
+
+[ext_resource type="Texture2D" uid="uid://dbxuu6rqen0ed" path="res://assets/art/character_icons/001_character_icon.png" id="1_0r8hq"]
+[ext_resource type="Texture2D" uid="uid://bic3i142epdt3" path="res://assets/art/placeholder_threat.png" id="2_y77ws"]
+[ext_resource type="Script" path="res://src/characters/CharacterFactory.gd" id="3_riglx"]
+[ext_resource type="Script" path="res://src/characters/UpgradeSelector.gd" id="4_koewi"]
+[ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="5_bw02d"]
+[ext_resource type="Resource" uid="uid://dtmtxm1iu7dbv" path="res://assets/data/upgrades/roulette/001_up3_random1.tres" id="6_e4g52"]
+[ext_resource type="Resource" uid="uid://duigl5iquvsvn" path="res://assets/data/upgrades/roulette/002_up1_random3.tres" id="7_ye2d4"]
+[ext_resource type="Resource" uid="uid://cif050uskomoe" path="res://assets/data/upgrades/roulette/003_up2_wit.tres" id="8_wmp5k"]
+[ext_resource type="Resource" uid="uid://4v4hjytc0h0h" path="res://assets/data/upgrades/roulette/004_up1_might_up1_chaos.tres" id="9_22alg"]
+[ext_resource type="Resource" uid="uid://4rnt1epklnrf" path="res://assets/data/upgrades/roulette/005_remove_3_lowest.tres" id="10_g0ds5"]
+[ext_resource type="Resource" uid="uid://bk7y283m6u6kr" path="res://assets/data/upgrades/roulette/006_copy_2_highest.tres" id="11_y460l"]
+[ext_resource type="Resource" uid="uid://dief7scgoaa68" path="res://assets/data/upgrades/roulette/007_up4_random_1.tres" id="12_kq3f8"]
+[ext_resource type="Resource" uid="uid://dowscuwhactld" path="res://assets/data/upgrades/roulette/008_up3_lowest_1.tres" id="13_xicf3"]
+[ext_resource type="Resource" uid="uid://d38pmvek6n5y1" path="res://assets/data/upgrades/roulette/009_up3_wit.tres" id="14_l420h"]
+[ext_resource type="Resource" uid="uid://crwscje3osflb" path="res://assets/data/upgrades/roulette/010_up2_might_up2_chaos.tres" id="15_lybvk"]
+
+[sub_resource type="Resource" id="Resource_swqxl"]
+script = ExtResource("4_koewi")
+choices = Array[ExtResource("5_bw02d")]([ExtResource("6_e4g52"), ExtResource("7_ye2d4")])
+price = 0
+
+[sub_resource type="Resource" id="Resource_buf6b"]
+script = ExtResource("4_koewi")
+choices = Array[ExtResource("5_bw02d")]([ExtResource("8_wmp5k"), ExtResource("9_22alg")])
+price = 0
+
+[sub_resource type="Resource" id="Resource_by5lq"]
+script = ExtResource("4_koewi")
+choices = Array[ExtResource("5_bw02d")]([ExtResource("10_g0ds5"), ExtResource("11_y460l")])
+price = 0
+
+[sub_resource type="Resource" id="Resource_sj1ay"]
+script = ExtResource("4_koewi")
+choices = Array[ExtResource("5_bw02d")]([ExtResource("12_kq3f8"), ExtResource("13_xicf3")])
+price = 0
+
+[sub_resource type="Resource" id="Resource_4tpnl"]
+script = ExtResource("4_koewi")
+choices = Array[ExtResource("5_bw02d")]([ExtResource("14_l420h"), ExtResource("15_lybvk")])
+price = 0
+
+[resource]
+script = ExtResource("3_riglx")
+name = "A.P.E."
+description = "Tired of living by the rules, he trusts his life to the whims of fate."
+portrait = ExtResource("2_y77ws")
+icon = ExtResource("1_0r8hq")
+starting_action_strings = Array[String](["might_1", "might_2", "wit_1", "wit_2", "chaos_1", "chaos_2"])
+upgrade_level = 0
+upgrades = Array[ExtResource("4_koewi")]([SubResource("Resource_swqxl"), SubResource("Resource_buf6b"), SubResource("Resource_by5lq"), SubResource("Resource_sj1ay"), SubResource("Resource_4tpnl")])

@@ -52,6 +52,9 @@ static var upgrade_funcs: Dictionary = {
 func apply_changes(action_selector: ActionSelector) -> void:
     for i in range(number_of_times):
         upgrade_funcs[upgrade_type].call(self, action_selector)
+    
+    if additional_effect != null:
+        additional_effect.apply_changes(action_selector)
 
 ## Example upgrade function. All others should have same signature so they can be used
 ## interchangeably.
@@ -76,7 +79,7 @@ static func _remove(upgrade: UpgradeChoice, action_selector: ActionSelector):
         upgrade.number_of_actions_to_affect)
     
     for item in actions_to_remove:
-        actions.erase(item)
+        action_selector.remove(item.name)
 
 static func _copy(upgrade: UpgradeChoice, action_selector: ActionSelector):
     var actions = action_selector.get_all()
@@ -86,7 +89,7 @@ static func _copy(upgrade: UpgradeChoice, action_selector: ActionSelector):
         upgrade.number_of_actions_to_affect)
     
     for item in actions_to_copy:
-        actions.append(Action.new(item.name, item.stat_type, item.amount))
+        action_selector.append(Action.new(item.name, item.stat_type, item.amount))
 
 ## Helper methods
 
@@ -119,7 +122,7 @@ static func _filter_according_to_criteria(actions: Array[Action], filter: Filter
         return actions.duplicate()
 
 static func _sort_lowest(action1: Action, action2: Action):
-    return action1.value > action2.value
+    return action1.amount < action2.amount
 
 static func _sort_highest(action1: Action, action2: Action):
-    return action1.value < action2.value
+    return action1.amount > action2.amount

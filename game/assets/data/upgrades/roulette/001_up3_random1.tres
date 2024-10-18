@@ -1,14 +1,14 @@
 [gd_resource type="Resource" script_class="UpgradeChoice" load_steps=3 format=3 uid="uid://dtmtxm1iu7dbv"]
 
-[ext_resource type="Texture2D" uid="uid://4nvogy60mpq3" path="res://icon.svg" id="1_cnykq"]
-[ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="2_540dt"]
+[ext_resource type="Texture2D" uid="uid://8icadmy2cp3f" path="res://assets/art/upgrade_icon_placeholder.png" id="1_5th4q"]
+[ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="2_n7c4m"]
 
 [resource]
-script = ExtResource("2_540dt")
+script = ExtResource("2_n7c4m")
 name = "Brief Interest"
 description = "Singular focus, short span."
 visual_summary = "[center]Improve value of [b]1[/b] random action by [b]3[/b]"
-icon_ref = ExtResource("1_cnykq")
+icon_ref = ExtResource("1_5th4q")
 cost = 0
 upgrade_type = 2
 value_change_amount = 3
@@ -17,3 +17,4 @@ remove_action_name = ""
 new_action_string = ""
 filter_criteria = -1
 sort_criteria = 2
+number_of_actions_to_affect = 1

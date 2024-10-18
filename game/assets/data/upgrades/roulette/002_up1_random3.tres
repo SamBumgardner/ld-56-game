@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="UpgradeChoice" load_steps=5 format=3 uid="uid://duigl5iquvsvn"]
 
-[ext_resource type="Texture2D" uid="uid://4nvogy60mpq3" path="res://icon.svg" id="1_l8kw4"]
+[ext_resource type="Texture2D" uid="uid://8icadmy2cp3f" path="res://assets/art/upgrade_icon_placeholder.png" id="2_cvt1a"]
 [ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="2_mga1j"]
 
 [sub_resource type="Resource" id="Resource_1tonc"]
@@ -16,6 +16,7 @@ remove_action_name = ""
 new_action_string = ""
 filter_criteria = -1
 sort_criteria = 2
+number_of_actions_to_affect = 1
 
 [sub_resource type="Resource" id="Resource_4pcs6"]
 script = ExtResource("2_mga1j")
@@ -31,6 +32,7 @@ remove_action_name = ""
 new_action_string = ""
 filter_criteria = -1
 sort_criteria = 2
+number_of_actions_to_affect = 1
 
 [resource]
 script = ExtResource("2_mga1j")
@@ -38,7 +40,7 @@ name = "temp"
 description = "Temporary Description
 "
 visual_summary = "[center]Improve value of a random action by [b]1[/b] 3 times"
-icon_ref = ExtResource("1_l8kw4")
+icon_ref = ExtResource("2_cvt1a")
 cost = 0
 additional_effect = SubResource("Resource_4pcs6")
 upgrade_type = 2
@@ -48,3 +50,4 @@ remove_action_name = ""
 new_action_string = ""
 filter_criteria = -1
 sort_criteria = 2
+number_of_actions_to_affect = 1
