@@ -11,12 +11,16 @@ class_name AudioManager extends Node
 @export var sfx_indoors_exit_a_menu: AudioStream
 @export var sfx_transition_gameplay_indoors_to_outdoors: AudioStream
 @export var sfx_transition_gameplay_outdoors_to_indoors: AudioStream
+@export var sfx_war_transport_charge_crush: AudioStream
+@export var sfx_war_transport_charge_forward: AudioStream
+@export var sfx_war_transport_charge_idle: AudioStream
 
 
 const _bus_name_music = 'Music'
 const _bus_name_sfx_ui = 'SFX UI'
 const _default_audio_crossfade = 0.1
-const _reroll_audio_crossfade = 0.5
+const _charge_audio_crossfade = 0
+const _reroll_audio_crossfade = 0
 
 
 func _ready():
@@ -28,6 +32,24 @@ func _ready():
 
     SoundManager.set_ambient_sound_volume(Database.audio_volume_sfx)
     SoundManager.set_music_volume(Database.audio_volume_music)
+
+
+# Listen for a custom signal in order to ignore hovering over a disabled button.
+func on_charge_button_mouse_entered():
+    SoundManager.play_ui_sound(sfx_button_hover, _bus_name_sfx_ui)
+    SoundManager.play_ambient_sound(
+        sfx_war_transport_charge_idle,
+        _charge_audio_crossfade,
+        _bus_name_sfx_ui
+    )
+
+
+# Exit method as a companion to an enter method.
+func on_charge_button_mouse_exited():
+    SoundManager.stop_ambient_sound(
+        sfx_war_transport_charge_idle,
+        _reroll_audio_crossfade
+    )
 
 
 # Listen for a custom signal in order to delay until volume is updated.
@@ -50,7 +72,7 @@ func _start_background_music():
 
 #region Button mouse entered
 
-func _on_browse_new_hires_button_mouse_entered():
+func _on_back_button_mouse_entered():
     SoundManager.play_ui_sound(sfx_button_hover, _bus_name_sfx_ui)
 
 func _on_character_info_panel_close_button_mouse_entered():
@@ -89,10 +111,16 @@ func _on_quit_button_mouse_entered():
 func _on_reset_to_defaults_button_mouse_entered():
     SoundManager.play_ui_sound(sfx_button_hover, _bus_name_sfx_ui)
 
+func _on_retry_mouse_entered():
+    SoundManager.play_ui_sound(sfx_button_hover, _bus_name_sfx_ui)
+
 func _on_settings_button_mouse_entered():
     SoundManager.play_ui_sound(sfx_button_hover, _bus_name_sfx_ui)
 
 func _on_start_button_mouse_entered():
+    SoundManager.play_ui_sound(sfx_button_hover, _bus_name_sfx_ui)
+
+func _on_to_main_menu_mouse_entered():
     SoundManager.play_ui_sound(sfx_button_hover, _bus_name_sfx_ui)
 
 #endregion Button mouse entered
@@ -149,10 +177,16 @@ func _on_purchase_button_pressed():
 func _on_quit_button_pressed():
     SoundManager.play_ui_sound(sfx_button_click, _bus_name_sfx_ui)
 
+func _on_retry_pressed():
+    SoundManager.play_ui_sound(sfx_button_click, _bus_name_sfx_ui)
+
 func _on_settings_button_pressed():
     SoundManager.play_ui_sound(sfx_button_click, _bus_name_sfx_ui)
 
 func _on_start_button_pressed():
+    SoundManager.play_ui_sound(sfx_button_click, _bus_name_sfx_ui)
+
+func _on_to_main_menu_pressed():
     SoundManager.play_ui_sound(sfx_button_click, _bus_name_sfx_ui)
 
 #endregion Button press
@@ -188,12 +222,16 @@ func _on_crew_actions_display_dice_visually_rolling_start():
     SoundManager.play_ambient_sound(
         sfx_dice_shake,
         _reroll_audio_crossfade,
-        _bus_name_sfx_ui,
-        true
+        _bus_name_sfx_ui
     )
 
 func _on_crew_actions_display_dice_visually_rolling_stop():
     SoundManager.stop_ambient_sound(sfx_dice_shake, _reroll_audio_crossfade)
+
+    SoundManager.stop_ambient_sound(
+        sfx_war_transport_charge_idle,
+        _reroll_audio_crossfade
+    )
 
 #endregion Dice reroll hovering
 
@@ -209,9 +247,41 @@ func _on_settings_menu_ready():
 #endregion Scene arrival
 
 
+#region Scene cleanup
+
+# Stop looping gameplay sounds.
+func _on_gameplay_tree_exiting():
+    SoundManager.stop_ambient_sound(sfx_dice_shake, _reroll_audio_crossfade)
+    SoundManager.stop_ambient_sound(
+        sfx_war_transport_charge_idle,
+        _reroll_audio_crossfade
+    )
+
+#endregion Scene cleanup
+
+
 #region Slider drag ended
 
 func _on_music_volume_percentage_slider_drag_ended(_value_changed):
     SoundManager.play_ui_sound(sfx_button_click, _bus_name_sfx_ui)
 
 #endregion Slider drag ended
+
+
+#region War transport charge
+
+func _on_battlefield_outdoors_charge_impact(duration):
+    SoundManager.play_ambient_sound(
+        sfx_war_transport_charge_crush,
+        _charge_audio_crossfade,
+        _bus_name_sfx_ui
+    )
+
+func _on_battlefield_outdoors_charge_warmup(duration):
+    SoundManager.play_ambient_sound(
+        sfx_war_transport_charge_forward,
+        _charge_audio_crossfade,
+        _bus_name_sfx_ui
+    )
+
+#endregion War transport charge

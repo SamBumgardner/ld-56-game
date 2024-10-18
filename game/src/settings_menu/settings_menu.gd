@@ -47,6 +47,10 @@ func _set_sfx_volume_from_database_default() -> void:
 #endregion Set volume
 
 
+func _on_back_button_pressed():
+    get_tree().change_scene_to_file("res://src/start_menu/StartMenu.tscn")
+
+
 func _on_reset_to_defaults_button_pressed():
     _set_music_volume_from_database_default()
     _set_sfx_volume_from_database_default()
