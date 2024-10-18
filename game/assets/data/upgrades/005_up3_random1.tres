@@ -1,16 +1,16 @@
-[gd_resource type="Resource" script_class="UpgradeChoice" load_steps=3 format=3 uid="uid://h4bmiwljlchh"]
+[gd_resource type="Resource" script_class="UpgradeChoice" load_steps=3 format=3 uid="uid://dtmtxm1iu7dbv"]
 
 [ext_resource type="Texture2D" uid="uid://4nvogy60mpq3" path="res://icon.svg" id="1_cnykq"]
 [ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="2_540dt"]
 
 [resource]
 script = ExtResource("2_540dt")
-name = "Temporary Interest"
-description = "Randomized devotion."
+name = "Brief Interest"
+description = "Singular focus, short span."
 visual_summary = "[center]Improve value of [b]1[/b] random action by [b]3[/b]"
 icon_ref = ExtResource("1_cnykq")
 cost = 0
-upgrade_type = 1
+upgrade_type = 2
 value_change_amount = 3
 number_of_times = 1
 remove_action_name = ""

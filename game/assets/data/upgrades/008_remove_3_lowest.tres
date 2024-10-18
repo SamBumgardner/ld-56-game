@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="UpgradeChoice" load_steps=3 format=3 uid="uid://4rnt1epklnrf"]
+
+[ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="1_c74xp"]
+[ext_resource type="Texture2D" uid="uid://4nvogy60mpq3" path="res://icon.svg" id="2_046ir"]
+
+[resource]
+script = ExtResource("1_c74xp")
+name = "temp"
+description = "Temporary Description"
+visual_summary = "[center]Remove 3 weakest actions"
+icon_ref = ExtResource("2_046ir")
+cost = 0
+upgrade_type = 4
+value_change_amount = 1
+number_of_times = 1
+remove_action_name = ""
+new_action_string = ""
+target_stat = 0
+sort_criteria = 1
