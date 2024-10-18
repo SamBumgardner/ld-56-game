@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://h1fowbxngb70"]
 
 [ext_resource type="Script" path="res://src/audio_manager/audio_manager.gd" id="1_eh3tu"]
-[ext_resource type="AudioStream" uid="uid://caq0n6uhq3dky" path="res://assets/audio/002_loop_music.ogg" id="2_uii3r"]
+[ext_resource type="AudioStream" uid="uid://cifq013w5q8uo" path="res://assets/audio/003_loop_music.ogg" id="2_n8me7"]
 [ext_resource type="AudioStream" uid="uid://bnwxx5jm4stl6" path="res://assets/audio/102_sfx_select.wav" id="2_x7bd4"]
 [ext_resource type="AudioStream" uid="uid://db75wtlmke61f" path="res://assets/audio/101_sfx_button.wav" id="2_xtd0e"]
 [ext_resource type="AudioStream" uid="uid://b6pu2ckub1qta" path="res://assets/audio/103_sfx_dice_shake.ogg" id="5_iam4r"]
@@ -15,7 +15,7 @@
 
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_eh3tu")
-background_music_default = ExtResource("2_uii3r")
+background_music_default = ExtResource("2_n8me7")
 sfx_button_click = ExtResource("2_x7bd4")
 sfx_button_hover = ExtResource("2_xtd0e")
 sfx_dice_landing = ExtResource("5_rv2n8")
