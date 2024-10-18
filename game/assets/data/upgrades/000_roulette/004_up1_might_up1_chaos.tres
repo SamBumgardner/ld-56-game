@@ -19,6 +19,7 @@ invert_filter = false
 sort_criteria = -1
 number_of_actions_to_affect = 256
 change_to = -1
+restore_pct = 0.0
 
 [resource]
 script = ExtResource("1_db0pb")
@@ -38,3 +39,4 @@ invert_filter = false
 sort_criteria = -1
 number_of_actions_to_affect = 256
 change_to = -1
+restore_pct = 0.0

@@ -19,6 +19,7 @@ invert_filter = false
 sort_criteria = -1
 number_of_actions_to_affect = 1
 change_to = -1
+restore_pct = 0.0
 
 [resource]
 script = ExtResource("1_enchb")
@@ -39,3 +40,4 @@ invert_filter = false
 sort_criteria = 1
 number_of_actions_to_affect = 2
 change_to = -1
+restore_pct = 0.0
