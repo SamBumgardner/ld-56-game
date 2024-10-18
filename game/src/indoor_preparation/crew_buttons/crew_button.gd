@@ -32,6 +32,13 @@ func _enable_button(character: Character) -> void:
     instantiated_character = character
 
 func _on_initial_setup(starting_characters: Array[Character]) -> void:
+    if character_factory == null:
+        print_debug(
+            'Failed to setup crew button due to a'
+            + ' missing character_factory reference.'
+        )
+        return
+
     for character: Character in starting_characters:
         if character.name == character_factory.name:
             _enable_button(character)
