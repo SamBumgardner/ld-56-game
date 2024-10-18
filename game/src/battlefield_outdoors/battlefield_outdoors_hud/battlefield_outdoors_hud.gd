@@ -223,13 +223,7 @@ func _on_charge_button_mouse_entered():
     if charge_button.disabled:
         return
 
-    audio_manager.on_charge_button_mouse_entered()
-
-func _on_charge_button_mouse_exited():
-    if charge_button.disabled:
-        return
-
-    audio_manager.on_charge_button_mouse_exited()
+    audio_manager.on_enabled_button_mouse_entered()
 
 func _on_go_inside_button_mouse_entered():
     if go_inside_button.disabled:

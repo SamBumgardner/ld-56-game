@@ -539,7 +539,6 @@ grow_vertical = 0
 [connection signal="dice_visually_rolling_start" from="BottomInfoDisplay/Center/CrewStatus/StatusSections/CrewActionsDisplay" to="AudioManager" method="_on_crew_actions_display_dice_visually_rolling_start"]
 [connection signal="dice_visually_rolling_stop" from="BottomInfoDisplay/Center/CrewStatus/StatusSections/CrewActionsDisplay" to="AudioManager" method="_on_crew_actions_display_dice_visually_rolling_stop"]
 [connection signal="mouse_entered" from="BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay/PanelContainer/VBoxContainer/ChargeButton" to="." method="_on_charge_button_mouse_entered"]
-[connection signal="mouse_exited" from="BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay/PanelContainer/VBoxContainer/ChargeButton" to="." method="_on_charge_button_mouse_exited"]
 [connection signal="pressed" from="BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay/PanelContainer/VBoxContainer/ChargeButton" to="." method="_on_mock_attack_button_pressed"]
 [connection signal="pressed" from="BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay/PanelContainer/VBoxContainer/ChargeButton" to="AudioManager" method="_on_charge_button_pressed"]
 [connection signal="mouse_entered" from="GoInsideButton" to="." method="_on_go_inside_button_mouse_entered"]

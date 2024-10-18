@@ -13,7 +13,6 @@ class_name AudioManager extends Node
 @export var sfx_transition_gameplay_outdoors_to_indoors: AudioStream
 @export var sfx_war_transport_charge_crush: AudioStream
 @export var sfx_war_transport_charge_forward: AudioStream
-@export var sfx_war_transport_charge_idle: AudioStream
 
 
 const _bus_name_music = 'Music'
@@ -37,19 +36,6 @@ func _ready():
 # Listen for a custom signal in order to ignore hovering over a disabled button.
 func on_charge_button_mouse_entered():
     SoundManager.play_ui_sound(sfx_button_hover, _bus_name_sfx_ui)
-    SoundManager.play_ambient_sound(
-        sfx_war_transport_charge_idle,
-        _charge_audio_crossfade,
-        _bus_name_sfx_ui
-    )
-
-
-# Exit method as a companion to an enter method.
-func on_charge_button_mouse_exited():
-    SoundManager.stop_ambient_sound(
-        sfx_war_transport_charge_idle,
-        _reroll_audio_crossfade
-    )
 
 
 # Listen for a custom signal in order to delay until volume is updated.
@@ -228,11 +214,6 @@ func _on_crew_actions_display_dice_visually_rolling_start():
 func _on_crew_actions_display_dice_visually_rolling_stop():
     SoundManager.stop_ambient_sound(sfx_dice_shake, _reroll_audio_crossfade)
 
-    SoundManager.stop_ambient_sound(
-        sfx_war_transport_charge_idle,
-        _reroll_audio_crossfade
-    )
-
 #endregion Dice reroll hovering
 
 
@@ -252,10 +233,6 @@ func _on_settings_menu_ready():
 # Stop looping gameplay sounds.
 func _on_gameplay_tree_exiting():
     SoundManager.stop_ambient_sound(sfx_dice_shake, _reroll_audio_crossfade)
-    SoundManager.stop_ambient_sound(
-        sfx_war_transport_charge_idle,
-        _reroll_audio_crossfade
-    )
 
 #endregion Scene cleanup
 
