@@ -52,6 +52,7 @@ func toggle_freeze() -> void:
         return
 
     audio_manager.on_toggle_freeze()
+
     Database.set_die_slot_frozen_status(
         character_die_slot.character,
         not character_die_slot.is_frozen
@@ -73,7 +74,14 @@ func _on_button_hovered() -> void:
         )
         return
 
-    character_hover_changed.emit(character_die_slot.character, button.is_hovered())
+    # Only play an SFX for entering, not exiting.
+    if not button.is_hovered():
+        audio_manager.on_enabled_button_mouse_entered()
+
+    character_hover_changed.emit(
+        character_die_slot.character,
+        button.is_hovered()
+    )
 
 func _on_die_slot_update(changed_die_slot: CharacterDieSlot) -> void:
     if changed_die_slot == character_die_slot:
