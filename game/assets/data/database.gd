@@ -37,6 +37,7 @@ static var stat_type_to_icon: Dictionary = {
 const CHECKPOINT_SAVED_MESSAGE: String = "Checkpoint Reached!"
 const CHECKPOINT_SAVED_DURATION: float = 2
 const MAX_APPLICANTS: int = 4
+const CHAR_MAX_ACTIONS: int = 8
 
 const _settings_default_audio_volume_music: float = 0.5
 const _settings_default_audio_volume_sfx: float = 0.5
@@ -64,7 +65,7 @@ const _character_factories: Array[CharacterFactory] = [
     preload("res://assets/data/characters/006_mouse_char.tres"),
     preload("res://assets/data/characters/007_test_pal.tres"),
     preload("res://assets/data/characters/008_test_pal.tres"),
-    preload("res://assets/data/characters/009_test_pal.tres"),
+    preload("res://assets/data/characters/009_snake_char.tres"),
     preload("res://assets/data/characters/010_mantis_char.tres"),
     preload("res://assets/data/characters/011_test_pal.tres"),
     preload("res://assets/data/characters/012_test_pal.tres"),
@@ -72,7 +73,7 @@ const _character_factories: Array[CharacterFactory] = [
 const _starting_character_idxs: Array[int] = [
     0,
     1,
-    5
+    8
 ]
 
 var audio_volume_initialized: bool

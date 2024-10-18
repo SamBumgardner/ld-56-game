@@ -1,0 +1,59 @@
+[gd_resource type="Resource" script_class="UpgradeChoice" load_steps=5 format=3 uid="uid://dnm88ivwwiam3"]
+
+[ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="1_swx0a"]
+[ext_resource type="Texture2D" uid="uid://8icadmy2cp3f" path="res://assets/art/upgrade_icon_placeholder.png" id="2_mwy1j"]
+
+[sub_resource type="Resource" id="Resource_csioo"]
+script = ExtResource("1_swx0a")
+name = ""
+description = ""
+visual_summary = ""
+cost = 0
+upgrade_type = 1
+value_change_amount = 0
+number_of_times = 1
+remove_action_name = ""
+new_action_string = "chaos_2"
+filter_criteria = -1
+invert_filter = false
+sort_criteria = -1
+number_of_actions_to_affect = 1
+change_to = -1
+
+[sub_resource type="Resource" id="Resource_cdmsv"]
+script = ExtResource("1_swx0a")
+name = ""
+description = ""
+visual_summary = ""
+cost = 0
+additional_effect = SubResource("Resource_csioo")
+upgrade_type = 1
+value_change_amount = 0
+number_of_times = 1
+remove_action_name = ""
+new_action_string = "wit_2"
+filter_criteria = -1
+invert_filter = false
+sort_criteria = -1
+number_of_actions_to_affect = 1
+change_to = -1
+
+[resource]
+script = ExtResource("1_swx0a")
+name = "temp"
+description = "Temporary Description"
+visual_summary = "[center]Increase two strongest actions by [b]3[/b]
+Add: 2[img=30%]res://assets/art/HEAL_icon_64x64.png[/img] 2[img=30%]res://assets/art/MAGIC_icon_64x64.png[/img]"
+icon_ref = ExtResource("2_mwy1j")
+cost = 0
+additional_effect = SubResource("Resource_cdmsv")
+upgrade_type = 2
+value_change_amount = 3
+number_of_times = 1
+remove_action_name = ""
+new_action_string = ""
+filter_criteria = -1
+invert_filter = false
+sort_criteria = 1
+number_of_actions_to_affect = 2
+change_to = -1
