@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dj3cohh45iw0d" path="res://src/indoor_preparation/crew_buttons/crew_button.tscn" id="1_jcmjl"]
 [ext_resource type="ButtonGroup" uid="uid://bjgmkn24yqbu4" path="res://src/indoor_preparation/crew_buttons/crew_buttons.tres" id="2_h4jms"]
-[ext_resource type="Resource" uid="uid://duswkektwj6hb" path="res://assets/data/characters/002_lizard_char.tres" id="2_lkgdj"]
+[ext_resource type="Resource" uid="uid://duswkektwj6hb" path="res://assets/data/characters/002_fish_char.tres" id="2_lkgdj"]
 [ext_resource type="Resource" uid="uid://cghmtnhtq1aeh" path="res://assets/data/characters/001_mouse_char.tres" id="3_7560e"]
 
 [node name="TestCrewButtonGroup" type="Control"]

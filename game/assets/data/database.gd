@@ -58,13 +58,13 @@ const _maximum_fuel: int = 10
 
 const _character_factories: Array[CharacterFactory] = [
     preload("res://assets/data/characters/001_mouse_char.tres"),
-    preload("res://assets/data/characters/002_lizard_char.tres"),
+    preload("res://assets/data/characters/002_fish_char.tres"),
     preload("res://assets/data/characters/003_test_pal.tres"),
     preload("res://assets/data/characters/004_bird_char.tres"),
     preload("res://assets/data/characters/005_ape_char.tres"),
     preload("res://assets/data/characters/006_mouse_char.tres"),
-    preload("res://assets/data/characters/007_test_pal.tres"),
-    preload("res://assets/data/characters/008_test_pal.tres"),
+    preload("res://assets/data/characters/007_mole_char.tres"),
+    preload("res://assets/data/characters/008_lizard_char.tres"),
     preload("res://assets/data/characters/009_snake_char.tres"),
     preload("res://assets/data/characters/010_mantis_char.tres"),
     preload("res://assets/data/characters/011_test_pal.tres"),
@@ -73,7 +73,7 @@ const _character_factories: Array[CharacterFactory] = [
 const _starting_character_idxs: Array[int] = [
     0,
     1,
-    8
+    6
 ]
 
 var audio_volume_initialized: bool

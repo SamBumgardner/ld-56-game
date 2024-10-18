@@ -17,6 +17,7 @@ enum StatTypeCriteria {
     MIGHT = Database.StatType.MIGHT,
     WIT = Database.StatType.WIT,
     CHAOS = Database.StatType.CHAOS,
+    RANDOM = 3
 }
 
 enum SortCriteria {
@@ -128,11 +129,12 @@ static func _combine_specific(upgrade: UpgradeChoice, action_selector: ActionSel
     var params: SpecificCombineParams = upgrade.specific_combine_params
 
     # get retain action
-    var filtered_actions: Array[Action] = action_selector.get_all() 
+    var filtered_actions: Array[Action] = action_selector.get_all()
     filtered_actions = _filter_according_to_criteria(filtered_actions, params.retain_filter, params.retain_invert_filter)
     var retain_action = _get_slice_according_to_sort(filtered_actions, params.retain_sort, 1)[0]
         
-    filtered_actions = action_selector.get_all() 
+    filtered_actions = action_selector.get_all()
+    filtered_actions.erase(retain_action)
     filtered_actions = _filter_according_to_criteria(filtered_actions, params.lost_filter, params.lost_invert_filter)
     var lost_action = _get_slice_according_to_sort(filtered_actions, params.lost_sort, 1)[0]
 
@@ -145,6 +147,9 @@ static func _up(action: Action, change_by: int):
     action.name = Action.generate_action_name(action.stat_type, action.amount)
 
 static func _change_to(action: Action, new_type: Database.StatType):
+    if new_type == StatTypeCriteria.RANDOM:
+        new_type = Database.StatType.values().pick_random()
+    
     action.stat_type = new_type
     action.name = Action.generate_action_name(action.stat_type, action.amount)
 
@@ -173,6 +178,9 @@ static func _get_slice_according_to_sort(
 
 static func _filter_according_to_criteria(actions: Array[Action], filter: StatTypeCriteria,
         invert: bool):
+    if filter == StatTypeCriteria.RANDOM:
+        filter = Database.StatType.values().pick_random()
+    
     if filter in Database.StatType.values():
         return actions.filter(
             func(x): return _match_stat(x, filter as Database.StatType) != invert
