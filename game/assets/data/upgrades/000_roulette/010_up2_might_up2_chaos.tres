@@ -15,8 +15,10 @@ number_of_times = 1
 remove_action_name = ""
 new_action_string = ""
 filter_criteria = 2
+invert_filter = false
 sort_criteria = -1
 number_of_actions_to_affect = 1
+change_to = -1
 
 [resource]
 script = ExtResource("1_paexy")
@@ -32,5 +34,7 @@ number_of_times = 1
 remove_action_name = ""
 new_action_string = ""
 filter_criteria = 0
+invert_filter = false
 sort_criteria = -1
 number_of_actions_to_affect = 256
+change_to = -1

@@ -9,6 +9,7 @@ enum UpgradeType {
     COPY = 4,
     COMBINE_MATCHES = 5,
     CHANGE_TYPE = 6,
+    COMBINE_SPECIFIC = 7,
 }
 
 enum StatTypeCriteria {
@@ -35,6 +36,7 @@ static var upgrade_funcs: Dictionary = {
     UpgradeType.COPY: _copy,
     UpgradeType.COMBINE_MATCHES: _combine_matches,
     UpgradeType.CHANGE_TYPE: _change_type,
+    UpgradeType.COMBINE_SPECIFIC: _combine_specific,
 }
 
 @export var name: String
@@ -50,9 +52,12 @@ static var upgrade_funcs: Dictionary = {
 @export var remove_action_name: String
 @export var new_action_string: String
 @export var filter_criteria: StatTypeCriteria = StatTypeCriteria.NONE
+@export var invert_filter: bool = false
 @export var sort_criteria: SortCriteria = SortCriteria.NONE
 @export var number_of_actions_to_affect: int = 1
 @export var change_to: StatTypeCriteria = StatTypeCriteria.NONE
+
+@export var specific_combine_params: SpecificCombineParams
 
 func apply_changes(action_selector: ActionSelector) -> void:
     for i in range(number_of_times):
@@ -72,13 +77,13 @@ static func _upgrade_add(upgrade: UpgradeChoice, action_selector: ActionSelector
 
 static func _up_stat(upgrade: UpgradeChoice, action_selector: ActionSelector):
     var actions = action_selector.get_all()
-    var filtered_copy: Array[Action] = _filter_according_to_criteria(actions, upgrade.filter_criteria)
+    var filtered_copy: Array[Action] = _filter_according_to_criteria(actions, upgrade.filter_criteria, upgrade.invert_filter)
     _get_slice_according_to_sort(filtered_copy, upgrade.sort_criteria, upgrade.number_of_actions_to_affect) \
         .map(_up.bind(upgrade.value_change_amount))
 
 static func _change_type(upgrade: UpgradeChoice, action_selector: ActionSelector):
     var actions = action_selector.get_all()
-    var filtered_copy: Array[Action] = _filter_according_to_criteria(actions, upgrade.filter_criteria)
+    var filtered_copy: Array[Action] = _filter_according_to_criteria(actions, upgrade.filter_criteria, upgrade.invert_filter)
     _get_slice_according_to_sort(filtered_copy, upgrade.sort_criteria, upgrade.number_of_actions_to_affect) \
         .map(_change_to.bind(upgrade.change_to))
 
@@ -117,6 +122,20 @@ static func _combine_matches(_upgrade: UpgradeChoice, action_selector: ActionSel
         while matching_actions.size() >= min_matches:
             _combine(matching_actions[0], matching_actions[1], action_selector)
             matching_actions.remove_at(1)
+    
+static func _combine_specific(upgrade: UpgradeChoice, action_selector: ActionSelector):
+    var params: SpecificCombineParams = upgrade.specific_combine_params
+
+    # get retain action
+    var filtered_actions = action_selector.get_all() \
+        .filter(_filter_according_to_criteria.bind(params.retain_filter, params.retain_invert_filter))
+    var retain_action = _get_slice_according_to_sort(filtered_actions, params.retain_sort, 1)[0]
+        
+    filtered_actions = action_selector.get_all() \
+        .filter(_filter_according_to_criteria.bind(params.lost_filter, params.retain_invert_filter))
+    var lost_action = _get_slice_according_to_sort(filtered_actions, params.lost_sort, 1)[0]
+
+    _combine(retain_action, lost_action, action_selector)
 
 ## Helper methods
 
@@ -124,8 +143,8 @@ static func _up(action: Action, change_by: int):
     action.amount += change_by
     action.name = Action.generate_action_name(action.stat_type, action.amount)
 
-static func _change_to(action: Action, change_to: Database.StatType):
-    action.stat_type = change_to
+static func _change_to(action: Action, new_type: Database.StatType):
+    action.stat_type = new_type
     action.name = Action.generate_action_name(action.stat_type, action.amount)
 
 static func _combine(retain_action: Action, lost_action: Action, action_selector: ActionSelector):
@@ -151,9 +170,12 @@ static func _get_slice_according_to_sort(
     
     return temp_copy.slice(0, number_to_get)
 
-static func _filter_according_to_criteria(actions: Array[Action], filter: StatTypeCriteria):
+static func _filter_according_to_criteria(actions: Array[Action], filter: StatTypeCriteria,
+        invert: bool):
     if filter in Database.StatType.values():
-        return actions.filter(_match_stat.bind(filter))
+        return actions.filter(
+            func(x): return _match_stat(x, filter as Database.StatType) != invert
+        )
     else:
         return actions.duplicate()
 
@@ -162,3 +184,5 @@ static func _sort_lowest(action1: Action, action2: Action):
 
 static func _sort_highest(action1: Action, action2: Action):
     return action1.amount > action2.amount
+
+## Helper Classes

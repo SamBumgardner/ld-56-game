@@ -15,8 +15,10 @@ number_of_times = 1
 remove_action_name = ""
 new_action_string = ""
 filter_criteria = -1
+invert_filter = false
 sort_criteria = 0
 number_of_actions_to_affect = 1
+change_to = -1
 
 [resource]
 script = ExtResource("1_x6i7t")
@@ -35,5 +37,7 @@ number_of_times = 1
 remove_action_name = ""
 new_action_string = "might_3"
 filter_criteria = -1
+invert_filter = false
 sort_criteria = -1
 number_of_actions_to_affect = 1
+change_to = -1

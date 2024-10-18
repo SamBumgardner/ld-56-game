@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="UpgradeChoice" load_steps=4 format=3 uid="uid://ccsqpvuhw821q"]
+
+[ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="1_ueo7v"]
+[ext_resource type="Texture2D" uid="uid://8icadmy2cp3f" path="res://assets/art/upgrade_icon_placeholder.png" id="2_uea1g"]
+
+[sub_resource type="Resource" id="Resource_yiy8q"]
+script = ExtResource("1_ueo7v")
+name = ""
+description = ""
+visual_summary = ""
+cost = 0
+upgrade_type = 3
+value_change_amount = 0
+number_of_times = 1
+remove_action_name = ""
+new_action_string = ""
+filter_criteria = 2
+invert_filter = true
+sort_criteria = 2
+number_of_actions_to_affect = 1
+change_to = -1
+
+[resource]
+script = ExtResource("1_ueo7v")
+name = "temp"
+description = "Temporary Description"
+visual_summary = "[center]Increase [img=30%]res://assets/art/MAGIC_icon_64x64.png[/img] by 1
+Remove 1 non-[img=30%]res://assets/art/MAGIC_icon_64x64.png[/img]"
+icon_ref = ExtResource("2_uea1g")
+cost = null
+additional_effect = SubResource("Resource_yiy8q")
+upgrade_type = 2
+value_change_amount = 1
+number_of_times = 1
+remove_action_name = ""
+new_action_string = ""
+filter_criteria = 2
+invert_filter = false
+sort_criteria = -1
+number_of_actions_to_affect = 256
+change_to = -1
