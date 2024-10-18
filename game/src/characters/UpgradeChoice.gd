@@ -12,6 +12,7 @@ enum UpgradeType {
     COMBINE_SPECIFIC = 7,
     RESTORE_HEALTH = 8,
     RESTORE_FUEL = 9,
+    ADD_SUMMED = 10,
 }
 
 enum StatTypeCriteria {
@@ -42,6 +43,7 @@ static var upgrade_funcs: Dictionary = {
     UpgradeType.COMBINE_SPECIFIC: _combine_specific,
     UpgradeType.RESTORE_HEALTH: _restore_health,
     UpgradeType.RESTORE_FUEL: _restore_fuel,
+    UpgradeType.ADD_SUMMED: _add_summed,
 }
 
 @export var name: String
@@ -80,6 +82,14 @@ static func _upgrade_replace(upgrade: UpgradeChoice, action_selector: ActionSele
 
 static func _upgrade_add(upgrade: UpgradeChoice, action_selector: ActionSelector):
     action_selector.append(Action._parse_action_string(upgrade.new_action_string))
+
+static func _add_summed(upgrade: UpgradeChoice, action_selector: ActionSelector):
+    var actions = action_selector.get_all()
+    var filtered_copy: Array[Action] = _filter_according_to_criteria(actions, upgrade.filter_criteria, upgrade.invert_filter)
+    var summed_amounts = _get_slice_according_to_sort(filtered_copy, upgrade.sort_criteria, upgrade.number_of_actions_to_affect) \
+        .reduce(func(a:int, b:Action): return a + b.amount, 0)
+    var name = "%s_%s" % [upgrade.new_action_string, summed_amounts]
+    action_selector.append(Action.new(name, Database.string_to_stat_type[upgrade.new_action_string], summed_amounts))
 
 static func _up_stat(upgrade: UpgradeChoice, action_selector: ActionSelector):
     var actions = action_selector.get_all()

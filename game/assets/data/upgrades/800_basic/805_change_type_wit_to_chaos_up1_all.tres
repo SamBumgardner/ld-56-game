@@ -10,7 +10,7 @@ description = ""
 visual_summary = ""
 cost = 0
 upgrade_type = 2
-value_change_amount = 0
+value_change_amount = 1
 number_of_times = 1
 remove_action_name = ""
 new_action_string = ""
@@ -25,7 +25,7 @@ restore_pct = 0.0
 script = ExtResource("1_yk8tm")
 name = "temp"
 description = "Temporary Description"
-visual_summary = "[center]Change all [img=30%]res://assets/art/HEAL_icon_64x64.png[/img] actions to [img=30%]res://assets/art/MAGIC_icon_64x64.png[/img]
+visual_summary = "[center]Change all [img=30%]res://assets/art/HEAL_icon_64x64.png[/img] to [img=30%]res://assets/art/MAGIC_icon_64x64.png[/img]
 Increase the value of all actions by [b]1[/b]"
 icon_ref = ExtResource("2_ju6e7")
 cost = 0

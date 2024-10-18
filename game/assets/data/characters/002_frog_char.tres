@@ -1,31 +1,53 @@
-[gd_resource type="Resource" script_class="CharacterFactory" load_steps=12 format=3 uid="uid://duswkektwj6hb"]
+[gd_resource type="Resource" script_class="CharacterFactory" load_steps=21 format=3 uid="uid://duswkektwj6hb"]
 
-[ext_resource type="Script" path="res://src/characters/CharacterFactory.gd" id="1_4stka"]
-[ext_resource type="Texture2D" uid="uid://b4wr53ye568ee" path="res://assets/art/character_icons/002_character_icon.png" id="1_2223a"]
-[ext_resource type="Texture2D" uid="uid://bic3i142epdt3" path="res://assets/art/placeholder_threat.png" id="2_gwf10"]
-[ext_resource type="Script" path="res://src/characters/UpgradeSelector.gd" id="2_tu5gk"]
-[ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="3_2m36r"]
-[ext_resource type="Resource" uid="uid://dxqo75jjc8jjq" path="res://assets/data/upgrades/001_add_2_wit2.tres" id="4_7vuqt"]
-[ext_resource type="Resource" uid="uid://bq1rld7wvl3fk" path="res://assets/data/upgrades/002_add_2_chaos2.tres" id="5_1xc4x"]
-[ext_resource type="Resource" uid="uid://drlywucrqnxrb" path="res://assets/data/upgrades/003_add_2_might2.tres" id="8_bchqw"]
-[ext_resource type="Resource" uid="uid://bed3mtckyavm" path="res://assets/data/upgrades/004_add_1_chaos4.tres" id="8_lxjgw"]
+[ext_resource type="Texture2D" uid="uid://b4wr53ye568ee" path="res://assets/art/character_icons/002_character_icon.png" id="1_avar0"]
+[ext_resource type="Texture2D" uid="uid://bic3i142epdt3" path="res://assets/art/placeholder_threat.png" id="2_1khfy"]
+[ext_resource type="Script" path="res://src/characters/CharacterFactory.gd" id="3_ckivh"]
+[ext_resource type="Script" path="res://src/characters/UpgradeSelector.gd" id="4_bx1au"]
+[ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="5_2eogc"]
+[ext_resource type="Resource" uid="uid://d3kkwngqwxuum" path="res://assets/data/upgrades/800_basic/801_up1_wit.tres" id="6_s7u8b"]
+[ext_resource type="Resource" uid="uid://cmykcfnp2xcnc" path="res://assets/data/upgrades/800_basic/802_add_chaos2.tres" id="7_uoole"]
+[ext_resource type="Resource" uid="uid://cm1keskctlila" path="res://assets/data/upgrades/800_basic/803_up1_all.tres" id="8_w8slx"]
+[ext_resource type="Resource" uid="uid://bpane6joknujg" path="res://assets/data/upgrades/800_basic/804_add_wit4.tres" id="9_jk630"]
+[ext_resource type="Resource" uid="uid://dlx8tn2neptn6" path="res://assets/data/upgrades/800_basic/805_change_type_chaos_to_might_up1_all.tres" id="10_jjbu3"]
+[ext_resource type="Resource" uid="uid://c8iphyjge023" path="res://assets/data/upgrades/800_basic/806_up2_chaos.tres" id="11_v63vg"]
+[ext_resource type="Resource" uid="uid://bc6266173iv0g" path="res://assets/data/upgrades/800_basic/807_up2_all_add_wit1.tres" id="12_13o2a"]
+[ext_resource type="Resource" uid="uid://dvistik2joi2q" path="res://assets/data/upgrades/800_basic/808_up2_highest.tres" id="13_63qwn"]
+[ext_resource type="Resource" uid="uid://babglt7qu642p" path="res://assets/data/upgrades/800_basic/809_addsummed_wit.tres" id="14_bp6f7"]
+[ext_resource type="Resource" uid="uid://b2mun7fboxkoj" path="res://assets/data/upgrades/800_basic/810_up2_all.tres" id="15_bpon7"]
 
 [sub_resource type="Resource" id="Resource_8vmh3"]
-script = ExtResource("2_tu5gk")
-choices = Array[ExtResource("3_2m36r")]([ExtResource("4_7vuqt"), ExtResource("5_1xc4x")])
+script = ExtResource("4_bx1au")
+choices = Array[ExtResource("5_2eogc")]([ExtResource("6_s7u8b"), ExtResource("7_uoole")])
 price = 0
 
 [sub_resource type="Resource" id="Resource_dkaqe"]
-script = ExtResource("2_tu5gk")
-choices = Array[ExtResource("3_2m36r")]([ExtResource("8_lxjgw"), ExtResource("8_bchqw")])
+script = ExtResource("4_bx1au")
+choices = Array[ExtResource("5_2eogc")]([ExtResource("8_w8slx"), ExtResource("9_jk630")])
+price = 0
+
+[sub_resource type="Resource" id="Resource_r0juk"]
+script = ExtResource("4_bx1au")
+choices = Array[ExtResource("5_2eogc")]([ExtResource("10_jjbu3"), ExtResource("11_v63vg")])
+price = 0
+
+[sub_resource type="Resource" id="Resource_6clle"]
+script = ExtResource("4_bx1au")
+choices = Array[ExtResource("5_2eogc")]([ExtResource("12_13o2a"), ExtResource("13_63qwn")])
+price = 0
+
+[sub_resource type="Resource" id="Resource_kfysa"]
+script = ExtResource("4_bx1au")
+choices = Array[ExtResource("5_2eogc")]([ExtResource("14_bp6f7"), ExtResource("15_bpon7")])
 price = 0
 
 [resource]
-script = ExtResource("1_4stka")
-name = "Scorch"
-description = "Loyalty, bravery, and a touch of pyromania; there's no better ally in a pinch."
-portrait = ExtResource("2_gwf10")
-icon = ExtResource("1_2223a")
-starting_action_strings = Array[String](["chaos_2", "chaos_1", "wit_1", "might_1"])
+script = ExtResource("3_ckivh")
+name = "Tumble"
+description = "Not much of an acrobat, but an excellent engineer.
+ "
+portrait = ExtResource("2_1khfy")
+icon = ExtResource("1_avar0")
+starting_action_strings = Array[String](["wit_2", "wit_1", "chaos_1"])
 upgrade_level = 0
-upgrades = Array[ExtResource("2_tu5gk")]([SubResource("Resource_8vmh3"), SubResource("Resource_dkaqe")])
+upgrades = Array[ExtResource("4_bx1au")]([SubResource("Resource_8vmh3"), SubResource("Resource_dkaqe"), SubResource("Resource_r0juk"), SubResource("Resource_6clle"), SubResource("Resource_kfysa")])

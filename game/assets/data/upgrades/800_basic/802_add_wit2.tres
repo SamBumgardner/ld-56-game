@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource("2_k3cei")
-name = "Study"
-description = "Wit sharpened through diligence."
+name = "Temp"
+description = "Temporary Description"
 visual_summary = "[center]Add:
 2[img=30%]res://assets/art/HEAL_icon_64x64.png[/img]"
 icon_ref = ExtResource("1_0u54v")
