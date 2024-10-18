@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="UpgradeChoice" load_steps=5 format=3 uid="uid://doxyp6lidta1u"]
+
+[ext_resource type="Texture2D" uid="uid://8icadmy2cp3f" path="res://assets/art/upgrade_icon_placeholder.png" id="1_o5sqr"]
+[ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="2_r5bmc"]
+[ext_resource type="Script" path="res://src/characters/SpecificCombineParams.gd" id="3_6hs3g"]
+
+[sub_resource type="Resource" id="Resource_y65ic"]
+script = ExtResource("3_6hs3g")
+retain_sort = 2
+retain_filter = 2
+retain_invert_filter = true
+lost_sort = 0
+lost_filter = 2
+lost_invert_filter = false
+
+[resource]
+script = ExtResource("2_r5bmc")
+name = "temp"
+description = "Temporary Description"
+visual_summary = "[center]Remove lowest [img=30%]res://assets/art/MAGIC_icon_64x64.png[/img]
+Increase random action by the removed value"
+icon_ref = ExtResource("1_o5sqr")
+cost = 0
+upgrade_type = 7
+value_change_amount = 0
+number_of_times = 1
+remove_action_name = ""
+new_action_string = ""
+filter_criteria = -1
+invert_filter = false
+sort_criteria = -1
+number_of_actions_to_affect = 1
+change_to = -1
+restore_pct = 0.0
+specific_combine_params = SubResource("Resource_y65ic")

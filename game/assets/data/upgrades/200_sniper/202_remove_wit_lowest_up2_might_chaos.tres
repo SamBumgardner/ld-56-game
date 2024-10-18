@@ -1,0 +1,63 @@
+[gd_resource type="Resource" script_class="UpgradeChoice" load_steps=5 format=3 uid="uid://cyppst6j6svex"]
+
+[ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="1_jaanv"]
+[ext_resource type="Texture2D" uid="uid://8icadmy2cp3f" path="res://assets/art/upgrade_icon_placeholder.png" id="2_xvhao"]
+
+[sub_resource type="Resource" id="Resource_sjkte"]
+script = ExtResource("1_jaanv")
+name = ""
+description = ""
+visual_summary = ""
+cost = 0
+upgrade_type = 2
+value_change_amount = 2
+number_of_times = 1
+remove_action_name = ""
+new_action_string = ""
+filter_criteria = 2
+invert_filter = false
+sort_criteria = -1
+number_of_actions_to_affect = 256
+change_to = -1
+restore_pct = 0.0
+
+[sub_resource type="Resource" id="Resource_dgqdl"]
+script = ExtResource("1_jaanv")
+name = ""
+description = ""
+visual_summary = ""
+cost = 0
+additional_effect = SubResource("Resource_sjkte")
+upgrade_type = 2
+value_change_amount = 2
+number_of_times = 1
+remove_action_name = ""
+new_action_string = ""
+filter_criteria = 0
+invert_filter = false
+sort_criteria = -1
+number_of_actions_to_affect = 256
+change_to = -1
+restore_pct = 0.0
+
+[resource]
+script = ExtResource("1_jaanv")
+name = "Temp"
+description = "Temporary Description here."
+visual_summary = "[center]Remove:
+Lowest [img=30%]res://assets/art/HEAL_icon_64x64.png[/img]
+Increase value of [img=30%]res://assets/art/ATTACK_icon_64x64.png[/img] & [img=30%]res://assets/art/MAGIC_icon_64x64.png[/img] by 2"
+icon_ref = ExtResource("2_xvhao")
+cost = 0
+additional_effect = SubResource("Resource_dgqdl")
+upgrade_type = 3
+value_change_amount = 0
+number_of_times = 1
+remove_action_name = ""
+new_action_string = ""
+filter_criteria = 1
+invert_filter = false
+sort_criteria = 0
+number_of_actions_to_affect = 1
+change_to = -1
+restore_pct = 0.0

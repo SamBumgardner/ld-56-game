@@ -1,0 +1,52 @@
+[gd_resource type="Resource" script_class="CharacterFactory" load_steps=21 format=3 uid="uid://b3l83j0ql7m0e"]
+
+[ext_resource type="Texture2D" uid="uid://buhpfr0v6vyet" path="res://assets/art/character_icons/003_character_icon.png" id="1_ehecm"]
+[ext_resource type="Texture2D" uid="uid://bic3i142epdt3" path="res://assets/art/placeholder_threat.png" id="2_6a65p"]
+[ext_resource type="Script" path="res://src/characters/CharacterFactory.gd" id="3_cp6an"]
+[ext_resource type="Script" path="res://src/characters/UpgradeSelector.gd" id="4_uhto1"]
+[ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="5_nqnpf"]
+[ext_resource type="Resource" uid="uid://bk28atv2b5hxg" path="res://assets/data/upgrades/800_basic/801_up1_chaos.tres" id="6_ixhi8"]
+[ext_resource type="Resource" uid="uid://7e1q61lw77bg" path="res://assets/data/upgrades/800_basic/802_add_might2.tres" id="7_msyjq"]
+[ext_resource type="Resource" uid="uid://cm1keskctlila" path="res://assets/data/upgrades/800_basic/803_up1_all.tres" id="8_wngl7"]
+[ext_resource type="Resource" uid="uid://bxoro24rviyft" path="res://assets/data/upgrades/800_basic/804_add_chaos4.tres" id="9_5vlst"]
+[ext_resource type="Resource" uid="uid://3o03c0wh80ge" path="res://assets/data/upgrades/800_basic/805_change_type_might_to_wit_up1_all.tres" id="10_s8tcm"]
+[ext_resource type="Resource" uid="uid://bwcwtlno7v17d" path="res://assets/data/upgrades/800_basic/806_up2_might.tres" id="11_2gw5e"]
+[ext_resource type="Resource" uid="uid://sgokvcdgbjvl" path="res://assets/data/upgrades/800_basic/807_up2_all_add_chaos1.tres" id="12_beqm0"]
+[ext_resource type="Resource" uid="uid://dvistik2joi2q" path="res://assets/data/upgrades/800_basic/808_up2_highest.tres" id="13_4mehr"]
+[ext_resource type="Resource" uid="uid://dy6recfliehnf" path="res://assets/data/upgrades/800_basic/809_addsummed_chaos.tres" id="14_gp7pk"]
+[ext_resource type="Resource" uid="uid://b2mun7fboxkoj" path="res://assets/data/upgrades/800_basic/810_up2_all.tres" id="15_pxg1k"]
+
+[sub_resource type="Resource" id="Resource_8vmh3"]
+script = ExtResource("4_uhto1")
+choices = Array[ExtResource("5_nqnpf")]([ExtResource("6_ixhi8"), ExtResource("7_msyjq")])
+price = 0
+
+[sub_resource type="Resource" id="Resource_ymp33"]
+script = ExtResource("4_uhto1")
+choices = Array[ExtResource("5_nqnpf")]([ExtResource("8_wngl7"), ExtResource("9_5vlst")])
+price = 0
+
+[sub_resource type="Resource" id="Resource_rct7n"]
+script = ExtResource("4_uhto1")
+choices = Array[ExtResource("5_nqnpf")]([ExtResource("10_s8tcm"), ExtResource("11_2gw5e")])
+price = 0
+
+[sub_resource type="Resource" id="Resource_j2bep"]
+script = ExtResource("4_uhto1")
+choices = Array[ExtResource("5_nqnpf")]([ExtResource("12_beqm0"), ExtResource("13_4mehr")])
+price = 0
+
+[sub_resource type="Resource" id="Resource_jifp1"]
+script = ExtResource("4_uhto1")
+choices = Array[ExtResource("5_nqnpf")]([ExtResource("14_gp7pk"), ExtResource("15_pxg1k")])
+price = 0
+
+[resource]
+script = ExtResource("3_cp6an")
+name = "Fiddler"
+description = "Loyalty, bravery, and a touch of pyromania; there's no better ally in a pinch."
+portrait = ExtResource("2_6a65p")
+icon = ExtResource("1_ehecm")
+starting_action_strings = Array[String](["chaos_2", "chaos_1", "might_1"])
+upgrade_level = 0
+upgrades = Array[ExtResource("4_uhto1")]([SubResource("Resource_8vmh3"), SubResource("Resource_ymp33"), SubResource("Resource_rct7n"), SubResource("Resource_j2bep"), SubResource("Resource_jifp1")])

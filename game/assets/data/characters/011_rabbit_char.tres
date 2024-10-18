@@ -1,0 +1,52 @@
+[gd_resource type="Resource" script_class="CharacterFactory" load_steps=21 format=3 uid="uid://1nhgxq12mwuo"]
+
+[ext_resource type="Texture2D" uid="uid://dbxuu6rqen0ed" path="res://assets/art/character_icons/001_character_icon.png" id="1_6bly4"]
+[ext_resource type="Texture2D" uid="uid://bic3i142epdt3" path="res://assets/art/placeholder_threat.png" id="2_1t750"]
+[ext_resource type="Script" path="res://src/characters/CharacterFactory.gd" id="3_tiyrw"]
+[ext_resource type="Script" path="res://src/characters/UpgradeSelector.gd" id="4_j1drq"]
+[ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="5_jpgdi"]
+[ext_resource type="Resource" uid="uid://c84gaufp2j3hi" path="res://assets/data/upgrades/700_repair/701_up1_all.tres" id="6_qmxyu"]
+[ext_resource type="Resource" uid="uid://baexcdc02i8y8" path="res://assets/data/upgrades/700_repair/702_restorehealth_half.tres" id="7_sh88i"]
+[ext_resource type="Resource" uid="uid://bghapbmu0ekxa" path="res://assets/data/upgrades/700_repair/703_up1_all.tres" id="8_d2j5k"]
+[ext_resource type="Resource" uid="uid://16175dpr7td8" path="res://assets/data/upgrades/700_repair/704_restorefuel_half.tres" id="9_aow6a"]
+[ext_resource type="Resource" uid="uid://boolj7lkoq0n1" path="res://assets/data/upgrades/700_repair/705_restorefuel_full.tres" id="10_5ndhl"]
+[ext_resource type="Resource" uid="uid://d1dxsqdf0s7ap" path="res://assets/data/upgrades/700_repair/706_restorehealth_full.tres" id="11_od03c"]
+[ext_resource type="Resource" uid="uid://bbyduv25qv78k" path="res://assets/data/upgrades/700_repair/707_up2_all.tres" id="12_fqbja"]
+[ext_resource type="Resource" uid="uid://v0wc2mxj8ym8" path="res://assets/data/upgrades/700_repair/708_restorefuel_half.tres" id="13_56dia"]
+[ext_resource type="Resource" uid="uid://dowmjqiohippn" path="res://assets/data/upgrades/700_repair/709_up3_all.tres" id="14_fys2i"]
+[ext_resource type="Resource" uid="uid://537vsywpwtkh" path="res://assets/data/upgrades/700_repair/710_restorehealth_half.tres" id="15_w2wrr"]
+
+[sub_resource type="Resource" id="Resource_8vmh3"]
+script = ExtResource("4_j1drq")
+choices = Array[ExtResource("5_jpgdi")]([ExtResource("6_qmxyu"), ExtResource("7_sh88i")])
+price = 0
+
+[sub_resource type="Resource" id="Resource_qjpoh"]
+script = ExtResource("4_j1drq")
+choices = Array[ExtResource("5_jpgdi")]([ExtResource("8_d2j5k"), ExtResource("9_aow6a")])
+price = 0
+
+[sub_resource type="Resource" id="Resource_cho87"]
+script = ExtResource("4_j1drq")
+choices = Array[ExtResource("5_jpgdi")]([ExtResource("10_5ndhl"), ExtResource("11_od03c")])
+price = 0
+
+[sub_resource type="Resource" id="Resource_dvbu4"]
+script = ExtResource("4_j1drq")
+choices = Array[ExtResource("5_jpgdi")]([ExtResource("12_fqbja"), ExtResource("13_56dia")])
+price = 0
+
+[sub_resource type="Resource" id="Resource_oyq3u"]
+script = ExtResource("4_j1drq")
+choices = Array[ExtResource("5_jpgdi")]([ExtResource("14_fys2i"), ExtResource("15_w2wrr")])
+price = 0
+
+[resource]
+script = ExtResource("3_tiyrw")
+name = "Thistle"
+description = "A skilled survivalist, capable of supporting many even under harsh conditions."
+portrait = ExtResource("2_1t750")
+icon = ExtResource("1_6bly4")
+starting_action_strings = Array[String](["might_2", "wit_1"])
+upgrade_level = 0
+upgrades = Array[ExtResource("4_j1drq")]([SubResource("Resource_8vmh3"), SubResource("Resource_qjpoh"), SubResource("Resource_cho87"), SubResource("Resource_dvbu4"), SubResource("Resource_oyq3u")])

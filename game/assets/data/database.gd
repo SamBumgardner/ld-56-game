@@ -22,6 +22,12 @@ static var string_to_stat_type: Dictionary = {
     "chaos": StatType.CHAOS,
 }
 
+static var stat_type_to_string: Dictionary = {
+    StatType.MIGHT: "might",
+    StatType.WIT: "wit",
+    StatType.CHAOS: "chaos",
+}
+
 static var stat_type_to_icon: Dictionary = {
     StatType.MIGHT: preload("res://assets/art/ATTACK_icon_64x64.png"),
     StatType.WIT: preload("res://assets/art/HEAL_icon_64x64.png"),
@@ -31,6 +37,14 @@ static var stat_type_to_icon: Dictionary = {
 const CHECKPOINT_SAVED_MESSAGE: String = "Checkpoint Reached!"
 const CHECKPOINT_SAVED_DURATION: float = 2
 const MAX_APPLICANTS: int = 4
+const CHAR_MAX_ACTIONS: int = 8
+const UPGRADE_DEFAULT_TIER_COSTS: Array[int] = [
+    10,
+    15,
+    25,
+    35,
+    50
+]
 
 const _settings_default_audio_volume_music: float = 0.5
 const _settings_default_audio_volume_sfx: float = 0.5
@@ -50,25 +64,26 @@ const _initial_fuel: int = 2
 const _initial_matching_stat_type_multiplier: int = 2
 const _initial_war_transport_health_maximum: int = 10
 
-const _maximum_fuel: int = 10
+const maximum_fuel: int = 10
 
 const _character_factories: Array[CharacterFactory] = [
-    preload("res://assets/data/characters/001_mouse_char.tres"),
-    preload("res://assets/data/characters/002_lizard_char.tres"),
-    preload("res://assets/data/characters/003_test_pal.tres"),
-    preload("res://assets/data/characters/004_test_pal.tres"),
-    preload("res://assets/data/characters/005_test_pal.tres"),
-    preload("res://assets/data/characters/006_test_pal.tres"),
-    preload("res://assets/data/characters/007_test_pal.tres"),
-    preload("res://assets/data/characters/008_test_pal.tres"),
-    preload("res://assets/data/characters/009_test_pal.tres"),
-    preload("res://assets/data/characters/010_test_pal.tres"),
-    preload("res://assets/data/characters/011_test_pal.tres"),
-    preload("res://assets/data/characters/012_test_pal.tres"),
+    preload("res://assets/data/characters/001_squirrel_char.tres"),
+    preload("res://assets/data/characters/002_frog_char.tres"),
+    preload("res://assets/data/characters/003_raccoon_char.tres"),
+    preload("res://assets/data/characters/004_bird_char.tres"),
+    preload("res://assets/data/characters/005_ape_char.tres"),
+    preload("res://assets/data/characters/006_mouse_char.tres"),
+    preload("res://assets/data/characters/007_mole_char.tres"),
+    preload("res://assets/data/characters/008_lizard_char.tres"),
+    preload("res://assets/data/characters/009_snake_char.tres"),
+    preload("res://assets/data/characters/010_mantis_char.tres"),
+    preload("res://assets/data/characters/011_rabbit_char.tres"),
+    preload("res://assets/data/characters/012_fish_char.tres"),
 ]
 const _starting_character_idxs: Array[int] = [
     0,
     1,
+    2,
 ]
 
 var audio_volume_initialized: bool
@@ -286,8 +301,8 @@ func set_initial_applicant_count(updated_number: int) -> void:
 
 func set_war_transport_health_current(updated_health: int) -> void:
     var old_health = war_transport_health_current
-    war_transport_health_current = updated_health
-    health_changed.emit(updated_health, old_health)
+    war_transport_health_current = min(updated_health, war_transport_health_maximum)
+    health_changed.emit(war_transport_health_current, old_health)
 
 func set_war_transport_health_maximum(updated_health: int) -> void:
     war_transport_health_maximum = updated_health
@@ -302,7 +317,7 @@ func set_money(updated_money: int) -> void:
 
 func set_fuel(updated_fuel: int) -> void:
     var old_fuel = current_fuel
-    current_fuel = min(updated_fuel, _maximum_fuel)
+    current_fuel = min(updated_fuel, maximum_fuel)
     fuel_changed.emit(current_fuel, old_fuel)
 
 func set_reroll_fuel_cost(updated_cost: int) -> void:

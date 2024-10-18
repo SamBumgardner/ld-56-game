@@ -1,0 +1,52 @@
+[gd_resource type="Resource" script_class="CharacterFactory" load_steps=21 format=3 uid="uid://cg2gt1s2ilepn"]
+
+[ext_resource type="Texture2D" uid="uid://dbxuu6rqen0ed" path="res://assets/art/character_icons/001_character_icon.png" id="1_kpmar"]
+[ext_resource type="Texture2D" uid="uid://bic3i142epdt3" path="res://assets/art/placeholder_threat.png" id="2_f2ol6"]
+[ext_resource type="Script" path="res://src/characters/CharacterFactory.gd" id="3_h3rq5"]
+[ext_resource type="Script" path="res://src/characters/UpgradeSelector.gd" id="4_sxc2t"]
+[ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="5_mxo8b"]
+[ext_resource type="Resource" uid="uid://dg4v7lsmvj2bp" path="res://assets/data/upgrades/500_gunslinger/501_up1_might.tres" id="6_mwbxw"]
+[ext_resource type="Resource" uid="uid://cb3jn0g26o3lm" path="res://assets/data/upgrades/500_gunslinger/502_up1_wit.tres" id="7_e2sem"]
+[ext_resource type="Resource" uid="uid://csqxqxbhta1l0" path="res://assets/data/upgrades/500_gunslinger/503_up2_might.tres" id="8_g7rps"]
+[ext_resource type="Resource" uid="uid://ct1wv05ukeuyj" path="res://assets/data/upgrades/500_gunslinger/504_up2_wit.tres" id="9_221le"]
+[ext_resource type="Resource" uid="uid://ch1304nxbsfbt" path="res://assets/data/upgrades/500_gunslinger/505_up2_highest.tres" id="10_33qho"]
+[ext_resource type="Resource" uid="uid://deuktwwj5apg8" path="res://assets/data/upgrades/500_gunslinger/506_up3_lowest.tres" id="11_hatc5"]
+[ext_resource type="Resource" uid="uid://bbpovrd32pbks" path="res://assets/data/upgrades/500_gunslinger/507_up2_might.tres" id="12_asuh2"]
+[ext_resource type="Resource" uid="uid://d1ceydw1qm73g" path="res://assets/data/upgrades/500_gunslinger/508_up2_wit.tres" id="13_j0ivb"]
+[ext_resource type="Resource" uid="uid://ruw8wtgfxdhf" path="res://assets/data/upgrades/500_gunslinger/509_up2_might.tres" id="14_g8y4h"]
+[ext_resource type="Resource" uid="uid://crbuwetghqe1a" path="res://assets/data/upgrades/500_gunslinger/510_up2_wit.tres" id="15_m6ei4"]
+
+[sub_resource type="Resource" id="Resource_8vmh3"]
+script = ExtResource("4_sxc2t")
+choices = Array[ExtResource("5_mxo8b")]([ExtResource("6_mwbxw"), ExtResource("7_e2sem")])
+price = 0
+
+[sub_resource type="Resource" id="Resource_dfm5y"]
+script = ExtResource("4_sxc2t")
+choices = Array[ExtResource("5_mxo8b")]([ExtResource("8_g7rps"), ExtResource("9_221le")])
+price = 0
+
+[sub_resource type="Resource" id="Resource_ow5d4"]
+script = ExtResource("4_sxc2t")
+choices = Array[ExtResource("5_mxo8b")]([ExtResource("10_33qho"), ExtResource("11_hatc5")])
+price = 0
+
+[sub_resource type="Resource" id="Resource_88s6f"]
+script = ExtResource("4_sxc2t")
+choices = Array[ExtResource("5_mxo8b")]([ExtResource("12_asuh2"), ExtResource("13_j0ivb")])
+price = 0
+
+[sub_resource type="Resource" id="Resource_mqodj"]
+script = ExtResource("4_sxc2t")
+choices = Array[ExtResource("5_mxo8b")]([ExtResource("14_g8y4h"), ExtResource("15_m6ei4")])
+price = 0
+
+[resource]
+script = ExtResource("3_h3rq5")
+name = "Scratch"
+description = "The youngest scion of a famed family of gunslingers. Willing to face any challenge to prove his worth."
+portrait = ExtResource("2_f2ol6")
+icon = ExtResource("1_kpmar")
+starting_action_strings = Array[String](["might_2", "wit_2"])
+upgrade_level = 0
+upgrades = Array[ExtResource("4_sxc2t")]([SubResource("Resource_8vmh3"), SubResource("Resource_dfm5y"), SubResource("Resource_ow5d4"), SubResource("Resource_88s6f"), SubResource("Resource_mqodj")])
