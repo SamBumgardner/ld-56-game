@@ -107,6 +107,7 @@ static func _combine_matches(_upgrade: UpgradeChoice, action_selector: ActionSel
         var matching_actions: Array = matches_dict[action_name]
         while matching_actions.size() >= min_matches:
             _combine(matching_actions[0], matching_actions[1], action_selector)
+            matching_actions.remove_at(1)
 
 ## Helper methods
 

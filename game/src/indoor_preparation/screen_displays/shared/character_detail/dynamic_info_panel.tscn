@@ -40,7 +40,6 @@ layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
 
 [node name="NoInformation" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer"]
 layout_mode = 2
@@ -51,7 +50,7 @@ horizontal_alignment = 1
 [node name="UpgradeDetailsContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 0
-theme_override_constants/separation = 10
+theme_override_constants/separation = 5
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/UpgradeDetailsContainer"]
 layout_mode = 2
@@ -60,7 +59,7 @@ size_flags_horizontal = 4
 [node name="UpgradeIcon1" type="TextureRect" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/UpgradeDetailsContainer/HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("3_aofsp")
-stretch_mode = 3
+stretch_mode = 2
 
 [node name="UpgradeName" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/UpgradeDetailsContainer/HBoxContainer"]
 layout_mode = 2
@@ -70,7 +69,7 @@ text = "Study"
 [node name="UpgradeIcon2" type="TextureRect" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/UpgradeDetailsContainer/HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("3_aofsp")
-stretch_mode = 3
+stretch_mode = 2
 
 [node name="UpgradeDescription" type="Label" parent="MarginContainer/VBoxContainer/Panel/MarginContainer/UpgradeDetailsContainer"]
 layout_mode = 2
