@@ -1,6 +1,7 @@
 # Defines variables shared across scenes with the correct data types.
 extends Node
 
+signal distance_remaining_changed(new_value: int, old_value: int)
 signal health_changed(new_value: int, old_value: int)
 signal money_changed(new_value: int, old_value: int)
 signal fuel_changed(new_value: int, old_value: int)
@@ -50,6 +51,8 @@ const _settings_default_audio_volume_music: float = 0.5
 const _settings_default_audio_volume_sfx: float = 0.5
 const _initial_audio_volume_music: float = 0.5
 const _initial_audio_volume_sfx: float = 0.5
+
+const _initial_distance_remaining: int = 300
 const _initial_barriers_linear_scale_amount: int = 1
 const _initial_barriers_stat_type_to_overcome: StatType = StatType.MIGHT
 const _initial_barriers_overcome_count: int = 0
@@ -89,6 +92,8 @@ const _starting_character_idxs: Array[int] = [
 var audio_volume_initialized: bool
 var audio_volume_music: float
 var audio_volume_sfx: float
+
+var current_distance_remaining: int
 var barriers_overcome_count: int
 var barriers_linear_scale_amount: int
 var current_barrier_stat_type_to_overcome: StatType
@@ -134,6 +139,7 @@ func _ready():
 
 # Like reset_values
 func load_from_init_values(init_values: GameplayInitValues):
+    set_current_distance_remaining(init_values.current_distance_remaining)
     set_barriers_overcome_count(init_values.barriers_overcome_count)
     set_barriers_linear_scale_amount(init_values.barriers_linear_scale_amount)
     set_current_barrier_cost_to_overcome_number(
@@ -161,6 +167,7 @@ func load_from_init_values(init_values: GameplayInitValues):
 
 # Excludes chosen settings for audio volume.
 func reset_values() -> void:
+    set_current_distance_remaining(_initial_distance_remaining)
     set_barriers_overcome_count(_initial_barriers_overcome_count)
     set_barriers_linear_scale_amount(_initial_barriers_linear_scale_amount)
     set_current_barrier_cost_to_overcome_number(
@@ -269,6 +276,11 @@ func set_audio_volume_sfx(volume: float) -> void:
 
 func set_barriers_linear_scale_amount(updated_number: int) -> void:
     barriers_linear_scale_amount = updated_number
+
+func set_current_distance_remaining(updated_distance: int) -> void:
+    var old_distance_remaining = current_distance_remaining
+    current_distance_remaining = updated_distance
+    distance_remaining_changed.emit(current_distance_remaining, old_distance_remaining)
 
 func set_barriers_overcome_count(updated_count: int) -> void:
     barriers_overcome_count = updated_count

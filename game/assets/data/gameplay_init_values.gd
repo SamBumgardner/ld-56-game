@@ -1,5 +1,6 @@
 class_name GameplayInitValues extends Resource
 
+@export var current_distance_remaining: int
 @export var barriers_overcome_count: int
 @export var barriers_linear_scale_amount: int
 @export var current_barrier_stat_type_to_overcome: Database.StatType
@@ -27,6 +28,7 @@ func _init(load_from_db: bool = false):
         _load_from_db()
 
 func _load_from_db():
+    current_distance_remaining = Database.current_distance_remaining
     barriers_overcome_count = Database.barriers_overcome_count
     barriers_linear_scale_amount = Database.barriers_linear_scale_amount
     current_barrier_stat_type_to_overcome = Database.current_barrier_stat_type_to_overcome
