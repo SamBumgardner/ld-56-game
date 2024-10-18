@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://src/game_over/postgame_stat_line.gd" id="1_io3k3"]
 
 [node name="PostgameStatLine" type="HBoxContainer"]
-custom_minimum_size = Vector2(270, 0)
+custom_minimum_size = Vector2(370, 0)
 size_flags_horizontal = 10
 script = ExtResource("1_io3k3")
 
@@ -15,7 +15,7 @@ text = "StatisticName"
 [node name="Ellipsis" type="Label" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "......................................................."
+text = ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . "
 clip_text = true
 text_overrun_behavior = 1
 

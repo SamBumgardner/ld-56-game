@@ -137,6 +137,15 @@ var purchased_upgrade_count: int:
     set(value):
         push_error("attempted to set derived field. Don't do this")
 
+
+var distance_traveled_display: String:
+    get():
+        return "%s km" % (_initial_distance_remaining - current_distance_remaining)
+
+var distance_remaining_display: String:
+    get():
+        return "%s km" % current_distance_remaining
+
 func _ready():
     _ready_audio_volumes()
     reset_values()

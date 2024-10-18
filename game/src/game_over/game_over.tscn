@@ -56,7 +56,7 @@ theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="StatsContainer/MarginContainer"]
-custom_minimum_size = Vector2(300, 0)
+custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="StatsContainer/MarginContainer/VBoxContainer"]
@@ -73,7 +73,19 @@ layout_mode = 2
 layout_mode = 2
 text = "Progress:"
 
-[node name="BarriersDestroyed" parent="StatsContainer/MarginContainer/VBoxContainer/Progress" instance=ExtResource("2_gld74")]
+[node name="DistanceRemaining2" parent="StatsContainer/MarginContainer/VBoxContainer/Progress" instance=ExtResource("2_gld74")]
+layout_mode = 2
+size_flags_horizontal = 8
+stat_display_name = "Distance Traveled"
+database_field_name = "distance_traveled_display"
+
+[node name="DistanceRemaining" parent="StatsContainer/MarginContainer/VBoxContainer/Progress" instance=ExtResource("2_gld74")]
+layout_mode = 2
+size_flags_horizontal = 8
+stat_display_name = "Distance Remaining"
+database_field_name = "distance_remaining_display"
+
+[node name="BarriersDestroyed2" parent="StatsContainer/MarginContainer/VBoxContainer/Progress" instance=ExtResource("2_gld74")]
 layout_mode = 2
 size_flags_horizontal = 8
 stat_display_name = "Barriers Destroyed"
