@@ -22,6 +22,12 @@ static var string_to_stat_type: Dictionary = {
     "chaos": StatType.CHAOS,
 }
 
+static var stat_type_to_string: Dictionary = {
+    StatType.MIGHT: "might",
+    StatType.WIT: "wit",
+    StatType.CHAOS: "chaos",
+}
+
 static var stat_type_to_icon: Dictionary = {
     StatType.MIGHT: preload("res://assets/art/ATTACK_icon_64x64.png"),
     StatType.WIT: preload("res://assets/art/HEAL_icon_64x64.png"),
@@ -59,7 +65,7 @@ const _character_factories: Array[CharacterFactory] = [
     preload("res://assets/data/characters/007_test_pal.tres"),
     preload("res://assets/data/characters/008_test_pal.tres"),
     preload("res://assets/data/characters/009_test_pal.tres"),
-    preload("res://assets/data/characters/010_test_pal.tres"),
+    preload("res://assets/data/characters/010_mantis_char.tres"),
     preload("res://assets/data/characters/011_test_pal.tres"),
     preload("res://assets/data/characters/012_test_pal.tres"),
 ]

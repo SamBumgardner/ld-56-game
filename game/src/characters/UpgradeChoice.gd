@@ -7,6 +7,7 @@ enum UpgradeType {
     UP_STAT = 2,
     REMOVE = 3,
     COPY = 4,
+    COMBINE_MATCHES = 5,
 }
 
 enum FilterCriteria {
@@ -31,6 +32,7 @@ static var upgrade_funcs: Dictionary = {
     UpgradeType.UP_STAT: _up_stat,
     UpgradeType.REMOVE: _remove,
     UpgradeType.COPY: _copy,
+    UpgradeType.COMBINE_MATCHES: _combine_matches,
 }
 
 @export var name: String
@@ -91,10 +93,30 @@ static func _copy(upgrade: UpgradeChoice, action_selector: ActionSelector):
     for item in actions_to_copy:
         action_selector.append(Action.new(item.name, item.stat_type, item.amount))
 
+static func _combine_matches(_upgrade: UpgradeChoice, action_selector: ActionSelector):
+    const min_matches: int = 2
+
+    var actions = action_selector.get_all()
+    var matches_dict: Dictionary = {}
+    for action: Action in actions:
+        if not matches_dict.has(action.name):
+            matches_dict[action.name] = []
+        matches_dict[action.name].append(action)
+    
+    for action_name: String in matches_dict.keys():
+        var matching_actions: Array[Action] = matches_dict[action_name]
+        while matching_actions.size() >= min_matches:
+            _combine(matching_actions[0], matching_actions[1], action_selector)
+
 ## Helper methods
 
 static func _up(action: Action, change_by: int):
     action.amount += change_by
+    action.name = Action.generate_action_name(action.stat_type, action.amount)
+
+static func _combine(retain_action: Action, lost_action: Action, action_selector: ActionSelector):
+    retain_action.up(lost_action.amount)
+    action_selector.remove(lost_action.name)
 
 static func _match_stat(action: Action, stat: Database.StatType):
     return action.stat_type == stat

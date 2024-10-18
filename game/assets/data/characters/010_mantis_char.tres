@@ -1,0 +1,51 @@
+[gd_resource type="Resource" script_class="CharacterFactory" load_steps=20 format=3 uid="uid://4vcpwnnptf5r"]
+
+[ext_resource type="Texture2D" uid="uid://buhpfr0v6vyet" path="res://assets/art/character_icons/003_character_icon.png" id="1_6x7m7"]
+[ext_resource type="Texture2D" uid="uid://bic3i142epdt3" path="res://assets/art/placeholder_threat.png" id="2_2kud7"]
+[ext_resource type="Script" path="res://src/characters/CharacterFactory.gd" id="3_bid6u"]
+[ext_resource type="Script" path="res://src/characters/UpgradeSelector.gd" id="4_sm110"]
+[ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="5_2oxke"]
+[ext_resource type="Resource" uid="uid://bxeyn6dgjlypl" path="res://assets/data/upgrades/samurai/101_add_might5.tres" id="6_lig8q"]
+[ext_resource type="Resource" uid="uid://ch7f7rafh8x3o" path="res://assets/data/upgrades/samurai/102_add_might3_remove_lowest.tres" id="7_en2yk"]
+[ext_resource type="Resource" uid="uid://dv1v11so72i33" path="res://assets/data/upgrades/samurai/103_add_might7.tres" id="8_u0e6s"]
+[ext_resource type="Resource" uid="uid://bt30881tspl8r" path="res://assets/data/upgrades/samurai/104_add_might5_remove_lowest.tres" id="9_vtkm0"]
+[ext_resource type="Resource" uid="uid://beyp2dcpdej4x" path="res://assets/data/upgrades/samurai/105_up2_might.tres" id="10_4pqdw"]
+[ext_resource type="Resource" uid="uid://bi3gponn5egot" path="res://assets/data/upgrades/samurai/106_combine_matches.tres" id="11_lr0x2"]
+[ext_resource type="Resource" uid="uid://bnxf56vju6ata" path="res://assets/data/upgrades/samurai/107_add_might10.tres" id="12_0x4d7"]
+[ext_resource type="Resource" uid="uid://beixjmmbosy2" path="res://assets/data/upgrades/samurai/108_add_might7_remove_lowest.tres" id="13_epxy5"]
+[ext_resource type="Resource" uid="uid://pwl4l8wxuv03" path="res://assets/data/upgrades/samurai/110_remove_2_lowest.tres" id="14_04gyj"]
+
+[sub_resource type="Resource" id="Resource_qva0b"]
+script = ExtResource("4_sm110")
+choices = Array[ExtResource("5_2oxke")]([ExtResource("6_lig8q"), ExtResource("7_en2yk")])
+price = 0
+
+[sub_resource type="Resource" id="Resource_72aih"]
+script = ExtResource("4_sm110")
+choices = Array[ExtResource("5_2oxke")]([ExtResource("8_u0e6s"), ExtResource("9_vtkm0")])
+price = 0
+
+[sub_resource type="Resource" id="Resource_77c6k"]
+script = ExtResource("4_sm110")
+choices = Array[ExtResource("5_2oxke")]([ExtResource("10_4pqdw"), ExtResource("11_lr0x2")])
+price = 0
+
+[sub_resource type="Resource" id="Resource_txwkq"]
+script = ExtResource("4_sm110")
+choices = Array[ExtResource("5_2oxke")]([ExtResource("12_0x4d7"), ExtResource("13_epxy5")])
+price = 0
+
+[sub_resource type="Resource" id="Resource_wm7lw"]
+script = ExtResource("4_sm110")
+choices = Array[ExtResource("5_2oxke")]([ExtResource("10_4pqdw"), ExtResource("14_04gyj")])
+price = 0
+
+[resource]
+script = ExtResource("3_bid6u")
+name = "Blades"
+description = "A wandering warrior, always looking for opportunities to hone his blade."
+portrait = ExtResource("2_2kud7")
+icon = ExtResource("1_6x7m7")
+starting_action_strings = Array[String](["might_3", "might_2", "might_1"])
+upgrade_level = 0
+upgrades = Array[ExtResource("4_sm110")]([SubResource("Resource_qva0b"), SubResource("Resource_72aih"), SubResource("Resource_77c6k"), SubResource("Resource_txwkq"), SubResource("Resource_wm7lw")])
