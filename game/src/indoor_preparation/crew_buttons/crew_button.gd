@@ -8,6 +8,7 @@ const FADE_IN_DURATION: float = 1
 
 @export var character_factory: CharacterFactory
 
+@onready var audio_manager: AudioManager = $AudioManager
 @onready var database: Database = $"/root/Database"
 
 @onready var original_texture_hovered: Texture2D = texture_hover
@@ -65,4 +66,7 @@ func mimic_hover_changed(mimic_hovered: bool):
         texture_normal = original_texture_hovered
 
 func _on_button_hovered() -> void:
+    if not is_hovered():
+        audio_manager.on_enabled_button_mouse_entered()
+
     crew_member_hover_changed.emit(instantiated_character, is_hovered())
