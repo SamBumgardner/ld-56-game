@@ -87,7 +87,7 @@ static func _add_summed(upgrade: UpgradeChoice, action_selector: ActionSelector)
     var actions = action_selector.get_all()
     var filtered_copy: Array[Action] = _filter_according_to_criteria(actions, upgrade.filter_criteria, upgrade.invert_filter)
     var summed_amounts = _get_slice_according_to_sort(filtered_copy, upgrade.sort_criteria, upgrade.number_of_actions_to_affect) \
-        .reduce(func(a:int, b:Action): return a + b.amount, 0)
+        .reduce(func(a, b): return a.amount + b.amount)
     var name = "%s_%s" % [upgrade.new_action_string, summed_amounts]
     action_selector.append(Action.new(name, Database.string_to_stat_type[upgrade.new_action_string], summed_amounts))
 

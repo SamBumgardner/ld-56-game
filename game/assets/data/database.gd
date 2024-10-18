@@ -38,6 +38,13 @@ const CHECKPOINT_SAVED_MESSAGE: String = "Checkpoint Reached!"
 const CHECKPOINT_SAVED_DURATION: float = 2
 const MAX_APPLICANTS: int = 4
 const CHAR_MAX_ACTIONS: int = 8
+const UPGRADE_DEFAULT_TIER_COSTS: Array[int] = [
+    10,
+    15,
+    25,
+    35,
+    50
+]
 
 const _settings_default_audio_volume_music: float = 0.5
 const _settings_default_audio_volume_sfx: float = 0.5
