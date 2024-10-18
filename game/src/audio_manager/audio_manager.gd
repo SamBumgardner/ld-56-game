@@ -7,6 +7,7 @@ class_name AudioManager extends Node
 @export var sfx_button_hover: AudioStream
 @export var sfx_dice_landing: AudioStream
 @export var sfx_dice_shake: AudioStream
+@export var sfx_die_lock: AudioStream
 @export var sfx_indoors_enter_a_menu: AudioStream
 @export var sfx_indoors_exit_a_menu: AudioStream
 @export var sfx_transition_gameplay_indoors_to_outdoors: AudioStream
@@ -151,7 +152,7 @@ func _on_hire_preview_display_cancel_button_pressed():
     SoundManager.play_ui_sound(sfx_indoors_exit_a_menu, _bus_name_sfx_ui)
 
 func _on_lock_button_pressed():
-    SoundManager.play_ui_sound(sfx_button_click, _bus_name_sfx_ui)
+    SoundManager.play_ui_sound(sfx_die_lock, _bus_name_sfx_ui)
 
 func _on_new_hire_preview_button_pressed():
     SoundManager.play_ui_sound(sfx_indoors_enter_a_menu, _bus_name_sfx_ui)
