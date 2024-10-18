@@ -43,6 +43,13 @@ func set_character_die_slot(new_die_slot: CharacterDieSlot, display_particles: b
     refresh(display_particles)
 
 func toggle_freeze() -> void:
+    if character_die_slot == null:
+        print_debug(
+            'Failed to toggle_freeze due to a'
+            + ' missing character_die_slot reference.'
+        )
+        return
+
     Database.set_die_slot_frozen_status(
         character_die_slot.character,
         not character_die_slot.is_frozen
@@ -57,6 +64,13 @@ func _on_button_pressed() -> void:
     character_selected.emit(character_die_slot.character, button.button_pressed)
 
 func _on_button_hovered() -> void:
+    if character_die_slot == null:
+        print_debug(
+            'Failed to hover due to a'
+            + ' missing character_die_slot reference.'
+        )
+        return
+
     character_hover_changed.emit(character_die_slot.character, button.is_hovered())
 
 func _on_die_slot_update(changed_die_slot: CharacterDieSlot) -> void:
