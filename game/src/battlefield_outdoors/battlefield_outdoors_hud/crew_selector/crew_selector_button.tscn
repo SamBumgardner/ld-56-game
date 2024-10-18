@@ -41,3 +41,4 @@ toggle_mode = true
 button_group = ExtResource("3_y4hsi")
 
 [connection signal="character_selected" from="." to="AudioManager" method="_on_crew_selector_button_character_selected"]
+[connection signal="mouse_entered" from="Button" to="AudioManager" method="_on_crew_selector_button_mouse_entered"]
