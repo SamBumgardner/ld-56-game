@@ -5,3 +5,4 @@
 [resource]
 default_font = ExtResource("1_pdxe1")
 default_font_size = 60
+RichTextLabel/constants/outline_size = 10
