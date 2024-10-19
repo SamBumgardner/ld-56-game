@@ -19,3 +19,12 @@ class_name Region extends Resource
 
 @export var money_reward: int = 11
 @export var money_variance: int = 3
+
+func get_barrier_weakness() -> Database.StatType:
+    return barrier_type_distribution.pick_random()
+
+func get_fuel_reward() -> int:
+    return fuel_reward + randi() % (fuel_variance * 2) - fuel_variance
+
+func get_money_reward() -> int:
+    return money_reward + randi() % (money_variance * 2) - money_variance
