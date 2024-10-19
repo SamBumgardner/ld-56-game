@@ -30,6 +30,15 @@ class_name Scenario extends Resource
 ]
 @export var start_char_count: int = 3
 
+func get_current_segment(distance_traveled: int):
+    var current_segment: ScenarioSegment = null
+
+    for segment: ScenarioSegment in segments:
+        if segment.starts_at <= distance_traveled or current_segment == null:
+            current_segment = segment
+    
+    return current_segment
+
 func get_current_region(distance_traveled: int) -> Region:
     var current_region: Region = null
 

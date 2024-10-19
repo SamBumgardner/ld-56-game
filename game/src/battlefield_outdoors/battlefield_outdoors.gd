@@ -282,5 +282,9 @@ func _on_new_applicants_arrived() -> void:
         ApplicantOrchestrator.NEW_APPLICANTS_DURATION,
     )
 
-func _on_region_changed(new_region: Region) -> void:
+func _on_region_changed(_new_region: Region, segment_info: ScenarioSegment) -> void:
+    Database.set_war_transport_health_current(Database.war_transport_health_current + segment_info.arrival_bonus_heal)
+    Database.set_current_region_starting_barrier_strength(Database.current_barrier_cost_to_overcome_number)
+    Database.set_barrier_count_in_this_region(0)
+
     checkpoint_reached = true
