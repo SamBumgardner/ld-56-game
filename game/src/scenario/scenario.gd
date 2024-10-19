@@ -36,7 +36,5 @@ func get_current_region(distance_traveled: int) -> Region:
     for segment: ScenarioSegment in segments:
         if segment.starts_at <= distance_traveled or current_region == null:
             current_region = segment.region
-        else:
-            break
     
     return current_region
