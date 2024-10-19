@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://l3l2yqfmprg5"
-path="res://.godot/imported/ld_56_indoors.jpg-3c775aa687eb682be3b19d27cb467574.ctex"
+uid="uid://bgld5ma0pnno8"
+path="res://.godot/imported/victory_background.jpg-d8fb3f162f08457a01243a317896ca66.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/ld_56_indoors.jpg"
-dest_files=["res://.godot/imported/ld_56_indoors.jpg-3c775aa687eb682be3b19d27cb467574.ctex"]
+source_file="res://assets/art/backgrounds/victory_background.jpg"
+dest_files=["res://.godot/imported/victory_background.jpg-d8fb3f162f08457a01243a317896ca66.ctex"]
 
 [params]
 
