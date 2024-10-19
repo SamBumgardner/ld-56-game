@@ -20,6 +20,7 @@ signal insufficient_fuel()
 var combat_math_formulas: CombatMathFormulas = CombatMathFormulas.new()
 var charge_sequence_tween: Tween
 var combat_result: CombatResultsSummary.CombatResult = CombatResultsSummary.CombatResult.new()
+var checkpoint_reached: bool = false
 
 func _ready() -> void:
     insufficient_fuel.connect(battlefield_outdoors_hud._on_insufficient_fuel)
@@ -35,7 +36,7 @@ func _ready() -> void:
 
     health_empty.connect(_on_health_empty)
     
-    Database.region_changed.connect(func(x): print_debug("region changed to %s" % x.region_name))
+    Database.region_changed.connect(_on_region_changed)
 
     if Database.current_barrier_data == null:
         _generate_and_scale_next_barrier()
@@ -203,8 +204,11 @@ func _apply_combat_rewards(barrier_health: int = 1, excess_power: int = 0) -> vo
     )
 
 func _should_save_checkpoint() -> bool:
-    const BARRIERS_PER_CHECKPOINT = 5
-    return Database.barriers_overcome_count % BARRIERS_PER_CHECKPOINT == 0
+    if checkpoint_reached:
+        checkpoint_reached = false
+        return true
+    else:
+        return false
 
 func _save_checkpoint() -> void:
     Database.save_checkpoint()
@@ -272,3 +276,6 @@ func _on_new_applicants_arrived() -> void:
         ApplicantOrchestrator.NEW_APPLICANTS_MESSAGE % Database.applicants.size(),
         ApplicantOrchestrator.NEW_APPLICANTS_DURATION,
     )
+
+func _on_region_changed(new_region: Region) -> void:
+    checkpoint_reached = true
