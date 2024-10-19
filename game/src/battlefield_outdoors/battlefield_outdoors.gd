@@ -284,7 +284,15 @@ func _on_new_applicants_arrived() -> void:
 
 func _on_region_changed(_new_region: Region, segment_info: ScenarioSegment) -> void:
     Database.set_war_transport_health_current(Database.war_transport_health_current + segment_info.arrival_bonus_heal)
-    Database.set_current_region_starting_barrier_strength(Database.current_barrier_cost_to_overcome_number)
+
+    var base_value: float = Database.current_region_starting_barrier_strength
+    var barrier_count: int = Database.barrier_count_in_this_region
+    var scale_amount: float = Database.barriers_linear_scale_amount
+
+    var new_starting_strength = base_value + barrier_count * scale_amount - segment_info.arrival_bonus_barrier_reduction
+
+    Database.set_current_region_starting_barrier_strength(new_starting_strength)
     Database.set_barrier_count_in_this_region(0)
+    Database.set_barriers_linear_scale_amount(_new_region.barrier_linear_scaling_amount)
 
     checkpoint_reached = true
