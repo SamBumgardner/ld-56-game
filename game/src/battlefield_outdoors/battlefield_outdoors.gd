@@ -7,6 +7,8 @@ signal charge_impact(duration: float)
 signal charge_cooldown(duration: float)
 signal charge_finish()
 
+signal camera_focus_moving(distance: Vector2, duration: float)
+
 signal victory(duration: float)
 
 signal dice_roll_started()
@@ -130,12 +132,17 @@ func _apply_combat_damage() -> int:
 
 func _on_charge_cooldown(duration: float) -> void:
     war_transport.hide_power(duration)
-    war_transport.return_to_start_position(duration)
+    
     _generate_and_scale_next_barrier()
     # clear all dice frozen status
     if Database.current_distance_remaining > 0:
         Database.clear_all_frozen_status()
         battlefield_outdoors_hud.request_roll_preview_start()
+
+        const scrolling_duration = ChargeSequence.COOLDOWN_DURATION + 2
+        war_transport.return_to_start_position(scrolling_duration)
+        camera_focus_moving.emit(Vector2(400, 0), scrolling_duration)
+        barrier.new_barrier_scroll_onscreen(scrolling_duration, Vector2(400, 0))
     # victory handling
     else:
         _on_victory()
@@ -147,8 +154,6 @@ func _on_charge_finish() -> void:
 
     if _should_save_checkpoint():
         _save_checkpoint()
-
-    barrier.new_barrier_scroll_onscreen(2, Vector2(500, 0))
 
     combat_result.clear()
 

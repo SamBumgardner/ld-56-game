@@ -4,30 +4,32 @@
 [ext_resource type="Texture2D" uid="uid://cqq6bpjcd0b87" path="res://assets/art/backgrounds/scenery_desert/Desert_Mesa_1.png" id="2_li6ph"]
 [ext_resource type="Texture2D" uid="uid://djcwik5w2dwm6" path="res://assets/art/backgrounds/scenery_desert/Desert_Mesa_2.png" id="3_2253d"]
 
-[node name="BattlefieldOutdoorsBackground" type="Node2D"]
+[node name="BattlefieldOutdoorsBackground" type="ParallaxBackground"]
+follow_viewport_enabled = true
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(2800, 0)
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
 texture = ExtResource("1_jdove")
 centered = false
 
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(2800, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer2"]
 position = Vector2(180, 334)
 texture = ExtResource("2_li6ph")
 
-[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(2800, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer3"]
 position = Vector2(1274, 356)
 texture = ExtResource("3_2253d")
 
-[node name="ParallaxLayer_CopyViaCtrlD2" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="ParallaxLayer_CopyViaCtrlD2" type="ParallaxLayer" parent="."]
 visible = false
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer_CopyViaCtrlD2"]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer_CopyViaCtrlD2"]
 visible = false
