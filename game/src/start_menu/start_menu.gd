@@ -20,6 +20,6 @@ func _on_settings_button_pressed():
 
 
 func _on_start_button_pressed():
-    Database.reset_values()
+    Database.load_from_scenario(preload("res://assets/data/scenarios/easy_scenario.tres"))
 
     get_tree().change_scene_to_file("res://src/gameplay/Gameplay.tscn")
