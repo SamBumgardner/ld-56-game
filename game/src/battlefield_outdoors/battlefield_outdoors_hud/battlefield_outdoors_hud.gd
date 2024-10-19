@@ -185,16 +185,16 @@ func _charge_mode_fadein(duration: float) -> void:
     # hide total power display so it doesn't show while the new values are getting rolled
     total_power_display.hide_total_value()
 
-func _enable_interaction() -> void:
+func _enable_interaction(skip_delay: bool = false) -> void:
     # delay added here to account for auto die roll
     create_tween() \
         .tween_callback(reroll_button._set_disabled.bind(false)) \
-        .set_delay(reroll_button.reroll_cooldown)
+        .set_delay(0 if skip_delay else reroll_button.reroll_cooldown)
     
     # delay added here to let the transport get closer to start position
     create_tween() \
         .tween_callback(func(): charge_button.disabled = false) \
-        .set_delay(reroll_button.reroll_cooldown)
+        .set_delay(0 if skip_delay else reroll_button.reroll_cooldown)
     
     
     total_power_display.show_total_value()
