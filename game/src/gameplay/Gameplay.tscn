@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://h1fowbxngb70" path="res://src/audio_manager/AudioManager.tscn" id="3_o8xt6"]
 [ext_resource type="PackedScene" uid="uid://b73yb04wjxq8" path="res://src/indoor_preparation/indoor_preparation.tscn" id="4_qkdrp"]
 [ext_resource type="PackedScene" uid="uid://cqks4bltxh7sq" path="res://src/transition_cover/mode_transition_cover.tscn" id="6_blf36"]
-[ext_resource type="Script" path="res://src/battlefield_outdoors/camera_2d.gd" id="9_v3mno"]
+[ext_resource type="Script" path="res://src/battlefield_outdoors/outdoor_camera.gd" id="9_v3mno"]
 
 [node name="Gameplay" type="Control"]
 layout_mode = 3

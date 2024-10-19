@@ -1,5 +1,7 @@
 class_name BattlefieldOutdoorsWarTransport extends Sprite2D
 
+signal camera_focus_moving(distance: Vector2, duration: float)
+
 const HEALTH_LABEL_FORMAT: String = "%s / %s"
 
 @onready var power: Label = $Columns/Power
@@ -59,6 +61,8 @@ func defeated_knockback(duration: float) -> void:
 
 func return_to_start_position(duration: float) -> void:
     movement_tween = clear_tween(movement_tween)
+    movement_tween.set_ease(Tween.EASE_IN_OUT)
+    movement_tween.set_trans(Tween.TRANS_QUAD)
     movement_tween.tween_property(self, "position", start_position, duration)
 
 func continue_offscreen(duration: float) -> void:

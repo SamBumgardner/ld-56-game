@@ -9,7 +9,7 @@ signal checkpoint_saved()
 @onready var indoor_root: IndoorPreparation = $IndoorPrepMode/IndoorPreparation
 @onready var transition_cover: CanvasLayer = $TransitionCover
 @onready var mode_transition_cover: ModeTransitionCover = $TransitionCover/ModeTransitionCover
-@onready var outdoor_camera: Camera2D = $OutdoorCamera
+@onready var outdoor_camera: OutdoorCamera = $OutdoorCamera
 
 @onready var go_inside_button: Button = $OutdoorBattleMode/BattlefieldOutdoors/BattlefieldOutdoorsHud/GoInsideButton
 @onready var go_outside_button: Button = $IndoorPrepMode/IndoorPreparation/GoOutsideButton
@@ -30,6 +30,8 @@ func _ready() -> void:
 
     applicant_orchestrator.new_applicants_arrived.connect(outdoor_root._on_new_applicants_arrived)
     applicant_orchestrator.new_applicants_arrived.connect(indoor_root._on_new_applicants_arrived)
+
+    outdoor_root.camera_focus_moving.connect(outdoor_camera.scroll_distance)
 
 func go_inside() -> void:
     # we can do fancier stuff, like take a callback to only do once the screen's 

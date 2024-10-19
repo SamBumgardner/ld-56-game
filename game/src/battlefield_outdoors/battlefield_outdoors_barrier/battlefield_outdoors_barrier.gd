@@ -87,6 +87,8 @@ func new_barrier_scroll_onscreen(duration: float, spawn_offset: Vector2) -> void
     if disappear_tween != null and disappear_tween.is_valid():
         disappear_tween.stop()
     position_tween = create_tween()
+    position_tween.set_ease(Tween.EASE_IN_OUT)
+    position_tween.set_trans(Tween.TRANS_QUAD)
     position_tween.tween_property(self, "anchor_global_position", start_global_position, duration)
 
 func _create_destruction_tweens(duration: float):
