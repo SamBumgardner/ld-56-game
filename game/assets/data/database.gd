@@ -201,8 +201,8 @@ func load_from_init_values(init_values: GameplayInitValues):
     set_current_barrier_stat_type_to_overcome(
         init_values.current_barrier_stat_type_to_overcome
     )
-    if init_values.current_barrier_data != null:
-        set_current_barrier_data(init_values.current_barrier_data)
+    set_current_barrier_data(init_values.current_barrier_data)
+    
     set_current_region_starting_barrier_strength(init_values.current_region_starting_barrier_strength)
     set_current_character_die_slots(init_values.current_character_die_slots.duplicate())
     set_current_matching_stat_type_multiplier(

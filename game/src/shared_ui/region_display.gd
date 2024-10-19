@@ -6,6 +6,7 @@ var fade_tween: Tween
 
 func _ready() -> void:
     Database.region_changed.connect(_on_region_changed)
+    _update_name_label_text(Database.current_region.region_name)
 
 func _on_region_changed(new_region: Region):
     if region_name_label.text != new_region.region_name:

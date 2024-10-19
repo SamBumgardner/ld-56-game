@@ -8,4 +8,9 @@ class_name PostgameStatLine extends HBoxContainer
 
 func _ready() -> void:
     stat_name_label.text = stat_display_name
-    stat_value_label.text = "%s" % Database.get(database_field_name)
+    var value = Database.get(database_field_name)
+    if value is float:
+        stat_value_label.text = "%d" % value
+    else:
+        stat_value_label.text = "%s" % value
+        
