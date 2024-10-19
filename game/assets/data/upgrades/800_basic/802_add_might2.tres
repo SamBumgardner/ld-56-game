@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="UpgradeChoice" load_steps=3 format=3 uid="uid://7e1q61lw77bg"]
+
+[ext_resource type="Texture2D" uid="uid://8icadmy2cp3f" path="res://assets/art/upgrade_icon_placeholder.png" id="1_kdmm5"]
+[ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="2_vcvu6"]
+
+[resource]
+script = ExtResource("2_vcvu6")
+name = "Temp"
+description = "Temporary Description"
+visual_summary = "[center]Add:
+2[img=30%]res://assets/art/ATTACK_icon_64x64.png[/img]"
+icon_ref = ExtResource("1_kdmm5")
+cost = 0
+upgrade_type = 1
+value_change_amount = 0
+number_of_times = 1
+remove_action_name = ""
+new_action_string = "might_2"
+filter_criteria = -1
+invert_filter = false
+sort_criteria = -1
+number_of_actions_to_affect = 1
+change_to = -1
+restore_pct = 0.0

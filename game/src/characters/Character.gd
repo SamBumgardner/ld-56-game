@@ -22,6 +22,10 @@ func _init(_name: String, _description: String, _portrait: Texture2D,
     actions = _actions
     upgrade_level = _upgrade_level
     upgrades = _upgrades
+    for i: int in upgrades.size():
+        for upgrade_choice: UpgradeChoice in upgrades[i].choices:
+            if upgrade_choice.cost == 0:
+                upgrade_choice.cost = Database.UPGRADE_DEFAULT_TIER_COSTS[i]
     upgrade_choice_history = []
     for i: int in range(upgrades.size()):
         upgrade_choice_history.append(-1)

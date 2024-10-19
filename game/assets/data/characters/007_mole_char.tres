@@ -1,0 +1,52 @@
+[gd_resource type="Resource" script_class="CharacterFactory" load_steps=21 format=3 uid="uid://h8yglehg8si2"]
+
+[ext_resource type="Texture2D" uid="uid://b4wr53ye568ee" path="res://assets/art/character_icons/002_character_icon.png" id="1_6vk5p"]
+[ext_resource type="Texture2D" uid="uid://bic3i142epdt3" path="res://assets/art/placeholder_threat.png" id="2_wnwcm"]
+[ext_resource type="Script" path="res://src/characters/CharacterFactory.gd" id="3_11mk3"]
+[ext_resource type="Script" path="res://src/characters/UpgradeSelector.gd" id="4_mxky7"]
+[ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="5_h1w4p"]
+[ext_resource type="Resource" uid="uid://v6epi37t07s4" path="res://assets/data/upgrades/600_demolitions/601_up1_chaos.tres" id="6_wfosu"]
+[ext_resource type="Resource" uid="uid://ur5blb6w8sv6" path="res://assets/data/upgrades/600_demolitions/602_combine_random_chaos.tres" id="7_ai0fy"]
+[ext_resource type="Resource" uid="uid://bxos61bqid568" path="res://assets/data/upgrades/600_demolitions/603_up2_chaos_add2_chaos1.tres" id="8_q8b70"]
+[ext_resource type="Resource" uid="uid://42fdo8mfyjt7" path="res://assets/data/upgrades/600_demolitions/604_up1_chaos.tres" id="9_666dn"]
+[ext_resource type="Resource" uid="uid://dkjxlnslnah63" path="res://assets/data/upgrades/600_demolitions/605_up1_random3.tres" id="10_s5ixp"]
+[ext_resource type="Resource" uid="uid://3urvwt7p3c65" path="res://assets/data/upgrades/600_demolitions/606_copy_2_chaos.tres" id="11_xjuho"]
+[ext_resource type="Resource" uid="uid://bogik4enk8v71" path="res://assets/data/upgrades/600_demolitions/607_change_type_random_all_up1_all.tres" id="12_5exsj"]
+[ext_resource type="Resource" uid="uid://cf0at31x0i3pp" path="res://assets/data/upgrades/600_demolitions/608_change_type_random_3_up1_all.tres" id="13_ejrgq"]
+[ext_resource type="Resource" uid="uid://dng6miv0ipg0w" path="res://assets/data/upgrades/600_demolitions/609_up2_highest2.tres" id="14_qfjbm"]
+[ext_resource type="Resource" uid="uid://cdbsl7p8rjs8a" path="res://assets/data/upgrades/600_demolitions/610_remove_2_lowest.tres" id="15_poyoh"]
+
+[sub_resource type="Resource" id="Resource_8vmh3"]
+script = ExtResource("4_mxky7")
+choices = Array[ExtResource("5_h1w4p")]([ExtResource("6_wfosu"), ExtResource("7_ai0fy")])
+price = 0
+
+[sub_resource type="Resource" id="Resource_phc25"]
+script = ExtResource("4_mxky7")
+choices = Array[ExtResource("5_h1w4p")]([ExtResource("8_q8b70"), ExtResource("9_666dn")])
+price = 0
+
+[sub_resource type="Resource" id="Resource_tnpn8"]
+script = ExtResource("4_mxky7")
+choices = Array[ExtResource("5_h1w4p")]([ExtResource("10_s5ixp"), ExtResource("11_xjuho")])
+price = 0
+
+[sub_resource type="Resource" id="Resource_g18hb"]
+script = ExtResource("4_mxky7")
+choices = Array[ExtResource("5_h1w4p")]([ExtResource("12_5exsj"), ExtResource("13_ejrgq")])
+price = 0
+
+[sub_resource type="Resource" id="Resource_mhtx5"]
+script = ExtResource("4_mxky7")
+choices = Array[ExtResource("5_h1w4p")]([ExtResource("14_qfjbm"), ExtResource("15_poyoh")])
+price = 0
+
+[resource]
+script = ExtResource("3_11mk3")
+name = "Goggles"
+description = "He's a bit unhinged, but there's no denying that his brand of chaos creates opportunities."
+portrait = ExtResource("2_wnwcm")
+icon = ExtResource("1_6vk5p")
+starting_action_strings = Array[String](["chaos_3", "chaos_2", "chaos_2", "chaos_1", "chaos_1"])
+upgrade_level = 0
+upgrades = Array[ExtResource("4_mxky7")]([SubResource("Resource_8vmh3"), SubResource("Resource_phc25"), SubResource("Resource_tnpn8"), SubResource("Resource_g18hb"), SubResource("Resource_mhtx5")])

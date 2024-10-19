@@ -14,3 +14,7 @@ static func _parse_action_string(action_string: String) -> Action:
     var action_params: PackedStringArray = action_string.split("_")
     return Action.new(action_string, Database.string_to_stat_type[action_params[0]],
         action_params[1].to_int())
+
+static func generate_action_name(stat: Database.StatType, amount: int) -> String:
+    var stat_name: String = Database.stat_type_to_string[stat]
+    return "%s_%s" % [stat_name, amount]

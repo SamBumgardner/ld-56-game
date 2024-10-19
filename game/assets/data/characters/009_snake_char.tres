@@ -1,0 +1,52 @@
+[gd_resource type="Resource" script_class="CharacterFactory" load_steps=21 format=3 uid="uid://bo6i4mxety0iv"]
+
+[ext_resource type="Texture2D" uid="uid://buhpfr0v6vyet" path="res://assets/art/character_icons/003_character_icon.png" id="1_seljt"]
+[ext_resource type="Texture2D" uid="uid://bic3i142epdt3" path="res://assets/art/placeholder_threat.png" id="2_1xnen"]
+[ext_resource type="Script" path="res://src/characters/CharacterFactory.gd" id="3_osxgm"]
+[ext_resource type="Script" path="res://src/characters/UpgradeSelector.gd" id="4_obvhb"]
+[ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="5_7u5t2"]
+[ext_resource type="Resource" uid="uid://bejccv0um30m0" path="res://assets/data/upgrades/400_trickshot/401_up1_highest2.tres" id="6_1rkbp"]
+[ext_resource type="Resource" uid="uid://bpqd7uanxs2d6" path="res://assets/data/upgrades/400_trickshot/402_up2_highest_add2_might1.tres" id="7_y85ht"]
+[ext_resource type="Resource" uid="uid://cao413uiclwxr" path="res://assets/data/upgrades/400_trickshot/403_up1_highest2_add_wit1.tres" id="8_huie1"]
+[ext_resource type="Resource" uid="uid://bvfri5hbeygid" path="res://assets/data/upgrades/400_trickshot/404_add_wit3_chaos_3_wit1.tres" id="9_0j13t"]
+[ext_resource type="Resource" uid="uid://c05xefebsymch" path="res://assets/data/upgrades/400_trickshot/405_up1_highest2_remove2_lowest.tres" id="10_t1577"]
+[ext_resource type="Resource" uid="uid://dnm88ivwwiam3" path="res://assets/data/upgrades/400_trickshot/406_up3_highest2_add_wit2_chaos2.tres" id="11_vmxj2"]
+[ext_resource type="Resource" uid="uid://dyrvlcdajnrv5" path="res://assets/data/upgrades/400_trickshot/407_up2_highest2_add_might1.tres" id="12_dr14e"]
+[ext_resource type="Resource" uid="uid://bxj3ai3cpkvq0" path="res://assets/data/upgrades/400_trickshot/408_up1_all.tres" id="13_eh31y"]
+[ext_resource type="Resource" uid="uid://delfrrf5vqy55" path="res://assets/data/upgrades/400_trickshot/409_up2_highest2_add_might1.tres" id="14_lqy05"]
+[ext_resource type="Resource" uid="uid://86yvei40o8xt" path="res://assets/data/upgrades/400_trickshot/410_up1_all.tres" id="15_2co3v"]
+
+[sub_resource type="Resource" id="Resource_8vmh3"]
+script = ExtResource("4_obvhb")
+choices = Array[ExtResource("5_7u5t2")]([ExtResource("6_1rkbp"), ExtResource("7_y85ht")])
+price = 0
+
+[sub_resource type="Resource" id="Resource_u31os"]
+script = ExtResource("4_obvhb")
+choices = Array[ExtResource("5_7u5t2")]([ExtResource("8_huie1"), ExtResource("9_0j13t")])
+price = 0
+
+[sub_resource type="Resource" id="Resource_ewhkr"]
+script = ExtResource("4_obvhb")
+choices = Array[ExtResource("5_7u5t2")]([ExtResource("10_t1577"), ExtResource("11_vmxj2")])
+price = 0
+
+[sub_resource type="Resource" id="Resource_624a2"]
+script = ExtResource("4_obvhb")
+choices = Array[ExtResource("5_7u5t2")]([ExtResource("12_dr14e"), ExtResource("13_eh31y")])
+price = 0
+
+[sub_resource type="Resource" id="Resource_8wcg3"]
+script = ExtResource("4_obvhb")
+choices = Array[ExtResource("5_7u5t2")]([ExtResource("14_lqy05"), ExtResource("15_2co3v")])
+price = 0
+
+[resource]
+script = ExtResource("3_osxgm")
+name = "Venom"
+description = "Fearless to a fault, never hesitates to try something new -- permanently banned from cooking duty."
+portrait = ExtResource("2_1xnen")
+icon = ExtResource("1_seljt")
+starting_action_strings = Array[String](["wit_2", "chaos_2"])
+upgrade_level = 0
+upgrades = Array[ExtResource("4_obvhb")]([SubResource("Resource_8vmh3"), SubResource("Resource_u31os"), SubResource("Resource_ewhkr"), SubResource("Resource_624a2"), SubResource("Resource_8wcg3")])
