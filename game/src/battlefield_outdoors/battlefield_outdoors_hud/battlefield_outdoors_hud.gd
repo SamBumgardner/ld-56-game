@@ -189,12 +189,12 @@ func _enable_interaction(skip_delay: bool = false) -> void:
     # delay added here to account for auto die roll
     create_tween() \
         .tween_callback(reroll_button._set_disabled.bind(false)) \
-        .set_delay(0 if skip_delay else reroll_button.reroll_cooldown)
+        .set_delay(0.0 if skip_delay else reroll_button.reroll_cooldown)
     
     # delay added here to let the transport get closer to start position
     create_tween() \
         .tween_callback(func(): charge_button.disabled = false) \
-        .set_delay(0 if skip_delay else reroll_button.reroll_cooldown)
+        .set_delay(0.0 if skip_delay else reroll_button.reroll_cooldown)
     
     
     total_power_display.show_total_value()
