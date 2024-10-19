@@ -1,0 +1,8 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bd7imtqn8b8ak"]
+
+[ext_resource type="FontFile" uid="uid://ck0ltu3wyr11x" path="res://assets/fonts/Roboto/Roboto-Black.ttf" id="1_ffngf"]
+
+[resource]
+default_font = ExtResource("1_ffngf")
+default_font_size = 128
+RichTextLabel/constants/outline_size = 10

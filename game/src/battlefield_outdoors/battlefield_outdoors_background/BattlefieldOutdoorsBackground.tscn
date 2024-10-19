@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbs7sk334clc7"]
+
+[ext_resource type="Texture2D" uid="uid://bd4biq3g3x1ej" path="res://assets/art/backgrounds/desert.png" id="1_jdove"]
+[ext_resource type="Texture2D" uid="uid://cqq6bpjcd0b87" path="res://assets/art/backgrounds/scenery_desert/Desert_Mesa_1.png" id="2_li6ph"]
+[ext_resource type="Texture2D" uid="uid://djcwik5w2dwm6" path="res://assets/art/backgrounds/scenery_desert/Desert_Mesa_2.png" id="3_2253d"]
+
+[node name="BattlefieldOutdoorsBackground" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource("1_jdove")
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(180, 334)
+texture = ExtResource("2_li6ph")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(1274, 356)
+texture = ExtResource("3_2253d")
+
+[node name="ParallaxLayer_CopyViaCtrlD2" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer_CopyViaCtrlD2"]
+visible = false

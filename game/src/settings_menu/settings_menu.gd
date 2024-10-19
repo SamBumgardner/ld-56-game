@@ -2,19 +2,9 @@ extends Control
 
 
 @onready var audio_manager: AudioManager = $AudioManager
-@onready var music_slider: Slider = (
-    $CenterContainer/VBoxContainer/SettingsVolume/MusicVolumePercentageSlider
+@onready var settings_volume = (
+    $CenterContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/SettingsVolume
 )
-@onready var sfx_slider: Slider = (
-    $CenterContainer/VBoxContainer/SettingsVolume/SfxVolumePercentageSlider
-)
-@onready var music_volume_percentage_display: Label = (
-    $CenterContainer/VBoxContainer/SettingsVolume/MusicDescription/MusicVolumePercentage
-)
-@onready var sfx_volume_percentage_display: Label = (
-    $CenterContainer/VBoxContainer/SettingsVolume/SfxDescription/SfxVolumePercentage
-)
-@onready var settings_volume = $CenterContainer/VBoxContainer/SettingsVolume
 
 
 const setting_to_percentage_ratio = 100
