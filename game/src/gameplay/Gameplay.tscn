@@ -63,7 +63,7 @@ layer = 3
 [node name="ModeTransitionCover" parent="TransitionCover" instance=ExtResource("6_blf36")]
 visible = false
 
-[node name="OutdoorsCamera" type="Camera2D" parent="."]
+[node name="OutdoorCamera" type="Camera2D" parent="."]
 offset = Vector2(640, 360)
 script = ExtResource("9_v3mno")
 
