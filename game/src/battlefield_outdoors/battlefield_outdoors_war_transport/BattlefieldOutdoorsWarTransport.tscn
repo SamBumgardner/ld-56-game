@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://bwpa5wbo5ct7g"]
 
+[ext_resource type="SpriteFrames" uid="uid://cwrciodhmr6gq" path="res://assets/art/transport/Tusk_Sprite_Frames.tres" id="1_dhrdl"]
 [ext_resource type="Script" path="res://src/battlefield_outdoors/battlefield_outdoors_war_transport/battlefield_outdoors_war_transport.gd" id="1_o8nwd"]
 [ext_resource type="Theme" uid="uid://dk5iv042psfw" path="res://assets/themes/Default.tres" id="2_58oda"]
-[ext_resource type="Texture2D" uid="uid://4nvogy60mpq3" path="res://icon.svg" id="2_aqe0i"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ivaum"]
 bg_color = Color(0.6, 0, 0, 1)
@@ -20,19 +20,20 @@ colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1, 0.0426841, 0.0426841, 0.042684
 offsets = PackedFloat32Array(0, 0.390152, 0.666667)
 colors = PackedColorArray(1, 0.181, 0.09, 1, 0.732505, 0.445674, 0, 1, 1, 0, 0, 1)
 
-[node name="BattlefieldOutdoorsWarTransport" type="Sprite2D"]
-texture = ExtResource("2_aqe0i")
+[node name="BattlefieldOutdoorsWarTransport" type="AnimatedSprite2D"]
+sprite_frames = ExtResource("1_dhrdl")
 script = ExtResource("1_o8nwd")
 
 [node name="Columns" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -64.0
-offset_top = -64.0
-offset_right = -64.0
-offset_bottom = -64.0
+anchor_left = 0.15
+anchor_top = 0.2
+anchor_right = 0.85
+anchor_bottom = 0.85
+offset_left = -195.7
+offset_top = -185.6
+offset_right = -169.3
+offset_bottom = -157.3
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_58oda")

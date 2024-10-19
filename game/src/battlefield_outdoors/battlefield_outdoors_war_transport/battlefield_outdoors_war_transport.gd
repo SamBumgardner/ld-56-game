@@ -1,4 +1,4 @@
-class_name BattlefieldOutdoorsWarTransport extends Sprite2D
+class_name BattlefieldOutdoorsWarTransport extends AnimatedSprite2D
 
 signal camera_focus_moving(distance: Vector2, duration: float)
 
@@ -18,6 +18,7 @@ func _ready() -> void:
     Database.health_changed.connect(_on_health_changed)
 
 func charge_warmup(duration: float) -> void:
+    play("moving_smooth")
     movement_tween = clear_tween(movement_tween)
     movement_tween.tween_method(shake.bind(1, start_position, true), 0, 0, duration)
 
@@ -28,18 +29,23 @@ func shake(_value: float, magnitude: int, root_position: Vector2, horizontal_onl
     position = root_position + (shake_offset * magnitude)
 
 func charge_to_target(target_global_position: Vector2, duration: float) -> void:
+    target_global_position.y = global_position.y
+    
+    play("moving_bumpy")
     movement_tween = clear_tween(movement_tween)
     movement_tween.set_ease(Tween.EASE_IN)
     movement_tween.set_trans(Tween.TRANS_EXPO)
     movement_tween.tween_property(self, "global_position", target_global_position, duration)
 
 func charge_followthrough(target_global_position: Vector2, duration: float) -> void:
+    play("moving_smooth")
     movement_tween = clear_tween(movement_tween)
     movement_tween.set_ease(Tween.EASE_OUT)
     movement_tween.set_trans(Tween.TRANS_CUBIC)
     movement_tween.tween_property(self, "global_position", target_global_position, duration)
 
 func defeated_knockback(duration: float) -> void:
+    play("default")
     const knockback_distance = Vector2(-200, 0)
     movement_tween = clear_tween(movement_tween)
     movement_tween.set_ease(Tween.EASE_OUT)
@@ -60,12 +66,15 @@ func defeated_knockback(duration: float) -> void:
     movement_tween.tween_property(self, "rotation", -.8, duration * 7 / 8)
 
 func return_to_start_position(duration: float) -> void:
+    play("moving_smooth")
     movement_tween = clear_tween(movement_tween)
     movement_tween.set_ease(Tween.EASE_IN_OUT)
     movement_tween.set_trans(Tween.TRANS_QUAD)
     movement_tween.tween_property(self, "position", start_position, duration)
+    movement_tween.tween_callback(play.bind("default"))
 
 func continue_offscreen(duration: float) -> void:
+    play("moving_smooth")
     movement_tween = clear_tween(movement_tween)
     movement_tween.tween_property(self, "position", position + Vector2(200, 0), duration)
 
@@ -85,7 +94,7 @@ func clear_tween(tween: Tween) -> Tween:
 
 func scale_power_display_font_size(power_value: int) -> void:
     const font_size_multiplier: int = 3
-    const font_size_min: int = 16
+    const font_size_min: int = 32
     const font_size_max: int = 256
 
     var font_size = clamp(

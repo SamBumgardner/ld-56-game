@@ -140,8 +140,7 @@ func _on_charge_cooldown(duration: float) -> void:
         battlefield_outdoors_hud.request_roll_preview_start()
 
         const scrolling_duration = ChargeSequence.COOLDOWN_DURATION + 2
-        const vehicle_movement_duration = ChargeSequence.COOLDOWN_DURATION + 1
-        war_transport.return_to_start_position(vehicle_movement_duration)
+        war_transport.return_to_start_position(scrolling_duration)
         camera_focus_moving.emit(Vector2(400, 0), scrolling_duration)
         barrier.new_barrier_scroll_onscreen(scrolling_duration, Vector2(400, 0))
     # victory handling

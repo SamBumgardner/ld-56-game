@@ -46,8 +46,8 @@ func _on_barrier_changed(_new_barrier: BarrierData):
 
 func scale_power_display_font_size() -> void:
     const font_size_multiplier: int = 3
-    const font_size_min: int = 16
-    const font_size_max: int = 108
+    const font_size_min: int = 32
+    const font_size_max: int = 256
 
     var font_size = clamp(
         current_barrier_data.cost_to_overcome * font_size_multiplier,
