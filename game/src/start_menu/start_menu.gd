@@ -6,7 +6,6 @@ extends Control
 
 
 func _ready():
-    Database.reset_values()
     if OS.get_name() == "Web":
         quit_button.visible = false
 

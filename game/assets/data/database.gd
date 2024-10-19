@@ -2,6 +2,7 @@
 extends Node
 
 signal distance_remaining_changed(new_value: int, old_value: int)
+signal region_changed(new_region: Region)
 signal health_changed(new_value: int, old_value: int)
 signal money_changed(new_value: int, old_value: int)
 signal fuel_changed(new_value: int, old_value: int)
@@ -56,7 +57,7 @@ const _initial_audio_volume_music: float = 0.5
 const _initial_audio_volume_sfx: float = 0.5
 
 
-const _initial_distance_remaining: int = 300
+var _initial_distance_remaining: int = 300
 const _initial_barriers_linear_scale_amount: float = 1
 const _initial_barriers_stat_type_to_overcome: StatType = StatType.MIGHT
 const _initial_barriers_overcome_count: int = 0
@@ -73,6 +74,7 @@ const _initial_war_transport_health_maximum: int = 10
 
 const maximum_fuel: int = 10
 
+const _default_scenario: Scenario = preload("res://assets/data/scenarios/easy_scenario.tres")
 var _character_factories: Array[CharacterFactory] = [
     preload("res://assets/data/characters/001_squirrel_char.tres"),
     preload("res://assets/data/characters/002_frog_char.tres"),
@@ -161,18 +163,19 @@ var distance_remaining_display: String:
 
 func _ready():
     _ready_audio_volumes()
-    reset_values()
+    load_from_scenario(_default_scenario)
 
 # Like reset_values
 func load_from_scenario(load_scenario: Scenario):
+    scenario = load_scenario
     var init_values = load_scenario.gameplay_init_values
     var starting_region = load_scenario.segments[0].region
 
+    _initial_distance_remaining = load_scenario.total_distance
     init_values.current_distance_remaining = load_scenario.total_distance
     # progress
     load_from_init_values(init_values)
 
-    scenario = load_scenario
     set_barriers_overcome_count(0)
     set_barrier_count_in_this_region(0)
     set_barriers_linear_scale_amount(starting_region.barrier_linear_scaling_amount)
@@ -330,8 +333,14 @@ func set_barriers_linear_scale_amount(updated_number: float) -> void:
 
 func set_current_distance_remaining(updated_distance: int) -> void:
     var old_distance_remaining = current_distance_remaining
+    var old_region: Region = current_region
+
     current_distance_remaining = max(updated_distance, 0)
     distance_remaining_changed.emit(current_distance_remaining, old_distance_remaining)
+
+    var new_region: Region = current_region
+    if old_region != new_region:
+        region_changed.emit(new_region)
 
 func set_barriers_overcome_count(updated_count: int) -> void:
     barriers_overcome_count = updated_count

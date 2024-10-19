@@ -33,7 +33,7 @@ region = ExtResource("12_fgyj2")
 
 [sub_resource type="Resource" id="Resource_0unf2"]
 script = ExtResource("15_1r0vp")
-starts_at = 100
+starts_at = 20
 region = ExtResource("13_1v4v2")
 
 [resource]

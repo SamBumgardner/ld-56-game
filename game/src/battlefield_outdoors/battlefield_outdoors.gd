@@ -34,6 +34,8 @@ func _ready() -> void:
     charge_finish.connect(_on_charge_finish)
 
     health_empty.connect(_on_health_empty)
+    
+    Database.region_changed.connect(func(x): print_debug("region changed to %s" % x.region_name))
 
     if Database.current_barrier_data == null:
         _generate_and_scale_next_barrier()
@@ -94,7 +96,7 @@ func _on_charge_impact(duration: float) -> void:
     if Database.war_transport_health_current > 0:
         war_transport.charge_followthrough(war_transport.global_position + Vector2(200, 0), duration)
         barrier.animate_destruction(duration)
-        _apply_combat_rewards(Database.current_barrier_data.cost_to_overcome, excess_damage)
+        _apply_combat_rewards(floor(Database.current_barrier_data.cost_to_overcome), excess_damage)
         battlefield_outdoors_hud.set_combat_results(combat_result)
     else:
         battlefield_outdoors_hud.set_combat_results(combat_result)
