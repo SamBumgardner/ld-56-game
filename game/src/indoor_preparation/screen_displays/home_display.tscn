@@ -203,7 +203,7 @@ layout_mode = 2
 [node name="TotalHeader" type="Label" parent="MainContents/PanelContainer/MarginContainer/HBoxContainer/PanelContainer/TotalPowerDisplay/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 0
-text = "Crew:"
+text = "Crew Total:"
 horizontal_alignment = 1
 
 [node name="TotalValue" type="Label" parent="MainContents/PanelContainer/MarginContainer/HBoxContainer/PanelContainer/TotalPowerDisplay/VBoxContainer"]
