@@ -176,7 +176,11 @@ func _enable_interaction() -> void:
         .tween_callback(reroll_button._set_disabled.bind(false)) \
         .set_delay(reroll_button.reroll_cooldown)
     
-    charge_button.disabled = false
+    # delay added here to let the transport get closer to start position
+    create_tween() \
+        .tween_callback(func(): charge_button.disabled = false) \
+        .set_delay(reroll_button.reroll_cooldown)
+    
     go_inside_button.disabled = false
     # fade in hud, more quickly this time
     crew_actions_display.enable_all()

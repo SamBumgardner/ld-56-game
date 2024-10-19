@@ -22,10 +22,10 @@ script = ExtResource("2_ni2i7")
 
 [node name="AnchorOfBarrier" type="Control" parent="."]
 layout_mode = 1
-anchor_left = 0.8
-anchor_top = 0.5
-anchor_right = 0.8
-anchor_bottom = 0.5
+anchor_left = 0.839
+anchor_top = 0.507
+anchor_right = 0.839
+anchor_bottom = 0.507
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -50,6 +50,7 @@ grow_vertical = 2
 [node name="BattlefieldOutdoorsWarTransport" parent="AnchorOfWarTransport" instance=ExtResource("3_etui0")]
 
 [node name="BattlefieldOutdoorsBackground" parent="." instance=ExtResource("7_lpqhj")]
+follow_viewport_enabled = false
 
 [connection signal="charge_impact" from="." to="AudioManager" method="_on_battlefield_outdoors_charge_impact"]
 [connection signal="charge_warmup" from="." to="AudioManager" method="_on_battlefield_outdoors_charge_warmup"]

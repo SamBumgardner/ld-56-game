@@ -46,8 +46,8 @@ func _on_barrier_changed(_new_barrier: BarrierData):
 
 func scale_power_display_font_size() -> void:
     const font_size_multiplier: int = 3
-    const font_size_min: int = 16
-    const font_size_max: int = 108
+    const font_size_min: int = 32
+    const font_size_max: int = 256
 
     var font_size = clamp(
         current_barrier_data.cost_to_overcome * font_size_multiplier,
@@ -87,6 +87,8 @@ func new_barrier_scroll_onscreen(duration: float, spawn_offset: Vector2) -> void
     if disappear_tween != null and disappear_tween.is_valid():
         disappear_tween.stop()
     position_tween = create_tween()
+    position_tween.set_ease(Tween.EASE_IN_OUT)
+    position_tween.set_trans(Tween.TRANS_QUAD)
     position_tween.tween_property(self, "anchor_global_position", start_global_position, duration)
 
 func _create_destruction_tweens(duration: float):

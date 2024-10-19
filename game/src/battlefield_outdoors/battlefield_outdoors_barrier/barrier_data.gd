@@ -1,6 +1,6 @@
 class_name BarrierData extends RefCounted
 
-const default_graphic: Texture2D = preload("res://icon.svg")
+const default_graphic: Texture2D = preload("res://assets/art/placeholder_threat_big.png")
 const random_display_name_adjective_list = [
     'Looming',
     'Menacing',

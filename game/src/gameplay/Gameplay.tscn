@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://1wye34y7qnhe"]
+[gd_scene load_steps=10 format=3 uid="uid://1wye34y7qnhe"]
 
 [ext_resource type="PackedScene" uid="uid://mq5u7di7yh8m" path="res://src/back_to_start_menu_button/BackToStartMenuButton.tscn" id="1_8sw2a"]
 [ext_resource type="Script" path="res://src/gameplay/gameplay.gd" id="1_exjrn"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://h1fowbxngb70" path="res://src/audio_manager/AudioManager.tscn" id="3_o8xt6"]
 [ext_resource type="PackedScene" uid="uid://b73yb04wjxq8" path="res://src/indoor_preparation/indoor_preparation.tscn" id="4_qkdrp"]
 [ext_resource type="PackedScene" uid="uid://cqks4bltxh7sq" path="res://src/transition_cover/mode_transition_cover.tscn" id="6_blf36"]
+[ext_resource type="Script" path="res://src/battlefield_outdoors/outdoor_camera.gd" id="9_v3mno"]
 
 [node name="Gameplay" type="Control"]
 layout_mode = 3
@@ -61,6 +62,10 @@ layer = 3
 
 [node name="ModeTransitionCover" parent="TransitionCover" instance=ExtResource("6_blf36")]
 visible = false
+
+[node name="OutdoorCamera" type="Camera2D" parent="."]
+offset = Vector2(640, 360)
+script = ExtResource("9_v3mno")
 
 [connection signal="ready" from="." to="AudioManager" method="_on_gameplay_ready"]
 [connection signal="tree_exiting" from="." to="AudioManager" method="_on_gameplay_tree_exiting"]
