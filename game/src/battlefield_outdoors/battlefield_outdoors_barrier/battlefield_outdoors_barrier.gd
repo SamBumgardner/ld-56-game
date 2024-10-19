@@ -25,7 +25,7 @@ func _ready():
     anchor_global_position = global_position
     Database.barrier_changed.connect(_on_barrier_changed)
 
-    cost_to_overcome_number_label.text = String.num_int64(Database.current_barrier_cost_to_overcome_number)
+    cost_to_overcome_number_label.text = String.num_int64(floor(Database.current_barrier_cost_to_overcome_number))
     display_name_label.text = display_name
 
 func refresh() -> void:
@@ -36,7 +36,7 @@ func _update_display(barrier_data: BarrierData) -> void:
     
     display_name_label.text = current_barrier_data.name
     texture = current_barrier_data.graphic
-    cost_to_overcome_number_label.text = str(current_barrier_data.cost_to_overcome)
+    cost_to_overcome_number_label.text = String.num_int64(floor(current_barrier_data.cost_to_overcome))
     cost_to_overcome_stat_type_texture.texture = Database.stat_type_to_icon[
         current_barrier_data.weakness_type
     ]

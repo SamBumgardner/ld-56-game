@@ -20,6 +20,7 @@ signal insufficient_fuel()
 var combat_math_formulas: CombatMathFormulas = CombatMathFormulas.new()
 var charge_sequence_tween: Tween
 var combat_result: CombatResultsSummary.CombatResult = CombatResultsSummary.CombatResult.new()
+var checkpoint_reached: bool = false
 
 func _ready() -> void:
     insufficient_fuel.connect(battlefield_outdoors_hud._on_insufficient_fuel)
@@ -34,6 +35,8 @@ func _ready() -> void:
     charge_finish.connect(_on_charge_finish)
 
     health_empty.connect(_on_health_empty)
+    
+    Database.region_changed.connect(_on_region_changed)
 
     if Database.current_barrier_data == null:
         _generate_and_scale_next_barrier()
@@ -94,7 +97,7 @@ func _on_charge_impact(duration: float) -> void:
     if Database.war_transport_health_current > 0:
         war_transport.charge_followthrough(war_transport.global_position + Vector2(200, 0), duration)
         barrier.animate_destruction(duration)
-        _apply_combat_rewards(Database.current_barrier_data.cost_to_overcome, excess_damage)
+        _apply_combat_rewards(floor(Database.current_barrier_data.cost_to_overcome), excess_damage)
         battlefield_outdoors_hud.set_combat_results(combat_result)
     else:
         battlefield_outdoors_hud.set_combat_results(combat_result)
@@ -110,7 +113,7 @@ func _apply_combat_damage() -> int:
         Database.current_matching_stat_type_multiplier
     )
     var damage_amount = max(
-        Database.current_barrier_cost_to_overcome_number - player_strength,
+        floor(Database.current_barrier_cost_to_overcome_number - player_strength),
         0
     )
     combat_result.health_change = -damage_amount
@@ -150,7 +153,14 @@ func _on_charge_finish() -> void:
     combat_result.clear()
 
 func _generate_and_scale_next_barrier() -> void:
-    var new_barrier: BarrierData = _generate_barrier_data()
+    var base_value: float = Database.current_region_starting_barrier_strength
+    var barrier_count: int = Database.barrier_count_in_this_region + 1
+    var scale_amount: float = Database.barriers_linear_scale_amount
+    var variance: float = Database.current_region.barrier_variance
+    var new_barrier: BarrierData = _generate_barrier_data(base_value, barrier_count, scale_amount,
+        variance)
+
+    Database.set_barrier_count_in_this_region(barrier_count)
 
     if new_barrier.cost_to_overcome != Database.current_barrier_cost_to_overcome_number:
         Database.set_current_barrier_cost_to_overcome_number(new_barrier.cost_to_overcome)
@@ -159,26 +169,27 @@ func _generate_and_scale_next_barrier() -> void:
 
     Database.set_current_barrier_data(new_barrier)
 
-func _generate_barrier_data() -> BarrierData:
-    var cost_to_overcome = Database.current_barrier_cost_to_overcome_number \
-        + Database.barriers_linear_scale_amount
+func _generate_barrier_data(base_value: float, barrier_count: int, scale_amount: float,
+        variance: float) -> BarrierData:
+    var cost_to_overcome = base_value + barrier_count * scale_amount
+    cost_to_overcome += randf_range(-variance, variance)
+
     var random_display_name = BarrierData._get_random_display_name()
-    var random_stat_type = Database.StatType.values().pick_random()
+    var random_stat_type = Database.pick_barrier_type_from_region()
+    
     return BarrierData.new(random_display_name, random_stat_type,
         cost_to_overcome)
 
 func _apply_combat_rewards(barrier_health: int = 1, excess_power: int = 0) -> void:
-    const money_per_round = 11
-    const variance_min = -3
-    const variance_max = 3
+    var region: Region = Database.current_region
 
     var distance_change = Database.DISTANCE_PER_BARRIER
     var distance_bonus = clamp((excess_power as float / barrier_health) + 1, .5, 2)
     distance_change = floor(distance_bonus * distance_change)
     distance_change += (randi() % (Database.DISTANCE_VARIANCE_RANGE * 2)) - Database.DISTANCE_VARIANCE_RANGE
 
-    var money_change = money_per_round + randi_range(variance_min, variance_max)
-    var fuel_change = randi_range(1, 3)
+    var money_change = region.money_reward + randi_range(-region.money_variance, region.money_variance)
+    var fuel_change = region.fuel_reward + randi_range(-region.fuel_variance, region.fuel_variance)
 
     combat_result.distance_change = distance_change
     combat_result.money_change = money_change
@@ -193,8 +204,11 @@ func _apply_combat_rewards(barrier_health: int = 1, excess_power: int = 0) -> vo
     )
 
 func _should_save_checkpoint() -> bool:
-    const BARRIERS_PER_CHECKPOINT = 5
-    return Database.barriers_overcome_count % BARRIERS_PER_CHECKPOINT == 0
+    if checkpoint_reached:
+        checkpoint_reached = false
+        return true
+    else:
+        return false
 
 func _save_checkpoint() -> void:
     Database.save_checkpoint()
@@ -262,3 +276,6 @@ func _on_new_applicants_arrived() -> void:
         ApplicantOrchestrator.NEW_APPLICANTS_MESSAGE % Database.applicants.size(),
         ApplicantOrchestrator.NEW_APPLICANTS_DURATION,
     )
+
+func _on_region_changed(new_region: Region) -> void:
+    checkpoint_reached = true

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Region" load_steps=2 format=3 uid="uid://b4s15kwkbrp1v"]
+
+[ext_resource type="Script" path="res://src/scenario/region.gd" id="1_yxpb3"]
+
+[resource]
+script = ExtResource("1_yxpb3")
+region_name = "Breezy Mesa"
+gameplay_description = "= danger
++ fuel rewards
++ money rewards"
+barrier_linear_scaling_amount = 1.0
+barrier_variance = 2.0
+barrier_type_distribution = Array[int]([0, 1, 2])
+fuel_reward = 4
+fuel_variance = 1
+money_reward = 15
+money_variance = 3

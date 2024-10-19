@@ -76,7 +76,7 @@ func _process(_delta: float) -> void:
         notification_expired.emit()
         hide()
 
-    if notification_queue.size() > 0:
+    if not visible and notification_queue.size() > 0:
         notification_queue.pop_front().call()
 
 func _create_shake_tween():

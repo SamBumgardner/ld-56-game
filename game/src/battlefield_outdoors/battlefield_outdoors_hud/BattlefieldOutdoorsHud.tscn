@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://b6k6baalu42w7"]
+[gd_scene load_steps=24 format=3 uid="uid://b6k6baalu42w7"]
 
 [ext_resource type="Script" path="res://src/battlefield_outdoors/battlefield_outdoors_hud/battlefield_outdoors_hud.gd" id="1_3j823"]
 [ext_resource type="PackedScene" uid="uid://da57hkojchohp" path="res://src/shared_ui/resource_display/health_display.tscn" id="2_6fssr"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://cnphrbnb2wrnf" path="res://src/battlefield_outdoors/battlefield_outdoors_hud/combat_results_summary.tscn" id="18_lgpuc"]
 [ext_resource type="PackedScene" uid="uid://b5yq7dbetb72t" path="res://src/shared_ui/resource_display/applicants_display.tscn" id="18_pekm7"]
 [ext_resource type="PackedScene" uid="uid://b61imbp05vs5x" path="res://src/shared_ui/resource_display/distance_remaining_display.tscn" id="21_mon1i"]
+[ext_resource type="PackedScene" uid="uid://c8opoeu5d2ji3" path="res://src/shared_ui/region_display.tscn" id="22_cfrx8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8a5xg"]
 content_margin_left = 5.0
@@ -536,6 +537,13 @@ grow_vertical = 0
 layout_mode = 1
 anchors_preset = -1
 offset_right = -50.0
+
+[node name="Control" type="Control" parent="DistanceRemainingDisplay"]
+layout_mode = 2
+
+[node name="RegionDisplay" parent="DistanceRemainingDisplay/Control" instance=ExtResource("22_cfrx8")]
+layout_mode = 1
+anchors_preset = -1
 
 [connection signal="exited_available_reroll" from="BottomInfoDisplay/Center/TopEdge/RerollButton" to="AudioManager" method="_on_reroll_button_exited_available_reroll"]
 [connection signal="hovered_available_reroll" from="BottomInfoDisplay/Center/TopEdge/RerollButton" to="AudioManager" method="_on_reroll_button_hovered_available_reroll"]

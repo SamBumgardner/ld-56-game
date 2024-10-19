@@ -45,5 +45,5 @@ func _on_retry_pressed() -> void:
     if Database.saved_state != null:
         Database.load_from_init_values(Database.saved_state)
     else:
-        Database.reset_values()
+        Database.load_from_scenario(Database.scenario)
     get_tree().change_scene_to_file("res://src/gameplay/Gameplay.tscn")
