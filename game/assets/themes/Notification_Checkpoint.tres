@@ -31,4 +31,4 @@ Label/constants/outline_size = 7
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_khhf2")
 ProgressBar/styles/background = SubResource("StyleBoxFlat_ohfbx")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_uo7c4")
-RichTextLabel/constants/outline_size = 5
+RichTextLabel/constants/outline_size = 7
