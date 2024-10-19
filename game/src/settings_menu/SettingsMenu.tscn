@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://s1xgcuqegtmf"]
+[gd_scene load_steps=8 format=3 uid="uid://s1xgcuqegtmf"]
 
 [ext_resource type="Theme" uid="uid://p47cuq8mu72p" path="res://assets/themes/StartMenu.tres" id="1_581ss"]
 [ext_resource type="Script" path="res://src/settings_menu/settings_menu.gd" id="1_tjwhj"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://h1fowbxngb70" path="res://src/audio_manager/AudioManager.tscn" id="2_dyaxl"]
 [ext_resource type="PackedScene" uid="uid://ugy2sqawdp8y" path="res://src/settings_volume/SettingsVolume.tscn" id="4_0gnbp"]
 [ext_resource type="PackedScene" uid="uid://mq5u7di7yh8m" path="res://src/back_to_start_menu_button/BackToStartMenuButton.tscn" id="4_lsi3h"]
+[ext_resource type="PackedScene" uid="uid://dbs7sk334clc7" path="res://src/battlefield_outdoors/battlefield_outdoors_background/BattlefieldOutdoorsBackground.tscn" id="7_6w7r2"]
 
 [node name="SettingsMenu" type="Control"]
 layout_mode = 3
@@ -31,11 +32,32 @@ grow_vertical = 2
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+[node name="Title" type="RichTextLabel" parent="CenterContainer/VBoxContainer"]
+clip_contents = false
 layout_mode = 2
+theme_override_constants/outline_size = 7
 text = "Settings"
+fit_content = true
+autowrap_mode = 0
 
-[node name="SettingsVolume" parent="CenterContainer/VBoxContainer" instance=ExtResource("4_0gnbp")]
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="CenterContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/MarginContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="SettingsVolume" parent="CenterContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer" instance=ExtResource("4_0gnbp")]
 layout_mode = 2
 
 [node name="ResetToDefaultsButton" type="Button" parent="CenterContainer/VBoxContainer"]
@@ -50,9 +72,11 @@ text = "Back"
 
 [node name="BackToStartMenuButton" parent="." instance=ExtResource("4_lsi3h")]
 
+[node name="BattlefieldOutdoorsBackground" parent="." instance=ExtResource("7_6w7r2")]
+
 [connection signal="ready" from="." to="AudioManager" method="_on_settings_menu_ready"]
 [connection signal="mouse_entered" from="CenterContainer/VBoxContainer/ResetToDefaultsButton" to="AudioManager" method="_on_reset_to_defaults_button_mouse_entered"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/ResetToDefaultsButton" to="." method="_on_reset_to_defaults_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/ResetToDefaultsButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/ResetToDefaultsButton" to="." method="_on_reset_to_defaults_button_pressed"]
 [connection signal="mouse_entered" from="CenterContainer/VBoxContainer/BackButton" to="AudioManager" method="_on_back_button_mouse_entered"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

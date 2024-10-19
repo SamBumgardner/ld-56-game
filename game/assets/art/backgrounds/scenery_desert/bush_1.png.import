@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://l3l2yqfmprg5"
-path="res://.godot/imported/ld_56_indoors.jpg-3c775aa687eb682be3b19d27cb467574.ctex"
+uid="uid://cbr61c2w1iafs"
+path="res://.godot/imported/bush_1.png-cdf213d7fc9b4a71bfd3bd96ac5958cf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/ld_56_indoors.jpg"
-dest_files=["res://.godot/imported/ld_56_indoors.jpg-3c775aa687eb682be3b19d27cb467574.ctex"]
+source_file="res://assets/art/backgrounds/scenery_desert/bush_1.png"
+dest_files=["res://.godot/imported/bush_1.png-cdf213d7fc9b4a71bfd3bd96ac5958cf.ctex"]
 
 [params]
 
