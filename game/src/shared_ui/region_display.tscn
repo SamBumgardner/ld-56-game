@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8opoeu5d2ji3"]
+
+[ext_resource type="Script" path="res://src/shared_ui/region_display.gd" id="1_ml45x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yo7kg"]
+bg_color = Color(0, 0, 0, 0.392157)
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="RegionDisplay" type="PanelContainer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yo7kg")
+script = ExtResource("1_ml45x")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Header" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Current Region: 
+"
+
+[node name="RegionName" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Not-Too-Badlands"

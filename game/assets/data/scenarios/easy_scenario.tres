@@ -1,0 +1,49 @@
+[gd_resource type="Resource" script_class="Scenario" load_steps=18 format=3 uid="uid://dslxg51v4j1ot"]
+
+[ext_resource type="Script" path="res://src/characters/CharacterFactory.gd" id="1_lpdkw"]
+[ext_resource type="Resource" uid="uid://cghmtnhtq1aeh" path="res://assets/data/characters/001_squirrel_char.tres" id="2_tv6dv"]
+[ext_resource type="Resource" uid="uid://duswkektwj6hb" path="res://assets/data/characters/002_frog_char.tres" id="3_sqvsd"]
+[ext_resource type="Resource" uid="uid://b3l83j0ql7m0e" path="res://assets/data/characters/003_raccoon_char.tres" id="4_kyerd"]
+[ext_resource type="Resource" uid="uid://bfkdaseurpvu6" path="res://assets/data/characters/004_bird_char.tres" id="5_40u24"]
+[ext_resource type="Resource" uid="uid://dexsvne2ukrlr" path="res://assets/data/characters/005_ape_char.tres" id="6_f4pyd"]
+[ext_resource type="Resource" uid="uid://cg2gt1s2ilepn" path="res://assets/data/characters/008_lizard_char.tres" id="9_c0150"]
+[ext_resource type="Script" path="res://assets/data/gameplay_init_values.gd" id="11_unum0"]
+[ext_resource type="Resource" uid="uid://dwhqixr01xgru" path="res://assets/data/scenarios/regions/not_too_badlands.tres" id="12_fgyj2"]
+[ext_resource type="Resource" uid="uid://1nhgxq12mwuo" path="res://assets/data/characters/011_rabbit_char.tres" id="12_hx7iy"]
+[ext_resource type="Resource" uid="uid://b4s15kwkbrp1v" path="res://assets/data/scenarios/regions/breezy_mesa.tres" id="13_1v4v2"]
+[ext_resource type="Resource" uid="uid://beppcdvy1b3s0" path="res://assets/data/characters/012_fish_char.tres" id="13_ydh1n"]
+[ext_resource type="Script" path="res://src/scenario/scenario.gd" id="14_mnuwn"]
+[ext_resource type="Script" path="res://src/scenario/scenario_segment.gd" id="15_1r0vp"]
+
+[sub_resource type="Resource" id="Resource_wcex8"]
+script = ExtResource("11_unum0")
+current_region_starting_barrier_strength = 4.0
+current_reroll_fuel_cost = 1
+current_matching_stat_type_multiplier = 2
+war_transport_health_maximum = 15
+war_transport_health_current = 15
+should_generate_new_applicants = true
+current_money = 35
+current_fuel = 5
+
+[sub_resource type="Resource" id="Resource_ms3ae"]
+script = ExtResource("15_1r0vp")
+starts_at = 0
+region = ExtResource("12_fgyj2")
+
+[sub_resource type="Resource" id="Resource_0unf2"]
+script = ExtResource("15_1r0vp")
+starts_at = 100
+region = ExtResource("13_1v4v2")
+
+[resource]
+script = ExtResource("14_mnuwn")
+scenario_name = "Easy"
+scenario_description = "Embark on an introductory journey full of adventure and discovery!"
+difficulty_rating = 1
+total_distance = 200
+segments = Array[ExtResource("15_1r0vp")]([SubResource("Resource_ms3ae"), SubResource("Resource_0unf2")])
+gameplay_init_values = SubResource("Resource_wcex8")
+available_characters = Array[ExtResource("1_lpdkw")]([ExtResource("2_tv6dv"), ExtResource("3_sqvsd"), ExtResource("4_kyerd"), ExtResource("5_40u24"), ExtResource("6_f4pyd"), ExtResource("9_c0150"), ExtResource("12_hx7iy"), ExtResource("13_ydh1n")])
+possible_start_char_options = Array[int]([0, 1, 2])
+start_char_count = 3

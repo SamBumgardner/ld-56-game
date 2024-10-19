@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://s1xgcuqegtmf"]
 
-[ext_resource type="Theme" uid="uid://p47cuq8mu72p" path="res://assets/themes/StartMenu.tres" id="1_581ss"]
+[ext_resource type="Theme" uid="uid://duflqnf122e6l" path="res://assets/themes/StartMenu.tres" id="1_581ss"]
 [ext_resource type="Script" path="res://src/settings_menu/settings_menu.gd" id="1_tjwhj"]
 [ext_resource type="Theme" uid="uid://dk5iv042psfw" path="res://assets/themes/Default.tres" id="1_wa1ao"]
 [ext_resource type="PackedScene" uid="uid://h1fowbxngb70" path="res://src/audio_manager/AudioManager.tscn" id="2_dyaxl"]
@@ -76,7 +76,7 @@ text = "Back"
 
 [connection signal="ready" from="." to="AudioManager" method="_on_settings_menu_ready"]
 [connection signal="mouse_entered" from="CenterContainer/VBoxContainer/ResetToDefaultsButton" to="AudioManager" method="_on_reset_to_defaults_button_mouse_entered"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/ResetToDefaultsButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/ResetToDefaultsButton" to="." method="_on_reset_to_defaults_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/ResetToDefaultsButton" to="." method="_on_button_pressed"]
 [connection signal="mouse_entered" from="CenterContainer/VBoxContainer/BackButton" to="AudioManager" method="_on_back_button_mouse_entered"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

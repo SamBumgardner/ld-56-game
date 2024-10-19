@@ -2,6 +2,7 @@
 extends Node
 
 signal distance_remaining_changed(new_value: int, old_value: int)
+signal region_changed(new_region: Region)
 signal health_changed(new_value: int, old_value: int)
 signal money_changed(new_value: int, old_value: int)
 signal fuel_changed(new_value: int, old_value: int)
@@ -56,8 +57,8 @@ const _initial_audio_volume_music: float = 0.5
 const _initial_audio_volume_sfx: float = 0.5
 
 
-const _initial_distance_remaining: int = 300
-const _initial_barriers_linear_scale_amount: int = 1
+var _initial_distance_remaining: int = 300
+const _initial_barriers_linear_scale_amount: float = 1
 const _initial_barriers_stat_type_to_overcome: StatType = StatType.MIGHT
 const _initial_barriers_overcome_count: int = 0
 const _initial_barriers_cost_to_overcome_number: int = 0
@@ -73,7 +74,8 @@ const _initial_war_transport_health_maximum: int = 10
 
 const maximum_fuel: int = 10
 
-const _character_factories: Array[CharacterFactory] = [
+const _default_scenario: Scenario = preload("res://assets/data/scenarios/easy_scenario.tres")
+var _character_factories: Array[CharacterFactory] = [
     preload("res://assets/data/characters/001_squirrel_char.tres"),
     preload("res://assets/data/characters/002_frog_char.tres"),
     preload("res://assets/data/characters/003_raccoon_char.tres"),
@@ -87,7 +89,7 @@ const _character_factories: Array[CharacterFactory] = [
     preload("res://assets/data/characters/011_rabbit_char.tres"),
     preload("res://assets/data/characters/012_fish_char.tres"),
 ]
-const _starting_character_idxs: Array[int] = [
+var _starting_character_idxs: Array[int] = [
     0,
     1,
     2,
@@ -99,10 +101,13 @@ var audio_volume_sfx: float
 
 var current_distance_remaining: int
 var barriers_overcome_count: int
-var barriers_linear_scale_amount: int
+var barriers_linear_scale_amount: float
 var current_barrier_stat_type_to_overcome: StatType
-var current_barrier_cost_to_overcome_number: int
+var current_barrier_cost_to_overcome_number: float
 var current_barrier_data: BarrierData
+
+var current_region_starting_barrier_strength: float
+var barrier_count_in_this_region: int
 
 var current_reroll_fuel_cost: int
 var current_character_die_slots: Array[CharacterDieSlot]
@@ -120,7 +125,14 @@ var should_generate_new_applicants: bool
 var current_money: int
 var current_fuel: int
 
+var scenario: Scenario
 var saved_state: GameplayInitValues
+
+var current_region: Region:
+    get():
+        return scenario.get_current_region(distance_traveled)
+    set(value):
+        push_error("attempted to set derived field. Don't do this")
 
 var hired_character_count: int:
     get():
@@ -137,6 +149,9 @@ var purchased_upgrade_count: int:
     set(value):
         push_error("attempted to set derived field. Don't do this")
 
+var distance_traveled: int:
+    get():
+        return (_initial_distance_remaining - current_distance_remaining)
 
 var distance_traveled_display: String:
     get():
@@ -148,9 +163,34 @@ var distance_remaining_display: String:
 
 func _ready():
     _ready_audio_volumes()
-    reset_values()
+    load_from_scenario(_default_scenario)
 
 # Like reset_values
+func load_from_scenario(load_scenario: Scenario):
+    scenario = load_scenario
+    var init_values = load_scenario.gameplay_init_values
+    var starting_region = load_scenario.segments[0].region
+
+    _initial_distance_remaining = load_scenario.total_distance
+    init_values.current_distance_remaining = load_scenario.total_distance
+    # progress
+    load_from_init_values(init_values)
+
+    set_barriers_overcome_count(0)
+    set_barrier_count_in_this_region(0)
+    set_barriers_linear_scale_amount(starting_region.barrier_linear_scaling_amount)
+    set_current_barrier_stat_type_to_overcome(starting_region.get_barrier_weakness())
+
+    _character_factories = load_scenario.available_characters
+    _starting_character_idxs = []
+    var possible_characters: Array[int] = load_scenario.possible_start_char_options.duplicate()
+    for i in load_scenario.start_char_count:
+        var starting_char = possible_characters.pick_random()
+        _starting_character_idxs.append(starting_char)
+        possible_characters.erase(starting_char)
+
+    initialize_characters()
+
 func load_from_init_values(init_values: GameplayInitValues):
     set_current_distance_remaining(init_values.current_distance_remaining)
     set_barriers_overcome_count(init_values.barriers_overcome_count)
@@ -161,8 +201,9 @@ func load_from_init_values(init_values: GameplayInitValues):
     set_current_barrier_stat_type_to_overcome(
         init_values.current_barrier_stat_type_to_overcome
     )
-    if init_values.current_barrier_data != null:
-        set_current_barrier_data(init_values.current_barrier_data)
+    set_current_barrier_data(init_values.current_barrier_data)
+    
+    set_current_region_starting_barrier_strength(init_values.current_region_starting_barrier_strength)
     set_current_character_die_slots(init_values.current_character_die_slots.duplicate())
     set_current_matching_stat_type_multiplier(
         init_values.current_matching_stat_type_multiplier
@@ -287,21 +328,33 @@ func set_audio_volume_music(volume: float) -> void:
 func set_audio_volume_sfx(volume: float) -> void:
     audio_volume_sfx = volume
 
-func set_barriers_linear_scale_amount(updated_number: int) -> void:
+func set_barriers_linear_scale_amount(updated_number: float) -> void:
     barriers_linear_scale_amount = updated_number
 
 func set_current_distance_remaining(updated_distance: int) -> void:
     var old_distance_remaining = current_distance_remaining
+    var old_region: Region = current_region
+
     current_distance_remaining = max(updated_distance, 0)
     distance_remaining_changed.emit(current_distance_remaining, old_distance_remaining)
+
+    var new_region: Region = current_region
+    if old_region != new_region:
+        region_changed.emit(new_region)
 
 func set_barriers_overcome_count(updated_count: int) -> void:
     barriers_overcome_count = updated_count
 
+func set_current_region_starting_barrier_strength(updated_value: float) -> void:
+    current_region_starting_barrier_strength = updated_value
+
+func set_barrier_count_in_this_region(updated_value: int) -> void:
+    barrier_count_in_this_region = updated_value
+
 func set_current_barrier_stat_type_to_overcome(updated_stat_type: StatType) -> void:
     current_barrier_stat_type_to_overcome = updated_stat_type
 
-func set_current_barrier_cost_to_overcome_number(updated_number: int) -> void:
+func set_current_barrier_cost_to_overcome_number(updated_number: float) -> void:
     current_barrier_cost_to_overcome_number = updated_number
 
 func set_current_barrier_data(updated_barrier_data: BarrierData) -> void:
@@ -371,6 +424,9 @@ func clear_all_frozen_status() -> void:
     for die_slot: CharacterDieSlot in current_character_die_slots:
         die_slot.is_frozen = false
         die_slot_changed.emit(die_slot)
+
+func pick_barrier_type_from_region() -> Database.StatType:
+    return scenario.get_current_region(distance_traveled).barrier_type_distribution.pick_random()
 
 func _ready_audio_volumes() -> void:
     set_audio_volume_initialized(false)

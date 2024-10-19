@@ -25,7 +25,7 @@ func set_barrier(barrier_data: BarrierData):
         barrier_name.text = barrier_data.name
         barrier_portrait.texture = barrier_data.graphic
         weakness_icon.texture = Database.stat_type_to_icon[barrier_data.weakness_type]
-        power_value.text = String.num_int64(barrier_data.cost_to_overcome)
+        power_value.text = String.num_int64(floor(barrier_data.cost_to_overcome))
         main_contents.show()
     else:
         main_contents.hide()
