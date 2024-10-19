@@ -5,8 +5,8 @@
 [resource]
 script = ExtResource("1_nak01")
 region_name = "Burning Sands"
-gameplay_description = "[color=red]+ Danger
-[color=red]- Fuel rewards
+gameplay_description = "[color=salmon]+ Danger
+[color=salmon]- Fuel rewards
 [color=cyan]+ Coin rewards"
 barrier_linear_scaling_amount = 2.0
 barrier_variance = 2.0
