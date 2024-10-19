@@ -3,7 +3,9 @@ class_name BattlefieldOutdoorsHud extends Control
 signal initiate_charge_requested
 signal dice_roll_requested
 
-const NEW_REGION_MESSAGE_FORMAT = "New region reached: %s\n\nRegional Modifiers:\n%s"
+const NEW_REGION_MESSAGE_FORMAT_HEADER = "New region reached: %s"
+const NEW_REGION_MESSAGE_FORMAT_HEAL = "[color=cyan]Repaired %s health![/color]"
+const NEW_REGION_MESSAGE_FORMAT_ADDITIONAL_INFO = "\nRegional Modifiers:\n%s"
 const NEW_REGION_DURATION = 20
 
 const REROLL_FAIL_MESSAGE = "Failed to shuffle unlocked actions.\nReason: INSUFFICIENT_FUEL"
@@ -120,10 +122,16 @@ func _set_health_text(new_health: int, _old_health: int = 0) -> void:
     health_current.text = str(new_health)
     health_maximum.text = str(Database.war_transport_health_maximum)
 
-func _on_region_changed(new_region: Region) -> void:
+func _on_region_changed(new_region: Region, segment_info: ScenarioSegment) -> void:
+    var stringbuilder: PackedStringArray = []
+    stringbuilder.append(NEW_REGION_MESSAGE_FORMAT_HEADER % new_region.region_name)
+    if segment_info.arrival_bonus_heal != 0:
+        stringbuilder.append(NEW_REGION_MESSAGE_FORMAT_HEAL % segment_info.arrival_bonus_heal)
+    stringbuilder.append(NEW_REGION_MESSAGE_FORMAT_ADDITIONAL_INFO % new_region.gameplay_description)
+
     screen_notification.queue_notification(
         ScreenNotification.ScreenNotificationType.NOTIFY,
-        NEW_REGION_MESSAGE_FORMAT % [new_region.region_name, new_region.gameplay_description],
+        "\n".join(stringbuilder),
         NEW_REGION_DURATION
     )
 
