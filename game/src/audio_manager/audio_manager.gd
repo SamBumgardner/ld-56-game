@@ -191,8 +191,12 @@ func _on_to_main_menu_pressed():
 #region Character select
 # Selecting a character is treated like a menu navigation SFX for simplicity.
 
-func _on_crew_button_crew_member_selected(_character):
-    SoundManager.play_ui_sound(sfx_indoors_enter_a_menu, _bus_name_sfx_ui)
+func _on_crew_button_crew_member_selected(character: Character):
+    if character.sfx_hello == null:
+        SoundManager.play_ui_sound(sfx_indoors_enter_a_menu, _bus_name_sfx_ui)
+        return
+
+    SoundManager.play_ui_sound(character.sfx_hello, _bus_name_sfx_ui)
 
 func _on_crew_selector_button_character_selected(_character, _button_end_state):
     SoundManager.play_ui_sound(sfx_indoors_enter_a_menu, _bus_name_sfx_ui)

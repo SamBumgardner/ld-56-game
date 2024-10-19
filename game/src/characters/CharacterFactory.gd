@@ -4,6 +4,7 @@ class_name CharacterFactory extends Resource
 @export_multiline var description: String
 @export var portrait: Texture2D
 @export var icon: Texture2D
+@export var sfx_hello: AudioStream
 @export var starting_action_strings: Array[String]
 @export var upgrade_level: int
 @export var upgrades: Array[UpgradeSelector]
@@ -19,7 +20,8 @@ func instantiate(hiring_cost: int = 10) -> Character:
         action_selector,
         upgrade_level,
         upgrades,
-        hiring_cost
+        hiring_cost,
+        sfx_hello
     )
 
 func _build_starting_actions() -> Array[Action]:
