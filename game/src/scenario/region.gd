@@ -5,7 +5,7 @@ class_name Region extends Resource
 @export_multiline var gameplay_description: String
 
 @export_category("Barriers")
-@export var barrier_linear_scaling_amount: int = 1
+@export var barrier_linear_scaling_amount: float = 1
 @export var barrier_variance: float = 3
 @export var barrier_type_distribution: Array[Database.StatType] = [
     Database.StatType.MIGHT,

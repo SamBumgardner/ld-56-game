@@ -57,7 +57,7 @@ const _initial_audio_volume_sfx: float = 0.5
 
 
 const _initial_distance_remaining: int = 300
-const _initial_barriers_linear_scale_amount: int = 1
+const _initial_barriers_linear_scale_amount: float = 1
 const _initial_barriers_stat_type_to_overcome: StatType = StatType.MIGHT
 const _initial_barriers_overcome_count: int = 0
 const _initial_barriers_cost_to_overcome_number: int = 0
@@ -99,7 +99,7 @@ var audio_volume_sfx: float
 
 var current_distance_remaining: int
 var barriers_overcome_count: int
-var barriers_linear_scale_amount: int
+var barriers_linear_scale_amount: float
 var current_barrier_stat_type_to_overcome: StatType
 var current_barrier_cost_to_overcome_number: int
 var current_barrier_data: BarrierData
@@ -156,6 +156,8 @@ func _ready():
 func load_from_scenario(load_scenario: Scenario):
     var init_values = load_scenario.gameplay_init_values
     var starting_region = load_scenario.segments[0].region
+
+    init_values.current_distance_remaining = load_scenario.total_distance
     # progress
     load_from_init_values(init_values)
 
@@ -309,7 +311,7 @@ func set_audio_volume_music(volume: float) -> void:
 func set_audio_volume_sfx(volume: float) -> void:
     audio_volume_sfx = volume
 
-func set_barriers_linear_scale_amount(updated_number: int) -> void:
+func set_barriers_linear_scale_amount(updated_number: float) -> void:
     barriers_linear_scale_amount = updated_number
 
 func set_current_distance_remaining(updated_distance: int) -> void:

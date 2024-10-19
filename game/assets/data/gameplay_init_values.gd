@@ -1,24 +1,24 @@
 class_name GameplayInitValues extends Resource
 
 @export_category("Progress")
-@export var current_distance_remaining: int
-@export var barriers_overcome_count: int
-@export var barriers_linear_scale_amount: int
-@export var current_barrier_stat_type_to_overcome: Database.StatType
-@export var current_barrier_cost_to_overcome_number: int
 @export var current_region_starting_barrier_strength: int
 # Need to figure out if it's necessary to provide this as init value
-var current_barrier_data: BarrierData
+var current_barrier_stat_type_to_overcome: Database.StatType = Database.StatType.MIGHT
+var current_barrier_cost_to_overcome_number: int = 1
+var barriers_linear_scale_amount: float = 1
+var current_distance_remaining: int = 300
+var barriers_overcome_count: int = 0
+var current_barrier_data: BarrierData = null
 
 @export_category("Mechanics")
 @export var current_reroll_fuel_cost: int = 1
 @export var current_matching_stat_type_multiplier: int = 2
 
 @export_category("Player State")
-@export var current_character_die_slots: Array[CharacterDieSlot] = []
-@export var war_transport_health_current: int
-@export var war_transport_health_maximum: int
-@export var should_generate_new_applicants: bool
+@export var war_transport_health_maximum: int = 10
+@export var war_transport_health_current: int = 10
+@export var should_generate_new_applicants: bool = true
+var current_character_die_slots: Array[CharacterDieSlot] = []
 
 # Only needed when loading a save
 var hired_characters: Array[Character]
