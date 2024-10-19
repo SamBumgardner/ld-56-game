@@ -280,7 +280,7 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 script = ExtResource("9_cb4ss")
-total_value_label = NodePath("PanelContainer/VBoxContainer/TotalValue")
+total_value_label = NodePath("PanelContainer/VBoxContainer/VBoxContainer/TotalValue")
 
 [node name="PanelContainer" type="PanelContainer" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay"]
 layout_mode = 2
@@ -288,11 +288,15 @@ layout_mode = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay/PanelContainer"]
 layout_mode = 2
 
-[node name="TotalHeader" type="Label" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay/PanelContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TotalHeader" type="Label" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay/PanelContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Total Power:"
 
-[node name="TotalValue" type="Label" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay/PanelContainer/VBoxContainer"]
+[node name="TotalValue" type="Label" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay/PanelContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 1
 theme_override_font_sizes/font_size = 48
@@ -512,7 +516,7 @@ visible = false
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.3
+anchor_left = 0.2
 anchor_top = 0.6
 anchor_right = 0.3
 anchor_bottom = 0.6

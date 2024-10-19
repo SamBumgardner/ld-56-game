@@ -48,7 +48,6 @@ func _ready() -> void:
 func _connect_hud_charge_events() -> void:
     charge_start.connect(battlefield_outdoors_hud._on_charge_start)
     charge_warmup.connect(battlefield_outdoors_hud._on_charge_warmup)
-    charge_action.connect(battlefield_outdoors_hud._on_charge_action)
     charge_impact.connect(battlefield_outdoors_hud._on_charge_impact)
     charge_cooldown.connect(battlefield_outdoors_hud._on_charge_cooldown)
     charge_finish.connect(battlefield_outdoors_hud._on_charge_finish)
@@ -58,7 +57,7 @@ func transition_in() -> void:
     battlefield_outdoors_hud.crew_member_selector.refresh()
     battlefield_outdoors_hud.refresh_calculations()
     battlefield_outdoors_hud.character_info_panel.display_character(null)
-    battlefield_outdoors_hud._enable_interaction()
+    battlefield_outdoors_hud._enable_interaction(true)
 
 func transition_out() -> void:
     battlefield_outdoors_hud._disable_interaction()

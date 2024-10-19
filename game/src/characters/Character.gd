@@ -31,6 +31,20 @@ func _init(_name: String, _description: String, _portrait: Texture2D,
         upgrade_choice_history.append(-1)
     hiring_cost = _hiring_cost
 
+func deep_copy() -> Character:
+    var current_actions = actions.get_all()
+    var new_actions: Array[Action] = []
+    for action in current_actions:
+        new_actions.append(Action._parse_action_string(action.name))
+    var new_action_selector = ActionSelector.new(new_actions)
+    
+    var copy: Character = Character.new(name, description, portrait, icon, new_action_selector,
+        upgrade_level, upgrades, hiring_cost)
+    
+    copy.upgrade_choice_history = upgrade_choice_history.duplicate()
+
+    return copy
+
 func upgrade(level, choice_idx) -> void:
     var upgrade_to_apply: Callable = upgrades[level].get_upgrade_action(choice_idx)
     upgrade_to_apply.call(actions)
