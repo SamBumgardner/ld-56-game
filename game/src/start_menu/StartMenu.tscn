@@ -34,6 +34,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Title" type="RichTextLabel" parent="VBoxContainer"]
+clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("4_hmxdc")
@@ -42,6 +43,7 @@ fit_content = true
 autowrap_mode = 0
 
 [node name="SubTitle" type="RichTextLabel" parent="VBoxContainer"]
+clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("1_io06w")

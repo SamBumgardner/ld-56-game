@@ -33,6 +33,7 @@ layout_mode = 2
 theme_override_constants/separation = 20
 
 [node name="Title" type="RichTextLabel" parent="CenterContainer/VBoxContainer"]
+clip_contents = false
 layout_mode = 2
 theme_override_constants/outline_size = 7
 text = "Settings"
