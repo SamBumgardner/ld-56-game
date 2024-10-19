@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbs7sk334clc7"]
+
+[ext_resource type="Texture2D" uid="uid://bd4biq3g3x1ej" path="res://assets/art/backgrounds/desert.png" id="1_jdove"]
+
+[node name="BattlefieldOutdoorsBackground" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource("1_jdove")
+centered = false
+
+[node name="ParallaxLayer_CopyViaCtrlD" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer_CopyViaCtrlD"]
+visible = false
