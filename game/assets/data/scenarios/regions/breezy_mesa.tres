@@ -5,8 +5,8 @@
 [resource]
 script = ExtResource("1_yxpb3")
 region_name = "Breezy Mesa"
-gameplay_description = "+ Fuel rewards
-+ Coin rewards"
+gameplay_description = "[color=cyan]+ Fuel rewards
+[color=cyan]+ Coin rewards"
 barrier_linear_scaling_amount = 1.0
 barrier_variance = 2.0
 barrier_type_distribution = Array[int]([0, 1, 2])

@@ -50,8 +50,9 @@ theme_override_constants/margin_bottom = 2
 [node name="RegionInfo" type="RichTextLabel" parent="MarginContainer/VBoxContainer/RegionInfoContainer/MarginContainer"]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
 text = "Region Info:
-↑ Danger
-↑↑↑ Coin Rewards
+[color=orange]↑ Danger
+[color=cyan]↑↑↑ Coin Rewards
 ~ Fuel Rewards"
 fit_content = true

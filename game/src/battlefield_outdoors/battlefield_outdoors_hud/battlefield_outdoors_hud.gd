@@ -3,7 +3,7 @@ class_name BattlefieldOutdoorsHud extends Control
 signal initiate_charge_requested
 signal dice_roll_requested
 
-const NEW_REGION_MESSAGE_FORMAT = "New region reached: %s\nConditions:\n%s"
+const NEW_REGION_MESSAGE_FORMAT = "New region reached: %s\n\nRegional Modifiers:\n%s"
 const NEW_REGION_DURATION = 20
 
 const REROLL_FAIL_MESSAGE = "Failed to shuffle unlocked actions.\nReason: INSUFFICIENT_FUEL"
