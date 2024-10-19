@@ -110,7 +110,7 @@ func _apply_combat_damage() -> int:
         Database.current_matching_stat_type_multiplier
     )
     var damage_amount = max(
-        Database.current_barrier_cost_to_overcome_number - player_strength,
+        floor(Database.current_barrier_cost_to_overcome_number - player_strength),
         0
     )
     combat_result.health_change = -damage_amount

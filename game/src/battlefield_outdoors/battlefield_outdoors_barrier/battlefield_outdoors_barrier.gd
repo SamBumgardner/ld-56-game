@@ -36,7 +36,7 @@ func _update_display(barrier_data: BarrierData) -> void:
     
     display_name_label.text = current_barrier_data.name
     texture = current_barrier_data.graphic
-    cost_to_overcome_number_label.text = str(current_barrier_data.cost_to_overcome)
+    cost_to_overcome_number_label.text = String.num_int64(current_barrier_data.cost_to_overcome)
     cost_to_overcome_stat_type_texture.texture = Database.stat_type_to_icon[
         current_barrier_data.weakness_type
     ]

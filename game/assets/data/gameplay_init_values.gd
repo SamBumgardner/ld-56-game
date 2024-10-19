@@ -4,7 +4,7 @@ class_name GameplayInitValues extends Resource
 @export var current_region_starting_barrier_strength: int
 # Need to figure out if it's necessary to provide this as init value
 var current_barrier_stat_type_to_overcome: Database.StatType = Database.StatType.MIGHT
-var current_barrier_cost_to_overcome_number: int = 1
+var current_barrier_cost_to_overcome_number: float = 1
 var barriers_linear_scale_amount: float = 1
 var current_distance_remaining: int = 300
 var barriers_overcome_count: int = 0

@@ -101,7 +101,7 @@ var current_distance_remaining: int
 var barriers_overcome_count: int
 var barriers_linear_scale_amount: float
 var current_barrier_stat_type_to_overcome: StatType
-var current_barrier_cost_to_overcome_number: int
+var current_barrier_cost_to_overcome_number: float
 var current_barrier_data: BarrierData
 var current_region_starting_barrier_strength: int
 
@@ -328,7 +328,7 @@ func set_current_region_starting_barrier_strength(updated_value: int) -> void:
 func set_current_barrier_stat_type_to_overcome(updated_stat_type: StatType) -> void:
     current_barrier_stat_type_to_overcome = updated_stat_type
 
-func set_current_barrier_cost_to_overcome_number(updated_number: int) -> void:
+func set_current_barrier_cost_to_overcome_number(updated_number: float) -> void:
     current_barrier_cost_to_overcome_number = updated_number
 
 func set_current_barrier_data(updated_barrier_data: BarrierData) -> void:
