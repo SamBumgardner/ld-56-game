@@ -1,4 +1,8 @@
-class_name GameOver extends ColorRect
+class_name GameOver extends TextureRect
+
+@export var initial_delay: float = 0
+@export var delay_duration: float = .5
+@export var fade_duration: float = .5
 
 @onready var title_container: Control = $TitleContainer
 @onready var stats_container: Control = $StatsContainer
@@ -13,17 +17,25 @@ func _ready() -> void:
     _start_fade_in_sequence()
     
 func _start_fade_in_sequence() -> void:
-    const delay_duration: float = .5
-    const fade_duration: float = .5
     var fade_in_sequence: Tween = create_tween()
+    fade_in_sequence.tween_interval(initial_delay)
+    fade_in_sequence.tween_callback(_darken_background)
 
-    var children = get_children()
+    var children = [
+        title_container,
+        stats_container,
+        button_container
+    ]
     for child in children:
         child.hide()
         child.modulate = Color.TRANSPARENT
         fade_in_sequence.tween_interval(delay_duration)
         fade_in_sequence.tween_callback(child.show)
         fade_in_sequence.tween_property(child, "modulate", Color.WHITE, fade_duration)
+
+func _darken_background() -> void:
+    var background_tween = create_tween()
+    background_tween.tween_property(self, "self_modulate", Color(.4, .4, .4), fade_duration * 1.5)
 
 func _on_main_menu_pressed() -> void:
     get_tree().change_scene_to_packed(preload("res://src/start_menu/StartMenu.tscn"))
