@@ -90,11 +90,11 @@ func _on_charge_action(duration: float) -> void:
     war_transport.charge_to_target(barrier.start_global_position, duration)
 
 func _on_charge_impact(duration: float) -> void:
-    _apply_combat_damage()
+    var excess_damage = _apply_combat_damage()
     if Database.war_transport_health_current > 0:
         war_transport.charge_followthrough(war_transport.global_position + Vector2(200, 0), duration)
         barrier.animate_destruction(duration)
-        _apply_combat_rewards()
+        _apply_combat_rewards(Database.current_barrier_data.cost_to_overcome, excess_damage)
         battlefield_outdoors_hud.set_combat_results(combat_result)
     else:
         battlefield_outdoors_hud.set_combat_results(combat_result)
@@ -102,7 +102,7 @@ func _on_charge_impact(duration: float) -> void:
         war_transport.defeated_knockback(duration)
 
 
-func _apply_combat_damage() -> void:
+func _apply_combat_damage() -> int:
     var updated_health = Database.war_transport_health_current
     var player_strength = combat_math_formulas.total_dice_with_matching_stat_type_multiplier(
         Database.current_character_die_slots,
@@ -123,6 +123,7 @@ func _apply_combat_damage() -> void:
 
     if updated_health <= 0:
         health_empty.emit()
+    return player_strength - Database.current_barrier_data.cost_to_overcome
 
 func _on_charge_cooldown(duration: float) -> void:
     war_transport.hide_power(duration)
@@ -166,13 +167,13 @@ func _generate_barrier_data() -> BarrierData:
     return BarrierData.new(random_display_name, random_stat_type,
         cost_to_overcome)
 
-func _apply_combat_rewards(barrier_health: int = 0, excess_power: int = 0) -> void:
+func _apply_combat_rewards(barrier_health: int = 1, excess_power: int = 0) -> void:
     const money_per_round = 11
     const variance_min = -3
     const variance_max = 3
 
     var distance_change = Database.DISTANCE_PER_BARRIER
-    var distance_bonus = min(1, excess_power as float / barrier_health) + 1
+    var distance_bonus = clamp((excess_power as float / barrier_health) + 1, .5, 2)
     distance_change = floor(distance_bonus * distance_change)
     distance_change += (randi() % (Database.DISTANCE_VARIANCE_RANGE * 2)) - Database.DISTANCE_VARIANCE_RANGE
 
