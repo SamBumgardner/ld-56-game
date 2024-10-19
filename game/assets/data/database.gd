@@ -73,7 +73,7 @@ const _initial_war_transport_health_maximum: int = 10
 
 const maximum_fuel: int = 10
 
-const _character_factories: Array[CharacterFactory] = [
+var _character_factories: Array[CharacterFactory] = [
     preload("res://assets/data/characters/001_squirrel_char.tres"),
     preload("res://assets/data/characters/002_frog_char.tres"),
     preload("res://assets/data/characters/003_raccoon_char.tres"),
@@ -87,7 +87,7 @@ const _character_factories: Array[CharacterFactory] = [
     preload("res://assets/data/characters/011_rabbit_char.tres"),
     preload("res://assets/data/characters/012_fish_char.tres"),
 ]
-const _starting_character_idxs: Array[int] = [
+var _starting_character_idxs: Array[int] = [
     0,
     1,
     2,
@@ -103,6 +103,7 @@ var barriers_linear_scale_amount: int
 var current_barrier_stat_type_to_overcome: StatType
 var current_barrier_cost_to_overcome_number: int
 var current_barrier_data: BarrierData
+var current_region_starting_barrier_strength: int
 
 var current_reroll_fuel_cost: int
 var current_character_die_slots: Array[CharacterDieSlot]
@@ -120,6 +121,7 @@ var should_generate_new_applicants: bool
 var current_money: int
 var current_fuel: int
 
+var scenario: Scenario
 var saved_state: GameplayInitValues
 
 var hired_character_count: int:
@@ -151,6 +153,26 @@ func _ready():
     reset_values()
 
 # Like reset_values
+func load_from_scenario(load_scenario: Scenario):
+    var init_values = load_scenario.gameplay_init_values
+    var starting_region = load_scenario.segments[0].region
+    # progress
+    load_from_init_values(init_values)
+
+    set_barriers_overcome_count(0)
+    set_barriers_linear_scale_amount(starting_region.barrier_linear_scaling_amount)
+    set_current_barrier_stat_type_to_overcome(starting_region.get_barrier_weakness())
+
+    _character_factories = load_scenario.available_characters
+    _starting_character_idxs = []
+    var possible_characters: Array[int] = load_scenario.possible_start_char_options.duplicate()
+    for i in load_scenario.start_char_count:
+        var starting_char = possible_characters.pick_random()
+        _starting_character_idxs.append(starting_char)
+        possible_characters.erase(starting_char)
+
+    initialize_characters()
+
 func load_from_init_values(init_values: GameplayInitValues):
     set_current_distance_remaining(init_values.current_distance_remaining)
     set_barriers_overcome_count(init_values.barriers_overcome_count)
@@ -297,6 +319,9 @@ func set_current_distance_remaining(updated_distance: int) -> void:
 
 func set_barriers_overcome_count(updated_count: int) -> void:
     barriers_overcome_count = updated_count
+
+func set_current_region_starting_barrier_strength(updated_value: int) -> void:
+    current_region_starting_barrier_strength = updated_value
 
 func set_current_barrier_stat_type_to_overcome(updated_stat_type: StatType) -> void:
     current_barrier_stat_type_to_overcome = updated_stat_type
