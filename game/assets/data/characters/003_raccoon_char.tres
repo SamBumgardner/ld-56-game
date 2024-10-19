@@ -1,9 +1,10 @@
-[gd_resource type="Resource" script_class="CharacterFactory" load_steps=21 format=3 uid="uid://b3l83j0ql7m0e"]
+[gd_resource type="Resource" script_class="CharacterFactory" load_steps=22 format=3 uid="uid://b3l83j0ql7m0e"]
 
 [ext_resource type="Texture2D" uid="uid://buhpfr0v6vyet" path="res://assets/art/character_icons/003_character_icon.png" id="1_ehecm"]
 [ext_resource type="Texture2D" uid="uid://bic3i142epdt3" path="res://assets/art/placeholder_threat.png" id="2_6a65p"]
 [ext_resource type="Script" path="res://src/characters/CharacterFactory.gd" id="3_cp6an"]
 [ext_resource type="Script" path="res://src/characters/UpgradeSelector.gd" id="4_uhto1"]
+[ext_resource type="AudioStream" uid="uid://cpoyu37x8r2ek" path="res://assets/audio/guest_voice_lines/1004_untitled.wav" id="4_yhxyt"]
 [ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="5_nqnpf"]
 [ext_resource type="Resource" uid="uid://bk28atv2b5hxg" path="res://assets/data/upgrades/800_basic/801_up1_chaos.tres" id="6_ixhi8"]
 [ext_resource type="Resource" uid="uid://7e1q61lw77bg" path="res://assets/data/upgrades/800_basic/802_add_might2.tres" id="7_msyjq"]
@@ -47,6 +48,7 @@ name = "Fiddler"
 description = "Loyalty, bravery, and a touch of pyromania; there's no better ally in a pinch."
 portrait = ExtResource("2_6a65p")
 icon = ExtResource("1_ehecm")
+sfx_hello = ExtResource("4_yhxyt")
 starting_action_strings = Array[String](["chaos_2", "chaos_1", "might_1"])
-upgrade_level = 0
+upgrade_level = null
 upgrades = Array[ExtResource("4_uhto1")]([SubResource("Resource_8vmh3"), SubResource("Resource_ymp33"), SubResource("Resource_rct7n"), SubResource("Resource_j2bep"), SubResource("Resource_jifp1")])

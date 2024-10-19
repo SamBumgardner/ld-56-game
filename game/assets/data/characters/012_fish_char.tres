@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="CharacterFactory" load_steps=21 format=3 uid="uid://beppcdvy1b3s0"]
+[gd_resource type="Resource" script_class="CharacterFactory" load_steps=22 format=3 uid="uid://beppcdvy1b3s0"]
 
 [ext_resource type="Texture2D" uid="uid://buhpfr0v6vyet" path="res://assets/art/character_icons/003_character_icon.png" id="1_bbogw"]
 [ext_resource type="Texture2D" uid="uid://bic3i142epdt3" path="res://assets/art/placeholder_threat.png" id="2_vu2iy"]
 [ext_resource type="Script" path="res://src/characters/CharacterFactory.gd" id="3_vhn86"]
+[ext_resource type="AudioStream" uid="uid://bslat36anpwe2" path="res://assets/audio/guest_voice_lines/1002_Fish Hello.wav" id="4_cvnci"]
 [ext_resource type="Script" path="res://src/characters/UpgradeSelector.gd" id="4_vxjk3"]
 [ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="5_6d2jh"]
 [ext_resource type="Resource" uid="uid://c84gaufp2j3hi" path="res://assets/data/upgrades/700_repair/701_up1_all.tres" id="6_xpbq8"]
@@ -47,6 +48,7 @@ name = "Karma"
 description = "Chased from his home by water-thieves, he has a score to settle and a home to reclaim."
 portrait = ExtResource("2_vu2iy")
 icon = ExtResource("1_bbogw")
+sfx_hello = ExtResource("4_cvnci")
 starting_action_strings = Array[String](["wit_2", "might_1"])
-upgrade_level = 0
+upgrade_level = null
 upgrades = Array[ExtResource("4_vxjk3")]([SubResource("Resource_8vmh3"), SubResource("Resource_q65np"), SubResource("Resource_e0vib"), SubResource("Resource_3wl37"), SubResource("Resource_u8h8x")])
