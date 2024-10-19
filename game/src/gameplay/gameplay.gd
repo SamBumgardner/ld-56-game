@@ -9,6 +9,7 @@ signal checkpoint_saved()
 @onready var indoor_root: IndoorPreparation = $IndoorPrepMode/IndoorPreparation
 @onready var transition_cover: CanvasLayer = $TransitionCover
 @onready var mode_transition_cover: ModeTransitionCover = $TransitionCover/ModeTransitionCover
+@onready var outdoors_camera: Camera2D = $OutdoorsCamera
 
 @onready var go_inside_button: Button = $OutdoorBattleMode/BattlefieldOutdoors/BattlefieldOutdoorsHud/GoInsideButton
 @onready var go_outside_button: Button = $IndoorPrepMode/IndoorPreparation/GoOutsideButton
@@ -54,8 +55,12 @@ func go_inside() -> void:
     zoom_in_tween.set_ease(Tween.EASE_OUT)
     zoom_in_tween.set_trans(Tween.TRANS_CUBIC)
     zoom_in_tween.tween_property(outdoor_canvas, "scale", Vector2.ONE * 2, .5)
+    zoom_in_tween.parallel()
+    zoom_in_tween.tween_property(outdoors_camera, "zoom", Vector2.ONE * 2, .5)
     zoom_in_tween.tween_interval(.25)
     zoom_in_tween.tween_property(outdoor_canvas, "scale", Vector2.ONE, .25)
+    zoom_in_tween.parallel()
+    zoom_in_tween.tween_property(outdoors_camera, "zoom", Vector2.ONE, .25)
 
 func go_outside() -> void:
     # see go_inside, same idea here
@@ -81,12 +86,16 @@ func charge_zoom_in(duration):
     zoom_in_tween.set_ease(Tween.EASE_OUT)
     zoom_in_tween.set_trans(Tween.TRANS_CUBIC)
     zoom_in_tween.tween_property(outdoor_canvas, "scale", Vector2.ONE * 1.1, duration)
+    zoom_in_tween.parallel()
+    zoom_in_tween.tween_property(outdoors_camera, "zoom", Vector2.ONE * 1.1, duration)
 
 func charge_zoom_out(duration):
     var zoom_in_tween = create_tween()
     zoom_in_tween.set_ease(Tween.EASE_OUT)
     zoom_in_tween.set_trans(Tween.TRANS_CUBIC)
     zoom_in_tween.tween_property(outdoor_canvas, "scale", Vector2.ONE, duration)
+    zoom_in_tween.parallel()
+    zoom_in_tween.tween_property(outdoors_camera, "zoom", Vector2.ONE, duration)
 
 func _on_checkpoint_requested():
     Database.save_checkpoint()
