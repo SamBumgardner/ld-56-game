@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://6tyicfyiq5gf"]
+[gd_scene load_steps=9 format=3 uid="uid://vnu6f53bf3ur"]
 
 [ext_resource type="Theme" uid="uid://dk5iv042psfw" path="res://assets/themes/Default.tres" id="1_e7u35"]
 [ext_resource type="Texture2D" uid="uid://bic3i142epdt3" path="res://assets/art/placeholder_threat.png" id="1_jchug"]
@@ -17,7 +17,7 @@ border_width_bottom = 5
 border_color = Color(0, 1, 0.866667, 0.392157)
 
 [node name="CharacterInfoPanel" type="PanelContainer"]
-custom_minimum_size = Vector2(240, 248)
+custom_minimum_size = Vector2(256, 248)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -61,7 +61,7 @@ size_flags_horizontal = 3
 [node name="Name" type="Label" parent="MC/VB/Summary/VB"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-text = "Mint"
+text = "Tumble"
 
 [node name="PC" type="PanelContainer" parent="MC/VB/Summary/VB"]
 layout_mode = 2
