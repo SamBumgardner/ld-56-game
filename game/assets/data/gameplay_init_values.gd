@@ -43,15 +43,47 @@ func _load_from_db():
     current_region_starting_barrier_strength = Database.current_region_starting_barrier_strength
 
     current_reroll_fuel_cost = Database.current_reroll_fuel_cost
-    current_character_die_slots = Database.current_character_die_slots
 
     current_matching_stat_type_multiplier = Database.current_matching_stat_type_multiplier
     war_transport_health_current = Database.war_transport_health_current
     war_transport_health_maximum = Database.war_transport_health_maximum
     should_generate_new_applicants = Database.should_generate_new_applicants
-    hired_characters = Database.hired_characters
-    unhired_characters = Database.unhired_characters
-    applicants = Database.applicants
+
+    hired_characters = deep_copy_character_array(Database.hired_characters)
+    unhired_characters = deep_copy_character_array(Database.unhired_characters)
+    applicants = deep_copy_character_array(Database.applicants)
+
+    current_character_die_slots = deep_copy_die_slots(
+        hired_characters,
+        Database.current_character_die_slots
+    )
     
     current_money = Database.current_money
     current_fuel = Database.current_fuel
+
+func deep_copy_character_array(characters: Array[Character]) -> Array[Character]:
+    var deep_copy_array: Array[Character] = []
+
+    for character: Character in characters:
+        deep_copy_array.append(character.deep_copy())
+
+    return deep_copy_array
+
+func deep_copy_die_slots(deep_copied_characters: Array[Character],
+        die_slots: Array[CharacterDieSlot]
+        ) -> Array[CharacterDieSlot]:
+    var result: Array[CharacterDieSlot] = []
+
+    for die_slot: CharacterDieSlot in die_slots:
+        var new_character: Character
+        new_character = deep_copied_characters.filter(func(x): return x.name == die_slot.character.name)[0]
+
+        var new_action: Action
+        new_action = new_character.actions.get_all().filter(func(x): return x.name == die_slot.last_roll_result.name)[0]
+
+        var new_slot = CharacterDieSlot.new(new_character, die_slot.is_frozen)
+        new_slot.last_roll_result = new_action
+
+        result.append(new_slot)
+
+    return result
