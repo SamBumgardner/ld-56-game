@@ -9,7 +9,7 @@ gameplay_description = "- danger
 + fuel rewards
 + money rewards"
 barrier_linear_scaling_amount = 0.5
-barrier_variance = 2.0
+barrier_variance = 0.5
 barrier_type_distribution = Array[int]([0, 1, 2])
 fuel_reward = 4
 fuel_variance = 1

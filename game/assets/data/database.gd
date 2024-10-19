@@ -126,6 +126,12 @@ var current_fuel: int
 var scenario: Scenario
 var saved_state: GameplayInitValues
 
+var current_region: Region:
+    get():
+        return scenario.get_current_region(distance_traveled)
+    set(value):
+        push_error("attempted to set derived field. Don't do this")
+
 var hired_character_count: int:
     get():
         return hired_characters.size()
