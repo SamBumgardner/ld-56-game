@@ -5,9 +5,9 @@
 [resource]
 script = ExtResource("1_p2jy5")
 region_name = "Not-Too-Badlands"
-gameplay_description = "- danger
-+ fuel rewards
-+ money rewards"
+gameplay_description = "[color=cyan]- Danger
+[color=cyan]+ Fuel rewards
+[color=cyan]+ Coin rewards"
 barrier_linear_scaling_amount = 0.5
 barrier_variance = 0.5
 barrier_type_distribution = Array[int]([0, 1, 2])

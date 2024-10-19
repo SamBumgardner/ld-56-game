@@ -35,3 +35,24 @@ text = "Current Region:
 [node name="RegionName" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Not-Too-Badlands"
+
+[node name="RegionInfoContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/RegionInfoContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 2
+
+[node name="RegionInfo" type="RichTextLabel" parent="MarginContainer/VBoxContainer/RegionInfoContainer/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+text = "Region Info:
+[color=orange]↑ Danger
+[color=cyan]↑↑↑ Coin Rewards
+~ Fuel Rewards"
+fit_content = true

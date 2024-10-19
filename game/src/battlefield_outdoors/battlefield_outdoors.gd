@@ -134,7 +134,7 @@ func _on_charge_cooldown(duration: float) -> void:
     war_transport.hide_power(duration)
     
     _generate_and_scale_next_barrier()
-    # clear all dice frozen status
+    
     if Database.current_distance_remaining > 0:
         Database.clear_all_frozen_status()
         battlefield_outdoors_hud.request_roll_preview_start()

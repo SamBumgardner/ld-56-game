@@ -65,9 +65,20 @@ theme_override_constants/margin_bottom = 5
 [node name="VBC2" type="VBoxContainer" parent="PC/MC/VBC/PC2/MC2"]
 layout_mode = 2
 
-[node name="Body" type="Label" parent="PC/MC/VBC/PC2/MC2/VBC2"]
+[node name="Body" type="RichTextLabel" parent="PC/MC/VBC/PC2/MC2/VBC2"]
+clip_contents = false
 layout_mode = 2
+mouse_filter = 2
+theme_override_constants/outline_size = 7
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
 text = "%s was hired successfully!"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+shortcut_keys_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
 
 [node name="Button" type="Button" parent="PC/MC/VBC/PC2/MC2/VBC2"]
 layout_mode = 2

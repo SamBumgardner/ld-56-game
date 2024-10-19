@@ -17,7 +17,7 @@ const theme_checkpoint: Theme = preload("res://assets/themes/Notification_Checkp
 
 @onready var expiration_timer: Timer = $ExpirationTimer
 @onready var header: Label = $PC/MC/VBC/Header
-@onready var body: Label = $PC/MC/VBC/PC2/MC2/VBC2/Body
+@onready var body: RichTextLabel = $PC/MC/VBC/PC2/MC2/VBC2/Body
 @onready var close_button: Button = $PC/MC/VBC/PC2/MC2/VBC2/Button
 @onready var expiration_bar: ProgressBar = $PC/MC/VBC/PC2/MC2/VBC2/Button/ExpirationBar
 @onready var inner_panel: PanelContainer = $PC/MC/VBC/PC2
