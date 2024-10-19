@@ -4,7 +4,7 @@ signal initiate_charge_requested
 signal dice_roll_requested
 
 const NEW_REGION_MESSAGE_FORMAT_HEADER = "New region reached: %s"
-const NEW_REGION_MESSAGE_FORMAT_HEAL = "Repaired %s health!"
+const NEW_REGION_MESSAGE_FORMAT_HEAL = "[color=cyan]Repaired %s health![/color]"
 const NEW_REGION_MESSAGE_FORMAT_ADDITIONAL_INFO = "\nRegional Modifiers:\n%s"
 const NEW_REGION_DURATION = 20
 

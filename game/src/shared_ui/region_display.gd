@@ -7,7 +7,7 @@ class_name RegionDisplay extends PanelContainer
 var fade_tween: Tween
 
 func _ready() -> void:
-    Database.region_changed.connect(_on_region_changed)
+    Database.region_changed.connect(func(region, _y): _on_region_changed(region))
     _update_region_information(Database.current_region)
     mouse_entered.connect(_on_mouse_entered)
     mouse_exited.connect(_on_mouse_exited)
@@ -35,4 +35,3 @@ func _on_mouse_entered():
 
 func _on_mouse_exited():
     region_info_container.hide()
-    
