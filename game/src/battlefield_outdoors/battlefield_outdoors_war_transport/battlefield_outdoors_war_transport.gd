@@ -61,6 +61,10 @@ func return_to_start_position(duration: float) -> void:
     movement_tween = clear_tween(movement_tween)
     movement_tween.tween_property(self, "position", start_position, duration)
 
+func continue_offscreen(duration: float) -> void:
+    movement_tween = clear_tween(movement_tween)
+    movement_tween.tween_property(self, "position", position + Vector2(200, 0), duration)
+
 func create_destruction_tweens(duration: float):
     movement_tween = clear_tween(movement_tween)
     movement_tween.tween_method(shake.bind(2, position, false), 0, 0, duration)

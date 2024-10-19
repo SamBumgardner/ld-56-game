@@ -220,7 +220,6 @@ func _on_charge_finish() -> void:
     unset_resource_update_delay()
     _enable_interaction()
 
-
 #region Descendant SFX: enabled button mouse entered
 
 func _on_charge_button_mouse_entered():

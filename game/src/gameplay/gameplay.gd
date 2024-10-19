@@ -21,6 +21,7 @@ func _ready() -> void:
     outdoor_root.charge_cooldown.connect(charge_zoom_out)
 
     outdoor_root.charge_finish.connect(applicant_orchestrator.update_applicants)
+    outdoor_root.victory.connect(_on_victory)
 
     Database.checkpoint_saved.connect(checkpoint_saved.emit)
     checkpoint_saved.connect(outdoor_root._on_checkpoint_saved)
@@ -90,3 +91,15 @@ func charge_zoom_out(duration):
 func _on_checkpoint_requested():
     Database.save_checkpoint()
     checkpoint_saved.emit()
+
+func _on_victory(duration: float):
+    mode_transition_cover.color = Color.WHITE
+
+    create_tween().tween_callback(
+        mode_transition_cover.fade_in_out.bind(_transition_to_victory_screen, duration)
+    ).set_delay(duration)
+
+func _transition_to_victory_screen():
+    outdoor_canvas.queue_free()
+    indoor_canvas.queue_free()
+    add_child(preload("res://src/game_over/victory_scene.tscn").instantiate())

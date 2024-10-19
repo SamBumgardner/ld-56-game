@@ -292,7 +292,7 @@ func set_barriers_linear_scale_amount(updated_number: int) -> void:
 
 func set_current_distance_remaining(updated_distance: int) -> void:
     var old_distance_remaining = current_distance_remaining
-    current_distance_remaining = updated_distance
+    current_distance_remaining = max(updated_distance, 0)
     distance_remaining_changed.emit(current_distance_remaining, old_distance_remaining)
 
 func set_barriers_overcome_count(updated_count: int) -> void:

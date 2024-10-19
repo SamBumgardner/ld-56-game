@@ -1,14 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://blrpji4et6nkj"]
+[gd_scene load_steps=3 format=3 uid="uid://blrpji4et6nkj"]
 
 [ext_resource type="PackedScene" uid="uid://ctqciskxgauli" path="res://src/game_over/game_over.tscn" id="1_mvqh0"]
 [ext_resource type="Texture2D" uid="uid://bgld5ma0pnno8" path="res://assets/art/victory_background.jpg" id="2_rivf5"]
-[ext_resource type="Script" path="res://src/game_over/victory_scene.gd" id="3_kt1xa"]
 
 [node name="VictoryScene" instance=ExtResource("1_mvqh0")]
 texture = ExtResource("2_rivf5")
 expand_mode = 2
-script = ExtResource("3_kt1xa")
-initial_cover_fade_duration = 1.0
 initial_delay = 3.0
 
 [node name="Title" parent="TitleContainer/MarginContainer/HB" index="0"]

@@ -58,9 +58,9 @@ offset_bottom = -360.0
 
 [node name="TransitionCover" type="CanvasLayer" parent="."]
 layer = 3
-visible = false
 
 [node name="ModeTransitionCover" parent="TransitionCover" instance=ExtResource("6_blf36")]
+visible = false
 
 [connection signal="ready" from="." to="AudioManager" method="_on_gameplay_ready"]
 [connection signal="tree_exiting" from="." to="AudioManager" method="_on_gameplay_tree_exiting"]
