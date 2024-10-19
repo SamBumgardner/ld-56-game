@@ -48,7 +48,6 @@ func _ready() -> void:
 func _connect_hud_charge_events() -> void:
     charge_start.connect(battlefield_outdoors_hud._on_charge_start)
     charge_warmup.connect(battlefield_outdoors_hud._on_charge_warmup)
-    charge_action.connect(battlefield_outdoors_hud._on_charge_action)
     charge_impact.connect(battlefield_outdoors_hud._on_charge_impact)
     charge_cooldown.connect(battlefield_outdoors_hud._on_charge_cooldown)
     charge_finish.connect(battlefield_outdoors_hud._on_charge_finish)

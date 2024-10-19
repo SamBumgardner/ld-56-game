@@ -181,6 +181,9 @@ func _charge_mode_fadein(duration: float) -> void:
         var fadein_tween: Tween = create_tween()
         fadein_tween.tween_callback(target.show)
         fadein_tween.tween_property(target, "modulate", Color.WHITE, duration)
+    
+    # hide total power display so it doesn't show while the new values are getting rolled
+    total_power_display.hide_total_value()
 
 func _enable_interaction() -> void:
     # delay added here to account for auto die roll
@@ -193,6 +196,8 @@ func _enable_interaction() -> void:
         .tween_callback(func(): charge_button.disabled = false) \
         .set_delay(reroll_button.reroll_cooldown)
     
+    
+    total_power_display.show_total_value()
     go_inside_button.disabled = false
     # fade in hud, more quickly this time
     crew_actions_display.enable_all()
@@ -216,20 +221,14 @@ func _on_charge_start() -> void:
     increase_resource_update_delay()
 
 func _on_charge_warmup(duration: float) -> void:
-    print("HUD charge warmup", duration)
     _charge_mode_fadeout(duration)
 
-func _on_charge_action(duration: float) -> void:
-    print("HUD charge action", duration)
 
 func _on_charge_impact(duration: float) -> void:
-    print("HUD charge impact", duration)
     combat_results_summary.display_combat_results()
-    # health reduced
 
 func _on_charge_cooldown(duration: float) -> void:
     print("HUD charge cooldown", duration)
-    # trigger refreshes & information updates
     _charge_mode_fadein(duration)
 
 func _on_charge_finish() -> void:
