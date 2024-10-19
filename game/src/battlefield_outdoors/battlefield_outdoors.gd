@@ -7,6 +7,8 @@ signal charge_impact(duration: float)
 signal charge_cooldown(duration: float)
 signal charge_finish()
 
+signal victory(duration: float)
+
 signal dice_roll_started()
 signal health_empty()
 signal insufficient_fuel()
@@ -127,8 +129,12 @@ func _on_charge_cooldown(duration: float) -> void:
     war_transport.return_to_start_position(duration)
     _generate_and_scale_next_barrier()
     # clear all dice frozen status
-    Database.clear_all_frozen_status()
-    battlefield_outdoors_hud.request_roll_preview_start()
+    if Database.current_distance_remaining > 0:
+        Database.clear_all_frozen_status()
+        battlefield_outdoors_hud.request_roll_preview_start()
+    # victory handling
+    else:
+        _on_victory()
 
 func _on_charge_finish() -> void:
     battlefield_outdoors_hud.request_roll_preview_stop()
@@ -160,15 +166,24 @@ func _generate_barrier_data() -> BarrierData:
     return BarrierData.new(random_display_name, random_stat_type,
         cost_to_overcome)
 
-func _apply_combat_rewards() -> void:
+func _apply_combat_rewards(barrier_health: int = 0, excess_power: int = 0) -> void:
     const money_per_round = 11
     const variance_min = -3
     const variance_max = 3
+
+    var distance_change = Database.DISTANCE_PER_BARRIER
+    var distance_bonus = min(1, excess_power as float / barrier_health) + 1
+    distance_change = floor(distance_bonus * distance_change)
+    distance_change += (randi() % (Database.DISTANCE_VARIANCE_RANGE * 2)) - Database.DISTANCE_VARIANCE_RANGE
+
     var money_change = money_per_round + randi_range(variance_min, variance_max)
     var fuel_change = randi_range(1, 3)
+
+    combat_result.distance_change = distance_change
     combat_result.money_change = money_change
     combat_result.fuel_change = fuel_change
 
+    Database.set_current_distance_remaining(Database.current_distance_remaining - distance_change)
     Database.set_money(Database.current_money + money_change)
     Database.set_fuel(Database.current_fuel + fuel_change)
     Database.set_barriers_overcome_count(
@@ -196,6 +211,17 @@ func _on_health_empty() -> void:
     game_over_sequence.tween_callback(
         get_tree().change_scene_to_packed.bind(preload("res://src/game_over/game_over.tscn")))
 
+func _on_victory() -> void:
+    const victory_sequence_duration: float = 2
+
+    if charge_sequence_tween != null and charge_sequence_tween.is_valid():
+        charge_sequence_tween.stop()
+        charge_sequence_tween.kill()
+    
+    war_transport.continue_offscreen(victory_sequence_duration)
+
+    victory.emit(victory_sequence_duration)
+    
 func _on_roll_requested(override_cost: int = -1):
     var roll_cost: int = override_cost if override_cost >= 0 else Database.current_reroll_fuel_cost
     if _has_enough_fuel(roll_cost):

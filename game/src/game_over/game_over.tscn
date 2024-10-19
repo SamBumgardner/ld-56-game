@@ -1,35 +1,53 @@
-[gd_scene load_steps=5 format=3 uid="uid://ctqciskxgauli"]
+[gd_scene load_steps=7 format=3 uid="uid://ctqciskxgauli"]
 
 [ext_resource type="Theme" uid="uid://dk5iv042psfw" path="res://assets/themes/Default.tres" id="1_7cxpj"]
 [ext_resource type="Script" path="res://src/game_over/game_over.gd" id="2_3djpi"]
 [ext_resource type="PackedScene" uid="uid://cksonu0m714vg" path="res://src/game_over/postgame_stat_line.tscn" id="2_gld74"]
 [ext_resource type="PackedScene" uid="uid://h1fowbxngb70" path="res://src/audio_manager/AudioManager.tscn" id="4_jdc1x"]
 
-[node name="GameOver" type="ColorRect"]
+[sub_resource type="Gradient" id="Gradient_mtm03"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_152tn"]
+gradient = SubResource("Gradient_mtm03")
+
+[node name="GameOver" type="TextureRect"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_7cxpj")
-color = Color(0, 0, 0, 1)
+texture = SubResource("GradientTexture1D_152tn")
 script = ExtResource("2_3djpi")
 
-[node name="TitleContainer" type="VBoxContainer" parent="."]
+[node name="TitleContainer" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.1
-anchor_right = 1.0
-anchor_bottom = 0.15
+anchor_left = 0.5
+anchor_top = 0.075
+anchor_right = 0.5
+anchor_bottom = 0.075
 grow_horizontal = 2
 
-[node name="Title" type="Label" parent="TitleContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="TitleContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HB" type="VBoxContainer" parent="TitleContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="TitleContainer/MarginContainer/HB"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "Game Over"
 horizontal_alignment = 1
 
-[node name="Encouragement" type="Label" parent="TitleContainer"]
+[node name="Encouragement" type="Label" parent="TitleContainer/MarginContainer/HB"]
 layout_mode = 2
 text = "Getting closer..."
 horizontal_alignment = 1
@@ -56,7 +74,7 @@ theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="StatsContainer/MarginContainer"]
-custom_minimum_size = Vector2(300, 0)
+custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="StatsContainer/MarginContainer/VBoxContainer"]
@@ -73,7 +91,19 @@ layout_mode = 2
 layout_mode = 2
 text = "Progress:"
 
-[node name="BarriersDestroyed" parent="StatsContainer/MarginContainer/VBoxContainer/Progress" instance=ExtResource("2_gld74")]
+[node name="DistanceRemaining2" parent="StatsContainer/MarginContainer/VBoxContainer/Progress" instance=ExtResource("2_gld74")]
+layout_mode = 2
+size_flags_horizontal = 8
+stat_display_name = "Distance Traveled"
+database_field_name = "distance_traveled_display"
+
+[node name="DistanceRemaining" parent="StatsContainer/MarginContainer/VBoxContainer/Progress" instance=ExtResource("2_gld74")]
+layout_mode = 2
+size_flags_horizontal = 8
+stat_display_name = "Distance Remaining"
+database_field_name = "distance_remaining_display"
+
+[node name="BarriersDestroyed2" parent="StatsContainer/MarginContainer/VBoxContainer/Progress" instance=ExtResource("2_gld74")]
 layout_mode = 2
 size_flags_horizontal = 8
 stat_display_name = "Barriers Destroyed"

@@ -35,11 +35,13 @@ const REROLL_FAIL_DURATION = 2
 @onready var charge_button: Button = $BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay/PanelContainer/VBoxContainer/ChargeButton
 @onready var go_inside_button: Button = $GoInsideButton
 @onready var combat_results_summary: CombatResultsSummary = $CombatResultsSummary
+@onready var distance_remaining_display: DistanceRemainingDisplay = $DistanceRemainingDisplay
 
 @onready var resource_displays: Array[ResourceDisplay] = [
     $TopBar/Trackers/MoneyDisplay,
     $TopBar/Trackers/FuelDisplay,
     $BottomInfoDisplay/Center/TopEdge/FuelDisplayMini,
+    $DistanceRemainingDisplay
 ]
 
 func _ready():
@@ -148,6 +150,7 @@ func _charge_mode_fadeout(duration: float) -> void:
         screen_notification,
         go_inside_button,
         top_bar_display,
+        distance_remaining_display,
     ]
     for target: Control in fadeout_targets:
         var fadeout_tween: Tween = create_tween()
@@ -160,6 +163,7 @@ func _charge_mode_fadein(duration: float) -> void:
         screen_notification,
         go_inside_button,
         top_bar_display,
+        distance_remaining_display,
     ]
     for target: Control in fadein_targets:
         var fadein_tween: Tween = create_tween()
@@ -215,7 +219,6 @@ func _on_charge_cooldown(duration: float) -> void:
 func _on_charge_finish() -> void:
     unset_resource_update_delay()
     _enable_interaction()
-
 
 #region Descendant SFX: enabled button mouse entered
 
