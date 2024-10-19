@@ -542,13 +542,8 @@ offset_right = -50.0
 layout_mode = 2
 
 [node name="RegionDisplay" parent="DistanceRemainingDisplay/Control" instance=ExtResource("22_cfrx8")]
-layout_mode = 0
-anchors_preset = 0
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-grow_horizontal = 1
+layout_mode = 1
+anchors_preset = -1
 
 [connection signal="exited_available_reroll" from="BottomInfoDisplay/Center/TopEdge/RerollButton" to="AudioManager" method="_on_reroll_button_exited_available_reroll"]
 [connection signal="hovered_available_reroll" from="BottomInfoDisplay/Center/TopEdge/RerollButton" to="AudioManager" method="_on_reroll_button_hovered_available_reroll"]

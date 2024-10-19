@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Region" load_steps=2 format=3 uid="uid://yv0qqwmak8h2"]
+
+[ext_resource type="Script" path="res://src/scenario/region.gd" id="1_be70y"]
+
+[resource]
+script = ExtResource("1_be70y")
+region_name = "Mild Mesa"
+gameplay_description = "= danger
+= fuel rewards
+= money rewards"
+barrier_linear_scaling_amount = 1.0
+barrier_variance = 2.0
+barrier_type_distribution = Array[int]([0, 1, 2])
+fuel_reward = 2
+fuel_variance = 1
+money_reward = 10
+money_variance = 3
