@@ -21,7 +21,7 @@ func _on_region_changed(new_region: Region):
                 fade_tween.kill()
             fade_tween = create_tween()
             fade_tween.tween_property(self, "modulate", Color.TRANSPARENT, duration)
-            fade_tween.tween_callback(_update_region_information.bind(new_region.region_name))
+            fade_tween.tween_callback(_update_region_information.bind(new_region))
             fade_tween.tween_property(self, "modulate", Color.WHITE, duration)
         else:
             _update_region_information(new_region)

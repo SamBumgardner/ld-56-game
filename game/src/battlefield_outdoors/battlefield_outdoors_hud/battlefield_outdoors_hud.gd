@@ -3,6 +3,9 @@ class_name BattlefieldOutdoorsHud extends Control
 signal initiate_charge_requested
 signal dice_roll_requested
 
+const NEW_REGION_MESSAGE_FORMAT = "New region reached: %s\nConditions:\n%s"
+const NEW_REGION_DURATION = 20
+
 const REROLL_FAIL_MESSAGE = "Failed to shuffle unlocked actions.\nReason: INSUFFICIENT_FUEL"
 const REROLL_FAIL_DURATION = 2
 
@@ -66,6 +69,8 @@ func _ready():
  
     charge_button.pressed.connect(initiate_charge_requested.emit)
 
+    Database.region_changed.connect(_on_region_changed)
+
 func _hide_warnings() -> void:
     warning_out_of_health.visible = false
     _hide_roll_warnings()
@@ -114,6 +119,13 @@ func _on_mock_reroll_button_pressed() -> void:
 func _set_health_text(new_health: int, _old_health: int = 0) -> void:
     health_current.text = str(new_health)
     health_maximum.text = str(Database.war_transport_health_maximum)
+
+func _on_region_changed(new_region: Region) -> void:
+    screen_notification.queue_notification(
+        ScreenNotification.ScreenNotificationType.NOTIFY,
+        NEW_REGION_MESSAGE_FORMAT % [new_region.region_name, new_region.gameplay_description],
+        NEW_REGION_DURATION
+    )
 
 func _on_insufficient_fuel() -> void:
     screen_notification.display_notification(
