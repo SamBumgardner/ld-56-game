@@ -17,7 +17,7 @@
 
 [sub_resource type="Resource" id="Resource_wcex8"]
 script = ExtResource("11_unum0")
-current_region_starting_barrier_strength = 5
+current_region_starting_barrier_strength = 4.0
 current_reroll_fuel_cost = 1
 current_matching_stat_type_multiplier = 2
 war_transport_health_maximum = 15

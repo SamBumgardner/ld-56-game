@@ -150,7 +150,12 @@ func _on_charge_finish() -> void:
     combat_result.clear()
 
 func _generate_and_scale_next_barrier() -> void:
-    var new_barrier: BarrierData = _generate_barrier_data()
+    var base_value: float = Database.current_region_starting_barrier_strength
+    var barrier_count: int = Database.barrier_count_in_this_region + 1
+    var scale_amount: float = Database.barriers_linear_scale_amount
+    var new_barrier: BarrierData = _generate_barrier_data(base_value, barrier_count, scale_amount)
+
+    Database.set_barrier_count_in_this_region(barrier_count)
 
     if new_barrier.cost_to_overcome != Database.current_barrier_cost_to_overcome_number:
         Database.set_current_barrier_cost_to_overcome_number(new_barrier.cost_to_overcome)
@@ -159,11 +164,10 @@ func _generate_and_scale_next_barrier() -> void:
 
     Database.set_current_barrier_data(new_barrier)
 
-func _generate_barrier_data() -> BarrierData:
-    var cost_to_overcome = Database.current_barrier_cost_to_overcome_number \
-        + Database.barriers_linear_scale_amount
+func _generate_barrier_data(base_value: float, barrier_count: int, scale_amount: float) -> BarrierData:
+    var cost_to_overcome = base_value + barrier_count * scale_amount
     var random_display_name = BarrierData._get_random_display_name()
-    var random_stat_type = Database.StatType.values().pick_random()
+    var random_stat_type = Database.pick_barrier_type_from_region()
     return BarrierData.new(random_display_name, random_stat_type,
         cost_to_overcome)
 

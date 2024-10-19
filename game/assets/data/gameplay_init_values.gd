@@ -1,7 +1,7 @@
 class_name GameplayInitValues extends Resource
 
 @export_category("Progress")
-@export var current_region_starting_barrier_strength: int
+@export var current_region_starting_barrier_strength: float
 # Need to figure out if it's necessary to provide this as init value
 var current_barrier_stat_type_to_overcome: Database.StatType = Database.StatType.MIGHT
 var current_barrier_cost_to_overcome_number: float = 1

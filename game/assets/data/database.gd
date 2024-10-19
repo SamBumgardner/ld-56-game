@@ -103,7 +103,9 @@ var barriers_linear_scale_amount: float
 var current_barrier_stat_type_to_overcome: StatType
 var current_barrier_cost_to_overcome_number: float
 var current_barrier_data: BarrierData
-var current_region_starting_barrier_strength: int
+
+var current_region_starting_barrier_strength: float
+var barrier_count_in_this_region: int
 
 var current_reroll_fuel_cost: int
 var current_character_die_slots: Array[CharacterDieSlot]
@@ -139,6 +141,9 @@ var purchased_upgrade_count: int:
     set(value):
         push_error("attempted to set derived field. Don't do this")
 
+var distance_traveled: int:
+    get():
+        return (_initial_distance_remaining - current_distance_remaining)
 
 var distance_traveled_display: String:
     get():
@@ -161,7 +166,9 @@ func load_from_scenario(load_scenario: Scenario):
     # progress
     load_from_init_values(init_values)
 
+    scenario = load_scenario
     set_barriers_overcome_count(0)
+    set_barrier_count_in_this_region(0)
     set_barriers_linear_scale_amount(starting_region.barrier_linear_scaling_amount)
     set_current_barrier_stat_type_to_overcome(starting_region.get_barrier_weakness())
 
@@ -187,6 +194,7 @@ func load_from_init_values(init_values: GameplayInitValues):
     )
     if init_values.current_barrier_data != null:
         set_current_barrier_data(init_values.current_barrier_data)
+    set_current_region_starting_barrier_strength(init_values.current_region_starting_barrier_strength)
     set_current_character_die_slots(init_values.current_character_die_slots.duplicate())
     set_current_matching_stat_type_multiplier(
         init_values.current_matching_stat_type_multiplier
@@ -322,8 +330,11 @@ func set_current_distance_remaining(updated_distance: int) -> void:
 func set_barriers_overcome_count(updated_count: int) -> void:
     barriers_overcome_count = updated_count
 
-func set_current_region_starting_barrier_strength(updated_value: int) -> void:
+func set_current_region_starting_barrier_strength(updated_value: float) -> void:
     current_region_starting_barrier_strength = updated_value
+
+func set_barrier_count_in_this_region(updated_value: int) -> void:
+    barrier_count_in_this_region = updated_value
 
 func set_current_barrier_stat_type_to_overcome(updated_stat_type: StatType) -> void:
     current_barrier_stat_type_to_overcome = updated_stat_type
@@ -398,6 +409,9 @@ func clear_all_frozen_status() -> void:
     for die_slot: CharacterDieSlot in current_character_die_slots:
         die_slot.is_frozen = false
         die_slot_changed.emit(die_slot)
+
+func pick_barrier_type_from_region() -> Database.StatType:
+    return scenario.get_current_region(distance_traveled).barrier_type_distribution.pick_random()
 
 func _ready_audio_volumes() -> void:
     set_audio_volume_initialized(false)
