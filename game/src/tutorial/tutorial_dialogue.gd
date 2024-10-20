@@ -9,9 +9,11 @@ class_name TutorialDialogue extends PanelContainer
 func _ready():
     minimize_button.pressed.connect(_toggle_body)
 
-func display_new_tutorial_step(new_global_position: Vector2, header_text: String, body_text: String):
+func display_new_tutorial_step(new_global_position: Vector2, header_text: String, body_text: String,
+        show_continue_button: bool):
     _jump_to_location(new_global_position)
     _update_texts(header_text, body_text)
+    continue_button.visible = show_continue_button
 
 func _jump_to_location(new_global_position: Vector2):
     global_position = new_global_position

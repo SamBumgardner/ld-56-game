@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://1c7jmqc6wkth"]
+
+[ext_resource type="PackedScene" uid="uid://bwqnx27y8tnec" path="res://src/tutorial/tutorial_dialogue.tscn" id="1_10lmg"]
+[ext_resource type="PackedScene" uid="uid://bcylmmwqvfl7l" path="res://src/tutorial/tutorial_arrow.tscn" id="2_0kclp"]
+
+[node name="Tutorial" type="Node"]
+
+[node name="TutorialDialogue" parent="." instance=ExtResource("1_10lmg")]
+
+[node name="TutorialArrow" parent="." instance=ExtResource("2_0kclp")]
