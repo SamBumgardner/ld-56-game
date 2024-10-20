@@ -47,6 +47,7 @@ theme_override_constants/margin_right = 5
 
 [node name="Header" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HeaderContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
+theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 12
 text = "Tutorial: Rerolls"
 
@@ -76,6 +77,7 @@ layout_mode = 2
 [node name="Body" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/BodyContainer/PanelContainer/MarginContainer/VBoxContainer"]
 clip_contents = false
 layout_mode = 2
+theme_override_constants/outline_size = 7
 theme_override_font_sizes/normal_font_size = 16
 bbcode_enabled = true
 text = "This is a tutorial pop-up dialogue.
