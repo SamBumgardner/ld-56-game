@@ -37,4 +37,3 @@ disabled = true
 text = "BUY"
 
 [connection signal="mouse_entered" from="MarginContainer/VBoxContainer/PurchaseButton" to="." method="_on_purchase_button_mouse_entered"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/PurchaseButton" to="AudioManager" method="_on_purchase_button_pressed"]

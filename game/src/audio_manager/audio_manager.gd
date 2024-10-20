@@ -166,7 +166,6 @@ func _on_lock_button_pressed():
 func _on_new_hire_preview_button_pressed():
     SoundManager.play_ui_sound(sfx_indoors_enter_a_menu, _bus_name_sfx_ui)
 
-# Reused for 2 buttons.
 func _on_purchase_button_pressed():
     SoundManager.play_ui_sound(sfx_button_click, _bus_name_sfx_ui)
 
@@ -277,3 +276,16 @@ func _on_battlefield_outdoors_charge_warmup(_duration):
     )
 
 #endregion War transport charge
+
+
+func _on_crew_member_detail_upgrade_purchase_pressed(
+    character: Character,
+    _upgrade_choice: UpgradeChoice,
+    _level_idx: int,
+    _choice_idx: int
+):
+    if character.sfx_upgrade_gained == null:
+        SoundManager.play_ui_sound(sfx_button_click, _bus_name_sfx_ui)
+        return
+
+    SoundManager.play_ui_sound(character.sfx_upgrade_gained, _bus_name_sfx_ui)
