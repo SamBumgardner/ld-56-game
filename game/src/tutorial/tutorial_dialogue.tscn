@@ -1,0 +1,88 @@
+[gd_scene load_steps=5 format=3 uid="uid://bwqnx27y8tnec"]
+
+[ext_resource type="Theme" uid="uid://dk5iv042psfw" path="res://assets/themes/Default.tres" id="1_825wv"]
+[ext_resource type="Script" path="res://src/tutorial/tutorial_dialogue.gd" id="2_5w66n"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qu4mx"]
+bg_color = Color(0.368627, 0.368627, 0.368627, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h40pi"]
+bg_color = Color(0.37, 0.37, 0.37, 1)
+
+[node name="TutorialDialogue" type="PanelContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_825wv")
+script = ExtResource("2_5w66n")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HeaderContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/HeaderContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qu4mx")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HeaderContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="Header" type="Label" parent="MarginContainer/VBoxContainer/HeaderContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Tutorial: Rerolls"
+
+[node name="MinimizeButton" type="Button" parent="MarginContainer/VBoxContainer/HeaderContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 12
+text = "_"
+
+[node name="BodyContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/BodyContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h40pi")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/BodyContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Body" type="RichTextLabel" parent="MarginContainer/VBoxContainer/BodyContainer/PanelContainer/MarginContainer"]
+clip_contents = false
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "This is a tutorial pop-up dialogue.
+
+We'll put information here about the gameplay."
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="ContinueButton" type="Button" parent="MarginContainer/VBoxContainer/BodyContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 12
+text = "Continue"
