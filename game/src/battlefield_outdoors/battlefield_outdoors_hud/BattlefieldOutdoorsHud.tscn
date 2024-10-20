@@ -21,7 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://cnphrbnb2wrnf" path="res://src/battlefield_outdoors/battlefield_outdoors_hud/combat_results_summary.tscn" id="18_lgpuc"]
 [ext_resource type="PackedScene" uid="uid://b5yq7dbetb72t" path="res://src/shared_ui/resource_display/applicants_display.tscn" id="18_pekm7"]
 [ext_resource type="PackedScene" uid="uid://b61imbp05vs5x" path="res://src/shared_ui/resource_display/distance_remaining_display.tscn" id="21_mon1i"]
-[ext_resource type="PackedScene" uid="uid://c8opoeu5d2ji3" path="res://src/shared_ui/region_display.tscn" id="22_cfrx8"]
+[ext_resource type="PackedScene" path="res://src/shared_ui/region_display.tscn" id="22_cfrx8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8a5xg"]
 content_margin_left = 5.0

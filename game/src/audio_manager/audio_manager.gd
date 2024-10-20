@@ -10,6 +10,7 @@ class_name AudioManager extends Node
 @export var sfx_die_lock: AudioStream
 @export var sfx_indoors_enter_a_menu: AudioStream
 @export var sfx_indoors_exit_a_menu: AudioStream
+@export var sfx_notification_error: AudioStream
 @export var sfx_transition_gameplay_indoors_to_outdoors: AudioStream
 @export var sfx_transition_gameplay_outdoors_to_indoors: AudioStream
 @export var sfx_war_transport_charge_crush: AudioStream
@@ -119,6 +120,13 @@ func _on_start_button_mouse_entered():
 func _on_to_main_menu_mouse_entered():
     SoundManager.play_ui_sound(sfx_button_hover, _bus_name_sfx_ui)
 
+func _on_upgrade_choice_display_upgrade_hovered(
+    _upgrade,
+    _upgrade_level_purchased,
+    _this_purchased
+):
+    SoundManager.play_ui_sound(sfx_button_hover, _bus_name_sfx_ui)
+
 #endregion Button mouse entered
 
 
@@ -184,17 +192,19 @@ func _on_start_button_pressed():
 func _on_to_main_menu_pressed():
     SoundManager.play_ui_sound(sfx_button_click, _bus_name_sfx_ui)
 
+func _on_upgrade_choice_display_upgrade_selected(
+    _upgrade,
+    _upgrade_level_purchased,
+    _this_purchased
+):
+    SoundManager.play_ui_sound(sfx_button_click, _bus_name_sfx_ui)
+
 #endregion Button press
 
 
 #region Character upgrade
 
-func _on_crew_member_detail_upgrade_purchase_pressed(
-    character: Character,
-    _upgrade_choice: UpgradeChoice,
-    _level_idx: int,
-    _choice_idx: int
-):
+func _on_indoor_preparation_upgrade_success(character):
     if character.sfx_upgrade_gained == null:
         SoundManager.play_ui_sound(sfx_button_click, _bus_name_sfx_ui)
         return
@@ -246,6 +256,14 @@ func _on_crew_actions_display_dice_visually_rolling_stop():
     SoundManager.stop_ambient_sound(sfx_dice_shake, _reroll_audio_crossfade)
 
 #endregion Dice reroll hovering
+
+
+#region Notification
+
+func _on_indoor_preparation_insufficient_funds():
+    SoundManager.play_ui_sound(sfx_notification_error, _bus_name_sfx_ui)
+
+#endregion Notification
 
 
 #region Scene arrival

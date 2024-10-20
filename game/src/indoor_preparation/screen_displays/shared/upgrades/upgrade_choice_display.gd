@@ -45,7 +45,7 @@ func set_upgrade_choice_data(upgrade_selector: UpgradeSelector, purchased_idx: i
         if upgrade_level_purchased:
             _set_button_display_purchased(i, purchased_idx)
     
-    for child in get_children():
+    for child in _get_node_children():
         child.show()
 
 func _set_button_display_purchased(button_idx: int, purchased_idx: int) -> void:
@@ -55,7 +55,7 @@ func _set_button_display_purchased(button_idx: int, purchased_idx: int) -> void:
         purchased_icons[button_idx].show()
 
 func hide_upgrade_choice_info() -> void:
-    for child in get_children():
+    for child in _get_node_children():
         child.hide()
 
 func unpress_all_upgrade_buttons() -> void:
@@ -67,6 +67,9 @@ func lock_display() -> void:
 
 func unlock_display() -> void:
     lock_panel.hide()
+
+func _get_node_children() -> Array[Node]:
+    return get_children().filter(func (child): return child is Control)
 
 func _emit_decorated_hover(button_idx: int) -> void:
     upgrade_hovered.emit(
