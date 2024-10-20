@@ -246,11 +246,11 @@ func _on_crew_actions_display_dice_visually_rolling_stop():
 
 #region Notification
 
-func _on_indoor_preparation_hiring_failure(_character, _reason):
-    SoundManager.play_ui_sound(sfx_notification_error, _bus_name_sfx_ui)
+# func _on_indoor_preparation_hiring_failure(_character, _reason):
+#     SoundManager.play_ui_sound(sfx_notification_error, _bus_name_sfx_ui)
 
-func _on_indoor_preparation_upgrade_failure(_character, _reason):
-    SoundManager.play_ui_sound(sfx_notification_error, _bus_name_sfx_ui)
+# func _on_indoor_preparation_upgrade_failure(_character, _reason):
+#     SoundManager.play_ui_sound(sfx_notification_error, _bus_name_sfx_ui)
 
 #endregion Notification
 
