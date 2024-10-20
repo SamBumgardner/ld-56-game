@@ -1,0 +1,109 @@
+[gd_resource type="Resource" script_class="TutorialSequence" load_steps=12 format=3 uid="uid://bbskak7xdpxvg"]
+
+[ext_resource type="Script" path="res://src/tutorial/tutorial_sequence.gd" id="1_x1kro"]
+[ext_resource type="Script" path="res://src/tutorial/tutorial_step.gd" id="2_elw1t"]
+
+[sub_resource type="Resource" id="Resource_umt84"]
+script = ExtResource("2_elw1t")
+dialogue_position = Vector2(340, 90)
+title_text = "Introduction"
+body_text = "The world has dried up!
+
+In T.U.S.K, you lead a crew of rough-and-tumble critters through an inhospitable desert."
+show_continue_button = true
+show_arrow = true
+target_position = Vector2(750, 245)
+arrow_rotation = 0.785398
+
+[sub_resource type="Resource" id="Resource_n4o4i"]
+script = ExtResource("2_elw1t")
+dialogue_position = Vector2(790, 128)
+title_text = "Barriers"
+body_text = "An oasis awaits you at journey's end, but the Desert King's barriers stand in your way."
+show_continue_button = true
+show_arrow = true
+target_position = Vector2(1050, 295)
+arrow_rotation = -0.785398
+
+[sub_resource type="Resource" id="Resource_4r58v"]
+script = ExtResource("2_elw1t")
+dialogue_position = Vector2(740, 10)
+title_text = "Objective"
+body_text = "Every barrier you smash lets you make a bit more progress.
+
+You win if the distance remaining reaches 0 km!"
+show_continue_button = true
+show_arrow = true
+target_position = Vector2(1150, 50)
+arrow_rotation = -3.14159
+
+[sub_resource type="Resource" id="Resource_ie75k"]
+script = ExtResource("2_elw1t")
+dialogue_position = Vector2(785, 300)
+title_text = "Attacking"
+body_text = "To destroy the barrier in front of you, the T.U.S.K. must charge through.
+
+Press \"Charge!\" button now."
+show_continue_button = true
+show_arrow = true
+target_position = Vector2(905, 635)
+arrow_rotation = 0.0
+
+[sub_resource type="Resource" id="Resource_ls1cy"]
+script = ExtResource("2_elw1t")
+dialogue_position = Vector2(0, 0)
+title_text = "Waiting"
+body_text = "We'll wait over here for it to finish."
+show_continue_button = true
+show_arrow = false
+target_position = Vector2(0, 0)
+arrow_rotation = 0.0
+
+[sub_resource type="Resource" id="Resource_dx62m"]
+script = ExtResource("2_elw1t")
+dialogue_position = Vector2(800, 128)
+title_text = "Objective"
+body_text = "Look back at the distance remaining; we've made progress!"
+show_continue_button = true
+show_arrow = true
+target_position = Vector2(1150, 50)
+arrow_rotation = -3.14159
+
+[sub_resource type="Resource" id="Resource_mf80o"]
+script = ExtResource("2_elw1t")
+dialogue_position = Vector2(340, 120)
+title_text = "Damage"
+body_text = "Be careful, though: the T.U.S.K. will sustain damage if it charges a barrier that's stronger than it.
+
+If your health reaches 0, it's game over."
+show_continue_button = true
+show_arrow = true
+target_position = Vector2(200, 65)
+arrow_rotation = -3.14159
+
+[sub_resource type="Resource" id="Resource_ti620"]
+script = ExtResource("2_elw1t")
+dialogue_position = Vector2(785, 300)
+title_text = "Barrier Power"
+body_text = "Remember to check the barrier's power before you attack!"
+show_continue_button = true
+show_arrow = true
+target_position = Vector2(1110, 580)
+arrow_rotation = -1.5708
+
+[sub_resource type="Resource" id="Resource_lov8q"]
+script = ExtResource("2_elw1t")
+dialogue_position = Vector2(340, 90)
+title_text = "Finished!"
+body_text = "Those are the absolute basics. 
+
+Check out the next tutorial for information about crew members, actions, and \"re-rolling\" for success!"
+show_continue_button = true
+show_arrow = false
+target_position = Vector2(0, 0)
+arrow_rotation = 0.0
+
+[resource]
+script = ExtResource("1_x1kro")
+steps = Array[ExtResource("2_elw1t")]([SubResource("Resource_umt84"), SubResource("Resource_n4o4i"), SubResource("Resource_4r58v"), SubResource("Resource_ie75k"), SubResource("Resource_ls1cy"), SubResource("Resource_dx62m"), SubResource("Resource_mf80o"), SubResource("Resource_ti620"), SubResource("Resource_lov8q")])
+step_triggers = Array[String](["tutorial_continue", "tutorial_continue", "tutorial_continue", "tutorial_continue", "tutorial_continue", "tutorial_continue", "tutorial_continue", "tutorial_continue", "tutorial_continue"])
