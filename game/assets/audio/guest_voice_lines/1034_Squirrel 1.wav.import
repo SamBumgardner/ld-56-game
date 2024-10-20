@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b2hte2gs1icjp"
+path="res://.godot/imported/1034_Squirrel 1.wav-58b045b1477816e8636a4255627d9543.sample"
+
+[deps]
+
+source_file="res://assets/audio/guest_voice_lines/1034_Squirrel 1.wav"
+dest_files=["res://.godot/imported/1034_Squirrel 1.wav-58b045b1477816e8636a4255627d9543.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

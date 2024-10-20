@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b17tgrbe0fuk5"
+path="res://.godot/imported/1021_Upgrade 1.wav-a0319d753a120eb08b639454fac1d6f1.sample"
+
+[deps]
+
+source_file="res://assets/audio/guest_voice_lines/1021_Upgrade 1.wav"
+dest_files=["res://.godot/imported/1021_Upgrade 1.wav-a0319d753a120eb08b639454fac1d6f1.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

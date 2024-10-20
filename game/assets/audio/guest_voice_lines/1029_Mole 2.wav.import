@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bu42lpxsvv7sy"
+path="res://.godot/imported/1029_Mole 2.wav-c9fb647166f46d636ae1295c3f390a64.sample"
+
+[deps]
+
+source_file="res://assets/audio/guest_voice_lines/1029_Mole 2.wav"
+dest_files=["res://.godot/imported/1029_Mole 2.wav-c9fb647166f46d636ae1295c3f390a64.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
