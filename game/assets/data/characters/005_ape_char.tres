@@ -1,10 +1,12 @@
-[gd_resource type="Resource" script_class="CharacterFactory" load_steps=21 format=3 uid="uid://dexsvne2ukrlr"]
+[gd_resource type="Resource" script_class="CharacterFactory" load_steps=23 format=3 uid="uid://dexsvne2ukrlr"]
 
 [ext_resource type="Texture2D" uid="uid://dbxuu6rqen0ed" path="res://assets/art/character_icons/001_character_icon.png" id="1_0r8hq"]
 [ext_resource type="Texture2D" uid="uid://bic3i142epdt3" path="res://assets/art/placeholder_threat.png" id="2_y77ws"]
 [ext_resource type="Script" path="res://src/characters/CharacterFactory.gd" id="3_riglx"]
 [ext_resource type="Script" path="res://src/characters/UpgradeSelector.gd" id="4_koewi"]
+[ext_resource type="AudioStream" uid="uid://dw0kwmnp48tg0" path="res://assets/audio/character_voice_lines/1118_hello.wav" id="4_sf5ag"]
 [ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="5_bw02d"]
+[ext_resource type="AudioStream" uid="uid://dk1jgos6hrfhy" path="res://assets/audio/204_upgrade_ape_randomizer.tres" id="5_fyeeh"]
 [ext_resource type="Resource" uid="uid://dtmtxm1iu7dbv" path="res://assets/data/upgrades/000_roulette/001_up3_random1.tres" id="6_e4g52"]
 [ext_resource type="Resource" uid="uid://duigl5iquvsvn" path="res://assets/data/upgrades/000_roulette/002_up1_random3.tres" id="7_ye2d4"]
 [ext_resource type="Resource" uid="uid://cif050uskomoe" path="res://assets/data/upgrades/000_roulette/003_up2_wit.tres" id="8_wmp5k"]
@@ -47,6 +49,8 @@ name = "A.P.E."
 description = "Tired of living by the rules, he trusts his life to the whims of fate."
 portrait = ExtResource("2_y77ws")
 icon = ExtResource("1_0r8hq")
+sfx_hello = ExtResource("4_sf5ag")
+sfx_upgrade_gained = ExtResource("5_fyeeh")
 starting_action_strings = Array[String](["might_1", "might_2", "wit_1", "wit_2", "chaos_1", "chaos_2"])
 upgrade_level = 0
 upgrades = Array[ExtResource("4_koewi")]([SubResource("Resource_swqxl"), SubResource("Resource_buf6b"), SubResource("Resource_by5lq"), SubResource("Resource_sj1ay"), SubResource("Resource_4tpnl")])
