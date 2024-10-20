@@ -120,6 +120,13 @@ func _on_start_button_mouse_entered():
 func _on_to_main_menu_mouse_entered():
     SoundManager.play_ui_sound(sfx_button_hover, _bus_name_sfx_ui)
 
+func _on_upgrade_choice_display_upgrade_hovered(
+    _upgrade,
+    _upgrade_level_purchased,
+    _this_purchased
+):
+    SoundManager.play_ui_sound(sfx_button_hover, _bus_name_sfx_ui)
+
 #endregion Button mouse entered
 
 
@@ -183,6 +190,13 @@ func _on_start_button_pressed():
     SoundManager.play_ui_sound(sfx_button_click, _bus_name_sfx_ui)
 
 func _on_to_main_menu_pressed():
+    SoundManager.play_ui_sound(sfx_button_click, _bus_name_sfx_ui)
+
+func _on_upgrade_choice_display_upgrade_selected(
+    _upgrade,
+    _upgrade_level_purchased,
+    _this_purchased
+):
     SoundManager.play_ui_sound(sfx_button_click, _bus_name_sfx_ui)
 
 #endregion Button press
