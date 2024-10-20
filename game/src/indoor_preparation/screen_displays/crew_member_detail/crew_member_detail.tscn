@@ -16,5 +16,6 @@ layout_mode = 2
 [node name="OptionalHeader" parent="." index="6"]
 visible = false
 
+[connection signal="upgrade_purchase_pressed" from="." to="AudioManager" method="_on_crew_member_detail_upgrade_purchase_pressed"]
 [connection signal="mouse_entered" from="ExitButton" to="AudioManager" method="_on_crew_member_detail_exit_button_mouse_entered"]
 [connection signal="pressed" from="ExitButton" to="AudioManager" method="_on_crew_member_detail_exit_button_pressed"]

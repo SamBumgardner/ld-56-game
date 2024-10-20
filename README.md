@@ -6,7 +6,8 @@ A game created for Ludum Dare 56 - a family affair.
 
 Team members include:
 
-- Noah Bumgardner: Programming & Music
+- Luke Bumgardner: Voice Actor
+- Noah Bumgardner: Music, Programming, Voice Actor
 - Sam Bumgardner: Programming
 - Tom Bumgardner: Artwork
 
