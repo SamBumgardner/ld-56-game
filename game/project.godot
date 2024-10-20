@@ -34,6 +34,10 @@ window/stretch/mode="canvas_items"
 
 enabled=PackedStringArray("res://addons/sound_manager/plugin.cfg")
 
+[global_group]
+
+tutorial_triggers="Nodes that emit events tutorials may need."
+
 [input]
 
 freeze_roll={

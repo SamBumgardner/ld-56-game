@@ -1,0 +1,39 @@
+[gd_scene load_steps=8 format=3 uid="uid://bp35p2jh2fsvx"]
+
+[ext_resource type="PackedScene" uid="uid://1c7jmqc6wkth" path="res://src/tutorial/tutorial.tscn" id="1_gu4kp"]
+[ext_resource type="Script" path="res://src/tutorial/test_tutorial_behavior_tutorial.gd" id="2_bwfnf"]
+[ext_resource type="Script" path="res://src/tutorial/tutorial_sequence.gd" id="3_0qdd3"]
+[ext_resource type="Script" path="res://src/tutorial/tutorial_step.gd" id="4_xy4ff"]
+
+[sub_resource type="Resource" id="Resource_4yn1y"]
+script = ExtResource("4_xy4ff")
+dialogue_position = Vector2(100, 100)
+title_text = "Step 1"
+body_text = "This is an example step 1.
+[color=salmon]Isn't bbcode exciting?[/color]"
+show_continue_button = true
+show_arrow = true
+target_position = Vector2(200, 200)
+arrow_rotation = 0.0
+
+[sub_resource type="Resource" id="Resource_sf8uh"]
+script = ExtResource("4_xy4ff")
+dialogue_position = Vector2(300, 300)
+title_text = "Step 2"
+body_text = "This is an example step 2.
+[color=cyan]Isn't bbcode exciting?[/color]"
+show_continue_button = true
+show_arrow = true
+target_position = Vector2(500, 500)
+arrow_rotation = 1.57
+
+[sub_resource type="Resource" id="Resource_nuawp"]
+script = ExtResource("3_0qdd3")
+steps = Array[ExtResource("4_xy4ff")]([SubResource("Resource_4yn1y"), SubResource("Resource_sf8uh")])
+step_triggers = Array[String](["tutorial_continue", "tutorial_continue"])
+
+[node name="TestTutorialBehavior" type="Node"]
+
+[node name="Tutorial" parent="." instance=ExtResource("1_gu4kp")]
+script = ExtResource("2_bwfnf")
+tutorial_sequence = SubResource("Resource_nuawp")

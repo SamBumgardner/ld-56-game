@@ -7,7 +7,7 @@ class_name TutorialStep extends Resource
 
 @export var show_arrow: bool = true
 @export var target_position: Vector2
-@export var arrow_rotation: float = 0
+@export_range(-180, 180, .1, "radians_as_degrees") var arrow_rotation: float = 0
 
 func execute_step(tutorial_dialogue: TutorialDialogue, tutorial_arrow: TutorialArrow):
     tutorial_dialogue.display_new_tutorial_step(dialogue_position, title_text, body_text,

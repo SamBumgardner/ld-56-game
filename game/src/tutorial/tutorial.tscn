@@ -4,9 +4,17 @@
 [ext_resource type="Script" path="res://src/tutorial/tutorial.gd" id="1_58msb"]
 [ext_resource type="PackedScene" uid="uid://bcylmmwqvfl7l" path="res://src/tutorial/tutorial_arrow.tscn" id="2_0kclp"]
 
-[node name="Tutorial" type="Node"]
+[node name="Tutorial" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_58msb")
 
 [node name="TutorialDialogue" parent="." instance=ExtResource("1_10lmg")]
+layout_mode = 0
 
 [node name="TutorialArrow" parent="." instance=ExtResource("2_0kclp")]
+layout_mode = 1

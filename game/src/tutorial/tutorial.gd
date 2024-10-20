@@ -1,6 +1,6 @@
 class_name Tutorial extends Node
 
-signal test_signal
+const TRIGGER_NODE_GROUP: String = "tutorial_triggers"
 
 @export var tutorial_sequence: TutorialSequence
 
@@ -11,18 +11,15 @@ var current_step_idx = 0
 
 ## Child classes populate with type-to-callables
 var type_to_trigger_map: Dictionary = {
-    "Tutorial": TutorialTrigger.new("test_signal", func(): _on_trigger_received("tutorial_started"))
+    "TutorialDialogue": TutorialTrigger.new("continue_button_pressed", func(): _on_trigger_received("tutorial_continue"))
 }
 
 func _ready():
     # get all possible trigger nodes
+    var trigger_emitters: Array = get_tree().get_nodes_in_group(TRIGGER_NODE_GROUP)
     # call 
-    _connect_trigger_events([self, tutorial_arrow])
-    pass
-
-func _process(delta: float) -> void:
-    if Input.is_action_just_pressed("ui_accept"):
-        test_signal.emit()
+    _connect_trigger_events(trigger_emitters)
+    tutorial_sequence.steps[0].execute_step(tutorial_dialogue, tutorial_arrow)
 
 func _connect_trigger_events(trigger_emitters: Array) -> void:
     for emitter in trigger_emitters:
@@ -47,6 +44,7 @@ func _on_trigger_received(trigger_name: String):
 
         # If there's another step, execute it
         if next_step != null:
+            current_step_idx += 1
             next_step.execute_step(tutorial_dialogue, tutorial_arrow)
         else:
             # tutorial is finished, go back to main menu
