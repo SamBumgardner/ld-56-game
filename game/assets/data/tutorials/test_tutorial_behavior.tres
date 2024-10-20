@@ -1,0 +1,58 @@
+[gd_resource type="Resource" script_class="TutorialSequence" load_steps=7 format=3 uid="uid://c7bkjo83b6a0x"]
+
+[ext_resource type="Script" path="res://src/tutorial/tutorial_sequence.gd" id="1_byqwp"]
+[ext_resource type="Script" path="res://src/tutorial/tutorial_step.gd" id="2_8ucbh"]
+
+[sub_resource type="Resource" id="Resource_u15qt"]
+script = ExtResource("2_8ucbh")
+dialogue_position = Vector2(100, 100)
+title_text = "Introduction"
+body_text = "Welcome to the tutorial tutorial!
+
+This will help demonstrate the basic functionality of the tutorial system."
+show_continue_button = true
+show_arrow = true
+target_position = Vector2(300, 300)
+arrow_rotation = 0.0
+
+[sub_resource type="Resource" id="Resource_kx8je"]
+script = ExtResource("2_8ucbh")
+dialogue_position = Vector2(400, 400)
+title_text = "Zoomin'"
+body_text = "Look, I'm over here now!"
+show_continue_button = true
+show_arrow = true
+target_position = Vector2(1000, 360)
+arrow_rotation = 1.5708
+
+[sub_resource type="Resource" id="Resource_4s1uc"]
+script = ExtResource("2_8ucbh")
+dialogue_position = Vector2(200, 200)
+title_text = "Discussion"
+body_text = "As you can see, subsequent tutorial steps can move the box and pointer around. 
+
+You can also make the arrow disappear completely, like we did in this step.
+
+The tutorial can even take arbitrary events as triggers (with a little trickery behind the scenes)."
+show_continue_button = true
+show_arrow = false
+target_position = Vector2(0, 0)
+arrow_rotation = 0.0
+
+[sub_resource type="Resource" id="Resource_r156q"]
+script = ExtResource("2_8ucbh")
+dialogue_position = Vector2(0, 0)
+title_text = "Closing."
+body_text = "That's all for now. 
+
+When you click the continue button below, it'll return you to the main menu. 
+Preeeetty fancy, huh?"
+show_continue_button = true
+show_arrow = true
+target_position = Vector2(500, 500)
+arrow_rotation = 0.0
+
+[resource]
+script = ExtResource("1_byqwp")
+steps = Array[ExtResource("2_8ucbh")]([SubResource("Resource_u15qt"), SubResource("Resource_kx8je"), SubResource("Resource_4s1uc"), SubResource("Resource_r156q")])
+step_triggers = Array[String](["tutorial_continue", "tutorial_continue", "tutorial_continue", "tutorial_continue"])

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bp35p2jh2fsvx"]
+
+[ext_resource type="PackedScene" uid="uid://1c7jmqc6wkth" path="res://src/tutorial/tutorial.tscn" id="1_gu4kp"]
+[ext_resource type="Resource" uid="uid://c7bkjo83b6a0x" path="res://assets/data/tutorials/test_tutorial_behavior.tres" id="2_mbe07"]
+
+[node name="TestTutorialBehavior" type="Node"]
+
+[node name="Tutorial" parent="." instance=ExtResource("1_gu4kp")]
+tutorial_sequence = ExtResource("2_mbe07")
