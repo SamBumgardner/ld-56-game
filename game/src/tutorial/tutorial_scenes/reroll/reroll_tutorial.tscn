@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5elhebvdn0nk"]
+
+[ext_resource type="PackedScene" uid="uid://1wye34y7qnhe" path="res://src/gameplay/Gameplay.tscn" id="1_ul5fq"]
+[ext_resource type="PackedScene" uid="uid://1c7jmqc6wkth" path="res://src/tutorial/tutorial.tscn" id="2_yoq1h"]
+[ext_resource type="Script" path="res://src/tutorial/tutorial_scenes/reroll/tutorial_reroll.gd" id="3_8esyi"]
+[ext_resource type="Resource" uid="uid://bp88h0ha65rpj" path="res://assets/data/tutorials/reroll_tutorial.tres" id="4_1etnv"]
+
+[node name="Gameplay" instance=ExtResource("1_ul5fq")]
+
+[node name="TutorialReroll" parent="OutdoorBattleMode" index="2" instance=ExtResource("2_yoq1h")]
+z_index = 2
+offset_left = -640.0
+offset_top = -360.0
+offset_right = -1920.0
+offset_bottom = -1080.0
+script = ExtResource("3_8esyi")
+tutorial_sequence = ExtResource("4_1etnv")

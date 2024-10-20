@@ -5,6 +5,7 @@
 
 [sub_resource type="Resource" id="Resource_u15qt"]
 script = ExtResource("2_8ucbh")
+show_dialogue_box = true
 dialogue_position = Vector2(100, 100)
 title_text = "Introduction"
 body_text = "Welcome to the tutorial tutorial!
@@ -17,6 +18,7 @@ arrow_rotation = 0.0
 
 [sub_resource type="Resource" id="Resource_kx8je"]
 script = ExtResource("2_8ucbh")
+show_dialogue_box = true
 dialogue_position = Vector2(400, 400)
 title_text = "Zoomin'"
 body_text = "Look, I'm over here now!"
@@ -27,6 +29,7 @@ arrow_rotation = 1.5708
 
 [sub_resource type="Resource" id="Resource_4s1uc"]
 script = ExtResource("2_8ucbh")
+show_dialogue_box = true
 dialogue_position = Vector2(200, 200)
 title_text = "Discussion"
 body_text = "As you can see, subsequent tutorial steps can move the box and pointer around. 
@@ -41,6 +44,7 @@ arrow_rotation = 0.0
 
 [sub_resource type="Resource" id="Resource_r156q"]
 script = ExtResource("2_8ucbh")
+show_dialogue_box = true
 dialogue_position = Vector2(0, 0)
 title_text = "Closing."
 body_text = "That's all for now. 

@@ -1,0 +1,164 @@
+[gd_resource type="Resource" script_class="TutorialSequence" load_steps=15 format=3 uid="uid://bp88h0ha65rpj"]
+
+[ext_resource type="Script" path="res://src/tutorial/tutorial_sequence.gd" id="1_otc7d"]
+[ext_resource type="Script" path="res://src/tutorial/tutorial_step.gd" id="2_epq60"]
+
+[sub_resource type="Resource" id="Resource_atwd0"]
+script = ExtResource("2_epq60")
+show_dialogue_box = true
+dialogue_position = Vector2(540, 140)
+title_text = "Introduction"
+body_text = "Crew members may have many actions, but only one is used in each battle.
+
+This tutorial explains how to use the \"Reroll\" button to change a crew member's current action."
+show_continue_button = true
+show_arrow = false
+target_position = Vector2(0, 0)
+arrow_rotation = 0.0
+
+[sub_resource type="Resource" id="Resource_w2ehj"]
+script = ExtResource("2_epq60")
+show_dialogue_box = true
+dialogue_position = Vector2(540, 140)
+title_text = "Initial Roll"
+body_text = "When you an encounter a barrier, each crew member is assigned a \"current action.\"
+
+That action is randomly selected from the list of actions available to them."
+show_continue_button = true
+show_arrow = false
+target_position = Vector2(0, 0)
+arrow_rotation = 0.0
+
+[sub_resource type="Resource" id="Resource_tgtiy"]
+script = ExtResource("2_epq60")
+show_dialogue_box = true
+dialogue_position = Vector2(540, 140)
+title_text = "Reroll Button"
+body_text = "You can randomly select new \"current actions\" by pressing the reroll button.
+
+Let's try it out now!"
+show_continue_button = false
+show_arrow = true
+target_position = Vector2(640, 460)
+arrow_rotation = 0.0
+
+[sub_resource type="Resource" id="Resource_nwyje"]
+script = ExtResource("2_epq60")
+show_dialogue_box = true
+dialogue_position = Vector2(540, 140)
+title_text = "Reroll Results"
+body_text = "The crew's actions have been randomized!"
+show_continue_button = true
+show_arrow = true
+target_position = Vector2(340, 600)
+arrow_rotation = -0.785398
+
+[sub_resource type="Resource" id="Resource_15ihl"]
+script = ExtResource("2_epq60")
+show_dialogue_box = true
+dialogue_position = Vector2(540, 140)
+title_text = "Locking Actions"
+body_text = "If you only want to re-roll some crew members' actions, you can \"lock\" the actions you wish to retain."
+show_continue_button = true
+show_arrow = false
+target_position = Vector2(0, 0)
+arrow_rotation = 0.0
+
+[sub_resource type="Resource" id="Resource_ybwb1"]
+script = ExtResource("2_epq60")
+show_dialogue_box = true
+dialogue_position = Vector2(540, 140)
+title_text = "Locking Actions"
+body_text = "Actions can be locked by [color=cyan]right clicking[/color] them in the status panel.
+
+They can also be locked by opening the character info panel (left click) and pressing the \"lock current action\" button."
+show_continue_button = true
+show_arrow = true
+target_position = Vector2(475, 600)
+arrow_rotation = 0.0
+
+[sub_resource type="Resource" id="Resource_3qw87"]
+script = ExtResource("2_epq60")
+show_dialogue_box = true
+dialogue_position = Vector2(540, 140)
+title_text = "Locking and Reroll"
+body_text = "Try setting a mix of locked and unlocked actions, then press the reroll button again.
+
+Remember - you can [color=cyan]right click[/color] an action in the status panel or lock actions via the character panel.
+
+Press \"Reroll\" when you're ready."
+show_continue_button = false
+show_arrow = false
+target_position = Vector2(0, 0)
+arrow_rotation = 0.0
+
+[sub_resource type="Resource" id="Resource_h01ql"]
+script = ExtResource("2_epq60")
+show_dialogue_box = true
+dialogue_position = Vector2(540, 140)
+title_text = "Fuel Cost"
+body_text = "Only the unlocked actions were re-rolled!
+
+One last note: as the button says, Re-rolls cost 1 fuel."
+show_continue_button = true
+show_arrow = true
+target_position = Vector2(640, 460)
+arrow_rotation = 0.0
+
+[sub_resource type="Resource" id="Resource_ni22l"]
+script = ExtResource("2_epq60")
+show_dialogue_box = true
+dialogue_position = Vector2(540, 140)
+title_text = "Fuel Display"
+body_text = "Fuel is a resource tracked in the left sidebar..."
+show_continue_button = true
+show_arrow = true
+target_position = Vector2(145, 185)
+arrow_rotation = 2.35619
+
+[sub_resource type="Resource" id="Resource_iy1vj"]
+script = ExtResource("2_epq60")
+show_dialogue_box = true
+dialogue_position = Vector2(540, 140)
+title_text = "Fuel Display"
+body_text = "And next to the reroll button.
+
+You can hold a maximum of 10 fuel at one time. 
+
+You typically gain fuel when destroying barriers, but there may be other ways as well."
+show_continue_button = true
+show_arrow = true
+target_position = Vector2(755, 480)
+arrow_rotation = 0.0
+
+[sub_resource type="Resource" id="Resource_gfnyc"]
+script = ExtResource("2_epq60")
+show_dialogue_box = true
+dialogue_position = Vector2(540, 140)
+title_text = "Fuel Economy"
+body_text = "In summary:
+You gain fuel when you destroy barriers, then spend it when you need to reroll actions.
+
+Don't hesitate to spend fuel to improve your actions!"
+show_continue_button = true
+show_arrow = false
+target_position = Vector2(0, 0)
+arrow_rotation = 0.0
+
+[sub_resource type="Resource" id="Resource_rckft"]
+script = ExtResource("2_epq60")
+show_dialogue_box = true
+dialogue_position = Vector2(540, 140)
+title_text = "Conclusion"
+body_text = "That's everything you need to know about rerolling. 
+
+Check out the next tutorial to learn how to upgrade your crew!"
+show_continue_button = true
+show_arrow = false
+target_position = Vector2(0, 0)
+arrow_rotation = 0.0
+
+[resource]
+script = ExtResource("1_otc7d")
+steps = Array[ExtResource("2_epq60")]([SubResource("Resource_atwd0"), SubResource("Resource_w2ehj"), SubResource("Resource_tgtiy"), SubResource("Resource_nwyje"), SubResource("Resource_15ihl"), SubResource("Resource_ybwb1"), SubResource("Resource_3qw87"), SubResource("Resource_h01ql"), SubResource("Resource_ni22l"), SubResource("Resource_iy1vj"), SubResource("Resource_gfnyc"), SubResource("Resource_rckft")])
+step_triggers = Array[String](["tutorial_continue", "tutorial_continue", "reroll_succeeded", "tutorial_continue", "tutorial_continue", "tutorial_continue", "reroll_succeeded", "tutorial_continue", "tutorial_continue", "tutorial_continue", "tutorial_continue", "tutorial_continue"])
