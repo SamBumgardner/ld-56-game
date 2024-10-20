@@ -1,0 +1,157 @@
+[gd_resource type="Resource" script_class="TutorialSequence" load_steps=15 format=3 uid="uid://tvmkfw4abkf1"]
+
+[ext_resource type="Script" path="res://src/tutorial/tutorial_sequence.gd" id="1_sf8hp"]
+[ext_resource type="Script" path="res://src/tutorial/tutorial_step.gd" id="2_kxmi7"]
+
+[sub_resource type="Resource" id="Resource_e7n5t"]
+script = ExtResource("2_kxmi7")
+show_dialogue_box = false
+dialogue_position = Vector2(0, 0)
+title_text = ""
+body_text = ""
+show_continue_button = false
+show_arrow = false
+target_position = Vector2(0, 0)
+arrow_rotation = 0.0
+
+[sub_resource type="Resource" id="Resource_54ria"]
+script = ExtResource("2_kxmi7")
+show_dialogue_box = true
+dialogue_position = Vector2(140, 55)
+title_text = "Inside View"
+body_text = "This common area is a place where the crew relaxes and unwinds.
+
+The central screen displays the current barrier and crew status. It's also used to handle upgrades and hiring.
+
+We'll learn about upgrading our characters first."
+show_continue_button = true
+show_arrow = false
+target_position = Vector2(0, 0)
+arrow_rotation = 0.0
+
+[sub_resource type="Resource" id="Resource_ssnes"]
+script = ExtResource("2_kxmi7")
+show_dialogue_box = true
+dialogue_position = Vector2(140, 55)
+title_text = "Switch to Character Details"
+body_text = "You can click on any crew member here (or their corresponding action on the center screen) to view their detailed stats and upgrade choices."
+show_continue_button = false
+show_arrow = true
+target_position = Vector2(205, 430)
+arrow_rotation = 0.785398
+
+[sub_resource type="Resource" id="Resource_wt288"]
+script = ExtResource("2_kxmi7")
+show_dialogue_box = true
+dialogue_position = Vector2(140, 55)
+title_text = "Details View"
+body_text = "From here you can see their actions list..."
+show_continue_button = true
+show_arrow = true
+target_position = Vector2(500, 180)
+arrow_rotation = -1.5708
+
+[sub_resource type="Resource" id="Resource_m833j"]
+script = ExtResource("2_kxmi7")
+show_dialogue_box = true
+dialogue_position = Vector2(140, 55)
+title_text = "Details View"
+body_text = "As well as a panel of upgrades you can purchase."
+show_continue_button = true
+show_arrow = true
+target_position = Vector2(444, 220)
+arrow_rotation = 0.0
+
+[sub_resource type="Resource" id="Resource_xybio"]
+script = ExtResource("2_kxmi7")
+show_dialogue_box = true
+dialogue_position = Vector2(140, 55)
+title_text = "Upgrade Preview"
+body_text = "Click on an upgrade now to preview its effect."
+show_continue_button = false
+show_arrow = true
+target_position = Vector2(400, 250)
+arrow_rotation = -0.785398
+
+[sub_resource type="Resource" id="Resource_a0nr6"]
+script = ExtResource("2_kxmi7")
+show_dialogue_box = true
+dialogue_position = Vector2(140, 55)
+title_text = "Purchase Upgrade"
+body_text = "If you'd like what you see, you can buy it by clicking the \"BUY\" button on the bottom right.
+
+Buy an upgrade now to test it out!"
+show_continue_button = false
+show_arrow = true
+target_position = Vector2(830, 400)
+arrow_rotation = -0.785398
+
+[sub_resource type="Resource" id="Resource_rnxlg"]
+script = ExtResource("2_kxmi7")
+show_dialogue_box = true
+dialogue_position = Vector2(140, 55)
+title_text = "Review Effects"
+body_text = "Good choice!
+
+You should see the results of your purchase reflected in the character's action list."
+show_continue_button = true
+show_arrow = true
+target_position = Vector2(500, 180)
+arrow_rotation = -1.5708
+
+[sub_resource type="Resource" id="Resource_we4yk"]
+script = ExtResource("2_kxmi7")
+show_dialogue_box = true
+dialogue_position = Vector2(140, 55)
+title_text = "Upgrade Qualities"
+body_text = "Most upgrades either add, remove, or upgrade actions for a crew member. 
+
+Keep in mind that more actions can give greater flexibility, but they also cause less consistency."
+show_continue_button = true
+show_arrow = false
+target_position = Vector2(0, 0)
+arrow_rotation = 0.0
+
+[sub_resource type="Resource" id="Resource_gkgeq"]
+script = ExtResource("2_kxmi7")
+show_dialogue_box = true
+dialogue_position = Vector2(140, 55)
+title_text = "Upgrade Qualities"
+body_text = "There aren't really \"wrong\" answers, though, so have fun experimenting!"
+show_continue_button = true
+show_arrow = false
+target_position = Vector2(0, 0)
+arrow_rotation = 0.0
+
+[sub_resource type="Resource" id="Resource_fvc6s"]
+script = ExtResource("2_kxmi7")
+show_dialogue_box = true
+dialogue_position = Vector2(140, 55)
+title_text = "The End?"
+body_text = "Now...
+
+I know I promised we would learn how to hire new crew members too, but you seem to have gotten the hang of things pretty well.
+
+At this point, I bet you can figure it out yourself!"
+show_continue_button = true
+show_arrow = false
+target_position = Vector2(0, 0)
+arrow_rotation = 0.0
+
+[sub_resource type="Resource" id="Resource_13qp4"]
+script = ExtResource("2_kxmi7")
+show_dialogue_box = true
+dialogue_position = Vector2(140, 55)
+title_text = "The End."
+body_text = "I'll leave it to you, then. I'm very tired now, so I'm going to go take a nap.
+
+The tutorials are now over, go forth and have fun!"
+show_continue_button = true
+show_arrow = false
+target_position = Vector2(0, 0)
+arrow_rotation = 0.0
+
+[resource]
+script = ExtResource("1_sf8hp")
+steps = Array[ExtResource("2_kxmi7")]([SubResource("Resource_e7n5t"), SubResource("Resource_e7n5t"), SubResource("Resource_e7n5t"), SubResource("Resource_e7n5t"), SubResource("Resource_e7n5t"), SubResource("Resource_e7n5t"), SubResource("Resource_e7n5t"), SubResource("Resource_e7n5t"), SubResource("Resource_e7n5t"), SubResource("Resource_54ria"), SubResource("Resource_ssnes"), SubResource("Resource_wt288"), SubResource("Resource_m833j"), SubResource("Resource_xybio"), SubResource("Resource_a0nr6"), SubResource("Resource_rnxlg"), SubResource("Resource_we4yk"), SubResource("Resource_gkgeq"), SubResource("Resource_fvc6s"), SubResource("Resource_13qp4")])
+step_triggers = Array[String](["tutorial_continue", "charge_started", "charge_finished", "charge_started", "charge_finished", "charge_started", "charge_finished", "tutorial_continue", "go_inside", "tutorial_continue", "character_detail_open_close", "tutorial_continue", "tutorial_continue", "upgrade_selected", "upgrade_purchased", "tutorial_continue", "tutorial_continue", "tutorial_continue", "tutorial_continue", "tutorial_continue"])

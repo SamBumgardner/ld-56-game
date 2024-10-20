@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b4xnwcpb30o20" path="res://src/indoor_preparation/screen_displays/crew_member_detail/upgrade_prompt.tscn" id="2_wa450"]
 [ext_resource type="PackedScene" uid="uid://h1fowbxngb70" path="res://src/audio_manager/AudioManager.tscn" id="3_tjpp0"]
 
-[node name="CrewMemberDetail" instance=ExtResource("1_i2m3f")]
+[node name="CrewMemberDetail" groups=["tutorial_triggers"] instance=ExtResource("1_i2m3f")]
 script = ExtResource("2_47e65")
 
 [node name="AudioManager" parent="." index="0" instance=ExtResource("3_tjpp0")]

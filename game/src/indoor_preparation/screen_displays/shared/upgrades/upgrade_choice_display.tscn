@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dj3i46p3r3b0f" path="res://assets/art/upgrade_purchased_icon.png" id="5_ksrid"]
 [ext_resource type="Texture2D" uid="uid://c8dsnvyqbn3fh" path="res://assets/art/lock_icon.png" id="6_e34su"]
 
-[node name="UpgradeChoiceDisplay" type="PanelContainer"]
+[node name="UpgradeChoiceDisplay" type="PanelContainer" groups=["tutorial_triggers"]]
 offset_right = 101.0
 offset_bottom = 32.0
 size_flags_horizontal = 3

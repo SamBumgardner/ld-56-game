@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://b73yb04wjxq8"]
+[gd_scene load_steps=30 format=3 uid="uid://b73yb04wjxq8"]
 
 [ext_resource type="Texture2D" uid="uid://l3l2yqfmprg5" path="res://assets/art/backgrounds/ld_56_indoors.jpg" id="1_f348j"]
 [ext_resource type="Script" path="res://src/indoor_preparation/indoor_preparation.gd" id="2_0rynj"]
@@ -28,6 +28,7 @@
 [ext_resource type="Resource" uid="uid://beppcdvy1b3s0" path="res://assets/data/characters/012_fish_char.tres" id="21_71v0u"]
 [ext_resource type="PackedScene" uid="uid://cnbbp4gy833n" path="res://src/shared_ui/resource_display/money_display.tscn" id="25_dg1g1"]
 [ext_resource type="PackedScene" uid="uid://ybyc5lib301u" path="res://src/shared_ui/resource_display/fuel_display.tscn" id="26_fgbkb"]
+[ext_resource type="Script" path="res://src/indoor_preparation/go_outside_button.gd" id="27_7d8ip"]
 
 [node name="IndoorPreparation" type="Control"]
 layout_mode = 3
@@ -275,7 +276,7 @@ grow_horizontal = 1
 grow_vertical = 1
 character_factory = ExtResource("21_71v0u")
 
-[node name="GoOutsideButton" type="Button" parent="."]
+[node name="GoOutsideButton" type="Button" parent="." groups=["tutorial_triggers"]]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -286,6 +287,7 @@ offset_bottom = 46.0
 grow_horizontal = 2
 text = "Go Outside
 To Battle"
+script = ExtResource("27_7d8ip")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
