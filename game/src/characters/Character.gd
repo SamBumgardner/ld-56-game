@@ -7,6 +7,8 @@ var description: String
 var portrait: Texture2D
 var icon: Texture2D
 var actions: ActionSelector
+var sfx_hello: AudioStream
+var sfx_upgrade_gained: AudioStream
 var upgrade_level: int
 var upgrades: Array[UpgradeSelector]
 var upgrade_choice_history: Array[int]
@@ -14,7 +16,8 @@ var hiring_cost: int
 
 func _init(_name: String, _description: String, _portrait: Texture2D,
         _icon: Texture2D, _actions: ActionSelector, _upgrade_level: int,
-        _upgrades: Array[UpgradeSelector], _hiring_cost: int) -> void:
+        _upgrades: Array[UpgradeSelector], _hiring_cost: int,
+        _sfx_hello: AudioStream, _sfx_upgrade_gained: AudioStream) -> void:
     name = _name
     description = _description
     portrait = _portrait
@@ -30,6 +33,8 @@ func _init(_name: String, _description: String, _portrait: Texture2D,
     for i: int in range(upgrades.size()):
         upgrade_choice_history.append(-1)
     hiring_cost = _hiring_cost
+    sfx_hello = _sfx_hello
+    sfx_upgrade_gained = _sfx_upgrade_gained
 
 func deep_copy() -> Character:
     var current_actions = actions.get_all()
@@ -39,7 +44,7 @@ func deep_copy() -> Character:
     var new_action_selector = ActionSelector.new(new_actions)
     
     var copy: Character = Character.new(name, description, portrait, icon, new_action_selector,
-        upgrade_level, upgrades, hiring_cost)
+        upgrade_level, upgrades, hiring_cost, sfx_hello, sfx_upgrade_gained)
     
     copy.upgrade_choice_history = upgrade_choice_history.duplicate()
 
