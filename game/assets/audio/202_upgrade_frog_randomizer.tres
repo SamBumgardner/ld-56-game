@@ -1,7 +1,7 @@
 [gd_resource type="AudioStreamRandomizer" load_steps=3 format=3 uid="uid://w0o3xkxvhnj"]
 
-[ext_resource type="AudioStream" uid="uid://ba10f2dkm70xl" path="res://assets/audio/guest_voice_lines/1165_frog_lets_do_this.wav" id="1_7ux25"]
-[ext_resource type="AudioStream" uid="uid://dv6epypof6msw" path="res://assets/audio/guest_voice_lines/1166_frog_i_am_upgraded.wav" id="2_8llel"]
+[ext_resource type="AudioStream" uid="uid://ba10f2dkm70xl" path="res://assets/audio/character_voice_lines/1165_frog_lets_do_this.wav" id="1_7ux25"]
+[ext_resource type="AudioStream" uid="uid://dv6epypof6msw" path="res://assets/audio/character_voice_lines/1166_frog_i_am_upgraded.wav" id="2_8llel"]
 
 [resource]
 streams_count = 2

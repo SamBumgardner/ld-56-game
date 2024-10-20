@@ -1,10 +1,10 @@
 [gd_resource type="AudioStreamRandomizer" load_steps=6 format=3 uid="uid://b0lurtg2fd4aq"]
 
-[ext_resource type="AudioStream" uid="uid://bijqkwo18h40w" path="res://assets/audio/guest_voice_lines/1102_fish_hello.wav" id="1_sg32k"]
-[ext_resource type="AudioStream" uid="uid://cyq6cl6g3p6gy" path="res://assets/audio/guest_voice_lines/1146_fish.wav" id="2_l1135"]
-[ext_resource type="AudioStream" uid="uid://ckyk2fforwy6v" path="res://assets/audio/guest_voice_lines/1167_fish_brdrbrdur.wav" id="3_nygip"]
-[ext_resource type="AudioStream" uid="uid://b4kd8p70nc4dx" path="res://assets/audio/guest_voice_lines/1168_fish.wav" id="4_s0v6y"]
-[ext_resource type="AudioStream" uid="uid://blmqfm4exxy8e" path="res://assets/audio/guest_voice_lines/1169_fish.wav" id="5_pohkc"]
+[ext_resource type="AudioStream" uid="uid://bijqkwo18h40w" path="res://assets/audio/character_voice_lines/1102_fish_hello.wav" id="1_sg32k"]
+[ext_resource type="AudioStream" uid="uid://cyq6cl6g3p6gy" path="res://assets/audio/character_voice_lines/1146_fish.wav" id="2_l1135"]
+[ext_resource type="AudioStream" uid="uid://ckyk2fforwy6v" path="res://assets/audio/character_voice_lines/1167_fish_brdrbrdur.wav" id="3_nygip"]
+[ext_resource type="AudioStream" uid="uid://b4kd8p70nc4dx" path="res://assets/audio/character_voice_lines/1168_fish.wav" id="4_s0v6y"]
+[ext_resource type="AudioStream" uid="uid://blmqfm4exxy8e" path="res://assets/audio/character_voice_lines/1169_fish.wav" id="5_pohkc"]
 
 [resource]
 streams_count = 5

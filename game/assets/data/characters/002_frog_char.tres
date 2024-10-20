@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bic3i142epdt3" path="res://assets/art/placeholder_threat.png" id="2_1khfy"]
 [ext_resource type="Script" path="res://src/characters/CharacterFactory.gd" id="3_ckivh"]
 [ext_resource type="Script" path="res://src/characters/UpgradeSelector.gd" id="4_bx1au"]
-[ext_resource type="AudioStream" uid="uid://3p8674txftc0" path="res://assets/audio/guest_voice_lines/1109_hello.wav" id="4_px0pd"]
+[ext_resource type="AudioStream" uid="uid://3p8674txftc0" path="res://assets/audio/character_voice_lines/1109_hello.wav" id="4_px0pd"]
 [ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="5_2eogc"]
 [ext_resource type="AudioStream" uid="uid://w0o3xkxvhnj" path="res://assets/audio/202_upgrade_frog_randomizer.tres" id="5_b288i"]
 [ext_resource type="Resource" uid="uid://d3kkwngqwxuum" path="res://assets/data/upgrades/800_basic/801_up1_wit.tres" id="6_s7u8b"]

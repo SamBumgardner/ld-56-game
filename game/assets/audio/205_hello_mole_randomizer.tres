@@ -1,7 +1,7 @@
 [gd_resource type="AudioStreamRandomizer" load_steps=3 format=3 uid="uid://cplc5je4hh58x"]
 
-[ext_resource type="AudioStream" uid="uid://dl315lme25owa" path="res://assets/audio/guest_voice_lines/1127_mole.wav" id="1_4faok"]
-[ext_resource type="AudioStream" uid="uid://bhjrssgu3huso" path="res://assets/audio/guest_voice_lines/1129_mole.wav" id="2_r88jn"]
+[ext_resource type="AudioStream" uid="uid://dl315lme25owa" path="res://assets/audio/character_voice_lines/1127_mole.wav" id="1_4faok"]
+[ext_resource type="AudioStream" uid="uid://bhjrssgu3huso" path="res://assets/audio/character_voice_lines/1129_mole.wav" id="2_r88jn"]
 
 [resource]
 streams_count = 2

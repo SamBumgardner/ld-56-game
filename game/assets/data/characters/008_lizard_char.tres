@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://src/characters/CharacterFactory.gd" id="3_h3rq5"]
 [ext_resource type="AudioStream" uid="uid://1egopuk2c4ud" path="res://assets/audio/207_hello_lizard_randomizer.tres" id="4_jqea0"]
 [ext_resource type="Script" path="res://src/characters/UpgradeSelector.gd" id="4_sxc2t"]
-[ext_resource type="AudioStream" uid="uid://cwgnof4f4otm4" path="res://assets/audio/guest_voice_lines/1124_upgrade.wav" id="5_cu271"]
+[ext_resource type="AudioStream" uid="uid://cwgnof4f4otm4" path="res://assets/audio/character_voice_lines/1124_upgrade.wav" id="5_cu271"]
 [ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="5_mxo8b"]
 [ext_resource type="Resource" uid="uid://dg4v7lsmvj2bp" path="res://assets/data/upgrades/500_gunslinger/501_up1_might.tres" id="6_mwbxw"]
 [ext_resource type="Resource" uid="uid://cb3jn0g26o3lm" path="res://assets/data/upgrades/500_gunslinger/502_up1_wit.tres" id="7_e2sem"]
