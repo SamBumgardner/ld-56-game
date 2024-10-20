@@ -1,0 +1,35 @@
+[gd_scene load_steps=8 format=3 uid="uid://dmt7apybbbxkd"]
+
+[ext_resource type="PackedScene" uid="uid://1wye34y7qnhe" path="res://src/gameplay/Gameplay.tscn" id="1_grvr7"]
+[ext_resource type="PackedScene" uid="uid://1c7jmqc6wkth" path="res://src/tutorial/tutorial.tscn" id="2_3utpq"]
+[ext_resource type="Script" path="res://src/tutorial/tutorial_scenes/basic_information/tutorial_basic_info.gd" id="3_i7yrx"]
+[ext_resource type="Script" path="res://src/tutorial/tutorial_sequence.gd" id="4_tdn16"]
+[ext_resource type="Script" path="res://src/tutorial/tutorial_step.gd" id="5_gwyma"]
+
+[sub_resource type="Resource" id="Resource_umt84"]
+script = ExtResource("5_gwyma")
+dialogue_position = Vector2(340, 90)
+title_text = "Introduction"
+body_text = "The world has dried up!
+
+In T.U.S.K, you lead a crew of rough-and-tumble critters through an inhospitable desert."
+show_continue_button = true
+show_arrow = true
+target_position = Vector2(750, 245)
+arrow_rotation = 0.785398
+
+[sub_resource type="Resource" id="Resource_8j0pd"]
+script = ExtResource("4_tdn16")
+steps = Array[ExtResource("5_gwyma")]([SubResource("Resource_umt84"), null, null, null, null, null])
+step_triggers = Array[String](["tutorial_continue"])
+
+[node name="Gameplay" instance=ExtResource("1_grvr7")]
+
+[node name="TutorialBasicInfo" parent="OutdoorBattleMode" index="2" instance=ExtResource("2_3utpq")]
+visible = false
+offset_left = -640.0
+offset_top = -360.0
+offset_right = -1920.0
+offset_bottom = -1080.0
+script = ExtResource("3_i7yrx")
+tutorial_sequence = SubResource("Resource_8j0pd")

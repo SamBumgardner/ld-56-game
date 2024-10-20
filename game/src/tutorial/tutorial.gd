@@ -1,4 +1,4 @@
-class_name Tutorial extends Node
+class_name Tutorial extends Control
 
 const TRIGGER_NODE_GROUP: String = "tutorial_triggers"
 
@@ -19,7 +19,8 @@ func _ready():
     var trigger_emitters: Array = get_tree().get_nodes_in_group(TRIGGER_NODE_GROUP)
     # call 
     _connect_trigger_events(trigger_emitters)
-    tutorial_sequence.steps[0].execute_step(tutorial_dialogue, tutorial_arrow, true)
+    if tutorial_sequence != null:
+        tutorial_sequence.steps[0].execute_step(tutorial_dialogue, tutorial_arrow, true)
 
 func _connect_trigger_events(trigger_emitters: Array) -> void:
     for emitter in trigger_emitters:
