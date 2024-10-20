@@ -1,0 +1,205 @@
+[gd_resource type="Resource" script_class="TutorialSequence" load_steps=19 format=3 uid="uid://dpegjk8b74ogc"]
+
+[ext_resource type="Script" path="res://src/tutorial/tutorial_sequence.gd" id="1_p2rbk"]
+[ext_resource type="Script" path="res://src/tutorial/tutorial_step.gd" id="2_18ckq"]
+
+[sub_resource type="Resource" id="Resource_c6ekd"]
+script = ExtResource("2_18ckq")
+show_dialogue_box = true
+dialogue_position = Vector2(195, 120)
+title_text = "Introduction"
+body_text = "Welcome to the \"Actions\" tutorial.
+
+In this guide, we'll discuss your crew in more detail.
+
+Understanding how their actions contribute to your crew's total power will help you break barriers safely."
+show_continue_button = true
+show_arrow = false
+target_position = Vector2(0, 0)
+arrow_rotation = 0.0
+
+[sub_resource type="Resource" id="Resource_xlvmq"]
+script = ExtResource("2_18ckq")
+show_dialogue_box = true
+dialogue_position = Vector2(195, 120)
+title_text = "Introduction"
+body_text = "The T.U.S.K.'s crew is displayed in a few places on this screen.
+
+Let's start by taking a look at them."
+show_continue_button = true
+show_arrow = false
+target_position = Vector2(0, 0)
+arrow_rotation = 0.0
+
+[sub_resource type="Resource" id="Resource_e5nyf"]
+script = ExtResource("2_18ckq")
+show_dialogue_box = true
+dialogue_position = Vector2(10, 265)
+title_text = "Portraits Panel"
+body_text = "On the left, we can see buttons, each with a picture of a crew member."
+show_continue_button = true
+show_arrow = true
+target_position = Vector2(175, 525)
+arrow_rotation = 0.785398
+
+[sub_resource type="Resource" id="Resource_x0e6t"]
+script = ExtResource("2_18ckq")
+show_dialogue_box = true
+dialogue_position = Vector2(310, 265)
+title_text = "Status Panel"
+body_text = "And in the center, these buttons in the \"Status\" panel represent crew members.
+
+The faded icon that identifies them sits behind some gameplay-related information."
+show_continue_button = true
+show_arrow = true
+target_position = Vector2(340, 600)
+arrow_rotation = -0.785398
+
+[sub_resource type="Resource" id="Resource_debju"]
+script = ExtResource("2_18ckq")
+show_dialogue_box = true
+dialogue_position = Vector2(160, 285)
+title_text = "Opening Crew Details"
+body_text = "Either panel's buttons can be clicked to bring up more detailed information about the selected crew member. 
+
+Let's click one now."
+show_continue_button = false
+show_arrow = true
+target_position = Vector2(340, 600)
+arrow_rotation = -0.785398
+
+[sub_resource type="Resource" id="Resource_wnxit"]
+script = ExtResource("2_18ckq")
+show_dialogue_box = true
+dialogue_position = Vector2(515, 180)
+title_text = "Crew Member Details"
+body_text = "The top of the panel contains basic info about the crew member."
+show_continue_button = true
+show_arrow = true
+target_position = Vector2(415, 215)
+arrow_rotation = 0.785398
+
+[sub_resource type="Resource" id="Resource_72svp"]
+script = ExtResource("2_18ckq")
+show_dialogue_box = true
+dialogue_position = Vector2(515, 180)
+title_text = "Crew Member Details"
+body_text = "Below the basic info, we can see the \"Actions\" section."
+show_continue_button = true
+show_arrow = true
+target_position = Vector2(205, 305)
+arrow_rotation = -0.785398
+
+[sub_resource type="Resource" id="Resource_smbrp"]
+script = ExtResource("2_18ckq")
+show_dialogue_box = true
+dialogue_position = Vector2(515, 180)
+title_text = "Action Details"
+body_text = "An action's number and symbol show what that crew member will do to help destroy the next barrier."
+show_continue_button = true
+show_arrow = true
+target_position = Vector2(403, 327)
+arrow_rotation = 0.0
+
+[sub_resource type="Resource" id="Resource_d0v2k"]
+script = ExtResource("2_18ckq")
+show_dialogue_box = true
+dialogue_position = Vector2(515, 180)
+title_text = "Action Details"
+body_text = "The number is the strength of their action - the larger, the better."
+show_continue_button = true
+show_arrow = true
+target_position = Vector2(390, 325)
+arrow_rotation = -0.785398
+
+[sub_resource type="Resource" id="Resource_wqw8c"]
+script = ExtResource("2_18ckq")
+show_dialogue_box = true
+dialogue_position = Vector2(515, 180)
+title_text = "Action Details"
+body_text = "The symbol is the type of action they took. Did they use brawn, brains, or a bit of chaos?"
+show_continue_button = true
+show_arrow = true
+target_position = Vector2(415, 325)
+arrow_rotation = 0.785398
+
+[sub_resource type="Resource" id="Resource_imtsr"]
+script = ExtResource("2_18ckq")
+show_dialogue_box = true
+dialogue_position = Vector2(830, 340)
+title_text = "Exploiting Weakness"
+body_text = "Note that each barrier is weak to a certain type of action.
+
+Actions that match that weakness will be twice as effective!"
+show_continue_button = true
+show_arrow = true
+target_position = Vector2(1145, 640)
+arrow_rotation = 0.0
+
+[sub_resource type="Resource" id="Resource_mjokb"]
+script = ExtResource("2_18ckq")
+show_dialogue_box = true
+dialogue_position = Vector2(515, 180)
+title_text = "Current Action"
+body_text = "A character may have many actions, but they can only use one in each battle. 
+
+You can see their current action near the bottom of the info panel."
+show_continue_button = true
+show_arrow = true
+target_position = Vector2(415, 375)
+arrow_rotation = 1.5708
+
+[sub_resource type="Resource" id="Resource_ucrrn"]
+script = ExtResource("2_18ckq")
+show_dialogue_box = true
+dialogue_position = Vector2(515, 180)
+title_text = "Current Action"
+body_text = "Current actions for all crew members are also shown in the Status panel below."
+show_continue_button = true
+show_arrow = true
+target_position = Vector2(360, 600)
+arrow_rotation = 0.0
+
+[sub_resource type="Resource" id="Resource_bj706"]
+script = ExtResource("2_18ckq")
+show_dialogue_box = true
+dialogue_position = Vector2(790, 270)
+title_text = "Total Power"
+body_text = "Combining all of those \"current actions\" together determines your crew's total power.
+
+That total will be compared against the barrier during battle."
+show_continue_button = true
+show_arrow = true
+target_position = Vector2(885, 565)
+arrow_rotation = -0.785398
+
+[sub_resource type="Resource" id="Resource_8qirl"]
+script = ExtResource("2_18ckq")
+show_dialogue_box = true
+dialogue_position = Vector2(630, 270)
+title_text = "Total Power"
+body_text = "The details of the calculation are shown here.
+
+Remember that actions matching the barrier's weakness are twice as strong!"
+show_continue_button = true
+show_arrow = true
+target_position = Vector2(805, 565)
+arrow_rotation = 0.785398
+
+[sub_resource type="Resource" id="Resource_17up7"]
+script = ExtResource("2_18ckq")
+show_dialogue_box = true
+dialogue_position = Vector2(545, 180)
+title_text = "Conclusion"
+body_text = "That's pretty much everything to know about actions. 
+
+See the next tutorial to learn about \"Rerolling\" for success!"
+show_continue_button = true
+show_arrow = false
+target_position = Vector2(0, 0)
+arrow_rotation = 0.0
+
+[resource]
+script = ExtResource("1_p2rbk")
+steps = Array[ExtResource("2_18ckq")]([SubResource("Resource_c6ekd"), SubResource("Resource_xlvmq"), SubResource("Resource_e5nyf"), SubResource("Resource_x0e6t"), SubResource("Resource_debju"), SubResource("Resource_wnxit"), SubResource("Resource_72svp"), SubResource("Resource_smbrp"), SubResource("Resource_d0v2k"), SubResource("Resource_wqw8c"), SubResource("Resource_imtsr"), SubResource("Resource_mjokb"), SubResource("Resource_ucrrn"), SubResource("Resource_bj706"), SubResource("Resource_8qirl"), SubResource("Resource_17up7")])
+step_triggers = Array[String](["tutorial_continue", "tutorial_continue", "tutorial_continue", "tutorial_continue", "character_info_panel_opened", "tutorial_continue", "tutorial_continue", "tutorial_continue", "tutorial_continue", "tutorial_continue", "tutorial_continue", "tutorial_continue", "tutorial_continue", "tutorial_continue", "tutorial_continue", "tutorial_continue"])

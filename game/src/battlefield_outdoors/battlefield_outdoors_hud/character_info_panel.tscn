@@ -16,7 +16,7 @@ border_width_right = 5
 border_width_bottom = 5
 border_color = Color(0, 1, 0.866667, 0.392157)
 
-[node name="CharacterInfoPanel" type="PanelContainer"]
+[node name="CharacterInfoPanel" type="PanelContainer" groups=["tutorial_triggers"]]
 custom_minimum_size = Vector2(256, 248)
 anchors_preset = 8
 anchor_left = 0.5
