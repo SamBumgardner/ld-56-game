@@ -187,6 +187,23 @@ func _on_to_main_menu_pressed():
 #endregion Button press
 
 
+#region Character upgrade
+
+func _on_crew_member_detail_upgrade_purchase_pressed(
+    character: Character,
+    _upgrade_choice: UpgradeChoice,
+    _level_idx: int,
+    _choice_idx: int
+):
+    if character.sfx_upgrade_gained == null:
+        SoundManager.play_ui_sound(sfx_button_click, _bus_name_sfx_ui)
+        return
+
+    SoundManager.play_ui_sound(character.sfx_upgrade_gained, _bus_name_sfx_ui)
+
+#endregion Character upgrade
+
+
 #region Character select
 # Selecting a character is treated like a menu navigation SFX for simplicity.
 
@@ -276,16 +293,3 @@ func _on_battlefield_outdoors_charge_warmup(_duration):
     )
 
 #endregion War transport charge
-
-
-func _on_crew_member_detail_upgrade_purchase_pressed(
-    character: Character,
-    _upgrade_choice: UpgradeChoice,
-    _level_idx: int,
-    _choice_idx: int
-):
-    if character.sfx_upgrade_gained == null:
-        SoundManager.play_ui_sound(sfx_button_click, _bus_name_sfx_ui)
-        return
-
-    SoundManager.play_ui_sound(character.sfx_upgrade_gained, _bus_name_sfx_ui)
