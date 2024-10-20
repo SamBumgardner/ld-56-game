@@ -1,0 +1,9 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=3 format=3 uid="uid://dk1jgos6hrfhy"]
+
+[ext_resource type="AudioStream" uid="uid://chkrtg84o86f6" path="res://assets/audio/character_voice_lines/1151_hello.wav" id="1_drv0f"]
+[ext_resource type="AudioStream" uid="uid://cq57gvlkvw1dc" path="res://assets/audio/character_voice_lines/1162_monkey_booyah.wav" id="2_kggrr"]
+
+[resource]
+streams_count = 2
+stream_0/stream = ExtResource("1_drv0f")
+stream_1/stream = ExtResource("2_kggrr")
