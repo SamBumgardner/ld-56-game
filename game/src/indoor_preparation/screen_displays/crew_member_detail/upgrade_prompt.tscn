@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://src/indoor_preparation/screen_displays/shared/upgrades/upgrade_cost_prompt.gd" id="1_r5pou"]
 [ext_resource type="PackedScene" uid="uid://h1fowbxngb70" path="res://src/audio_manager/AudioManager.tscn" id="2_o2aex"]
 
-[node name="UpgradePrompt" type="PanelContainer"]
+[node name="UpgradePrompt" type="PanelContainer" groups=["tutorial_triggers"]]
 custom_minimum_size = Vector2(95, 0)
 script = ExtResource("1_r5pou")
 
