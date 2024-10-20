@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bic3i142epdt3" path="res://assets/art/placeholder_threat.png" id="2_0p57k"]
 [ext_resource type="Script" path="res://src/characters/CharacterFactory.gd" id="3_bro8q"]
 [ext_resource type="Script" path="res://src/characters/UpgradeSelector.gd" id="4_56nbu"]
-[ext_resource type="AudioStream" uid="uid://dapsavd7ixcra" path="res://assets/audio/203_hello_bird_randomizer.tres" id="4_w4413"]
+[ext_resource type="AudioStream" path="res://assets/audio/203_hello_bird_randomizer.tres" id="4_w4413"]
 [ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="5_mx8hm"]
 [ext_resource type="AudioStream" uid="uid://xa72qxmdp4y7" path="res://assets/audio/character_voice_lines/1136_war_cry.wav" id="5_s3cwi"]
 [ext_resource type="Resource" uid="uid://dd2eyls5luvmu" path="res://assets/data/upgrades/200_sniper/201_remove_wit_lowest_up1_high_wit.tres" id="6_0anps"]

@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dbxuu6rqen0ed" path="res://assets/art/character_icons/001_character_icon.png" id="1_kpmar"]
 [ext_resource type="Texture2D" uid="uid://bic3i142epdt3" path="res://assets/art/placeholder_threat.png" id="2_f2ol6"]
 [ext_resource type="Script" path="res://src/characters/CharacterFactory.gd" id="3_h3rq5"]
-[ext_resource type="AudioStream" uid="uid://1egopuk2c4ud" path="res://assets/audio/207_hello_lizard_randomizer.tres" id="4_jqea0"]
+[ext_resource type="AudioStream" path="res://assets/audio/207_hello_lizard_randomizer.tres" id="4_jqea0"]
 [ext_resource type="Script" path="res://src/characters/UpgradeSelector.gd" id="4_sxc2t"]
 [ext_resource type="AudioStream" uid="uid://cwgnof4f4otm4" path="res://assets/audio/character_voice_lines/1124_upgrade.wav" id="5_cu271"]
 [ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="5_mxo8b"]
