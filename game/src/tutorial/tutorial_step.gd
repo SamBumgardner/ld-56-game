@@ -1,5 +1,6 @@
 class_name TutorialStep extends Resource
 
+@export var show_dialogue_box: bool = true
 @export var dialogue_position: Vector2
 @export var title_text: String
 @export_multiline var body_text: String
@@ -13,6 +14,7 @@ func execute_step(tutorial_dialogue: TutorialDialogue, tutorial_arrow: TutorialA
         skip_animation: bool = false):
     tutorial_dialogue.display_new_tutorial_step(dialogue_position, title_text, body_text,
         show_continue_button)
+    tutorial_dialogue.visible = show_dialogue_box
     
     if show_arrow:
         tutorial_arrow.change_target(target_position, arrow_rotation, skip_animation or not tutorial_arrow.visible)
