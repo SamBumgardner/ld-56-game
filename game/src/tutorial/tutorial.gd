@@ -47,5 +47,8 @@ func _on_trigger_received(trigger_name: String):
             current_step_idx += 1
             next_step.execute_step(tutorial_dialogue, tutorial_arrow)
         else:
-            # tutorial is finished, go back to main menu
-            get_tree().change_scene_to_file("res://src/start_menu/StartMenu.tscn")
+            _tutorial_finished()
+
+## Child classes override this to do other kinds of behavior when the tutorial's done.
+func _tutorial_finished():
+    get_tree().change_scene_to_file("res://src/start_menu/StartMenu.tscn")
