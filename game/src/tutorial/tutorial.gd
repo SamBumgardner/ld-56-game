@@ -1,4 +1,4 @@
-class_name Tutorial extends Node
+class_name Tutorial extends Control
 
 const TRIGGER_NODE_GROUP: String = "tutorial_triggers"
 
@@ -11,7 +11,9 @@ var current_step_idx = 0
 
 ## Child classes populate with type-to-callables
 var type_to_trigger_map: Dictionary = {
-    "TutorialDialogue": TutorialTrigger.new("continue_button_pressed", func(): _on_trigger_received("tutorial_continue"))
+    "TutorialDialogue": [
+        TutorialTrigger.new("continue_button_pressed", func(): _on_trigger_received("tutorial_continue"))
+    ]
 }
 
 func _ready():
@@ -19,7 +21,8 @@ func _ready():
     var trigger_emitters: Array = get_tree().get_nodes_in_group(TRIGGER_NODE_GROUP)
     # call 
     _connect_trigger_events(trigger_emitters)
-    tutorial_sequence.steps[0].execute_step(tutorial_dialogue, tutorial_arrow, true)
+    if tutorial_sequence != null:
+        tutorial_sequence.steps[0].execute_step(tutorial_dialogue, tutorial_arrow, true)
 
 func _connect_trigger_events(trigger_emitters: Array) -> void:
     for emitter in trigger_emitters:
@@ -33,8 +36,8 @@ func _connect_trigger_events(trigger_emitters: Array) -> void:
         # Check if emitter type matters to this tutorial...
         if emitter_type_name in type_to_trigger_map.keys():
             # It does - grab info about the trigger we should wire up, then make the connection
-            var trigger_info: TutorialTrigger = type_to_trigger_map[emitter_type_name]
-            emitter.connect(trigger_info.signal_name, trigger_info.trigger_callback)
+            for trigger_info in type_to_trigger_map[emitter_type_name]:
+                emitter.connect(trigger_info.signal_name, trigger_info.trigger_callback)
 
 func _on_trigger_received(trigger_name: String):
     # Check if the received trigger completes the current step: 

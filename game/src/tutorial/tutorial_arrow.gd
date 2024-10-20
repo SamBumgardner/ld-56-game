@@ -19,7 +19,7 @@ func _ready():
     bounce_tween.tween_method(_arrow_bounce, 1.0, 0.0, bounce_duration)
     bounce_tween.set_loops()
 
-func change_target(target_global_position: Vector2, arrow_rotation: float = 0.0,
+func change_target(target_position: Vector2, arrow_rotation: float = 0.0,
         skip_animation: bool = false):
     if target_tween != null and target_tween.is_valid():
         target_tween.kill()
@@ -27,7 +27,7 @@ func change_target(target_global_position: Vector2, arrow_rotation: float = 0.0,
     target_tween = create_tween()
     target_tween.set_ease(Tween.EASE_IN_OUT)
     target_tween.set_trans(Tween.TRANS_QUAD)
-    target_tween.tween_property(self, "global_position", target_global_position, focus_transition_duration)
+    target_tween.tween_property(self, "position", target_position, focus_transition_duration)
     target_tween.parallel()
     target_tween.tween_property(arrow, "rotation", arrow_rotation, focus_transition_duration)
 
