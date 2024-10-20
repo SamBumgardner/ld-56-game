@@ -1,10 +1,12 @@
-[gd_resource type="Resource" script_class="CharacterFactory" load_steps=21 format=3 uid="uid://bfkdaseurpvu6"]
+[gd_resource type="Resource" script_class="CharacterFactory" load_steps=23 format=3 uid="uid://bfkdaseurpvu6"]
 
 [ext_resource type="Texture2D" uid="uid://b4wr53ye568ee" path="res://assets/art/character_icons/002_character_icon.png" id="1_od287"]
 [ext_resource type="Texture2D" uid="uid://bic3i142epdt3" path="res://assets/art/placeholder_threat.png" id="2_0p57k"]
 [ext_resource type="Script" path="res://src/characters/CharacterFactory.gd" id="3_bro8q"]
 [ext_resource type="Script" path="res://src/characters/UpgradeSelector.gd" id="4_56nbu"]
+[ext_resource type="AudioStream" uid="uid://dapsavd7ixcra" path="res://assets/audio/203_hello_bird_randomizer.tres" id="4_w4413"]
 [ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="5_mx8hm"]
+[ext_resource type="AudioStream" uid="uid://xa72qxmdp4y7" path="res://assets/audio/guest_voice_lines/1136_war_cry.wav" id="5_s3cwi"]
 [ext_resource type="Resource" uid="uid://dd2eyls5luvmu" path="res://assets/data/upgrades/200_sniper/201_remove_wit_lowest_up1_high_wit.tres" id="6_0anps"]
 [ext_resource type="Resource" uid="uid://cyppst6j6svex" path="res://assets/data/upgrades/200_sniper/202_remove_wit_lowest_up2_might_chaos.tres" id="7_hkq5r"]
 [ext_resource type="Resource" uid="uid://bl13x03osex3j" path="res://assets/data/upgrades/200_sniper/203_remove_wit_lowest_up2_high_wit.tres" id="8_bt204"]
@@ -47,6 +49,8 @@ name = "Perch"
 description = "Vigilant. Careful. Quiet. There will be time for song when the work's done."
 portrait = ExtResource("2_0p57k")
 icon = ExtResource("1_od287")
+sfx_hello = ExtResource("4_w4413")
+sfx_upgrade_gained = ExtResource("5_s3cwi")
 starting_action_strings = Array[String](["wit_6", "wit_1", "wit_1", "wit_1", "wit_1", "might_1", "chaos_1"])
 upgrade_level = 0
 upgrades = Array[ExtResource("4_56nbu")]([SubResource("Resource_ju6b0"), SubResource("Resource_32wgt"), SubResource("Resource_axgh3"), SubResource("Resource_yiriu"), SubResource("Resource_wpv71")])

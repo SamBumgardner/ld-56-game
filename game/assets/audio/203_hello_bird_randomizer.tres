@@ -1,0 +1,9 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=3 format=3 uid="uid://dapsavd7ixcra"]
+
+[ext_resource type="AudioStream" uid="uid://y2cbmbd181kl" path="res://assets/audio/guest_voice_lines/1119_hello.wav" id="1_jh2vb"]
+[ext_resource type="AudioStream" uid="uid://dwsokq2esb7oo" path="res://assets/audio/guest_voice_lines/1135_yippee.wav" id="2_yib8h"]
+
+[resource]
+streams_count = 2
+stream_0/stream = ExtResource("1_jh2vb")
+stream_1/stream = ExtResource("2_yib8h")

@@ -1,10 +1,12 @@
-[gd_resource type="Resource" script_class="CharacterFactory" load_steps=21 format=3 uid="uid://1nhgxq12mwuo"]
+[gd_resource type="Resource" script_class="CharacterFactory" load_steps=23 format=3 uid="uid://1nhgxq12mwuo"]
 
 [ext_resource type="Texture2D" uid="uid://dbxuu6rqen0ed" path="res://assets/art/character_icons/001_character_icon.png" id="1_6bly4"]
 [ext_resource type="Texture2D" uid="uid://bic3i142epdt3" path="res://assets/art/placeholder_threat.png" id="2_1t750"]
 [ext_resource type="Script" path="res://src/characters/CharacterFactory.gd" id="3_tiyrw"]
 [ext_resource type="Script" path="res://src/characters/UpgradeSelector.gd" id="4_j1drq"]
+[ext_resource type="AudioStream" uid="uid://beulr5nj55o1i" path="res://assets/audio/guest_voice_lines/1104_hello.wav" id="4_y5ipu"]
 [ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="5_jpgdi"]
+[ext_resource type="AudioStream" uid="uid://1ri1v2g15yx8" path="res://assets/audio/guest_voice_lines/1144_catchphrase.wav" id="5_jv18h"]
 [ext_resource type="Resource" uid="uid://c84gaufp2j3hi" path="res://assets/data/upgrades/700_repair/701_up1_all.tres" id="6_qmxyu"]
 [ext_resource type="Resource" uid="uid://baexcdc02i8y8" path="res://assets/data/upgrades/700_repair/702_restorehealth_half.tres" id="7_sh88i"]
 [ext_resource type="Resource" uid="uid://bghapbmu0ekxa" path="res://assets/data/upgrades/700_repair/703_up1_all.tres" id="8_d2j5k"]
@@ -47,6 +49,8 @@ name = "Thistle"
 description = "A skilled survivalist, capable of supporting many even under harsh conditions."
 portrait = ExtResource("2_1t750")
 icon = ExtResource("1_6bly4")
+sfx_hello = ExtResource("4_y5ipu")
+sfx_upgrade_gained = ExtResource("5_jv18h")
 starting_action_strings = Array[String](["might_2", "wit_1"])
 upgrade_level = 0
 upgrades = Array[ExtResource("4_j1drq")]([SubResource("Resource_8vmh3"), SubResource("Resource_qjpoh"), SubResource("Resource_cho87"), SubResource("Resource_dvbu4"), SubResource("Resource_oyq3u")])

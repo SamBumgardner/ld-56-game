@@ -1,0 +1,9 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=3 format=3 uid="uid://7h7gmyut1xux"]
+
+[ext_resource type="AudioStream" uid="uid://dnvjk240uumya" path="res://assets/audio/guest_voice_lines/1163_mole_science_rocks.wav" id="1_wlpkt"]
+[ext_resource type="AudioStream" uid="uid://bma5ecxl8u3qq" path="res://assets/audio/guest_voice_lines/1164_mole_i_am_powerful.wav" id="2_miwke"]
+
+[resource]
+streams_count = 2
+stream_0/stream = ExtResource("1_wlpkt")
+stream_1/stream = ExtResource("2_miwke")

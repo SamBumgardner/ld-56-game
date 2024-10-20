@@ -1,10 +1,12 @@
-[gd_resource type="Resource" script_class="CharacterFactory" load_steps=21 format=3 uid="uid://duswkektwj6hb"]
+[gd_resource type="Resource" script_class="CharacterFactory" load_steps=23 format=3 uid="uid://duswkektwj6hb"]
 
 [ext_resource type="Texture2D" uid="uid://b4wr53ye568ee" path="res://assets/art/character_icons/002_character_icon.png" id="1_avar0"]
 [ext_resource type="Texture2D" uid="uid://bic3i142epdt3" path="res://assets/art/placeholder_threat.png" id="2_1khfy"]
 [ext_resource type="Script" path="res://src/characters/CharacterFactory.gd" id="3_ckivh"]
 [ext_resource type="Script" path="res://src/characters/UpgradeSelector.gd" id="4_bx1au"]
+[ext_resource type="AudioStream" uid="uid://3p8674txftc0" path="res://assets/audio/guest_voice_lines/1109_hello.wav" id="4_px0pd"]
 [ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="5_2eogc"]
+[ext_resource type="AudioStream" uid="uid://w0o3xkxvhnj" path="res://assets/audio/202_upgrade_frog_randomizer.tres" id="5_b288i"]
 [ext_resource type="Resource" uid="uid://d3kkwngqwxuum" path="res://assets/data/upgrades/800_basic/801_up1_wit.tres" id="6_s7u8b"]
 [ext_resource type="Resource" uid="uid://cmykcfnp2xcnc" path="res://assets/data/upgrades/800_basic/802_add_chaos2.tres" id="7_uoole"]
 [ext_resource type="Resource" uid="uid://cm1keskctlila" path="res://assets/data/upgrades/800_basic/803_up1_all.tres" id="8_w8slx"]
@@ -48,6 +50,8 @@ description = "Not much of an acrobat, but an excellent engineer.
  "
 portrait = ExtResource("2_1khfy")
 icon = ExtResource("1_avar0")
+sfx_hello = ExtResource("4_px0pd")
+sfx_upgrade_gained = ExtResource("5_b288i")
 starting_action_strings = Array[String](["wit_2", "wit_1", "chaos_1"])
 upgrade_level = 0
 upgrades = Array[ExtResource("4_bx1au")]([SubResource("Resource_8vmh3"), SubResource("Resource_dkaqe"), SubResource("Resource_r0juk"), SubResource("Resource_6clle"), SubResource("Resource_kfysa")])
