@@ -29,7 +29,7 @@ script = ExtResource("3_mkluk")
 offset = Vector2(640, 360)
 transform = Transform2D(1, 0, 0, 1, 640, 360)
 
-[node name="BattlefieldOutdoors" parent="OutdoorBattleMode" groups=["tutorial_triggers"] instance=ExtResource("2_35wcq")]
+[node name="BattlefieldOutdoors" parent="OutdoorBattleMode" instance=ExtResource("2_35wcq")]
 offset_left = -640.0
 offset_top = -360.0
 offset_right = -640.0
