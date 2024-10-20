@@ -42,7 +42,7 @@ func deep_copy() -> Character:
     var new_action_selector = ActionSelector.new(new_actions)
     
     var copy: Character = Character.new(name, description, portrait, icon, new_action_selector,
-        upgrade_level, upgrades, hiring_cost)
+        upgrade_level, upgrades, hiring_cost, sfx_hello)
     
     copy.upgrade_choice_history = upgrade_choice_history.duplicate()
 
