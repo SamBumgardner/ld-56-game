@@ -263,10 +263,6 @@ func _on_crew_actions_display_dice_visually_rolling_stop():
 func _on_indoor_preparation_insufficient_funds():
     SoundManager.play_ui_sound(sfx_notification_error, _bus_name_sfx_ui)
 
-# Reused by 2 scenes.
-func _on_upgrade_selection_locked_upgrade_clicked():
-    SoundManager.play_ui_sound(sfx_notification_error, _bus_name_sfx_ui)
-
 #endregion Notification
 
 
