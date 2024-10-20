@@ -1,0 +1,142 @@
+[gd_resource type="Resource" script_class="TutorialSequence" load_steps=14 format=3 uid="uid://dkcc2v5dc5kp0"]
+
+[ext_resource type="Script" path="res://src/tutorial/tutorial_sequence.gd" id="1_ua41n"]
+[ext_resource type="Script" path="res://src/tutorial/tutorial_step.gd" id="2_csx3k"]
+
+[sub_resource type="Resource" id="Resource_e7n5t"]
+script = ExtResource("2_csx3k")
+show_dialogue_box = true
+dialogue_position = Vector2(540, 140)
+title_text = "Introduction"
+body_text = "When you destroy a barrier, you gain money.
+
+Accrued coin can be spent to upgrade characters or hire new ones. 
+
+We will learn about both within this tutorial."
+show_continue_button = true
+show_arrow = false
+target_position = Vector2(0, 0)
+arrow_rotation = 0.0
+
+[sub_resource type="Resource" id="Resource_uxjbr"]
+script = ExtResource("2_csx3k")
+show_dialogue_box = true
+dialogue_position = Vector2(540, 140)
+title_text = "Gaining Money"
+body_text = "Before we start shopping, let's gather a bit more money. 
+
+Charge through three barriers, and notice how your wealth grows."
+show_continue_button = false
+show_arrow = true
+target_position = Vector2(860, 640)
+arrow_rotation = -0.785398
+
+[sub_resource type="Resource" id="Resource_hdlwt"]
+script = ExtResource("2_csx3k")
+show_dialogue_box = false
+dialogue_position = Vector2(0, 0)
+title_text = ""
+body_text = ""
+show_continue_button = false
+show_arrow = false
+target_position = Vector2(0, 0)
+arrow_rotation = 0.0
+
+[sub_resource type="Resource" id="Resource_40mks"]
+script = ExtResource("2_csx3k")
+show_dialogue_box = true
+dialogue_position = Vector2(540, 140)
+title_text = "Gaining Money"
+body_text = "Two more to go."
+show_continue_button = false
+show_arrow = true
+target_position = Vector2(860, 640)
+arrow_rotation = -0.785398
+
+[sub_resource type="Resource" id="Resource_c726s"]
+script = ExtResource("2_csx3k")
+show_dialogue_box = false
+dialogue_position = Vector2(0, 0)
+title_text = ""
+body_text = ""
+show_continue_button = false
+show_arrow = false
+target_position = Vector2(0, 0)
+arrow_rotation = 0.0
+
+[sub_resource type="Resource" id="Resource_8escp"]
+script = ExtResource("2_csx3k")
+show_dialogue_box = true
+dialogue_position = Vector2(540, 140)
+title_text = "Gaining Money"
+body_text = "Last one!"
+show_continue_button = false
+show_arrow = true
+target_position = Vector2(860, 640)
+arrow_rotation = -0.785398
+
+[sub_resource type="Resource" id="Resource_m5pev"]
+script = ExtResource("2_csx3k")
+show_dialogue_box = false
+dialogue_position = Vector2(0, 0)
+title_text = ""
+body_text = ""
+show_continue_button = false
+show_arrow = false
+target_position = Vector2(0, 0)
+arrow_rotation = 0.0
+
+[sub_resource type="Resource" id="Resource_vtnfm"]
+script = ExtResource("2_csx3k")
+show_dialogue_box = true
+dialogue_position = Vector2(540, 140)
+title_text = "Reviewing Money"
+body_text = "Good work.
+
+We can see that you have much more money now than when you started."
+show_continue_button = true
+show_arrow = true
+target_position = Vector2(135, 110)
+arrow_rotation = 2.35619
+
+[sub_resource type="Resource" id="Resource_th8id"]
+script = ExtResource("2_csx3k")
+show_dialogue_box = true
+dialogue_position = Vector2(540, 140)
+title_text = "Going Inside"
+body_text = "To spend it, we need to go inside the T.U.S.K.
+
+Click the button at the top of the screen to switch to the inside view."
+show_continue_button = false
+show_arrow = true
+target_position = Vector2(640, 50)
+arrow_rotation = 3.14159
+
+[sub_resource type="Resource" id="Resource_vlwfe"]
+script = ExtResource("2_csx3k")
+show_dialogue_box = false
+dialogue_position = Vector2(0, 0)
+title_text = ""
+body_text = ""
+show_continue_button = false
+show_arrow = false
+target_position = Vector2(0, 0)
+arrow_rotation = 0.0
+
+[sub_resource type="Resource" id="Resource_nylma"]
+script = ExtResource("2_csx3k")
+show_dialogue_box = true
+dialogue_position = Vector2(540, 140)
+title_text = "Return Inside"
+body_text = "Go back inside to continue the tutorial.
+
+Click the button at the top of the screen to switch to the inside view."
+show_continue_button = false
+show_arrow = true
+target_position = Vector2(640, 50)
+arrow_rotation = 3.14159
+
+[resource]
+script = ExtResource("1_ua41n")
+steps = Array[ExtResource("2_csx3k")]([SubResource("Resource_e7n5t"), SubResource("Resource_uxjbr"), SubResource("Resource_hdlwt"), SubResource("Resource_40mks"), SubResource("Resource_c726s"), SubResource("Resource_8escp"), SubResource("Resource_m5pev"), SubResource("Resource_vtnfm"), SubResource("Resource_th8id"), SubResource("Resource_vlwfe"), SubResource("Resource_nylma"), null, null, null, null, null, null, null, null, null])
+step_triggers = Array[String](["tutorial_continue", "charge_started", "charge_finished", "charge_started", "charge_finished", "charge_started", "charge_finished", "tutorial_continue", "go_inside", "go_outside", "never", "", "", "", "", "", "", "", "", ""])

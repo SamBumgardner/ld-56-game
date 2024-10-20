@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://c3pd20nshfgya"]
+
+[ext_resource type="PackedScene" uid="uid://1wye34y7qnhe" path="res://src/gameplay/Gameplay.tscn" id="1_taivy"]
+[ext_resource type="PackedScene" uid="uid://1c7jmqc6wkth" path="res://src/tutorial/tutorial.tscn" id="2_uo808"]
+[ext_resource type="Script" path="res://src/tutorial/tutorial_scenes/upgrades/tutorial_upgrades.gd" id="3_e8pst"]
+[ext_resource type="Resource" uid="uid://dkcc2v5dc5kp0" path="res://assets/data/tutorials/upgrades_tutorial_outdoors.tres" id="4_g8yno"]
+[ext_resource type="Resource" uid="uid://tvmkfw4abkf1" path="res://assets/data/tutorials/upgrades_tutorial_indoors.tres" id="5_4buam"]
+
+[node name="Gameplay" instance=ExtResource("1_taivy")]
+
+[node name="UpgradesTutorialOutdoors" parent="OutdoorBattleMode" index="2" instance=ExtResource("2_uo808")]
+visible = false
+z_index = 2
+offset_left = -640.0
+offset_top = -360.0
+offset_right = -1920.0
+offset_bottom = -1080.0
+script = ExtResource("3_e8pst")
+tutorial_sequence = ExtResource("4_g8yno")
+
+[node name="UpgradesTutorialIndoors" parent="IndoorPrepMode" index="1" instance=ExtResource("2_uo808")]
+visible = false
+z_index = 2
+offset_left = -640.0
+offset_top = -360.0
+offset_right = -1920.0
+offset_bottom = -1080.0
+script = ExtResource("3_e8pst")
+tutorial_sequence = ExtResource("5_4buam")

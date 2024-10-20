@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="TutorialSequence" load_steps=5 format=3 uid="uid://tvmkfw4abkf1"]
+
+[ext_resource type="Script" path="res://src/tutorial/tutorial_sequence.gd" id="1_sf8hp"]
+[ext_resource type="Script" path="res://src/tutorial/tutorial_step.gd" id="2_kxmi7"]
+
+[sub_resource type="Resource" id="Resource_e7n5t"]
+script = ExtResource("2_kxmi7")
+show_dialogue_box = false
+dialogue_position = Vector2(0, 0)
+title_text = ""
+body_text = ""
+show_continue_button = false
+show_arrow = false
+target_position = Vector2(0, 0)
+arrow_rotation = 0.0
+
+[sub_resource type="Resource" id="Resource_54ria"]
+script = ExtResource("2_kxmi7")
+show_dialogue_box = true
+dialogue_position = Vector2(0, 0)
+title_text = "Finally!"
+body_text = "We made it inside!"
+show_continue_button = true
+show_arrow = false
+target_position = Vector2(0, 0)
+arrow_rotation = 0.0
+
+[resource]
+script = ExtResource("1_sf8hp")
+steps = Array[ExtResource("2_kxmi7")]([SubResource("Resource_e7n5t"), SubResource("Resource_e7n5t"), SubResource("Resource_e7n5t"), SubResource("Resource_e7n5t"), SubResource("Resource_e7n5t"), SubResource("Resource_e7n5t"), SubResource("Resource_e7n5t"), SubResource("Resource_e7n5t"), SubResource("Resource_e7n5t"), SubResource("Resource_54ria"), null, null])
+step_triggers = Array[String](["tutorial_continue", "charge_started", "charge_finished", "charge_started", "charge_finished", "charge_started", "charge_finished", "tutorial_continue", "go_inside", "tutorial_continue", "", "", "", "", "", "", "", "", "", ""])
