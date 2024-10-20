@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://h1fowbxngb70" path="res://src/audio_manager/AudioManager.tscn" id="3_qsfcl"]
 [ext_resource type="PackedScene" uid="uid://dbs7sk334clc7" path="res://src/battlefield_outdoors/battlefield_outdoors_background/BattlefieldOutdoorsBackground.tscn" id="7_lpqhj"]
 
-[node name="BattlefieldOutdoors" type="Control"]
+[node name="BattlefieldOutdoors" type="Control" groups=["tutorial_triggers"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
