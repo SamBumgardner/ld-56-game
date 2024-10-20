@@ -1,0 +1,9 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=3 format=3 uid="uid://dhoqdso571q2t"]
+
+[ext_resource type="AudioStream" uid="uid://bn21dbuk2fewc" path="res://assets/audio/113_sfx_charge-crush.wav" id="1_1b07a"]
+[ext_resource type="AudioStream" uid="uid://14pmikmtfcfn" path="res://assets/audio/118_sfx_charge-crush.wav" id="2_a63gj"]
+
+[resource]
+streams_count = 2
+stream_0/stream = ExtResource("1_1b07a")
+stream_1/stream = ExtResource("2_a63gj")
