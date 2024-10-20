@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://h1fowbxngb70"]
+[gd_scene load_steps=16 format=3 uid="uid://h1fowbxngb70"]
 
 [ext_resource type="Script" path="res://src/audio_manager/audio_manager.gd" id="1_eh3tu"]
 [ext_resource type="AudioStream" uid="uid://cifq013w5q8uo" path="res://assets/audio/003_loop_music.ogg" id="2_n8me7"]
@@ -14,6 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://hjldvirp4bwt" path="res://assets/audio/110_sfx_woosh.wav" id="10_th1gx"]
 [ext_resource type="AudioStream" uid="uid://dr7oavvxatdmd" path="res://assets/audio/112_sfx_charge-forward.wav" id="12_6p66v"]
 [ext_resource type="AudioStream" uid="uid://dhoqdso571q2t" path="res://assets/audio/210_sfx_charge_crush_randomizer.tres" id="13_6f3bk"]
+[ext_resource type="AudioStream" uid="uid://dnw2ae6yxd8vt" path="res://assets/audio/119_sfx_charge-lose.wav" id="15_r2qlj"]
 
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_eh3tu")
@@ -30,3 +31,4 @@ sfx_transition_gameplay_indoors_to_outdoors = ExtResource("9_5njtl")
 sfx_transition_gameplay_outdoors_to_indoors = ExtResource("10_th1gx")
 sfx_war_transport_charge_crush = ExtResource("13_6f3bk")
 sfx_war_transport_charge_forward = ExtResource("12_6p66v")
+sfx_war_transport_charge_lose = ExtResource("15_r2qlj")

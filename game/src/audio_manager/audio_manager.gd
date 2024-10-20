@@ -15,6 +15,7 @@ class_name AudioManager extends Node
 @export var sfx_transition_gameplay_outdoors_to_indoors: AudioStream
 @export var sfx_war_transport_charge_crush: AudioStream
 @export var sfx_war_transport_charge_forward: AudioStream
+@export var sfx_war_transport_charge_lose: AudioStream
 
 
 const _bus_name_music = 'Music'
@@ -309,5 +310,8 @@ func _on_battlefield_outdoors_charge_warmup(_duration):
         _charge_audio_crossfade,
         _bus_name_sfx_ui
     )
+
+func _on_battlefield_outdoors_health_empty():
+    SoundManager.play_ui_sound(sfx_war_transport_charge_lose, _bus_name_sfx_ui)
 
 #endregion War transport charge
