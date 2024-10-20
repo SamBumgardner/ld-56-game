@@ -189,12 +189,7 @@ func _on_to_main_menu_pressed():
 
 #region Character upgrade
 
-func _on_crew_member_detail_upgrade_purchase_pressed(
-    character: Character,
-    _upgrade_choice: UpgradeChoice,
-    _level_idx: int,
-    _choice_idx: int
-):
+func _on_indoor_preparation_upgrade_success(character):
     if character.sfx_upgrade_gained == null:
         SoundManager.play_ui_sound(sfx_button_click, _bus_name_sfx_ui)
         return
