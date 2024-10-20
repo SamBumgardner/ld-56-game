@@ -106,7 +106,7 @@ dialogue_position = Vector2(340, 90)
 title_text = "Finished!"
 body_text = "Those are the absolute basics. 
 
-Check out the next tutorial for information about crew members, actions, and \"re-rolling\" for success!"
+Check out the next tutorial for more information about crew members and actions!"
 show_continue_button = true
 show_arrow = false
 target_position = Vector2(0, 0)

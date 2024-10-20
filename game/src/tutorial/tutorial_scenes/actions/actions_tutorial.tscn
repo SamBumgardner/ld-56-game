@@ -8,6 +8,9 @@
 [node name="Gameplay" instance=ExtResource("1_0uait")]
 
 [node name="Tutorial" parent="OutdoorBattleMode" index="2" instance=ExtResource("2_xjamu")]
+visible = false
+z_index = 2
+z_as_relative = false
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
