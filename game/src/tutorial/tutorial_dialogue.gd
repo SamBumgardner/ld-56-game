@@ -1,10 +1,10 @@
 class_name TutorialDialogue extends PanelContainer
 
 @onready var header: Label = $MarginContainer/VBoxContainer/HeaderContainer/PanelContainer/MarginContainer/Header
-@onready var body: RichTextLabel = $MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/BodyContainer/MarginContainer/Body
+@onready var body: RichTextLabel = $MarginContainer/VBoxContainer/BodyContainer/PanelContainer/MarginContainer/Body
 @onready var body_container: Container = $MarginContainer/VBoxContainer/BodyContainer
 @onready var minimize_button: Button = $MarginContainer/VBoxContainer/HeaderContainer/MinimizeButton
-@onready var continue_button: Button = $MarginContainer/MarginContainer/VBoxContainer/ContinueButton
+@onready var continue_button: Button = $MarginContainer/VBoxContainer/BodyContainer/ContinueButton
 
 func _ready():
     minimize_button.pressed.connect(_toggle_body)
