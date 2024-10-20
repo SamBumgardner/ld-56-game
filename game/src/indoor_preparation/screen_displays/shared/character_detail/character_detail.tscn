@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://d0wnwi5rcyku"]
+[gd_scene load_steps=12 format=3 uid="uid://d0wnwi5rcyku"]
 
 [ext_resource type="Theme" uid="uid://dmwrgmv8lathf" path="res://assets/themes/ScreenTheme.tres" id="1_te1yn"]
 [ext_resource type="Texture2D" uid="uid://bic3i142epdt3" path="res://assets/art/placeholder_threat.png" id="2_doqwf"]
 [ext_resource type="Script" path="res://src/indoor_preparation/screen_displays/shared/character_detail/character_detail.gd" id="2_tnvk2"]
+[ext_resource type="PackedScene" uid="uid://h1fowbxngb70" path="res://src/audio_manager/AudioManager.tscn" id="3_c53rq"]
 [ext_resource type="Texture2D" uid="uid://c812lqrvhyq01" path="res://assets/art/ATTACK_icon_64x64.png" id="3_cs4wt"]
 [ext_resource type="Script" path="res://src/indoor_preparation/screen_displays/shared/character_detail/character_detail_summary.gd" id="3_q3ltp"]
 [ext_resource type="Texture2D" uid="uid://r7a1wa1ifq57" path="res://assets/art/placeholder_close_button.png" id="4_vii54"]
@@ -20,6 +21,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_te1yn")
 script = ExtResource("2_tnvk2")
+
+[node name="AudioManager" parent="." instance=ExtResource("3_c53rq")]
 
 [node name="BasicSummary" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -185,3 +188,5 @@ anchors_preset = -1
 anchor_left = 0.3
 anchor_right = 0.3
 text = "For Hire:"
+
+[connection signal="locked_upgrade_clicked" from="UpgradeSelection" to="AudioManager" method="_on_upgrade_selection_locked_upgrade_clicked"]

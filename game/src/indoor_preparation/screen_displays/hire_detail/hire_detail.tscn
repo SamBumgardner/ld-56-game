@@ -13,5 +13,6 @@ script = ExtResource("2_dyr55")
 [node name="HirePrompt" parent="IconAndCost" index="1" instance=ExtResource("2_36qio")]
 layout_mode = 2
 
+[connection signal="locked_upgrade_clicked" from="UpgradeSelection" to="AudioManager" method="_on_upgrade_selection_locked_upgrade_clicked"]
 [connection signal="mouse_entered" from="ExitButton" to="AudioManager" method="_on_hire_detail_exit_button_mouse_entered"]
 [connection signal="pressed" from="ExitButton" to="AudioManager" method="_on_hire_detail_exit_button_pressed"]
