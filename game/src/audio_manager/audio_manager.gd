@@ -205,7 +205,10 @@ func _on_crew_member_detail_upgrade_purchase_pressed(
 
 
 #region Character select
-# Selecting a character is treated like a menu navigation SFX for simplicity.
+
+# Include a click SFX whether or not a character specific SFX is also played.
+func _on_character_action_display_character_selected(_character, _button_end_state):
+    SoundManager.play_ui_sound(sfx_button_click, _bus_name_sfx_ui)
 
 func _on_crew_button_crew_member_selected(character: Character):
     if character.sfx_hello == null:
@@ -215,10 +218,6 @@ func _on_crew_button_crew_member_selected(character: Character):
     SoundManager.play_ui_sound(character.sfx_hello, _bus_name_sfx_ui)
 
 func _on_crew_selector_button_character_selected(_character, _button_end_state):
-    SoundManager.play_ui_sound(sfx_button_click, _bus_name_sfx_ui)
-
-# Include a click SFX whether or not a character specific SFX is also played.
-func _on_character_action_display_character_selected(_character, _button_end_state):
     SoundManager.play_ui_sound(sfx_button_click, _bus_name_sfx_ui)
 
 #endregion
