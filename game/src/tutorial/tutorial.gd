@@ -19,7 +19,7 @@ func _ready():
     var trigger_emitters: Array = get_tree().get_nodes_in_group(TRIGGER_NODE_GROUP)
     # call 
     _connect_trigger_events(trigger_emitters)
-    tutorial_sequence.steps[0].execute_step(tutorial_dialogue, tutorial_arrow)
+    tutorial_sequence.steps[0].execute_step(tutorial_dialogue, tutorial_arrow, true)
 
 func _connect_trigger_events(trigger_emitters: Array) -> void:
     for emitter in trigger_emitters:
