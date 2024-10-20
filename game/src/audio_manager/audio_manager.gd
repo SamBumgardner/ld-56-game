@@ -10,6 +10,7 @@ class_name AudioManager extends Node
 @export var sfx_die_lock: AudioStream
 @export var sfx_indoors_enter_a_menu: AudioStream
 @export var sfx_indoors_exit_a_menu: AudioStream
+@export var sfx_notification_error: AudioStream
 @export var sfx_transition_gameplay_indoors_to_outdoors: AudioStream
 @export var sfx_transition_gameplay_outdoors_to_indoors: AudioStream
 @export var sfx_war_transport_charge_crush: AudioStream
@@ -241,6 +242,14 @@ func _on_crew_actions_display_dice_visually_rolling_stop():
     SoundManager.stop_ambient_sound(sfx_dice_shake, _reroll_audio_crossfade)
 
 #endregion Dice reroll hovering
+
+
+#region Notification
+
+func _on_indoor_preparation_upgrade_failure(character, reason):
+    SoundManager.play_ui_sound(sfx_notification_error, _bus_name_sfx_ui)
+
+#endregion Notification
 
 
 #region Scene arrival
