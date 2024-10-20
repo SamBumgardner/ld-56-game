@@ -15,7 +15,7 @@ func execute_step(tutorial_dialogue: TutorialDialogue, tutorial_arrow: TutorialA
         show_continue_button)
     
     if show_arrow:
+        tutorial_arrow.change_target(target_position, arrow_rotation, skip_animation or not tutorial_arrow.visible)
         tutorial_arrow.show()
-        tutorial_arrow.change_target(target_position, arrow_rotation, skip_animation)
     else:
         tutorial_arrow.hide()

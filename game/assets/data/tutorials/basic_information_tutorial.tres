@@ -44,7 +44,7 @@ title_text = "Attacking"
 body_text = "To destroy the barrier in front of you, the T.U.S.K. must charge through.
 
 Press \"Charge!\" button now."
-show_continue_button = true
+show_continue_button = false
 show_arrow = true
 target_position = Vector2(905, 635)
 arrow_rotation = 0.0
@@ -54,7 +54,7 @@ script = ExtResource("2_elw1t")
 dialogue_position = Vector2(0, 0)
 title_text = "Waiting"
 body_text = "We'll wait over here for it to finish."
-show_continue_button = true
+show_continue_button = false
 show_arrow = false
 target_position = Vector2(0, 0)
 arrow_rotation = 0.0
@@ -106,4 +106,4 @@ arrow_rotation = 0.0
 [resource]
 script = ExtResource("1_x1kro")
 steps = Array[ExtResource("2_elw1t")]([SubResource("Resource_umt84"), SubResource("Resource_n4o4i"), SubResource("Resource_4r58v"), SubResource("Resource_ie75k"), SubResource("Resource_ls1cy"), SubResource("Resource_dx62m"), SubResource("Resource_mf80o"), SubResource("Resource_ti620"), SubResource("Resource_lov8q")])
-step_triggers = Array[String](["tutorial_continue", "tutorial_continue", "tutorial_continue", "tutorial_continue", "tutorial_continue", "tutorial_continue", "tutorial_continue", "tutorial_continue", "tutorial_continue"])
+step_triggers = Array[String](["tutorial_continue", "tutorial_continue", "tutorial_continue", "charge_started", "charge_finished", "tutorial_continue", "tutorial_continue", "tutorial_continue", "tutorial_continue"])
