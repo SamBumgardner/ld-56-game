@@ -48,7 +48,6 @@ func _ready() -> void:
 func _connect_hud_charge_events() -> void:
     charge_start.connect(battlefield_outdoors_hud._on_charge_start)
     charge_warmup.connect(battlefield_outdoors_hud._on_charge_warmup)
-    charge_action.connect(battlefield_outdoors_hud._on_charge_action)
     charge_impact.connect(battlefield_outdoors_hud._on_charge_impact)
     charge_cooldown.connect(battlefield_outdoors_hud._on_charge_cooldown)
     charge_finish.connect(battlefield_outdoors_hud._on_charge_finish)
@@ -58,7 +57,7 @@ func transition_in() -> void:
     battlefield_outdoors_hud.crew_member_selector.refresh()
     battlefield_outdoors_hud.refresh_calculations()
     battlefield_outdoors_hud.character_info_panel.display_character(null)
-    battlefield_outdoors_hud._enable_interaction()
+    battlefield_outdoors_hud._enable_interaction(true)
 
 func transition_out() -> void:
     battlefield_outdoors_hud._disable_interaction()
@@ -282,5 +281,17 @@ func _on_new_applicants_arrived() -> void:
         ApplicantOrchestrator.NEW_APPLICANTS_DURATION,
     )
 
-func _on_region_changed(new_region: Region) -> void:
+func _on_region_changed(_new_region: Region, segment_info: ScenarioSegment) -> void:
+    Database.set_war_transport_health_current(Database.war_transport_health_current + segment_info.arrival_bonus_heal)
+
+    var base_value: float = Database.current_region_starting_barrier_strength
+    var barrier_count: int = Database.barrier_count_in_this_region
+    var scale_amount: float = Database.barriers_linear_scale_amount
+
+    var new_starting_strength = base_value + barrier_count * scale_amount - segment_info.arrival_bonus_barrier_reduction
+
+    Database.set_current_region_starting_barrier_strength(new_starting_strength)
+    Database.set_barrier_count_in_this_region(0)
+    Database.set_barriers_linear_scale_amount(_new_region.barrier_linear_scaling_amount)
+
     checkpoint_reached = true

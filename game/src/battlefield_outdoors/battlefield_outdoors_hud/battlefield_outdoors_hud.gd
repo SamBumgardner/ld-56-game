@@ -3,7 +3,9 @@ class_name BattlefieldOutdoorsHud extends Control
 signal initiate_charge_requested
 signal dice_roll_requested
 
-const NEW_REGION_MESSAGE_FORMAT = "New region reached: %s\n\nRegional Modifiers:\n%s"
+const NEW_REGION_MESSAGE_FORMAT_HEADER = "New region reached: %s"
+const NEW_REGION_MESSAGE_FORMAT_HEAL = "[color=cyan]Repaired %s health![/color]"
+const NEW_REGION_MESSAGE_FORMAT_ADDITIONAL_INFO = "\nRegional Modifiers:\n%s"
 const NEW_REGION_DURATION = 20
 
 const REROLL_FAIL_MESSAGE = "Failed to shuffle unlocked actions.\nReason: INSUFFICIENT_FUEL"
@@ -120,10 +122,16 @@ func _set_health_text(new_health: int, _old_health: int = 0) -> void:
     health_current.text = str(new_health)
     health_maximum.text = str(Database.war_transport_health_maximum)
 
-func _on_region_changed(new_region: Region) -> void:
+func _on_region_changed(new_region: Region, segment_info: ScenarioSegment) -> void:
+    var stringbuilder: PackedStringArray = []
+    stringbuilder.append(NEW_REGION_MESSAGE_FORMAT_HEADER % new_region.region_name)
+    if segment_info.arrival_bonus_heal != 0:
+        stringbuilder.append(NEW_REGION_MESSAGE_FORMAT_HEAL % segment_info.arrival_bonus_heal)
+    stringbuilder.append(NEW_REGION_MESSAGE_FORMAT_ADDITIONAL_INFO % new_region.gameplay_description)
+
     screen_notification.queue_notification(
         ScreenNotification.ScreenNotificationType.NOTIFY,
-        NEW_REGION_MESSAGE_FORMAT % [new_region.region_name, new_region.gameplay_description],
+        "\n".join(stringbuilder),
         NEW_REGION_DURATION
     )
 
@@ -181,18 +189,23 @@ func _charge_mode_fadein(duration: float) -> void:
         var fadein_tween: Tween = create_tween()
         fadein_tween.tween_callback(target.show)
         fadein_tween.tween_property(target, "modulate", Color.WHITE, duration)
+    
+    # hide total power display so it doesn't show while the new values are getting rolled
+    total_power_display.hide_total_value()
 
-func _enable_interaction() -> void:
+func _enable_interaction(skip_delay: bool = false) -> void:
     # delay added here to account for auto die roll
     create_tween() \
         .tween_callback(reroll_button._set_disabled.bind(false)) \
-        .set_delay(reroll_button.reroll_cooldown)
+        .set_delay(0.0 if skip_delay else reroll_button.reroll_cooldown)
     
     # delay added here to let the transport get closer to start position
     create_tween() \
         .tween_callback(func(): charge_button.disabled = false) \
-        .set_delay(reroll_button.reroll_cooldown)
+        .set_delay(0.0 if skip_delay else reroll_button.reroll_cooldown)
     
+    
+    total_power_display.show_total_value()
     go_inside_button.disabled = false
     # fade in hud, more quickly this time
     crew_actions_display.enable_all()
@@ -216,20 +229,14 @@ func _on_charge_start() -> void:
     increase_resource_update_delay()
 
 func _on_charge_warmup(duration: float) -> void:
-    print("HUD charge warmup", duration)
     _charge_mode_fadeout(duration)
 
-func _on_charge_action(duration: float) -> void:
-    print("HUD charge action", duration)
 
 func _on_charge_impact(duration: float) -> void:
-    print("HUD charge impact", duration)
     combat_results_summary.display_combat_results()
-    # health reduced
 
 func _on_charge_cooldown(duration: float) -> void:
     print("HUD charge cooldown", duration)
-    # trigger refreshes & information updates
     _charge_mode_fadein(duration)
 
 func _on_charge_finish() -> void:

@@ -129,6 +129,7 @@ func _on_hiring_failure(character: Character, reason: String) -> void:
 
 func _on_upgrade_success(character: Character):
     character_detail_display.refresh_upgrade_view()
+    home_display.refresh_crew_info()
     notification_dimmer.show()
     screen_notification.display_notification(
         ScreenNotification.ScreenNotificationType.NOTIFY,

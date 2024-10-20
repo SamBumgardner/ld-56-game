@@ -2,7 +2,7 @@
 extends Node
 
 signal distance_remaining_changed(new_value: int, old_value: int)
-signal region_changed(new_region: Region)
+signal region_changed(new_region: Region, segment_info: ScenarioSegment)
 signal health_changed(new_value: int, old_value: int)
 signal money_changed(new_value: int, old_value: int)
 signal fuel_changed(new_value: int, old_value: int)
@@ -340,7 +340,7 @@ func set_current_distance_remaining(updated_distance: int) -> void:
 
     var new_region: Region = current_region
     if old_region != new_region:
-        region_changed.emit(new_region)
+        region_changed.emit(new_region, scenario.get_current_segment(distance_traveled))
 
 func set_barriers_overcome_count(updated_count: int) -> void:
     barriers_overcome_count = updated_count

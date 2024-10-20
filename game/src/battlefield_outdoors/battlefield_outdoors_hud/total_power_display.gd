@@ -17,5 +17,11 @@ func _calculate_total_power() -> int:
         Database.current_matching_stat_type_multiplier
     )
 
+func hide_total_value():
+    total_value_label.hide()
+
+func show_total_value():
+    total_value_label.show()
+
 func _on_barrier_changed(_new_barrier: BarrierData):
     refresh()
