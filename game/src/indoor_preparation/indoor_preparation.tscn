@@ -304,6 +304,7 @@ layout_mode = 2
 [node name="FuelDisplay" parent="VBoxContainer" instance=ExtResource("26_fgbkb")]
 layout_mode = 2
 
+[connection signal="hiring_failure" from="." to="AudioManager" method="_on_indoor_preparation_hiring_failure"]
 [connection signal="upgrade_failure" from="." to="AudioManager" method="_on_indoor_preparation_upgrade_failure"]
 [connection signal="upgrade_success" from="." to="AudioManager" method="_on_indoor_preparation_upgrade_success"]
 [connection signal="mouse_entered" from="GoOutsideButton" to="AudioManager" method="_on_go_outside_button_mouse_entered"]
