@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="CharacterFactory" load_steps=23 format=3 uid="uid://bfkdaseurpvu6"]
 
-[ext_resource type="Texture2D" uid="uid://b4wr53ye568ee" path="res://assets/art/character_icons/002_character_icon.png" id="1_od287"]
-[ext_resource type="Texture2D" uid="uid://bic3i142epdt3" path="res://assets/art/placeholder_threat.png" id="2_0p57k"]
+[ext_resource type="Texture2D" uid="uid://dw5muvugl1p08" path="res://assets/art/character_icons/bird_small.png" id="1_5xnob"]
+[ext_resource type="Texture2D" uid="uid://jnfygufv6iqt" path="res://assets/art/character_portraits/bird_portrait.png" id="2_64jf5"]
 [ext_resource type="Script" path="res://src/characters/CharacterFactory.gd" id="3_bro8q"]
 [ext_resource type="Script" path="res://src/characters/UpgradeSelector.gd" id="4_56nbu"]
 [ext_resource type="AudioStream" path="res://assets/audio/203_hello_bird_randomizer.tres" id="4_w4413"]
@@ -47,8 +47,8 @@ price = 0
 script = ExtResource("3_bro8q")
 name = "Perch"
 description = "Vigilant. Careful. Quiet. There will be time for song when the work's done."
-portrait = ExtResource("2_0p57k")
-icon = ExtResource("1_od287")
+portrait = ExtResource("2_64jf5")
+icon = ExtResource("1_5xnob")
 sfx_hello = ExtResource("4_w4413")
 sfx_upgrade_gained = ExtResource("5_s3cwi")
 starting_action_strings = Array[String](["wit_6", "wit_1", "wit_1", "wit_1", "wit_1", "might_1", "chaos_1"])

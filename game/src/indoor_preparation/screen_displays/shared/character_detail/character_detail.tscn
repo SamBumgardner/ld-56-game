@@ -163,8 +163,8 @@ theme_override_constants/separation = 25
 
 [node name="CharacterIcon" type="TextureRect" parent="IconAndCost"]
 layout_mode = 2
-size_flags_horizontal = 4
 texture = ExtResource("3_cs4wt")
+expand_mode = 5
 stretch_mode = 4
 
 [node name="ExitButton" type="Button" parent="."]
