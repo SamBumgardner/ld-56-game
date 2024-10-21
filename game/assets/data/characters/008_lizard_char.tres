@@ -46,6 +46,7 @@ price = 0
 [resource]
 script = ExtResource("3_h3rq5")
 name = "Scratch"
+job_name = "Gunslinger"
 description = "The youngest scion of a famed family of gunslingers. Willing to face any challenge to prove his worth."
 portrait = ExtResource("2_f2ol6")
 icon = ExtResource("1_kpmar")

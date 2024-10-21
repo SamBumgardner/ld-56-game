@@ -46,6 +46,7 @@ price = 0
 [resource]
 script = ExtResource("3_osxgm")
 name = "Venom"
+job_name = "Trickshot"
 description = "Fearless to a fault, never hesitates to try something new -- permanently banned from cooking duty."
 portrait = ExtResource("2_1xnen")
 icon = ExtResource("1_seljt")

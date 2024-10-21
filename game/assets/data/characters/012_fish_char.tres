@@ -45,6 +45,7 @@ price = 0
 [resource]
 script = ExtResource("3_vhn86")
 name = "Karma"
+job_name = "Mechanic"
 description = "Chased from his home by water-thieves, he has a score to settle and a home to reclaim."
 portrait = ExtResource("2_vu2iy")
 icon = ExtResource("1_bbogw")

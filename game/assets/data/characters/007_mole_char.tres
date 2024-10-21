@@ -46,6 +46,7 @@ price = 0
 [resource]
 script = ExtResource("3_11mk3")
 name = "Goggles"
+job_name = "Demolitions Expert"
 description = "He's a bit unhinged, but there's no denying that his brand of chaos creates opportunities."
 portrait = ExtResource("2_wnwcm")
 icon = ExtResource("1_6vk5p")
