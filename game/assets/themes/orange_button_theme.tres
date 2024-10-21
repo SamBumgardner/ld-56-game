@@ -1,0 +1,33 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://cuo13c0h558v6"]
+
+[ext_resource type="StyleBox" uid="uid://dev07bl2pt8w8" path="res://assets/themes/style_boxes/orange_button_normal.tres" id="1_8wgm6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iah3l"]
+bg_color = Color(0.63, 0.378, 0, 0.596078)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pp6a7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g3i2m"]
+bg_color = Color(1, 0.616667, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkxgo"]
+bg_color = Color(0.79, 0.487167, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[resource]
+Button/styles/disabled = SubResource("StyleBoxFlat_iah3l")
+Button/styles/focus = SubResource("StyleBoxEmpty_pp6a7")
+Button/styles/hover = SubResource("StyleBoxFlat_g3i2m")
+Button/styles/normal = ExtResource("1_8wgm6")
+Button/styles/pressed = SubResource("StyleBoxFlat_qkxgo")
