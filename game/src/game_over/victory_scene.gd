@@ -18,6 +18,6 @@ func _on_show_background_button_pressed() -> void:
 
     self_modulate = Color(.4, .4, .4) if stats_displayed else Color.WHITE
     var background_button: Button = $ToggleBackgroundButton
-    background_button.modulate = Color(1, 1, 1, .25)
+    background_button.modulate = Color.WHITE if stats_displayed else Color(1, 1, 1, .25)
 
     background_button.text = "Show Background" if stats_displayed else "Show Stats"

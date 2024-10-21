@@ -39,4 +39,5 @@ offset_bottom = -50.0
 grow_vertical = 0
 text = "Show Background"
 
+[connection signal="ready" from="." to="AudioManager" method="_on_victory_scene_ready"]
 [connection signal="pressed" from="ToggleBackgroundButton" to="." method="_on_show_background_button_pressed"]

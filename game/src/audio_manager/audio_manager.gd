@@ -65,14 +65,17 @@ func on_toggle_freeze():
 
 # After leaving the start menu, start playing the background music.
 # Call it while music is already playing to go to the next song.
-func _start_background_music(force_next: bool = false):
+func _start_background_music(force_next: bool = false, fade_override: float = 0):
     var fade_duration: float = 0.0
     var current_music_index: int = Database.current_background_music_index
     
     if SoundManager.is_music_playing() or force_next:
         current_music_index = (current_music_index + 1) % background_music_queue.size()
         fade_duration = _background_audio_crossfade
-        
+    
+    if fade_override != 0:
+        fade_duration = fade_override
+
     var next_track: AudioStream = background_music_queue[current_music_index]
 
     SoundManager.play_music(next_track, fade_duration)
@@ -363,5 +366,21 @@ func _on_battlefield_outdoors_milestone_achieved() -> void:
     fanfare_sequence_tween.tween_interval(max(sfx_little_fanfare.get_length() - _background_audio_crossfade / 2, 0))
     fanfare_sequence_tween.tween_callback(_start_background_music.bind(true))
 
+
+func _on_battlefield_outdoors_victory(_duration: float) -> void:
+    const fadeout_before_fanfare_duration: float = .5
+
+    var victory_sequence_tween: Tween = create_tween()
+    victory_sequence_tween.tween_callback(SoundManager.stop_music.bind(fadeout_before_fanfare_duration))
+    victory_sequence_tween.tween_interval(fadeout_before_fanfare_duration)
+    victory_sequence_tween.tween_callback(_play_final_fanfare)
+
+    # the credits screen will take care of playing music again when it's loaded.
+
+func _on_victory_scene_ready() -> void:
+    const play_next_track: bool = true
+    const victory_fade_in_duration: float = 5.0
+
+    _start_background_music(play_next_track, victory_fade_in_duration)
 
 #endregion
