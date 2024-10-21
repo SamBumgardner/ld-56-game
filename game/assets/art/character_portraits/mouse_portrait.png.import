@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1wnk46yb77q"
-path="res://.godot/imported/lizard_portrait.jpg-c84f4fa92c65bf8d02da43964e669689.ctex"
+uid="uid://bjdmvumymjxuw"
+path="res://.godot/imported/mouse_portrait.png-97f12b1c27a8460914fe4d542b91ff03.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/character_portraits/lizard_portrait.jpg"
-dest_files=["res://.godot/imported/lizard_portrait.jpg-c84f4fa92c65bf8d02da43964e669689.ctex"]
+source_file="res://assets/art/character_portraits/mouse_portrait.png"
+dest_files=["res://.godot/imported/mouse_portrait.png-97f12b1c27a8460914fe4d542b91ff03.ctex"]
 
 [params]
 

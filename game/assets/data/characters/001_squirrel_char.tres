@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="CharacterFactory" load_steps=23 format=3 uid="uid://cghmtnhtq1aeh"]
 
 [ext_resource type="Texture2D" uid="uid://cm4kq6uthoq7x" path="res://assets/art/character_icons/squirrel_small.png" id="1_cuaet"]
-[ext_resource type="Texture2D" uid="uid://c5713b2cmvc1e" path="res://assets/art/character_portraits/squirrel_portrait.jpg" id="2_cg48i"]
+[ext_resource type="Texture2D" uid="uid://bu60r2ij4s4ht" path="res://assets/art/character_portraits/squirrel_portrait.png" id="2_kikr5"]
 [ext_resource type="Script" path="res://src/characters/CharacterFactory.gd" id="3_q6l7y"]
 [ext_resource type="AudioStream" uid="uid://5e3a8hurn674" path="res://assets/audio/character_voice_lines/1147_hello.wav" id="4_44alo"]
 [ext_resource type="Script" path="res://src/characters/UpgradeSelector.gd" id="4_yalqq"]
@@ -47,7 +47,7 @@ price = 0
 script = ExtResource("3_q6l7y")
 name = "Mint"
 description = "A drifter with a name from greener times. An explorer first, they chase the thrill of discovering new frontiers."
-portrait = ExtResource("2_cg48i")
+portrait = ExtResource("2_kikr5")
 icon = ExtResource("1_cuaet")
 sfx_hello = ExtResource("4_44alo")
 sfx_upgrade_gained = ExtResource("5_i86ot")

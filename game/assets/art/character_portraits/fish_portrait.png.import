@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d006usg1yabij"
-path="res://.godot/imported/raccoon_portrait.jpg-a7a528e8d26ab7183c5ad279f8cc5a9c.ctex"
+uid="uid://dukti5u37rr3o"
+path="res://.godot/imported/fish_portrait.png-386aebde360ea76d3e96a0a33f40f8e2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/character_portraits/raccoon_portrait.jpg"
-dest_files=["res://.godot/imported/raccoon_portrait.jpg-a7a528e8d26ab7183c5ad279f8cc5a9c.ctex"]
+source_file="res://assets/art/character_portraits/fish_portrait.png"
+dest_files=["res://.godot/imported/fish_portrait.png-386aebde360ea76d3e96a0a33f40f8e2.ctex"]
 
 [params]
 

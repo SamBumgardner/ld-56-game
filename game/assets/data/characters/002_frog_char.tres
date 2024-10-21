@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="CharacterFactory" load_steps=23 format=3 uid="uid://duswkektwj6hb"]
 
 [ext_resource type="Texture2D" uid="uid://m3rgk10221x8" path="res://assets/art/character_icons/frog_small.png" id="1_8ciqa"]
-[ext_resource type="Texture2D" uid="uid://bwa4m0r1eajr2" path="res://assets/art/character_portraits/frog_portrait.jpg" id="2_i0qjp"]
+[ext_resource type="Texture2D" uid="uid://v30istbpxkmf" path="res://assets/art/character_portraits/frog_portrait.png" id="2_tg2sd"]
 [ext_resource type="Script" path="res://src/characters/CharacterFactory.gd" id="3_ckivh"]
 [ext_resource type="Script" path="res://src/characters/UpgradeSelector.gd" id="4_bx1au"]
 [ext_resource type="AudioStream" uid="uid://3p8674txftc0" path="res://assets/audio/character_voice_lines/1109_hello.wav" id="4_px0pd"]
@@ -48,7 +48,7 @@ script = ExtResource("3_ckivh")
 name = "Tumble"
 description = "Not much of an acrobat, but an excellent engineer.
  "
-portrait = ExtResource("2_i0qjp")
+portrait = ExtResource("2_tg2sd")
 icon = ExtResource("1_8ciqa")
 sfx_hello = ExtResource("4_px0pd")
 sfx_upgrade_gained = ExtResource("5_b288i")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5713b2cmvc1e"
-path="res://.godot/imported/squirrel_portrait.jpg-12ff63acd16f53103a2f880afa40c0d9.ctex"
+uid="uid://btq340p6pb3lu"
+path="res://.godot/imported/mantis_portrait.png-e66caa495b88ae8e23f1d5aa25efc3a2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/character_portraits/squirrel_portrait.jpg"
-dest_files=["res://.godot/imported/squirrel_portrait.jpg-12ff63acd16f53103a2f880afa40c0d9.ctex"]
+source_file="res://assets/art/character_portraits/mantis_portrait.png"
+dest_files=["res://.godot/imported/mantis_portrait.png-e66caa495b88ae8e23f1d5aa25efc3a2.ctex"]
 
 [params]
 

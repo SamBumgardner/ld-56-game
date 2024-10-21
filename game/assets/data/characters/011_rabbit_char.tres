@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="CharacterFactory" load_steps=23 format=3 uid="uid://1nhgxq12mwuo"]
 
 [ext_resource type="Texture2D" uid="uid://cdeabqqch8pkv" path="res://assets/art/character_icons/rabbit_small.png" id="1_aknx8"]
-[ext_resource type="Texture2D" uid="uid://cietaidy781oq" path="res://assets/art/character_portraits/rabbit_portrait.jpg" id="2_m15we"]
+[ext_resource type="Texture2D" uid="uid://cm15m4lcuy22h" path="res://assets/art/character_portraits/rabbit_portrait.png" id="2_erovx"]
 [ext_resource type="Script" path="res://src/characters/CharacterFactory.gd" id="3_tiyrw"]
 [ext_resource type="Script" path="res://src/characters/UpgradeSelector.gd" id="4_j1drq"]
 [ext_resource type="AudioStream" uid="uid://beulr5nj55o1i" path="res://assets/audio/character_voice_lines/1104_hello.wav" id="4_y5ipu"]
@@ -47,7 +47,7 @@ price = 0
 script = ExtResource("3_tiyrw")
 name = "Thistle"
 description = "A skilled survivalist, capable of supporting many even under harsh conditions."
-portrait = ExtResource("2_m15we")
+portrait = ExtResource("2_erovx")
 icon = ExtResource("1_aknx8")
 sfx_hello = ExtResource("4_y5ipu")
 sfx_upgrade_gained = ExtResource("5_jv18h")

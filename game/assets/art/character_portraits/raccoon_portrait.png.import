@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7a7mm1wwg7ee"
-path="res://.godot/imported/bird_portrait.jpg-01ecc8a75ee697d401d53a1a1cfac836.ctex"
+uid="uid://bvj18jeu04ah8"
+path="res://.godot/imported/raccoon_portrait.png-4fda7db1bd2cbea85aa1ff9e362e470b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/character_portraits/bird_portrait.jpg"
-dest_files=["res://.godot/imported/bird_portrait.jpg-01ecc8a75ee697d401d53a1a1cfac836.ctex"]
+source_file="res://assets/art/character_portraits/raccoon_portrait.png"
+dest_files=["res://.godot/imported/raccoon_portrait.png-4fda7db1bd2cbea85aa1ff9e362e470b.ctex"]
 
 [params]
 

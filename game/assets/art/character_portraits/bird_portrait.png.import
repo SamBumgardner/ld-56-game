@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkhe5pgb1mdd"
-path="res://.godot/imported/fish_portrait.jpg-68ee6782ab8aef80a156705aca34bf27.ctex"
+uid="uid://jnfygufv6iqt"
+path="res://.godot/imported/bird_portrait.png-5bebf04c1ae8195b0130c33a558a3e3b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/character_portraits/fish_portrait.jpg"
-dest_files=["res://.godot/imported/fish_portrait.jpg-68ee6782ab8aef80a156705aca34bf27.ctex"]
+source_file="res://assets/art/character_portraits/bird_portrait.png"
+dest_files=["res://.godot/imported/bird_portrait.png-5bebf04c1ae8195b0130c33a558a3e3b.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d02ijpnkhpgc"
-path="res://.godot/imported/mantis_portrait.jpg-a3aaf5c960fd6fe697824626859270ed.ctex"
+uid="uid://boxyeahmfmrym"
+path="res://.godot/imported/monkey_portrait.png-9941e60a650da026e8c2ad63a289c109.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/character_portraits/mantis_portrait.jpg"
-dest_files=["res://.godot/imported/mantis_portrait.jpg-a3aaf5c960fd6fe697824626859270ed.ctex"]
+source_file="res://assets/art/character_portraits/monkey_portrait.png"
+dest_files=["res://.godot/imported/monkey_portrait.png-9941e60a650da026e8c2ad63a289c109.ctex"]
 
 [params]
 

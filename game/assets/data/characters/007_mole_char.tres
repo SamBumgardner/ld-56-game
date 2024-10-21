@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="CharacterFactory" load_steps=23 format=3 uid="uid://h8yglehg8si2"]
 
 [ext_resource type="Texture2D" uid="uid://burmud1m6c3wg" path="res://assets/art/character_icons/mole_small.png" id="1_7a4yo"]
-[ext_resource type="Texture2D" uid="uid://cokc26y2fcsax" path="res://assets/art/character_portraits/mole_portrait.jpg" id="2_ru57e"]
+[ext_resource type="Texture2D" uid="uid://gdhna7tf6wlw" path="res://assets/art/character_portraits/mole_portrait.png" id="2_abobk"]
 [ext_resource type="Script" path="res://src/characters/CharacterFactory.gd" id="3_11mk3"]
 [ext_resource type="AudioStream" path="res://assets/audio/205_hello_mole_randomizer.tres" id="4_lcnj4"]
 [ext_resource type="Script" path="res://src/characters/UpgradeSelector.gd" id="4_mxky7"]
@@ -47,7 +47,7 @@ price = 0
 script = ExtResource("3_11mk3")
 name = "Goggles"
 description = "He's a bit unhinged, but there's no denying that his brand of chaos creates opportunities."
-portrait = ExtResource("2_ru57e")
+portrait = ExtResource("2_abobk")
 icon = ExtResource("1_7a4yo")
 sfx_hello = ExtResource("4_lcnj4")
 sfx_upgrade_gained = ExtResource("5_7rqa1")

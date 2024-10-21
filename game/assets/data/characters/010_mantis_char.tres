@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="CharacterFactory" load_steps=23 format=3 uid="uid://4vcpwnnptf5r"]
 
 [ext_resource type="Texture2D" uid="uid://cxfk7pmpaxnqx" path="res://assets/art/character_icons/mantis_small.png" id="1_8pmao"]
-[ext_resource type="Texture2D" uid="uid://d02ijpnkhpgc" path="res://assets/art/character_portraits/mantis_portrait.jpg" id="2_q2iri"]
+[ext_resource type="Texture2D" uid="uid://btq340p6pb3lu" path="res://assets/art/character_portraits/mantis_portrait.png" id="2_6nckq"]
 [ext_resource type="Script" path="res://src/characters/CharacterFactory.gd" id="3_bid6u"]
 [ext_resource type="AudioStream" uid="uid://mp5t4l81qver" path="res://assets/audio/character_voice_lines/1107_hello.wav" id="4_0g2cv"]
 [ext_resource type="Script" path="res://src/characters/UpgradeSelector.gd" id="4_sm110"]
@@ -47,7 +47,7 @@ price = 0
 script = ExtResource("3_bid6u")
 name = "Blades"
 description = "A wandering warrior, always looking for opportunities to sharpen his skills."
-portrait = ExtResource("2_q2iri")
+portrait = ExtResource("2_6nckq")
 icon = ExtResource("1_8pmao")
 sfx_hello = ExtResource("4_0g2cv")
 sfx_upgrade_gained = ExtResource("5_ajh8o")

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="CharacterFactory" load_steps=23 format=3 uid="uid://bawjwhqx6mbin"]
 
 [ext_resource type="Texture2D" uid="uid://drytmgdv4vyrv" path="res://assets/art/character_icons/mouse_small.png" id="1_ate8l"]
-[ext_resource type="Texture2D" uid="uid://6dvwnj4ec2e7" path="res://assets/art/character_portraits/mouse_portrait.jpg" id="2_50b8g"]
+[ext_resource type="Texture2D" uid="uid://bjdmvumymjxuw" path="res://assets/art/character_portraits/mouse_portrait.png" id="2_vle0n"]
 [ext_resource type="Script" path="res://src/characters/CharacterFactory.gd" id="3_soiy1"]
 [ext_resource type="AudioStream" uid="uid://yho30w3vpvmi" path="res://assets/audio/character_voice_lines/1120_hello.wav" id="4_5sd6k"]
 [ext_resource type="Script" path="res://src/characters/UpgradeSelector.gd" id="4_c7nx2"]
@@ -47,7 +47,7 @@ price = 0
 script = ExtResource("3_soiy1")
 name = "Rocket"
 description = "A discarded mortar and a pile of junk; tools to blast into a better future."
-portrait = ExtResource("2_50b8g")
+portrait = ExtResource("2_vle0n")
 icon = ExtResource("1_ate8l")
 sfx_hello = ExtResource("4_5sd6k")
 sfx_upgrade_gained = ExtResource("5_faq28")

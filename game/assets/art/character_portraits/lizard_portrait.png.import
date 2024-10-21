@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cuaii02pkjgar"
-path="res://.godot/imported/snake_portrait.jpg-be15c7d76d0446d6fe3dfc3b281a730b.ctex"
+uid="uid://cug3iy2svnkuy"
+path="res://.godot/imported/lizard_portrait.png-e8dd36bd1f016d31d030608a5451bb79.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/character_portraits/snake_portrait.jpg"
-dest_files=["res://.godot/imported/snake_portrait.jpg-be15c7d76d0446d6fe3dfc3b281a730b.ctex"]
+source_file="res://assets/art/character_portraits/lizard_portrait.png"
+dest_files=["res://.godot/imported/lizard_portrait.png-e8dd36bd1f016d31d030608a5451bb79.ctex"]
 
 [params]
 

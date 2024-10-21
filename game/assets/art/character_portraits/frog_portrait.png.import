@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cietaidy781oq"
-path="res://.godot/imported/rabbit_portrait.jpg-2389405c236ee7c08c8967c8cfb6ffed.ctex"
+uid="uid://v30istbpxkmf"
+path="res://.godot/imported/frog_portrait.png-6ecffa22bc2b6f0c6b34dfb67e71b49b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/character_portraits/rabbit_portrait.jpg"
-dest_files=["res://.godot/imported/rabbit_portrait.jpg-2389405c236ee7c08c8967c8cfb6ffed.ctex"]
+source_file="res://assets/art/character_portraits/frog_portrait.png"
+dest_files=["res://.godot/imported/frog_portrait.png-6ecffa22bc2b6f0c6b34dfb67e71b49b.ctex"]
 
 [params]
 

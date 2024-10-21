@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="CharacterFactory" load_steps=23 format=3 uid="uid://dexsvne2ukrlr"]
 
 [ext_resource type="Texture2D" uid="uid://b1r4x1ng5hqvs" path="res://assets/art/character_icons/monkey_small.png" id="1_758vp"]
-[ext_resource type="Texture2D" uid="uid://cgcosmo1msrqa" path="res://assets/art/character_portraits/monkey_portrait.jpg" id="2_evhrs"]
+[ext_resource type="Texture2D" uid="uid://boxyeahmfmrym" path="res://assets/art/character_portraits/monkey_portrait.png" id="2_k3b2v"]
 [ext_resource type="Script" path="res://src/characters/CharacterFactory.gd" id="3_riglx"]
 [ext_resource type="Script" path="res://src/characters/UpgradeSelector.gd" id="4_koewi"]
 [ext_resource type="AudioStream" uid="uid://dw0kwmnp48tg0" path="res://assets/audio/character_voice_lines/1118_hello.wav" id="4_sf5ag"]
@@ -47,7 +47,7 @@ price = 0
 script = ExtResource("3_riglx")
 name = "A.P.E."
 description = "Tired of living by the rules, he trusts his life to the whims of fate."
-portrait = ExtResource("2_evhrs")
+portrait = ExtResource("2_k3b2v")
 icon = ExtResource("1_758vp")
 sfx_hello = ExtResource("4_sf5ag")
 sfx_upgrade_gained = ExtResource("5_fyeeh")

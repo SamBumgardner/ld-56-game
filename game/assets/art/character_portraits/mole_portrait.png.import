@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgcosmo1msrqa"
-path="res://.godot/imported/monkey_portrait.jpg-4e9467259e7d3b492ac7b062169e0157.ctex"
+uid="uid://gdhna7tf6wlw"
+path="res://.godot/imported/mole_portrait.png-1ea14617c97bca3a9b938a6912a01da1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/character_portraits/monkey_portrait.jpg"
-dest_files=["res://.godot/imported/monkey_portrait.jpg-4e9467259e7d3b492ac7b062169e0157.ctex"]
+source_file="res://assets/art/character_portraits/mole_portrait.png"
+dest_files=["res://.godot/imported/mole_portrait.png-1ea14617c97bca3a9b938a6912a01da1.ctex"]
 
 [params]
 
