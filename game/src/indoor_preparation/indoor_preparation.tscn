@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://b73yb04wjxq8"]
+[gd_scene load_steps=36 format=3 uid="uid://b73yb04wjxq8"]
 
 [ext_resource type="Script" path="res://src/indoor_preparation/indoor_preparation.gd" id="2_0rynj"]
 [ext_resource type="Theme" uid="uid://dk5iv042psfw" path="res://assets/themes/Default.tres" id="2_bky62"]
@@ -44,6 +44,13 @@ colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1)
 gradient = SubResource("Gradient_qfqlf")
 width = 25
 
+[sub_resource type="Gradient" id="Gradient_72bq1"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gdr6s"]
+gradient = SubResource("Gradient_72bq1")
+fill_to = Vector2(0.0641026, 0.230769)
+
 [node name="IndoorPreparation" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -62,12 +69,13 @@ sfx_game_victory = null
 layout_mode = 0
 offset_top = -116.0
 offset_right = 1280.0
-offset_bottom = 905.0
+offset_bottom = 874.0
 texture = ExtResource("4_2oynj")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="TextureRect2" type="TextureRect" parent="TextureRect"]
+[node name="LeftGradient" type="TextureRect" parent="TextureRect"]
+z_index = 2
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
@@ -75,7 +83,8 @@ offset_right = 25.0
 grow_vertical = 2
 texture = SubResource("GradientTexture1D_qmhvb")
 
-[node name="TextureRect3" type="TextureRect" parent="TextureRect"]
+[node name="RightGradient" type="TextureRect" parent="TextureRect"]
+z_index = 2
 layout_mode = 1
 anchors_preset = 11
 anchor_left = 1.0
@@ -86,7 +95,56 @@ grow_horizontal = 0
 grow_vertical = 2
 texture = SubResource("GradientTexture1D_0oafc")
 
+[node name="TopLeftCorner" type="TextureRect" parent="TextureRect"]
+z_index = 2
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 350.0
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_gdr6s")
+
+[node name="BottomLeftCorner" type="TextureRect" parent="TextureRect"]
+z_index = 2
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 350.0
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_gdr6s")
+flip_v = true
+
+[node name="TopRightCorner" type="TextureRect" parent="TextureRect"]
+z_index = 2
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -64.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_gdr6s")
+flip_h = true
+
+[node name="BottomRightCorner" type="TextureRect" parent="TextureRect"]
+z_index = 2
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -64.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_gdr6s")
+flip_h = true
+flip_v = true
+
 [node name="ColorRect" type="ColorRect" parent="TextureRect"]
+z_index = 2
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 1
 anchors_preset = -1
@@ -96,6 +154,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="TextureRect"]
+z_index = 2
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 1
 anchors_preset = -1
