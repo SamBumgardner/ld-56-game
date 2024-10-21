@@ -2,6 +2,7 @@
 class_name AudioManager extends Node
 
 @export var background_music_default: AudioStream
+@export var background_music_queue: AudioStreamRandomizer
 
 @export var sfx_button_click: AudioStream
 @export var sfx_button_hover: AudioStream

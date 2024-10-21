@@ -1,0 +1,14 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=5 format=3 uid="uid://hbodko12g680"]
+
+[ext_resource type="AudioStream" uid="uid://cifq013w5q8uo" path="res://assets/audio/003_loop_music.ogg" id="1_furvw"]
+[ext_resource type="AudioStream" uid="uid://d24w6mxh71ltq" path="res://assets/audio/004_loop_music.ogg" id="2_ipmql"]
+[ext_resource type="AudioStream" uid="uid://cqskfy7h4l6m4" path="res://assets/audio/001_loop_music.ogg" id="3_3t5ep"]
+[ext_resource type="AudioStream" uid="uid://caq0n6uhq3dky" path="res://assets/audio/002_loop_music.ogg" id="4_x6dat"]
+
+[resource]
+playback_mode = 2
+streams_count = 4
+stream_0/stream = ExtResource("1_furvw")
+stream_1/stream = ExtResource("2_ipmql")
+stream_2/stream = ExtResource("3_3t5ep")
+stream_3/stream = ExtResource("4_x6dat")
