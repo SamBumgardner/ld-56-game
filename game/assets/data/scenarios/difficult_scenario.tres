@@ -70,11 +70,11 @@ region = ExtResource("15_n3wxn")
 [resource]
 script = ExtResource("11_adhkf")
 scenario_name = "Difficult"
-scenario_description = "A challenging journey across an inhospitable land."
-difficulty_rating = 4
+scenario_description = "A challenging journey interspersed with moments of rest."
+difficulty_rating = 3
 total_distance = 350
 segments = Array[ExtResource("12_35day")]([SubResource("Resource_ms3ae"), SubResource("Resource_0s85i"), SubResource("Resource_f8r4l"), SubResource("Resource_7lxg4"), SubResource("Resource_cgkec")])
 gameplay_init_values = SubResource("Resource_wcex8")
 available_characters = Array[ExtResource("1_hklrr")]([ExtResource("2_dtvqe"), ExtResource("3_g66kk"), ExtResource("4_wlfsb"), ExtResource("5_ijjy5"), ExtResource("6_d5a5t"), ExtResource("7_4amod"), ExtResource("8_q037x"), ExtResource("7_3522x"), ExtResource("10_0mff6"), ExtResource("11_8miat"), ExtResource("8_drw6i"), ExtResource("9_c5v8l")])
 possible_start_char_options = Array[int]([0, 1, 2])
-start_char_count = 3
+start_char_count = 2
