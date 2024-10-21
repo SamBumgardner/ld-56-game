@@ -1,14 +1,14 @@
 [gd_resource type="Resource" script_class="UpgradeChoice" load_steps=3 format=3 uid="uid://p4gftbhhypqh"]
 
-[ext_resource type="Texture2D" uid="uid://8icadmy2cp3f" path="res://assets/art/upgrade_icon_placeholder.png" id="1_ldm21"]
+[ext_resource type="Texture2D" uid="uid://c0b1w7ad66uoa" path="res://assets/art/upgrade_icon_wit.png" id="1_7qa8g"]
 [ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="2_e41tm"]
 
 [resource]
 script = ExtResource("2_e41tm")
-name = "temp"
+name = "Heighten"
 description = "Temporary Description"
 visual_summary = "[center]Increase largest [img=30%]res://assets/art/HEAL_icon_64x64.png[/img] by 3"
-icon_ref = ExtResource("1_ldm21")
+icon_ref = ExtResource("1_7qa8g")
 cost = 0
 upgrade_type = 2
 value_change_amount = 3
@@ -16,6 +16,8 @@ number_of_times = 1
 remove_action_name = ""
 new_action_string = ""
 filter_criteria = 1
+invert_filter = false
 sort_criteria = 1
 number_of_actions_to_affect = 1
 change_to = -1
+restore_pct = 0.0

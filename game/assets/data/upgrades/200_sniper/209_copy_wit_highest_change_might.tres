@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="UpgradeChoice" load_steps=4 format=3 uid="uid://biu0w8y58pa6a"]
 
-[ext_resource type="Texture2D" uid="uid://8icadmy2cp3f" path="res://assets/art/upgrade_icon_placeholder.png" id="1_uri82"]
+[ext_resource type="Texture2D" uid="uid://bnhb5pq77ferj" path="res://assets/art/upgrade_icon_might.png" id="2_l8wcx"]
 [ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="2_nd0w5"]
 
 [sub_resource type="Resource" id="Resource_lqyuf"]
@@ -23,10 +23,10 @@ restore_pct = 0.0
 
 [resource]
 script = ExtResource("2_nd0w5")
-name = "temp"
+name = "Mighty"
 description = "Temporary Description"
 visual_summary = "[center]Copy largest [img=30%]res://assets/art/HEAL_icon_64x64.png[/img] as [img=30%]res://assets/art/ATTACK_icon_64x64.png[/img]"
-icon_ref = ExtResource("1_uri82")
+icon_ref = ExtResource("2_l8wcx")
 cost = 0
 additional_effect = SubResource("Resource_lqyuf")
 upgrade_type = 4
