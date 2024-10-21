@@ -36,7 +36,7 @@ region = ExtResource("14_uus0k")
 [resource]
 script = ExtResource("12_p4v7r")
 scene_to_load = ExtResource("11_2suvt")
-scenario_name = "Rerolls & You"
+scenario_name = "Rerolls"
 scenario_description = "Learn how to control your crew's actions via rerolls and locking!"
 difficulty_rating = 1
 total_distance = 100
