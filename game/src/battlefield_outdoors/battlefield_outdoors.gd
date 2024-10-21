@@ -11,6 +11,8 @@ signal camera_focus_moving(distance: Vector2, duration: float)
 
 signal victory(duration: float)
 
+signal milestone_achieved()
+
 signal dice_roll_started()
 signal health_empty()
 signal insufficient_fuel()
@@ -144,6 +146,10 @@ func _on_charge_cooldown(duration: float) -> void:
         war_transport.return_to_start_position(scrolling_duration)
         camera_focus_moving.emit(Vector2(400, 0), scrolling_duration)
         barrier.new_barrier_scroll_onscreen(scrolling_duration, Vector2(400, 0))
+
+        if checkpoint_reached:
+            milestone_achieved.emit()
+
     # victory handling
     else:
         _on_victory()
@@ -153,8 +159,9 @@ func _on_charge_finish() -> void:
     const free_reroll_cost = 0
     _on_roll_requested(free_reroll_cost)
 
-    if _should_save_checkpoint():
+    if checkpoint_reached:
         _save_checkpoint()
+        
 
     combat_result.clear()
 
@@ -209,14 +216,8 @@ func _apply_combat_rewards(barrier_health: int = 1, excess_power: int = 0) -> vo
         + 1
     )
 
-func _should_save_checkpoint() -> bool:
-    if checkpoint_reached:
-        checkpoint_reached = false
-        return true
-    else:
-        return false
-
 func _save_checkpoint() -> void:
+    checkpoint_reached = false
     Database.save_checkpoint()
 
 func _on_health_empty() -> void:
