@@ -1,14 +1,14 @@
 [gd_resource type="Resource" script_class="UpgradeChoice" load_steps=3 format=3 uid="uid://dowmjqiohippn"]
 
-[ext_resource type="Texture2D" uid="uid://8icadmy2cp3f" path="res://assets/art/upgrade_icon_placeholder.png" id="1_3ygja"]
+[ext_resource type="Texture2D" uid="uid://c131mlp1gsxls" path="res://assets/art/upgrade_icon_all.png" id="1_dt258"]
 [ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="2_h32qo"]
 
 [resource]
 script = ExtResource("2_h32qo")
-name = "temp"
+name = "Overcome"
 description = "Temporary Description"
 visual_summary = "[center]Increase value of all actions by [b]2[/b]"
-icon_ref = ExtResource("1_3ygja")
+icon_ref = ExtResource("1_dt258")
 cost = 0
 upgrade_type = 2
 value_change_amount = 3
@@ -20,3 +20,4 @@ invert_filter = false
 sort_criteria = -1
 number_of_actions_to_affect = 256
 change_to = -1
+restore_pct = 0.0
