@@ -1,11 +1,11 @@
-[gd_scene load_steps=30 format=3 uid="uid://b73yb04wjxq8"]
+[gd_scene load_steps=36 format=3 uid="uid://b73yb04wjxq8"]
 
-[ext_resource type="Texture2D" uid="uid://l3l2yqfmprg5" path="res://assets/art/backgrounds/ld_56_indoors.jpg" id="1_f348j"]
 [ext_resource type="Script" path="res://src/indoor_preparation/indoor_preparation.gd" id="2_0rynj"]
 [ext_resource type="Theme" uid="uid://dk5iv042psfw" path="res://assets/themes/Default.tres" id="2_bky62"]
 [ext_resource type="PackedScene" uid="uid://h1fowbxngb70" path="res://src/audio_manager/AudioManager.tscn" id="3_3bed5"]
 [ext_resource type="Script" path="res://src/indoor_preparation/screen.gd" id="3_culvi"]
 [ext_resource type="PackedScene" uid="uid://7vx27hr83tx0" path="res://src/indoor_preparation/screen_displays/home_display.tscn" id="3_eot0a"]
+[ext_resource type="Texture2D" uid="uid://ckpcsghku25rt" path="res://assets/art/indoor_real.jpg" id="4_2oynj"]
 [ext_resource type="PackedScene" uid="uid://dw8jtxw6u5x40" path="res://src/indoor_preparation/screen_displays/browse_hires/browse_hires.tscn" id="4_note4"]
 [ext_resource type="Theme" uid="uid://dmwrgmv8lathf" path="res://assets/themes/ScreenTheme.tres" id="4_u741y"]
 [ext_resource type="PackedScene" uid="uid://cdb8nv77bouh1" path="res://src/indoor_preparation/screen_displays/hire_detail/hire_detail.tscn" id="5_lncqs"]
@@ -30,6 +30,27 @@
 [ext_resource type="PackedScene" uid="uid://ybyc5lib301u" path="res://src/shared_ui/resource_display/fuel_display.tscn" id="26_fgbkb"]
 [ext_resource type="Script" path="res://src/indoor_preparation/go_outside_button.gd" id="27_7d8ip"]
 
+[sub_resource type="Gradient" id="Gradient_6i6wn"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qmhvb"]
+gradient = SubResource("Gradient_6i6wn")
+width = 25
+
+[sub_resource type="Gradient" id="Gradient_qfqlf"]
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0oafc"]
+gradient = SubResource("Gradient_qfqlf")
+width = 25
+
+[sub_resource type="Gradient" id="Gradient_72bq1"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gdr6s"]
+gradient = SubResource("Gradient_72bq1")
+fill_to = Vector2(0.0641026, 0.230769)
+
 [node name="IndoorPreparation" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -46,10 +67,102 @@ sfx_game_victory = null
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
+offset_top = -116.0
 offset_right = 1280.0
-offset_bottom = 720.0
-texture = ExtResource("1_f348j")
+offset_bottom = 874.0
+texture = ExtResource("4_2oynj")
 expand_mode = 1
+stretch_mode = 4
+
+[node name="LeftGradient" type="TextureRect" parent="TextureRect"]
+z_index = 2
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 25.0
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_qmhvb")
+
+[node name="RightGradient" type="TextureRect" parent="TextureRect"]
+z_index = 2
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -25.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_0oafc")
+
+[node name="TopLeftCorner" type="TextureRect" parent="TextureRect"]
+z_index = 2
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 350.0
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_gdr6s")
+
+[node name="BottomLeftCorner" type="TextureRect" parent="TextureRect"]
+z_index = 2
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 350.0
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_gdr6s")
+flip_v = true
+
+[node name="TopRightCorner" type="TextureRect" parent="TextureRect"]
+z_index = 2
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -64.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_gdr6s")
+flip_h = true
+
+[node name="BottomRightCorner" type="TextureRect" parent="TextureRect"]
+z_index = 2
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -64.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_gdr6s")
+flip_h = true
+flip_v = true
+
+[node name="ColorRect" type="ColorRect" parent="TextureRect"]
+z_index = 2
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="TextureRect"]
+z_index = 2
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [node name="Screen" type="Control" parent="."]
 clip_contents = true
@@ -58,7 +171,10 @@ anchor_left = 0.275
 anchor_top = 0.08
 anchor_right = 0.72
 anchor_bottom = 0.57
-offset_bottom = 40.0
+offset_left = 20.0
+offset_top = -1.6
+offset_right = 13.4
+offset_bottom = 63.6
 theme = ExtResource("4_u741y")
 script = ExtResource("3_culvi")
 
