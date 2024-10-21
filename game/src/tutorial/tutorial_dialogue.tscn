@@ -1,18 +1,15 @@
 [gd_scene load_steps=5 format=3 uid="uid://bwqnx27y8tnec"]
 
 [ext_resource type="Theme" uid="uid://dk5iv042psfw" path="res://assets/themes/Default.tres" id="1_825wv"]
+[ext_resource type="Theme" uid="uid://o5vsb2k4cwfl" path="res://assets/themes/tutorial_message_box.tres" id="1_tupwa"]
 [ext_resource type="Script" path="res://src/tutorial/tutorial_dialogue.gd" id="2_5w66n"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qu4mx"]
-bg_color = Color(0.368627, 0.368627, 0.368627, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h40pi"]
-bg_color = Color(0.37, 0.37, 0.37, 1)
+[ext_resource type="Theme" uid="uid://q31klymc7ugm" path="res://assets/themes/tutorial_message_box_inner.tres" id="4_6ho63"]
 
 [node name="TutorialDialogue" type="MarginContainer" groups=["tutorial_triggers"]]
 offset_right = 210.0
 offset_bottom = 173.0
 mouse_filter = 2
+theme = ExtResource("1_tupwa")
 script = ExtResource("2_5w66n")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
@@ -38,7 +35,7 @@ layout_mode = 2
 [node name="PanelContainer" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HeaderContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_qu4mx")
+theme = ExtResource("4_6ho63")
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HeaderContainer/PanelContainer"]
 layout_mode = 2
@@ -62,7 +59,7 @@ layout_mode = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer/BodyContainer"]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_h40pi")
+theme = ExtResource("4_6ho63")
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/BodyContainer/PanelContainer"]
 layout_mode = 2

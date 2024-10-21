@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://7vx27hr83tx0"]
+[gd_scene load_steps=10 format=3 uid="uid://7vx27hr83tx0"]
 
 [ext_resource type="Script" path="res://src/indoor_preparation/screen_displays/home_display.gd" id="1_b3nrn"]
 [ext_resource type="Theme" uid="uid://dmwrgmv8lathf" path="res://assets/themes/ScreenTheme.tres" id="1_d2gyf"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://src/indoor_preparation/screen_displays/home_actions_display.gd" id="6_n44i5"]
 [ext_resource type="PackedScene" uid="uid://dr7v1vu064ukv" path="res://src/shared_ui/character_action_display/character_action_display.tscn" id="6_ymb1a"]
 [ext_resource type="Script" path="res://src/battlefield_outdoors/battlefield_outdoors_hud/total_power_display.gd" id="7_u3vh7"]
+[ext_resource type="Theme" uid="uid://diekd7pwnwl6n" path="res://assets/themes/green_button_theme_all_rounded.tres" id="9_m6iv7"]
 
 [node name="HomeDisplay" type="Control"]
 layout_mode = 3
@@ -228,6 +229,7 @@ theme_override_constants/margin_bottom = 10
 
 [node name="Button" type="Button" parent="MarginContainer"]
 layout_mode = 2
+theme = ExtResource("9_m6iv7")
 text = "BROWSE NEW HIRES"
 
 [connection signal="mouse_entered" from="MarginContainer/Button" to="." method="_on_button_mouse_entered"]
