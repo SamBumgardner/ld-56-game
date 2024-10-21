@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://byvjel7rc8ms0"]
+[gd_scene load_steps=4 format=3 uid="uid://byvjel7rc8ms0"]
 
 [ext_resource type="Script" path="res://src/indoor_preparation/screen_displays/hire_detail/hire_prompt.gd" id="1_8agtl"]
 [ext_resource type="PackedScene" uid="uid://h1fowbxngb70" path="res://src/audio_manager/AudioManager.tscn" id="2_v3u4e"]
+[ext_resource type="Theme" uid="uid://diekd7pwnwl6n" path="res://assets/themes/green_button_theme_all_rounded.tres" id="3_rwf6l"]
 
 [node name="HirePrompt" type="PanelContainer"]
+custom_minimum_size = Vector2(85, 0)
 script = ExtResource("1_8agtl")
 
 [node name="AudioManager" parent="." instance=ExtResource("2_v3u4e")]
@@ -29,6 +31,7 @@ autowrap_mode = 2
 
 [node name="PurchaseButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_rwf6l")
 theme_override_font_sizes/font_size = 32
 text = "HIRE"
 
