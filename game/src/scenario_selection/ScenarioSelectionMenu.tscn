@@ -25,7 +25,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_5gffv")
 script = ExtResource("2_j3fiq")
-scenarios = Array[ExtResource("3_junon")]([ExtResource("4_mqe7d"), ExtResource("5_dx0oe"), ExtResource("6_xre8d"), ExtResource("7_gdfad")])
+scenarios = Array[ExtResource("3_junon")]([ExtResource("4_mqe7d"), ExtResource("7_gdfad"), ExtResource("5_dx0oe"), ExtResource("6_xre8d")])
 
 [node name="AudioManager" parent="." instance=ExtResource("5_0fp6o")]
 

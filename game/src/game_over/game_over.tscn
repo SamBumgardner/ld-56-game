@@ -50,8 +50,14 @@ text = "Game Over"
 horizontal_alignment = 1
 
 [node name="Encouragement" type="Label" parent="TitleContainer/MarginContainer/HB"]
+visible = false
 layout_mode = 2
 text = "Getting closer..."
+horizontal_alignment = 1
+
+[node name="ScenarioName" type="Label" parent="TitleContainer/MarginContainer/HB"]
+layout_mode = 2
+text = "Scenario: Easy"
 horizontal_alignment = 1
 
 [node name="StatsContainer" type="PanelContainer" parent="."]
