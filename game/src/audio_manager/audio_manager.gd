@@ -9,6 +9,8 @@ class_name AudioManager extends Node
 @export var sfx_dice_landing: AudioStream
 @export var sfx_dice_shake: AudioStream
 @export var sfx_die_lock: AudioStream
+@export var sfx_enter_next_region: AudioStream
+@export var sfx_game_victory: AudioStream
 @export var sfx_indoors_enter_a_menu: AudioStream
 @export var sfx_indoors_exit_a_menu: AudioStream
 @export var sfx_notification_error: AudioStream
