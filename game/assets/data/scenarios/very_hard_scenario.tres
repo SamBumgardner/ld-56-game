@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Scenario" load_steps=18 format=3 uid="uid://ddom684fwnwug"]
+[gd_resource type="Resource" script_class="Scenario" load_steps=29 format=3 uid="uid://ddom684fwnwug"]
 
 [ext_resource type="Script" path="res://src/characters/CharacterFactory.gd" id="1_lslk7"]
 [ext_resource type="Resource" uid="uid://cghmtnhtq1aeh" path="res://assets/data/characters/001_squirrel_char.tres" id="2_n1cnr"]
@@ -16,6 +16,11 @@
 [ext_resource type="Script" path="res://assets/data/gameplay_init_values.gd" id="14_epmio"]
 [ext_resource type="Script" path="res://src/scenario/scenario.gd" id="15_jdpue"]
 [ext_resource type="Script" path="res://src/scenario/scenario_segment.gd" id="16_2xbg8"]
+[ext_resource type="Resource" uid="uid://yv0qqwmak8h2" path="res://assets/data/scenarios/regions/mild_mesa.tres" id="17_gvj7s"]
+[ext_resource type="Resource" uid="uid://b4s15kwkbrp1v" path="res://assets/data/scenarios/regions/breezy_mesa.tres" id="18_g78ox"]
+[ext_resource type="Resource" uid="uid://dwhqixr01xgru" path="res://assets/data/scenarios/regions/not_too_badlands.tres" id="19_rs7d5"]
+[ext_resource type="Resource" uid="uid://dj5e1dyd5xgjx" path="res://assets/data/scenarios/regions/parched_land.tres" id="20_5iu47"]
+[ext_resource type="Resource" uid="uid://1feli7rw2b1s" path="res://assets/data/scenarios/regions/burning_sands.tres" id="20_ax24j"]
 
 [sub_resource type="Resource" id="Resource_wcex8"]
 script = ExtResource("14_epmio")
@@ -28,13 +33,55 @@ should_generate_new_applicants = true
 current_money = 50
 current_fuel = 6
 
+[sub_resource type="Resource" id="Resource_vcv2l"]
+script = ExtResource("16_2xbg8")
+starts_at = 0
+arrival_bonus_heal = 0
+arrival_bonus_barrier_reduction = 0
+region = ExtResource("17_gvj7s")
+
+[sub_resource type="Resource" id="Resource_gi8vl"]
+script = ExtResource("16_2xbg8")
+starts_at = 75
+arrival_bonus_heal = 5
+arrival_bonus_barrier_reduction = 0
+region = ExtResource("20_ax24j")
+
+[sub_resource type="Resource" id="Resource_h0iac"]
+script = ExtResource("16_2xbg8")
+starts_at = 125
+arrival_bonus_heal = 5
+arrival_bonus_barrier_reduction = 5
+region = ExtResource("18_g78ox")
+
+[sub_resource type="Resource" id="Resource_6p02p"]
+script = ExtResource("16_2xbg8")
+starts_at = 200
+arrival_bonus_heal = 5
+arrival_bonus_barrier_reduction = 0
+region = ExtResource("20_5iu47")
+
+[sub_resource type="Resource" id="Resource_g81lw"]
+script = ExtResource("16_2xbg8")
+starts_at = 300
+arrival_bonus_heal = 10
+arrival_bonus_barrier_reduction = 5
+region = ExtResource("19_rs7d5")
+
+[sub_resource type="Resource" id="Resource_cgd0l"]
+script = ExtResource("16_2xbg8")
+starts_at = 325
+arrival_bonus_heal = 0
+arrival_bonus_barrier_reduction = 0
+region = ExtResource("20_ax24j")
+
 [resource]
 script = ExtResource("15_jdpue")
 scenario_name = "Extreme"
-scenario_description = "A gruelling journey. Not for the faint of heart."
+scenario_description = "A gruelling journey. If you can make it across the Parched Land, you're nearly there!"
 difficulty_rating = 5
-total_distance = 400
-segments = Array[ExtResource("16_2xbg8")]([])
+total_distance = 450
+segments = Array[ExtResource("16_2xbg8")]([SubResource("Resource_vcv2l"), SubResource("Resource_gi8vl"), SubResource("Resource_h0iac"), SubResource("Resource_6p02p"), SubResource("Resource_g81lw"), SubResource("Resource_cgd0l")])
 gameplay_init_values = SubResource("Resource_wcex8")
 available_characters = Array[ExtResource("1_lslk7")]([ExtResource("2_n1cnr"), ExtResource("3_awc00"), ExtResource("4_tdvkl"), ExtResource("5_m281w"), ExtResource("6_rrh8m"), ExtResource("7_hcwji"), ExtResource("8_m7wv3"), ExtResource("9_hmrmd"), ExtResource("10_1lecj"), ExtResource("11_c4lkp"), ExtResource("12_x22wo"), ExtResource("13_bsvpt")])
 possible_start_char_options = Array[int]([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11])

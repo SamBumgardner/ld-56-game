@@ -1,0 +1,59 @@
+[gd_resource type="Resource" script_class="Scenario" load_steps=18 format=3 uid="uid://ccvrw061tbf4k"]
+
+[ext_resource type="Script" path="res://src/characters/CharacterFactory.gd" id="1_5cai8"]
+[ext_resource type="Resource" uid="uid://cghmtnhtq1aeh" path="res://assets/data/characters/001_squirrel_char.tres" id="2_ls2mr"]
+[ext_resource type="Resource" uid="uid://duswkektwj6hb" path="res://assets/data/characters/002_frog_char.tres" id="3_x4saw"]
+[ext_resource type="Resource" uid="uid://b3l83j0ql7m0e" path="res://assets/data/characters/003_raccoon_char.tres" id="4_6kjr0"]
+[ext_resource type="Resource" uid="uid://dexsvne2ukrlr" path="res://assets/data/characters/005_ape_char.tres" id="6_wkhan"]
+[ext_resource type="Resource" uid="uid://cg2gt1s2ilepn" path="res://assets/data/characters/008_lizard_char.tres" id="7_5g0t2"]
+[ext_resource type="Resource" uid="uid://bo6i4mxety0iv" path="res://assets/data/characters/009_snake_char.tres" id="7_ag7n1"]
+[ext_resource type="Script" path="res://assets/data/gameplay_init_values.gd" id="10_u2vnw"]
+[ext_resource type="Script" path="res://src/scenario/scenario.gd" id="11_3d1xo"]
+[ext_resource type="Script" path="res://src/scenario/scenario_segment.gd" id="12_1u8k6"]
+[ext_resource type="Resource" uid="uid://1feli7rw2b1s" path="res://assets/data/scenarios/regions/burning_sands.tres" id="12_3papn"]
+[ext_resource type="Resource" uid="uid://yv0qqwmak8h2" path="res://assets/data/scenarios/regions/mild_mesa.tres" id="13_1jc25"]
+[ext_resource type="Resource" uid="uid://b4s15kwkbrp1v" path="res://assets/data/scenarios/regions/breezy_mesa.tres" id="14_e7kk5"]
+
+[sub_resource type="Resource" id="Resource_gm2jh"]
+script = ExtResource("10_u2vnw")
+current_region_starting_barrier_strength = 5.0
+current_reroll_fuel_cost = 1
+current_matching_stat_type_multiplier = 2
+war_transport_health_maximum = 12
+war_transport_health_current = 12
+should_generate_new_applicants = false
+current_money = 15
+current_fuel = 3
+
+[sub_resource type="Resource" id="Resource_ew5hi"]
+script = ExtResource("12_1u8k6")
+starts_at = 0
+arrival_bonus_heal = 0
+arrival_bonus_barrier_reduction = 0
+region = ExtResource("14_e7kk5")
+
+[sub_resource type="Resource" id="Resource_25wxb"]
+script = ExtResource("12_1u8k6")
+starts_at = 100
+arrival_bonus_heal = 5
+arrival_bonus_barrier_reduction = 5
+region = ExtResource("12_3papn")
+
+[sub_resource type="Resource" id="Resource_7ql23"]
+script = ExtResource("12_1u8k6")
+starts_at = 150
+arrival_bonus_heal = 5
+arrival_bonus_barrier_reduction = 10
+region = ExtResource("13_1jc25")
+
+[resource]
+script = ExtResource("11_3d1xo")
+scenario_name = "Small"
+scenario_description = "Has the T.U.S.K. become... smaller? You may not have far to go, but it's hard to find crew willing to take such tight quarters..."
+difficulty_rating = 1
+total_distance = 250
+segments = Array[ExtResource("12_1u8k6")]([SubResource("Resource_ew5hi"), SubResource("Resource_25wxb"), SubResource("Resource_7ql23")])
+gameplay_init_values = SubResource("Resource_gm2jh")
+available_characters = Array[ExtResource("1_5cai8")]([ExtResource("2_ls2mr"), ExtResource("3_x4saw"), ExtResource("4_6kjr0"), ExtResource("6_wkhan"), ExtResource("7_5g0t2"), ExtResource("7_ag7n1")])
+possible_start_char_options = Array[int]([0, 1, 2, 3, 4, 5])
+start_char_count = 2

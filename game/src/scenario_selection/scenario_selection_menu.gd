@@ -90,6 +90,7 @@ func display_scenario_information(scenario: Scenario):
     for i in combined_portraits.size():
         if i < starting_characters.size():
             combined_portraits[i].texture = starting_characters[i].portrait
+            combined_portraits[i].show()
         else:
             combined_portraits[i].hide()
     
