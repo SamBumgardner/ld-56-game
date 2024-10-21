@@ -54,4 +54,4 @@ func _on_trigger_received(trigger_name: String):
 
 ## Child classes override this to do other kinds of behavior when the tutorial's done.
 func _tutorial_finished():
-    get_tree().change_scene_to_file("res://src/start_menu/StartMenu.tscn")
+    get_tree().change_scene_to_file("res://src/scenario_selection/tutorial_selection_menu.tscn")

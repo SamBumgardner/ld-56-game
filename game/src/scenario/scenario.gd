@@ -1,6 +1,7 @@
 class_name Scenario extends Resource
 
 @export_category("Information")
+@export var scene_to_load: PackedScene
 @export var scenario_name: String
 @export_multiline var scenario_description: String
 @export var difficulty_rating: int = 0
