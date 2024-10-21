@@ -33,7 +33,6 @@ func _ready() -> void:
 
     outdoor_root.camera_focus_moving.connect(outdoor_camera.scroll_distance)
     
-    Database.region_changed.connect(func(_a, _b): $AudioManager._start_background_music)
 
 func go_inside() -> void:
     # we can do fancier stuff, like take a callback to only do once the screen's 

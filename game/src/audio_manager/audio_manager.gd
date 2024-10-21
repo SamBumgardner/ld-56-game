@@ -19,6 +19,8 @@ class_name AudioManager extends Node
 @export var sfx_war_transport_charge_crush: AudioStream
 @export var sfx_war_transport_charge_forward: AudioStream
 @export var sfx_war_transport_charge_lose: AudioStream
+@export var sfx_little_fanfare: AudioStream
+@export var sfx_final_fanfare: AudioStream
 
 
 const _bus_name_music = 'Music'
@@ -26,6 +28,7 @@ const _bus_name_sfx_ui = 'SFX UI'
 const _default_audio_crossfade = 0.1
 const _charge_audio_crossfade = 0
 const _reroll_audio_crossfade = 0.5
+const _background_audio_crossfade = 2.0
 
 
 func _ready():
@@ -60,18 +63,15 @@ func on_toggle_freeze():
     SoundManager.play_ui_sound(sfx_die_lock, _bus_name_sfx_ui)
 
 
-func _play_fanfare():
-    pass
-
 # After leaving the start menu, start playing the background music.
 # Call it while music is already playing to go to the next song.
-func _start_background_music():
+func _start_background_music(force_next: bool = false):
     var fade_duration: float = 0.0
     var current_music_index: int = Database.current_background_music_index
     
-    if SoundManager.is_music_playing():
+    if SoundManager.is_music_playing() or force_next:
         current_music_index = (current_music_index + 1) % background_music_queue.size()
-        fade_duration = 2.0
+        fade_duration = _background_audio_crossfade
         
     var next_track: AudioStream = background_music_queue[current_music_index]
 
@@ -333,3 +333,35 @@ func _on_battlefield_outdoors_health_empty():
     SoundManager.play_ui_sound(sfx_war_transport_charge_lose, _bus_name_sfx_ui)
 
 #endregion War transport charge
+
+
+#region Objectives Achieved
+
+func _play_little_fanfare():
+    SoundManager.play_ambient_sound(
+        sfx_little_fanfare,
+        _default_audio_crossfade,
+        _bus_name_sfx_ui
+    )
+
+
+func _play_final_fanfare():
+    SoundManager.play_ambient_sound(
+        sfx_final_fanfare,
+        _default_audio_crossfade,
+        _bus_name_sfx_ui
+    )
+    
+    
+func _on_battlefield_outdoors_milestone_achieved() -> void:
+    const fadeout_before_fanfare_duration: float = .5
+
+    var fanfare_sequence_tween: Tween = create_tween()
+    fanfare_sequence_tween.tween_callback(SoundManager.stop_music.bind(fadeout_before_fanfare_duration))
+    fanfare_sequence_tween.tween_interval(fadeout_before_fanfare_duration)
+    fanfare_sequence_tween.tween_callback(_play_little_fanfare)
+    fanfare_sequence_tween.tween_interval(max(sfx_little_fanfare.get_length() - _background_audio_crossfade / 2, 0))
+    fanfare_sequence_tween.tween_callback(_start_background_music.bind(true))
+
+
+#endregion

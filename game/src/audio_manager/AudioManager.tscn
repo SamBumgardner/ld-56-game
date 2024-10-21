@@ -1,12 +1,15 @@
-[gd_scene load_steps=18 format=3 uid="uid://h1fowbxngb70"]
+[gd_scene load_steps=21 format=3 uid="uid://h1fowbxngb70"]
 
 [ext_resource type="Script" path="res://src/audio_manager/audio_manager.gd" id="1_eh3tu"]
 [ext_resource type="AudioStream" uid="uid://cifq013w5q8uo" path="res://assets/audio/003_loop_music.ogg" id="2_n8me7"]
 [ext_resource type="AudioStream" uid="uid://bnwxx5jm4stl6" path="res://assets/audio/102_sfx_select.wav" id="2_x7bd4"]
 [ext_resource type="AudioStream" uid="uid://db75wtlmke61f" path="res://assets/audio/101_sfx_button.wav" id="2_xtd0e"]
+[ext_resource type="AudioStream" uid="uid://d24w6mxh71ltq" path="res://assets/audio/004_loop_music.ogg" id="4_lmkea"]
+[ext_resource type="AudioStream" uid="uid://cqskfy7h4l6m4" path="res://assets/audio/001_loop_music.ogg" id="5_b252j"]
 [ext_resource type="AudioStream" uid="uid://b6pu2ckub1qta" path="res://assets/audio/103_sfx_dice_shake.ogg" id="5_iam4r"]
 [ext_resource type="AudioStream" uid="uid://bi1gg0y8r3t23" path="res://assets/audio/201_sfx_dice_landing_randomizer.tres" id="5_rv2n8"]
 [ext_resource type="AudioStream" uid="uid://bjlam210073te" path="res://assets/audio/114_sfx_lock.wav" id="6_4g40q"]
+[ext_resource type="AudioStream" uid="uid://caq0n6uhq3dky" path="res://assets/audio/002_loop_music.ogg" id="6_yn2ng"]
 [ext_resource type="AudioStream" uid="uid://bgb2j55w0hct1" path="res://assets/audio/107_sfx_navigate_computer_menu.wav" id="7_0bqsn"]
 [ext_resource type="AudioStream" uid="uid://b06l7o6tdjt1b" path="res://assets/audio/108_sfx_navigate_computer_menu.wav" id="8_ko7jq"]
 [ext_resource type="AudioStream" uid="uid://d13u6to11k8f4" path="res://assets/audio/109_sfx_woosh.wav" id="9_5njtl"]
@@ -21,6 +24,7 @@
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_eh3tu")
 background_music_default = ExtResource("2_n8me7")
+background_music_queue = Array[AudioStream]([ExtResource("2_n8me7"), ExtResource("4_lmkea"), ExtResource("5_b252j"), ExtResource("6_yn2ng")])
 sfx_button_click = ExtResource("2_x7bd4")
 sfx_button_hover = ExtResource("2_xtd0e")
 sfx_dice_landing = ExtResource("5_rv2n8")
@@ -36,3 +40,5 @@ sfx_transition_gameplay_outdoors_to_indoors = ExtResource("10_th1gx")
 sfx_war_transport_charge_crush = ExtResource("13_6f3bk")
 sfx_war_transport_charge_forward = ExtResource("12_6p66v")
 sfx_war_transport_charge_lose = ExtResource("15_r2qlj")
+sfx_little_fanfare = ExtResource("9_rcw8j")
+sfx_final_fanfare = ExtResource("14_uusua")
