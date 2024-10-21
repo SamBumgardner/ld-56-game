@@ -14,6 +14,7 @@ signal victory(duration: float)
 signal dice_roll_started()
 signal health_empty()
 signal insufficient_fuel()
+signal all_locked()
 
 @onready var war_transport: BattlefieldOutdoorsWarTransport = $AnchorOfWarTransport/BattlefieldOutdoorsWarTransport
 @onready var barrier: BattlefieldOutdoorsBarrier = $AnchorOfBarrier/BattlefieldOutdoorsBarrier
@@ -26,6 +27,7 @@ var checkpoint_reached: bool = false
 
 func _ready() -> void:
     insufficient_fuel.connect(battlefield_outdoors_hud._on_insufficient_fuel)
+    all_locked.connect(battlefield_outdoors_hud._on_all_locked)
     battlefield_outdoors_hud.dice_roll_requested.connect(_on_roll_requested)
     battlefield_outdoors_hud.initiate_charge_requested.connect(_begin_charge_sequence)
 
@@ -243,7 +245,7 @@ func _on_victory() -> void:
     
 func _on_roll_requested(override_cost: int = -1):
     var roll_cost: int = override_cost if override_cost >= 0 else Database.current_reroll_fuel_cost
-    if _has_enough_fuel(roll_cost):
+    if _has_unlocked_crew(Database.current_character_die_slots) and _has_enough_fuel(roll_cost):
         dice_roll_started.emit()
         Database.set_fuel(Database.current_fuel - roll_cost)
         _roll_dice()
@@ -253,6 +255,16 @@ func _has_enough_fuel(cost: int) -> bool:
     if not enough_fuel:
         insufficient_fuel.emit()
     return enough_fuel
+
+func _has_unlocked_crew(dice_slots: Array[CharacterDieSlot]):
+    var all_dice_frozen: bool = dice_slots.all(
+        func(character_die_slot: CharacterDieSlot) -> bool: return (
+            character_die_slot.is_frozen
+        )
+    )
+    if all_dice_frozen:
+        all_locked.emit()
+    return not all_dice_frozen
 
 func _roll_dice() -> void:
     var character_die_slots = Database.current_character_die_slots
