@@ -14,8 +14,8 @@ value_change_amount = 1
 number_of_times = 1
 remove_action_name = ""
 new_action_string = ""
-filter_criteria = 2
-invert_filter = false
+filter_criteria = 1
+invert_filter = true
 sort_criteria = -1
 number_of_actions_to_affect = 256
 change_to = -1
@@ -45,7 +45,7 @@ script = ExtResource("2_11pqu")
 name = "Consistent"
 description = "Temporary Description"
 visual_summary = "[center]Increase largest [img=30%]res://assets/art/HEAL_icon_64x64.png[/img] by 2
-Increase of [img=30%]res://assets/art/ATTACK_icon_64x64.png[/img] & [img=30%]res://assets/art/MAGIC_icon_64x64.png[/img] by 1"
+Increase power of [img=30%]res://assets/art/ATTACK_icon_64x64.png[/img] & [img=30%]res://assets/art/MAGIC_icon_64x64.png[/img] by 1"
 icon_ref = ExtResource("2_2s72h")
 cost = 0
 additional_effect = SubResource("Resource_b4qst")
