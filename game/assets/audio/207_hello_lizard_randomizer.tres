@@ -1,9 +1,0 @@
-[gd_resource type="AudioStreamRandomizer" load_steps=3 format=3 uid="uid://1egopuk2c4ud"]
-
-[ext_resource type="AudioStream" uid="uid://bd2ukgmhyc3g5" path="res://assets/audio/character_voice_lines/1101_hello.wav" id="1_2mbj8"]
-[ext_resource type="AudioStream" uid="uid://c6hr3gohf0clp" path="res://assets/audio/character_voice_lines/1103_hello.wav" id="2_8wjuu"]
-
-[resource]
-streams_count = 2
-stream_0/stream = ExtResource("1_2mbj8")
-stream_1/stream = ExtResource("2_8wjuu")
