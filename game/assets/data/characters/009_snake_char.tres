@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="CharacterFactory" load_steps=23 format=3 uid="uid://bo6i4mxety0iv"]
 
-[ext_resource type="Texture2D" uid="uid://buhpfr0v6vyet" path="res://assets/art/character_icons/003_character_icon.png" id="1_seljt"]
-[ext_resource type="Texture2D" uid="uid://bic3i142epdt3" path="res://assets/art/placeholder_threat.png" id="2_1xnen"]
+[ext_resource type="Texture2D" uid="uid://c6vw5nlbccmsu" path="res://assets/art/character_icons/snake_small.png" id="1_pttuv"]
+[ext_resource type="Texture2D" uid="uid://cuaii02pkjgar" path="res://assets/art/character_portraits/snake_portrait.jpg" id="2_kgkt1"]
 [ext_resource type="Script" path="res://src/characters/CharacterFactory.gd" id="3_osxgm"]
 [ext_resource type="AudioStream" uid="uid://o8kw0fvvlcl" path="res://assets/audio/character_voice_lines/1159_hello.wav" id="4_gmhq1"]
 [ext_resource type="Script" path="res://src/characters/UpgradeSelector.gd" id="4_obvhb"]
@@ -47,8 +47,8 @@ price = 0
 script = ExtResource("3_osxgm")
 name = "Venom"
 description = "Fearless to a fault, never hesitates to try something new -- permanently banned from cooking duty."
-portrait = ExtResource("2_1xnen")
-icon = ExtResource("1_seljt")
+portrait = ExtResource("2_kgkt1")
+icon = ExtResource("1_pttuv")
 sfx_hello = ExtResource("4_gmhq1")
 sfx_upgrade_gained = ExtResource("5_nrc12")
 starting_action_strings = Array[String](["wit_2", "chaos_2"])

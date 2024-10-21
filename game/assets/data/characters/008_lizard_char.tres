@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="CharacterFactory" load_steps=23 format=3 uid="uid://cg2gt1s2ilepn"]
 
-[ext_resource type="Texture2D" uid="uid://dbxuu6rqen0ed" path="res://assets/art/character_icons/001_character_icon.png" id="1_kpmar"]
-[ext_resource type="Texture2D" uid="uid://bic3i142epdt3" path="res://assets/art/placeholder_threat.png" id="2_f2ol6"]
+[ext_resource type="Texture2D" uid="uid://cuq8866hxshpm" path="res://assets/art/character_icons/lizard_small.png" id="1_yr5p6"]
+[ext_resource type="Texture2D" uid="uid://c1wnk46yb77q" path="res://assets/art/character_portraits/lizard_portrait.jpg" id="2_t3841"]
 [ext_resource type="Script" path="res://src/characters/CharacterFactory.gd" id="3_h3rq5"]
 [ext_resource type="AudioStream" uid="uid://c6hr3gohf0clp" path="res://assets/audio/character_voice_lines/1103_hello.wav" id="4_6d2xh"]
 [ext_resource type="Script" path="res://src/characters/UpgradeSelector.gd" id="4_sxc2t"]
@@ -47,8 +47,8 @@ price = 0
 script = ExtResource("3_h3rq5")
 name = "Scratch"
 description = "The youngest scion of a famed family of gunslingers. Willing to face any challenge to prove his worth."
-portrait = ExtResource("2_f2ol6")
-icon = ExtResource("1_kpmar")
+portrait = ExtResource("2_t3841")
+icon = ExtResource("1_yr5p6")
 sfx_hello = ExtResource("4_6d2xh")
 sfx_upgrade_gained = ExtResource("5_cu271")
 starting_action_strings = Array[String](["might_2", "wit_2"])
