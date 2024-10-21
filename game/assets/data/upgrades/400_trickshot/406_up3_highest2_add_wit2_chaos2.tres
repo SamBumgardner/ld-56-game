@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="UpgradeChoice" load_steps=5 format=3 uid="uid://dnm88ivwwiam3"]
 
 [ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="1_swx0a"]
-[ext_resource type="Texture2D" uid="uid://8icadmy2cp3f" path="res://assets/art/upgrade_icon_placeholder.png" id="2_mwy1j"]
+[ext_resource type="Texture2D" uid="uid://t3o26rqaldid" path="res://assets/art/upgrade_icon_mystery.png" id="2_aspj5"]
 
 [sub_resource type="Resource" id="Resource_csioo"]
 script = ExtResource("1_swx0a")
@@ -42,11 +42,11 @@ restore_pct = 0.0
 
 [resource]
 script = ExtResource("1_swx0a")
-name = "temp"
+name = "Overdo"
 description = "Temporary Description"
 visual_summary = "[center]Increase two strongest actions by [b]3[/b]
 Add: 2[img=30%]res://assets/art/HEAL_icon_64x64.png[/img] 2[img=30%]res://assets/art/MAGIC_icon_64x64.png[/img]"
-icon_ref = ExtResource("2_mwy1j")
+icon_ref = ExtResource("2_aspj5")
 cost = 0
 additional_effect = SubResource("Resource_cdmsv")
 upgrade_type = 2

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="UpgradeChoice" load_steps=5 format=3 uid="uid://ur5blb6w8sv6"]
 
-[ext_resource type="Texture2D" uid="uid://8icadmy2cp3f" path="res://assets/art/upgrade_icon_placeholder.png" id="1_pfix8"]
+[ext_resource type="Texture2D" uid="uid://t3o26rqaldid" path="res://assets/art/upgrade_icon_mystery.png" id="1_rwg2y"]
 [ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="2_ja286"]
 [ext_resource type="Script" path="res://src/characters/SpecificCombineParams.gd" id="3_iowxq"]
 
@@ -15,10 +15,10 @@ lost_invert_filter = false
 
 [resource]
 script = ExtResource("2_ja286")
-name = "temp"
+name = "Mix"
 description = "Temporary Description"
 visual_summary = "[center]Combine 2 random [img=30%]res://assets/art/MAGIC_icon_64x64.png[/img] actions"
-icon_ref = ExtResource("1_pfix8")
+icon_ref = ExtResource("1_rwg2y")
 cost = 0
 upgrade_type = 7
 value_change_amount = 0

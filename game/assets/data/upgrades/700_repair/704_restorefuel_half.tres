@@ -1,14 +1,14 @@
 [gd_resource type="Resource" script_class="UpgradeChoice" load_steps=3 format=3 uid="uid://16175dpr7td8"]
 
-[ext_resource type="Texture2D" uid="uid://8icadmy2cp3f" path="res://assets/art/upgrade_icon_placeholder.png" id="1_hfd87"]
+[ext_resource type="Texture2D" uid="uid://c3uxgv80sdcwe" path="res://assets/art/upgrade_icon_charge.png" id="1_ocl63"]
 [ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="2_aijrc"]
 
 [resource]
 script = ExtResource("2_aijrc")
-name = "temp"
+name = "Refuel"
 description = "Temporary Description"
 visual_summary = "[center]Gain 50% of maximum fuel"
-icon_ref = ExtResource("1_hfd87")
+icon_ref = ExtResource("1_ocl63")
 cost = 0
 upgrade_type = 9
 value_change_amount = 0

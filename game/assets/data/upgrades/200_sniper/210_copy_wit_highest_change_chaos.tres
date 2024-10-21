@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="UpgradeChoice" load_steps=4 format=3 uid="uid://cni2mclr6wx0o"]
 
 [ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="1_qjy1q"]
-[ext_resource type="Texture2D" uid="uid://8icadmy2cp3f" path="res://assets/art/upgrade_icon_placeholder.png" id="2_bvqjj"]
+[ext_resource type="Texture2D" uid="uid://b17703hp2rttu" path="res://assets/art/upgrade_icon_chaos.png" id="2_76eeh"]
 
 [sub_resource type="Resource" id="Resource_lqyuf"]
 script = ExtResource("1_qjy1q")
@@ -23,10 +23,10 @@ restore_pct = 0.0
 
 [resource]
 script = ExtResource("1_qjy1q")
-name = "temp"
+name = "Chaotic"
 description = "Temporary Description"
 visual_summary = "[center]Copy largest [img=30%]res://assets/art/HEAL_icon_64x64.png[/img] as [img=30%]res://assets/art/MAGIC_icon_64x64.png[/img]"
-icon_ref = ExtResource("2_bvqjj")
+icon_ref = ExtResource("2_76eeh")
 cost = 0
 additional_effect = SubResource("Resource_lqyuf")
 upgrade_type = 4

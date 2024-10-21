@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="UpgradeChoice" load_steps=4 format=3 uid="uid://d4i3y5kavi432"]
 
 [ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="1_bpbkd"]
-[ext_resource type="Texture2D" uid="uid://8icadmy2cp3f" path="res://assets/art/upgrade_icon_placeholder.png" id="2_064ol"]
+[ext_resource type="Texture2D" uid="uid://bnhb5pq77ferj" path="res://assets/art/upgrade_icon_might.png" id="2_qk33r"]
 
 [sub_resource type="Resource" id="Resource_xxjp1"]
 script = ExtResource("1_bpbkd")
@@ -23,11 +23,11 @@ restore_pct = 0.0
 
 [resource]
 script = ExtResource("1_bpbkd")
-name = "temp"
+name = "Overpower"
 description = "Temporary Description"
 visual_summary = "[center]Add: 
 (total of [img=30%]res://assets/art/ATTACK_icon_64x64.png[/img] actions)[img=30%]res://assets/art/ATTACK_icon_64x64.png[/img]"
-icon_ref = ExtResource("2_064ol")
+icon_ref = ExtResource("2_qk33r")
 cost = 0
 additional_effect = SubResource("Resource_xxjp1")
 upgrade_type = 10

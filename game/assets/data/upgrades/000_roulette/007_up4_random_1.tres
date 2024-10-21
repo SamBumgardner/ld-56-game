@@ -1,14 +1,14 @@
 [gd_resource type="Resource" script_class="UpgradeChoice" load_steps=3 format=3 uid="uid://dief7scgoaa68"]
 
-[ext_resource type="Texture2D" uid="uid://8icadmy2cp3f" path="res://assets/art/upgrade_icon_placeholder.png" id="1_8peim"]
+[ext_resource type="Texture2D" uid="uid://t3o26rqaldid" path="res://assets/art/upgrade_icon_mystery.png" id="1_dyug8"]
 [ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="2_ep80q"]
 
 [resource]
 script = ExtResource("2_ep80q")
-name = "tmp"
+name = "Intensive"
 description = "Temporary Description"
 visual_summary = "[center]Improve value of [b]1[/b] random action by [b]4[/b]"
-icon_ref = ExtResource("1_8peim")
+icon_ref = ExtResource("1_dyug8")
 cost = 0
 upgrade_type = 2
 value_change_amount = 4
@@ -16,5 +16,8 @@ number_of_times = 1
 remove_action_name = ""
 new_action_string = ""
 filter_criteria = -1
+invert_filter = false
 sort_criteria = 2
 number_of_actions_to_affect = 1
+change_to = -1
+restore_pct = 0.0

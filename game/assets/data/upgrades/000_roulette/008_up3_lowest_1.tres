@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="UpgradeChoice" load_steps=3 format=3 uid="uid://dowscuwhactld"]
 
-[ext_resource type="Texture2D" uid="uid://8icadmy2cp3f" path="res://assets/art/upgrade_icon_placeholder.png" id="1_uanuv"]
+[ext_resource type="Texture2D" uid="uid://c131mlp1gsxls" path="res://assets/art/upgrade_icon_all.png" id="1_0pbb1"]
 [ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="2_m5ld7"]
 
 [resource]
@@ -8,7 +8,7 @@ script = ExtResource("2_m5ld7")
 name = "Persevere"
 description = "Weakness becomes strength."
 visual_summary = "[center]Improve value of the weakest action by [b]3[/b]"
-icon_ref = ExtResource("1_uanuv")
+icon_ref = ExtResource("1_0pbb1")
 cost = 0
 upgrade_type = 2
 value_change_amount = 3
@@ -16,5 +16,8 @@ number_of_times = 1
 remove_action_name = ""
 new_action_string = ""
 filter_criteria = -1
+invert_filter = false
 sort_criteria = 0
 number_of_actions_to_affect = 1
+change_to = -1
+restore_pct = 0.0

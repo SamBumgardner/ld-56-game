@@ -1,14 +1,14 @@
 [gd_resource type="Resource" script_class="UpgradeChoice" load_steps=3 format=3 uid="uid://bejccv0um30m0"]
 
-[ext_resource type="Texture2D" uid="uid://8icadmy2cp3f" path="res://assets/art/upgrade_icon_placeholder.png" id="1_7bpf1"]
+[ext_resource type="Texture2D" uid="uid://c131mlp1gsxls" path="res://assets/art/upgrade_icon_all.png" id="1_tcvgf"]
 [ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="2_wje0y"]
 
 [resource]
 script = ExtResource("2_wje0y")
-name = "temp"
+name = "Tune"
 description = "Temporary Description"
 visual_summary = "[center]Increase two strongest actions by [b]1[/b]"
-icon_ref = ExtResource("1_7bpf1")
+icon_ref = ExtResource("1_tcvgf")
 cost = 0
 upgrade_type = 2
 value_change_amount = 1
@@ -20,3 +20,4 @@ invert_filter = false
 sort_criteria = 1
 number_of_actions_to_affect = 2
 change_to = -1
+restore_pct = 0.0

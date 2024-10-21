@@ -1,14 +1,14 @@
 [gd_resource type="Resource" script_class="UpgradeChoice" load_steps=3 format=3 uid="uid://k60l3nfk5k5q"]
 
-[ext_resource type="Texture2D" uid="uid://8icadmy2cp3f" path="res://assets/art/upgrade_icon_placeholder.png" id="1_4q6vu"]
+[ext_resource type="Texture2D" uid="uid://b17703hp2rttu" path="res://assets/art/upgrade_icon_chaos.png" id="1_pfwtw"]
 [ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="2_cdl4q"]
 
 [resource]
 script = ExtResource("2_cdl4q")
-name = "temp"
+name = "Spice"
 description = "Temporary Description"
 visual_summary = "[center]Increase lowest [img=30%]res://assets/art/MAGIC_icon_64x64.png[/img] by 2"
-icon_ref = ExtResource("1_4q6vu")
+icon_ref = ExtResource("1_pfwtw")
 cost = 0
 upgrade_type = 2
 value_change_amount = 2
@@ -20,3 +20,4 @@ invert_filter = false
 sort_criteria = 0
 number_of_actions_to_affect = 1
 change_to = -1
+restore_pct = 0.0
