@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="UpgradeChoice" load_steps=4 format=3 uid="uid://bogik4enk8v71"]
 
 [ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="1_gq3wb"]
-[ext_resource type="Texture2D" uid="uid://8icadmy2cp3f" path="res://assets/art/upgrade_icon_placeholder.png" id="2_4yx78"]
+[ext_resource type="Texture2D" uid="uid://c131mlp1gsxls" path="res://assets/art/upgrade_icon_all.png" id="2_b2mbi"]
 
 [sub_resource type="Resource" id="Resource_jk8x6"]
 script = ExtResource("1_gq3wb")
@@ -23,11 +23,11 @@ restore_pct = 0.0
 
 [resource]
 script = ExtResource("1_gq3wb")
-name = "temp"
+name = "Discover"
 description = "Temporary Description"
 visual_summary = "[center]Randomize the type of an action 3 times.
 Increase the value of all actions by [b]1[/b]"
-icon_ref = ExtResource("2_4yx78")
+icon_ref = ExtResource("2_b2mbi")
 cost = 0
 additional_effect = SubResource("Resource_jk8x6")
 upgrade_type = 6
