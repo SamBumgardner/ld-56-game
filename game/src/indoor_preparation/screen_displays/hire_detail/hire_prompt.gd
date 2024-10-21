@@ -4,7 +4,7 @@ class_name HirePrompt extends Node
 @onready var purchase_button: Button = $MarginContainer/VBoxContainer/PurchaseButton
 
 var cost_format_string: String = """[center]Hiring Cost:
-[img=15%%]res://assets/art/ATTACK_icon_64x64.png[/img]%s"""
+[img=15%%]res://assets/art/tiny_silver_coin.png[/img]%s"""
 
 
 func set_character_data(character: Character) -> void:
