@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://dbxuu6rqen0ed" path="res://assets/art/character_icons/001_character_icon.png" id="1_nsk4b"]
 [ext_resource type="Texture2D" uid="uid://bic3i142epdt3" path="res://assets/art/placeholder_threat.png" id="2_rd318"]
 [ext_resource type="Script" path="res://src/characters/CharacterFactory.gd" id="3_q6l7y"]
+[ext_resource type="AudioStream" uid="uid://5e3a8hurn674" path="res://assets/audio/character_voice_lines/1147_hello.wav" id="4_44alo"]
 [ext_resource type="Script" path="res://src/characters/UpgradeSelector.gd" id="4_yalqq"]
-[ext_resource type="AudioStream" uid="uid://o8kw0fvvlcl" path="res://assets/audio/character_voice_lines/1159_hello.wav" id="4_ykyx4"]
 [ext_resource type="AudioStream" uid="uid://dxnggq471phkj" path="res://assets/audio/character_voice_lines/1154_squirrel.wav" id="5_i86ot"]
 [ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="5_yltpl"]
 [ext_resource type="Resource" uid="uid://cspjika0aba3y" path="res://assets/data/upgrades/800_basic/801_up1_might.tres" id="6_ui4b3"]
@@ -49,7 +49,7 @@ name = "Mint"
 description = "A drifter with a name from greener times. An explorer first, they chase the thrill of discovering new frontiers."
 portrait = ExtResource("2_rd318")
 icon = ExtResource("1_nsk4b")
-sfx_hello = ExtResource("4_ykyx4")
+sfx_hello = ExtResource("4_44alo")
 sfx_upgrade_gained = ExtResource("5_i86ot")
 starting_action_strings = Array[String](["might_2", "might_1", "wit_1"])
 upgrade_level = 0
