@@ -1,0 +1,47 @@
+[gd_resource type="Resource" script_class="Scenario" load_steps=17 format=3 uid="uid://bmx675ycgue2y"]
+
+[ext_resource type="Script" path="res://src/characters/CharacterFactory.gd" id="1_7ujlv"]
+[ext_resource type="Resource" uid="uid://cghmtnhtq1aeh" path="res://assets/data/characters/001_squirrel_char.tres" id="2_2agvt"]
+[ext_resource type="Resource" uid="uid://duswkektwj6hb" path="res://assets/data/characters/002_frog_char.tres" id="3_ta8wr"]
+[ext_resource type="Resource" uid="uid://b3l83j0ql7m0e" path="res://assets/data/characters/003_raccoon_char.tres" id="4_ehenr"]
+[ext_resource type="Resource" uid="uid://bfkdaseurpvu6" path="res://assets/data/characters/004_bird_char.tres" id="5_lthoa"]
+[ext_resource type="Resource" uid="uid://dexsvne2ukrlr" path="res://assets/data/characters/005_ape_char.tres" id="6_fy3u3"]
+[ext_resource type="Resource" uid="uid://cg2gt1s2ilepn" path="res://assets/data/characters/008_lizard_char.tres" id="7_gl71u"]
+[ext_resource type="Resource" uid="uid://1nhgxq12mwuo" path="res://assets/data/characters/011_rabbit_char.tres" id="8_fu67y"]
+[ext_resource type="Resource" uid="uid://beppcdvy1b3s0" path="res://assets/data/characters/012_fish_char.tres" id="9_v637t"]
+[ext_resource type="Script" path="res://assets/data/gameplay_init_values.gd" id="10_3t8v6"]
+[ext_resource type="Script" path="res://src/scenario/scenario.gd" id="11_na0cb"]
+[ext_resource type="PackedScene" uid="uid://dmt7apybbbxkd" path="res://src/tutorial/tutorial_scenes/basic_information/basic_information_tutorial.tscn" id="11_oo8ht"]
+[ext_resource type="Script" path="res://src/scenario/scenario_segment.gd" id="12_lv6ja"]
+[ext_resource type="Resource" uid="uid://dwhqixr01xgru" path="res://assets/data/scenarios/regions/not_too_badlands.tres" id="13_oxos4"]
+
+[sub_resource type="Resource" id="Resource_wcex8"]
+script = ExtResource("10_3t8v6")
+current_region_starting_barrier_strength = 4.0
+current_reroll_fuel_cost = 1
+current_matching_stat_type_multiplier = 2
+war_transport_health_maximum = 15
+war_transport_health_current = 15
+should_generate_new_applicants = false
+current_money = 0
+current_fuel = 5
+
+[sub_resource type="Resource" id="Resource_ms3ae"]
+script = ExtResource("12_lv6ja")
+starts_at = 0
+arrival_bonus_heal = 0
+arrival_bonus_barrier_reduction = 0
+region = ExtResource("13_oxos4")
+
+[resource]
+script = ExtResource("11_na0cb")
+scene_to_load = ExtResource("11_oo8ht")
+scenario_name = "Basic Info"
+scenario_description = "Learn basic information about the game!"
+difficulty_rating = 0
+total_distance = 100
+segments = Array[ExtResource("12_lv6ja")]([SubResource("Resource_ms3ae")])
+gameplay_init_values = SubResource("Resource_wcex8")
+available_characters = Array[ExtResource("1_7ujlv")]([ExtResource("2_2agvt"), ExtResource("3_ta8wr"), ExtResource("4_ehenr"), ExtResource("5_lthoa"), ExtResource("6_fy3u3"), ExtResource("7_gl71u"), ExtResource("8_fu67y"), ExtResource("9_v637t")])
+possible_start_char_options = Array[int]([0, 1, 2])
+start_char_count = 3

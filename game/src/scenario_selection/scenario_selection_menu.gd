@@ -32,6 +32,8 @@ var combined_portraits: Array
 
 @onready var audio_manager: AudioManager = $AudioManager
 
+var selected_scenario: Scenario
+
 func _ready():
     combined_portraits = []
     combined_portraits.append_array(crew_portraits1)
@@ -50,9 +52,18 @@ func _ready():
     
     start_button.mouse_entered.connect(audio_manager._on_start_button_mouse_entered)
     start_button.pressed.connect(audio_manager._on_start_button_pressed)
+    start_button.pressed.connect(_on_start_button_pressed)
 
+func _on_start_button_pressed():
+    Database.load_from_scenario(selected_scenario)
+    if selected_scenario.scene_to_load != null:
+        get_tree().change_scene_to_packed(selected_scenario.scene_to_load)
+    else:
+        get_tree().change_scene_to_file("res://src/gameplay/Gameplay.tscn")
 
 func display_scenario_information(scenario: Scenario):
+    selected_scenario = scenario
+    
     content_container.show()
 
     title_header.text = scenario.scenario_name

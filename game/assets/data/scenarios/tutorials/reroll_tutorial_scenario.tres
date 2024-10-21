@@ -1,0 +1,47 @@
+[gd_resource type="Resource" script_class="Scenario" load_steps=17 format=3 uid="uid://ox2upj1rxbfp"]
+
+[ext_resource type="Script" path="res://src/characters/CharacterFactory.gd" id="1_q77jo"]
+[ext_resource type="Resource" uid="uid://cghmtnhtq1aeh" path="res://assets/data/characters/001_squirrel_char.tres" id="2_10fna"]
+[ext_resource type="Resource" uid="uid://duswkektwj6hb" path="res://assets/data/characters/002_frog_char.tres" id="3_yk6yd"]
+[ext_resource type="Resource" uid="uid://b3l83j0ql7m0e" path="res://assets/data/characters/003_raccoon_char.tres" id="4_jvtdp"]
+[ext_resource type="Resource" uid="uid://bfkdaseurpvu6" path="res://assets/data/characters/004_bird_char.tres" id="5_111ky"]
+[ext_resource type="Resource" uid="uid://dexsvne2ukrlr" path="res://assets/data/characters/005_ape_char.tres" id="6_73pm8"]
+[ext_resource type="Resource" uid="uid://cg2gt1s2ilepn" path="res://assets/data/characters/008_lizard_char.tres" id="7_ra044"]
+[ext_resource type="Resource" uid="uid://1nhgxq12mwuo" path="res://assets/data/characters/011_rabbit_char.tres" id="8_q506i"]
+[ext_resource type="Resource" uid="uid://beppcdvy1b3s0" path="res://assets/data/characters/012_fish_char.tres" id="9_qcpv0"]
+[ext_resource type="Script" path="res://assets/data/gameplay_init_values.gd" id="10_5ocyn"]
+[ext_resource type="PackedScene" uid="uid://b5elhebvdn0nk" path="res://src/tutorial/tutorial_scenes/reroll/reroll_tutorial.tscn" id="11_2suvt"]
+[ext_resource type="Script" path="res://src/scenario/scenario.gd" id="12_p4v7r"]
+[ext_resource type="Script" path="res://src/scenario/scenario_segment.gd" id="13_k557i"]
+[ext_resource type="Resource" uid="uid://dwhqixr01xgru" path="res://assets/data/scenarios/regions/not_too_badlands.tres" id="14_uus0k"]
+
+[sub_resource type="Resource" id="Resource_wcex8"]
+script = ExtResource("10_5ocyn")
+current_region_starting_barrier_strength = 4.0
+current_reroll_fuel_cost = 1
+current_matching_stat_type_multiplier = 2
+war_transport_health_maximum = 15
+war_transport_health_current = 15
+should_generate_new_applicants = false
+current_money = 0
+current_fuel = 10
+
+[sub_resource type="Resource" id="Resource_ms3ae"]
+script = ExtResource("13_k557i")
+starts_at = 0
+arrival_bonus_heal = 0
+arrival_bonus_barrier_reduction = 0
+region = ExtResource("14_uus0k")
+
+[resource]
+script = ExtResource("12_p4v7r")
+scene_to_load = ExtResource("11_2suvt")
+scenario_name = "Rerolls & You"
+scenario_description = "Learn how to control your crew's actions via rerolls and locking!"
+difficulty_rating = 1
+total_distance = 100
+segments = Array[ExtResource("13_k557i")]([SubResource("Resource_ms3ae")])
+gameplay_init_values = SubResource("Resource_wcex8")
+available_characters = Array[ExtResource("1_q77jo")]([ExtResource("2_10fna"), ExtResource("3_yk6yd"), ExtResource("4_jvtdp"), ExtResource("5_111ky"), ExtResource("6_73pm8"), ExtResource("7_ra044"), ExtResource("8_q506i"), ExtResource("9_qcpv0")])
+possible_start_char_options = Array[int]([0, 1, 2])
+start_char_count = 3
