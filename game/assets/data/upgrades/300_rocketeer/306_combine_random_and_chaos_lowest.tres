@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="UpgradeChoice" load_steps=5 format=3 uid="uid://doxyp6lidta1u"]
 
-[ext_resource type="Texture2D" uid="uid://8icadmy2cp3f" path="res://assets/art/upgrade_icon_placeholder.png" id="1_o5sqr"]
+[ext_resource type="Texture2D" uid="uid://t3o26rqaldid" path="res://assets/art/upgrade_icon_mystery.png" id="1_inup7"]
 [ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="2_r5bmc"]
 [ext_resource type="Script" path="res://src/characters/SpecificCombineParams.gd" id="3_6hs3g"]
 
@@ -15,11 +15,11 @@ lost_invert_filter = false
 
 [resource]
 script = ExtResource("2_r5bmc")
-name = "temp"
+name = "Invent"
 description = "Temporary Description"
 visual_summary = "[center]Remove lowest [img=30%]res://assets/art/MAGIC_icon_64x64.png[/img]
 Increase random action by the removed value"
-icon_ref = ExtResource("1_o5sqr")
+icon_ref = ExtResource("1_inup7")
 cost = 0
 upgrade_type = 7
 value_change_amount = 0

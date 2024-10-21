@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="UpgradeChoice" load_steps=4 format=3 uid="uid://jgki4y0r1fv3"]
 
 [ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="1_rjhls"]
-[ext_resource type="Texture2D" uid="uid://8icadmy2cp3f" path="res://assets/art/upgrade_icon_placeholder.png" id="2_xdcbt"]
+[ext_resource type="Texture2D" uid="uid://b17703hp2rttu" path="res://assets/art/upgrade_icon_chaos.png" id="2_l1pn1"]
 
 [sub_resource type="Resource" id="Resource_yiy8q"]
 script = ExtResource("1_rjhls")
@@ -23,11 +23,11 @@ restore_pct = 0.0
 
 [resource]
 script = ExtResource("1_rjhls")
-name = "temp"
+name = "Bundle"
 description = "Temporary Description"
 visual_summary = "[center]Increase [img=30%]res://assets/art/MAGIC_icon_64x64.png[/img] by 2
 Remove random non-[img=30%]res://assets/art/MAGIC_icon_64x64.png[/img]"
-icon_ref = ExtResource("2_xdcbt")
+icon_ref = ExtResource("2_l1pn1")
 cost = 0
 additional_effect = SubResource("Resource_yiy8q")
 upgrade_type = 2
