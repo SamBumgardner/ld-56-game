@@ -95,6 +95,7 @@ var _starting_character_idxs: Array[int] = [
     2,
 ]
 
+var audio_game_start_background_music_initialized: bool
 var audio_volume_initialized: bool
 var audio_volume_music: float
 var audio_volume_sfx: float
@@ -320,6 +321,11 @@ func get_settings_default_audio_volume_music() -> float:
 func get_settings_default_audio_volume_sfx() -> float:
     return _settings_default_audio_volume_sfx
 
+func set_audio_game_start_background_music_initialized(
+    is_initialized: bool
+) -> void:
+    audio_game_start_background_music_initialized = is_initialized
+
 func set_audio_volume_initialized(is_initialized: bool) -> void:
     audio_volume_initialized = is_initialized
 
@@ -430,6 +436,7 @@ func pick_barrier_type_from_region() -> Database.StatType:
     return scenario.get_current_region(distance_traveled).barrier_type_distribution.pick_random()
 
 func _ready_audio_volumes() -> void:
+    set_audio_game_start_background_music_initialized(false)
     set_audio_volume_initialized(false)
     set_audio_volume_music(_initial_audio_volume_music)
     set_audio_volume_sfx(_initial_audio_volume_sfx)

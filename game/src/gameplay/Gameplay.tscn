@@ -67,5 +67,4 @@ visible = false
 offset = Vector2(640, 360)
 script = ExtResource("9_v3mno")
 
-[connection signal="ready" from="." to="AudioManager" method="_on_gameplay_ready"]
 [connection signal="tree_exiting" from="." to="AudioManager" method="_on_gameplay_tree_exiting"]

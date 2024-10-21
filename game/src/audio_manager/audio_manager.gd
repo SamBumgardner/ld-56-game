@@ -59,11 +59,17 @@ func on_toggle_freeze():
 
 
 # After leaving the start menu, start playing the background music.
+func _next_background_music():
+    SoundManager.stop_music()
+    SoundManager.play_music(background_music_queue)
+
+
+# After leaving the start menu, start playing the background music.
 func _start_background_music():
-    if SoundManager.is_music_playing():
+    if SoundManager.is_music_playing(background_music_queue):
         return
 
-    SoundManager.play_music(background_music_default)
+    SoundManager.play_music(background_music_queue)
 
 
 #region Button mouse entered
@@ -270,13 +276,17 @@ func _on_indoor_preparation_insufficient_funds():
 
 #region Scene arrival
 
-func _on_gameplay_ready():
-    _start_background_music()
-
 func _on_settings_menu_ready():
+    if SoundManager.is_music_playing(background_music_queue):
+        SoundManager.stop_music()
+
     _start_background_music()
 
 func _on_start_menu_ready():
+    if Database.audio_game_start_background_music_initialized:
+        return
+
+    Database.set_audio_game_start_background_music_initialized(true)
     _start_background_music()
 
 #endregion Scene arrival
