@@ -111,6 +111,8 @@ func _on_victory(duration: float):
     ).set_delay(duration)
 
 func _transition_to_victory_screen():
-    outdoor_canvas.queue_free()
     indoor_canvas.queue_free()
-    add_child(preload("res://src/game_over/victory_scene.tscn").instantiate())
+    outdoor_root.queue_free()
+    var victory_scene: GameOver = load("res://src/game_over/victory_scene.tscn").instantiate()
+    victory_scene.position = Vector2(-640, -360)
+    outdoor_canvas.add_child(victory_scene)
