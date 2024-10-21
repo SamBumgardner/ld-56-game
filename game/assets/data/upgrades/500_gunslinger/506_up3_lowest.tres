@@ -1,14 +1,14 @@
 [gd_resource type="Resource" script_class="UpgradeChoice" load_steps=3 format=3 uid="uid://deuktwwj5apg8"]
 
-[ext_resource type="Texture2D" uid="uid://8icadmy2cp3f" path="res://assets/art/upgrade_icon_placeholder.png" id="1_5m01u"]
+[ext_resource type="Texture2D" uid="uid://t3o26rqaldid" path="res://assets/art/upgrade_icon_mystery.png" id="1_puxas"]
 [ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="2_g1as5"]
 
 [resource]
 script = ExtResource("2_g1as5")
-name = "temp"
+name = "Repair"
 description = "Temporary Description"
 visual_summary = "[center]Increase value of weakest action by [b]3[/b]"
-icon_ref = ExtResource("1_5m01u")
+icon_ref = ExtResource("1_puxas")
 cost = 0
 upgrade_type = 2
 value_change_amount = 3
@@ -20,3 +20,4 @@ invert_filter = false
 sort_criteria = 0
 number_of_actions_to_affect = 1
 change_to = -1
+restore_pct = 0.0

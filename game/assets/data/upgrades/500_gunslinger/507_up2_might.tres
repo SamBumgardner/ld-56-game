@@ -1,14 +1,14 @@
 [gd_resource type="Resource" script_class="UpgradeChoice" load_steps=3 format=3 uid="uid://bbpovrd32pbks"]
 
-[ext_resource type="Texture2D" uid="uid://8icadmy2cp3f" path="res://assets/art/upgrade_icon_placeholder.png" id="1_h85bn"]
+[ext_resource type="Texture2D" uid="uid://bnhb5pq77ferj" path="res://assets/art/upgrade_icon_might.png" id="1_ml686"]
 [ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="2_iy47m"]
 
 [resource]
 script = ExtResource("2_iy47m")
-name = "temp"
+name = "Surge"
 description = "Temporary Description"
 visual_summary = "[center]Increase value of [img=30%]res://assets/art/ATTACK_icon_64x64.png[/img] actions by [b]2[/b]"
-icon_ref = ExtResource("1_h85bn")
+icon_ref = ExtResource("1_ml686")
 cost = 0
 upgrade_type = 2
 value_change_amount = 2
@@ -20,3 +20,4 @@ invert_filter = false
 sort_criteria = -1
 number_of_actions_to_affect = 256
 change_to = -1
+restore_pct = 0.0
