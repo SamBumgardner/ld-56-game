@@ -1,14 +1,14 @@
 [gd_resource type="Resource" script_class="UpgradeChoice" load_steps=3 format=3 uid="uid://d3kkwngqwxuum"]
 
-[ext_resource type="Texture2D" uid="uid://8icadmy2cp3f" path="res://assets/art/upgrade_icon_placeholder.png" id="1_2ti2x"]
+[ext_resource type="Texture2D" uid="uid://c0b1w7ad66uoa" path="res://assets/art/upgrade_icon_wit.png" id="1_i6n14"]
 [ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="2_t8pdh"]
 
 [resource]
 script = ExtResource("2_t8pdh")
-name = "temp"
+name = "Learn"
 description = "Temporary Description"
 visual_summary = "[center]Increase value of [img=30%]res://assets/art/HEAL_icon_64x64.png[/img] actions by [b]1[/b]"
-icon_ref = ExtResource("1_2ti2x")
+icon_ref = ExtResource("1_i6n14")
 cost = 0
 upgrade_type = 2
 value_change_amount = 1

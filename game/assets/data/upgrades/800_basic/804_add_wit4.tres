@@ -1,15 +1,15 @@
 [gd_resource type="Resource" script_class="UpgradeChoice" load_steps=3 format=3 uid="uid://bpane6joknujg"]
 
-[ext_resource type="Texture2D" uid="uid://8icadmy2cp3f" path="res://assets/art/upgrade_icon_placeholder.png" id="1_5f64p"]
+[ext_resource type="Texture2D" uid="uid://c0b1w7ad66uoa" path="res://assets/art/upgrade_icon_wit.png" id="1_75ccr"]
 [ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="2_bn5ho"]
 
 [resource]
 script = ExtResource("2_bn5ho")
-name = "Study"
+name = "Storm"
 description = "Wit sharpened through diligence."
 visual_summary = "[center]Add:
 4[img=30%]res://assets/art/HEAL_icon_64x64.png[/img]"
-icon_ref = ExtResource("1_5f64p")
+icon_ref = ExtResource("1_75ccr")
 cost = 0
 upgrade_type = 1
 value_change_amount = 0

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="UpgradeChoice" load_steps=4 format=3 uid="uid://8gcw0jjf55lq"]
 
 [ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="1_yk8tm"]
-[ext_resource type="Texture2D" uid="uid://8icadmy2cp3f" path="res://assets/art/upgrade_icon_placeholder.png" id="2_ju6e7"]
+[ext_resource type="Texture2D" uid="uid://b17703hp2rttu" path="res://assets/art/upgrade_icon_chaos.png" id="2_4d4dk"]
 
 [sub_resource type="Resource" id="Resource_jk8x6"]
 script = ExtResource("1_yk8tm")
@@ -23,11 +23,11 @@ restore_pct = 0.0
 
 [resource]
 script = ExtResource("1_yk8tm")
-name = "temp"
+name = "Rework"
 description = "Temporary Description"
 visual_summary = "[center]Change all [img=30%]res://assets/art/HEAL_icon_64x64.png[/img] to [img=30%]res://assets/art/MAGIC_icon_64x64.png[/img]
 Increase the value of all actions by [b]1[/b]"
-icon_ref = ExtResource("2_ju6e7")
+icon_ref = ExtResource("2_4d4dk")
 cost = 0
 additional_effect = SubResource("Resource_jk8x6")
 upgrade_type = 6
