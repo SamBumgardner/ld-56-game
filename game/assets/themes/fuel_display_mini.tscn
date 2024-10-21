@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cf5qy6u2j3hhw"]
 
-[ext_resource type="PackedScene" uid="uid://cjb6144n5q1b1" path="res://src/shared_ui/resource_display/fuel_display.tscn" id="1_28gaq"]
+[ext_resource type="PackedScene" uid="uid://ybyc5lib301u" path="res://src/shared_ui/resource_display/fuel_display.tscn" id="1_28gaq"]
 
 [node name="FuelDisplayMini" instance=ExtResource("1_28gaq")]
 custom_minimum_size = Vector2(0, 0)
@@ -18,10 +18,6 @@ theme_override_constants/margin_bottom = 2
 [node name="HBoxContainer" parent="MarginContainer" index="0"]
 size_flags_horizontal = 4
 size_flags_vertical = 4
-
-[node name="ResourceIcon" parent="MarginContainer/HBoxContainer" index="0"]
-expand_mode = 3
-stretch_mode = 0
 
 [node name="Amount" parent="MarginContainer/HBoxContainer" index="1"]
 size_flags_horizontal = 2
