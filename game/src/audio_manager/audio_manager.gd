@@ -275,6 +275,9 @@ func _on_gameplay_ready():
 func _on_settings_menu_ready():
     _start_background_music()
 
+func _on_start_menu_ready():
+    _start_background_music()
+
 #endregion Scene arrival
 
 
