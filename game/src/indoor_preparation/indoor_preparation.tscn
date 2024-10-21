@@ -55,6 +55,8 @@ theme = ExtResource("2_bky62")
 script = ExtResource("2_0rynj")
 
 [node name="AudioManager" parent="." instance=ExtResource("3_3bed5")]
+sfx_enter_next_region = null
+sfx_game_victory = null
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
@@ -358,9 +360,11 @@ grow_horizontal = 0
 theme_override_constants/separation = 0
 
 [node name="MoneyDisplay" parent="VBoxContainer" instance=ExtResource("25_dg1g1")]
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 
 [node name="FuelDisplay" parent="VBoxContainer" instance=ExtResource("26_fgbkb")]
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 
 [connection signal="insufficient_funds" from="." to="AudioManager" method="_on_indoor_preparation_insufficient_funds"]

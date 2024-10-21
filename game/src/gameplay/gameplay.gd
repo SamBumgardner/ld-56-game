@@ -32,6 +32,7 @@ func _ready() -> void:
     applicant_orchestrator.new_applicants_arrived.connect(indoor_root._on_new_applicants_arrived)
 
     outdoor_root.camera_focus_moving.connect(outdoor_camera.scroll_distance)
+    
 
 func go_inside() -> void:
     # we can do fancier stuff, like take a callback to only do once the screen's 

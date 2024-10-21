@@ -58,3 +58,5 @@ follow_viewport_enabled = false
 [connection signal="charge_warmup" from="." to="AudioManager" method="_on_battlefield_outdoors_charge_warmup"]
 [connection signal="dice_roll_started" from="." to="AudioManager" method="_on_battlefield_outdoors_dice_roll_started"]
 [connection signal="health_empty" from="." to="AudioManager" method="_on_battlefield_outdoors_health_empty"]
+[connection signal="milestone_achieved" from="." to="AudioManager" method="_on_battlefield_outdoors_milestone_achieved"]
+[connection signal="victory" from="." to="AudioManager" method="_on_battlefield_outdoors_victory"]

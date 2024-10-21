@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="CharacterFactory" load_steps=22 format=3 uid="uid://beppcdvy1b3s0"]
 
-[ext_resource type="Texture2D" uid="uid://buhpfr0v6vyet" path="res://assets/art/character_icons/003_character_icon.png" id="1_bbogw"]
-[ext_resource type="Texture2D" uid="uid://bic3i142epdt3" path="res://assets/art/placeholder_threat.png" id="2_vu2iy"]
+[ext_resource type="Texture2D" uid="uid://c7kqxdlkknis7" path="res://assets/art/character_icons/fish_small.png" id="1_r4aqy"]
+[ext_resource type="Texture2D" uid="uid://dukti5u37rr3o" path="res://assets/art/character_portraits/fish_portrait.png" id="2_gq46r"]
 [ext_resource type="Script" path="res://src/characters/CharacterFactory.gd" id="3_vhn86"]
 [ext_resource type="AudioStream" path="res://assets/audio/208_fish_randomizer.tres" id="4_vj4h3"]
 [ext_resource type="Script" path="res://src/characters/UpgradeSelector.gd" id="4_vxjk3"]
@@ -46,8 +46,8 @@ price = 0
 script = ExtResource("3_vhn86")
 name = "Karma"
 description = "Chased from his home by water-thieves, he has a score to settle and a home to reclaim."
-portrait = ExtResource("2_vu2iy")
-icon = ExtResource("1_bbogw")
+portrait = ExtResource("2_gq46r")
+icon = ExtResource("1_r4aqy")
 sfx_hello = ExtResource("4_vj4h3")
 sfx_upgrade_gained = ExtResource("4_vj4h3")
 starting_action_strings = Array[String](["wit_2", "might_1"])

@@ -49,7 +49,7 @@ dialogue_position = Vector2(310, 265)
 title_text = "Status Panel"
 body_text = "And in the center, these buttons in the \"Status\" panel represent crew members.
 
-The faded icon that identifies them sits behind some gameplay-related information."
+The silhouette that identifies them sits behind some gameplay-related information."
 show_continue_button = true
 show_arrow = true
 target_position = Vector2(340, 600)

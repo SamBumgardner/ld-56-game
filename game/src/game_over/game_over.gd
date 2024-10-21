@@ -1,5 +1,7 @@
 class_name GameOver extends TextureRect
 
+const SCENARIO_FORMAT: String = "Scenario: %s"
+
 @export var initial_delay: float = 0
 @export var delay_duration: float = .5
 @export var fade_duration: float = .5
@@ -9,10 +11,13 @@ class_name GameOver extends TextureRect
 @onready var button_container: Control = $ButtonContainer
 @onready var retry_button: Button = $ButtonContainer/Retry
 @onready var main_menu_button: Button = $ButtonContainer/ToMainMenu
+@onready var scenario_name: Label = $TitleContainer/MarginContainer/HB/ScenarioName
 
 func _ready() -> void:
     retry_button.pressed.connect(_on_retry_pressed)
     main_menu_button.pressed.connect(_on_main_menu_pressed)
+    
+    scenario_name.text = SCENARIO_FORMAT % Database.scenario.scenario_name
     
     if Database.saved_state == null:
         retry_button.disabled = true

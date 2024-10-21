@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://src/shared_ui/resource_display/resource_display.gd" id="2_g7dbd"]
 
 [node name="ResourceDisplay" type="PanelContainer"]
-custom_minimum_size = Vector2(150, 0)
+custom_minimum_size = Vector2(175, 0)
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -28,11 +28,11 @@ layout_mode = 2
 [node name="ResourceIcon" type="TextureRect" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("1_4nm3l")
-stretch_mode = 2
+expand_mode = 3
 
 [node name="Amount" type="Label" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 48
 text = "100"
 horizontal_alignment = 2

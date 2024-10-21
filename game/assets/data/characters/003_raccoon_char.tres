@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="CharacterFactory" load_steps=23 format=3 uid="uid://b3l83j0ql7m0e"]
 
-[ext_resource type="Texture2D" uid="uid://buhpfr0v6vyet" path="res://assets/art/character_icons/003_character_icon.png" id="1_ehecm"]
-[ext_resource type="Texture2D" uid="uid://bic3i142epdt3" path="res://assets/art/placeholder_threat.png" id="2_6a65p"]
+[ext_resource type="Texture2D" uid="uid://bme30t682cw1l" path="res://assets/art/character_icons/raccoon_small.png" id="1_f1shx"]
+[ext_resource type="Texture2D" uid="uid://bvj18jeu04ah8" path="res://assets/art/character_portraits/raccoon_portrait.png" id="2_1ghps"]
 [ext_resource type="Script" path="res://src/characters/CharacterFactory.gd" id="3_cp6an"]
 [ext_resource type="AudioStream" uid="uid://bd2ukgmhyc3g5" path="res://assets/audio/character_voice_lines/1101_hello.wav" id="4_8sd3u"]
 [ext_resource type="Script" path="res://src/characters/UpgradeSelector.gd" id="4_uhto1"]
@@ -47,8 +47,8 @@ price = 0
 script = ExtResource("3_cp6an")
 name = "Fiddler"
 description = "Loyalty, bravery, and a touch of pyromania; there's no better ally in a pinch."
-portrait = ExtResource("2_6a65p")
-icon = ExtResource("1_ehecm")
+portrait = ExtResource("2_1ghps")
+icon = ExtResource("1_f1shx")
 sfx_hello = ExtResource("4_8sd3u")
 sfx_upgrade_gained = ExtResource("5_xjtl2")
 starting_action_strings = Array[String](["chaos_2", "chaos_1", "might_1"])

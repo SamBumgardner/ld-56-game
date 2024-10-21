@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c32yvxfh4qdgu"]
+[gd_scene load_steps=16 format=3 uid="uid://c32yvxfh4qdgu"]
 
 [ext_resource type="Theme" uid="uid://duflqnf122e6l" path="res://assets/themes/StartMenu.tres" id="1_5gffv"]
 [ext_resource type="Script" path="res://src/scenario_selection/scenario_selection_menu.gd" id="2_j3fiq"]
@@ -7,7 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://h1fowbxngb70" path="res://src/audio_manager/AudioManager.tscn" id="5_0fp6o"]
 [ext_resource type="Resource" uid="uid://bqlhqsjql0ax2" path="res://assets/data/scenarios/difficult_scenario.tres" id="5_dx0oe"]
 [ext_resource type="PackedScene" uid="uid://dbs7sk334clc7" path="res://src/battlefield_outdoors/battlefield_outdoors_background/BattlefieldOutdoorsBackground.tscn" id="6_1uc7d"]
+[ext_resource type="Resource" uid="uid://ddom684fwnwug" path="res://assets/data/scenarios/very_hard_scenario.tres" id="6_xre8d"]
 [ext_resource type="Theme" path="res://assets/themes/StartMenuButtons.tres" id="7_8n4fy"]
+[ext_resource type="Resource" uid="uid://ccvrw061tbf4k" path="res://assets/data/scenarios/limited_scenario.tres" id="7_gdfad"]
 [ext_resource type="Theme" uid="uid://da8nge0sh56jm" path="res://assets/themes/ScenarioSubHeaders.tres" id="8_txdfw"]
 [ext_resource type="Theme" uid="uid://dk5iv042psfw" path="res://assets/themes/Default.tres" id="9_wwu2b"]
 [ext_resource type="Texture2D" uid="uid://bic3i142epdt3" path="res://assets/art/placeholder_threat.png" id="10_nanuo"]
@@ -23,7 +25,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_5gffv")
 script = ExtResource("2_j3fiq")
-scenarios = Array[ExtResource("3_junon")]([ExtResource("4_mqe7d"), ExtResource("5_dx0oe")])
+scenarios = Array[ExtResource("3_junon")]([ExtResource("4_mqe7d"), ExtResource("7_gdfad"), ExtResource("5_dx0oe"), ExtResource("6_xre8d")])
 
 [node name="AudioManager" parent="." instance=ExtResource("5_0fp6o")]
 

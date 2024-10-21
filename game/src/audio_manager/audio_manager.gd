@@ -2,12 +2,15 @@
 class_name AudioManager extends Node
 
 @export var background_music_default: AudioStream
+@export var background_music_queue: Array[AudioStream]
 
 @export var sfx_button_click: AudioStream
 @export var sfx_button_hover: AudioStream
 @export var sfx_dice_landing: AudioStream
 @export var sfx_dice_shake: AudioStream
 @export var sfx_die_lock: AudioStream
+@export var sfx_enter_next_region: AudioStream
+@export var sfx_game_victory: AudioStream
 @export var sfx_indoors_enter_a_menu: AudioStream
 @export var sfx_indoors_exit_a_menu: AudioStream
 @export var sfx_notification_error: AudioStream
@@ -16,6 +19,8 @@ class_name AudioManager extends Node
 @export var sfx_war_transport_charge_crush: AudioStream
 @export var sfx_war_transport_charge_forward: AudioStream
 @export var sfx_war_transport_charge_lose: AudioStream
+@export var sfx_little_fanfare: AudioStream
+@export var sfx_final_fanfare: AudioStream
 
 
 const _bus_name_music = 'Music'
@@ -23,6 +28,7 @@ const _bus_name_sfx_ui = 'SFX UI'
 const _default_audio_crossfade = 0.1
 const _charge_audio_crossfade = 0
 const _reroll_audio_crossfade = 0.5
+const _background_audio_crossfade = 2.0
 
 
 func _ready():
@@ -34,7 +40,7 @@ func _ready():
 
     SoundManager.set_ambient_sound_volume(Database.audio_volume_sfx)
     SoundManager.set_music_volume(Database.audio_volume_music)
-
+    
 
 # Listen for a custom signal in order to ignore hovering over a disabled button.
 func on_charge_button_mouse_entered():
@@ -58,11 +64,22 @@ func on_toggle_freeze():
 
 
 # After leaving the start menu, start playing the background music.
-func _start_background_music():
-    if SoundManager.is_music_playing():
-        return
+# Call it while music is already playing to go to the next song.
+func _start_background_music(force_next: bool = false, fade_override: float = 0):
+    var fade_duration: float = 0.0
+    var current_music_index: int = Database.current_background_music_index
+    
+    if SoundManager.is_music_playing() or force_next:
+        current_music_index = (current_music_index + 1) % background_music_queue.size()
+        fade_duration = _background_audio_crossfade
+    
+    if fade_override != 0:
+        fade_duration = fade_override
 
-    SoundManager.play_music(background_music_default)
+    var next_track: AudioStream = background_music_queue[current_music_index]
+
+    SoundManager.play_music(next_track, fade_duration)
+    Database.set_current_background_music_index(current_music_index)
 
 
 #region Button mouse entered
@@ -269,10 +286,14 @@ func _on_indoor_preparation_insufficient_funds():
 
 #region Scene arrival
 
-func _on_gameplay_ready():
+func _on_settings_menu_ready():
     _start_background_music()
 
-func _on_settings_menu_ready():
+func _on_start_menu_ready():
+    if Database.audio_game_start_background_music_initialized:
+        return
+
+    Database.set_audio_game_start_background_music_initialized(true)
     _start_background_music()
 
 #endregion Scene arrival
@@ -315,3 +336,51 @@ func _on_battlefield_outdoors_health_empty():
     SoundManager.play_ui_sound(sfx_war_transport_charge_lose, _bus_name_sfx_ui)
 
 #endregion War transport charge
+
+
+#region Objectives Achieved
+
+func _play_little_fanfare():
+    SoundManager.play_ambient_sound(
+        sfx_little_fanfare,
+        _default_audio_crossfade,
+        _bus_name_sfx_ui
+    )
+
+
+func _play_final_fanfare():
+    SoundManager.play_ambient_sound(
+        sfx_final_fanfare,
+        _default_audio_crossfade,
+        _bus_name_sfx_ui
+    )
+    
+    
+func _on_battlefield_outdoors_milestone_achieved() -> void:
+    const fadeout_before_fanfare_duration: float = .5
+
+    var fanfare_sequence_tween: Tween = create_tween()
+    fanfare_sequence_tween.tween_callback(SoundManager.stop_music.bind(fadeout_before_fanfare_duration))
+    fanfare_sequence_tween.tween_interval(fadeout_before_fanfare_duration)
+    fanfare_sequence_tween.tween_callback(_play_little_fanfare)
+    fanfare_sequence_tween.tween_interval(max(sfx_little_fanfare.get_length() - _background_audio_crossfade / 2, 0))
+    fanfare_sequence_tween.tween_callback(_start_background_music.bind(true))
+
+
+func _on_battlefield_outdoors_victory(_duration: float) -> void:
+    const fadeout_before_fanfare_duration: float = .5
+
+    var victory_sequence_tween: Tween = create_tween()
+    victory_sequence_tween.tween_callback(SoundManager.stop_music.bind(fadeout_before_fanfare_duration))
+    victory_sequence_tween.tween_interval(fadeout_before_fanfare_duration)
+    victory_sequence_tween.tween_callback(_play_final_fanfare)
+
+    # the credits screen will take care of playing music again when it's loaded.
+
+func _on_victory_scene_ready() -> void:
+    const play_next_track: bool = true
+    const victory_fade_in_duration: float = 5.0
+
+    _start_background_music(play_next_track, victory_fade_in_duration)
+
+#endregion

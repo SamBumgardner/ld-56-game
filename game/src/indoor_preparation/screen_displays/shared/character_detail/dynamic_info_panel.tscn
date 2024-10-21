@@ -93,7 +93,7 @@ visible = false
 layout_mode = 2
 size_flags_vertical = 8
 bbcode_enabled = true
-text = "[right]Cost: [img=15%]res://assets/art/ATTACK_icon_64x64.png[/img]500"
+text = "[right]Cost: [img=15%]res://assets/art/tiny_silver_coin.png[/img]500"
 fit_content = true
 scroll_active = false
 shortcut_keys_enabled = false

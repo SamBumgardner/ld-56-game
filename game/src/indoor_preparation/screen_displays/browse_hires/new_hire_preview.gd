@@ -2,7 +2,7 @@ class_name NewHirePreview extends MarginContainer
 
 signal pressed(character: Character)
 
-const cost_format_string: String = "[center]Cost:\n[img=25%%]res://assets/art/ATTACK_icon_64x64.png[/img] %s"
+const cost_format_string: String = "[center]Cost:\n[img=25%%]res://assets/art/tiny_silver_coin.png[/img] %s"
 
 @onready var button: Button = $Button
 @onready var portrait: TextureRect = $MarginContainer/VBoxContainer/NewHirePreview/Portrait
