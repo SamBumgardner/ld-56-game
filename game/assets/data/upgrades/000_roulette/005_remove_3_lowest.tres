@@ -1,14 +1,14 @@
 [gd_resource type="Resource" script_class="UpgradeChoice" load_steps=3 format=3 uid="uid://4rnt1epklnrf"]
 
-[ext_resource type="Texture2D" uid="uid://8icadmy2cp3f" path="res://assets/art/upgrade_icon_placeholder.png" id="1_d7dpo"]
+[ext_resource type="Texture2D" uid="uid://xdcbyuxq217y" path="res://assets/art/upgrade_icon_trash.png" id="1_nnjy1"]
 [ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="2_2osn7"]
 
 [resource]
 script = ExtResource("2_2osn7")
-name = "temp"
+name = "Clean Up"
 description = "Temporary Description"
 visual_summary = "[center]Remove the 3 weakest actions"
-icon_ref = ExtResource("1_d7dpo")
+icon_ref = ExtResource("1_nnjy1")
 cost = 0
 upgrade_type = 3
 value_change_amount = 0
@@ -16,5 +16,8 @@ number_of_times = 1
 remove_action_name = ""
 new_action_string = ""
 filter_criteria = -1
+invert_filter = false
 sort_criteria = 0
 number_of_actions_to_affect = 3
+change_to = -1
+restore_pct = 0.0
