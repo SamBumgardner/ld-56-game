@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="Scenario" load_steps=18 format=3 uid="uid://ddom684fwnwug"]
+
+[ext_resource type="Script" path="res://src/characters/CharacterFactory.gd" id="1_lslk7"]
+[ext_resource type="Resource" uid="uid://cghmtnhtq1aeh" path="res://assets/data/characters/001_squirrel_char.tres" id="2_n1cnr"]
+[ext_resource type="Resource" uid="uid://duswkektwj6hb" path="res://assets/data/characters/002_frog_char.tres" id="3_awc00"]
+[ext_resource type="Resource" uid="uid://b3l83j0ql7m0e" path="res://assets/data/characters/003_raccoon_char.tres" id="4_tdvkl"]
+[ext_resource type="Resource" uid="uid://bfkdaseurpvu6" path="res://assets/data/characters/004_bird_char.tres" id="5_m281w"]
+[ext_resource type="Resource" uid="uid://dexsvne2ukrlr" path="res://assets/data/characters/005_ape_char.tres" id="6_rrh8m"]
+[ext_resource type="Resource" uid="uid://bawjwhqx6mbin" path="res://assets/data/characters/006_mouse_char.tres" id="7_hcwji"]
+[ext_resource type="Resource" uid="uid://h8yglehg8si2" path="res://assets/data/characters/007_mole_char.tres" id="8_m7wv3"]
+[ext_resource type="Resource" uid="uid://cg2gt1s2ilepn" path="res://assets/data/characters/008_lizard_char.tres" id="9_hmrmd"]
+[ext_resource type="Resource" uid="uid://bo6i4mxety0iv" path="res://assets/data/characters/009_snake_char.tres" id="10_1lecj"]
+[ext_resource type="Resource" uid="uid://4vcpwnnptf5r" path="res://assets/data/characters/010_mantis_char.tres" id="11_c4lkp"]
+[ext_resource type="Resource" uid="uid://1nhgxq12mwuo" path="res://assets/data/characters/011_rabbit_char.tres" id="12_x22wo"]
+[ext_resource type="Resource" uid="uid://beppcdvy1b3s0" path="res://assets/data/characters/012_fish_char.tres" id="13_bsvpt"]
+[ext_resource type="Script" path="res://assets/data/gameplay_init_values.gd" id="14_epmio"]
+[ext_resource type="Script" path="res://src/scenario/scenario.gd" id="15_jdpue"]
+[ext_resource type="Script" path="res://src/scenario/scenario_segment.gd" id="16_2xbg8"]
+
+[sub_resource type="Resource" id="Resource_wcex8"]
+script = ExtResource("14_epmio")
+current_region_starting_barrier_strength = 12.0
+current_reroll_fuel_cost = 1
+current_matching_stat_type_multiplier = 2
+war_transport_health_maximum = 20
+war_transport_health_current = 20
+should_generate_new_applicants = true
+current_money = 50
+current_fuel = 6
+
+[resource]
+script = ExtResource("15_jdpue")
+scenario_name = "Extreme"
+scenario_description = "A gruelling journey. Not for the faint of heart."
+difficulty_rating = 5
+total_distance = 400
+segments = Array[ExtResource("16_2xbg8")]([])
+gameplay_init_values = SubResource("Resource_wcex8")
+available_characters = Array[ExtResource("1_lslk7")]([ExtResource("2_n1cnr"), ExtResource("3_awc00"), ExtResource("4_tdvkl"), ExtResource("5_m281w"), ExtResource("6_rrh8m"), ExtResource("7_hcwji"), ExtResource("8_m7wv3"), ExtResource("9_hmrmd"), ExtResource("10_1lecj"), ExtResource("11_c4lkp"), ExtResource("12_x22wo"), ExtResource("13_bsvpt")])
+possible_start_char_options = Array[int]([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11])
+start_char_count = 4
