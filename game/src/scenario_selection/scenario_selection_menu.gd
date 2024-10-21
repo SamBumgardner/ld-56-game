@@ -53,6 +53,9 @@ func _ready():
     start_button.mouse_entered.connect(audio_manager._on_start_button_mouse_entered)
     start_button.pressed.connect(audio_manager._on_start_button_pressed)
     start_button.pressed.connect(_on_start_button_pressed)
+    
+    (scenario_buttons[0] as Button).grab_focus()
+    display_scenario_information(scenarios[0])
 
 func _on_start_button_pressed():
     Database.load_from_scenario(selected_scenario)
