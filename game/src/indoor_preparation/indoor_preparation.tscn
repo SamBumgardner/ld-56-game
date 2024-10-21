@@ -41,6 +41,8 @@ theme = ExtResource("2_bky62")
 script = ExtResource("2_0rynj")
 
 [node name="AudioManager" parent="." instance=ExtResource("3_3bed5")]
+sfx_enter_next_region = null
+sfx_game_victory = null
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0

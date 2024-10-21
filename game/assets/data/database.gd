@@ -51,6 +51,7 @@ const UPGRADE_DEFAULT_TIER_COSTS: Array[int] = [
     50
 ]
 
+const _initial_background_music_index = 0
 const _settings_default_audio_volume_music: float = 0.5
 const _settings_default_audio_volume_sfx: float = 0.5
 const _initial_audio_volume_music: float = 0.5
@@ -99,6 +100,7 @@ var audio_game_start_background_music_initialized: bool
 var audio_volume_initialized: bool
 var audio_volume_music: float
 var audio_volume_sfx: float
+var current_background_music_index: int
 
 var current_distance_remaining: int
 var barriers_overcome_count: int
@@ -321,6 +323,9 @@ func get_settings_default_audio_volume_music() -> float:
 func get_settings_default_audio_volume_sfx() -> float:
     return _settings_default_audio_volume_sfx
 
+func set_current_background_music_index(new_index: int) -> void:
+    current_background_music_index = new_index
+
 func set_audio_game_start_background_music_initialized(
     is_initialized: bool
 ) -> void:
@@ -436,6 +441,7 @@ func pick_barrier_type_from_region() -> Database.StatType:
     return scenario.get_current_region(distance_traveled).barrier_type_distribution.pick_random()
 
 func _ready_audio_volumes() -> void:
+    set_current_background_music_index(_initial_background_music_index)
     set_audio_game_start_background_music_initialized(false)
     set_audio_volume_initialized(false)
     set_audio_volume_music(_initial_audio_volume_music)

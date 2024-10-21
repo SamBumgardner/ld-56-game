@@ -2,7 +2,7 @@
 class_name AudioManager extends Node
 
 @export var background_music_default: AudioStream
-@export var background_music_queue: AudioStreamRandomizer
+@export var background_music_queue: Array[AudioStream]
 
 @export var sfx_button_click: AudioStream
 @export var sfx_button_hover: AudioStream
@@ -37,7 +37,7 @@ func _ready():
 
     SoundManager.set_ambient_sound_volume(Database.audio_volume_sfx)
     SoundManager.set_music_volume(Database.audio_volume_music)
-
+    
 
 # Listen for a custom signal in order to ignore hovering over a disabled button.
 func on_charge_button_mouse_entered():
@@ -60,18 +60,23 @@ func on_toggle_freeze():
     SoundManager.play_ui_sound(sfx_die_lock, _bus_name_sfx_ui)
 
 
-# After leaving the start menu, start playing the background music.
-func _next_background_music():
-    SoundManager.stop_music()
-    SoundManager.play_music(background_music_queue)
-
+func _play_fanfare():
+    pass
 
 # After leaving the start menu, start playing the background music.
+# Call it while music is already playing to go to the next song.
 func _start_background_music():
-    if SoundManager.is_music_playing(background_music_queue):
-        return
+    var fade_duration: float = 0.0
+    var current_music_index: int = Database.current_background_music_index
+    
+    if SoundManager.is_music_playing():
+        current_music_index = (current_music_index + 1) % background_music_queue.size()
+        fade_duration = 2.0
+        
+    var next_track: AudioStream = background_music_queue[current_music_index]
 
-    SoundManager.play_music(background_music_queue)
+    SoundManager.play_music(next_track, fade_duration)
+    Database.set_current_background_music_index(current_music_index)
 
 
 #region Button mouse entered
@@ -279,9 +284,6 @@ func _on_indoor_preparation_insufficient_funds():
 #region Scene arrival
 
 func _on_settings_menu_ready():
-    if SoundManager.is_music_playing(background_music_queue):
-        SoundManager.stop_music()
-
     _start_background_music()
 
 func _on_start_menu_ready():
