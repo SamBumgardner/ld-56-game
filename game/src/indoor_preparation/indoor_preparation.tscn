@@ -1,11 +1,11 @@
 [gd_scene load_steps=30 format=3 uid="uid://b73yb04wjxq8"]
 
-[ext_resource type="Texture2D" uid="uid://l3l2yqfmprg5" path="res://assets/art/backgrounds/ld_56_indoors.jpg" id="1_f348j"]
 [ext_resource type="Script" path="res://src/indoor_preparation/indoor_preparation.gd" id="2_0rynj"]
 [ext_resource type="Theme" uid="uid://dk5iv042psfw" path="res://assets/themes/Default.tres" id="2_bky62"]
 [ext_resource type="PackedScene" uid="uid://h1fowbxngb70" path="res://src/audio_manager/AudioManager.tscn" id="3_3bed5"]
 [ext_resource type="Script" path="res://src/indoor_preparation/screen.gd" id="3_culvi"]
 [ext_resource type="PackedScene" uid="uid://7vx27hr83tx0" path="res://src/indoor_preparation/screen_displays/home_display.tscn" id="3_eot0a"]
+[ext_resource type="Texture2D" uid="uid://ckpcsghku25rt" path="res://assets/art/indoor_real.jpg" id="4_2oynj"]
 [ext_resource type="PackedScene" uid="uid://dw8jtxw6u5x40" path="res://src/indoor_preparation/screen_displays/browse_hires/browse_hires.tscn" id="4_note4"]
 [ext_resource type="Theme" uid="uid://dmwrgmv8lathf" path="res://assets/themes/ScreenTheme.tres" id="4_u741y"]
 [ext_resource type="PackedScene" uid="uid://cdb8nv77bouh1" path="res://src/indoor_preparation/screen_displays/hire_detail/hire_detail.tscn" id="5_lncqs"]
@@ -44,10 +44,12 @@ script = ExtResource("2_0rynj")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
+offset_top = -116.0
 offset_right = 1280.0
-offset_bottom = 720.0
-texture = ExtResource("1_f348j")
+offset_bottom = 2621.0
+texture = ExtResource("4_2oynj")
 expand_mode = 1
+stretch_mode = 4
 
 [node name="Screen" type="Control" parent="."]
 clip_contents = true
@@ -56,7 +58,10 @@ anchor_left = 0.275
 anchor_top = 0.08
 anchor_right = 0.72
 anchor_bottom = 0.57
-offset_bottom = 40.0
+offset_left = 20.0
+offset_top = -1.6
+offset_right = 13.4
+offset_bottom = 63.6
 theme = ExtResource("4_u741y")
 script = ExtResource("3_culvi")
 
