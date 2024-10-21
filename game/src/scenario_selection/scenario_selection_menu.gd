@@ -1,4 +1,4 @@
-class_name ModeSelectionMenu extends Control
+class_name ScenarioSelectionMenu extends Control
 
 const START_RESOURCE_FORMATS: Array[String] = [
     "Health: %s",
@@ -30,6 +30,8 @@ var combined_portraits: Array
 
 @onready var total_distance_label: Label = $ScenarioInfoDisplay/VBoxContainer/ContentsContainer/VBoxContainer/GoalContainer/PanelContainer/MarginContainer/Body
 
+@onready var audio_manager: AudioManager = $AudioManager
+
 func _ready():
     combined_portraits = []
     combined_portraits.append_array(crew_portraits1)
@@ -39,8 +41,15 @@ func _ready():
         if scenarios.size() > i:
             scenario_buttons[i].text = scenarios[i].scenario_name
             scenario_buttons[i].pressed.connect(display_scenario_information.bind(scenarios[i]))
+            # I'm sorry Noah, please forgive my desire for speed
+            
+            scenario_buttons[i].mouse_entered.connect(audio_manager._on_settings_button_mouse_entered)
+            scenario_buttons[i].pressed.connect(audio_manager._on_settings_button_pressed)
         else:
             scenario_buttons[i].hide()
+    
+    start_button.mouse_entered.connect(audio_manager._on_start_button_mouse_entered)
+    start_button.pressed.connect(audio_manager._on_start_button_pressed)
 
 
 func display_scenario_information(scenario: Scenario):

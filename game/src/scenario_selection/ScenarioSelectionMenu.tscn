@@ -1,30 +1,30 @@
 [gd_scene load_steps=11 format=3 uid="uid://c32yvxfh4qdgu"]
 
-[ext_resource type="Theme" uid="uid://duflqnf122e6l" path="res://assets/themes/StartMenu.tres" id="1_iheqt"]
-[ext_resource type="Script" path="res://src/mode_selection/mode_selection_menu.gd" id="2_dhtdj"]
-[ext_resource type="PackedScene" uid="uid://h1fowbxngb70" path="res://src/audio_manager/AudioManager.tscn" id="3_ei7gy"]
-[ext_resource type="Script" path="res://src/scenario/scenario.gd" id="3_yoybo"]
-[ext_resource type="Resource" uid="uid://dslxg51v4j1ot" path="res://assets/data/scenarios/easy_scenario.tres" id="4_5pgd1"]
-[ext_resource type="Theme" path="res://assets/themes/StartMenuButtons.tres" id="5_ut7bf"]
-[ext_resource type="Theme" uid="uid://da8nge0sh56jm" path="res://assets/themes/ScenarioSubHeaders.tres" id="6_mdyyf"]
-[ext_resource type="Theme" uid="uid://dk5iv042psfw" path="res://assets/themes/Default.tres" id="6_ngyk0"]
-[ext_resource type="PackedScene" uid="uid://dbs7sk334clc7" path="res://src/battlefield_outdoors/battlefield_outdoors_background/BattlefieldOutdoorsBackground.tscn" id="6_ykxwo"]
-[ext_resource type="Texture2D" uid="uid://bic3i142epdt3" path="res://assets/art/placeholder_threat.png" id="7_xpaa6"]
+[ext_resource type="Theme" uid="uid://duflqnf122e6l" path="res://assets/themes/StartMenu.tres" id="1_5gffv"]
+[ext_resource type="Script" path="res://src/scenario_selection/scenario_selection_menu.gd" id="2_j3fiq"]
+[ext_resource type="Script" path="res://src/scenario/scenario.gd" id="3_junon"]
+[ext_resource type="Resource" uid="uid://dslxg51v4j1ot" path="res://assets/data/scenarios/easy_scenario.tres" id="4_mqe7d"]
+[ext_resource type="PackedScene" uid="uid://h1fowbxngb70" path="res://src/audio_manager/AudioManager.tscn" id="5_0fp6o"]
+[ext_resource type="PackedScene" uid="uid://dbs7sk334clc7" path="res://src/battlefield_outdoors/battlefield_outdoors_background/BattlefieldOutdoorsBackground.tscn" id="6_1uc7d"]
+[ext_resource type="Theme" path="res://assets/themes/StartMenuButtons.tres" id="7_8n4fy"]
+[ext_resource type="Theme" uid="uid://da8nge0sh56jm" path="res://assets/themes/ScenarioSubHeaders.tres" id="8_txdfw"]
+[ext_resource type="Theme" uid="uid://dk5iv042psfw" path="res://assets/themes/Default.tres" id="9_wwu2b"]
+[ext_resource type="Texture2D" uid="uid://bic3i142epdt3" path="res://assets/art/placeholder_threat.png" id="10_nanuo"]
 
-[node name="ModeSelectionMenu" type="Control"]
+[node name="ScenarioSelectionMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_iheqt")
-script = ExtResource("2_dhtdj")
-scenarios = Array[ExtResource("3_yoybo")]([ExtResource("4_5pgd1")])
+theme = ExtResource("1_5gffv")
+script = ExtResource("2_j3fiq")
+scenarios = Array[ExtResource("3_junon")]([ExtResource("4_mqe7d")])
 
-[node name="AudioManager" parent="." instance=ExtResource("3_ei7gy")]
+[node name="AudioManager" parent="." instance=ExtResource("5_0fp6o")]
 
-[node name="BattlefieldOutdoorsBackground" parent="." instance=ExtResource("6_ykxwo")]
+[node name="BattlefieldOutdoorsBackground" parent="." instance=ExtResource("6_1uc7d")]
 
 [node name="ScenarioOptions" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -50,35 +50,35 @@ size_flags_vertical = 3
 [node name="Button" type="Button" parent="ScenarioOptions/ScenarioButtons"]
 layout_mode = 2
 size_flags_vertical = 6
-theme = ExtResource("5_ut7bf")
+theme = ExtResource("7_8n4fy")
 text = "Scenario 1"
 
 [node name="Button2" type="Button" parent="ScenarioOptions/ScenarioButtons"]
 layout_mode = 2
 size_flags_vertical = 6
-theme = ExtResource("5_ut7bf")
+theme = ExtResource("7_8n4fy")
 text = "Scenario 1"
 
 [node name="Button3" type="Button" parent="ScenarioOptions/ScenarioButtons"]
 layout_mode = 2
 size_flags_vertical = 6
-theme = ExtResource("5_ut7bf")
+theme = ExtResource("7_8n4fy")
 text = "Scenario 1"
 
 [node name="Button4" type="Button" parent="ScenarioOptions/ScenarioButtons"]
 layout_mode = 2
 size_flags_vertical = 6
-theme = ExtResource("5_ut7bf")
+theme = ExtResource("7_8n4fy")
 text = "Scenario 1"
 
 [node name="ScenarioInfoDisplay" type="PanelContainer" parent="."]
-custom_minimum_size = Vector2(600, 0)
+custom_minimum_size = Vector2(600, 500)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.66
-anchor_top = 0.1
+anchor_top = 0.5
 anchor_right = 0.66
-anchor_bottom = 0.9
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -113,7 +113,7 @@ theme_override_constants/separation = 0
 [node name="Header" type="Label" parent="ScenarioInfoDisplay/VBoxContainer/ContentsContainer/VBoxContainer/DescriptionContainer"]
 visible = false
 layout_mode = 2
-theme = ExtResource("6_mdyyf")
+theme = ExtResource("8_txdfw")
 text = "Description"
 
 [node name="PanelContainer" type="PanelContainer" parent="ScenarioInfoDisplay/VBoxContainer/ContentsContainer/VBoxContainer/DescriptionContainer"]
@@ -132,13 +132,13 @@ theme_override_constants/separation = 8
 [node name="Body" type="Label" parent="ScenarioInfoDisplay/VBoxContainer/ContentsContainer/VBoxContainer/DescriptionContainer/PanelContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
-theme = ExtResource("6_ngyk0")
+theme = ExtResource("9_wwu2b")
 text = "An exciting adventure on the open frontier."
 autowrap_mode = 3
 
 [node name="DifficultyRating" type="Label" parent="ScenarioInfoDisplay/VBoxContainer/ContentsContainer/VBoxContainer/DescriptionContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("6_ngyk0")
+theme = ExtResource("9_wwu2b")
 text = "Difficulty: 1/5"
 horizontal_alignment = 1
 
@@ -148,7 +148,7 @@ theme_override_constants/separation = 0
 
 [node name="Header" type="Label" parent="ScenarioInfoDisplay/VBoxContainer/ContentsContainer/VBoxContainer/StartingResourcesContainer"]
 layout_mode = 2
-theme = ExtResource("6_mdyyf")
+theme = ExtResource("8_txdfw")
 text = "Starting Resources"
 
 [node name="PanelContainer" type="PanelContainer" parent="ScenarioInfoDisplay/VBoxContainer/ContentsContainer/VBoxContainer/StartingResourcesContainer"]
@@ -171,7 +171,7 @@ size_flags_horizontal = 4
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
-theme = ExtResource("6_ngyk0")
+theme = ExtResource("9_wwu2b")
 bbcode_enabled = true
 text = "[img=33%]res://assets/art/tiny_silver_coin.png[/img] 200"
 fit_content = true
@@ -180,7 +180,7 @@ autowrap_mode = 0
 [node name="StartingCoin" type="RichTextLabel" parent="ScenarioInfoDisplay/VBoxContainer/ContentsContainer/VBoxContainer/StartingResourcesContainer/PanelContainer/MarginContainer/ResourceLabels"]
 layout_mode = 2
 size_flags_horizontal = 6
-theme = ExtResource("6_ngyk0")
+theme = ExtResource("9_wwu2b")
 bbcode_enabled = true
 text = "[img=33%]res://assets/art/tiny_silver_coin.png[/img] 200"
 fit_content = true
@@ -189,7 +189,7 @@ autowrap_mode = 0
 [node name="StartingEnergy" type="RichTextLabel" parent="ScenarioInfoDisplay/VBoxContainer/ContentsContainer/VBoxContainer/StartingResourcesContainer/PanelContainer/MarginContainer/ResourceLabels"]
 layout_mode = 2
 size_flags_horizontal = 6
-theme = ExtResource("6_ngyk0")
+theme = ExtResource("9_wwu2b")
 bbcode_enabled = true
 text = "[img=33%]res://assets/art/tiny_silver_coin.png[/img] 200"
 fit_content = true
@@ -197,7 +197,7 @@ autowrap_mode = 0
 
 [node name="StartingCrewContainer" type="VBoxContainer" parent="ScenarioInfoDisplay/VBoxContainer/ContentsContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("6_mdyyf")
+theme = ExtResource("8_txdfw")
 theme_override_constants/separation = 0
 
 [node name="Header" type="Label" parent="ScenarioInfoDisplay/VBoxContainer/ContentsContainer/VBoxContainer/StartingCrewContainer"]
@@ -220,7 +220,7 @@ layout_mode = 2
 
 [node name="RandomCount" type="Label" parent="ScenarioInfoDisplay/VBoxContainer/ContentsContainer/VBoxContainer/StartingCrewContainer/PortraitContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("6_ngyk0")
+theme = ExtResource("9_wwu2b")
 text = "1 Random:"
 
 [node name="CrewPortraits1" type="HBoxContainer" parent="ScenarioInfoDisplay/VBoxContainer/ContentsContainer/VBoxContainer/StartingCrewContainer/PortraitContainer/MarginContainer/VBoxContainer"]
@@ -232,42 +232,42 @@ size_flags_horizontal = 4
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 6
-texture = ExtResource("7_xpaa6")
+texture = ExtResource("10_nanuo")
 expand_mode = 3
 
 [node name="CrewPortrait2" type="TextureRect" parent="ScenarioInfoDisplay/VBoxContainer/ContentsContainer/VBoxContainer/StartingCrewContainer/PortraitContainer/MarginContainer/VBoxContainer/CrewPortraits1"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 6
-texture = ExtResource("7_xpaa6")
+texture = ExtResource("10_nanuo")
 expand_mode = 3
 
 [node name="CrewPortrait3" type="TextureRect" parent="ScenarioInfoDisplay/VBoxContainer/ContentsContainer/VBoxContainer/StartingCrewContainer/PortraitContainer/MarginContainer/VBoxContainer/CrewPortraits1"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 6
-texture = ExtResource("7_xpaa6")
+texture = ExtResource("10_nanuo")
 expand_mode = 3
 
 [node name="CrewPortrait4" type="TextureRect" parent="ScenarioInfoDisplay/VBoxContainer/ContentsContainer/VBoxContainer/StartingCrewContainer/PortraitContainer/MarginContainer/VBoxContainer/CrewPortraits1"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 6
-texture = ExtResource("7_xpaa6")
+texture = ExtResource("10_nanuo")
 expand_mode = 3
 
 [node name="CrewPortrait5" type="TextureRect" parent="ScenarioInfoDisplay/VBoxContainer/ContentsContainer/VBoxContainer/StartingCrewContainer/PortraitContainer/MarginContainer/VBoxContainer/CrewPortraits1"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 6
-texture = ExtResource("7_xpaa6")
+texture = ExtResource("10_nanuo")
 expand_mode = 3
 
 [node name="CrewPortrait6" type="TextureRect" parent="ScenarioInfoDisplay/VBoxContainer/ContentsContainer/VBoxContainer/StartingCrewContainer/PortraitContainer/MarginContainer/VBoxContainer/CrewPortraits1"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 6
-texture = ExtResource("7_xpaa6")
+texture = ExtResource("10_nanuo")
 expand_mode = 3
 
 [node name="CrewPortraits2" type="HBoxContainer" parent="ScenarioInfoDisplay/VBoxContainer/ContentsContainer/VBoxContainer/StartingCrewContainer/PortraitContainer/MarginContainer/VBoxContainer"]
@@ -278,42 +278,42 @@ layout_mode = 2
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 6
-texture = ExtResource("7_xpaa6")
+texture = ExtResource("10_nanuo")
 expand_mode = 3
 
 [node name="CrewPortrait2" type="TextureRect" parent="ScenarioInfoDisplay/VBoxContainer/ContentsContainer/VBoxContainer/StartingCrewContainer/PortraitContainer/MarginContainer/VBoxContainer/CrewPortraits2"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 6
-texture = ExtResource("7_xpaa6")
+texture = ExtResource("10_nanuo")
 expand_mode = 3
 
 [node name="CrewPortrait3" type="TextureRect" parent="ScenarioInfoDisplay/VBoxContainer/ContentsContainer/VBoxContainer/StartingCrewContainer/PortraitContainer/MarginContainer/VBoxContainer/CrewPortraits2"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 6
-texture = ExtResource("7_xpaa6")
+texture = ExtResource("10_nanuo")
 expand_mode = 3
 
 [node name="CrewPortrait4" type="TextureRect" parent="ScenarioInfoDisplay/VBoxContainer/ContentsContainer/VBoxContainer/StartingCrewContainer/PortraitContainer/MarginContainer/VBoxContainer/CrewPortraits2"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 6
-texture = ExtResource("7_xpaa6")
+texture = ExtResource("10_nanuo")
 expand_mode = 3
 
 [node name="CrewPortrait5" type="TextureRect" parent="ScenarioInfoDisplay/VBoxContainer/ContentsContainer/VBoxContainer/StartingCrewContainer/PortraitContainer/MarginContainer/VBoxContainer/CrewPortraits2"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 6
-texture = ExtResource("7_xpaa6")
+texture = ExtResource("10_nanuo")
 expand_mode = 3
 
 [node name="CrewPortrait6" type="TextureRect" parent="ScenarioInfoDisplay/VBoxContainer/ContentsContainer/VBoxContainer/StartingCrewContainer/PortraitContainer/MarginContainer/VBoxContainer/CrewPortraits2"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 6
-texture = ExtResource("7_xpaa6")
+texture = ExtResource("10_nanuo")
 expand_mode = 3
 
 [node name="GoalContainer" type="VBoxContainer" parent="ScenarioInfoDisplay/VBoxContainer/ContentsContainer/VBoxContainer"]
@@ -322,7 +322,7 @@ theme_override_constants/separation = 0
 
 [node name="Header" type="Label" parent="ScenarioInfoDisplay/VBoxContainer/ContentsContainer/VBoxContainer/GoalContainer"]
 layout_mode = 2
-theme = ExtResource("6_mdyyf")
+theme = ExtResource("8_txdfw")
 text = "Total Distance"
 
 [node name="PanelContainer" type="PanelContainer" parent="ScenarioInfoDisplay/VBoxContainer/ContentsContainer/VBoxContainer/GoalContainer"]
@@ -341,6 +341,7 @@ horizontal_alignment = 1
 
 [node name="StartContainer" type="MarginContainer" parent="ScenarioInfoDisplay/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 8
 theme_override_constants/margin_top = 10
 
 [node name="StartButton" type="Button" parent="ScenarioInfoDisplay/VBoxContainer/StartContainer"]
