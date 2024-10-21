@@ -190,6 +190,7 @@ func load_from_scenario(load_scenario: Scenario):
         possible_characters.erase(starting_char)
 
     initialize_characters()
+    saved_state = null
 
 func load_from_init_values(init_values: GameplayInitValues):
     set_current_distance_remaining(init_values.current_distance_remaining)

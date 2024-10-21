@@ -14,9 +14,12 @@ func _ready() -> void:
     retry_button.pressed.connect(_on_retry_pressed)
     main_menu_button.pressed.connect(_on_main_menu_pressed)
     
+    if Database.saved_state == null:
+        retry_button.disabled = true
+    
     _start_fade_in_sequence()
     
-func _start_fade_in_sequence() -> void:
+func _start_fade_in_sequence() -> Tween:
     var fade_in_sequence: Tween = create_tween()
     fade_in_sequence.tween_interval(initial_delay)
     fade_in_sequence.tween_callback(_darken_background)
@@ -27,11 +30,16 @@ func _start_fade_in_sequence() -> void:
         button_container
     ]
     for child in children:
-        child.hide()
-        child.modulate = Color.TRANSPARENT
-        fade_in_sequence.tween_interval(delay_duration)
-        fade_in_sequence.tween_callback(child.show)
-        fade_in_sequence.tween_property(child, "modulate", Color.WHITE, fade_duration)
+        _append_fade_in_steps(child, fade_in_sequence)
+    
+    return fade_in_sequence
+
+func _append_fade_in_steps(node: Node, tween: Tween):
+    node.hide()
+    node.modulate = Color.TRANSPARENT
+    tween.tween_interval(delay_duration)
+    tween.tween_callback(node.show)
+    tween.tween_property(node, "modulate", Color.WHITE, fade_duration)
 
 func _darken_background() -> void:
     var background_tween = create_tween()

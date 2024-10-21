@@ -1,21 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://blrpji4et6nkj"]
+[gd_scene load_steps=4 format=3 uid="uid://blrpji4et6nkj"]
 
 [ext_resource type="PackedScene" uid="uid://ctqciskxgauli" path="res://src/game_over/game_over.tscn" id="1_mvqh0"]
 [ext_resource type="Texture2D" uid="uid://bgld5ma0pnno8" path="res://assets/art/backgrounds/victory_background.jpg" id="2_rivf5"]
+[ext_resource type="Script" path="res://src/game_over/victory_scene.gd" id="3_yy3jv"]
 
 [node name="VictoryScene" instance=ExtResource("1_mvqh0")]
 texture = ExtResource("2_rivf5")
 expand_mode = 2
-initial_delay = 3.0
+script = ExtResource("3_yy3jv")
 
 [node name="Title" parent="TitleContainer/MarginContainer/HB" index="0"]
 text = "Victory!"
 
 [node name="Encouragement" parent="TitleContainer/MarginContainer/HB" index="1"]
 text = "Hard-earned success."
-
-[node name="Retry" parent="ButtonContainer" index="1"]
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="." index="3"]
 visible = false
@@ -26,3 +24,19 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Retry" parent="ButtonContainer" index="0"]
+visible = false
+
+[node name="ToggleBackgroundButton" type="Button" parent="." index="5"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_bottom = -50.0
+grow_vertical = 0
+text = "Show Background"
+
+[connection signal="pressed" from="ToggleBackgroundButton" to="." method="_on_show_background_button_pressed"]
