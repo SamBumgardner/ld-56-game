@@ -21,11 +21,11 @@ script = ExtResource("1_1710u")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 0.52
 anchor_right = 0.5
-anchor_bottom = 0.5
+anchor_bottom = 0.52
 offset_left = -523.0
 offset_top = -139.5
 offset_right = 523.0
@@ -51,31 +51,6 @@ text = "Ludum Dare 56 Game Jam Entry"
 fit_content = true
 autowrap_mode = 0
 
-[node name="StartButtons" type="HBoxContainer" parent="VBoxContainer"]
-custom_minimum_size = Vector2(750, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-theme = ExtResource("3_qd2mb")
-
-[node name="StartButtonEasy" type="Button" parent="VBoxContainer/StartButtons"]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-size_flags_horizontal = 6
-text = "Easy"
-
-[node name="StartButtonMedium" type="Button" parent="VBoxContainer/StartButtons"]
-visible = false
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-size_flags_horizontal = 6
-text = "Medium"
-
-[node name="StartButtonHard" type="Button" parent="VBoxContainer/StartButtons"]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-size_flags_horizontal = 6
-text = "Hard"
-
 [node name="Buttons" type="CenterContainer" parent="VBoxContainer"]
 layout_mode = 2
 
@@ -83,6 +58,16 @@ layout_mode = 2
 custom_minimum_size = Vector2(240, 0)
 layout_mode = 2
 theme = ExtResource("3_qd2mb")
+
+[node name="TutorialButton" type="Button" parent="VBoxContainer/Buttons/ButtonRows"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Tutorial"
+
+[node name="ScenarioButton" type="Button" parent="VBoxContainer/Buttons/ButtonRows"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Play"
 
 [node name="SettingsButton" type="Button" parent="VBoxContainer/Buttons/ButtonRows"]
 layout_mode = 2
@@ -95,15 +80,12 @@ text = "Quit"
 [node name="BattlefieldOutdoorsBackground" parent="." instance=ExtResource("5_1ihwe")]
 
 [connection signal="ready" from="." to="AudioManager" method="_on_start_menu_ready"]
-[connection signal="mouse_entered" from="VBoxContainer/StartButtons/StartButtonEasy" to="AudioManager" method="_on_start_button_mouse_entered"]
-[connection signal="pressed" from="VBoxContainer/StartButtons/StartButtonEasy" to="." method="_on_start_button_easy_pressed"]
-[connection signal="pressed" from="VBoxContainer/StartButtons/StartButtonEasy" to="AudioManager" method="_on_start_button_pressed"]
-[connection signal="mouse_entered" from="VBoxContainer/StartButtons/StartButtonMedium" to="AudioManager" method="_on_start_button_mouse_entered"]
-[connection signal="pressed" from="VBoxContainer/StartButtons/StartButtonMedium" to="." method="_on_start_button_medium_pressed"]
-[connection signal="pressed" from="VBoxContainer/StartButtons/StartButtonMedium" to="AudioManager" method="_on_start_button_pressed"]
-[connection signal="mouse_entered" from="VBoxContainer/StartButtons/StartButtonHard" to="AudioManager" method="_on_start_button_mouse_entered"]
-[connection signal="pressed" from="VBoxContainer/StartButtons/StartButtonHard" to="." method="_on_start_button_hard_pressed"]
-[connection signal="pressed" from="VBoxContainer/StartButtons/StartButtonHard" to="AudioManager" method="_on_start_button_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/Buttons/ButtonRows/TutorialButton" to="AudioManager" method="_on_start_button_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/Buttons/ButtonRows/TutorialButton" to="." method="_on_tutorial_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Buttons/ButtonRows/TutorialButton" to="AudioManager" method="_on_start_button_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/Buttons/ButtonRows/ScenarioButton" to="AudioManager" method="_on_start_button_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/Buttons/ButtonRows/ScenarioButton" to="." method="_on_scenario_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Buttons/ButtonRows/ScenarioButton" to="AudioManager" method="_on_start_button_pressed"]
 [connection signal="mouse_entered" from="VBoxContainer/Buttons/ButtonRows/SettingsButton" to="AudioManager" method="_on_settings_button_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/Buttons/ButtonRows/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Buttons/ButtonRows/SettingsButton" to="AudioManager" method="_on_settings_button_pressed"]

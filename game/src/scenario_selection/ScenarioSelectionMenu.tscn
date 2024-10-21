@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c32yvxfh4qdgu"]
+[gd_scene load_steps=13 format=3 uid="uid://c32yvxfh4qdgu"]
 
 [ext_resource type="Theme" uid="uid://duflqnf122e6l" path="res://assets/themes/StartMenu.tres" id="1_5gffv"]
 [ext_resource type="Script" path="res://src/scenario_selection/scenario_selection_menu.gd" id="2_j3fiq"]
@@ -11,6 +11,7 @@
 [ext_resource type="Theme" uid="uid://da8nge0sh56jm" path="res://assets/themes/ScenarioSubHeaders.tres" id="8_txdfw"]
 [ext_resource type="Theme" uid="uid://dk5iv042psfw" path="res://assets/themes/Default.tres" id="9_wwu2b"]
 [ext_resource type="Texture2D" uid="uid://bic3i142epdt3" path="res://assets/art/placeholder_threat.png" id="10_nanuo"]
+[ext_resource type="PackedScene" uid="uid://mq5u7di7yh8m" path="res://src/back_to_start_menu_button/BackToStartMenuButton.tscn" id="12_l3dg5"]
 
 [node name="ScenarioSelectionMenu" type="Control"]
 layout_mode = 3
@@ -349,3 +350,5 @@ layout_mode = 2
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 48
 text = "START"
+
+[node name="BackToStartMenuButton" parent="." instance=ExtResource("12_l3dg5")]
