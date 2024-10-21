@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="UpgradeChoice" load_steps=4 format=3 uid="uid://c05xefebsymch"]
 
 [ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="1_qwows"]
-[ext_resource type="Texture2D" uid="uid://8icadmy2cp3f" path="res://assets/art/upgrade_icon_placeholder.png" id="2_dewe8"]
+[ext_resource type="Texture2D" uid="uid://xdcbyuxq217y" path="res://assets/art/upgrade_icon_trash.png" id="2_1py7w"]
 
 [sub_resource type="Resource" id="Resource_cdmsv"]
 script = ExtResource("1_qwows")
@@ -23,11 +23,11 @@ restore_pct = 0.0
 
 [resource]
 script = ExtResource("1_qwows")
-name = "temp"
+name = "Pare"
 description = "Temporary Description"
 visual_summary = "[center]Increase two strongest actions by [b]1[/b]
-Add: 1[img=30%]res://assets/art/ATTACK_icon_64x64.png[/img] 1[img=30%]res://assets/art/ATTACK_icon_64x64.png[/img]"
-icon_ref = ExtResource("2_dewe8")
+Remove 2 weakest actions"
+icon_ref = ExtResource("2_1py7w")
 cost = 0
 additional_effect = SubResource("Resource_cdmsv")
 upgrade_type = 2

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="UpgradeChoice" load_steps=5 format=3 uid="uid://bvfri5hbeygid"]
 
 [ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="1_h3btb"]
-[ext_resource type="Texture2D" uid="uid://8icadmy2cp3f" path="res://assets/art/upgrade_icon_placeholder.png" id="2_oy6cw"]
+[ext_resource type="Texture2D" uid="uid://t3o26rqaldid" path="res://assets/art/upgrade_icon_mystery.png" id="2_mh4i2"]
 
 [sub_resource type="Resource" id="Resource_5u50a"]
 script = ExtResource("1_h3btb")
@@ -42,11 +42,11 @@ restore_pct = 0.0
 
 [resource]
 script = ExtResource("1_h3btb")
-name = "temp"
+name = "Prize"
 description = "Temporary Description"
 visual_summary = "[center]Add: 
 3[img=30%]res://assets/art/HEAL_icon_64x64.png[/img] 3[img=30%]res://assets/art/MAGIC_icon_64x64.png[/img] 1[img=30%]res://assets/art/HEAL_icon_64x64.png[/img]"
-icon_ref = ExtResource("2_oy6cw")
+icon_ref = ExtResource("2_mh4i2")
 cost = 0
 additional_effect = SubResource("Resource_cdmsv")
 upgrade_type = 1
