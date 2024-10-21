@@ -46,6 +46,7 @@ price = 0
 [resource]
 script = ExtResource("3_tiyrw")
 name = "Thistle"
+job_name = "Survivalist"
 description = "A skilled survivalist, capable of supporting many even under harsh conditions."
 portrait = ExtResource("2_1t750")
 icon = ExtResource("1_6bly4")

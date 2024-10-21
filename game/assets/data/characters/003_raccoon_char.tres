@@ -46,6 +46,7 @@ price = 0
 [resource]
 script = ExtResource("3_cp6an")
 name = "Fiddler"
+job_name = "Hero"
 description = "Loyalty, bravery, and a touch of pyromania; there's no better ally in a pinch."
 portrait = ExtResource("2_6a65p")
 icon = ExtResource("1_ehecm")

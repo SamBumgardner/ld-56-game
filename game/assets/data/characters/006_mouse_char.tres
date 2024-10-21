@@ -46,6 +46,7 @@ price = 0
 [resource]
 script = ExtResource("3_soiy1")
 name = "Rocket"
+job_name = "Rocketeer"
 description = "A discarded mortar and a pile of junk; tools to blast into a better future."
 portrait = ExtResource("2_jj084")
 icon = ExtResource("1_nyibm")
