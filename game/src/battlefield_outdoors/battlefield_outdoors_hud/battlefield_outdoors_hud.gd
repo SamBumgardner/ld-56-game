@@ -8,7 +8,8 @@ const NEW_REGION_MESSAGE_FORMAT_HEAL = "[color=cyan]Repaired %s health![/color]"
 const NEW_REGION_MESSAGE_FORMAT_ADDITIONAL_INFO = "\nRegional Modifiers:\n%s"
 const NEW_REGION_DURATION = 20
 
-const REROLL_FAIL_MESSAGE = "Failed to shuffle unlocked actions.\nReason: INSUFFICIENT_FUEL"
+const REROLL_FAIL_MESSAGE_LOCK = "Failed to shuffle unlocked actions.\nReason: ALL_LOCKED"
+const REROLL_FAIL_MESSAGE_FUEL = "Failed to shuffle unlocked actions.\nReason: INSUFFICIENT_FUEL"
 const REROLL_FAIL_DURATION = 2
 
 @onready var audio_manager: AudioManager = $AudioManager
@@ -16,15 +17,6 @@ const REROLL_FAIL_DURATION = 2
 @onready var combat_math_formulas = CombatMathFormulas.new()
 @onready var health_current = $TopBar/Trackers/HealthDisplay/MarginContainer/HBoxContainer/HealthCurrent
 @onready var health_maximum = $TopBar/Trackers/HealthDisplay/MarginContainer/HBoxContainer/HealthMaximum
-@onready var warning_only_frozen_troops = (
-    $CentralControls/VBoxContainer/Warnings/WarningOnlyFrozenTroops
-)
-@onready var warning_out_of_health = (
-    $CentralControls/VBoxContainer/Warnings/WarningOutOfHealth
-)
-@onready var warning_out_of_troops = (
-    $CentralControls/VBoxContainer/Warnings/WarningOutOfTroops
-)
 @onready var bottom_info_display: Control = $BottomInfoDisplay
 @onready var top_bar_display: Control = $TopBar
 @onready var screen_notification: ScreenNotification = $ScreenNotification
@@ -50,8 +42,6 @@ const REROLL_FAIL_DURATION = 2
 ]
 
 func _ready():
-    _hide_warnings()
-
     _set_health_text(Database.war_transport_health_current)
     Database.health_changed.connect(_set_health_text)
 
@@ -73,18 +63,6 @@ func _ready():
 
     Database.region_changed.connect(_on_region_changed)
 
-func _hide_warnings() -> void:
-    warning_out_of_health.visible = false
-    _hide_roll_warnings()
-
-
-func _hide_roll_warnings() -> void:
-    warning_only_frozen_troops.visible = false
-    warning_out_of_troops.visible = false
-
-
-func _on_mock_attack_button_pressed() -> void:
-    _hide_roll_warnings()
 
 func request_roll_preview_start() -> void:
     crew_actions_display.start_preview_reroll()
@@ -93,27 +71,6 @@ func request_roll_preview_stop() -> void:
     crew_actions_display.stop_preview_reroll()
 
 func _on_mock_reroll_button_pressed() -> void:
-    if Database.war_transport_health_current <= 0:
-        print_debug('Player requested a roll without any health.')
-        return
-
-    if Database.hired_characters.size() == 0:
-        print_debug('Player requested a roll without any troops.')
-        warning_out_of_troops.visible = true
-        return
-
-    if Database.current_character_die_slots.all(
-        func(character_die_slot: CharacterDieSlot) -> bool: return (
-            character_die_slot.is_frozen
-        )
-    ):
-        print_debug('Player requested a roll with only frozen troops.')
-        warning_only_frozen_troops.visible = true
-        return
-
-    # Player is rolling at least one character die.
-    _hide_roll_warnings()
-
     dice_roll_requested.emit()
     calculations_hud.refresh()
     total_power_display.refresh()
@@ -138,11 +95,18 @@ func _on_region_changed(new_region: Region, segment_info: ScenarioSegment) -> vo
 func _on_insufficient_fuel() -> void:
     screen_notification.display_notification(
         ScreenNotification.ScreenNotificationType.ERROR,
-        REROLL_FAIL_MESSAGE,
+        REROLL_FAIL_MESSAGE_FUEL,
         REROLL_FAIL_DURATION
     )
     fuel_display._on_insufficient_resource()
     bottom_bar_fuel._on_insufficient_resource()
+
+func _on_all_locked() -> void:
+    screen_notification.display_notification(
+        ScreenNotification.ScreenNotificationType.ERROR,
+        REROLL_FAIL_MESSAGE_LOCK,
+        REROLL_FAIL_DURATION,
+    )
     
 func refresh_calculations() -> void:
     calculations_hud.refresh()
