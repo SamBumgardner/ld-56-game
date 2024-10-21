@@ -1,0 +1,14 @@
+[gd_resource type="AudioStreamSynchronized" load_steps=4 format=3 uid="uid://c57xuhbwtyg5l"]
+
+[ext_resource type="AudioStream" uid="uid://cqskfy7h4l6m4" path="res://assets/audio/001_loop_music.ogg" id="1_74o64"]
+[ext_resource type="AudioStream" uid="uid://caq0n6uhq3dky" path="res://assets/audio/002_loop_music.ogg" id="2_2afvd"]
+[ext_resource type="AudioStream" uid="uid://cifq013w5q8uo" path="res://assets/audio/003_loop_music.ogg" id="3_ll1ae"]
+
+[resource]
+stream_count = 3
+stream_0/stream = ExtResource("1_74o64")
+stream_0/volume = 0.0
+stream_1/stream = ExtResource("2_2afvd")
+stream_1/volume = 0.0
+stream_2/stream = ExtResource("3_ll1ae")
+stream_2/volume = 0.0
