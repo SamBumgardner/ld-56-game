@@ -20,6 +20,7 @@ texture = ExtResource("1_jdove")
 centered = false
 
 [node name="DecorateSky" type="ParallaxLayer" parent="."]
+visible = false
 motion_scale = Vector2(0.1, 1)
 motion_mirroring = Vector2(2800, 0)
 
