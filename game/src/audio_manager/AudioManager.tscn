@@ -17,7 +17,7 @@
 [ext_resource type="AudioStream" path="res://assets/audio/209_notification_error_randomizer.tres" id="10_askid"]
 [ext_resource type="AudioStream" uid="uid://hjldvirp4bwt" path="res://assets/audio/110_sfx_woosh.wav" id="10_th1gx"]
 [ext_resource type="AudioStream" uid="uid://dr7oavvxatdmd" path="res://assets/audio/112_sfx_charge-forward.wav" id="12_6p66v"]
-[ext_resource type="AudioStream" path="res://assets/audio/210_sfx_charge_crush_randomizer.tres" id="13_6f3bk"]
+[ext_resource type="AudioStream" uid="uid://dhoqdso571q2t" path="res://assets/audio/210_sfx_charge_crush_randomizer.tres" id="13_6f3bk"]
 [ext_resource type="AudioStream" uid="uid://cda4ye48uhmgj" path="res://assets/audio/121_musical_sting_celebrate.wav" id="14_uusua"]
 [ext_resource type="AudioStream" uid="uid://dnw2ae6yxd8vt" path="res://assets/audio/119_sfx_charge-lose.wav" id="15_r2qlj"]
 
