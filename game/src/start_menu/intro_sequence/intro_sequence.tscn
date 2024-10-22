@@ -1,0 +1,533 @@
+[gd_scene load_steps=15 format=3 uid="uid://cj4g148ajp1d7"]
+
+[ext_resource type="Texture2D" uid="uid://bjqlw2tbgep0o" path="res://assets/art/backgrounds/main_menu_background.jpg" id="1_36cu3"]
+[ext_resource type="Script" path="res://src/start_menu/intro_sequence/intro_sequence.gd" id="1_fqxy4"]
+[ext_resource type="Texture2D" uid="uid://oji1wxib2ino" path="res://assets/art/backgrounds/title_screen/TUSK-Title-Screen-Pieces_0000s_0008_T.png" id="2_fcnxr"]
+[ext_resource type="Texture2D" uid="uid://cxcuc0tqb5qr8" path="res://assets/art/backgrounds/title_screen/TUSK-Title-Screen-Pieces_0000s_0007_U.png" id="3_mngpm"]
+[ext_resource type="Texture2D" uid="uid://cged6xxce3a6w" path="res://assets/art/backgrounds/title_screen/TUSK-Title-Screen-Pieces_0000s_0004_U-Top.png" id="4_71dsr"]
+[ext_resource type="Texture2D" uid="uid://ckxgjrfh5pmyr" path="res://assets/art/backgrounds/title_screen/TUSK-Title-Screen-Pieces_0000s_0006_S.png" id="5_p1hry"]
+[ext_resource type="Texture2D" uid="uid://bra2k6iv8pm2e" path="res://assets/art/backgrounds/title_screen/TUSK-Title-Screen-Pieces_0000s_0003_S-Top.png" id="6_k62ui"]
+[ext_resource type="Texture2D" uid="uid://qbwom8rhy1t1" path="res://assets/art/backgrounds/title_screen/TUSK-Title-Screen-Pieces_0000s_0005_K.png" id="6_x53lp"]
+[ext_resource type="Texture2D" uid="uid://djwp6ebsk3ly6" path="res://assets/art/backgrounds/title_screen/TUSK-Title-Screen-Pieces_0000s_0002_S-Bottom.png" id="7_tkrbo"]
+[ext_resource type="Texture2D" uid="uid://cdju2xg45510n" path="res://assets/art/backgrounds/title_screen/TUSK-Title-Screen-Pieces_0000s_0001_K-Bottom.png" id="9_6pw6s"]
+[ext_resource type="Texture2D" uid="uid://c2go65lm37vn1" path="res://assets/art/backgrounds/title_screen/TUSK-Title-Screen-Pieces_0000s_0000_K-Top.png" id="10_fjpi7"]
+
+[sub_resource type="Animation" id="Animation_c4tkd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FadeInCover:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Background:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TuskAnchor/T:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(135, 265)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TuskAnchor/U:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(400, 259)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TuskAnchor/S:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(680, 259)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TuskAnchor/K:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(932, 249)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("TuskAnchor/U_Horn:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(458, 250)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("TuskAnchor/S_Horn_Top:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(736, 309)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("TuskAnchor/S_Horn_Bottom:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(673, 360)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("TuskAnchor/K_Horn_Bottom:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(993, 336)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("TuskAnchor/K_Horn_Top:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(972, 243)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("FadeInCover:color")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("TuskAnchor:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("TuskAnchor:scale")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_6ghn5"]
+resource_name = "intro_sequence"
+length = 7.5
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(2, 0.5, 1),
+"update": 0,
+"values": [Vector2(0, -273), Vector2(0, -136.5), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FadeInCover:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2, 5.4, 5.5, 5.59),
+"transitions": PackedFloat32Array(1, 0, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Background:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0.662453, 0.662452, 0.662452, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TuskAnchor/T:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(3.5, 3.75, 5.5),
+"transitions": PackedFloat32Array(2, 1, 0),
+"update": 0,
+"values": [Vector2(-265, 265), Vector2(135, 265), Vector2(135, 265)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TuskAnchor/U:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(3.625, 4),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Vector2(400, -341), Vector2(400, 259)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TuskAnchor/S:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(3.875, 4.25),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Vector2(680, 859), Vector2(680, 259)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TuskAnchor/K:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(4.25, 4.5),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Vector2(1332, 259), Vector2(932, 259)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("TuskAnchor/U_Horn:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(4.4176, 4.9176),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Vector2(458, -350), Vector2(458, 250)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("TuskAnchor/S_Horn_Top:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(4.8717, 5.2467),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Vector2(1336, 309), Vector2(736, 309)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("TuskAnchor/S_Horn_Bottom:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(4.4593, 5.0843),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Vector2(-264, 309), Vector2(673, 360)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("TuskAnchor/K_Horn_Bottom:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(5.0844, 5.3344),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1285, 620), Vector2(993, 346)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("TuskAnchor/K_Horn_Top:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(5.1365, 5.4177),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Vector2(1286, -61), Vector2(972, 253)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("FadeInCover:color")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0.01, 5.25),
+"transitions": PackedFloat32Array(0, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("TuskAnchor:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 6, 7),
+"transitions": PackedFloat32Array(0, -2, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, -200)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("TuskAnchor:scale")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(6, 7),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.8, 0.8)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_343y2"]
+_data = {
+"RESET": SubResource("Animation_c4tkd"),
+"intro_sequence": SubResource("Animation_6ghn5")
+}
+
+[node name="IntroSequence" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fqxy4")
+
+[node name="Background" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(1280, 0)
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 993.125
+texture = ExtResource("1_36cu3")
+expand_mode = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_343y2")
+}
+
+[node name="FadeInCover" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TuskAnchor" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -640.0
+offset_top = -560.0
+offset_right = -640.0
+offset_bottom = -560.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="T" type="TextureRect" parent="TuskAnchor"]
+custom_minimum_size = Vector2(225, 225)
+layout_mode = 0
+offset_left = 135.0
+offset_top = 265.0
+offset_right = 360.0
+offset_bottom = 490.0
+texture = ExtResource("2_fcnxr")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="U" type="TextureRect" parent="TuskAnchor"]
+custom_minimum_size = Vector2(225, 225)
+layout_mode = 0
+offset_left = 400.0
+offset_top = 259.0
+offset_right = 625.0
+offset_bottom = 484.0
+texture = ExtResource("3_mngpm")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="S" type="TextureRect" parent="TuskAnchor"]
+custom_minimum_size = Vector2(225, 225)
+layout_mode = 0
+offset_left = 680.0
+offset_top = 259.0
+offset_right = 905.0
+offset_bottom = 484.0
+texture = ExtResource("5_p1hry")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="K" type="TextureRect" parent="TuskAnchor"]
+custom_minimum_size = Vector2(225, 225)
+layout_mode = 0
+offset_left = 932.0
+offset_top = 259.0
+offset_right = 1157.0
+offset_bottom = 484.0
+texture = ExtResource("6_x53lp")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="U_Horn" type="TextureRect" parent="TuskAnchor"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 0
+offset_left = 458.0
+offset_top = 250.0
+offset_right = 633.0
+offset_bottom = 425.0
+texture = ExtResource("4_71dsr")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="S_Horn_Bottom" type="TextureRect" parent="TuskAnchor"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 0
+offset_left = 673.0
+offset_top = 360.0
+offset_right = 793.0
+offset_bottom = 480.0
+texture = ExtResource("7_tkrbo")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="S_Horn_Top" type="TextureRect" parent="TuskAnchor"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 0
+offset_left = 736.0
+offset_top = 309.0
+offset_right = 856.0
+offset_bottom = 429.0
+texture = ExtResource("6_k62ui")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="K_Horn_Bottom" type="TextureRect" parent="TuskAnchor"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 0
+offset_left = 993.0
+offset_top = 346.0
+offset_right = 1168.0
+offset_bottom = 496.0
+texture = ExtResource("9_6pw6s")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="K_Horn_Top" type="TextureRect" parent="TuskAnchor"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 0
+offset_left = 972.0
+offset_top = 253.0
+offset_right = 1147.0
+offset_bottom = 403.0
+texture = ExtResource("10_fjpi7")
+expand_mode = 2
+stretch_mode = 4
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

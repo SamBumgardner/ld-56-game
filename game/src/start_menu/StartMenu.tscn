@@ -1,11 +1,23 @@
-[gd_scene load_steps=7 format=3 uid="uid://cg47m1iqb0uxk"]
+[gd_scene load_steps=8 format=3 uid="uid://cg47m1iqb0uxk"]
 
 [ext_resource type="Script" path="res://src/start_menu/start_menu.gd" id="1_1710u"]
 [ext_resource type="Theme" uid="uid://duflqnf122e6l" path="res://assets/themes/StartMenu.tres" id="1_io06w"]
 [ext_resource type="PackedScene" uid="uid://h1fowbxngb70" path="res://src/audio_manager/AudioManager.tscn" id="3_kgn8u"]
-[ext_resource type="Theme" uid="uid://dxolpwravnfdn" path="res://assets/themes/StartMenuButtons.tres" id="3_qd2mb"]
-[ext_resource type="Theme" uid="uid://bd7imtqn8b8ak" path="res://assets/themes/StartMenuTitle.tres" id="4_hmxdc"]
+[ext_resource type="Theme" path="res://assets/themes/StartMenuButtons.tres" id="3_qd2mb"]
+[ext_resource type="PackedScene" uid="uid://cj4g148ajp1d7" path="res://src/start_menu/intro_sequence/intro_sequence.tscn" id="4_cqohr"]
 [ext_resource type="PackedScene" uid="uid://dbs7sk334clc7" path="res://src/battlefield_outdoors/battlefield_outdoors_background/BattlefieldOutdoorsBackground.tscn" id="5_1ihwe"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qi1mv"]
+bg_color = Color(0.385493, 0.385493, 0.385492, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
 
 [node name="StartMenu" type="Control"]
 layout_mode = 3
@@ -19,13 +31,33 @@ script = ExtResource("1_1710u")
 
 [node name="AudioManager" parent="." instance=ExtResource("3_kgn8u")]
 
+[node name="IntroSequence" parent="." instance=ExtResource("4_cqohr")]
+visible = false
+layout_mode = 1
+
+[node name="SubTitle" type="RichTextLabel" parent="."]
+visible = false
+clip_contents = false
+layout_mode = 2
+offset_left = 170.0
+offset_top = 200.0
+offset_right = 635.0
+offset_bottom = 238.0
+size_flags_horizontal = 4
+theme = ExtResource("1_io06w")
+theme_override_font_sizes/normal_font_size = 32
+text = "Ludum Dare 56 Game Jam Entry"
+fit_content = true
+autowrap_mode = 0
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.52
+anchor_top = 0.6
 anchor_right = 0.5
-anchor_bottom = 0.52
+anchor_bottom = 0.6
 offset_left = -523.0
 offset_top = -139.5
 offset_right = 523.0
@@ -33,62 +65,56 @@ offset_bottom = 139.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Title" type="RichTextLabel" parent="VBoxContainer"]
-clip_contents = false
-layout_mode = 2
-size_flags_horizontal = 4
-theme = ExtResource("4_hmxdc")
-text = "Tusk to Dusk"
-fit_content = true
-autowrap_mode = 0
-
-[node name="SubTitle" type="RichTextLabel" parent="VBoxContainer"]
-clip_contents = false
-layout_mode = 2
-size_flags_horizontal = 4
-theme = ExtResource("1_io06w")
-text = "Ludum Dare 56 Game Jam Entry"
-fit_content = true
-autowrap_mode = 0
-
 [node name="Buttons" type="CenterContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="ButtonRows" type="VBoxContainer" parent="VBoxContainer/Buttons"]
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/Buttons"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qi1mv")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Buttons/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="ButtonRows" type="VBoxContainer" parent="VBoxContainer/Buttons/PanelContainer/MarginContainer"]
 custom_minimum_size = Vector2(240, 0)
 layout_mode = 2
 theme = ExtResource("3_qd2mb")
 
-[node name="TutorialButton" type="Button" parent="VBoxContainer/Buttons/ButtonRows"]
+[node name="TutorialButton" type="Button" parent="VBoxContainer/Buttons/PanelContainer/MarginContainer/ButtonRows"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Tutorial"
 
-[node name="ScenarioButton" type="Button" parent="VBoxContainer/Buttons/ButtonRows"]
+[node name="ScenarioButton" type="Button" parent="VBoxContainer/Buttons/PanelContainer/MarginContainer/ButtonRows"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Play"
 
-[node name="SettingsButton" type="Button" parent="VBoxContainer/Buttons/ButtonRows"]
+[node name="SettingsButton" type="Button" parent="VBoxContainer/Buttons/PanelContainer/MarginContainer/ButtonRows"]
 layout_mode = 2
 text = "Settings"
 
-[node name="QuitButton" type="Button" parent="VBoxContainer/Buttons/ButtonRows"]
+[node name="QuitButton" type="Button" parent="VBoxContainer/Buttons/PanelContainer/MarginContainer/ButtonRows"]
 layout_mode = 2
 text = "Quit"
 
 [node name="BattlefieldOutdoorsBackground" parent="." instance=ExtResource("5_1ihwe")]
 
 [connection signal="ready" from="." to="AudioManager" method="_on_start_menu_ready"]
-[connection signal="mouse_entered" from="VBoxContainer/Buttons/ButtonRows/TutorialButton" to="AudioManager" method="_on_start_button_mouse_entered"]
-[connection signal="pressed" from="VBoxContainer/Buttons/ButtonRows/TutorialButton" to="." method="_on_tutorial_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/Buttons/ButtonRows/TutorialButton" to="AudioManager" method="_on_start_button_pressed"]
-[connection signal="mouse_entered" from="VBoxContainer/Buttons/ButtonRows/ScenarioButton" to="AudioManager" method="_on_start_button_mouse_entered"]
-[connection signal="pressed" from="VBoxContainer/Buttons/ButtonRows/ScenarioButton" to="." method="_on_scenario_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/Buttons/ButtonRows/ScenarioButton" to="AudioManager" method="_on_start_button_pressed"]
-[connection signal="mouse_entered" from="VBoxContainer/Buttons/ButtonRows/SettingsButton" to="AudioManager" method="_on_settings_button_mouse_entered"]
-[connection signal="pressed" from="VBoxContainer/Buttons/ButtonRows/SettingsButton" to="." method="_on_settings_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/Buttons/ButtonRows/SettingsButton" to="AudioManager" method="_on_settings_button_pressed"]
-[connection signal="mouse_entered" from="VBoxContainer/Buttons/ButtonRows/QuitButton" to="AudioManager" method="_on_quit_button_mouse_entered"]
-[connection signal="pressed" from="VBoxContainer/Buttons/ButtonRows/QuitButton" to="." method="_on_quit_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/Buttons/ButtonRows/QuitButton" to="AudioManager" method="_on_quit_button_pressed"]
+[connection signal="intro_finished" from="IntroSequence" to="." method="_on_intro_sequence_intro_finished"]
+[connection signal="mouse_entered" from="VBoxContainer/Buttons/PanelContainer/MarginContainer/ButtonRows/TutorialButton" to="AudioManager" method="_on_start_button_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/Buttons/PanelContainer/MarginContainer/ButtonRows/TutorialButton" to="." method="_on_tutorial_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Buttons/PanelContainer/MarginContainer/ButtonRows/TutorialButton" to="AudioManager" method="_on_start_button_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/Buttons/PanelContainer/MarginContainer/ButtonRows/ScenarioButton" to="AudioManager" method="_on_start_button_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/Buttons/PanelContainer/MarginContainer/ButtonRows/ScenarioButton" to="." method="_on_scenario_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Buttons/PanelContainer/MarginContainer/ButtonRows/ScenarioButton" to="AudioManager" method="_on_start_button_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/Buttons/PanelContainer/MarginContainer/ButtonRows/SettingsButton" to="AudioManager" method="_on_settings_button_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/Buttons/PanelContainer/MarginContainer/ButtonRows/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Buttons/PanelContainer/MarginContainer/ButtonRows/SettingsButton" to="AudioManager" method="_on_settings_button_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/Buttons/PanelContainer/MarginContainer/ButtonRows/QuitButton" to="AudioManager" method="_on_quit_button_mouse_entered"]
+[connection signal="pressed" from="VBoxContainer/Buttons/PanelContainer/MarginContainer/ButtonRows/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Buttons/PanelContainer/MarginContainer/ButtonRows/QuitButton" to="AudioManager" method="_on_quit_button_pressed"]
