@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dbs7sk334clc7"]
+[gd_scene load_steps=10 format=3 uid="uid://dbs7sk334clc7"]
 
 [ext_resource type="Texture2D" uid="uid://bd4biq3g3x1ej" path="res://assets/art/backgrounds/desert.png" id="1_jdove"]
 [ext_resource type="Texture2D" uid="uid://dn1csb4vtnx5i" path="res://assets/art/backgrounds/scenery_desert/cloud_bush.png" id="2_2bf8m"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cagiyclcjl85b" path="res://assets/art/backgrounds/scenery_desert/Middle_Ground_Rocks.png" id="5_8m4rm"]
 [ext_resource type="Texture2D" uid="uid://cbr61c2w1iafs" path="res://assets/art/backgrounds/scenery_desert/bush_1.png" id="5_rm43p"]
 [ext_resource type="Texture2D" uid="uid://gnvvoamy3djl" path="res://assets/art/backgrounds/scenery_desert/bush_2.png" id="6_mw2j5"]
+[ext_resource type="Texture2D" uid="uid://dw0xe7jquu68n" path="res://assets/art/backgrounds/scenery_desert/Desert_Mesa_3.png" id="6_r4chs"]
 
 [node name="BattlefieldOutdoorsBackground" type="ParallaxBackground"]
 follow_viewport_enabled = true
@@ -197,7 +198,6 @@ texture = ExtResource("3_2253d")
 
 [node name="DesertMesa6" type="Sprite2D" parent="DecorateHorizon2"]
 position = Vector2(564.75, 333.5)
-scale = Vector2(1, 1)
 texture = ExtResource("2_li6ph")
 
 [node name="DesertMesa7" type="Sprite2D" parent="DecorateHorizon2"]
@@ -245,7 +245,6 @@ texture = ExtResource("3_2253d")
 
 [node name="DesertMesa16" type="Sprite2D" parent="DecorateHorizon2"]
 position = Vector2(2102.75, 338.5)
-scale = Vector2(1, 1)
 texture = ExtResource("2_li6ph")
 
 [node name="DesertMesa17" type="Sprite2D" parent="DecorateHorizon2"]
@@ -292,6 +291,216 @@ texture = ExtResource("3_2253d")
 position = Vector2(2623, 370)
 scale = Vector2(1.58, 1.4)
 texture = ExtResource("3_2253d")
+
+[node name="DecorateUpperQuarterGround" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(3, 1)
+motion_mirroring = Vector2(2800, 0)
+
+[node name="MiddleGround" type="Sprite2D" parent="DecorateUpperQuarterGround"]
+position = Vector2(19.25, 426.25)
+scale = Vector2(1.85938, 1.95313)
+texture = ExtResource("5_8m4rm")
+
+[node name="MiddleGround2" type="Sprite2D" parent="DecorateUpperQuarterGround"]
+position = Vector2(230.125, 423.125)
+scale = Vector2(2.24219, 2.25781)
+texture = ExtResource("5_8m4rm")
+
+[node name="MiddleGround3" type="Sprite2D" parent="DecorateUpperQuarterGround"]
+position = Vector2(364, 429)
+scale = Vector2(2.24219, 2.25781)
+texture = ExtResource("5_8m4rm")
+
+[node name="MiddleGround4" type="Sprite2D" parent="DecorateUpperQuarterGround"]
+position = Vector2(526.625, 436.125)
+scale = Vector2(1.33594, 1.32031)
+texture = ExtResource("5_8m4rm")
+
+[node name="MiddleGround5" type="Sprite2D" parent="DecorateUpperQuarterGround"]
+position = Vector2(546, 436)
+scale = Vector2(1.33594, 1.32031)
+texture = ExtResource("5_8m4rm")
+
+[node name="MiddleGround6" type="Sprite2D" parent="DecorateUpperQuarterGround"]
+position = Vector2(908.375, 431.688)
+scale = Vector2(1.46094, 1.35547)
+texture = ExtResource("5_8m4rm")
+
+[node name="MiddleGround7" type="Sprite2D" parent="DecorateUpperQuarterGround"]
+position = Vector2(929.75, 432.125)
+scale = Vector2(1.33594, 1.32031)
+texture = ExtResource("5_8m4rm")
+
+[node name="MiddleGround8" type="Sprite2D" parent="DecorateUpperQuarterGround"]
+position = Vector2(988.75, 430.25)
+scale = Vector2(1.85938, 1.95313)
+texture = ExtResource("5_8m4rm")
+
+[node name="MiddleGround9" type="Sprite2D" parent="DecorateUpperQuarterGround"]
+position = Vector2(1199.63, 427.125)
+scale = Vector2(2.24219, 2.25781)
+texture = ExtResource("5_8m4rm")
+
+[node name="MiddleGround10" type="Sprite2D" parent="DecorateUpperQuarterGround"]
+position = Vector2(1333.5, 433)
+scale = Vector2(2.24219, 2.25781)
+texture = ExtResource("5_8m4rm")
+
+[node name="MiddleGround11" type="Sprite2D" parent="DecorateUpperQuarterGround"]
+position = Vector2(1496.13, 440.125)
+scale = Vector2(1.33594, 1.32031)
+texture = ExtResource("5_8m4rm")
+
+[node name="MiddleGround12" type="Sprite2D" parent="DecorateUpperQuarterGround"]
+position = Vector2(1515.5, 440)
+scale = Vector2(1.33594, 1.32031)
+texture = ExtResource("5_8m4rm")
+
+[node name="MiddleGround13" type="Sprite2D" parent="DecorateUpperQuarterGround"]
+position = Vector2(1873.13, 434.5)
+scale = Vector2(1.75782, 1.59375)
+texture = ExtResource("5_8m4rm")
+
+[node name="MiddleGround14" type="Sprite2D" parent="DecorateUpperQuarterGround"]
+position = Vector2(1899.25, 436.125)
+scale = Vector2(1.33594, 1.32031)
+texture = ExtResource("5_8m4rm")
+
+[node name="DecorateUpperQuarterGround2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(4, 1)
+motion_mirroring = Vector2(2800, 0)
+
+[node name="MiddleGround" type="Sprite2D" parent="DecorateUpperQuarterGround2"]
+position = Vector2(-28.5, 430.75)
+scale = Vector2(3.28125, 2.92188)
+texture = ExtResource("5_8m4rm")
+
+[node name="MiddleGround2" type="Sprite2D" parent="DecorateUpperQuarterGround2"]
+position = Vector2(159.625, 443.125)
+scale = Vector2(2.24219, 2.25781)
+texture = ExtResource("5_8m4rm")
+
+[node name="MiddleGround3" type="Sprite2D" parent="DecorateUpperQuarterGround2"]
+position = Vector2(327.875, 444)
+scale = Vector2(2.24219, 2.25781)
+texture = ExtResource("5_8m4rm")
+
+[node name="MiddleGround4" type="Sprite2D" parent="DecorateUpperQuarterGround2"]
+position = Vector2(490.5, 451.125)
+scale = Vector2(1.33594, 1.32031)
+texture = ExtResource("5_8m4rm")
+
+[node name="MiddleGround5" type="Sprite2D" parent="DecorateUpperQuarterGround2"]
+position = Vector2(600.875, 448)
+scale = Vector2(1.33594, 1.32031)
+texture = ExtResource("5_8m4rm")
+
+[node name="MiddleGround6" type="Sprite2D" parent="DecorateUpperQuarterGround2"]
+position = Vector2(963.25, 443.688)
+scale = Vector2(1.46094, 1.35547)
+texture = ExtResource("5_8m4rm")
+
+[node name="MiddleGround7" type="Sprite2D" parent="DecorateUpperQuarterGround2"]
+position = Vector2(984.625, 444.125)
+scale = Vector2(1.33594, 1.32031)
+texture = ExtResource("5_8m4rm")
+
+[node name="MiddleGround8" type="Sprite2D" parent="DecorateUpperQuarterGround2"]
+position = Vector2(1043.63, 442.25)
+scale = Vector2(1.85938, 1.95313)
+texture = ExtResource("5_8m4rm")
+
+[node name="MiddleGround9" type="Sprite2D" parent="DecorateUpperQuarterGround2"]
+position = Vector2(1964.88, 449.125)
+scale = Vector2(2.24219, 2.25781)
+texture = ExtResource("5_8m4rm")
+
+[node name="MiddleGround10" type="Sprite2D" parent="DecorateUpperQuarterGround2"]
+position = Vector2(2098.75, 455)
+scale = Vector2(2.24219, 2.25781)
+texture = ExtResource("5_8m4rm")
+
+[node name="MiddleGround11" type="Sprite2D" parent="DecorateUpperQuarterGround2"]
+position = Vector2(2261.38, 462.125)
+scale = Vector2(1.33594, 1.32031)
+texture = ExtResource("5_8m4rm")
+
+[node name="MiddleGround12" type="Sprite2D" parent="DecorateUpperQuarterGround2"]
+position = Vector2(2280.75, 462)
+scale = Vector2(1.33594, 1.32031)
+texture = ExtResource("5_8m4rm")
+
+[node name="MiddleGround13" type="Sprite2D" parent="DecorateUpperQuarterGround2"]
+position = Vector2(2638.38, 456.5)
+scale = Vector2(1.75782, 1.59375)
+texture = ExtResource("5_8m4rm")
+
+[node name="MiddleGround14" type="Sprite2D" parent="DecorateUpperQuarterGround2"]
+position = Vector2(2664.5, 458.125)
+scale = Vector2(1.33594, 1.32031)
+texture = ExtResource("5_8m4rm")
+
+[node name="DecorateUpperQuarterGround3" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(4.5, 1)
+motion_mirroring = Vector2(2800, 0)
+
+[node name="Mesa" type="Sprite2D" parent="DecorateUpperQuarterGround3"]
+position = Vector2(796, 444)
+texture = ExtResource("6_r4chs")
+
+[node name="Mesa2" type="Sprite2D" parent="DecorateUpperQuarterGround3"]
+position = Vector2(1598, 454)
+texture = ExtResource("6_r4chs")
+
+[node name="DecorateUpperQuarterGround4" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(4.8, 1)
+motion_mirroring = Vector2(2800, 0)
+
+[node name="Rock" type="Sprite2D" parent="DecorateUpperQuarterGround4"]
+position = Vector2(116, 484)
+texture = ExtResource("5_8m4rm")
+
+[node name="Rock2" type="Sprite2D" parent="DecorateUpperQuarterGround4"]
+position = Vector2(918, 494)
+texture = ExtResource("5_8m4rm")
+
+[node name="Rock3" type="Sprite2D" parent="DecorateUpperQuarterGround4"]
+position = Vector2(1110, 498.5)
+scale = Vector2(0.75, 0.78125)
+texture = ExtResource("5_8m4rm")
+
+[node name="Rock4" type="Sprite2D" parent="DecorateUpperQuarterGround4"]
+position = Vector2(1128, 499)
+scale = Vector2(0.75, 0.6875)
+texture = ExtResource("5_8m4rm")
+
+[node name="Rock5" type="Sprite2D" parent="DecorateUpperQuarterGround4"]
+position = Vector2(1253, 498)
+texture = ExtResource("5_8m4rm")
+
+[node name="Rock6" type="Sprite2D" parent="DecorateUpperQuarterGround4"]
+position = Vector2(2055, 508)
+texture = ExtResource("5_8m4rm")
+
+[node name="Rock7" type="Sprite2D" parent="DecorateUpperQuarterGround4"]
+position = Vector2(2247, 512.5)
+scale = Vector2(0.75, 0.78125)
+texture = ExtResource("5_8m4rm")
+
+[node name="Rock8" type="Sprite2D" parent="DecorateUpperQuarterGround4"]
+position = Vector2(2265, 513)
+scale = Vector2(0.75, 0.6875)
+texture = ExtResource("5_8m4rm")
+
+[node name="Rock9" type="Sprite2D" parent="DecorateUpperQuarterGround4"]
+position = Vector2(2277, 512.5)
+scale = Vector2(0.75, 0.78125)
+texture = ExtResource("5_8m4rm")
+
+[node name="Rock10" type="Sprite2D" parent="DecorateUpperQuarterGround4"]
+position = Vector2(2295, 513)
+scale = Vector2(0.75, 0.6875)
+texture = ExtResource("5_8m4rm")
 
 [node name="DecorateMiddleGround" type="ParallaxLayer" parent="."]
 motion_scale = Vector2(5, 1)
