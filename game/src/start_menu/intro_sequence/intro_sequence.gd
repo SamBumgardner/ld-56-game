@@ -11,6 +11,7 @@ func _ready():
     if not has_played_once:
         has_played_once = true
     else:
+        await get_tree().process_frame == true
         animation_player.advance(animation_player.current_animation.length())
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
