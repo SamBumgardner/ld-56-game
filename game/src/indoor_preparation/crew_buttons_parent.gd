@@ -1,6 +1,6 @@
 class_name CrewButtonsParent extends Control
 
-@onready var crew_buttons: Array[Node] = get_children()
+@onready var crew_buttons: Array[Node] = get_children().filter(func(x): return x.get_script() != null)
 
 func _on_character_hover_changed(character: Character, is_hovered: bool) -> void:
     for crew_button in crew_buttons:
