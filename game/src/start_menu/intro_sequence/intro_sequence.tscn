@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://cj4g148ajp1d7"]
+[gd_scene load_steps=15 format=3 uid="uid://cj4g148ajp1d7"]
 
 [ext_resource type="Texture2D" uid="uid://bjqlw2tbgep0o" path="res://assets/art/backgrounds/main_menu_background.jpg" id="1_36cu3"]
+[ext_resource type="Script" path="res://src/start_menu/intro_sequence/intro_sequence.gd" id="1_fqxy4"]
 [ext_resource type="Texture2D" uid="uid://oji1wxib2ino" path="res://assets/art/backgrounds/title_screen/TUSK-Title-Screen-Pieces_0000s_0008_T.png" id="2_fcnxr"]
 [ext_resource type="Texture2D" uid="uid://cxcuc0tqb5qr8" path="res://assets/art/backgrounds/title_screen/TUSK-Title-Screen-Pieces_0000s_0007_U.png" id="3_mngpm"]
 [ext_resource type="Texture2D" uid="uid://cged6xxce3a6w" path="res://assets/art/backgrounds/title_screen/TUSK-Title-Screen-Pieces_0000s_0004_U-Top.png" id="4_71dsr"]
@@ -196,8 +197,8 @@ tracks/14/keys = {
 
 [sub_resource type="Animation" id="Animation_6ghn5"]
 resource_name = "intro_sequence"
-length = 9.0
-step = 1.0
+length = 7.5
+step = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -280,7 +281,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(4.25, 4.5),
 "transitions": PackedFloat32Array(2, 1),
 "update": 0,
-"values": [Vector2(1332, 249), Vector2(932, 249)]
+"values": [Vector2(1332, 259), Vector2(932, 259)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -328,7 +329,7 @@ tracks/10/keys = {
 "times": PackedFloat32Array(5.0844, 5.3344),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1285, 610), Vector2(993, 336)]
+"values": [Vector2(1285, 620), Vector2(993, 346)]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
@@ -340,7 +341,7 @@ tracks/11/keys = {
 "times": PackedFloat32Array(5.1365, 5.4177),
 "transitions": PackedFloat32Array(2, 1),
 "update": 0,
-"values": [Vector2(1286, -71), Vector2(972, 243)]
+"values": [Vector2(1286, -61), Vector2(972, 253)]
 }
 tracks/12/type = "value"
 tracks/12/imported = false
@@ -361,7 +362,7 @@ tracks/13/path = NodePath("TuskAnchor:position")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
-"times": PackedFloat32Array(0, 6, 8),
+"times": PackedFloat32Array(0, 6, 7),
 "transitions": PackedFloat32Array(0, -2, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, -200)]
@@ -373,10 +374,10 @@ tracks/14/path = NodePath("TuskAnchor:scale")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
-"times": PackedFloat32Array(6, 8),
+"times": PackedFloat32Array(6, 7),
 "transitions": PackedFloat32Array(-2, 1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(0.9, 0.9)]
+"values": [Vector2(1, 1), Vector2(0.8, 0.8)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_343y2"]
@@ -392,6 +393,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_fqxy4")
 
 [node name="Background" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(1280, 0)
@@ -405,7 +407,6 @@ expand_mode = 5
 libraries = {
 "": SubResource("AnimationLibrary_343y2")
 }
-autoplay = "intro_sequence"
 
 [node name="FadeInCover" type="ColorRect" parent="."]
 layout_mode = 1
@@ -528,3 +529,5 @@ offset_bottom = 393.0
 texture = ExtResource("10_fjpi7")
 expand_mode = 2
 stretch_mode = 4
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
