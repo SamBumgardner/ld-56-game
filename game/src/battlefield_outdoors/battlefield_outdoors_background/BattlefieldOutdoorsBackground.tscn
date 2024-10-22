@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://dbs7sk334clc7"]
+[gd_scene load_steps=9 format=3 uid="uid://dbs7sk334clc7"]
 
 [ext_resource type="Texture2D" uid="uid://bd4biq3g3x1ej" path="res://assets/art/backgrounds/desert.png" id="1_jdove"]
+[ext_resource type="Texture2D" uid="uid://dn1csb4vtnx5i" path="res://assets/art/backgrounds/scenery_desert/cloud_bush.png" id="2_2bf8m"]
 [ext_resource type="Texture2D" uid="uid://cqq6bpjcd0b87" path="res://assets/art/backgrounds/scenery_desert/Desert_Mesa_1.png" id="2_li6ph"]
 [ext_resource type="Texture2D" uid="uid://djcwik5w2dwm6" path="res://assets/art/backgrounds/scenery_desert/Desert_Mesa_2.png" id="3_2253d"]
+[ext_resource type="Texture2D" uid="uid://drfvrgsujptu6" path="res://assets/art/backgrounds/scenery_desert/Middle_Ground_Bush.png" id="4_cgdor"]
+[ext_resource type="Texture2D" uid="uid://cagiyclcjl85b" path="res://assets/art/backgrounds/scenery_desert/Middle_Ground_Rocks.png" id="5_8m4rm"]
+[ext_resource type="Texture2D" uid="uid://cbr61c2w1iafs" path="res://assets/art/backgrounds/scenery_desert/bush_1.png" id="5_rm43p"]
+[ext_resource type="Texture2D" uid="uid://gnvvoamy3djl" path="res://assets/art/backgrounds/scenery_desert/bush_2.png" id="6_mw2j5"]
 
 [node name="BattlefieldOutdoorsBackground" type="ParallaxBackground"]
 follow_viewport_enabled = true
@@ -14,22 +19,694 @@ motion_mirroring = Vector2(2800, 0)
 texture = ExtResource("1_jdove")
 centered = false
 
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+[node name="DecorateSky" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.1, 1)
 motion_mirroring = Vector2(2800, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer2"]
-position = Vector2(180, 334)
+[node name="BushCloud" type="Sprite2D" parent="DecorateSky"]
+position = Vector2(119.5, 32.5)
+scale = Vector2(3.09375, 2.84375)
+texture = ExtResource("2_2bf8m")
+
+[node name="BushCloud2" type="Sprite2D" parent="DecorateSky"]
+position = Vector2(153, 41)
+scale = Vector2(2.39063, 2.29688)
+texture = ExtResource("2_2bf8m")
+
+[node name="BushCloud3" type="Sprite2D" parent="DecorateSky"]
+position = Vector2(182, 44)
+scale = Vector2(1.41406, 1.74219)
+texture = ExtResource("2_2bf8m")
+
+[node name="BushCloud4" type="Sprite2D" parent="DecorateSky"]
+position = Vector2(214, 51)
+scale = Vector2(3.38281, 0.992187)
+texture = ExtResource("2_2bf8m")
+
+[node name="BushCloud5" type="Sprite2D" parent="DecorateSky"]
+position = Vector2(1977.5, 27.5)
+scale = Vector2(3.09375, 2.84375)
+texture = ExtResource("2_2bf8m")
+
+[node name="BushCloud6" type="Sprite2D" parent="DecorateSky"]
+position = Vector2(2011, 36)
+scale = Vector2(2.39063, 2.29688)
+texture = ExtResource("2_2bf8m")
+
+[node name="BushCloud7" type="Sprite2D" parent="DecorateSky"]
+position = Vector2(2040, 39)
+scale = Vector2(1.41406, 1.74219)
+texture = ExtResource("2_2bf8m")
+
+[node name="BushCloud8" type="Sprite2D" parent="DecorateSky"]
+position = Vector2(2072, 46)
+scale = Vector2(3.38281, 0.992187)
+texture = ExtResource("2_2bf8m")
+
+[node name="DecorateHorizon" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.2, 1)
+motion_mirroring = Vector2(2800, 0)
+
+[node name="DesertMesa" type="Sprite2D" parent="DecorateHorizon"]
+position = Vector2(179, 335.5)
+scale = Vector2(0.98, 0.97)
 texture = ExtResource("2_li6ph")
 
-[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+[node name="DesertMesa2" type="Sprite2D" parent="DecorateHorizon"]
+position = Vector2(299.5, 335.5)
+scale = Vector2(0.97, 0.99)
+texture = ExtResource("2_li6ph")
+
+[node name="DesertMesa3" type="Sprite2D" parent="DecorateHorizon"]
+position = Vector2(343.25, 331.5)
+scale = Vector2(1.215, 1.17)
+texture = ExtResource("3_2253d")
+
+[node name="DesertMesa4" type="Sprite2D" parent="DecorateHorizon"]
+position = Vector2(367.125, 330.25)
+scale = Vector2(1.2175, 1.165)
+texture = ExtResource("3_2253d")
+
+[node name="DesertMesa5" type="Sprite2D" parent="DecorateHorizon"]
+position = Vector2(422.625, 329.75)
+scale = Vector2(1.1875, 1.175)
+texture = ExtResource("3_2253d")
+
+[node name="DesertMesa6" type="Sprite2D" parent="DecorateHorizon"]
+position = Vector2(507.5, 335)
+scale = Vector2(0.97, 0.98)
+texture = ExtResource("2_li6ph")
+
+[node name="DesertMesa7" type="Sprite2D" parent="DecorateHorizon"]
+position = Vector2(574.25, 343.25)
+scale = Vector2(0.475, 0.705)
+texture = ExtResource("2_li6ph")
+
+[node name="DesertMesa8" type="Sprite2D" parent="DecorateHorizon"]
+position = Vector2(678.563, 338.375)
+scale = Vector2(0.748749, 0.9675)
+texture = ExtResource("3_2253d")
+
+[node name="DesertMesa9" type="Sprite2D" parent="DecorateHorizon"]
+position = Vector2(730.75, 344.25)
+scale = Vector2(0.505, 0.685)
+texture = ExtResource("2_li6ph")
+
+[node name="DesertMesa10" type="Sprite2D" parent="DecorateHorizon"]
+position = Vector2(776.563, 337.375)
+scale = Vector2(0.78875, 0.9875)
+texture = ExtResource("3_2253d")
+
+[node name="DesertMesa11" type="Sprite2D" parent="DecorateHorizon"]
+position = Vector2(1707, 339.75)
+scale = Vector2(0.92, 0.975)
+texture = ExtResource("2_li6ph")
+
+[node name="DesertMesa12" type="Sprite2D" parent="DecorateHorizon"]
+position = Vector2(1735, 339)
+scale = Vector2(0.96, 0.98)
+texture = ExtResource("2_li6ph")
+
+[node name="DesertMesa13" type="Sprite2D" parent="DecorateHorizon"]
+position = Vector2(1758.62, 337.75)
+scale = Vector2(1.0675, 1.155)
+texture = ExtResource("3_2253d")
+
+[node name="DesertMesa14" type="Sprite2D" parent="DecorateHorizon"]
+position = Vector2(1935.5, 339)
+scale = Vector2(1.07, 1.08)
+texture = ExtResource("3_2253d")
+
+[node name="DesertMesa15" type="Sprite2D" parent="DecorateHorizon"]
+position = Vector2(2006.75, 335.5)
+scale = Vector2(1.305, 1.23)
+texture = ExtResource("3_2253d")
+
+[node name="DesertMesa16" type="Sprite2D" parent="DecorateHorizon"]
+position = Vector2(2075.38, 343.75)
+scale = Vector2(0.8125, 0.895)
+texture = ExtResource("2_li6ph")
+
+[node name="DesertMesa17" type="Sprite2D" parent="DecorateHorizon"]
+position = Vector2(2214, 351.75)
+scale = Vector2(0.379999, 0.635)
+texture = ExtResource("2_li6ph")
+
+[node name="DesertMesa18" type="Sprite2D" parent="DecorateHorizon"]
+position = Vector2(2256.44, 341.625)
+scale = Vector2(0.791249, 0.9925)
+texture = ExtResource("3_2253d")
+
+[node name="DesertMesa19" type="Sprite2D" parent="DecorateHorizon"]
+position = Vector2(2303.63, 348.5)
+scale = Vector2(0.447501, 0.69)
+texture = ExtResource("2_li6ph")
+
+[node name="DesertMesa20" type="Sprite2D" parent="DecorateHorizon"]
+position = Vector2(2350.44, 342.625)
+scale = Vector2(0.751248, 0.9725)
+texture = ExtResource("3_2253d")
+
+[node name="DecorateHorizon2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.25, 1)
 motion_mirroring = Vector2(2800, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer3"]
+[node name="DesertMesa" type="Sprite2D" parent="DecorateHorizon2"]
+position = Vector2(198, 334)
+texture = ExtResource("2_li6ph")
+
+[node name="DesertMesa2" type="Sprite2D" parent="DecorateHorizon2"]
+position = Vector2(319, 335)
+texture = ExtResource("2_li6ph")
+
+[node name="DesertMesa3" type="Sprite2D" parent="DecorateHorizon2"]
+position = Vector2(363.25, 329.5)
+scale = Vector2(1.255, 1.21)
+texture = ExtResource("3_2253d")
+
+[node name="DesertMesa4" type="Sprite2D" parent="DecorateHorizon2"]
+position = Vector2(387, 328)
+scale = Vector2(1.255, 1.21)
+texture = ExtResource("3_2253d")
+
+[node name="DesertMesa5" type="Sprite2D" parent="DecorateHorizon2"]
+position = Vector2(481.75, 327.5)
+scale = Vector2(1.255, 1.21)
+texture = ExtResource("3_2253d")
+
+[node name="DesertMesa6" type="Sprite2D" parent="DecorateHorizon2"]
+position = Vector2(564.75, 333.5)
+scale = Vector2(1, 1)
+texture = ExtResource("2_li6ph")
+
+[node name="DesertMesa7" type="Sprite2D" parent="DecorateHorizon2"]
+position = Vector2(633.75, 340.5)
+scale = Vector2(0.55, 0.75)
+texture = ExtResource("2_li6ph")
+
+[node name="DesertMesa8" type="Sprite2D" parent="DecorateHorizon2"]
+position = Vector2(739.75, 334.5)
+scale = Vector2(0.8575, 1.035)
+texture = ExtResource("3_2253d")
+
+[node name="DesertMesa9" type="Sprite2D" parent="DecorateHorizon2"]
+position = Vector2(788.75, 340.5)
+scale = Vector2(0.55, 0.75)
+texture = ExtResource("2_li6ph")
+
+[node name="DesertMesa10" type="Sprite2D" parent="DecorateHorizon2"]
+position = Vector2(835.75, 334.5)
+scale = Vector2(0.8575, 1.035)
+texture = ExtResource("3_2253d")
+
+[node name="DesertMesa11" type="Sprite2D" parent="DecorateHorizon2"]
+position = Vector2(1729, 338.5)
+texture = ExtResource("2_li6ph")
+
+[node name="DesertMesa12" type="Sprite2D" parent="DecorateHorizon2"]
+position = Vector2(1755, 338)
+texture = ExtResource("2_li6ph")
+
+[node name="DesertMesa13" type="Sprite2D" parent="DecorateHorizon2"]
+position = Vector2(1786, 335)
+scale = Vector2(1.255, 1.21)
+texture = ExtResource("3_2253d")
+
+[node name="DesertMesa14" type="Sprite2D" parent="DecorateHorizon2"]
+position = Vector2(1962.75, 332.5)
+scale = Vector2(1.255, 1.21)
+texture = ExtResource("3_2253d")
+
+[node name="DesertMesa15" type="Sprite2D" parent="DecorateHorizon2"]
+position = Vector2(2032, 330)
+scale = Vector2(1.45, 1.34)
+texture = ExtResource("3_2253d")
+
+[node name="DesertMesa16" type="Sprite2D" parent="DecorateHorizon2"]
+position = Vector2(2102.75, 338.5)
+scale = Vector2(1, 1)
+texture = ExtResource("2_li6ph")
+
+[node name="DesertMesa17" type="Sprite2D" parent="DecorateHorizon2"]
+position = Vector2(2236.25, 349.75)
+scale = Vector2(0.465, 0.675)
+texture = ExtResource("2_li6ph")
+
+[node name="DesertMesa18" type="Sprite2D" parent="DecorateHorizon2"]
+position = Vector2(2277.75, 339.5)
+scale = Vector2(0.8575, 1.035)
+texture = ExtResource("3_2253d")
+
+[node name="DesertMesa19" type="Sprite2D" parent="DecorateHorizon2"]
+position = Vector2(2326.75, 345.5)
+scale = Vector2(0.55, 0.75)
+texture = ExtResource("2_li6ph")
+
+[node name="DesertMesa20" type="Sprite2D" parent="DecorateHorizon2"]
+position = Vector2(2373.75, 339.5)
+scale = Vector2(0.8575, 1.035)
+texture = ExtResource("3_2253d")
+
+[node name="DecorateHighGround" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(2800, 0)
+
+[node name="DesertMesa" type="Sprite2D" parent="DecorateHighGround"]
+position = Vector2(230, 346)
+texture = ExtResource("3_2253d")
+
+[node name="DesertMesa2" type="Sprite2D" parent="DecorateHighGround"]
 position = Vector2(1274, 356)
 texture = ExtResource("3_2253d")
 
-[node name="ParallaxLayer_CopyViaCtrlD2" type="ParallaxLayer" parent="."]
+[node name="DecorateHighGround2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(1.2, 1)
+motion_mirroring = Vector2(2800, 0)
+
+[node name="DesertMesa" type="Sprite2D" parent="DecorateHighGround2"]
+position = Vector2(1581.5, 358.5)
+scale = Vector2(1.63, 1.43)
+texture = ExtResource("3_2253d")
+
+[node name="DesertMesa2" type="Sprite2D" parent="DecorateHighGround2"]
+position = Vector2(2623, 370)
+scale = Vector2(1.58, 1.4)
+texture = ExtResource("3_2253d")
+
+[node name="DecorateMiddleGround" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(5, 1)
+motion_mirroring = Vector2(2800, 0)
+
+[node name="Bush" type="Sprite2D" parent="DecorateMiddleGround"]
+position = Vector2(0, 538.5)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush2" type="Sprite2D" parent="DecorateMiddleGround"]
+position = Vector2(14, 536.5)
+scale = Vector2(1.15625, 1.15625)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush3" type="Sprite2D" parent="DecorateMiddleGround"]
+position = Vector2(84, 539.5)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush4" type="Sprite2D" parent="DecorateMiddleGround"]
+position = Vector2(130, 539)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush5" type="Sprite2D" parent="DecorateMiddleGround"]
+position = Vector2(154, 539.5)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush6" type="Sprite2D" parent="DecorateMiddleGround"]
+position = Vector2(535, 541.5)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush7" type="Sprite2D" parent="DecorateMiddleGround"]
+position = Vector2(549, 539.5)
+scale = Vector2(1.15625, 1.15625)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush8" type="Sprite2D" parent="DecorateMiddleGround"]
+position = Vector2(619, 542.5)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush9" type="Sprite2D" parent="DecorateMiddleGround"]
+position = Vector2(665, 542)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush10" type="Sprite2D" parent="DecorateMiddleGround"]
+position = Vector2(689, 542.5)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush11" type="Sprite2D" parent="DecorateMiddleGround"]
+position = Vector2(1006, 542.5)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush12" type="Sprite2D" parent="DecorateMiddleGround"]
+position = Vector2(1020, 540.5)
+scale = Vector2(1.15625, 1.15625)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush13" type="Sprite2D" parent="DecorateMiddleGround"]
+position = Vector2(1090, 543.5)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush14" type="Sprite2D" parent="DecorateMiddleGround"]
+position = Vector2(1136, 543)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush15" type="Sprite2D" parent="DecorateMiddleGround"]
+position = Vector2(1160, 543.5)
+texture = ExtResource("4_cgdor")
+
+[node name="DecorateMiddleGround2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(6, 1)
+motion_mirroring = Vector2(2800, 0)
+
+[node name="Bush" type="Sprite2D" parent="DecorateMiddleGround2"]
+position = Vector2(223, 551)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush2" type="Sprite2D" parent="DecorateMiddleGround2"]
+position = Vector2(237, 549)
+scale = Vector2(1.15625, 1.15625)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush3" type="Sprite2D" parent="DecorateMiddleGround2"]
+position = Vector2(307, 552)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush4" type="Sprite2D" parent="DecorateMiddleGround2"]
+position = Vector2(356, 552)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush5" type="Sprite2D" parent="DecorateMiddleGround2"]
+position = Vector2(377, 552)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush6" type="Sprite2D" parent="DecorateMiddleGround2"]
+position = Vector2(509, 553.5)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush7" type="Sprite2D" parent="DecorateMiddleGround2"]
+position = Vector2(523, 551.5)
+scale = Vector2(1.15625, 1.15625)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush8" type="Sprite2D" parent="DecorateMiddleGround2"]
+position = Vector2(590, 558.25)
+scale = Vector2(0.8125, 0.765625)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush9" type="Sprite2D" parent="DecorateMiddleGround2"]
+position = Vector2(637, 558.25)
+scale = Vector2(0.6875, 0.765625)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush10" type="Sprite2D" parent="DecorateMiddleGround2"]
+position = Vector2(659.5, 558.25)
+scale = Vector2(0.78125, 0.765625)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush11" type="Sprite2D" parent="DecorateMiddleGround2"]
+position = Vector2(768, 554)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush12" type="Sprite2D" parent="DecorateMiddleGround2"]
+position = Vector2(864, 553.5)
+scale = Vector2(1.15625, 1.15625)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush13" type="Sprite2D" parent="DecorateMiddleGround2"]
+position = Vector2(934, 556.5)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush14" type="Sprite2D" parent="DecorateMiddleGround2"]
+position = Vector2(983, 556.5)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush15" type="Sprite2D" parent="DecorateMiddleGround2"]
+position = Vector2(1030, 555)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush16" type="Sprite2D" parent="DecorateMiddleGround2"]
+position = Vector2(1043, 555)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush17" type="Sprite2D" parent="DecorateMiddleGround2"]
+position = Vector2(1093, 554.5)
+scale = Vector2(1.15625, 1.15625)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush18" type="Sprite2D" parent="DecorateMiddleGround2"]
+position = Vector2(1163, 557.5)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush19" type="Sprite2D" parent="DecorateMiddleGround2"]
+position = Vector2(1212, 557.5)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush20" type="Sprite2D" parent="DecorateMiddleGround2"]
+position = Vector2(1283, 556)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush21" type="Sprite2D" parent="DecorateMiddleGround2"]
+position = Vector2(1333, 554.5)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush22" type="Sprite2D" parent="DecorateMiddleGround2"]
+position = Vector2(1347, 552.5)
+scale = Vector2(1.15625, 1.15625)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush23" type="Sprite2D" parent="DecorateMiddleGround2"]
+position = Vector2(1417, 555.5)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush24" type="Sprite2D" parent="DecorateMiddleGround2"]
+position = Vector2(1466, 555.5)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush25" type="Sprite2D" parent="DecorateMiddleGround2"]
+position = Vector2(1487, 555.5)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush26" type="Sprite2D" parent="DecorateMiddleGround2"]
+position = Vector2(1619, 557)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush27" type="Sprite2D" parent="DecorateMiddleGround2"]
+position = Vector2(1633, 555)
+scale = Vector2(1.15625, 1.15625)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush28" type="Sprite2D" parent="DecorateMiddleGround2"]
+position = Vector2(1700, 561.75)
+scale = Vector2(0.8125, 0.765625)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush29" type="Sprite2D" parent="DecorateMiddleGround2"]
+position = Vector2(1747, 561.75)
+scale = Vector2(0.6875, 0.765625)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush30" type="Sprite2D" parent="DecorateMiddleGround2"]
+position = Vector2(1769.5, 561.75)
+scale = Vector2(0.78125, 0.765625)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush31" type="Sprite2D" parent="DecorateMiddleGround2"]
+position = Vector2(1878, 557.5)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush32" type="Sprite2D" parent="DecorateMiddleGround2"]
+position = Vector2(1974, 557)
+scale = Vector2(1.15625, 1.15625)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush33" type="Sprite2D" parent="DecorateMiddleGround2"]
+position = Vector2(2044, 560)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush34" type="Sprite2D" parent="DecorateMiddleGround2"]
+position = Vector2(2093, 560)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush35" type="Sprite2D" parent="DecorateMiddleGround2"]
+position = Vector2(2140, 558.5)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush36" type="Sprite2D" parent="DecorateMiddleGround2"]
+position = Vector2(2153, 558.5)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush37" type="Sprite2D" parent="DecorateMiddleGround2"]
+position = Vector2(2203, 558)
+scale = Vector2(1.15625, 1.15625)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush38" type="Sprite2D" parent="DecorateMiddleGround2"]
+position = Vector2(2273, 561)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush39" type="Sprite2D" parent="DecorateMiddleGround2"]
+position = Vector2(2322, 561)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush40" type="Sprite2D" parent="DecorateMiddleGround2"]
+position = Vector2(2393, 559.5)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush41" type="Sprite2D" parent="DecorateMiddleGround2"]
+position = Vector2(2462, 558)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush42" type="Sprite2D" parent="DecorateMiddleGround2"]
+position = Vector2(2558, 557.5)
+scale = Vector2(1.15625, 1.15625)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush43" type="Sprite2D" parent="DecorateMiddleGround2"]
+position = Vector2(2628, 560.5)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush44" type="Sprite2D" parent="DecorateMiddleGround2"]
+position = Vector2(2677, 560.5)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush45" type="Sprite2D" parent="DecorateMiddleGround2"]
+position = Vector2(2724, 559)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush46" type="Sprite2D" parent="DecorateMiddleGround2"]
+position = Vector2(2737, 559)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush47" type="Sprite2D" parent="DecorateMiddleGround2"]
+position = Vector2(2787, 558.5)
+scale = Vector2(1.15625, 1.15625)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush48" type="Sprite2D" parent="DecorateMiddleGround2"]
+position = Vector2(2857, 561.5)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush49" type="Sprite2D" parent="DecorateMiddleGround2"]
+position = Vector2(2906, 561.5)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush50" type="Sprite2D" parent="DecorateMiddleGround2"]
+position = Vector2(2977, 560)
+texture = ExtResource("4_cgdor")
+
+[node name="DecorateMiddleGround3" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(7, 1)
+motion_mirroring = Vector2(2800, 0)
+
+[node name="Bush" type="Sprite2D" parent="DecorateMiddleGround3"]
+position = Vector2(239.5, 569.25)
+scale = Vector2(0.78125, 0.890625)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush2" type="Sprite2D" parent="DecorateMiddleGround3"]
+position = Vector2(257, 565.5)
+scale = Vector2(1.15625, 1.15625)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush3" type="Sprite2D" parent="DecorateMiddleGround3"]
+position = Vector2(327, 568.5)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush4" type="Sprite2D" parent="DecorateMiddleGround3"]
+position = Vector2(347, 569)
+texture = ExtResource("4_cgdor")
+
+[node name="Bush5" type="Sprite2D" parent="DecorateMiddleGround3"]
+position = Vector2(397, 568.5)
+texture = ExtResource("4_cgdor")
+
+[node name="DecorateMiddleGround4" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(7.5, 1)
+motion_mirroring = Vector2(2800, 0)
+
+[node name="MiddleGround" type="Sprite2D" parent="DecorateMiddleGround4"]
+position = Vector2(756.5, 579.25)
+scale = Vector2(0.78125, 0.890625)
+texture = ExtResource("5_8m4rm")
+
+[node name="MiddleGround2" type="Sprite2D" parent="DecorateMiddleGround4"]
+position = Vector2(774, 575.5)
+scale = Vector2(1.15625, 1.15625)
+texture = ExtResource("5_8m4rm")
+
+[node name="MiddleGround3" type="Sprite2D" parent="DecorateMiddleGround4"]
+position = Vector2(844, 578.5)
+texture = ExtResource("5_8m4rm")
+
+[node name="MiddleGround4" type="Sprite2D" parent="DecorateMiddleGround4"]
+position = Vector2(864, 579)
+texture = ExtResource("5_8m4rm")
+
+[node name="MiddleGround5" type="Sprite2D" parent="DecorateMiddleGround4"]
+position = Vector2(914, 578.5)
+texture = ExtResource("5_8m4rm")
+
+[node name="MiddleGround6" type="Sprite2D" parent="DecorateMiddleGround4"]
+position = Vector2(2130, 585)
+scale = Vector2(1.00001, 1.01562)
+texture = ExtResource("5_8m4rm")
+
+[node name="MiddleGround7" type="Sprite2D" parent="DecorateMiddleGround4"]
+position = Vector2(2378.75, 580.5)
+scale = Vector2(1.39062, 1.28125)
+texture = ExtResource("5_8m4rm")
+
+[node name="MiddleGround8" type="Sprite2D" parent="DecorateMiddleGround4"]
+position = Vector2(2442, 587.75)
+scale = Vector2(0.8125, 0.859375)
+texture = ExtResource("5_8m4rm")
+
+[node name="MiddleGround9" type="Sprite2D" parent="DecorateMiddleGround4"]
+position = Vector2(2465, 586)
+texture = ExtResource("5_8m4rm")
+
+[node name="MiddleGround10" type="Sprite2D" parent="DecorateMiddleGround4"]
+position = Vector2(2515, 585.5)
+texture = ExtResource("5_8m4rm")
+
+[node name="DecorateLowGround" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(20, 1)
+motion_mirroring = Vector2(2800, 0)
+
+[node name="Bush" type="Sprite2D" parent="DecorateLowGround"]
+position = Vector2(64, 715)
+texture = ExtResource("5_rm43p")
+
+[node name="Bush2" type="Sprite2D" parent="DecorateLowGround"]
+position = Vector2(108, 716)
+texture = ExtResource("6_mw2j5")
+
+[node name="Bush3" type="Sprite2D" parent="DecorateLowGround"]
+position = Vector2(515, 714.5)
+scale = Vector2(0.875, 0.90625)
+texture = ExtResource("5_rm43p")
+
+[node name="Bush4" type="Sprite2D" parent="DecorateLowGround"]
+position = Vector2(563, 712)
+scale = Vector2(1.125, 1.125)
+texture = ExtResource("6_mw2j5")
+
+[node name="Bush5" type="Sprite2D" parent="DecorateLowGround"]
+position = Vector2(597, 713.5)
+scale = Vector2(1.0625, 1.03125)
+texture = ExtResource("6_mw2j5")
+
+[node name="Bush6" type="Sprite2D" parent="DecorateLowGround"]
+position = Vector2(1304, 711)
+texture = ExtResource("5_rm43p")
+
+[node name="Bush7" type="Sprite2D" parent="DecorateLowGround"]
+position = Vector2(1348, 712)
+texture = ExtResource("6_mw2j5")
+
+[node name="Bush8" type="Sprite2D" parent="DecorateLowGround"]
+position = Vector2(1801, 711)
+texture = ExtResource("5_rm43p")
+
+[node name="Bush9" type="Sprite2D" parent="DecorateLowGround"]
+position = Vector2(1845, 712)
+texture = ExtResource("6_mw2j5")
+
+[node name="Bush10" type="Sprite2D" parent="DecorateLowGround"]
+position = Vector2(2418, 714)
+texture = ExtResource("5_rm43p")
+
+[node name="Bush11" type="Sprite2D" parent="DecorateLowGround"]
+position = Vector2(2462, 715)
+texture = ExtResource("6_mw2j5")
+
+[node name="ParallaxLayer_CopyViaCtrlD" type="ParallaxLayer" parent="."]
 visible = false
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer_CopyViaCtrlD2"]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer_CopyViaCtrlD"]
 visible = false
