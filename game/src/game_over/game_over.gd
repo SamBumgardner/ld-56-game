@@ -6,6 +6,7 @@ const SCENARIO_FORMAT: String = "Scenario: %s"
 @export var delay_duration: float = .5
 @export var fade_duration: float = .5
 
+@onready var audio_manager: AudioManager = $AudioManager
 @onready var title_container: Control = $TitleContainer
 @onready var stats_container: Control = $StatsContainer
 @onready var button_container: Control = $ButtonContainer
@@ -60,3 +61,14 @@ func _on_retry_pressed() -> void:
     else:
         Database.load_from_scenario(Database.scenario)
     get_tree().change_scene_to_file("res://src/gameplay/Gameplay.tscn")
+
+
+#region Descendant SFX: enabled button mouse entered
+
+func _on_retry_mouse_entered():
+    if retry_button.disabled:
+        return
+
+    audio_manager.on_enabled_button_mouse_entered()
+
+#endregion Descendant SFX: enabled button mouse entered
