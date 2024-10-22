@@ -126,9 +126,6 @@ func _on_quit_button_mouse_entered():
 func _on_reset_to_defaults_button_mouse_entered():
     SoundManager.play_ui_sound(sfx_button_hover, _bus_name_sfx_ui)
 
-func _on_retry_mouse_entered():
-    SoundManager.play_ui_sound(sfx_button_hover, _bus_name_sfx_ui)
-
 func _on_settings_button_mouse_entered():
     SoundManager.play_ui_sound(sfx_button_hover, _bus_name_sfx_ui)
 
@@ -136,6 +133,9 @@ func _on_start_button_mouse_entered():
     SoundManager.play_ui_sound(sfx_button_hover, _bus_name_sfx_ui)
 
 func _on_to_main_menu_mouse_entered():
+    SoundManager.play_ui_sound(sfx_button_hover, _bus_name_sfx_ui)
+
+func _on_toggle_background_button_mouse_entered():
     SoundManager.play_ui_sound(sfx_button_hover, _bus_name_sfx_ui)
 
 func _on_upgrade_choice_display_upgrade_hovered(
@@ -208,6 +208,9 @@ func _on_start_button_pressed():
     SoundManager.play_ui_sound(sfx_button_click, _bus_name_sfx_ui)
 
 func _on_to_main_menu_pressed():
+    SoundManager.play_ui_sound(sfx_button_click, _bus_name_sfx_ui)
+
+func _on_toggle_background_button_pressed():
     SoundManager.play_ui_sound(sfx_button_click, _bus_name_sfx_ui)
 
 func _on_upgrade_choice_display_upgrade_selected(

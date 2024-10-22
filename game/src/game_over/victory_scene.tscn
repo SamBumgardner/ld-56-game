@@ -40,4 +40,6 @@ grow_vertical = 0
 text = "Show Background"
 
 [connection signal="ready" from="." to="AudioManager" method="_on_victory_scene_ready"]
+[connection signal="mouse_entered" from="ToggleBackgroundButton" to="AudioManager" method="_on_toggle_background_button_mouse_entered"]
 [connection signal="pressed" from="ToggleBackgroundButton" to="." method="_on_show_background_button_pressed"]
+[connection signal="pressed" from="ToggleBackgroundButton" to="AudioManager" method="_on_toggle_background_button_pressed"]
