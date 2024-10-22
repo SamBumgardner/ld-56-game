@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://csc2x0wst1cl3"
+path="res://.godot/imported/Lounge-Scene_0007_Fish.bmp-c8461e75bc2e93f89ca112d79d516757.res"
+
+[deps]
+
+source_file="res://assets/art/crew_member_buttons/fish/Lounge-Scene_0007_Fish.bmp"
+dest_files=["res://.godot/imported/Lounge-Scene_0007_Fish.bmp-c8461e75bc2e93f89ca112d79d516757.res"]
+
+[params]
+
+create_from=1
+threshold=0.5

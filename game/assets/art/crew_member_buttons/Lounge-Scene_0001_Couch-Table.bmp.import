@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://daoc2njmmvlcy"
+path="res://.godot/imported/Lounge-Scene_0001_Couch-Table.bmp-a28816623722ddcd54ef23d323a7ac92.res"
+
+[deps]
+
+source_file="res://assets/art/crew_member_buttons/Lounge-Scene_0001_Couch-Table.bmp"
+dest_files=["res://.godot/imported/Lounge-Scene_0001_Couch-Table.bmp-a28816623722ddcd54ef23d323a7ac92.res"]
+
+[params]
+
+create_from=1
+threshold=0.5

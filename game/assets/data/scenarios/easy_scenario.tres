@@ -48,6 +48,6 @@ difficulty_rating = 1
 total_distance = 150
 segments = Array[ExtResource("15_1r0vp")]([SubResource("Resource_ms3ae"), SubResource("Resource_0unf2")])
 gameplay_init_values = SubResource("Resource_wcex8")
-available_characters = Array[ExtResource("1_lpdkw")]([ExtResource("2_tv6dv"), ExtResource("3_sqvsd"), ExtResource("4_kyerd"), ExtResource("5_40u24"), ExtResource("6_f4pyd"), ExtResource("9_c0150"), ExtResource("12_hx7iy"), ExtResource("13_ydh1n")])
+available_characters = Array[ExtResource("1_lpdkw")]([ExtResource("2_tv6dv"), ExtResource("3_sqvsd"), ExtResource("4_kyerd"), ExtResource("5_40u24"), ExtResource("6_f4pyd"), ExtResource("9_c0150"), ExtResource("12_hx7iy"), ExtResource("13_ydh1n"), ExtResource("5_40u24")])
 possible_start_char_options = Array[int]([0, 1, 2])
 start_char_count = 3

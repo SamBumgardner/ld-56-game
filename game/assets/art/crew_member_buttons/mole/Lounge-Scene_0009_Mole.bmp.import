@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://bfmhisvh8ijw6"
+path="res://.godot/imported/Lounge-Scene_0009_Mole.bmp-748a3fd0423b1229a942ba860f0ce713.res"
+
+[deps]
+
+source_file="res://assets/art/crew_member_buttons/mole/Lounge-Scene_0009_Mole.bmp"
+dest_files=["res://.godot/imported/Lounge-Scene_0009_Mole.bmp-748a3fd0423b1229a942ba860f0ce713.res"]
+
+[params]
+
+create_from=1
+threshold=0.5

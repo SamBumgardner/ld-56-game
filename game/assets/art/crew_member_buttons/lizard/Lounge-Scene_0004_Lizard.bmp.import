@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://o1hxsxnpti16"
+path="res://.godot/imported/Lounge-Scene_0004_Lizard.bmp-6526f372d42c3c605acbf6e683f592eb.res"
+
+[deps]
+
+source_file="res://assets/art/crew_member_buttons/lizard/Lounge-Scene_0004_Lizard.bmp"
+dest_files=["res://.godot/imported/Lounge-Scene_0004_Lizard.bmp-6526f372d42c3c605acbf6e683f592eb.res"]
+
+[params]
+
+create_from=1
+threshold=0.5

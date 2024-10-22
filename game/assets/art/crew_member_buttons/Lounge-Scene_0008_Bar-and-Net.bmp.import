@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://ynkdvdrdurif"
+path="res://.godot/imported/Lounge-Scene_0008_Bar-and-Net.bmp-70b19d6f96a4f64eeba6bfb84436cb68.res"
+
+[deps]
+
+source_file="res://assets/art/crew_member_buttons/Lounge-Scene_0008_Bar-and-Net.bmp"
+dest_files=["res://.godot/imported/Lounge-Scene_0008_Bar-and-Net.bmp-70b19d6f96a4f64eeba6bfb84436cb68.res"]
+
+[params]
+
+create_from=1
+threshold=0.5

@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://b7sdssxcvtu83"
+path="res://.godot/imported/Lounge-Scene_0003_Frog.bmp-ebfbaa2037d3b0ef49148939a6ae4268.res"
+
+[deps]
+
+source_file="res://assets/art/crew_member_buttons/frog/Lounge-Scene_0003_Frog.bmp"
+dest_files=["res://.godot/imported/Lounge-Scene_0003_Frog.bmp-ebfbaa2037d3b0ef49148939a6ae4268.res"]
+
+[params]
+
+create_from=1
+threshold=0.5

@@ -26,6 +26,7 @@ texture_normal = ExtResource("1_0is4p")
 texture_pressed = ExtResource("2_bm1w8")
 texture_hover = ExtResource("3_114bo")
 texture_click_mask = ExtResource("4_4dfub")
+stretch_mode = 5
 script = ExtResource("5_06drq")
 
 [node name="AudioManager" parent="." instance=ExtResource("7_0qb38")]
