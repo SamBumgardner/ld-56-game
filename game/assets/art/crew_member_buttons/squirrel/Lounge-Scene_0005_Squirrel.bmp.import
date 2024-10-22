@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://c4icuvy5p7ur2"
+path="res://.godot/imported/Lounge-Scene_0005_Squirrel.bmp-6a2a92468ab26dd34fc3977878006801.res"
+
+[deps]
+
+source_file="res://assets/art/crew_member_buttons/squirrel/Lounge-Scene_0005_Squirrel.bmp"
+dest_files=["res://.godot/imported/Lounge-Scene_0005_Squirrel.bmp-6a2a92468ab26dd34fc3977878006801.res"]
+
+[params]
+
+create_from=1
+threshold=0.5

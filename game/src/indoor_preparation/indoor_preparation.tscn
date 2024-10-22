@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://b73yb04wjxq8"]
+[gd_scene load_steps=60 format=3 uid="uid://b73yb04wjxq8"]
 
 [ext_resource type="Script" path="res://src/indoor_preparation/indoor_preparation.gd" id="2_0rynj"]
 [ext_resource type="Theme" uid="uid://dk5iv042psfw" path="res://assets/themes/Default.tres" id="2_bky62"]
@@ -19,16 +19,40 @@
 [ext_resource type="Resource" uid="uid://bfkdaseurpvu6" path="res://assets/data/characters/004_bird_char.tres" id="13_1osln"]
 [ext_resource type="Script" path="res://src/indoor_preparation/crew_buttons_parent.gd" id="13_2a042"]
 [ext_resource type="Resource" uid="uid://dexsvne2ukrlr" path="res://assets/data/characters/005_ape_char.tres" id="14_kx6ve"]
+[ext_resource type="Texture2D" uid="uid://cgopjb770sv4k" path="res://assets/art/crew_member_buttons/snake/Lounge-Scene_0010_Cobra.png" id="15_68lr5"]
 [ext_resource type="Resource" uid="uid://bawjwhqx6mbin" path="res://assets/data/characters/006_mouse_char.tres" id="15_nfr47"]
+[ext_resource type="BitMap" uid="uid://p0vuqhuolmtf" path="res://assets/art/crew_member_buttons/snake/Lounge-Scene_0010_Cobra.bmp" id="16_dhfbq"]
 [ext_resource type="Resource" uid="uid://h8yglehg8si2" path="res://assets/data/characters/007_mole_char.tres" id="16_pnxxu"]
 [ext_resource type="Resource" uid="uid://cg2gt1s2ilepn" path="res://assets/data/characters/008_lizard_char.tres" id="17_7v5we"]
 [ext_resource type="Resource" uid="uid://bo6i4mxety0iv" path="res://assets/data/characters/009_snake_char.tres" id="18_6npl6"]
+[ext_resource type="Texture2D" uid="uid://di28gxd7rmq4f" path="res://assets/art/crew_member_buttons/squirrel/Lounge-Scene_0005_Squirrel.png" id="18_38au6"]
+[ext_resource type="Texture2D" uid="uid://dim50kfnx652l" path="res://assets/art/crew_member_buttons/bird/Lounge-Scene_0000_Sparrow.png" id="18_vgun1"]
+[ext_resource type="BitMap" uid="uid://c24iq63nfm5rn" path="res://assets/art/crew_member_buttons/bird/Lounge-Scene_0000_Sparrow.bmp" id="19_fi3vc"]
+[ext_resource type="BitMap" uid="uid://c4icuvy5p7ur2" path="res://assets/art/crew_member_buttons/squirrel/Lounge-Scene_0005_Squirrel.bmp" id="19_ojond"]
 [ext_resource type="Resource" uid="uid://4vcpwnnptf5r" path="res://assets/data/characters/010_mantis_char.tres" id="19_qmf8k"]
 [ext_resource type="Resource" uid="uid://1nhgxq12mwuo" path="res://assets/data/characters/011_rabbit_char.tres" id="20_pbwmt"]
 [ext_resource type="Resource" uid="uid://beppcdvy1b3s0" path="res://assets/data/characters/012_fish_char.tres" id="21_71v0u"]
+[ext_resource type="Texture2D" uid="uid://cfsacks8n82fy" path="res://assets/art/crew_member_buttons/lizard/Lounge-Scene_0004_Lizard.png" id="21_iri1f"]
+[ext_resource type="BitMap" uid="uid://o1hxsxnpti16" path="res://assets/art/crew_member_buttons/lizard/Lounge-Scene_0004_Lizard.bmp" id="22_ln5tf"]
+[ext_resource type="Texture2D" uid="uid://bruvojuk2thns" path="res://assets/art/crew_member_buttons/mole/Lounge-Scene_0009_Mole.png" id="24_j3nwi"]
 [ext_resource type="PackedScene" uid="uid://cnbbp4gy833n" path="res://src/shared_ui/resource_display/money_display.tscn" id="25_dg1g1"]
+[ext_resource type="BitMap" uid="uid://bfmhisvh8ijw6" path="res://assets/art/crew_member_buttons/mole/Lounge-Scene_0009_Mole.bmp" id="25_w77ge"]
 [ext_resource type="PackedScene" uid="uid://ybyc5lib301u" path="res://src/shared_ui/resource_display/fuel_display.tscn" id="26_fgbkb"]
 [ext_resource type="Script" path="res://src/indoor_preparation/go_outside_button.gd" id="27_7d8ip"]
+[ext_resource type="Texture2D" uid="uid://irx12tlwo4yj" path="res://assets/art/crew_member_buttons/frog/Lounge-Scene_0003_Frog.png" id="27_b6sjr"]
+[ext_resource type="BitMap" uid="uid://b7sdssxcvtu83" path="res://assets/art/crew_member_buttons/frog/Lounge-Scene_0003_Frog.bmp" id="28_jk5pl"]
+[ext_resource type="Texture2D" uid="uid://dyx6hrfksmc17" path="res://assets/art/crew_member_buttons/raccoon/Lounge-Scene_0012_Racoon.png" id="30_v88pa"]
+[ext_resource type="BitMap" uid="uid://s1kf5ek724ka" path="res://assets/art/crew_member_buttons/raccoon/Lounge-Scene_0012_Racoon.bmp" id="31_i5exv"]
+[ext_resource type="Texture2D" uid="uid://cdveo2h41lnc7" path="res://assets/art/crew_member_buttons/monkey/Lounge-Scene_0002_Monkey.png" id="36_kh7au"]
+[ext_resource type="BitMap" uid="uid://ce10u2pid47i5" path="res://assets/art/crew_member_buttons/monkey/Lounge-Scene_0002_Monkey.bmp" id="37_66qdg"]
+[ext_resource type="Texture2D" uid="uid://dnuxarlb0snmj" path="res://assets/art/crew_member_buttons/mantis/Lounge-Scene_0013_Mantis.png" id="39_fi21k"]
+[ext_resource type="BitMap" uid="uid://kvq2dyk8eaqj" path="res://assets/art/crew_member_buttons/mantis/Lounge-Scene_0013_Mantis.bmp" id="40_epnv1"]
+[ext_resource type="Texture2D" uid="uid://cgiadroesxfyn" path="res://assets/art/crew_member_buttons/mouse/Lounge-Scene_0006_Mouse.png" id="42_2palc"]
+[ext_resource type="BitMap" uid="uid://bei0xuu3sdkyh" path="res://assets/art/crew_member_buttons/mouse/Lounge-Scene_0006_Mouse.bmp" id="43_476pc"]
+[ext_resource type="Texture2D" uid="uid://buwe8275yr3xq" path="res://assets/art/crew_member_buttons/rabbit/Lounge-Scene_0011_Bunny.png" id="45_ut6o2"]
+[ext_resource type="BitMap" uid="uid://cn5s0fubg5a6a" path="res://assets/art/crew_member_buttons/rabbit/Lounge-Scene_0011_Bunny.bmp" id="46_nbrpl"]
+[ext_resource type="Texture2D" uid="uid://10xls2r2y6ly" path="res://assets/art/crew_member_buttons/fish/Lounge-Scene_0007_Fish.png" id="48_0esre"]
+[ext_resource type="BitMap" uid="uid://csc2x0wst1cl3" path="res://assets/art/crew_member_buttons/fish/Lounge-Scene_0007_Fish.bmp" id="49_p0ymt"]
 
 [sub_resource type="Gradient" id="Gradient_6i6wn"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
@@ -214,6 +238,24 @@ layout_mode = 1
 anchors_preset = 0
 script = ExtResource("13_2a042")
 
+[node name="CrewButton9" parent="CrewButtons" instance=ExtResource("8_40muy")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 63.0
+offset_top = 233.0
+offset_right = 1140.0
+offset_bottom = 1777.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("15_68lr5")
+texture_click_mask = ExtResource("16_dhfbq")
+character_factory = ExtResource("18_6npl6")
+
 [node name="CrewButton" parent="CrewButtons" instance=ExtResource("8_40muy")]
 layout_mode = 0
 anchors_preset = 0
@@ -221,13 +263,52 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 214.0
-offset_top = 409.0
-offset_right = 464.0
-offset_bottom = 659.0
+offset_left = 3.0
+offset_top = 315.0
+offset_right = 690.0
+offset_bottom = 1650.0
 grow_horizontal = 1
 grow_vertical = 1
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("18_38au6")
+texture_click_mask = ExtResource("19_ojond")
 character_factory = ExtResource("9_51070")
+
+[node name="CrewButton8" parent="CrewButtons" instance=ExtResource("8_40muy")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 223.0
+offset_top = 458.0
+offset_right = 1074.0
+offset_bottom = 1652.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("21_iri1f")
+texture_click_mask = ExtResource("22_ln5tf")
+character_factory = ExtResource("17_7v5we")
+
+[node name="CrewButton7" parent="CrewButtons" instance=ExtResource("8_40muy")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 468.0
+offset_top = 554.0
+offset_right = 1354.0
+offset_bottom = 1110.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("24_j3nwi")
+texture_click_mask = ExtResource("25_w77ge")
+character_factory = ExtResource("16_pnxxu")
 
 [node name="CrewButton2" parent="CrewButtons" instance=ExtResource("8_40muy")]
 layout_mode = 0
@@ -236,12 +317,15 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 12.0
-offset_top = 360.0
-offset_right = 262.0
-offset_bottom = 610.0
+offset_left = 335.0
+offset_top = 577.0
+offset_right = 1345.0
+offset_bottom = 1333.0
 grow_horizontal = 1
 grow_vertical = 1
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("27_b6sjr")
+texture_click_mask = ExtResource("28_jk5pl")
 character_factory = ExtResource("10_lfrlp")
 
 [node name="CrewButton3" parent="CrewButtons" instance=ExtResource("8_40muy")]
@@ -251,12 +335,15 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 408.0
-offset_top = 531.0
-offset_right = 658.0
-offset_bottom = 781.0
+offset_left = 28.0
+offset_top = 53.0
+offset_right = 679.0
+offset_bottom = 616.0
 grow_horizontal = 1
 grow_vertical = 1
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("30_v88pa")
+texture_click_mask = ExtResource("31_i5exv")
 character_factory = ExtResource("12_tfexc")
 
 [node name="CrewButton4" parent="CrewButtons" instance=ExtResource("8_40muy")]
@@ -266,12 +353,17 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 944.0
-offset_top = 237.0
-offset_right = 1194.0
-offset_bottom = 487.0
+offset_left = 0.999999
+offset_top = 556.0
+offset_right = 1023.0
+offset_bottom = 1369.0
 grow_horizontal = 1
 grow_vertical = 1
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("18_vgun1")
+texture_pressed = null
+texture_hover = null
+texture_click_mask = ExtResource("19_fi3vc")
 character_factory = ExtResource("13_1osln")
 
 [node name="CrewButton5" parent="CrewButtons" instance=ExtResource("8_40muy")]
@@ -281,73 +373,16 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 18.0
-offset_top = -94.0
-offset_right = 268.0
-offset_bottom = 156.0
+offset_left = 699.0
+offset_top = 550.0
+offset_right = 1822.0
+offset_bottom = 1580.0
 grow_horizontal = 1
 grow_vertical = 1
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("36_kh7au")
+texture_click_mask = ExtResource("37_66qdg")
 character_factory = ExtResource("14_kx6ve")
-
-[node name="CrewButton6" parent="CrewButtons" instance=ExtResource("8_40muy")]
-layout_mode = 0
-anchors_preset = 0
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 90.0
-offset_top = 525.0
-offset_right = 340.0
-offset_bottom = 775.0
-grow_horizontal = 1
-grow_vertical = 1
-character_factory = ExtResource("15_nfr47")
-
-[node name="CrewButton7" parent="CrewButtons" instance=ExtResource("8_40muy")]
-layout_mode = 0
-anchors_preset = 0
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 1112.0
-offset_top = 29.0
-offset_right = 1362.0
-offset_bottom = 279.0
-grow_horizontal = 1
-grow_vertical = 1
-character_factory = ExtResource("16_pnxxu")
-
-[node name="CrewButton8" parent="CrewButtons" instance=ExtResource("8_40muy")]
-layout_mode = 0
-anchors_preset = 0
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 1118.0
-offset_top = 274.0
-offset_right = 1368.0
-offset_bottom = 524.0
-grow_horizontal = 1
-grow_vertical = 1
-character_factory = ExtResource("17_7v5we")
-
-[node name="CrewButton9" parent="CrewButtons" instance=ExtResource("8_40muy")]
-layout_mode = 0
-anchors_preset = 0
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = -131.0
-offset_top = 97.0
-offset_right = 119.0
-offset_bottom = 347.0
-grow_horizontal = 1
-grow_vertical = 1
-character_factory = ExtResource("18_6npl6")
 
 [node name="CrewButton10" parent="CrewButtons" instance=ExtResource("8_40muy")]
 layout_mode = 0
@@ -356,13 +391,34 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 615.0
-offset_top = 551.0
-offset_right = 865.0
-offset_bottom = 801.0
+offset_left = 1093.0
+offset_top = 110.0
+offset_right = 1673.0
+offset_bottom = 1691.0
 grow_horizontal = 1
 grow_vertical = 1
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("39_fi21k")
+texture_click_mask = ExtResource("40_epnv1")
 character_factory = ExtResource("19_qmf8k")
+
+[node name="CrewButton6" parent="CrewButtons" instance=ExtResource("8_40muy")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 1157.0
+offset_top = 446.0
+offset_right = 1524.0
+offset_bottom = 1078.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("42_2palc")
+texture_click_mask = ExtResource("43_476pc")
+character_factory = ExtResource("15_nfr47")
 
 [node name="CrewButton11" parent="CrewButtons" instance=ExtResource("8_40muy")]
 layout_mode = 0
@@ -371,12 +427,15 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 828.0
-offset_top = 542.0
-offset_right = 1078.0
-offset_bottom = 792.0
+offset_left = 930.0
+offset_top = 247.0
+offset_right = 1646.0
+offset_bottom = 1600.0
 grow_horizontal = 1
 grow_vertical = 1
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("45_ut6o2")
+texture_click_mask = ExtResource("46_nbrpl")
 character_factory = ExtResource("20_pbwmt")
 
 [node name="CrewButton12" parent="CrewButtons" instance=ExtResource("8_40muy")]
@@ -386,12 +445,15 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 1078.0
+offset_left = 950.0
 offset_top = 515.0
-offset_right = 1328.0
-offset_bottom = 765.0
+offset_right = 1705.0
+offset_bottom = 1385.0
 grow_horizontal = 1
 grow_vertical = 1
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("48_0esre")
+texture_click_mask = ExtResource("49_p0ymt")
 character_factory = ExtResource("21_71v0u")
 
 [node name="GoOutsideButton" type="Button" parent="." groups=["tutorial_triggers"]]

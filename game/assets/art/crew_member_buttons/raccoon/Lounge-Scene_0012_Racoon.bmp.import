@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://s1kf5ek724ka"
+path="res://.godot/imported/Lounge-Scene_0012_Racoon.bmp-8410d79bc9ee2de8717a1834eda48900.res"
+
+[deps]
+
+source_file="res://assets/art/crew_member_buttons/raccoon/Lounge-Scene_0012_Racoon.bmp"
+dest_files=["res://.godot/imported/Lounge-Scene_0012_Racoon.bmp-8410d79bc9ee2de8717a1834eda48900.res"]
+
+[params]
+
+create_from=1
+threshold=0.5

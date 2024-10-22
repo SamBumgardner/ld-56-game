@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://ce10u2pid47i5"
+path="res://.godot/imported/Lounge-Scene_0002_Monkey.bmp-799866dccd372d1eb634af8b959ed279.res"
+
+[deps]
+
+source_file="res://assets/art/crew_member_buttons/monkey/Lounge-Scene_0002_Monkey.bmp"
+dest_files=["res://.godot/imported/Lounge-Scene_0002_Monkey.bmp-799866dccd372d1eb634af8b959ed279.res"]
+
+[params]
+
+create_from=1
+threshold=0.5
