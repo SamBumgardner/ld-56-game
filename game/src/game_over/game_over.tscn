@@ -181,7 +181,7 @@ size_flags_horizontal = 6
 text = "Return to
 Main Menu"
 
-[connection signal="mouse_entered" from="ButtonContainer/Retry" to="AudioManager" method="_on_retry_mouse_entered"]
+[connection signal="mouse_entered" from="ButtonContainer/Retry" to="." method="_on_retry_mouse_entered"]
 [connection signal="pressed" from="ButtonContainer/Retry" to="AudioManager" method="_on_retry_pressed"]
 [connection signal="mouse_entered" from="ButtonContainer/ToMainMenu" to="AudioManager" method="_on_to_main_menu_mouse_entered"]
 [connection signal="pressed" from="ButtonContainer/ToMainMenu" to="AudioManager" method="_on_to_main_menu_pressed"]
