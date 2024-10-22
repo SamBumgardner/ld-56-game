@@ -5,30 +5,19 @@
 [ext_resource type="Script" path="res://src/game_over/victory_scene.gd" id="3_yy3jv"]
 
 [node name="VictoryScene" instance=ExtResource("1_mvqh0")]
+offset_bottom = 301.861
 texture = ExtResource("2_rivf5")
-expand_mode = 2
+expand_mode = 5
+stretch_mode = 4
 script = ExtResource("3_yy3jv")
 
-[node name="Title" parent="TitleContainer/MarginContainer/HB" index="0"]
+[node name="Title" parent="Control/TitleContainer/MarginContainer/HB" index="0"]
 text = "Victory!"
 
-[node name="Encouragement" parent="TitleContainer/MarginContainer/HB" index="1"]
-text = "Hard-earned success."
-
-[node name="ColorRect" type="ColorRect" parent="." index="3"]
-visible = false
-z_index = 2
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Retry" parent="ButtonContainer" index="0"]
+[node name="Retry" parent="Control/ButtonContainer" index="0"]
 visible = false
 
-[node name="ToggleBackgroundButton" type="Button" parent="." index="5"]
+[node name="ToggleBackgroundButton" type="Button" parent="Control" index="3"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 1
 anchors_preset = -1
@@ -39,7 +28,17 @@ offset_bottom = -50.0
 grow_vertical = 0
 text = "Show Background"
 
+[node name="ColorRect" type="ColorRect" parent="." index="2"]
+visible = false
+z_index = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [connection signal="ready" from="." to="AudioManager" method="_on_victory_scene_ready"]
-[connection signal="mouse_entered" from="ToggleBackgroundButton" to="AudioManager" method="_on_toggle_background_button_mouse_entered"]
-[connection signal="pressed" from="ToggleBackgroundButton" to="." method="_on_show_background_button_pressed"]
-[connection signal="pressed" from="ToggleBackgroundButton" to="AudioManager" method="_on_toggle_background_button_pressed"]
+[connection signal="mouse_entered" from="Control/ToggleBackgroundButton" to="AudioManager" method="_on_toggle_background_button_mouse_entered"]
+[connection signal="pressed" from="Control/ToggleBackgroundButton" to="." method="_on_show_background_button_pressed"]
+[connection signal="pressed" from="Control/ToggleBackgroundButton" to="AudioManager" method="_on_toggle_background_button_pressed"]

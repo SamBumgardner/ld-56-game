@@ -7,12 +7,12 @@ const SCENARIO_FORMAT: String = "Scenario: %s"
 @export var fade_duration: float = .5
 
 @onready var audio_manager: AudioManager = $AudioManager
-@onready var title_container: Control = $TitleContainer
-@onready var stats_container: Control = $StatsContainer
-@onready var button_container: Control = $ButtonContainer
-@onready var retry_button: Button = $ButtonContainer/Retry
-@onready var main_menu_button: Button = $ButtonContainer/ToMainMenu
-@onready var scenario_name: Label = $TitleContainer/MarginContainer/HB/ScenarioName
+@onready var title_container: Control = $Control/TitleContainer
+@onready var stats_container: Control = $Control/StatsContainer
+@onready var button_container: Control = $Control/ButtonContainer
+@onready var retry_button: Button = $Control/ButtonContainer/Retry
+@onready var main_menu_button: Button = $Control/ButtonContainer/ToMainMenu
+@onready var scenario_name: Label = $Control/TitleContainer/MarginContainer/HB/ScenarioName
 
 func _ready() -> void:
     retry_button.pressed.connect(_on_retry_pressed)
