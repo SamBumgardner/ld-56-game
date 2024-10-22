@@ -22,166 +22,176 @@ theme = ExtResource("1_7cxpj")
 texture = SubResource("GradientTexture1D_152tn")
 script = ExtResource("2_3djpi")
 
-[node name="AudioManager" parent="." instance=ExtResource("4_jdc1x")]
+[node name="Control" type="Control" parent="."]
+custom_minimum_size = Vector2(1280, 720)
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="TitleContainer" type="PanelContainer" parent="."]
+[node name="TitleContainer" type="PanelContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.075
 anchor_right = 0.5
 anchor_bottom = 0.075
+offset_left = -164.5
+offset_right = 164.5
+offset_bottom = 114.0
 grow_horizontal = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="TitleContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Control/TitleContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="HB" type="VBoxContainer" parent="TitleContainer/MarginContainer"]
+[node name="HB" type="VBoxContainer" parent="Control/TitleContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="Title" type="Label" parent="TitleContainer/MarginContainer/HB"]
+[node name="Title" type="Label" parent="Control/TitleContainer/MarginContainer/HB"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "Game Over"
 horizontal_alignment = 1
 
-[node name="Encouragement" type="Label" parent="TitleContainer/MarginContainer/HB"]
+[node name="Encouragement" type="Label" parent="Control/TitleContainer/MarginContainer/HB"]
 visible = false
 layout_mode = 2
 text = "Getting closer..."
 horizontal_alignment = 1
 
-[node name="ScenarioName" type="Label" parent="TitleContainer/MarginContainer/HB"]
+[node name="ScenarioName" type="Label" parent="Control/TitleContainer/MarginContainer/HB"]
 layout_mode = 2
 text = "Scenario: Easy"
 horizontal_alignment = 1
 
-[node name="StatsContainer" type="PanelContainer" parent="."]
+[node name="StatsContainer" type="PanelContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -150.0
-offset_top = -75.0
-offset_right = 150.0
-offset_bottom = 75.0
+offset_left = -205.0
+offset_top = -178.0
+offset_right = 205.0
+offset_bottom = 178.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="StatsContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Control/StatsContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="StatsContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/StatsContainer/MarginContainer"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="StatsContainer/MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="Control/StatsContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Statistics:
 "
 horizontal_alignment = 1
 
-[node name="Progress" type="VBoxContainer" parent="StatsContainer/MarginContainer/VBoxContainer"]
+[node name="Progress" type="VBoxContainer" parent="Control/StatsContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Header" type="Label" parent="StatsContainer/MarginContainer/VBoxContainer/Progress"]
+[node name="Header" type="Label" parent="Control/StatsContainer/MarginContainer/VBoxContainer/Progress"]
 layout_mode = 2
 text = "Progress:"
 
-[node name="DistanceRemaining2" parent="StatsContainer/MarginContainer/VBoxContainer/Progress" instance=ExtResource("2_gld74")]
+[node name="DistanceRemaining2" parent="Control/StatsContainer/MarginContainer/VBoxContainer/Progress" instance=ExtResource("2_gld74")]
 layout_mode = 2
 size_flags_horizontal = 8
 stat_display_name = "Distance Traveled"
 database_field_name = "distance_traveled_display"
 
-[node name="DistanceRemaining" parent="StatsContainer/MarginContainer/VBoxContainer/Progress" instance=ExtResource("2_gld74")]
+[node name="DistanceRemaining" parent="Control/StatsContainer/MarginContainer/VBoxContainer/Progress" instance=ExtResource("2_gld74")]
 layout_mode = 2
 size_flags_horizontal = 8
 stat_display_name = "Distance Remaining"
 database_field_name = "distance_remaining_display"
 
-[node name="BarriersDestroyed2" parent="StatsContainer/MarginContainer/VBoxContainer/Progress" instance=ExtResource("2_gld74")]
+[node name="BarriersDestroyed2" parent="Control/StatsContainer/MarginContainer/VBoxContainer/Progress" instance=ExtResource("2_gld74")]
 layout_mode = 2
 size_flags_horizontal = 8
 stat_display_name = "Barriers Destroyed"
 database_field_name = "barriers_overcome_count"
 
-[node name="FinalBarrierStrength" parent="StatsContainer/MarginContainer/VBoxContainer/Progress" instance=ExtResource("2_gld74")]
+[node name="FinalBarrierStrength" parent="Control/StatsContainer/MarginContainer/VBoxContainer/Progress" instance=ExtResource("2_gld74")]
 layout_mode = 2
 stat_display_name = "Final Barrier Strength"
 database_field_name = "current_barrier_cost_to_overcome_number"
 
-[node name="Crew" type="VBoxContainer" parent="StatsContainer/MarginContainer/VBoxContainer"]
+[node name="Crew" type="VBoxContainer" parent="Control/StatsContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Header" type="Label" parent="StatsContainer/MarginContainer/VBoxContainer/Crew"]
+[node name="Header" type="Label" parent="Control/StatsContainer/MarginContainer/VBoxContainer/Crew"]
 layout_mode = 2
 text = "Crew:"
 
-[node name="NumberOfCrewMembers" parent="StatsContainer/MarginContainer/VBoxContainer/Crew" instance=ExtResource("2_gld74")]
+[node name="NumberOfCrewMembers" parent="Control/StatsContainer/MarginContainer/VBoxContainer/Crew" instance=ExtResource("2_gld74")]
 layout_mode = 2
 stat_display_name = "Crew Size"
 database_field_name = "hired_character_count"
 
-[node name="NumberOfUpgradesPurchased" parent="StatsContainer/MarginContainer/VBoxContainer/Crew" instance=ExtResource("2_gld74")]
+[node name="NumberOfUpgradesPurchased" parent="Control/StatsContainer/MarginContainer/VBoxContainer/Crew" instance=ExtResource("2_gld74")]
 layout_mode = 2
 stat_display_name = "Upgrades Purchased"
 database_field_name = "purchased_upgrade_count"
 
-[node name="Resources" type="VBoxContainer" parent="StatsContainer/MarginContainer/VBoxContainer"]
+[node name="Resources" type="VBoxContainer" parent="Control/StatsContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Header" type="Label" parent="StatsContainer/MarginContainer/VBoxContainer/Resources"]
+[node name="Header" type="Label" parent="Control/StatsContainer/MarginContainer/VBoxContainer/Resources"]
 layout_mode = 2
 text = "Resources:
 "
 
-[node name="EndingMoney" parent="StatsContainer/MarginContainer/VBoxContainer/Resources" instance=ExtResource("2_gld74")]
+[node name="EndingMoney" parent="Control/StatsContainer/MarginContainer/VBoxContainer/Resources" instance=ExtResource("2_gld74")]
 layout_mode = 2
 stat_display_name = "Ending Coin Count"
 database_field_name = "current_money"
 
-[node name="EndingFuel" parent="StatsContainer/MarginContainer/VBoxContainer/Resources" instance=ExtResource("2_gld74")]
+[node name="EndingFuel" parent="Control/StatsContainer/MarginContainer/VBoxContainer/Resources" instance=ExtResource("2_gld74")]
 layout_mode = 2
 stat_display_name = "Ending Fuel Count"
 database_field_name = "current_fuel"
 
-[node name="ButtonContainer" type="HBoxContainer" parent="."]
+[node name="ButtonContainer" type="HBoxContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.3
 anchor_top = 0.9
 anchor_right = 0.7
 anchor_bottom = 0.9
+offset_top = -56.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Retry" type="Button" parent="ButtonContainer"]
+[node name="Retry" type="Button" parent="Control/ButtonContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 6
 text = "Retry from 
 Last Checkpoint"
 
-[node name="ToMainMenu" type="Button" parent="ButtonContainer"]
+[node name="ToMainMenu" type="Button" parent="Control/ButtonContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 6
 text = "Return to
 Main Menu"
 
-[connection signal="mouse_entered" from="ButtonContainer/Retry" to="." method="_on_retry_mouse_entered"]
-[connection signal="pressed" from="ButtonContainer/Retry" to="AudioManager" method="_on_retry_pressed"]
-[connection signal="mouse_entered" from="ButtonContainer/ToMainMenu" to="AudioManager" method="_on_to_main_menu_mouse_entered"]
-[connection signal="pressed" from="ButtonContainer/ToMainMenu" to="AudioManager" method="_on_to_main_menu_pressed"]
+[node name="AudioManager" parent="." instance=ExtResource("4_jdc1x")]
+
+[connection signal="mouse_entered" from="Control/ButtonContainer/Retry" to="." method="_on_retry_mouse_entered"]
+[connection signal="pressed" from="Control/ButtonContainer/Retry" to="AudioManager" method="_on_retry_pressed"]
+[connection signal="mouse_entered" from="Control/ButtonContainer/ToMainMenu" to="AudioManager" method="_on_to_main_menu_mouse_entered"]
+[connection signal="pressed" from="Control/ButtonContainer/ToMainMenu" to="AudioManager" method="_on_to_main_menu_pressed"]
