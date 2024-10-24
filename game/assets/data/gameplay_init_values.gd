@@ -9,6 +9,7 @@ var barriers_linear_scale_amount: float = 1
 var current_distance_remaining: int = 300
 var barriers_overcome_count: int = 0
 var current_barrier_data: BarrierData = null
+var barrier_count_in_this_region: int = 0
 
 @export_category("Mechanics")
 @export var current_reroll_fuel_cost: int = 1
@@ -41,6 +42,7 @@ func _load_from_db():
     current_barrier_cost_to_overcome_number = Database.current_barrier_cost_to_overcome_number
     current_barrier_data = Database.current_barrier_data
     current_region_starting_barrier_strength = Database.current_region_starting_barrier_strength
+    barrier_count_in_this_region = Database.barrier_count_in_this_region
 
     current_reroll_fuel_cost = Database.current_reroll_fuel_cost
 

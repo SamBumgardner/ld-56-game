@@ -7,7 +7,7 @@
 script = ExtResource("1_lufm2")
 name = "Focus"
 description = "Temporary Description"
-visual_summary = "[center]Combine all matching actions"
+visual_summary = "[center]Combine all identical actions"
 icon_ref = ExtResource("1_vhcv5")
 cost = 0
 upgrade_type = 5
