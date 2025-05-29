@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="UpgradeChoice" load_steps=3 format=3 uid="uid://drlywucrqnxrb"]
 
 [ext_resource type="Texture2D" uid="uid://bstcco0tewek1" path="res://assets/art/upgrade_icon_placeholder_3.png" id="1_4gplk"]
-[ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="1_fw1cs"]
+[ext_resource type="Script" uid="uid://bx3w5bf7rikpn" path="res://src/characters/UpgradeChoice.gd" id="1_fw1cs"]
 
 [resource]
 script = ExtResource("1_fw1cs")
@@ -12,6 +12,13 @@ visual_summary = "[center]Add:
 icon_ref = ExtResource("1_4gplk")
 cost = 12
 upgrade_type = 1
+value_change_amount = 0
 number_of_times = 2
 remove_action_name = ""
 new_action_string = "might_2"
+filter_criteria = -1
+invert_filter = false
+sort_criteria = -1
+number_of_actions_to_affect = 1
+change_to = -1
+restore_pct = 0.0

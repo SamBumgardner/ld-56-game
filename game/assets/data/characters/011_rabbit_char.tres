@@ -2,10 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://cdeabqqch8pkv" path="res://assets/art/character_icons/rabbit_small.png" id="1_aknx8"]
 [ext_resource type="Texture2D" uid="uid://cm15m4lcuy22h" path="res://assets/art/character_portraits/rabbit_portrait.png" id="2_erovx"]
-[ext_resource type="Script" path="res://src/characters/CharacterFactory.gd" id="3_tiyrw"]
-[ext_resource type="Script" path="res://src/characters/UpgradeSelector.gd" id="4_j1drq"]
+[ext_resource type="Script" uid="uid://dg7mc44mebrid" path="res://src/characters/CharacterFactory.gd" id="3_tiyrw"]
+[ext_resource type="Script" uid="uid://dqx5be4n6ccqu" path="res://src/characters/UpgradeSelector.gd" id="4_j1drq"]
 [ext_resource type="AudioStream" uid="uid://beulr5nj55o1i" path="res://assets/audio/character_voice_lines/1104_hello.wav" id="4_y5ipu"]
-[ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="5_jpgdi"]
+[ext_resource type="Script" uid="uid://bx3w5bf7rikpn" path="res://src/characters/UpgradeChoice.gd" id="5_jpgdi"]
 [ext_resource type="AudioStream" uid="uid://1ri1v2g15yx8" path="res://assets/audio/character_voice_lines/1144_catchphrase.wav" id="5_jv18h"]
 [ext_resource type="Resource" uid="uid://c84gaufp2j3hi" path="res://assets/data/upgrades/700_repair/701_up1_all.tres" id="6_qmxyu"]
 [ext_resource type="Resource" uid="uid://baexcdc02i8y8" path="res://assets/data/upgrades/700_repair/702_restorehealth_half.tres" id="7_sh88i"]

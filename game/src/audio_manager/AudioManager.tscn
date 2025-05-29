@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=3 uid="uid://h1fowbxngb70"]
 
-[ext_resource type="Script" path="res://src/audio_manager/audio_manager.gd" id="1_eh3tu"]
+[ext_resource type="Script" uid="uid://bqxcjnpph564o" path="res://src/audio_manager/audio_manager.gd" id="1_eh3tu"]
 [ext_resource type="AudioStream" uid="uid://cifq013w5q8uo" path="res://assets/audio/003_loop_music.ogg" id="2_n8me7"]
 [ext_resource type="AudioStream" uid="uid://bnwxx5jm4stl6" path="res://assets/audio/102_sfx_select.wav" id="2_x7bd4"]
 [ext_resource type="AudioStream" uid="uid://db75wtlmke61f" path="res://assets/audio/101_sfx_button.wav" id="2_xtd0e"]
@@ -14,7 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://b06l7o6tdjt1b" path="res://assets/audio/108_sfx_navigate_computer_menu.wav" id="8_ko7jq"]
 [ext_resource type="AudioStream" uid="uid://d13u6to11k8f4" path="res://assets/audio/109_sfx_woosh.wav" id="9_5njtl"]
 [ext_resource type="AudioStream" uid="uid://7op84hxxr38u" path="res://assets/audio/120_musical_sting_celebrate.wav" id="9_rcw8j"]
-[ext_resource type="AudioStream" path="res://assets/audio/209_notification_error_randomizer.tres" id="10_askid"]
+[ext_resource type="AudioStream" uid="uid://dgrbonympcf3x" path="res://assets/audio/209_notification_error_randomizer.tres" id="10_askid"]
 [ext_resource type="AudioStream" uid="uid://hjldvirp4bwt" path="res://assets/audio/110_sfx_woosh.wav" id="10_th1gx"]
 [ext_resource type="AudioStream" uid="uid://dr7oavvxatdmd" path="res://assets/audio/112_sfx_charge-forward.wav" id="12_6p66v"]
 [ext_resource type="AudioStream" uid="uid://dhoqdso571q2t" path="res://assets/audio/210_sfx_charge_crush_randomizer.tres" id="13_6f3bk"]

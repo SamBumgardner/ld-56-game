@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b4xnwcpb30o20"]
 
-[ext_resource type="Script" path="res://src/indoor_preparation/screen_displays/shared/upgrades/upgrade_cost_prompt.gd" id="1_r5pou"]
+[ext_resource type="Script" uid="uid://qd6f5euw20pj" path="res://src/indoor_preparation/screen_displays/shared/upgrades/upgrade_cost_prompt.gd" id="1_r5pou"]
 [ext_resource type="PackedScene" uid="uid://h1fowbxngb70" path="res://src/audio_manager/AudioManager.tscn" id="2_o2aex"]
 [ext_resource type="Theme" uid="uid://diekd7pwnwl6n" path="res://assets/themes/green_button_theme_all_rounded.tres" id="3_k7mbm"]
 

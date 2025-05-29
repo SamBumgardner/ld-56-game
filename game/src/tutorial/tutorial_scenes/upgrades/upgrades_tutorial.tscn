@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://1wye34y7qnhe" path="res://src/gameplay/Gameplay.tscn" id="1_taivy"]
 [ext_resource type="PackedScene" uid="uid://1c7jmqc6wkth" path="res://src/tutorial/tutorial.tscn" id="2_uo808"]
-[ext_resource type="Script" path="res://src/tutorial/tutorial_scenes/upgrades/tutorial_upgrades.gd" id="3_e8pst"]
+[ext_resource type="Script" uid="uid://b4p14hwdnwe2x" path="res://src/tutorial/tutorial_scenes/upgrades/tutorial_upgrades.gd" id="3_e8pst"]
 [ext_resource type="Resource" uid="uid://dkcc2v5dc5kp0" path="res://assets/data/tutorials/upgrades_tutorial_outdoors.tres" id="4_g8yno"]
 [ext_resource type="Resource" uid="uid://tvmkfw4abkf1" path="res://assets/data/tutorials/upgrades_tutorial_indoors.tres" id="5_4buam"]
 

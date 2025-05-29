@@ -2,10 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://bme30t682cw1l" path="res://assets/art/character_icons/raccoon_small.png" id="1_f1shx"]
 [ext_resource type="Texture2D" uid="uid://bvj18jeu04ah8" path="res://assets/art/character_portraits/raccoon_portrait.png" id="2_1ghps"]
-[ext_resource type="Script" path="res://src/characters/CharacterFactory.gd" id="3_cp6an"]
+[ext_resource type="Script" uid="uid://dg7mc44mebrid" path="res://src/characters/CharacterFactory.gd" id="3_cp6an"]
 [ext_resource type="AudioStream" uid="uid://bd2ukgmhyc3g5" path="res://assets/audio/character_voice_lines/1101_hello.wav" id="4_8sd3u"]
-[ext_resource type="Script" path="res://src/characters/UpgradeSelector.gd" id="4_uhto1"]
-[ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="5_nqnpf"]
+[ext_resource type="Script" uid="uid://dqx5be4n6ccqu" path="res://src/characters/UpgradeSelector.gd" id="4_uhto1"]
+[ext_resource type="Script" uid="uid://bx3w5bf7rikpn" path="res://src/characters/UpgradeChoice.gd" id="5_nqnpf"]
 [ext_resource type="AudioStream" uid="uid://cmpi5ojv3ywyd" path="res://assets/audio/character_voice_lines/1138_catchphrase.wav" id="5_xjtl2"]
 [ext_resource type="Resource" uid="uid://bk28atv2b5hxg" path="res://assets/data/upgrades/800_basic/801_up1_chaos.tres" id="6_ixhi8"]
 [ext_resource type="Resource" uid="uid://7e1q61lw77bg" path="res://assets/data/upgrades/800_basic/802_add_might2.tres" id="7_msyjq"]

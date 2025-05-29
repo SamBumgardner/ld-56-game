@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bwpa5wbo5ct7g"]
 
 [ext_resource type="SpriteFrames" uid="uid://cwrciodhmr6gq" path="res://assets/art/transport/Tusk_Sprite_Frames.tres" id="1_dhrdl"]
-[ext_resource type="Script" path="res://src/battlefield_outdoors/battlefield_outdoors_war_transport/battlefield_outdoors_war_transport.gd" id="1_o8nwd"]
+[ext_resource type="Script" uid="uid://c86b71w16ud86" path="res://src/battlefield_outdoors/battlefield_outdoors_war_transport/battlefield_outdoors_war_transport.gd" id="1_o8nwd"]
 [ext_resource type="Theme" uid="uid://dk5iv042psfw" path="res://assets/themes/Default.tres" id="2_58oda"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ivaum"]

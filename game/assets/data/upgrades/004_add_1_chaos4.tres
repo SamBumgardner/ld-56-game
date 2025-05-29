@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="UpgradeChoice" load_steps=3 format=3 uid="uid://bed3mtckyavm"]
 
 [ext_resource type="Texture2D" uid="uid://umd2xpupuc32" path="res://assets/art/upgrade_icon_placeholder_2.png" id="1_4cssh"]
-[ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="2_stgbf"]
+[ext_resource type="Script" uid="uid://bx3w5bf7rikpn" path="res://src/characters/UpgradeChoice.gd" id="2_stgbf"]
 
 [resource]
 script = ExtResource("2_stgbf")
@@ -12,6 +12,13 @@ visual_summary = "[center]Add:
 icon_ref = ExtResource("1_4cssh")
 cost = 30
 upgrade_type = 1
+value_change_amount = 0
 number_of_times = 1
 remove_action_name = ""
 new_action_string = "chaos_4"
+filter_criteria = -1
+invert_filter = false
+sort_criteria = -1
+number_of_actions_to_affect = 1
+change_to = -1
+restore_pct = 0.0

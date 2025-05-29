@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://1c7jmqc6wkth"]
 
 [ext_resource type="PackedScene" uid="uid://bwqnx27y8tnec" path="res://src/tutorial/tutorial_dialogue.tscn" id="1_10lmg"]
-[ext_resource type="Script" path="res://src/tutorial/tutorial.gd" id="1_58msb"]
+[ext_resource type="Script" uid="uid://bs5wtsbvc8lhv" path="res://src/tutorial/tutorial.gd" id="1_58msb"]
 [ext_resource type="PackedScene" uid="uid://bcylmmwqvfl7l" path="res://src/tutorial/tutorial_arrow.tscn" id="2_0kclp"]
 
 [node name="Tutorial" type="Control"]

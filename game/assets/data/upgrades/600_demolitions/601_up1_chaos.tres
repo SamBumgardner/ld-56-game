@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="UpgradeChoice" load_steps=3 format=3 uid="uid://v6epi37t07s4"]
 
 [ext_resource type="Texture2D" uid="uid://b17703hp2rttu" path="res://assets/art/upgrade_icon_chaos.png" id="1_m3hom"]
-[ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="2_rkufy"]
+[ext_resource type="Script" uid="uid://bx3w5bf7rikpn" path="res://src/characters/UpgradeChoice.gd" id="2_rkufy"]
 
 [resource]
 script = ExtResource("2_rkufy")

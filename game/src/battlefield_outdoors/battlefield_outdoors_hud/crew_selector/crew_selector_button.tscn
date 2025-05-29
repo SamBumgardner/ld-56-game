@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cpjm8ajr3ey5l"]
 
 [ext_resource type="Texture2D" uid="uid://4nvogy60mpq3" path="res://icon.svg" id="1_gc4pc"]
-[ext_resource type="Script" path="res://src/battlefield_outdoors/battlefield_outdoors_hud/crew_selector/crew_selector_button.gd" id="2_w8ppo"]
+[ext_resource type="Script" uid="uid://bli5ujb6u17s3" path="res://src/battlefield_outdoors/battlefield_outdoors_hud/crew_selector/crew_selector_button.gd" id="2_w8ppo"]
 [ext_resource type="StyleBox" uid="uid://218yva3nynfq" path="res://assets/themes/style_boxes/yellow_glow_stylebox.tres" id="3_7ehjf"]
 [ext_resource type="PackedScene" uid="uid://h1fowbxngb70" path="res://src/audio_manager/AudioManager.tscn" id="3_dam66"]
 [ext_resource type="ButtonGroup" uid="uid://jho4aiq68i2w" path="res://src/battlefield_outdoors/battlefield_outdoors_hud/crew_selector/crew_member_selector_group.tres" id="3_y4hsi"]

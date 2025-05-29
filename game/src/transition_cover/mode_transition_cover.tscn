@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cqks4bltxh7sq"]
 
-[ext_resource type="Script" path="res://src/transition_cover/mode_transition_cover.gd" id="1_5is58"]
+[ext_resource type="Script" uid="uid://cc7m8xga264dw" path="res://src/transition_cover/mode_transition_cover.gd" id="1_5is58"]
 
 [node name="ModeTransitionCover" type="ColorRect"]
 anchors_preset = 15

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Scenario" load_steps=17 format=3 uid="uid://ox2upj1rxbfp"]
 
-[ext_resource type="Script" path="res://src/characters/CharacterFactory.gd" id="1_q77jo"]
+[ext_resource type="Script" uid="uid://dg7mc44mebrid" path="res://src/characters/CharacterFactory.gd" id="1_q77jo"]
 [ext_resource type="Resource" uid="uid://cghmtnhtq1aeh" path="res://assets/data/characters/001_squirrel_char.tres" id="2_10fna"]
 [ext_resource type="Resource" uid="uid://duswkektwj6hb" path="res://assets/data/characters/002_frog_char.tres" id="3_yk6yd"]
 [ext_resource type="Resource" uid="uid://b3l83j0ql7m0e" path="res://assets/data/characters/003_raccoon_char.tres" id="4_jvtdp"]
@@ -9,10 +9,10 @@
 [ext_resource type="Resource" uid="uid://cg2gt1s2ilepn" path="res://assets/data/characters/008_lizard_char.tres" id="7_ra044"]
 [ext_resource type="Resource" uid="uid://1nhgxq12mwuo" path="res://assets/data/characters/011_rabbit_char.tres" id="8_q506i"]
 [ext_resource type="Resource" uid="uid://beppcdvy1b3s0" path="res://assets/data/characters/012_fish_char.tres" id="9_qcpv0"]
-[ext_resource type="Script" path="res://assets/data/gameplay_init_values.gd" id="10_5ocyn"]
+[ext_resource type="Script" uid="uid://dcxe5ufr6xmuv" path="res://assets/data/gameplay_init_values.gd" id="10_5ocyn"]
 [ext_resource type="PackedScene" uid="uid://b5elhebvdn0nk" path="res://src/tutorial/tutorial_scenes/reroll/reroll_tutorial.tscn" id="11_2suvt"]
-[ext_resource type="Script" path="res://src/scenario/scenario.gd" id="12_p4v7r"]
-[ext_resource type="Script" path="res://src/scenario/scenario_segment.gd" id="13_k557i"]
+[ext_resource type="Script" uid="uid://bldh1kxbgbuyc" path="res://src/scenario/scenario.gd" id="12_p4v7r"]
+[ext_resource type="Script" uid="uid://qes8thqfapu3" path="res://src/scenario/scenario_segment.gd" id="13_k557i"]
 [ext_resource type="Resource" uid="uid://dwhqixr01xgru" path="res://assets/data/scenarios/regions/not_too_badlands.tres" id="14_uus0k"]
 
 [sub_resource type="Resource" id="Resource_wcex8"]

@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c5o4m5qh1v3wi" path="res://assets/art/crew_member_buttons/placeholder/placeholder_crew_selected.png" id="2_bm1w8"]
 [ext_resource type="Texture2D" uid="uid://83gpsthoyxsv" path="res://assets/art/crew_member_buttons/placeholder/placeholder_crew_highlight.png" id="3_114bo"]
 [ext_resource type="BitMap" uid="uid://cccfyr5chl1jk" path="res://assets/art/crew_member_buttons/placeholder/placeholder_crew.bmp" id="4_4dfub"]
-[ext_resource type="Script" path="res://src/indoor_preparation/crew_buttons/crew_button.gd" id="5_06drq"]
+[ext_resource type="Script" uid="uid://di3hi4w86hxb4" path="res://src/indoor_preparation/crew_buttons/crew_button.gd" id="5_06drq"]
 [ext_resource type="PackedScene" uid="uid://h1fowbxngb70" path="res://src/audio_manager/AudioManager.tscn" id="7_0qb38"]
 
 [node name="CrewButton" type="TextureButton"]

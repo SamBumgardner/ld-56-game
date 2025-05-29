@@ -2,13 +2,13 @@
 
 [ext_resource type="Theme" uid="uid://dmwrgmv8lathf" path="res://assets/themes/ScreenTheme.tres" id="1_te1yn"]
 [ext_resource type="Texture2D" uid="uid://bic3i142epdt3" path="res://assets/art/placeholder_threat.png" id="2_doqwf"]
-[ext_resource type="Script" path="res://src/indoor_preparation/screen_displays/shared/character_detail/character_detail.gd" id="2_tnvk2"]
+[ext_resource type="Script" uid="uid://c0bcybnexkh4e" path="res://src/indoor_preparation/screen_displays/shared/character_detail/character_detail.gd" id="2_tnvk2"]
 [ext_resource type="Texture2D" uid="uid://c812lqrvhyq01" path="res://assets/art/ATTACK_icon_64x64.png" id="3_cs4wt"]
-[ext_resource type="Script" path="res://src/indoor_preparation/screen_displays/shared/character_detail/character_detail_summary.gd" id="3_q3ltp"]
+[ext_resource type="Script" uid="uid://cs5k56oe5f8wj" path="res://src/indoor_preparation/screen_displays/shared/character_detail/character_detail_summary.gd" id="3_q3ltp"]
 [ext_resource type="Texture2D" uid="uid://r7a1wa1ifq57" path="res://assets/art/placeholder_close_button.png" id="4_vii54"]
 [ext_resource type="PackedScene" uid="uid://cf7gpoxw4lyd4" path="res://src/indoor_preparation/screen_displays/shared/upgrades/upgrade_choice_display.tscn" id="4_vtj8y"]
 [ext_resource type="PackedScene" uid="uid://lw7wcqkoqifj" path="res://src/shared_ui/die_result/DieResult.tscn" id="5_mb6um"]
-[ext_resource type="Script" path="res://src/indoor_preparation/screen_displays/shared/character_detail/character_detail_upgrades.gd" id="6_1f48f"]
+[ext_resource type="Script" uid="uid://cjydm4nr3gk0h" path="res://src/indoor_preparation/screen_displays/shared/character_detail/character_detail_upgrades.gd" id="6_1f48f"]
 [ext_resource type="PackedScene" uid="uid://dj3qjxeo1h7wm" path="res://src/indoor_preparation/screen_displays/shared/character_detail/dynamic_info_panel.tscn" id="8_yjqcy"]
 
 [node name="CharacterDetail" type="Control"]

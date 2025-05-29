@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cib1fq003l5jx"]
 
 [ext_resource type="Theme" uid="uid://cmbvxb1mxsipc" path="res://assets/themes/Notification_Checkpoint.tres" id="1_cc4ps"]
-[ext_resource type="Script" path="res://src/indoor_preparation/screen_displays/shared/screen_notification.gd" id="2_hcuqa"]
+[ext_resource type="Script" uid="uid://b4u4pilcgywwb" path="res://src/indoor_preparation/screen_displays/shared/screen_notification.gd" id="2_hcuqa"]
 [ext_resource type="PackedScene" uid="uid://h1fowbxngb70" path="res://src/audio_manager/AudioManager.tscn" id="3_lrapv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2lwms"]

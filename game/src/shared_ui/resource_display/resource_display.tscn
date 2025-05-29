@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dqfvwly0xyo0k" path="res://assets/art/tiny_silver_coin.png" id="1_4nm3l"]
 [ext_resource type="Theme" uid="uid://dk5iv042psfw" path="res://assets/themes/Default.tres" id="1_w3l85"]
-[ext_resource type="Script" path="res://src/shared_ui/resource_display/resource_display.gd" id="2_g7dbd"]
+[ext_resource type="Script" uid="uid://iooax5ix21va" path="res://src/shared_ui/resource_display/resource_display.gd" id="2_g7dbd"]
 
 [node name="ResourceDisplay" type="PanelContainer"]
 custom_minimum_size = Vector2(175, 0)

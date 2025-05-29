@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://emsj3qtryn1x"]
 
-[ext_resource type="Script" path="res://src/indoor_preparation/screen_displays/browse_hires/new_hire_preview.gd" id="1_yy8kg"]
+[ext_resource type="Script" uid="uid://c63jf5250eqpa" path="res://src/indoor_preparation/screen_displays/browse_hires/new_hire_preview.gd" id="1_yy8kg"]
 [ext_resource type="PackedScene" uid="uid://h1fowbxngb70" path="res://src/audio_manager/AudioManager.tscn" id="2_fnu7a"]
 [ext_resource type="Texture2D" uid="uid://c6vw5nlbccmsu" path="res://assets/art/character_icons/snake_small.png" id="3_i67y2"]
 [ext_resource type="PackedScene" uid="uid://lw7wcqkoqifj" path="res://src/shared_ui/die_result/DieResult.tscn" id="3_jlg8d"]
