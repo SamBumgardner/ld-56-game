@@ -95,8 +95,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="Control/StatsContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-text = "Statistics:
-"
+text = "Statistics:"
 horizontal_alignment = 1
 
 [node name="Progress" type="VBoxContainer" parent="Control/StatsContainer/MarginContainer/VBoxContainer"]
@@ -151,8 +150,7 @@ layout_mode = 2
 
 [node name="Header" type="Label" parent="Control/StatsContainer/MarginContainer/VBoxContainer/Resources"]
 layout_mode = 2
-text = "Resources:
-"
+text = "Resources:"
 
 [node name="EndingMoney" parent="Control/StatsContainer/MarginContainer/VBoxContainer/Resources" instance=ExtResource("2_gld74")]
 layout_mode = 2
