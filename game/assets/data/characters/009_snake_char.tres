@@ -2,10 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://c6vw5nlbccmsu" path="res://assets/art/character_icons/snake_small.png" id="1_pttuv"]
 [ext_resource type="Texture2D" uid="uid://pila5yb75whp" path="res://assets/art/character_portraits/snake_portrait.png" id="2_uc5ga"]
-[ext_resource type="Script" path="res://src/characters/CharacterFactory.gd" id="3_osxgm"]
+[ext_resource type="Script" uid="uid://dg7mc44mebrid" path="res://src/characters/CharacterFactory.gd" id="3_osxgm"]
 [ext_resource type="AudioStream" uid="uid://o8kw0fvvlcl" path="res://assets/audio/character_voice_lines/1159_hello.wav" id="4_gmhq1"]
-[ext_resource type="Script" path="res://src/characters/UpgradeSelector.gd" id="4_obvhb"]
-[ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="5_7u5t2"]
+[ext_resource type="Script" uid="uid://dqx5be4n6ccqu" path="res://src/characters/UpgradeSelector.gd" id="4_obvhb"]
+[ext_resource type="Script" uid="uid://bx3w5bf7rikpn" path="res://src/characters/UpgradeChoice.gd" id="5_7u5t2"]
 [ext_resource type="AudioStream" uid="uid://ban0iyej10ckd" path="res://assets/audio/character_voice_lines/1140_catchphrase.wav" id="5_nrc12"]
 [ext_resource type="Resource" uid="uid://bejccv0um30m0" path="res://assets/data/upgrades/400_trickshot/401_up1_highest2.tres" id="6_1rkbp"]
 [ext_resource type="Resource" uid="uid://bpqd7uanxs2d6" path="res://assets/data/upgrades/400_trickshot/402_up2_highest_add2_might1.tres" id="7_y85ht"]

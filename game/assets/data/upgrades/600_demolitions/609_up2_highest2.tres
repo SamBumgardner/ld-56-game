@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="UpgradeChoice" load_steps=3 format=3 uid="uid://dng6miv0ipg0w"]
 
-[ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="1_d0sa7"]
+[ext_resource type="Script" uid="uid://bx3w5bf7rikpn" path="res://src/characters/UpgradeChoice.gd" id="1_d0sa7"]
 [ext_resource type="Texture2D" uid="uid://c131mlp1gsxls" path="res://assets/art/upgrade_icon_all.png" id="1_jykyo"]
 
 [resource]

@@ -2,10 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://cxfk7pmpaxnqx" path="res://assets/art/character_icons/mantis_small.png" id="1_8pmao"]
 [ext_resource type="Texture2D" uid="uid://btq340p6pb3lu" path="res://assets/art/character_portraits/mantis_portrait.png" id="2_6nckq"]
-[ext_resource type="Script" path="res://src/characters/CharacterFactory.gd" id="3_bid6u"]
+[ext_resource type="Script" uid="uid://dg7mc44mebrid" path="res://src/characters/CharacterFactory.gd" id="3_bid6u"]
 [ext_resource type="AudioStream" uid="uid://mp5t4l81qver" path="res://assets/audio/character_voice_lines/1107_hello.wav" id="4_0g2cv"]
-[ext_resource type="Script" path="res://src/characters/UpgradeSelector.gd" id="4_sm110"]
-[ext_resource type="Script" path="res://src/characters/UpgradeChoice.gd" id="5_2oxke"]
+[ext_resource type="Script" uid="uid://dqx5be4n6ccqu" path="res://src/characters/UpgradeSelector.gd" id="4_sm110"]
+[ext_resource type="Script" uid="uid://bx3w5bf7rikpn" path="res://src/characters/UpgradeChoice.gd" id="5_2oxke"]
 [ext_resource type="AudioStream" uid="uid://clw3u1xw18344" path="res://assets/audio/character_voice_lines/1141_catchphrase.wav" id="5_ajh8o"]
 [ext_resource type="Resource" uid="uid://bxeyn6dgjlypl" path="res://assets/data/upgrades/100_samurai/101_add_might5.tres" id="6_lig8q"]
 [ext_resource type="Resource" uid="uid://ch7f7rafh8x3o" path="res://assets/data/upgrades/100_samurai/102_add_might3_remove_lowest.tres" id="7_en2yk"]

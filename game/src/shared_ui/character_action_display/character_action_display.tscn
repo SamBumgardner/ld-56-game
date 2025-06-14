@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://dr7v1vu064ukv"]
 
-[ext_resource type="Script" path="res://src/shared_ui/character_action_display/character_action_display.gd" id="2_11qdl"]
+[ext_resource type="Script" uid="uid://b38io1hj3cg2r" path="res://src/shared_ui/character_action_display/character_action_display.gd" id="2_11qdl"]
 [ext_resource type="PackedScene" uid="uid://lw7wcqkoqifj" path="res://src/shared_ui/die_result/DieResult.tscn" id="2_lvo8c"]
 [ext_resource type="ButtonGroup" uid="uid://khy30hd6v13" path="res://src/shared_ui/character_action_display/crew_actions_button_group.tres" id="3_613ya"]
 [ext_resource type="StyleBox" uid="uid://cd562v0o6vhto" path="res://assets/themes/style_boxes/yellow_border_stylebox.tres" id="3_flghc"]

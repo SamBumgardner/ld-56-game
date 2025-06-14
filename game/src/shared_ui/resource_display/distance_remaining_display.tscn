@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b61imbp05vs5x"]
 
 [ext_resource type="PackedScene" uid="uid://cwx53f7dgoboq" path="res://src/shared_ui/resource_display/resource_display.tscn" id="1_66g0t"]
-[ext_resource type="Script" path="res://src/shared_ui/resource_display/distance_remaining_display.gd" id="2_di0xd"]
+[ext_resource type="Script" uid="uid://cpvrsj12hgks2" path="res://src/shared_ui/resource_display/distance_remaining_display.gd" id="2_di0xd"]
 
 [node name="DistanceRemainingDisplay" instance=ExtResource("1_66g0t")]
 script = ExtResource("2_di0xd")

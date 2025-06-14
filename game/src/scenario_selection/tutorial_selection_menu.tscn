@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://c4kax14q4g1l8"]
 
 [ext_resource type="PackedScene" uid="uid://c32yvxfh4qdgu" path="res://src/scenario_selection/ScenarioSelectionMenu.tscn" id="1_1f80h"]
-[ext_resource type="Script" path="res://src/scenario/scenario.gd" id="2_n3btn"]
+[ext_resource type="Script" uid="uid://bldh1kxbgbuyc" path="res://src/scenario/scenario.gd" id="2_n3btn"]
 [ext_resource type="Resource" uid="uid://bmx675ycgue2y" path="res://assets/data/scenarios/tutorials/basic_info_tutorial_scenario.tres" id="3_r68bo"]
 [ext_resource type="Resource" uid="uid://b0udy1nbeiy1d" path="res://assets/data/scenarios/tutorials/actions_tutorial_scenario.tres" id="4_s4gai"]
 [ext_resource type="Resource" uid="uid://ox2upj1rxbfp" path="res://assets/data/scenarios/tutorials/reroll_tutorial_scenario.tres" id="5_nvukv"]

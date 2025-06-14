@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="TutorialSequence" load_steps=19 format=3 uid="uid://dpegjk8b74ogc"]
 
-[ext_resource type="Script" path="res://src/tutorial/tutorial_sequence.gd" id="1_p2rbk"]
-[ext_resource type="Script" path="res://src/tutorial/tutorial_step.gd" id="2_18ckq"]
+[ext_resource type="Script" uid="uid://bpck4ahqcsghq" path="res://src/tutorial/tutorial_sequence.gd" id="1_p2rbk"]
+[ext_resource type="Script" uid="uid://0gcydsd4mi3p" path="res://src/tutorial/tutorial_step.gd" id="2_18ckq"]
 
 [sub_resource type="Resource" id="Resource_c6ekd"]
 script = ExtResource("2_18ckq")

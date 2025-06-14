@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://cg47m1iqb0uxk"]
 
-[ext_resource type="Script" path="res://src/start_menu/start_menu.gd" id="1_1710u"]
+[ext_resource type="Script" uid="uid://vsenfrgcvtcm" path="res://src/start_menu/start_menu.gd" id="1_1710u"]
 [ext_resource type="Theme" uid="uid://duflqnf122e6l" path="res://assets/themes/StartMenu.tres" id="1_io06w"]
 [ext_resource type="PackedScene" uid="uid://h1fowbxngb70" path="res://src/audio_manager/AudioManager.tscn" id="3_kgn8u"]
-[ext_resource type="Theme" path="res://assets/themes/StartMenuButtons.tres" id="3_qd2mb"]
+[ext_resource type="Theme" uid="uid://dxolpwravnfdn" path="res://assets/themes/StartMenuButtons.tres" id="3_qd2mb"]
 [ext_resource type="PackedScene" uid="uid://cj4g148ajp1d7" path="res://src/start_menu/intro_sequence/intro_sequence.tscn" id="4_cqohr"]
 [ext_resource type="PackedScene" uid="uid://dbs7sk334clc7" path="res://src/battlefield_outdoors/battlefield_outdoors_background/BattlefieldOutdoorsBackground.tscn" id="5_1ihwe"]
 

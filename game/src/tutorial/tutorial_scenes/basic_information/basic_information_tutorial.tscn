@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://1wye34y7qnhe" path="res://src/gameplay/Gameplay.tscn" id="1_grvr7"]
 [ext_resource type="PackedScene" uid="uid://1c7jmqc6wkth" path="res://src/tutorial/tutorial.tscn" id="2_3utpq"]
-[ext_resource type="Script" path="res://src/tutorial/tutorial_scenes/basic_information/tutorial_basic_info.gd" id="3_i7yrx"]
+[ext_resource type="Script" uid="uid://vgty7n22kdna" path="res://src/tutorial/tutorial_scenes/basic_information/tutorial_basic_info.gd" id="3_i7yrx"]
 [ext_resource type="Resource" uid="uid://bbskak7xdpxvg" path="res://assets/data/tutorials/basic_information_tutorial.tres" id="4_wiiy0"]
 
 [node name="Gameplay" instance=ExtResource("1_grvr7")]

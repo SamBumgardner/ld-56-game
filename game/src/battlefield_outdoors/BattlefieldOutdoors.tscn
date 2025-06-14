@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://dk5iv042psfw" path="res://assets/themes/Default.tres" id="1_cei1v"]
 [ext_resource type="PackedScene" uid="uid://b6k6baalu42w7" path="res://src/battlefield_outdoors/battlefield_outdoors_hud/BattlefieldOutdoorsHud.tscn" id="1_wxoya"]
-[ext_resource type="Script" path="res://src/battlefield_outdoors/battlefield_outdoors.gd" id="2_ni2i7"]
+[ext_resource type="Script" uid="uid://umd58u036uxe" path="res://src/battlefield_outdoors/battlefield_outdoors.gd" id="2_ni2i7"]
 [ext_resource type="PackedScene" uid="uid://ceesyhnktnbd1" path="res://src/battlefield_outdoors/battlefield_outdoors_barrier/BattlefieldOutdoorsBarrier.tscn" id="2_p4mcn"]
 [ext_resource type="PackedScene" uid="uid://bwpa5wbo5ct7g" path="res://src/battlefield_outdoors/battlefield_outdoors_war_transport/BattlefieldOutdoorsWarTransport.tscn" id="3_etui0"]
 [ext_resource type="PackedScene" uid="uid://h1fowbxngb70" path="res://src/audio_manager/AudioManager.tscn" id="3_qsfcl"]

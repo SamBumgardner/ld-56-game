@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b5yq7dbetb72t"]
 
 [ext_resource type="PackedScene" uid="uid://cwx53f7dgoboq" path="res://src/shared_ui/resource_display/resource_display.tscn" id="1_43wy7"]
-[ext_resource type="Script" path="res://src/shared_ui/resource_display/applicants_display.gd" id="2_kie4s"]
+[ext_resource type="Script" uid="uid://cyl6vogktupa6" path="res://src/shared_ui/resource_display/applicants_display.gd" id="2_kie4s"]
 
 [node name="ApplicantsDisplay" instance=ExtResource("1_43wy7")]
 anchors_preset = 0

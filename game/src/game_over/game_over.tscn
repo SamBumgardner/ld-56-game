@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://ctqciskxgauli"]
 
 [ext_resource type="Theme" uid="uid://dk5iv042psfw" path="res://assets/themes/Default.tres" id="1_7cxpj"]
-[ext_resource type="Script" path="res://src/game_over/game_over.gd" id="2_3djpi"]
+[ext_resource type="Script" uid="uid://hs4uthat3sjm" path="res://src/game_over/game_over.gd" id="2_3djpi"]
 [ext_resource type="PackedScene" uid="uid://cksonu0m714vg" path="res://src/game_over/postgame_stat_line.tscn" id="2_gld74"]
 [ext_resource type="PackedScene" uid="uid://h1fowbxngb70" path="res://src/audio_manager/AudioManager.tscn" id="4_jdc1x"]
 
@@ -95,8 +95,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="Control/StatsContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-text = "Statistics:
-"
+text = "Statistics:"
 horizontal_alignment = 1
 
 [node name="Progress" type="VBoxContainer" parent="Control/StatsContainer/MarginContainer/VBoxContainer"]
@@ -151,8 +150,7 @@ layout_mode = 2
 
 [node name="Header" type="Label" parent="Control/StatsContainer/MarginContainer/VBoxContainer/Resources"]
 layout_mode = 2
-text = "Resources:
-"
+text = "Resources:"
 
 [node name="EndingMoney" parent="Control/StatsContainer/MarginContainer/VBoxContainer/Resources" instance=ExtResource("2_gld74")]
 layout_mode = 2

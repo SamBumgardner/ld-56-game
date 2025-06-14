@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cg02ahrm1dodf"]
 
-[ext_resource type="Script" path="res://src/battlefield_outdoors/combat_math_calculations_hud/combat_math_calculations_hud.gd" id="1_34uv2"]
+[ext_resource type="Script" uid="uid://cc3n2atcbh8hc" path="res://src/battlefield_outdoors/combat_math_calculations_hud/combat_math_calculations_hud.gd" id="1_34uv2"]
 [ext_resource type="Texture2D" uid="uid://4nvogy60mpq3" path="res://icon.svg" id="1_d8qxi"]
 [ext_resource type="Texture2D" uid="uid://c812lqrvhyq01" path="res://assets/art/ATTACK_icon_64x64.png" id="2_c1off"]
 

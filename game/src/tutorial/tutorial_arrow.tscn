@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bcylmmwqvfl7l"]
 
-[ext_resource type="Script" path="res://src/tutorial/tutorial_arrow.gd" id="1_54pno"]
+[ext_resource type="Script" uid="uid://dkvxq1e6b1yt2" path="res://src/tutorial/tutorial_arrow.gd" id="1_54pno"]
 [ext_resource type="Texture2D" uid="uid://db8pq3eak4l52" path="res://assets/art/tutorial_arrow.png" id="2_xmjmy"]
 
 [node name="TutorialArrow" type="Control"]
