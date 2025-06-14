@@ -46,6 +46,7 @@ price = 0
 [resource]
 script = ExtResource("3_bro8q")
 name = "Perch"
+job_name = "Sniper"
 description = "Vigilant. Careful. Quiet. There will be time for song when the work's done."
 portrait = ExtResource("2_64jf5")
 icon = ExtResource("1_5xnob")

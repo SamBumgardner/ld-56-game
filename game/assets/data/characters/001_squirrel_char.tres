@@ -46,6 +46,7 @@ price = 0
 [resource]
 script = ExtResource("3_q6l7y")
 name = "Mint"
+job_name = "Explorer"
 description = "A drifter with a name from greener times. An explorer first, they chase the thrill of discovering new frontiers."
 portrait = ExtResource("2_kikr5")
 icon = ExtResource("1_cuaet")

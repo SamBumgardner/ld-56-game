@@ -46,6 +46,7 @@ price = 0
 [resource]
 script = ExtResource("3_ckivh")
 name = "Tumble"
+job_name = "Engineer"
 description = "Not much of an acrobat, but an excellent engineer.
  "
 portrait = ExtResource("2_tg2sd")

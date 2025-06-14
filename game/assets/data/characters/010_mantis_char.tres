@@ -46,6 +46,7 @@ price = 0
 [resource]
 script = ExtResource("3_bid6u")
 name = "Blades"
+job_name = "Swordmaster"
 description = "A wandering warrior, always looking for opportunities to sharpen his skills."
 portrait = ExtResource("2_6nckq")
 icon = ExtResource("1_8pmao")
