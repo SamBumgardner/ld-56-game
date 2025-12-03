@@ -5,21 +5,10 @@
 
 [sub_resource type="Resource" id="Resource_lqyuf"]
 script = ExtResource("2_nd0w5")
-name = ""
-description = ""
-visual_summary = ""
-cost = 0
 upgrade_type = 6
-value_change_amount = 0
-number_of_times = 1
-remove_action_name = ""
-new_action_string = ""
 filter_criteria = 1
-invert_filter = false
 sort_criteria = 1
-number_of_actions_to_affect = 1
 change_to = 0
-restore_pct = 0.0
 
 [resource]
 script = ExtResource("2_nd0w5")
@@ -27,16 +16,7 @@ name = "Mighty"
 description = "Temporary Description"
 visual_summary = "[center]Copy largest [img=30%]res://assets/art/HEAL_icon_64x64.png[/img] as [img=30%]res://assets/art/ATTACK_icon_64x64.png[/img]"
 icon_ref = ExtResource("2_l8wcx")
-cost = 0
 additional_effect = SubResource("Resource_lqyuf")
 upgrade_type = 4
-value_change_amount = 0
-number_of_times = 1
-remove_action_name = ""
-new_action_string = ""
 filter_criteria = 1
-invert_filter = false
 sort_criteria = 1
-number_of_actions_to_affect = 1
-change_to = -1
-restore_pct = 0.0

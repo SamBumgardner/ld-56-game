@@ -18,26 +18,18 @@
 [sub_resource type="Resource" id="Resource_wcex8"]
 script = ExtResource("11_unum0")
 current_region_starting_barrier_strength = 4.0
-current_reroll_fuel_cost = 1
-current_matching_stat_type_multiplier = 2
 war_transport_health_maximum = 15
 war_transport_health_current = 15
-should_generate_new_applicants = true
 current_money = 35
 current_fuel = 5
 
 [sub_resource type="Resource" id="Resource_ms3ae"]
 script = ExtResource("15_1r0vp")
-starts_at = 0
-arrival_bonus_heal = 0
-arrival_bonus_barrier_reduction = 0
 region = ExtResource("12_fgyj2")
 
 [sub_resource type="Resource" id="Resource_0unf2"]
 script = ExtResource("15_1r0vp")
 starts_at = 75
-arrival_bonus_heal = 0
-arrival_bonus_barrier_reduction = 0
 region = ExtResource("13_1v4v2")
 
 [resource]
@@ -49,5 +41,3 @@ total_distance = 150
 segments = Array[ExtResource("15_1r0vp")]([SubResource("Resource_ms3ae"), SubResource("Resource_0unf2")])
 gameplay_init_values = SubResource("Resource_wcex8")
 available_characters = Array[ExtResource("1_lpdkw")]([ExtResource("2_tv6dv"), ExtResource("3_sqvsd"), ExtResource("4_kyerd"), ExtResource("5_40u24"), ExtResource("6_f4pyd"), ExtResource("9_c0150"), ExtResource("12_hx7iy"), ExtResource("13_ydh1n"), ExtResource("5_40u24")])
-possible_start_char_options = Array[int]([0, 1, 2])
-start_char_count = 3

@@ -21,27 +21,22 @@
 [sub_resource type="Resource" id="Resource_8vmh3"]
 script = ExtResource("4_j1drq")
 choices = Array[ExtResource("5_jpgdi")]([ExtResource("6_qmxyu"), ExtResource("7_sh88i")])
-price = 0
 
 [sub_resource type="Resource" id="Resource_qjpoh"]
 script = ExtResource("4_j1drq")
 choices = Array[ExtResource("5_jpgdi")]([ExtResource("8_d2j5k"), ExtResource("9_aow6a")])
-price = 0
 
 [sub_resource type="Resource" id="Resource_cho87"]
 script = ExtResource("4_j1drq")
 choices = Array[ExtResource("5_jpgdi")]([ExtResource("10_5ndhl"), ExtResource("11_od03c")])
-price = 0
 
 [sub_resource type="Resource" id="Resource_dvbu4"]
 script = ExtResource("4_j1drq")
 choices = Array[ExtResource("5_jpgdi")]([ExtResource("12_fqbja"), ExtResource("13_56dia")])
-price = 0
 
 [sub_resource type="Resource" id="Resource_oyq3u"]
 script = ExtResource("4_j1drq")
 choices = Array[ExtResource("5_jpgdi")]([ExtResource("14_fys2i"), ExtResource("15_w2wrr")])
-price = 0
 
 [resource]
 script = ExtResource("3_tiyrw")
@@ -52,5 +47,4 @@ icon = ExtResource("1_aknx8")
 sfx_hello = ExtResource("4_y5ipu")
 sfx_upgrade_gained = ExtResource("5_jv18h")
 starting_action_strings = Array[String](["might_2", "wit_1"])
-upgrade_level = 0
 upgrades = Array[ExtResource("4_j1drq")]([SubResource("Resource_8vmh3"), SubResource("Resource_qjpoh"), SubResource("Resource_cho87"), SubResource("Resource_dvbu4"), SubResource("Resource_oyq3u")])

@@ -5,21 +5,8 @@
 
 [sub_resource type="Resource" id="Resource_cdmsv"]
 script = ExtResource("1_enchb")
-name = ""
-description = ""
-visual_summary = ""
-cost = 0
 upgrade_type = 1
-value_change_amount = 0
-number_of_times = 1
-remove_action_name = ""
 new_action_string = "might_1"
-filter_criteria = -1
-invert_filter = false
-sort_criteria = -1
-number_of_actions_to_affect = 1
-change_to = -1
-restore_pct = 0.0
 
 [resource]
 script = ExtResource("1_enchb")
@@ -28,16 +15,8 @@ description = "Temporary Description"
 visual_summary = "[center]Increase two strongest actions by [b]2[/b]
 Add: 1[img=30%]res://assets/art/ATTACK_icon_64x64.png[/img]"
 icon_ref = ExtResource("2_m01qt")
-cost = 0
 additional_effect = SubResource("Resource_cdmsv")
 upgrade_type = 2
 value_change_amount = 2
-number_of_times = 1
-remove_action_name = ""
-new_action_string = ""
-filter_criteria = -1
-invert_filter = false
 sort_criteria = 1
 number_of_actions_to_affect = 2
-change_to = -1
-restore_pct = 0.0

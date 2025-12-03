@@ -11,7 +11,6 @@ retain_filter = 2
 retain_invert_filter = true
 lost_sort = 0
 lost_filter = 2
-lost_invert_filter = false
 
 [resource]
 script = ExtResource("2_r5bmc")
@@ -20,16 +19,5 @@ description = "Temporary Description"
 visual_summary = "[center]Remove lowest [img=30%]res://assets/art/MAGIC_icon_64x64.png[/img]
 Increase random action by the removed value"
 icon_ref = ExtResource("1_inup7")
-cost = 0
 upgrade_type = 7
-value_change_amount = 0
-number_of_times = 1
-remove_action_name = ""
-new_action_string = ""
-filter_criteria = -1
-invert_filter = false
-sort_criteria = -1
-number_of_actions_to_affect = 1
-change_to = -1
-restore_pct = 0.0
 specific_combine_params = SubResource("Resource_y65ic")
