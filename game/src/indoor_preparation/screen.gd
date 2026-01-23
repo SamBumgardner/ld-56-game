@@ -53,6 +53,7 @@ func return_to_home_display() -> void:
     _hide_all_screen_displays()
     current_view = ScreenViews.HOME
     _delay_callback(home_display.show)
+    home_display.view_applicants_button.grab_focus()
 
 func _delay_callback(callback: Callable) -> void:
     if loading_delay_tween != null and loading_delay_tween.is_running():
