@@ -29,7 +29,7 @@ func refresh():
 
 
 func _build_volume_percentage_display(value):
-    return str(value) + '%'
+    return str(int(value)) + '%'
 
 
 func _on_music_volume_percentage_slider_drag_ended(value_changed: bool) -> void:
