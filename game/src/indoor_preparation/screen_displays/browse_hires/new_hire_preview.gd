@@ -21,6 +21,9 @@ func _ready() -> void:
     action_previews.append_array(action_previews_2)
     button.pressed.connect(_on_button_pressed)
 
+func get_button() -> Button:
+    return button
+
 func set_character_data(character: Character) -> void:
     portrait.texture = character.icon
     name_label.text = character.name

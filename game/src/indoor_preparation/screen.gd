@@ -65,6 +65,7 @@ func _transition_to_hire_preview_display() -> void:
     _hide_all_screen_displays()
     current_view = ScreenViews.BROWSE_HIRES
     _delay_callback(hire_preview_display.show)
+    hire_preview_display.try_grab_focus_on_first_new_hire()
 
 func _applicant_selected_from_hiring_preview(character: Character) -> void:
     _hide_all_screen_displays()
@@ -93,6 +94,7 @@ func _on_cancel() -> void:
             ScreenViews.HIRE_DETAIL:
                 current_view = ScreenViews.BROWSE_HIRES
                 _delay_callback(hire_preview_display.show)
+                hire_preview_display.try_grab_focus_on_first_new_hire()
             ScreenViews.CREW_MEMBER_DETAIL:
                 left_character_detail_display.emit()
                 current_view = ScreenViews.HOME
