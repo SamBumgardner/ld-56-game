@@ -14,6 +14,21 @@ const SCENARIO_FORMAT: String = "Scenario: %s"
 @onready var main_menu_button: Button = $Control/ButtonContainer/ToMainMenu
 @onready var scenario_name: Label = $Control/TitleContainer/MarginContainer/HB/ScenarioName
 
+@onready var children_to_fade_in: Array[Control] = [
+    title_container,
+    stats_container,
+    button_container
+]
+
+# Total of a 2.5 second delay for default values in order to match when
+#  the `button_container` starts to fade in.
+@onready var animation_time_focus_retry_control_during_fade_in: float = (
+    initial_delay
+    + (delay_duration + fade_duration)
+        * (children_to_fade_in.size() - 1)
+    + fade_duration
+)
+
 func _ready() -> void:
     retry_button.pressed.connect(_on_retry_pressed)
     main_menu_button.pressed.connect(_on_main_menu_pressed)
@@ -24,18 +39,18 @@ func _ready() -> void:
         retry_button.disabled = true
     
     _start_fade_in_sequence()
+        
+    # Delay added here to let the controls fade in.
+    create_tween() \
+        .tween_callback(func(): retry_button.grab_focus()) \
+        .set_delay(animation_time_focus_retry_control_during_fade_in)
     
 func _start_fade_in_sequence() -> Tween:
     var fade_in_sequence: Tween = create_tween()
     fade_in_sequence.tween_interval(initial_delay)
     fade_in_sequence.tween_callback(_darken_background)
 
-    var children = [
-        title_container,
-        stats_container,
-        button_container
-    ]
-    for child in children:
+    for child in children_to_fade_in:
         _append_fade_in_steps(child, fade_in_sequence)
     
     return fade_in_sequence
