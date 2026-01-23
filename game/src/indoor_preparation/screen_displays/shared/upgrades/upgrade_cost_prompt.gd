@@ -21,6 +21,9 @@ func _ready() -> void:
     purchase_button.pressed.connect(_on_purchase_button_pressed)
     update_display_elements(false, false)
 
+func get_button() -> Button:
+    return purchase_button
+
 func select_upgrade_cost(upgrade_choice: UpgradeChoice, level_purchased: bool,
         this_upgrade_purchased: bool):
     selected_upgrade = upgrade_choice

@@ -13,3 +13,6 @@ func set_character_data(character: Character) -> void:
 
 func disable_buy():
     purchase_button.disabled = true
+
+func get_button() -> Button:
+    return purchase_button

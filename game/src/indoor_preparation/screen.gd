@@ -72,6 +72,7 @@ func _applicant_selected_from_hiring_preview(character: Character) -> void:
     current_view = ScreenViews.HIRE_DETAIL
     hire_detail_display.set_character_data(character)
     _delay_callback(hire_detail_display.show)
+    hire_detail_display.grab_focus_on_hire_button()
 
 func _on_crew_member_selected(character: Character) -> void:
     _hide_all_screen_displays()

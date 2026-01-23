@@ -8,6 +8,9 @@ func _ready() -> void:
     super()
     hire_cost_prompt.purchase_button.pressed.connect(_on_hire_button_pressed)
 
+func grab_focus_on_hire_button() -> void:
+    hire_cost_prompt.get_button().grab_focus()
+
 func set_character_data(new_character: Character):
     super(new_character)
     hire_cost_prompt.set_character_data(new_character)
