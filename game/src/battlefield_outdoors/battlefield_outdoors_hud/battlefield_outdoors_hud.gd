@@ -63,6 +63,8 @@ func _ready():
 
     Database.region_changed.connect(_on_region_changed)
 
+    go_inside_button.grab_focus()
+
 
 func request_roll_preview_start() -> void:
     crew_actions_display.start_preview_reroll()
@@ -206,6 +208,7 @@ func _on_charge_cooldown(duration: float) -> void:
 func _on_charge_finish() -> void:
     unset_resource_update_delay()
     _enable_interaction()
+    charge_button.grab_focus()
 
 #region Descendant SFX: enabled button mouse entered
 

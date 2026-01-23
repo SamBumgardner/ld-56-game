@@ -65,6 +65,8 @@ func go_inside() -> void:
     zoom_in_tween.parallel()
     zoom_in_tween.tween_property(outdoor_camera, "zoom", Vector2.ONE, .25)
 
+    go_outside_button.grab_focus()
+
 func go_outside() -> void:
     # see go_inside, same idea here
     var transition_while_hidden = func():
@@ -83,6 +85,8 @@ func go_outside() -> void:
     zoom_out_tween.tween_property(indoor_canvas, "scale", Vector2.ONE * .9, .5)
     zoom_out_tween.tween_interval(.25)
     zoom_out_tween.tween_property(indoor_canvas, "scale", Vector2.ONE, .25)
+
+    go_inside_button.grab_focus()
 
 func charge_zoom_in(duration):
     var zoom_in_tween = create_tween()

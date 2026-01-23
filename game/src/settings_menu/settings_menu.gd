@@ -2,12 +2,19 @@ extends Control
 
 
 @onready var audio_manager: AudioManager = $AudioManager
+@onready var back_button: Button = (
+    $CenterContainer/VBoxContainer/BackButton
+)
 @onready var settings_volume = (
     $CenterContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer/SettingsVolume
 )
 
 
 const setting_to_percentage_ratio = 100
+
+
+func _ready() -> void:
+    back_button.grab_focus()
 
 
 func _slider_value_to_volume(slider_value: float) -> float:

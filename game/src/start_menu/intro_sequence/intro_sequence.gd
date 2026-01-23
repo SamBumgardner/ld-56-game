@@ -40,3 +40,6 @@ func _process(delta: float) -> void:
             < animation_time_near_end_point
     ):
         animation_player.seek(animation_time_near_end_point)
+        # Grab focus on the tutorial button when the user skips through the
+        #  intro animation near the end.
+        intro_finished.emit()
