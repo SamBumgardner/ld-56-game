@@ -18,19 +18,13 @@
 [sub_resource type="Resource" id="Resource_wcex8"]
 script = ExtResource("10_w8fog")
 current_region_starting_barrier_strength = 4.0
-current_reroll_fuel_cost = 1
-current_matching_stat_type_multiplier = 2
 war_transport_health_maximum = 15
 war_transport_health_current = 15
 should_generate_new_applicants = false
-current_money = 0
 current_fuel = 5
 
 [sub_resource type="Resource" id="Resource_ms3ae"]
 script = ExtResource("13_xffuc")
-starts_at = 0
-arrival_bonus_heal = 0
-arrival_bonus_barrier_reduction = 0
 region = ExtResource("14_mgkae")
 
 [resource]
@@ -38,10 +32,7 @@ script = ExtResource("12_sptgv")
 scene_to_load = ExtResource("11_0i06n")
 scenario_name = "Actions"
 scenario_description = "Learn about actions, the foundation of the T.U.S.K. crew's power!"
-difficulty_rating = 0
 total_distance = 100
 segments = Array[ExtResource("13_xffuc")]([SubResource("Resource_ms3ae")])
 gameplay_init_values = SubResource("Resource_wcex8")
 available_characters = Array[ExtResource("1_nngro")]([ExtResource("2_qfynx"), ExtResource("3_apbm4"), ExtResource("4_4mmqa"), ExtResource("5_3hce0"), ExtResource("6_gkfnu"), ExtResource("7_aendf"), ExtResource("8_xm1bc"), ExtResource("9_oj2lv")])
-possible_start_char_options = Array[int]([0, 1, 2])
-start_char_count = 3

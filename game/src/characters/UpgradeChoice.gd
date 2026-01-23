@@ -92,8 +92,8 @@ static func _add_summed(upgrade: UpgradeChoice, action_selector: ActionSelector)
                 return a + b.amount
             else:
                 return a.amount + b.amount)
-    var name = "%s_%s" % [upgrade.new_action_string, summed_amounts]
-    action_selector.append(Action.new(name, Database.string_to_stat_type[upgrade.new_action_string], summed_amounts))
+    var action_name = "%s_%s" % [upgrade.new_action_string, summed_amounts]
+    action_selector.append(Action.new(action_name, Database.string_to_stat_type[upgrade.new_action_string], summed_amounts))
 
 static func _up_stat(upgrade: UpgradeChoice, action_selector: ActionSelector):
     var actions = action_selector.get_all()

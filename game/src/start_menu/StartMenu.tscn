@@ -38,7 +38,7 @@ layout_mode = 1
 [node name="SubTitle" type="RichTextLabel" parent="."]
 visible = false
 clip_contents = false
-layout_mode = 2
+layout_mode = 0
 offset_left = 170.0
 offset_top = 200.0
 offset_right = 635.0

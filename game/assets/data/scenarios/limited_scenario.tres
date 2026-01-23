@@ -17,8 +17,6 @@
 [sub_resource type="Resource" id="Resource_gm2jh"]
 script = ExtResource("10_u2vnw")
 current_region_starting_barrier_strength = 5.0
-current_reroll_fuel_cost = 1
-current_matching_stat_type_multiplier = 2
 war_transport_health_maximum = 12
 war_transport_health_current = 12
 should_generate_new_applicants = false
@@ -27,9 +25,6 @@ current_fuel = 3
 
 [sub_resource type="Resource" id="Resource_ew5hi"]
 script = ExtResource("12_1u8k6")
-starts_at = 0
-arrival_bonus_heal = 0
-arrival_bonus_barrier_reduction = 0
 region = ExtResource("14_e7kk5")
 
 [sub_resource type="Resource" id="Resource_25wxb"]

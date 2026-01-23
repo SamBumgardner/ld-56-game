@@ -198,7 +198,7 @@ func _on_charge_warmup(duration: float) -> void:
     _charge_mode_fadeout(duration)
 
 
-func _on_charge_impact(duration: float) -> void:
+func _on_charge_impact(_duration: float) -> void:
     combat_results_summary.display_combat_results()
 
 func _on_charge_cooldown(duration: float) -> void:

@@ -16,17 +16,17 @@ func _ready():
     if not has_played_once:
         has_played_once = true
     else:
-        await get_tree().process_frame == true
+        await get_tree().process_frame
         animation_player.advance(animation_player.current_animation.length())
 
 
-func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+func _on_animation_player_animation_finished(_anim_name: StringName) -> void:
     intro_finished.emit()
 
 
 # Allow skipping the introduction animation in 2 parts when anything is pressed
 #  or clicked.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
     if not animation_player.is_playing() or not Input.is_anything_pressed():
         return
 

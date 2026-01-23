@@ -85,10 +85,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/hover_pressed = ExtResource("3_flghc")
-theme_override_styles/hover = ExtResource("3_flghc")
-theme_override_styles/pressed = ExtResource("4_i8af1")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_l3xg7")
+theme_override_styles/pressed = ExtResource("4_i8af1")
+theme_override_styles/hover = ExtResource("3_flghc")
+theme_override_styles/hover_pressed = ExtResource("3_flghc")
 toggle_mode = true
 button_group = ExtResource("3_613ya")
 

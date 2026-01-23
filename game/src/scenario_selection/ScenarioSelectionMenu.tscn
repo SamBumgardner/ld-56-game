@@ -355,3 +355,4 @@ theme_override_font_sizes/font_size = 48
 text = "START"
 
 [node name="BackToStartMenuButton" parent="." instance=ExtResource("12_l3dg5")]
+layout_mode = 0
