@@ -22,5 +22,4 @@ text_overrun_behavior = 1
 [node name="StatValue" type="Label" parent="."]
 layout_mode = 2
 size_flags_horizontal = 8
-text = "30
-"
+text = "30"
