@@ -29,8 +29,7 @@ layout_mode = 2
 
 [node name="Header" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Current Region: 
-"
+text = "Current Region:"
 
 [node name="RegionName" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2

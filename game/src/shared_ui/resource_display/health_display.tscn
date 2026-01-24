@@ -17,8 +17,7 @@ layout_mode = 2
 
 [node name="HealthLabel" type="Label" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
-text = "Health:
-"
+text = "Health:"
 
 [node name="HealthCurrent" type="Label" parent="MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(50, 0)

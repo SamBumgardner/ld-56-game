@@ -13,8 +13,7 @@ visible = false
 [node name="GoalLabel" type="Label" parent="MarginContainer/HBoxContainer" index="1"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-text = "Goal in: 
-"
+text = "Goal in:"
 
 [node name="UnitsLabel" type="Label" parent="MarginContainer/HBoxContainer" index="3"]
 layout_mode = 2
