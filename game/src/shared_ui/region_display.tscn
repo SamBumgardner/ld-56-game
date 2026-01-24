@@ -8,12 +8,8 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [node name="RegionDisplay" type="PanelContainer"]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-grow_horizontal = 2
+offset_right = 150.0
+offset_bottom = 57.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_yo7kg")
 script = ExtResource("1_ml45x")
 

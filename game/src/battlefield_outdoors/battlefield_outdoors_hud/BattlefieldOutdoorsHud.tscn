@@ -497,17 +497,27 @@ anchor_right = 0.8
 anchor_bottom = 0.4
 grow_vertical = 0
 
-[node name="DistanceRemainingDisplay" parent="." instance=ExtResource("21_mon1i")]
+[node name="TopRightLocation" type="MarginContainer" parent="."]
 layout_mode = 1
-anchors_preset = -1
-offset_right = -50.0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
+theme_override_constants/margin_right = 50
 
-[node name="Control" type="Control" parent="DistanceRemainingDisplay"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TopRightLocation"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="DistanceRemainingDisplay" parent="TopRightLocation/VBoxContainer" instance=ExtResource("21_mon1i")]
 layout_mode = 2
 
-[node name="RegionDisplay" parent="DistanceRemainingDisplay/Control" instance=ExtResource("22_cfrx8")]
-layout_mode = 1
-anchors_preset = -1
+[node name="Control" type="Control" parent="TopRightLocation/VBoxContainer/DistanceRemainingDisplay"]
+layout_mode = 2
+
+[node name="RegionDisplay" parent="TopRightLocation/VBoxContainer" instance=ExtResource("22_cfrx8")]
+layout_mode = 2
+size_flags_horizontal = 4
 
 [connection signal="exited_available_reroll" from="BottomInfoDisplay/Center/TopEdge/RerollButton" to="AudioManager" method="_on_reroll_button_exited_available_reroll"]
 [connection signal="hovered_available_reroll" from="BottomInfoDisplay/Center/TopEdge/RerollButton" to="AudioManager" method="_on_reroll_button_hovered_available_reroll"]
