@@ -20,6 +20,9 @@ func display_new_tutorial_step(new_position: Vector2, header_text: String, body_
     continue_divider.visible = show_continue_button
     continue_button.visible = show_continue_button
 
+    if show_continue_button:
+        continue_button.grab_focus()
+
 func _jump_to_location(new_position: Vector2):
     position = new_position
     size.y = 0
