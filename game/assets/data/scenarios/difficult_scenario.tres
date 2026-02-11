@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Scenario" load_steps=27 format=3 uid="uid://bqlhqsjql0ax2"]
+[gd_resource type="Resource" script_class="Scenario" format=3 uid="uid://bqlhqsjql0ax2"]
 
 [ext_resource type="Script" uid="uid://dg7mc44mebrid" path="res://src/characters/CharacterFactory.gd" id="1_hklrr"]
 [ext_resource type="Resource" uid="uid://cghmtnhtq1aeh" path="res://assets/data/characters/001_squirrel_char.tres" id="2_dtvqe"]
@@ -24,26 +24,19 @@
 [sub_resource type="Resource" id="Resource_wcex8"]
 script = ExtResource("10_5hn5r")
 current_region_starting_barrier_strength = 5.0
-current_reroll_fuel_cost = 1
-current_matching_stat_type_multiplier = 2
 war_transport_health_maximum = 15
 war_transport_health_current = 15
-should_generate_new_applicants = true
 current_money = 10
 current_fuel = 2
 
 [sub_resource type="Resource" id="Resource_ms3ae"]
 script = ExtResource("12_35day")
-starts_at = 0
-arrival_bonus_heal = 0
-arrival_bonus_barrier_reduction = 0
 region = ExtResource("13_1splt")
 
 [sub_resource type="Resource" id="Resource_0s85i"]
 script = ExtResource("12_35day")
 starts_at = 75
 arrival_bonus_heal = 5
-arrival_bonus_barrier_reduction = 0
 region = ExtResource("18_gnrfr")
 
 [sub_resource type="Resource" id="Resource_f8r4l"]
@@ -57,14 +50,12 @@ region = ExtResource("13_m22qa")
 script = ExtResource("12_35day")
 starts_at = 175
 arrival_bonus_heal = 5
-arrival_bonus_barrier_reduction = 0
 region = ExtResource("13_1splt")
 
 [sub_resource type="Resource" id="Resource_cgkec"]
 script = ExtResource("12_35day")
 starts_at = 250
 arrival_bonus_heal = 10
-arrival_bonus_barrier_reduction = 0
 region = ExtResource("15_n3wxn")
 
 [resource]
@@ -75,6 +66,4 @@ difficulty_rating = 3
 total_distance = 350
 segments = Array[ExtResource("12_35day")]([SubResource("Resource_ms3ae"), SubResource("Resource_0s85i"), SubResource("Resource_f8r4l"), SubResource("Resource_7lxg4"), SubResource("Resource_cgkec")])
 gameplay_init_values = SubResource("Resource_wcex8")
-available_characters = Array[ExtResource("1_hklrr")]([ExtResource("2_dtvqe"), ExtResource("3_g66kk"), ExtResource("4_wlfsb"), ExtResource("5_ijjy5"), ExtResource("6_d5a5t"), ExtResource("7_4amod"), ExtResource("8_q037x"), ExtResource("7_3522x"), ExtResource("10_0mff6"), ExtResource("11_8miat"), ExtResource("8_drw6i"), ExtResource("9_c5v8l")])
-possible_start_char_options = Array[int]([0, 1, 2])
 start_char_count = 2

@@ -1,15 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://ceesyhnktnbd1"]
+[gd_scene format=3 uid="uid://ceesyhnktnbd1"]
 
 [ext_resource type="Texture2D" uid="uid://4nvogy60mpq3" path="res://icon.svg" id="1_3np5d"]
 [ext_resource type="Script" uid="uid://573p0m01l4ag" path="res://src/battlefield_outdoors/battlefield_outdoors_barrier/battlefield_outdoors_barrier.gd" id="1_jgx0l"]
 [ext_resource type="Texture2D" uid="uid://bgne24wn300pq" path="res://assets/art/barriers/Wall_01.png" id="1_nfytr"]
 [ext_resource type="Theme" uid="uid://dk5iv042psfw" path="res://assets/themes/Default.tres" id="3_g1tfv"]
 
-[node name="BattlefieldOutdoorsBarrier" type="Sprite2D"]
+[node name="BattlefieldOutdoorsBarrier" type="Sprite2D" unique_id=591695172]
 texture = ExtResource("1_nfytr")
 script = ExtResource("1_jgx0l")
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=2132694648]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,7 +22,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_g1tfv")
 
-[node name="CostToOvercome" type="HBoxContainer" parent="Control"]
+[node name="CostToOvercome" type="HBoxContainer" parent="Control" unique_id=1390425755]
 visible = false
 layout_mode = 1
 anchors_preset = -1
@@ -32,18 +32,18 @@ grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
 
-[node name="Amount" type="Label" parent="Control/CostToOvercome"]
+[node name="Amount" type="Label" parent="Control/CostToOvercome" unique_id=1808492005]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "21"
 
-[node name="Symbol" type="TextureRect" parent="Control/CostToOvercome"]
+[node name="Symbol" type="TextureRect" parent="Control/CostToOvercome" unique_id=1806167300]
 visible = false
 layout_mode = 2
 texture = ExtResource("1_3np5d")
 expand_mode = 2
 
-[node name="BarrierName" type="Label" parent="Control"]
+[node name="BarrierName" type="Label" parent="Control" unique_id=1593734374]
 visible = false
 custom_minimum_size = Vector2(1, 0)
 layout_mode = 1

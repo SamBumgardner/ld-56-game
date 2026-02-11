@@ -1,11 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://bugoxhbwbupi5"]
+[gd_scene format=3 uid="uid://bugoxhbwbupi5"]
 
 [ext_resource type="PackedScene" uid="uid://dj3cohh45iw0d" path="res://src/indoor_preparation/crew_buttons/crew_button.tscn" id="1_jcmjl"]
 [ext_resource type="ButtonGroup" uid="uid://bjgmkn24yqbu4" path="res://src/indoor_preparation/crew_buttons/crew_buttons.tres" id="2_h4jms"]
 [ext_resource type="Resource" uid="uid://duswkektwj6hb" path="res://assets/data/characters/002_frog_char.tres" id="2_lkgdj"]
 [ext_resource type="Resource" uid="uid://cghmtnhtq1aeh" path="res://assets/data/characters/001_squirrel_char.tres" id="3_7560e"]
 
-[node name="TestCrewButtonGroup" type="Control"]
+[node name="TestCrewButtonGroup" type="Control" unique_id=1324603991]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,7 +13,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CrewButton" parent="." instance=ExtResource("1_jcmjl")]
+[node name="CrewButton" parent="." unique_id=1643450489 instance=ExtResource("1_jcmjl")]
 layout_mode = 1
 offset_left = 91.0
 offset_top = -274.0
@@ -21,7 +21,7 @@ offset_right = 341.0
 offset_bottom = -24.0
 character_factory = ExtResource("2_lkgdj")
 
-[node name="CrewButton2" parent="." instance=ExtResource("1_jcmjl")]
+[node name="CrewButton2" parent="." unique_id=248950697 instance=ExtResource("1_jcmjl")]
 layout_mode = 1
 offset_left = -443.0
 offset_top = -219.0
@@ -29,7 +29,7 @@ offset_right = -193.0
 offset_bottom = 31.0
 character_factory = ExtResource("3_7560e")
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="." unique_id=1424948134]
 layout_mode = 0
 offset_left = 559.0
 offset_top = 204.0
@@ -39,7 +39,7 @@ toggle_mode = true
 button_group = ExtResource("2_h4jms")
 text = "testing"
 
-[node name="Button2" type="Button" parent="."]
+[node name="Button2" type="Button" parent="." unique_id=949573205]
 layout_mode = 0
 offset_left = 612.0
 offset_top = 132.0

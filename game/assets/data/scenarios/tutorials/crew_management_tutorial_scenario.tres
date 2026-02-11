@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Scenario" load_steps=17 format=3 uid="uid://br4qipgsb5omi"]
+[gd_resource type="Resource" script_class="Scenario" format=3 uid="uid://br4qipgsb5omi"]
 
 [ext_resource type="Script" uid="uid://dg7mc44mebrid" path="res://src/characters/CharacterFactory.gd" id="1_w6afk"]
 [ext_resource type="Resource" uid="uid://cghmtnhtq1aeh" path="res://assets/data/characters/001_squirrel_char.tres" id="2_dguca"]
@@ -18,8 +18,6 @@
 [sub_resource type="Resource" id="Resource_wcex8"]
 script = ExtResource("10_lmwhk")
 current_region_starting_barrier_strength = 4.0
-current_reroll_fuel_cost = 1
-current_matching_stat_type_multiplier = 2
 war_transport_health_maximum = 15
 war_transport_health_current = 15
 should_generate_new_applicants = false
@@ -28,9 +26,6 @@ current_fuel = 10
 
 [sub_resource type="Resource" id="Resource_ms3ae"]
 script = ExtResource("13_knvdh")
-starts_at = 0
-arrival_bonus_heal = 0
-arrival_bonus_barrier_reduction = 0
 region = ExtResource("14_kjy7g")
 
 [resource]
@@ -43,5 +38,3 @@ total_distance = 150
 segments = Array[ExtResource("13_knvdh")]([SubResource("Resource_ms3ae")])
 gameplay_init_values = SubResource("Resource_wcex8")
 available_characters = Array[ExtResource("1_w6afk")]([ExtResource("2_dguca"), ExtResource("3_pitg5"), ExtResource("4_ds2st"), ExtResource("5_3vcg6"), ExtResource("6_v0vrq"), ExtResource("7_s1coc"), ExtResource("8_ll0h1"), ExtResource("9_0v2bi")])
-possible_start_char_options = Array[int]([0, 1, 2])
-start_char_count = 3

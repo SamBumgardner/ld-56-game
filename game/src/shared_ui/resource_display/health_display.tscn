@@ -1,35 +1,35 @@
-[gd_scene load_steps=2 format=3 uid="uid://da57hkojchohp"]
+[gd_scene format=3 uid="uid://da57hkojchohp"]
 
 [ext_resource type="Theme" uid="uid://faamfnysmojx" path="res://assets/themes/health_display.tres" id="1_ayytc"]
 
-[node name="HealthDisplay" type="PanelContainer"]
+[node name="HealthDisplay" type="PanelContainer" unique_id=454062038]
 theme = ExtResource("1_ayytc")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=260973649]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=187196416]
 layout_mode = 2
 
-[node name="HealthLabel" type="Label" parent="MarginContainer/HBoxContainer"]
+[node name="HealthLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=68484899]
 layout_mode = 2
 text = "Health:
 "
 
-[node name="HealthCurrent" type="Label" parent="MarginContainer/HBoxContainer"]
+[node name="HealthCurrent" type="Label" parent="MarginContainer/HBoxContainer" unique_id=141982941]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 text = "0"
 horizontal_alignment = 2
 
-[node name="HealthDivider" type="Label" parent="MarginContainer/HBoxContainer"]
+[node name="HealthDivider" type="Label" parent="MarginContainer/HBoxContainer" unique_id=1300582606]
 layout_mode = 2
 text = "/"
 
-[node name="HealthMaximum" type="Label" parent="MarginContainer/HBoxContainer"]
+[node name="HealthMaximum" type="Label" parent="MarginContainer/HBoxContainer" unique_id=354565568]
 layout_mode = 2
 text = "1000"

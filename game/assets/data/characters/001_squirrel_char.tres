@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CharacterFactory" load_steps=23 format=3 uid="uid://cghmtnhtq1aeh"]
+[gd_resource type="Resource" script_class="CharacterFactory" format=3 uid="uid://cghmtnhtq1aeh"]
 
 [ext_resource type="Texture2D" uid="uid://cm4kq6uthoq7x" path="res://assets/art/character_icons/squirrel_small.png" id="1_cuaet"]
 [ext_resource type="Texture2D" uid="uid://bu60r2ij4s4ht" path="res://assets/art/character_portraits/squirrel_portrait.png" id="2_kikr5"]

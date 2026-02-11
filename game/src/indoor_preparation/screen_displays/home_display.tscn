@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://7vx27hr83tx0"]
+[gd_scene format=3 uid="uid://7vx27hr83tx0"]
 
 [ext_resource type="Script" uid="uid://r43fi58pdclj" path="res://src/indoor_preparation/screen_displays/home_display.gd" id="1_b3nrn"]
 [ext_resource type="Theme" uid="uid://dmwrgmv8lathf" path="res://assets/themes/ScreenTheme.tres" id="1_d2gyf"]
@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://p6epj6q0dwte" path="res://src/battlefield_outdoors/battlefield_outdoors_hud/total_power_display.gd" id="7_u3vh7"]
 [ext_resource type="Theme" uid="uid://diekd7pwnwl6n" path="res://assets/themes/green_button_theme_all_rounded.tres" id="9_m6iv7"]
 
-[node name="HomeDisplay" type="Control"]
+[node name="HomeDisplay" type="Control" unique_id=661664075]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,9 +20,9 @@ grow_vertical = 2
 theme = ExtResource("1_d2gyf")
 script = ExtResource("1_b3nrn")
 
-[node name="AudioManager" parent="." instance=ExtResource("3_2jj1q")]
+[node name="AudioManager" parent="." unique_id=473871836 instance=ExtResource("3_2jj1q")]
 
-[node name="MainContents" type="VBoxContainer" parent="."]
+[node name="MainContents" type="VBoxContainer" parent="." unique_id=1146617755]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -32,164 +32,164 @@ offset_right = 64.0
 offset_bottom = 128.0
 grow_horizontal = 2
 
-[node name="Header" type="Label" parent="MainContents"]
+[node name="Header" type="Label" parent="MainContents" unique_id=1295203644]
 layout_mode = 2
 theme = ExtResource("1_d2gyf")
 theme_override_font_sizes/font_size = 24
 text = "CURRENT THREAT"
 horizontal_alignment = 1
 
-[node name="BarrierName" type="Label" parent="MainContents"]
+[node name="BarrierName" type="Label" parent="MainContents" unique_id=621344855]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "Barrier Name"
 horizontal_alignment = 1
 
-[node name="BarrierDetails" type="HBoxContainer" parent="MainContents"]
+[node name="BarrierDetails" type="HBoxContainer" parent="MainContents" unique_id=2015345577]
 layout_mode = 2
 alignment = 1
 
-[node name="Image" type="TextureRect" parent="MainContents/BarrierDetails"]
+[node name="Image" type="TextureRect" parent="MainContents/BarrierDetails" unique_id=728788633]
 layout_mode = 2
 size_flags_horizontal = 4
 texture = ExtResource("3_4hdf6")
 expand_mode = 2
 
-[node name="StatsContainer" type="VBoxContainer" parent="MainContents/BarrierDetails"]
+[node name="StatsContainer" type="VBoxContainer" parent="MainContents/BarrierDetails" unique_id=1363714873]
 layout_mode = 2
 
-[node name="WeaknessContainer" type="PanelContainer" parent="MainContents/BarrierDetails/StatsContainer"]
+[node name="WeaknessContainer" type="PanelContainer" parent="MainContents/BarrierDetails/StatsContainer" unique_id=1351679592]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="MainContents/BarrierDetails/StatsContainer/WeaknessContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MainContents/BarrierDetails/StatsContainer/WeaknessContainer" unique_id=2001256972]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MainContents/BarrierDetails/StatsContainer/WeaknessContainer/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MainContents/BarrierDetails/StatsContainer/WeaknessContainer/MarginContainer" unique_id=1853735801]
 layout_mode = 2
 theme_override_constants/separation = 15
 
-[node name="WeaknessLabel" type="Label" parent="MainContents/BarrierDetails/StatsContainer/WeaknessContainer/MarginContainer/HBoxContainer"]
+[node name="WeaknessLabel" type="Label" parent="MainContents/BarrierDetails/StatsContainer/WeaknessContainer/MarginContainer/HBoxContainer" unique_id=686754508]
 layout_mode = 2
 size_flags_horizontal = 2
 theme_override_font_sizes/font_size = 24
 text = "Weakness:"
 
-[node name="WeaknessIcon" type="TextureRect" parent="MainContents/BarrierDetails/StatsContainer/WeaknessContainer/MarginContainer/HBoxContainer"]
+[node name="WeaknessIcon" type="TextureRect" parent="MainContents/BarrierDetails/StatsContainer/WeaknessContainer/MarginContainer/HBoxContainer" unique_id=1535487514]
 layout_mode = 2
 size_flags_horizontal = 10
 texture = ExtResource("4_o5aea")
 stretch_mode = 2
 
-[node name="PowerContainer" type="PanelContainer" parent="MainContents/BarrierDetails/StatsContainer"]
+[node name="PowerContainer" type="PanelContainer" parent="MainContents/BarrierDetails/StatsContainer" unique_id=1252246718]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="MainContents/BarrierDetails/StatsContainer/PowerContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MainContents/BarrierDetails/StatsContainer/PowerContainer" unique_id=1112128770]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="MainContents/BarrierDetails/StatsContainer/PowerContainer/MarginContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="MainContents/BarrierDetails/StatsContainer/PowerContainer/MarginContainer" unique_id=552908547]
 layout_mode = 2
 
-[node name="PowerLabel" type="Label" parent="MainContents/BarrierDetails/StatsContainer/PowerContainer/MarginContainer/HBoxContainer2"]
+[node name="PowerLabel" type="Label" parent="MainContents/BarrierDetails/StatsContainer/PowerContainer/MarginContainer/HBoxContainer2" unique_id=1533871143]
 layout_mode = 2
 size_flags_horizontal = 2
 theme_override_font_sizes/font_size = 24
 text = "Total Power:"
 
-[node name="PowerValue" type="Label" parent="MainContents/BarrierDetails/StatsContainer/PowerContainer/MarginContainer/HBoxContainer2"]
+[node name="PowerValue" type="Label" parent="MainContents/BarrierDetails/StatsContainer/PowerContainer/MarginContainer/HBoxContainer2" unique_id=851977892]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 32
 text = "50"
 horizontal_alignment = 1
 
-[node name="PanelContainer" type="PanelContainer" parent="MainContents"]
+[node name="PanelContainer" type="PanelContainer" parent="MainContents" unique_id=688226666]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="MainContents/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MainContents/PanelContainer" unique_id=75639521]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MainContents/PanelContainer/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MainContents/PanelContainer/MarginContainer" unique_id=1179657915]
 custom_minimum_size = Vector2(374, 105)
 layout_mode = 2
 
-[node name="HomeActionsDisplay" type="VBoxContainer" parent="MainContents/PanelContainer/MarginContainer/HBoxContainer"]
+[node name="HomeActionsDisplay" type="VBoxContainer" parent="MainContents/PanelContainer/MarginContainer/HBoxContainer" unique_id=1308909449]
 layout_mode = 2
 size_flags_horizontal = 6
 script = ExtResource("6_n44i5")
 
-[node name="ActionsRow1" type="HBoxContainer" parent="MainContents/PanelContainer/MarginContainer/HBoxContainer/HomeActionsDisplay"]
+[node name="ActionsRow1" type="HBoxContainer" parent="MainContents/PanelContainer/MarginContainer/HBoxContainer/HomeActionsDisplay" unique_id=942277841]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 5
 
-[node name="CharacterActionDisplay" parent="MainContents/PanelContainer/MarginContainer/HBoxContainer/HomeActionsDisplay/ActionsRow1" instance=ExtResource("6_ymb1a")]
+[node name="CharacterActionDisplay" parent="MainContents/PanelContainer/MarginContainer/HBoxContainer/HomeActionsDisplay/ActionsRow1" unique_id=32344501 instance=ExtResource("6_ymb1a")]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="CharacterActionDisplay2" parent="MainContents/PanelContainer/MarginContainer/HBoxContainer/HomeActionsDisplay/ActionsRow1" instance=ExtResource("6_ymb1a")]
+[node name="CharacterActionDisplay2" parent="MainContents/PanelContainer/MarginContainer/HBoxContainer/HomeActionsDisplay/ActionsRow1" unique_id=975075101 instance=ExtResource("6_ymb1a")]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="CharacterActionDisplay3" parent="MainContents/PanelContainer/MarginContainer/HBoxContainer/HomeActionsDisplay/ActionsRow1" instance=ExtResource("6_ymb1a")]
+[node name="CharacterActionDisplay3" parent="MainContents/PanelContainer/MarginContainer/HBoxContainer/HomeActionsDisplay/ActionsRow1" unique_id=1305941235 instance=ExtResource("6_ymb1a")]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="CharacterActionDisplay4" parent="MainContents/PanelContainer/MarginContainer/HBoxContainer/HomeActionsDisplay/ActionsRow1" instance=ExtResource("6_ymb1a")]
+[node name="CharacterActionDisplay4" parent="MainContents/PanelContainer/MarginContainer/HBoxContainer/HomeActionsDisplay/ActionsRow1" unique_id=1769909350 instance=ExtResource("6_ymb1a")]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="ActionsRow2" type="HBoxContainer" parent="MainContents/PanelContainer/MarginContainer/HBoxContainer/HomeActionsDisplay"]
+[node name="ActionsRow2" type="HBoxContainer" parent="MainContents/PanelContainer/MarginContainer/HBoxContainer/HomeActionsDisplay" unique_id=878968452]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 5
 
-[node name="CharacterActionDisplay5" parent="MainContents/PanelContainer/MarginContainer/HBoxContainer/HomeActionsDisplay/ActionsRow2" instance=ExtResource("6_ymb1a")]
+[node name="CharacterActionDisplay5" parent="MainContents/PanelContainer/MarginContainer/HBoxContainer/HomeActionsDisplay/ActionsRow2" unique_id=1637415232 instance=ExtResource("6_ymb1a")]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="CharacterActionDisplay6" parent="MainContents/PanelContainer/MarginContainer/HBoxContainer/HomeActionsDisplay/ActionsRow2" instance=ExtResource("6_ymb1a")]
+[node name="CharacterActionDisplay6" parent="MainContents/PanelContainer/MarginContainer/HBoxContainer/HomeActionsDisplay/ActionsRow2" unique_id=542942771 instance=ExtResource("6_ymb1a")]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="CharacterActionDisplay7" parent="MainContents/PanelContainer/MarginContainer/HBoxContainer/HomeActionsDisplay/ActionsRow2" instance=ExtResource("6_ymb1a")]
+[node name="CharacterActionDisplay7" parent="MainContents/PanelContainer/MarginContainer/HBoxContainer/HomeActionsDisplay/ActionsRow2" unique_id=1197889504 instance=ExtResource("6_ymb1a")]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="CharacterActionDisplay8" parent="MainContents/PanelContainer/MarginContainer/HBoxContainer/HomeActionsDisplay/ActionsRow2" instance=ExtResource("6_ymb1a")]
+[node name="CharacterActionDisplay8" parent="MainContents/PanelContainer/MarginContainer/HBoxContainer/HomeActionsDisplay/ActionsRow2" unique_id=403607630 instance=ExtResource("6_ymb1a")]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="CharacterActionDisplay9" parent="MainContents/PanelContainer/MarginContainer/HBoxContainer/HomeActionsDisplay/ActionsRow2" instance=ExtResource("6_ymb1a")]
+[node name="CharacterActionDisplay9" parent="MainContents/PanelContainer/MarginContainer/HBoxContainer/HomeActionsDisplay/ActionsRow2" unique_id=479113291 instance=ExtResource("6_ymb1a")]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="PanelContainer" type="PanelContainer" parent="MainContents/PanelContainer/MarginContainer/HBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="MainContents/PanelContainer/MarginContainer/HBoxContainer" unique_id=142365244]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 
-[node name="TotalPowerDisplay" type="MarginContainer" parent="MainContents/PanelContainer/MarginContainer/HBoxContainer/PanelContainer" node_paths=PackedStringArray("total_value_label")]
+[node name="TotalPowerDisplay" type="MarginContainer" parent="MainContents/PanelContainer/MarginContainer/HBoxContainer/PanelContainer" unique_id=280171986 node_paths=PackedStringArray("total_value_label")]
 clip_contents = true
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
@@ -198,16 +198,16 @@ theme_override_constants/margin_top = 5
 script = ExtResource("7_u3vh7")
 total_value_label = NodePath("VBoxContainer/TotalValue")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MainContents/PanelContainer/MarginContainer/HBoxContainer/PanelContainer/TotalPowerDisplay"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MainContents/PanelContainer/MarginContainer/HBoxContainer/PanelContainer/TotalPowerDisplay" unique_id=1477556228]
 layout_mode = 2
 
-[node name="TotalHeader" type="Label" parent="MainContents/PanelContainer/MarginContainer/HBoxContainer/PanelContainer/TotalPowerDisplay/VBoxContainer"]
+[node name="TotalHeader" type="Label" parent="MainContents/PanelContainer/MarginContainer/HBoxContainer/PanelContainer/TotalPowerDisplay/VBoxContainer" unique_id=34406613]
 layout_mode = 2
 size_flags_vertical = 0
 text = "Crew Total:"
 horizontal_alignment = 1
 
-[node name="TotalValue" type="Label" parent="MainContents/PanelContainer/MarginContainer/HBoxContainer/PanelContainer/TotalPowerDisplay/VBoxContainer"]
+[node name="TotalValue" type="Label" parent="MainContents/PanelContainer/MarginContainer/HBoxContainer/PanelContainer/TotalPowerDisplay/VBoxContainer" unique_id=1138952213]
 layout_mode = 2
 size_flags_vertical = 8
 theme_override_font_sizes/font_size = 48
@@ -215,7 +215,7 @@ text = "100"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=892520804]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 1
 anchors_preset = -1
@@ -227,7 +227,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/margin_bottom = 10
 
-[node name="Button" type="Button" parent="MarginContainer"]
+[node name="Button" type="Button" parent="MarginContainer" unique_id=1908489523]
 layout_mode = 2
 theme = ExtResource("9_m6iv7")
 text = "BROWSE NEW HIRES"

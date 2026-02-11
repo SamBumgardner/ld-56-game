@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CharacterFactory" load_steps=23 format=3 uid="uid://4vcpwnnptf5r"]
+[gd_resource type="Resource" script_class="CharacterFactory" format=3 uid="uid://4vcpwnnptf5r"]
 
 [ext_resource type="Texture2D" uid="uid://cxfk7pmpaxnqx" path="res://assets/art/character_icons/mantis_small.png" id="1_8pmao"]
 [ext_resource type="Texture2D" uid="uid://btq340p6pb3lu" path="res://assets/art/character_portraits/mantis_portrait.png" id="2_6nckq"]

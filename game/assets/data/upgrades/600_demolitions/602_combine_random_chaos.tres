@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="UpgradeChoice" load_steps=5 format=3 uid="uid://ur5blb6w8sv6"]
+[gd_resource type="Resource" script_class="UpgradeChoice" format=3 uid="uid://ur5blb6w8sv6"]
 
 [ext_resource type="Texture2D" uid="uid://t3o26rqaldid" path="res://assets/art/upgrade_icon_mystery.png" id="1_rwg2y"]
 [ext_resource type="Script" uid="uid://bx3w5bf7rikpn" path="res://src/characters/UpgradeChoice.gd" id="2_ja286"]

@@ -1,13 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://86vfq4g1pogb"]
+[gd_scene format=3 uid="uid://86vfq4g1pogb"]
 
 [ext_resource type="PackedScene" uid="uid://1wye34y7qnhe" path="res://src/gameplay/Gameplay.tscn" id="1_0uait"]
 [ext_resource type="PackedScene" uid="uid://1c7jmqc6wkth" path="res://src/tutorial/tutorial.tscn" id="2_xjamu"]
 [ext_resource type="Script" uid="uid://bus0fqylggeg4" path="res://src/tutorial/tutorial_scenes/actions/tutorial_actions.gd" id="3_t61gb"]
 [ext_resource type="Resource" uid="uid://dpegjk8b74ogc" path="res://assets/data/tutorials/actions_tutorial.tres" id="4_iyh36"]
 
-[node name="Gameplay" instance=ExtResource("1_0uait")]
+[node name="Gameplay" unique_id=2127089925 instance=ExtResource("1_0uait")]
 
-[node name="Tutorial" parent="OutdoorBattleMode" index="2" instance=ExtResource("2_xjamu")]
+[node name="Tutorial" parent="OutdoorBattleMode" parent_id_path=PackedInt32Array(614826809) index="2" unique_id=1536964274 instance=ExtResource("2_xjamu")]
 visible = false
 z_index = 2
 z_as_relative = false

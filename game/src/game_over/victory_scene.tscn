@@ -1,23 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://blrpji4et6nkj"]
+[gd_scene format=3 uid="uid://blrpji4et6nkj"]
 
 [ext_resource type="PackedScene" uid="uid://ctqciskxgauli" path="res://src/game_over/game_over.tscn" id="1_mvqh0"]
 [ext_resource type="Texture2D" uid="uid://bgld5ma0pnno8" path="res://assets/art/backgrounds/victory_background.jpg" id="2_rivf5"]
 [ext_resource type="Script" uid="uid://djaf8jiwpu4kt" path="res://src/game_over/victory_scene.gd" id="3_yy3jv"]
 
-[node name="VictoryScene" instance=ExtResource("1_mvqh0")]
+[node name="VictoryScene" unique_id=629624392 instance=ExtResource("1_mvqh0")]
 offset_bottom = 301.861
 texture = ExtResource("2_rivf5")
 expand_mode = 5
 stretch_mode = 4
 script = ExtResource("3_yy3jv")
 
-[node name="Title" parent="Control/TitleContainer/MarginContainer/HB" index="0"]
+[node name="Title" parent="Control/TitleContainer/MarginContainer/HB" parent_id_path=PackedInt32Array(1442278145) index="0" unique_id=476420297]
 text = "Victory!"
 
-[node name="Retry" parent="Control/ButtonContainer" index="0"]
+[node name="Retry" parent="Control/ButtonContainer" parent_id_path=PackedInt32Array(1739372453) index="0" unique_id=924826807]
 visible = false
 
-[node name="ToggleBackgroundButton" type="Button" parent="Control" index="3"]
+[node name="ToggleBackgroundButton" type="Button" parent="Control" parent_id_path=PackedInt32Array(401912520) index="3" unique_id=1922445001]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 1
 anchors_preset = -1
@@ -28,7 +28,7 @@ offset_bottom = -50.0
 grow_vertical = 0
 text = "Show Background"
 
-[node name="ColorRect" type="ColorRect" parent="." index="2"]
+[node name="ColorRect" type="ColorRect" parent="." index="2" unique_id=1435170617]
 visible = false
 z_index = 2
 layout_mode = 1

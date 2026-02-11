@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://1wye34y7qnhe"]
+[gd_scene format=3 uid="uid://1wye34y7qnhe"]
 
 [ext_resource type="PackedScene" uid="uid://mq5u7di7yh8m" path="res://src/back_to_start_menu_button/BackToStartMenuButton.tscn" id="1_8sw2a"]
 [ext_resource type="Script" uid="uid://c51m4e1gsscro" path="res://src/gameplay/gameplay.gd" id="1_exjrn"]
@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cqks4bltxh7sq" path="res://src/transition_cover/mode_transition_cover.tscn" id="6_blf36"]
 [ext_resource type="Script" uid="uid://bml8qvj1axi5e" path="res://src/battlefield_outdoors/outdoor_camera.gd" id="9_v3mno"]
 
-[node name="Gameplay" type="Control"]
+[node name="Gameplay" type="Control" unique_id=149698793]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,22 +20,22 @@ grow_vertical = 2
 theme = ExtResource("1_hbifn")
 script = ExtResource("1_exjrn")
 
-[node name="ApplicantOrchestrator" type="Node" parent="."]
+[node name="ApplicantOrchestrator" type="Node" parent="." unique_id=1922186080]
 script = ExtResource("3_mkluk")
 
-[node name="AudioManager" parent="." instance=ExtResource("3_o8xt6")]
+[node name="AudioManager" parent="." unique_id=42868300 instance=ExtResource("3_o8xt6")]
 
-[node name="OutdoorBattleMode" type="CanvasLayer" parent="."]
+[node name="OutdoorBattleMode" type="CanvasLayer" parent="." unique_id=614826809]
 offset = Vector2(640, 360)
 transform = Transform2D(1, 0, 0, 1, 640, 360)
 
-[node name="BattlefieldOutdoors" parent="OutdoorBattleMode" instance=ExtResource("2_35wcq")]
+[node name="BattlefieldOutdoors" parent="OutdoorBattleMode" unique_id=1351483125 instance=ExtResource("2_35wcq")]
 offset_left = -640.0
 offset_top = -360.0
 offset_right = -640.0
 offset_bottom = -360.0
 
-[node name="BackToStartMenuButton" parent="OutdoorBattleMode" instance=ExtResource("1_8sw2a")]
+[node name="BackToStartMenuButton" parent="OutdoorBattleMode" unique_id=241525725 instance=ExtResource("1_8sw2a")]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -45,25 +45,25 @@ offset_right = -640.0
 offset_bottom = -360.0
 grow_horizontal = 0
 
-[node name="IndoorPrepMode" type="CanvasLayer" parent="."]
+[node name="IndoorPrepMode" type="CanvasLayer" parent="." unique_id=1287233445]
 layer = 2
 visible = false
 offset = Vector2(640, 360)
 transform = Transform2D(1, 0, 0, 1, 640, 360)
 
-[node name="IndoorPreparation" parent="IndoorPrepMode" instance=ExtResource("4_qkdrp")]
+[node name="IndoorPreparation" parent="IndoorPrepMode" unique_id=1933138446 instance=ExtResource("4_qkdrp")]
 offset_left = -640.0
 offset_top = -360.0
 offset_right = -640.0
 offset_bottom = -360.0
 
-[node name="TransitionCover" type="CanvasLayer" parent="."]
+[node name="TransitionCover" type="CanvasLayer" parent="." unique_id=20023592]
 layer = 3
 
-[node name="ModeTransitionCover" parent="TransitionCover" instance=ExtResource("6_blf36")]
+[node name="ModeTransitionCover" parent="TransitionCover" unique_id=1886388448 instance=ExtResource("6_blf36")]
 visible = false
 
-[node name="OutdoorCamera" type="Camera2D" parent="."]
+[node name="OutdoorCamera" type="Camera2D" parent="." unique_id=1016257014]
 offset = Vector2(640, 360)
 script = ExtResource("9_v3mno")
 
