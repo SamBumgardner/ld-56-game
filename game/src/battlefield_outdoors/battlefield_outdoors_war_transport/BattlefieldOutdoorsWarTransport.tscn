@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bwpa5wbo5ct7g"]
+[gd_scene format=3 uid="uid://bwpa5wbo5ct7g"]
 
 [ext_resource type="SpriteFrames" uid="uid://cwrciodhmr6gq" path="res://assets/art/transport/Tusk_Sprite_Frames.tres" id="1_dhrdl"]
 [ext_resource type="Script" uid="uid://c86b71w16ud86" path="res://src/battlefield_outdoors/battlefield_outdoors_war_transport/battlefield_outdoors_war_transport.gd" id="1_o8nwd"]
@@ -20,11 +20,11 @@ colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1, 0.0426841, 0.0426841, 0.042684
 offsets = PackedFloat32Array(0, 0.390152, 0.666667)
 colors = PackedColorArray(1, 0.181, 0.09, 1, 0.732505, 0.445674, 0, 1, 1, 0, 0, 1)
 
-[node name="BattlefieldOutdoorsWarTransport" type="AnimatedSprite2D"]
+[node name="BattlefieldOutdoorsWarTransport" type="AnimatedSprite2D" unique_id=303561235]
 sprite_frames = ExtResource("1_dhrdl")
 script = ExtResource("1_o8nwd")
 
-[node name="Columns" type="Control" parent="."]
+[node name="Columns" type="Control" parent="." unique_id=1974843119]
 layout_mode = 3
 anchor_left = 0.15
 anchor_top = 0.2
@@ -38,7 +38,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_58oda")
 
-[node name="HealthBar" type="MarginContainer" parent="Columns"]
+[node name="HealthBar" type="MarginContainer" parent="Columns" unique_id=615661314]
 visible = false
 layout_mode = 1
 anchors_preset = -1
@@ -47,7 +47,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 
-[node name="Health" type="ProgressBar" parent="Columns/HealthBar"]
+[node name="Health" type="ProgressBar" parent="Columns/HealthBar" unique_id=720433793]
 layout_mode = 2
 size_flags_vertical = 1
 theme_override_styles/fill = SubResource("StyleBoxFlat_ivaum")
@@ -55,12 +55,12 @@ max_value = 10.0
 value = 5.0
 show_percentage = false
 
-[node name="Label" type="Label" parent="Columns/HealthBar"]
+[node name="Label" type="Label" parent="Columns/HealthBar" unique_id=629376695]
 layout_mode = 2
 text = "0 / 10"
 horizontal_alignment = 1
 
-[node name="Power" type="Label" parent="Columns"]
+[node name="Power" type="Label" parent="Columns" unique_id=1883526474]
 visible = false
 layout_mode = 1
 anchors_preset = -1
@@ -71,9 +71,9 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 48
 text = "50"
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="Node2D" type="Node2D" parent="." unique_id=57463152]
 
-[node name="SmokeParticles" type="CPUParticles2D" parent="Node2D"]
+[node name="SmokeParticles" type="CPUParticles2D" parent="Node2D" unique_id=430668200]
 emitting = false
 amount = 36
 explosiveness = 0.5

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cnphrbnb2wrnf"]
+[gd_scene format=3 uid="uid://cnphrbnb2wrnf"]
 
 [ext_resource type="PackedScene" uid="uid://jg6d8x31qb6t" path="res://src/battlefield_outdoors/battlefield_outdoors_hud/resource_change_line.tscn" id="1_0ym2h"]
 [ext_resource type="Script" uid="uid://bg4g7pnv7f505" path="res://src/battlefield_outdoors/battlefield_outdoors_hud/combat_results_summary.gd" id="1_ogv1q"]
@@ -8,7 +8,7 @@
 
 [sub_resource type="ImageTexture" id="ImageTexture_hubew"]
 
-[node name="CombatResultsSummary" type="VBoxContainer"]
+[node name="CombatResultsSummary" type="VBoxContainer" unique_id=2118311353]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -22,24 +22,24 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ogv1q")
 
-[node name="DistanceChange" parent="." instance=ExtResource("1_0ym2h")]
+[node name="DistanceChange" parent="." unique_id=439802177 instance=ExtResource("1_0ym2h")]
 layout_mode = 2
 texture = SubResource("ImageTexture_hubew")
 resource_name = "Distance Travelled:"
 show_plus = false
 units = "km"
 
-[node name="HealthChange" parent="." instance=ExtResource("1_0ym2h")]
+[node name="HealthChange" parent="." unique_id=951952019 instance=ExtResource("1_0ym2h")]
 layout_mode = 2
 texture = ExtResource("2_gf5uu")
 resource_name = "Health"
 
-[node name="MoneyChange" parent="." instance=ExtResource("1_0ym2h")]
+[node name="MoneyChange" parent="." unique_id=1605734434 instance=ExtResource("1_0ym2h")]
 layout_mode = 2
 texture = ExtResource("3_d7sk3")
 resource_name = "Coin"
 
-[node name="FuelChange" parent="." instance=ExtResource("1_0ym2h")]
+[node name="FuelChange" parent="." unique_id=2065038503 instance=ExtResource("1_0ym2h")]
 layout_mode = 2
 texture = ExtResource("4_id32d")
 resource_name = "Fuel"

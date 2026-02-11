@@ -8,11 +8,15 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="LD 56"
 run/main_scene="res://src/start_menu/StartMenu.tscn"
-config/features=PackedStringArray("4.5", "GL Compatibility")
+config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [audio]
@@ -22,7 +26,7 @@ buses/default_bus_layout="res://assets/audio/default_bus_layout.tres"
 [autoload]
 
 Database="*res://assets/data/database.gd"
-SoundManager="*res://addons/sound_manager/sound_manager.gd"
+SoundManager="*uid://bs1bjbb67g072"
 
 [display]
 

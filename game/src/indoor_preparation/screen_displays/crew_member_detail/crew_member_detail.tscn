@@ -1,16 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://bvpdxuf4a56pf"]
+[gd_scene format=3 uid="uid://bvpdxuf4a56pf"]
 
 [ext_resource type="PackedScene" uid="uid://d0wnwi5rcyku" path="res://src/indoor_preparation/screen_displays/shared/character_detail/character_detail.tscn" id="1_i2m3f"]
 [ext_resource type="Script" uid="uid://b2v0sok6pe78s" path="res://src/indoor_preparation/screen_displays/crew_member_detail/crew_member_detail.gd" id="2_47e65"]
 [ext_resource type="PackedScene" uid="uid://b4xnwcpb30o20" path="res://src/indoor_preparation/screen_displays/crew_member_detail/upgrade_prompt.tscn" id="2_wa450"]
 [ext_resource type="PackedScene" uid="uid://h1fowbxngb70" path="res://src/audio_manager/AudioManager.tscn" id="3_tjpp0"]
 
-[node name="CrewMemberDetail" groups=["tutorial_triggers"] instance=ExtResource("1_i2m3f")]
+[node name="CrewMemberDetail" unique_id=1947020965 groups=["tutorial_triggers"] instance=ExtResource("1_i2m3f")]
 script = ExtResource("2_47e65")
 
-[node name="AudioManager" parent="." index="0" instance=ExtResource("3_tjpp0")]
+[node name="AudioManager" parent="." index="0" unique_id=1169605078 instance=ExtResource("3_tjpp0")]
 
-[node name="UpgradePrompt" parent="IconAndCost" index="1" instance=ExtResource("2_wa450")]
+[node name="UpgradePrompt" parent="IconAndCost" index="1" unique_id=315870280 instance=ExtResource("2_wa450")]
 layout_mode = 2
 
 [node name="OptionalHeader" parent="." index="6"]

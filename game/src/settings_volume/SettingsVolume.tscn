@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://ugy2sqawdp8y"]
+[gd_scene format=3 uid="uid://ugy2sqawdp8y"]
 
 [ext_resource type="Theme" uid="uid://dk5iv042psfw" path="res://assets/themes/Default.tres" id="1_uw3rp"]
 [ext_resource type="Script" uid="uid://bi41a0hlh5ekh" path="res://src/settings_volume/settings_volume.gd" id="2_iql87"]
 [ext_resource type="PackedScene" uid="uid://h1fowbxngb70" path="res://src/audio_manager/AudioManager.tscn" id="3_kvssd"]
 
-[node name="SettingsVolume" type="VBoxContainer"]
+[node name="SettingsVolume" type="VBoxContainer" unique_id=912553304]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -13,41 +13,41 @@ grow_vertical = 2
 theme = ExtResource("1_uw3rp")
 script = ExtResource("2_iql87")
 
-[node name="AudioManager" parent="." instance=ExtResource("3_kvssd")]
+[node name="AudioManager" parent="." unique_id=901422592 instance=ExtResource("3_kvssd")]
 
-[node name="SfxDescription" type="HBoxContainer" parent="."]
+[node name="SfxDescription" type="HBoxContainer" parent="." unique_id=1035682310]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="SfxDescription"]
+[node name="Label" type="Label" parent="SfxDescription" unique_id=1503554859]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "SFX:"
 horizontal_alignment = 2
 
-[node name="SfxVolumePercentage" type="Label" parent="SfxDescription"]
+[node name="SfxVolumePercentage" type="Label" parent="SfxDescription" unique_id=1208159654]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "0%"
 
-[node name="SfxVolumePercentageSlider" type="HSlider" parent="."]
+[node name="SfxVolumePercentageSlider" type="HSlider" parent="." unique_id=234600163]
 layout_mode = 2
 tick_count = 1
 
-[node name="MusicDescription" type="HBoxContainer" parent="."]
+[node name="MusicDescription" type="HBoxContainer" parent="." unique_id=1170735547]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MusicDescription"]
+[node name="Label" type="Label" parent="MusicDescription" unique_id=644399433]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Music:"
 horizontal_alignment = 2
 
-[node name="MusicVolumePercentage" type="Label" parent="MusicDescription"]
+[node name="MusicVolumePercentage" type="Label" parent="MusicDescription" unique_id=1542747088]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "0%"
 
-[node name="MusicVolumePercentageSlider" type="HSlider" parent="."]
+[node name="MusicVolumePercentageSlider" type="HSlider" parent="." unique_id=1969487073]
 layout_mode = 2
 rounded = true
 tick_count = 1

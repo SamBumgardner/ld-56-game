@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bcylmmwqvfl7l"]
+[gd_scene format=3 uid="uid://bcylmmwqvfl7l"]
 
 [ext_resource type="Script" uid="uid://dkvxq1e6b1yt2" path="res://src/tutorial/tutorial_arrow.gd" id="1_54pno"]
 [ext_resource type="Texture2D" uid="uid://db8pq3eak4l52" path="res://assets/art/tutorial_arrow.png" id="2_xmjmy"]
 
-[node name="TutorialArrow" type="Control"]
+[node name="TutorialArrow" type="Control" unique_id=1394665073]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -14,7 +14,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_54pno")
 
-[node name="Arrow" type="TextureRect" parent="."]
+[node name="Arrow" type="TextureRect" parent="." unique_id=1940809199]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5

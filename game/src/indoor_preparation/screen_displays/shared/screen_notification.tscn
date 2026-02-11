@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cib1fq003l5jx"]
+[gd_scene format=3 uid="uid://cib1fq003l5jx"]
 
 [ext_resource type="Theme" uid="uid://cmbvxb1mxsipc" path="res://assets/themes/Notification_Checkpoint.tres" id="1_cc4ps"]
 [ext_resource type="Script" uid="uid://b4u4pilcgywwb" path="res://src/indoor_preparation/screen_displays/shared/screen_notification.gd" id="2_hcuqa"]
@@ -7,7 +7,7 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2lwms"]
 bg_color = Color(1, 1, 1, 1)
 
-[node name="ScreenNotification" type="Control"]
+[node name="ScreenNotification" type="Control" unique_id=378247317]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -19,9 +19,9 @@ grow_vertical = 2
 theme = ExtResource("1_cc4ps")
 script = ExtResource("2_hcuqa")
 
-[node name="AudioManager" parent="." instance=ExtResource("3_lrapv")]
+[node name="AudioManager" parent="." unique_id=780392182 instance=ExtResource("3_lrapv")]
 
-[node name="PC" type="PanelContainer" parent="."]
+[node name="PC" type="PanelContainer" parent="." unique_id=892467740]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -35,37 +35,37 @@ offset_bottom = 28.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MC" type="MarginContainer" parent="PC"]
+[node name="MC" type="MarginContainer" parent="PC" unique_id=1598950302]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="VBC" type="VBoxContainer" parent="PC/MC"]
+[node name="VBC" type="VBoxContainer" parent="PC/MC" unique_id=2110213592]
 layout_mode = 2
 
-[node name="Header" type="Label" parent="PC/MC/VBC"]
+[node name="Header" type="Label" parent="PC/MC/VBC" unique_id=805636974]
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
 text = "Notification"
 
-[node name="PC2" type="PanelContainer" parent="PC/MC/VBC"]
+[node name="PC2" type="PanelContainer" parent="PC/MC/VBC" unique_id=846978496]
 self_modulate = Color(0.38321, 0.572438, 0.302119, 1)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_2lwms")
 
-[node name="MC2" type="MarginContainer" parent="PC/MC/VBC/PC2"]
+[node name="MC2" type="MarginContainer" parent="PC/MC/VBC/PC2" unique_id=764895982]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="VBC2" type="VBoxContainer" parent="PC/MC/VBC/PC2/MC2"]
+[node name="VBC2" type="VBoxContainer" parent="PC/MC/VBC/PC2/MC2" unique_id=733279795]
 layout_mode = 2
 
-[node name="Body" type="RichTextLabel" parent="PC/MC/VBC/PC2/MC2/VBC2"]
+[node name="Body" type="RichTextLabel" parent="PC/MC/VBC/PC2/MC2/VBC2" unique_id=2052753729]
 clip_contents = false
 layout_mode = 2
 mouse_filter = 2
@@ -80,13 +80,13 @@ shortcut_keys_enabled = false
 deselect_on_focus_loss_enabled = false
 drag_and_drop_selection_enabled = false
 
-[node name="Button" type="Button" parent="PC/MC/VBC/PC2/MC2/VBC2"]
+[node name="Button" type="Button" parent="PC/MC/VBC/PC2/MC2/VBC2" unique_id=1417504299]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 12
 text = "Close"
 
-[node name="ExpirationBar" type="ProgressBar" parent="PC/MC/VBC/PC2/MC2/VBC2/Button"]
+[node name="ExpirationBar" type="ProgressBar" parent="PC/MC/VBC/PC2/MC2/VBC2/Button" unique_id=1158539414]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 1.0
@@ -97,7 +97,7 @@ value = 50.0
 fill_mode = 1
 show_percentage = false
 
-[node name="ExpirationTimer" type="Timer" parent="."]
+[node name="ExpirationTimer" type="Timer" parent="." unique_id=739352835]
 one_shot = true
 
 [connection signal="mouse_entered" from="PC/MC/VBC/PC2/MC2/VBC2/Button" to="AudioManager" method="_on_close_screen_notification_button_mouse_entered"]

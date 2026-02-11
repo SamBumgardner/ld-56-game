@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CharacterFactory" load_steps=23 format=3 uid="uid://bawjwhqx6mbin"]
+[gd_resource type="Resource" script_class="CharacterFactory" format=3 uid="uid://bawjwhqx6mbin"]
 
 [ext_resource type="Texture2D" uid="uid://drytmgdv4vyrv" path="res://assets/art/character_icons/mouse_small.png" id="1_ate8l"]
 [ext_resource type="Texture2D" uid="uid://bjdmvumymjxuw" path="res://assets/art/character_portraits/mouse_portrait.png" id="2_vle0n"]

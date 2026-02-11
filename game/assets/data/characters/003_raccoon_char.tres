@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CharacterFactory" load_steps=23 format=3 uid="uid://b3l83j0ql7m0e"]
+[gd_resource type="Resource" script_class="CharacterFactory" format=3 uid="uid://b3l83j0ql7m0e"]
 
 [ext_resource type="Texture2D" uid="uid://bme30t682cw1l" path="res://assets/art/character_icons/raccoon_small.png" id="1_f1shx"]
 [ext_resource type="Texture2D" uid="uid://bvj18jeu04ah8" path="res://assets/art/character_portraits/raccoon_portrait.png" id="2_1ghps"]

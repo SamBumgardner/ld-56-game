@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://cf5qy6u2j3hhw"]
+[gd_scene format=3 uid="uid://cf5qy6u2j3hhw"]
 
 [ext_resource type="PackedScene" uid="uid://ybyc5lib301u" path="res://src/shared_ui/resource_display/fuel_display.tscn" id="1_28gaq"]
 
-[node name="FuelDisplayMini" instance=ExtResource("1_28gaq")]
+[node name="FuelDisplayMini" unique_id=121176345 instance=ExtResource("1_28gaq")]
 custom_minimum_size = Vector2(0, 0)
 offset_left = -50.0
 offset_bottom = 21.0

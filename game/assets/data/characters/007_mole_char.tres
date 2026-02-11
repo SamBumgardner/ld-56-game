@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CharacterFactory" load_steps=23 format=3 uid="uid://h8yglehg8si2"]
+[gd_resource type="Resource" script_class="CharacterFactory" format=3 uid="uid://h8yglehg8si2"]
 
 [ext_resource type="Texture2D" uid="uid://burmud1m6c3wg" path="res://assets/art/character_icons/mole_small.png" id="1_7a4yo"]
 [ext_resource type="Texture2D" uid="uid://gdhna7tf6wlw" path="res://assets/art/character_portraits/mole_portrait.png" id="2_abobk"]

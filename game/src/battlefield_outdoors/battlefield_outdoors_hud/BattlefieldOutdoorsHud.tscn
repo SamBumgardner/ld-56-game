@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://b6k6baalu42w7"]
+[gd_scene format=3 uid="uid://b6k6baalu42w7"]
 
 [ext_resource type="Script" uid="uid://ylih4hoqlfh3" path="res://src/battlefield_outdoors/battlefield_outdoors_hud/battlefield_outdoors_hud.gd" id="1_3j823"]
 [ext_resource type="PackedScene" uid="uid://da57hkojchohp" path="res://src/shared_ui/resource_display/health_display.tscn" id="2_6fssr"]
@@ -33,7 +33,7 @@ bg_color = Color(0.180392, 0.180392, 0.180392, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 
-[node name="BattlefieldOutdoorsHud" type="Control"]
+[node name="BattlefieldOutdoorsHud" type="Control" unique_id=493406220]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -42,29 +42,29 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3j823")
 
-[node name="AudioManager" parent="." instance=ExtResource("2_ffis0")]
+[node name="AudioManager" parent="." unique_id=1985146061 instance=ExtResource("2_ffis0")]
 
-[node name="TopBar" type="MarginContainer" parent="."]
+[node name="TopBar" type="MarginContainer" parent="." unique_id=515715832]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Trackers" type="VBoxContainer" parent="TopBar"]
+[node name="Trackers" type="VBoxContainer" parent="TopBar" unique_id=1604086876]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="HealthDisplay" parent="TopBar/Trackers" instance=ExtResource("2_6fssr")]
+[node name="HealthDisplay" parent="TopBar/Trackers" unique_id=444841709 instance=ExtResource("2_6fssr")]
 layout_mode = 2
 
-[node name="MoneyDisplay" parent="TopBar/Trackers" instance=ExtResource("2_ualkn")]
-layout_mode = 2
-size_flags_horizontal = 0
-
-[node name="FuelDisplay" parent="TopBar/Trackers" instance=ExtResource("3_n5xb3")]
+[node name="MoneyDisplay" parent="TopBar/Trackers" unique_id=548540034 instance=ExtResource("2_ualkn")]
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="BottomInfoDisplay" type="HBoxContainer" parent="."]
+[node name="FuelDisplay" parent="TopBar/Trackers" unique_id=1766110160 instance=ExtResource("3_n5xb3")]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="BottomInfoDisplay" type="HBoxContainer" parent="." unique_id=905081935]
 z_index = 1
 layout_mode = 1
 anchors_preset = 12
@@ -74,17 +74,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Left" type="VBoxContainer" parent="BottomInfoDisplay"]
+[node name="Left" type="VBoxContainer" parent="BottomInfoDisplay" unique_id=1197896150]
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 8
 theme_override_constants/separation = 0
 
-[node name="TopEdge" type="Control" parent="BottomInfoDisplay/Left"]
+[node name="TopEdge" type="Control" parent="BottomInfoDisplay/Left" unique_id=1227183479]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 
-[node name="TitleContainer" type="PanelContainer" parent="BottomInfoDisplay/Left/TopEdge"]
+[node name="TitleContainer" type="PanelContainer" parent="BottomInfoDisplay/Left/TopEdge" unique_id=954092368]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 1.0
@@ -93,67 +93,67 @@ offset_left = 10.0
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_8a5xg")
 
-[node name="PanelTitle" type="Label" parent="BottomInfoDisplay/Left/TopEdge/TitleContainer"]
+[node name="PanelTitle" type="Label" parent="BottomInfoDisplay/Left/TopEdge/TitleContainer" unique_id=235663023]
 layout_mode = 2
 text = "Crew"
 
-[node name="CrewMemberSelector" type="PanelContainer" parent="BottomInfoDisplay/Left"]
+[node name="CrewMemberSelector" type="PanelContainer" parent="BottomInfoDisplay/Left" unique_id=1698841564]
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 8
 script = ExtResource("5_vpr4d")
 
-[node name="MC" type="MarginContainer" parent="BottomInfoDisplay/Left/CrewMemberSelector"]
+[node name="MC" type="MarginContainer" parent="BottomInfoDisplay/Left/CrewMemberSelector" unique_id=1025659489]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="GC" type="GridContainer" parent="BottomInfoDisplay/Left/CrewMemberSelector/MC"]
+[node name="GC" type="GridContainer" parent="BottomInfoDisplay/Left/CrewMemberSelector/MC" unique_id=1803056764]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 columns = 3
 
-[node name="CrewSelectorButton" parent="BottomInfoDisplay/Left/CrewMemberSelector/MC/GC" instance=ExtResource("5_yqnmx")]
+[node name="CrewSelectorButton" parent="BottomInfoDisplay/Left/CrewMemberSelector/MC/GC" unique_id=1309071624 instance=ExtResource("5_yqnmx")]
 layout_mode = 2
 
-[node name="CrewSelectorButton2" parent="BottomInfoDisplay/Left/CrewMemberSelector/MC/GC" instance=ExtResource("5_yqnmx")]
+[node name="CrewSelectorButton2" parent="BottomInfoDisplay/Left/CrewMemberSelector/MC/GC" unique_id=56562831 instance=ExtResource("5_yqnmx")]
 layout_mode = 2
 
-[node name="CrewSelectorButton3" parent="BottomInfoDisplay/Left/CrewMemberSelector/MC/GC" instance=ExtResource("5_yqnmx")]
+[node name="CrewSelectorButton3" parent="BottomInfoDisplay/Left/CrewMemberSelector/MC/GC" unique_id=615153513 instance=ExtResource("5_yqnmx")]
 layout_mode = 2
 
-[node name="CrewSelectorButton4" parent="BottomInfoDisplay/Left/CrewMemberSelector/MC/GC" instance=ExtResource("5_yqnmx")]
+[node name="CrewSelectorButton4" parent="BottomInfoDisplay/Left/CrewMemberSelector/MC/GC" unique_id=1843013490 instance=ExtResource("5_yqnmx")]
 layout_mode = 2
 
-[node name="CrewSelectorButton5" parent="BottomInfoDisplay/Left/CrewMemberSelector/MC/GC" instance=ExtResource("5_yqnmx")]
+[node name="CrewSelectorButton5" parent="BottomInfoDisplay/Left/CrewMemberSelector/MC/GC" unique_id=1976495086 instance=ExtResource("5_yqnmx")]
 layout_mode = 2
 
-[node name="CrewSelectorButton6" parent="BottomInfoDisplay/Left/CrewMemberSelector/MC/GC" instance=ExtResource("5_yqnmx")]
+[node name="CrewSelectorButton6" parent="BottomInfoDisplay/Left/CrewMemberSelector/MC/GC" unique_id=1464386421 instance=ExtResource("5_yqnmx")]
 layout_mode = 2
 
-[node name="CrewSelectorButton7" parent="BottomInfoDisplay/Left/CrewMemberSelector/MC/GC" instance=ExtResource("5_yqnmx")]
+[node name="CrewSelectorButton7" parent="BottomInfoDisplay/Left/CrewMemberSelector/MC/GC" unique_id=1447505824 instance=ExtResource("5_yqnmx")]
 layout_mode = 2
 
-[node name="CrewSelectorButton8" parent="BottomInfoDisplay/Left/CrewMemberSelector/MC/GC" instance=ExtResource("5_yqnmx")]
+[node name="CrewSelectorButton8" parent="BottomInfoDisplay/Left/CrewMemberSelector/MC/GC" unique_id=1420564123 instance=ExtResource("5_yqnmx")]
 layout_mode = 2
 
-[node name="CrewSelectorButton9" parent="BottomInfoDisplay/Left/CrewMemberSelector/MC/GC" instance=ExtResource("5_yqnmx")]
+[node name="CrewSelectorButton9" parent="BottomInfoDisplay/Left/CrewMemberSelector/MC/GC" unique_id=862822830 instance=ExtResource("5_yqnmx")]
 layout_mode = 2
 
-[node name="Center" type="VBoxContainer" parent="BottomInfoDisplay"]
+[node name="Center" type="VBoxContainer" parent="BottomInfoDisplay" unique_id=1189963423]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 theme_override_constants/separation = 0
 
-[node name="TopEdge" type="Control" parent="BottomInfoDisplay/Center"]
+[node name="TopEdge" type="Control" parent="BottomInfoDisplay/Center" unique_id=537126296]
 z_index = 1
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 
-[node name="TitleContainer" type="PanelContainer" parent="BottomInfoDisplay/Center/TopEdge"]
+[node name="TitleContainer" type="PanelContainer" parent="BottomInfoDisplay/Center/TopEdge" unique_id=1155922031]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 1.0
@@ -162,12 +162,12 @@ offset_left = 20.0
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_8a5xg")
 
-[node name="PanelTitle" type="Label" parent="BottomInfoDisplay/Center/TopEdge/TitleContainer"]
+[node name="PanelTitle" type="Label" parent="BottomInfoDisplay/Center/TopEdge/TitleContainer" unique_id=1846362765]
 layout_mode = 2
 text = "Status
 "
 
-[node name="RerollButton" type="Button" parent="BottomInfoDisplay/Center/TopEdge"]
+[node name="RerollButton" type="Button" parent="BottomInfoDisplay/Center/TopEdge" unique_id=50922075]
 custom_minimum_size = Vector2(135, 0)
 layout_mode = 1
 anchors_preset = 7
@@ -187,7 +187,7 @@ text = "Reroll
 (Costs 1 Fuel)"
 script = ExtResource("7_xg4o8")
 
-[node name="FuelDisplayMini" parent="BottomInfoDisplay/Center/TopEdge" instance=ExtResource("5_3m24g")]
+[node name="FuelDisplayMini" parent="BottomInfoDisplay/Center/TopEdge" unique_id=1285801239 instance=ExtResource("5_3m24g")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -200,16 +200,16 @@ offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="CrewStatus" type="PanelContainer" parent="BottomInfoDisplay/Center"]
+[node name="CrewStatus" type="PanelContainer" parent="BottomInfoDisplay/Center" unique_id=1160840530]
 custom_minimum_size = Vector2(680, 200)
 layout_mode = 2
 size_flags_vertical = 10
 
-[node name="StatusSections" type="HBoxContainer" parent="BottomInfoDisplay/Center/CrewStatus"]
+[node name="StatusSections" type="HBoxContainer" parent="BottomInfoDisplay/Center/CrewStatus" unique_id=244665803]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="CrewActionsDisplay" type="MarginContainer" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections"]
+[node name="CrewActionsDisplay" type="MarginContainer" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections" unique_id=52054856]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 5
@@ -218,51 +218,51 @@ theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 script = ExtResource("6_6ykrh")
 
-[node name="PC" type="PanelContainer" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CrewActionsDisplay"]
+[node name="PC" type="PanelContainer" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CrewActionsDisplay" unique_id=2084306944]
 layout_mode = 2
 
-[node name="GC" type="GridContainer" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CrewActionsDisplay/PC"]
+[node name="GC" type="GridContainer" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CrewActionsDisplay/PC" unique_id=1124543927]
 layout_mode = 2
 size_flags_vertical = 4
 columns = 3
 
-[node name="CharacterActionDisplay" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CrewActionsDisplay/PC/GC" instance=ExtResource("6_ihvc6")]
+[node name="CharacterActionDisplay" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CrewActionsDisplay/PC/GC" unique_id=1032475537 instance=ExtResource("6_ihvc6")]
 layout_mode = 2
 size_flags_horizontal = 6
 
-[node name="CharacterActionDisplay2" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CrewActionsDisplay/PC/GC" instance=ExtResource("6_ihvc6")]
+[node name="CharacterActionDisplay2" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CrewActionsDisplay/PC/GC" unique_id=1502276274 instance=ExtResource("6_ihvc6")]
 layout_mode = 2
 size_flags_horizontal = 6
 
-[node name="CharacterActionDisplay3" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CrewActionsDisplay/PC/GC" instance=ExtResource("6_ihvc6")]
+[node name="CharacterActionDisplay3" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CrewActionsDisplay/PC/GC" unique_id=2023902028 instance=ExtResource("6_ihvc6")]
 layout_mode = 2
 size_flags_horizontal = 6
 
-[node name="CharacterActionDisplay4" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CrewActionsDisplay/PC/GC" instance=ExtResource("6_ihvc6")]
+[node name="CharacterActionDisplay4" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CrewActionsDisplay/PC/GC" unique_id=48546273 instance=ExtResource("6_ihvc6")]
 layout_mode = 2
 size_flags_horizontal = 6
 
-[node name="CharacterActionDisplay5" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CrewActionsDisplay/PC/GC" instance=ExtResource("6_ihvc6")]
+[node name="CharacterActionDisplay5" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CrewActionsDisplay/PC/GC" unique_id=1220150460 instance=ExtResource("6_ihvc6")]
 layout_mode = 2
 size_flags_horizontal = 6
 
-[node name="CharacterActionDisplay6" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CrewActionsDisplay/PC/GC" instance=ExtResource("6_ihvc6")]
+[node name="CharacterActionDisplay6" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CrewActionsDisplay/PC/GC" unique_id=1560966850 instance=ExtResource("6_ihvc6")]
 layout_mode = 2
 size_flags_horizontal = 6
 
-[node name="CharacterActionDisplay7" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CrewActionsDisplay/PC/GC" instance=ExtResource("6_ihvc6")]
+[node name="CharacterActionDisplay7" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CrewActionsDisplay/PC/GC" unique_id=1866046439 instance=ExtResource("6_ihvc6")]
 layout_mode = 2
 size_flags_horizontal = 6
 
-[node name="CharacterActionDisplay8" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CrewActionsDisplay/PC/GC" instance=ExtResource("6_ihvc6")]
+[node name="CharacterActionDisplay8" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CrewActionsDisplay/PC/GC" unique_id=1448562953 instance=ExtResource("6_ihvc6")]
 layout_mode = 2
 size_flags_horizontal = 6
 
-[node name="CharacterActionDisplay9" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CrewActionsDisplay/PC/GC" instance=ExtResource("6_ihvc6")]
+[node name="CharacterActionDisplay9" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CrewActionsDisplay/PC/GC" unique_id=2011775187 instance=ExtResource("6_ihvc6")]
 layout_mode = 2
 size_flags_horizontal = 6
 
-[node name="CalculationsDisplay" type="MarginContainer" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections"]
+[node name="CalculationsDisplay" type="MarginContainer" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections" unique_id=1626671552]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 8
@@ -271,10 +271,10 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="CombatMathCalculationsHud" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CalculationsDisplay" instance=ExtResource("6_30blh")]
+[node name="CombatMathCalculationsHud" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/CalculationsDisplay" unique_id=2069118462 instance=ExtResource("6_30blh")]
 layout_mode = 2
 
-[node name="TotalPowerDisplay" type="MarginContainer" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections" node_paths=PackedStringArray("total_value_label")]
+[node name="TotalPowerDisplay" type="MarginContainer" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections" unique_id=1588294887 node_paths=PackedStringArray("total_value_label")]
 clip_contents = true
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
@@ -286,21 +286,21 @@ theme_override_constants/margin_bottom = 5
 script = ExtResource("9_cb4ss")
 total_value_label = NodePath("PanelContainer/VBoxContainer/VBoxContainer/TotalValue")
 
-[node name="PanelContainer" type="PanelContainer" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay"]
+[node name="PanelContainer" type="PanelContainer" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay" unique_id=1603683127]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay/PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay/PanelContainer" unique_id=97006532]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay/PanelContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay/PanelContainer/VBoxContainer" unique_id=471224265]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="TotalHeader" type="Label" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay/PanelContainer/VBoxContainer/VBoxContainer"]
+[node name="TotalHeader" type="Label" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay/PanelContainer/VBoxContainer/VBoxContainer" unique_id=1728880283]
 layout_mode = 2
 text = "Total Power:"
 
-[node name="TotalValue" type="Label" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay/PanelContainer/VBoxContainer/VBoxContainer"]
+[node name="TotalValue" type="Label" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay/PanelContainer/VBoxContainer/VBoxContainer" unique_id=184669996]
 layout_mode = 2
 size_flags_vertical = 1
 theme_override_font_sizes/font_size = 48
@@ -308,23 +308,23 @@ text = "100"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ChargeButton" type="Button" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay/PanelContainer/VBoxContainer"]
+[node name="ChargeButton" type="Button" parent="BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay/PanelContainer/VBoxContainer" unique_id=658929773]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("15_ogtvo")
 text = "Charge!"
 
-[node name="Right" type="VBoxContainer" parent="BottomInfoDisplay"]
+[node name="Right" type="VBoxContainer" parent="BottomInfoDisplay" unique_id=779350054]
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 8
 theme_override_constants/separation = 0
 
-[node name="TopEdge" type="Control" parent="BottomInfoDisplay/Right"]
+[node name="TopEdge" type="Control" parent="BottomInfoDisplay/Right" unique_id=1100436918]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 
-[node name="TitleContainer" type="PanelContainer" parent="BottomInfoDisplay/Right/TopEdge"]
+[node name="TitleContainer" type="PanelContainer" parent="BottomInfoDisplay/Right/TopEdge" unique_id=2102800078]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 1.0
@@ -333,64 +333,64 @@ offset_left = 10.0
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_8a5xg")
 
-[node name="PanelTitle" type="Label" parent="BottomInfoDisplay/Right/TopEdge/TitleContainer"]
+[node name="PanelTitle" type="Label" parent="BottomInfoDisplay/Right/TopEdge/TitleContainer" unique_id=1040949487]
 layout_mode = 2
 text = "Next Barrier"
 
-[node name="BarrierPreview" type="PanelContainer" parent="BottomInfoDisplay/Right"]
+[node name="BarrierPreview" type="PanelContainer" parent="BottomInfoDisplay/Right" unique_id=1186541640]
 custom_minimum_size = Vector2(275, 210)
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 8
 script = ExtResource("9_iui7q")
 
-[node name="VB" type="VBoxContainer" parent="BottomInfoDisplay/Right/BarrierPreview"]
+[node name="VB" type="VBoxContainer" parent="BottomInfoDisplay/Right/BarrierPreview" unique_id=428567836]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="NameContainer" type="PanelContainer" parent="BottomInfoDisplay/Right/BarrierPreview/VB"]
+[node name="NameContainer" type="PanelContainer" parent="BottomInfoDisplay/Right/BarrierPreview/VB" unique_id=2132710146]
 layout_mode = 2
 
-[node name="MC" type="MarginContainer" parent="BottomInfoDisplay/Right/BarrierPreview/VB/NameContainer"]
+[node name="MC" type="MarginContainer" parent="BottomInfoDisplay/Right/BarrierPreview/VB/NameContainer" unique_id=1810867730]
 layout_mode = 2
 theme_override_constants/margin_left = 2
 theme_override_constants/margin_top = 2
 theme_override_constants/margin_right = 2
 theme_override_constants/margin_bottom = 2
 
-[node name="Name" type="Label" parent="BottomInfoDisplay/Right/BarrierPreview/VB/NameContainer/MC"]
+[node name="Name" type="Label" parent="BottomInfoDisplay/Right/BarrierPreview/VB/NameContainer/MC" unique_id=1211367696]
 layout_mode = 2
 text = "The Immovable Object"
 horizontal_alignment = 1
 
-[node name="StatsContainer" type="MarginContainer" parent="BottomInfoDisplay/Right/BarrierPreview/VB"]
+[node name="StatsContainer" type="MarginContainer" parent="BottomInfoDisplay/Right/BarrierPreview/VB" unique_id=1187093990]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="VB" type="VBoxContainer" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer"]
+[node name="VB" type="VBoxContainer" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer" unique_id=74653888]
 custom_minimum_size = Vector2(0, 190)
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="TotalPowerContainer" type="PanelContainer" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer/VB"]
+[node name="TotalPowerContainer" type="PanelContainer" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer/VB" unique_id=1636279636]
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer/VB/TotalPowerContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer/VB/TotalPowerContainer" unique_id=394934075]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer/VB/TotalPowerContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer/VB/TotalPowerContainer/MarginContainer" unique_id=1304897117]
 layout_mode = 2
 
-[node name="TotalPowerHeader" type="Label" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer/VB/TotalPowerContainer/MarginContainer/VBoxContainer"]
+[node name="TotalPowerHeader" type="Label" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer/VB/TotalPowerContainer/MarginContainer/VBoxContainer" unique_id=1414736772]
 layout_mode = 2
 size_flags_vertical = 0
 text = "Total Power:"
 
-[node name="TotalPowerValue" type="Label" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer/VB/TotalPowerContainer/MarginContainer/VBoxContainer"]
+[node name="TotalPowerValue" type="Label" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer/VB/TotalPowerContainer/MarginContainer/VBoxContainer" unique_id=390557939]
 layout_mode = 2
 size_flags_vertical = 2
 theme_override_font_sizes/font_size = 48
@@ -398,25 +398,25 @@ text = "75"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HB" type="HBoxContainer" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer/VB"]
+[node name="HB" type="HBoxContainer" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer/VB" unique_id=1283448986]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="WeaknessContainer" type="PanelContainer" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer/VB/HB"]
+[node name="WeaknessContainer" type="PanelContainer" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer/VB/HB" unique_id=2101877664]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer/VB/HB/WeaknessContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer/VB/HB/WeaknessContainer" unique_id=266813004]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer/VB/HB/WeaknessContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer/VB/HB/WeaknessContainer/MarginContainer" unique_id=1804047781]
 layout_mode = 2
 
-[node name="WeaknessHeader" type="Label" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer/VB/HB/WeaknessContainer/MarginContainer/VBoxContainer"]
+[node name="WeaknessHeader" type="Label" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer/VB/HB/WeaknessContainer/MarginContainer/VBoxContainer" unique_id=1246032977]
 layout_mode = 2
 text = "Weakness:"
 
-[node name="WeaknessIcon" type="TextureRect" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer/VB/HB/WeaknessContainer/MarginContainer/VBoxContainer"]
+[node name="WeaknessIcon" type="TextureRect" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer/VB/HB/WeaknessContainer/MarginContainer/VBoxContainer" unique_id=1461750248]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
@@ -424,22 +424,22 @@ texture = ExtResource("6_r4yqa")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="SpecialContainer" type="PanelContainer" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer/VB/HB"]
+[node name="SpecialContainer" type="PanelContainer" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer/VB/HB" unique_id=1722075475]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer/VB/HB/SpecialContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer/VB/HB/SpecialContainer" unique_id=593884381]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer/VB/HB/SpecialContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer/VB/HB/SpecialContainer/MarginContainer" unique_id=515757870]
 layout_mode = 2
 
-[node name="SpecialHeader" type="Label" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer/VB/HB/SpecialContainer/MarginContainer/VBoxContainer"]
+[node name="SpecialHeader" type="Label" parent="BottomInfoDisplay/Right/BarrierPreview/VB/StatsContainer/VB/HB/SpecialContainer/MarginContainer/VBoxContainer" unique_id=281323662]
 layout_mode = 2
 text = "Special:"
 
-[node name="ScreenNotification" parent="." instance=ExtResource("3_rl23t")]
+[node name="ScreenNotification" parent="." unique_id=1928191176 instance=ExtResource("3_rl23t")]
 visible = false
 z_index = 1
 layout_mode = 1
@@ -447,7 +447,7 @@ anchors_preset = -1
 anchor_top = 0.3
 anchor_bottom = 0.3
 
-[node name="GoInsideButton" type="Button" parent="." groups=["tutorial_triggers"]]
+[node name="GoInsideButton" type="Button" parent="." unique_id=1790392325 groups=["tutorial_triggers"]]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -460,7 +460,7 @@ text = "Manage Crew
 Inside "
 script = ExtResource("18_37s2e")
 
-[node name="ApplicantsDisplay" parent="GoInsideButton" instance=ExtResource("18_pekm7")]
+[node name="ApplicantsDisplay" parent="GoInsideButton" unique_id=2057310642 instance=ExtResource("18_pekm7")]
 visible = false
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
@@ -471,7 +471,7 @@ offset_left = 5.0
 offset_right = 179.0
 offset_bottom = 29.0
 
-[node name="CharacterInfoPanel" parent="." instance=ExtResource("16_oou66")]
+[node name="CharacterInfoPanel" parent="." unique_id=1226025707 instance=ExtResource("16_oou66")]
 visible = false
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
@@ -486,7 +486,7 @@ offset_right = 0.0
 offset_bottom = 0.0
 grow_vertical = 0
 
-[node name="CombatResultsSummary" parent="." instance=ExtResource("18_lgpuc")]
+[node name="CombatResultsSummary" parent="." unique_id=739770895 instance=ExtResource("18_lgpuc")]
 visible = false
 z_index = 1
 layout_mode = 1
@@ -497,15 +497,15 @@ anchor_right = 0.8
 anchor_bottom = 0.4
 grow_vertical = 0
 
-[node name="DistanceRemainingDisplay" parent="." instance=ExtResource("21_mon1i")]
+[node name="DistanceRemainingDisplay" parent="." unique_id=409724775 instance=ExtResource("21_mon1i")]
 layout_mode = 1
 anchors_preset = -1
 offset_right = -50.0
 
-[node name="Control" type="Control" parent="DistanceRemainingDisplay"]
+[node name="Control" type="Control" parent="DistanceRemainingDisplay" unique_id=880650393]
 layout_mode = 2
 
-[node name="RegionDisplay" parent="DistanceRemainingDisplay/Control" instance=ExtResource("22_cfrx8")]
+[node name="RegionDisplay" parent="DistanceRemainingDisplay/Control" unique_id=1407114159 instance=ExtResource("22_cfrx8")]
 layout_mode = 1
 anchors_preset = -1
 

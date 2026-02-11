@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=16 format=3 uid="uid://cwrciodhmr6gq"]
+[gd_resource type="SpriteFrames" format=3 uid="uid://cwrciodhmr6gq"]
 
 [ext_resource type="Texture2D" uid="uid://blm1u5qk32460" path="res://assets/art/transport/Tusk_Moving_Slow.png" id="1_qo582"]
 [ext_resource type="Texture2D" uid="uid://duixlbxqc0hpf" path="res://assets/art/transport/Tusk_Moving_Bouncing.png" id="2_5qaf3"]

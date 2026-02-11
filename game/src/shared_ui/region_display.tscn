@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://c8opoeu5d2ji3"]
+[gd_scene format=3 uid="uid://c8opoeu5d2ji3"]
 
 [ext_resource type="Script" uid="uid://bfcxe25vit68g" path="res://src/shared_ui/region_display.gd" id="1_ml45x"]
 
@@ -7,7 +7,7 @@ bg_color = Color(0, 0, 0, 0.392157)
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[node name="RegionDisplay" type="PanelContainer"]
+[node name="RegionDisplay" type="PanelContainer" unique_id=1660207369]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -17,37 +17,37 @@ grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_yo7kg")
 script = ExtResource("1_ml45x")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1133198036]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 2
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=530613241]
 layout_mode = 2
 
-[node name="Header" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Header" type="Label" parent="MarginContainer/VBoxContainer" unique_id=273133238]
 layout_mode = 2
 text = "Current Region: 
 "
 
-[node name="RegionName" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="RegionName" type="Label" parent="MarginContainer/VBoxContainer" unique_id=174480670]
 layout_mode = 2
 text = "Not-Too-Badlands"
 
-[node name="RegionInfoContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+[node name="RegionInfoContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer" unique_id=2060102839]
 visible = false
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/RegionInfoContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/RegionInfoContainer" unique_id=1489184433]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 2
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 2
 
-[node name="RegionInfo" type="RichTextLabel" parent="MarginContainer/VBoxContainer/RegionInfoContainer/MarginContainer"]
+[node name="RegionInfo" type="RichTextLabel" parent="MarginContainer/VBoxContainer/RegionInfoContainer/MarginContainer" unique_id=1837315074]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 14
 bbcode_enabled = true

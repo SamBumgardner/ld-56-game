@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CharacterFactory" load_steps=22 format=3 uid="uid://beppcdvy1b3s0"]
+[gd_resource type="Resource" script_class="CharacterFactory" format=3 uid="uid://beppcdvy1b3s0"]
 
 [ext_resource type="Texture2D" uid="uid://c7kqxdlkknis7" path="res://assets/art/character_icons/fish_small.png" id="1_r4aqy"]
 [ext_resource type="Texture2D" uid="uid://dukti5u37rr3o" path="res://assets/art/character_portraits/fish_portrait.png" id="2_gq46r"]

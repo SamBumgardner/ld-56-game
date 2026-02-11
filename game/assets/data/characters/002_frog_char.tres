@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CharacterFactory" load_steps=23 format=3 uid="uid://duswkektwj6hb"]
+[gd_resource type="Resource" script_class="CharacterFactory" format=3 uid="uid://duswkektwj6hb"]
 
 [ext_resource type="Texture2D" uid="uid://m3rgk10221x8" path="res://assets/art/character_icons/frog_small.png" id="1_8ciqa"]
 [ext_resource type="Texture2D" uid="uid://v30istbpxkmf" path="res://assets/art/character_portraits/frog_portrait.png" id="2_tg2sd"]

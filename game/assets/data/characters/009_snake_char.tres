@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CharacterFactory" load_steps=23 format=3 uid="uid://bo6i4mxety0iv"]
+[gd_resource type="Resource" script_class="CharacterFactory" format=3 uid="uid://bo6i4mxety0iv"]
 
 [ext_resource type="Texture2D" uid="uid://c6vw5nlbccmsu" path="res://assets/art/character_icons/snake_small.png" id="1_pttuv"]
 [ext_resource type="Texture2D" uid="uid://pila5yb75whp" path="res://assets/art/character_portraits/snake_portrait.png" id="2_uc5ga"]
