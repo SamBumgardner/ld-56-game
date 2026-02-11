@@ -32,7 +32,7 @@ const REROLL_FAIL_DURATION = 2
 @onready var charge_button: Button = $BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay/PanelContainer/VBoxContainer/ChargeButton
 @onready var go_inside_button: Button = $GoInsideButton
 @onready var combat_results_summary: CombatResultsSummary = $CombatResultsSummary
-@onready var distance_remaining_display: DistanceRemainingDisplay = $TopRightLocation/VBoxContainer/DistanceRemainingDisplay
+@onready var top_right_location_display: MarginContainer = $TopRightLocation
 
 @onready var resource_displays: Array[ResourceDisplay] = [
     $TopBar/Trackers/MoneyDisplay,
@@ -136,7 +136,7 @@ func _charge_mode_fadeout(duration: float) -> void:
         screen_notification,
         go_inside_button,
         top_bar_display,
-        distance_remaining_display,
+        top_right_location_display,
     ]
     for target: Control in fadeout_targets:
         var fadeout_tween: Tween = create_tween()
@@ -149,7 +149,7 @@ func _charge_mode_fadein(duration: float) -> void:
         screen_notification,
         go_inside_button,
         top_bar_display,
-        distance_remaining_display,
+        top_right_location_display,
     ]
     for target: Control in fadein_targets:
         var fadein_tween: Tween = create_tween()
