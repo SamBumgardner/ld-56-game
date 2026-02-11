@@ -32,13 +32,13 @@ const REROLL_FAIL_DURATION = 2
 @onready var charge_button: Button = $BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay/PanelContainer/VBoxContainer/ChargeButton
 @onready var go_inside_button: Button = $GoInsideButton
 @onready var combat_results_summary: CombatResultsSummary = $CombatResultsSummary
-@onready var distance_remaining_display: DistanceRemainingDisplay = $DistanceRemainingDisplay
+@onready var distance_remaining_display: DistanceRemainingDisplay = $TopRightLocation/VBoxContainer/DistanceRemainingDisplay
 
 @onready var resource_displays: Array[ResourceDisplay] = [
     $TopBar/Trackers/MoneyDisplay,
     $TopBar/Trackers/FuelDisplay,
     $BottomInfoDisplay/Center/TopEdge/FuelDisplayMini,
-    $DistanceRemainingDisplay
+    $TopRightLocation/VBoxContainer/DistanceRemainingDisplay
 ]
 
 func _ready():
