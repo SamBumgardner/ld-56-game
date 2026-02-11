@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cj4g148ajp1d7"]
+[gd_scene format=3 uid="uid://cj4g148ajp1d7"]
 
 [ext_resource type="Texture2D" uid="uid://bjqlw2tbgep0o" path="res://assets/art/backgrounds/main_menu_background.jpg" id="1_36cu3"]
 [ext_resource type="Script" uid="uid://3xsx7dy7gkfn" path="res://src/start_menu/intro_sequence/intro_sequence.gd" id="1_fqxy4"]
@@ -386,7 +386,7 @@ _data = {
 &"intro_sequence": SubResource("Animation_6ghn5")
 }
 
-[node name="IntroSequence" type="Control"]
+[node name="IntroSequence" type="Control" unique_id=1318413745]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -395,7 +395,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fqxy4")
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="." unique_id=1876598697]
 custom_minimum_size = Vector2(1280, 0)
 layout_mode = 0
 offset_right = 1280.0
@@ -403,12 +403,10 @@ offset_bottom = 993.125
 texture = ExtResource("1_36cu3")
 expand_mode = 5
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_343y2")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=961020129]
+libraries/ = SubResource("AnimationLibrary_343y2")
 
-[node name="FadeInCover" type="ColorRect" parent="."]
+[node name="FadeInCover" type="ColorRect" parent="." unique_id=1699578116]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -417,7 +415,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="TuskAnchor" type="Control" parent="."]
+[node name="TuskAnchor" type="Control" parent="." unique_id=327490553]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -431,7 +429,7 @@ offset_bottom = -360.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="T" type="TextureRect" parent="TuskAnchor"]
+[node name="T" type="TextureRect" parent="TuskAnchor" unique_id=1350882166]
 custom_minimum_size = Vector2(225, 225)
 layout_mode = 0
 offset_left = 135.0
@@ -442,7 +440,7 @@ texture = ExtResource("2_fcnxr")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="U" type="TextureRect" parent="TuskAnchor"]
+[node name="U" type="TextureRect" parent="TuskAnchor" unique_id=1921278888]
 custom_minimum_size = Vector2(225, 225)
 layout_mode = 0
 offset_left = 400.0
@@ -453,7 +451,7 @@ texture = ExtResource("3_mngpm")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="S" type="TextureRect" parent="TuskAnchor"]
+[node name="S" type="TextureRect" parent="TuskAnchor" unique_id=175253235]
 custom_minimum_size = Vector2(225, 225)
 layout_mode = 0
 offset_left = 680.0
@@ -464,7 +462,7 @@ texture = ExtResource("5_p1hry")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="K" type="TextureRect" parent="TuskAnchor"]
+[node name="K" type="TextureRect" parent="TuskAnchor" unique_id=850870767]
 custom_minimum_size = Vector2(225, 225)
 layout_mode = 0
 offset_left = 932.0
@@ -475,7 +473,7 @@ texture = ExtResource("6_x53lp")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="U_Horn" type="TextureRect" parent="TuskAnchor"]
+[node name="U_Horn" type="TextureRect" parent="TuskAnchor" unique_id=1018472088]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 0
 offset_left = 458.0
@@ -486,7 +484,7 @@ texture = ExtResource("4_71dsr")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="S_Horn_Bottom" type="TextureRect" parent="TuskAnchor"]
+[node name="S_Horn_Bottom" type="TextureRect" parent="TuskAnchor" unique_id=941599730]
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 0
 offset_left = 673.0
@@ -497,7 +495,7 @@ texture = ExtResource("7_tkrbo")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="S_Horn_Top" type="TextureRect" parent="TuskAnchor"]
+[node name="S_Horn_Top" type="TextureRect" parent="TuskAnchor" unique_id=1061547345]
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 0
 offset_left = 736.0
@@ -508,7 +506,7 @@ texture = ExtResource("6_k62ui")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="K_Horn_Bottom" type="TextureRect" parent="TuskAnchor"]
+[node name="K_Horn_Bottom" type="TextureRect" parent="TuskAnchor" unique_id=211848711]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 0
 offset_left = 993.0
@@ -519,7 +517,7 @@ texture = ExtResource("9_6pw6s")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="K_Horn_Top" type="TextureRect" parent="TuskAnchor"]
+[node name="K_Horn_Top" type="TextureRect" parent="TuskAnchor" unique_id=1728093674]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 0
 offset_left = 972.0

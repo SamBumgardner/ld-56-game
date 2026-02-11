@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://s1xgcuqegtmf"]
+[gd_scene format=3 uid="uid://s1xgcuqegtmf"]
 
 [ext_resource type="Theme" uid="uid://duflqnf122e6l" path="res://assets/themes/StartMenu.tres" id="1_581ss"]
 [ext_resource type="Script" uid="uid://brhjt0wq3g4oi" path="res://src/settings_menu/settings_menu.gd" id="1_tjwhj"]
@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://mq5u7di7yh8m" path="res://src/back_to_start_menu_button/BackToStartMenuButton.tscn" id="4_lsi3h"]
 [ext_resource type="PackedScene" uid="uid://dbs7sk334clc7" path="res://src/battlefield_outdoors/battlefield_outdoors_background/BattlefieldOutdoorsBackground.tscn" id="7_6w7r2"]
 
-[node name="SettingsMenu" type="Control"]
+[node name="SettingsMenu" type="Control" unique_id=1962197071]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -18,9 +18,9 @@ grow_vertical = 2
 theme = ExtResource("1_581ss")
 script = ExtResource("1_tjwhj")
 
-[node name="AudioManager" parent="." instance=ExtResource("2_dyaxl")]
+[node name="AudioManager" parent="." unique_id=756083121 instance=ExtResource("2_dyaxl")]
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=164831048]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -28,11 +28,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1871794365]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="Title" type="RichTextLabel" parent="CenterContainer/VBoxContainer"]
+[node name="Title" type="RichTextLabel" parent="CenterContainer/VBoxContainer" unique_id=901658297]
 clip_contents = false
 layout_mode = 2
 theme_override_constants/outline_size = 7
@@ -40,40 +40,40 @@ text = "Settings"
 fit_content = true
 autowrap_mode = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer" unique_id=94157181]
 layout_mode = 2
 
-[node name="Panel" type="Panel" parent="CenterContainer/VBoxContainer/MarginContainer"]
+[node name="Panel" type="Panel" parent="CenterContainer/VBoxContainer/MarginContainer" unique_id=119402115]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer/MarginContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer/MarginContainer" unique_id=1302519923]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/MarginContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/MarginContainer/MarginContainer" unique_id=60228321]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="SettingsVolume" parent="CenterContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer" instance=ExtResource("4_0gnbp")]
+[node name="SettingsVolume" parent="CenterContainer/VBoxContainer/MarginContainer/MarginContainer/VBoxContainer" unique_id=228584090 instance=ExtResource("4_0gnbp")]
 layout_mode = 2
 
-[node name="ResetToDefaultsButton" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="ResetToDefaultsButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=743059113]
 layout_mode = 2
 theme = ExtResource("1_wa1ao")
 text = "Reset to Defaults"
 
-[node name="BackButton" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="BackButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1891256985]
 layout_mode = 2
 theme = ExtResource("1_wa1ao")
 text = "Back"
 
-[node name="BackToStartMenuButton" parent="." instance=ExtResource("4_lsi3h")]
+[node name="BackToStartMenuButton" parent="." unique_id=1712699325 instance=ExtResource("4_lsi3h")]
 layout_mode = 0
 
-[node name="BattlefieldOutdoorsBackground" parent="." instance=ExtResource("7_6w7r2")]
+[node name="BattlefieldOutdoorsBackground" parent="." unique_id=1375523861 instance=ExtResource("7_6w7r2")]
 
 [connection signal="ready" from="." to="AudioManager" method="_on_settings_menu_ready"]
 [connection signal="mouse_entered" from="CenterContainer/VBoxContainer/ResetToDefaultsButton" to="AudioManager" method="_on_reset_to_defaults_button_mouse_entered"]

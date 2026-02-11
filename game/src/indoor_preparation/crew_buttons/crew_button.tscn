@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dj3cohh45iw0d"]
+[gd_scene format=3 uid="uid://dj3cohh45iw0d"]
 
 [ext_resource type="Texture2D" uid="uid://woajwoo0x5y4" path="res://assets/art/crew_member_buttons/placeholder/placeholder_crew.png" id="1_0is4p"]
 [ext_resource type="ButtonGroup" uid="uid://bjgmkn24yqbu4" path="res://src/indoor_preparation/crew_buttons/crew_buttons.tres" id="1_jddrr"]
@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://di3hi4w86hxb4" path="res://src/indoor_preparation/crew_buttons/crew_button.gd" id="5_06drq"]
 [ext_resource type="PackedScene" uid="uid://h1fowbxngb70" path="res://src/audio_manager/AudioManager.tscn" id="7_0qb38"]
 
-[node name="CrewButton" type="TextureButton"]
+[node name="CrewButton" type="TextureButton" unique_id=1824538798]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -29,6 +29,6 @@ texture_click_mask = ExtResource("4_4dfub")
 stretch_mode = 5
 script = ExtResource("5_06drq")
 
-[node name="AudioManager" parent="." instance=ExtResource("7_0qb38")]
+[node name="AudioManager" parent="." unique_id=1734363170 instance=ExtResource("7_0qb38")]
 
 [connection signal="crew_member_selected" from="." to="AudioManager" method="_on_crew_button_crew_member_selected"]

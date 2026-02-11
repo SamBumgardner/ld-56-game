@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cg47m1iqb0uxk"]
+[gd_scene format=3 uid="uid://cg47m1iqb0uxk"]
 
 [ext_resource type="Script" uid="uid://vsenfrgcvtcm" path="res://src/start_menu/start_menu.gd" id="1_1710u"]
 [ext_resource type="Theme" uid="uid://duflqnf122e6l" path="res://assets/themes/StartMenu.tres" id="1_io06w"]
@@ -19,7 +19,7 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
-[node name="StartMenu" type="Control"]
+[node name="StartMenu" type="Control" unique_id=2024004460]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,13 +29,13 @@ grow_vertical = 2
 theme = ExtResource("1_io06w")
 script = ExtResource("1_1710u")
 
-[node name="AudioManager" parent="." instance=ExtResource("3_kgn8u")]
+[node name="AudioManager" parent="." unique_id=463775020 instance=ExtResource("3_kgn8u")]
 
-[node name="IntroSequence" parent="." instance=ExtResource("4_cqohr")]
+[node name="IntroSequence" parent="." unique_id=1475794192 instance=ExtResource("4_cqohr")]
 visible = false
 layout_mode = 1
 
-[node name="SubTitle" type="RichTextLabel" parent="."]
+[node name="SubTitle" type="RichTextLabel" parent="." unique_id=1028227406]
 visible = false
 clip_contents = false
 layout_mode = 0
@@ -50,7 +50,7 @@ text = "Ludum Dare 56 Game Jam Entry"
 fit_content = true
 autowrap_mode = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=946260795]
 visible = false
 layout_mode = 1
 anchors_preset = -1
@@ -65,44 +65,44 @@ offset_bottom = 139.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Buttons" type="CenterContainer" parent="VBoxContainer"]
+[node name="Buttons" type="CenterContainer" parent="VBoxContainer" unique_id=1957815705]
 layout_mode = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/Buttons"]
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/Buttons" unique_id=1600367029]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qi1mv")
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Buttons/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Buttons/PanelContainer" unique_id=210169938]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="ButtonRows" type="VBoxContainer" parent="VBoxContainer/Buttons/PanelContainer/MarginContainer"]
+[node name="ButtonRows" type="VBoxContainer" parent="VBoxContainer/Buttons/PanelContainer/MarginContainer" unique_id=263183581]
 custom_minimum_size = Vector2(240, 0)
 layout_mode = 2
 theme = ExtResource("3_qd2mb")
 
-[node name="TutorialButton" type="Button" parent="VBoxContainer/Buttons/PanelContainer/MarginContainer/ButtonRows"]
+[node name="TutorialButton" type="Button" parent="VBoxContainer/Buttons/PanelContainer/MarginContainer/ButtonRows" unique_id=1936891348]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Tutorial"
 
-[node name="ScenarioButton" type="Button" parent="VBoxContainer/Buttons/PanelContainer/MarginContainer/ButtonRows"]
+[node name="ScenarioButton" type="Button" parent="VBoxContainer/Buttons/PanelContainer/MarginContainer/ButtonRows" unique_id=792911292]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Play"
 
-[node name="SettingsButton" type="Button" parent="VBoxContainer/Buttons/PanelContainer/MarginContainer/ButtonRows"]
+[node name="SettingsButton" type="Button" parent="VBoxContainer/Buttons/PanelContainer/MarginContainer/ButtonRows" unique_id=887883142]
 layout_mode = 2
 text = "Settings"
 
-[node name="QuitButton" type="Button" parent="VBoxContainer/Buttons/PanelContainer/MarginContainer/ButtonRows"]
+[node name="QuitButton" type="Button" parent="VBoxContainer/Buttons/PanelContainer/MarginContainer/ButtonRows" unique_id=388015154]
 layout_mode = 2
 text = "Quit"
 
-[node name="BattlefieldOutdoorsBackground" parent="." instance=ExtResource("5_1ihwe")]
+[node name="BattlefieldOutdoorsBackground" parent="." unique_id=4791873 instance=ExtResource("5_1ihwe")]
 
 [connection signal="ready" from="." to="AudioManager" method="_on_start_menu_ready"]
 [connection signal="intro_finished" from="IntroSequence" to="." method="_on_intro_sequence_intro_finished"]

@@ -1,17 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://dqfr40hi455qx"]
+[gd_scene format=3 uid="uid://dqfr40hi455qx"]
 
 [ext_resource type="Script" uid="uid://d30f1r54iue8" path="res://src/battlefield_outdoors/grid_of_dice_results/freezable_die_result/freezable_die_result.gd" id="1_e7gc8"]
 [ext_resource type="PackedScene" uid="uid://lw7wcqkoqifj" path="res://src/shared_ui/die_result/DieResult.tscn" id="2_wlc05"]
 
-[node name="FreezableDieResult" type="HBoxContainer"]
+[node name="FreezableDieResult" type="HBoxContainer" unique_id=816263518]
 offset_right = 114.0
 offset_bottom = 23.0
 script = ExtResource("1_e7gc8")
 
-[node name="DieResult" parent="." instance=ExtResource("2_wlc05")]
+[node name="DieResult" parent="." unique_id=1462325958 instance=ExtResource("2_wlc05")]
 layout_mode = 2
 
-[node name="FrozenStatusToggle" type="Button" parent="."]
+[node name="FrozenStatusToggle" type="Button" parent="." unique_id=679055553]
 layout_mode = 2
 text = "Unfrozen"
 

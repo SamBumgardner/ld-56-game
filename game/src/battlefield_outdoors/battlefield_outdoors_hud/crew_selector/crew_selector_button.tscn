@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cpjm8ajr3ey5l"]
+[gd_scene format=3 uid="uid://cpjm8ajr3ey5l"]
 
 [ext_resource type="Texture2D" uid="uid://4nvogy60mpq3" path="res://icon.svg" id="1_gc4pc"]
 [ext_resource type="Script" uid="uid://bli5ujb6u17s3" path="res://src/battlefield_outdoors/battlefield_outdoors_hud/crew_selector/crew_selector_button.gd" id="2_w8ppo"]
@@ -9,7 +9,7 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mp2vv"]
 
-[node name="CrewSelectorButton" type="TextureRect"]
+[node name="CrewSelectorButton" type="TextureRect" unique_id=1827423325]
 custom_minimum_size = Vector2(64, 64)
 anchors_preset = 8
 anchor_left = 0.5
@@ -23,9 +23,9 @@ expand_mode = 3
 stretch_mode = 4
 script = ExtResource("2_w8ppo")
 
-[node name="AudioManager" parent="." instance=ExtResource("3_dam66")]
+[node name="AudioManager" parent="." unique_id=1220303886 instance=ExtResource("3_dam66")]
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="." unique_id=672668240]
 show_behind_parent = true
 layout_mode = 1
 anchors_preset = 15

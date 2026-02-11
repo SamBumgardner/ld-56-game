@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d0wnwi5rcyku"]
+[gd_scene format=3 uid="uid://d0wnwi5rcyku"]
 
 [ext_resource type="Theme" uid="uid://dmwrgmv8lathf" path="res://assets/themes/ScreenTheme.tres" id="1_te1yn"]
 [ext_resource type="Texture2D" uid="uid://bic3i142epdt3" path="res://assets/art/placeholder_threat.png" id="2_doqwf"]
@@ -11,7 +11,7 @@
 [ext_resource type="Script" uid="uid://cjydm4nr3gk0h" path="res://src/indoor_preparation/screen_displays/shared/character_detail/character_detail_upgrades.gd" id="6_1f48f"]
 [ext_resource type="PackedScene" uid="uid://dj3qjxeo1h7wm" path="res://src/indoor_preparation/screen_displays/shared/character_detail/dynamic_info_panel.tscn" id="8_yjqcy"]
 
-[node name="CharacterDetail" type="Control"]
+[node name="CharacterDetail" type="Control" unique_id=1262632532]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,7 +21,7 @@ grow_vertical = 2
 theme = ExtResource("1_te1yn")
 script = ExtResource("2_tnvk2")
 
-[node name="BasicSummary" type="HBoxContainer" parent="."]
+[node name="BasicSummary" type="HBoxContainer" parent="." unique_id=818134653]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.02
@@ -31,17 +31,17 @@ anchor_bottom = 0.02
 theme_override_constants/separation = 10
 script = ExtResource("3_q3ltp")
 
-[node name="Portrait" type="TextureRect" parent="BasicSummary"]
+[node name="Portrait" type="TextureRect" parent="BasicSummary" unique_id=706154060]
 layout_mode = 2
 size_flags_vertical = 4
 texture = ExtResource("2_doqwf")
 stretch_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="BasicSummary"]
+[node name="VBoxContainer" type="VBoxContainer" parent="BasicSummary" unique_id=1598484233]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Name" type="Label" parent="BasicSummary/VBoxContainer"]
+[node name="Name" type="Label" parent="BasicSummary/VBoxContainer" unique_id=1048532254]
 layout_mode = 2
 size_flags_horizontal = 0
 theme = ExtResource("1_te1yn")
@@ -49,18 +49,18 @@ theme_override_font_sizes/font_size = 48
 text = "Placeholder"
 justification_flags = 129
 
-[node name="Description" type="Label" parent="BasicSummary/VBoxContainer"]
+[node name="Description" type="Label" parent="BasicSummary/VBoxContainer" unique_id=1809755211]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 text = "Description Text Goes Here"
 autowrap_mode = 2
 
-[node name="ActionsBackground" type="PanelContainer" parent="BasicSummary/VBoxContainer"]
+[node name="ActionsBackground" type="PanelContainer" parent="BasicSummary/VBoxContainer" unique_id=1249975198]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 
-[node name="MarginContainer" type="MarginContainer" parent="BasicSummary/VBoxContainer/ActionsBackground"]
+[node name="MarginContainer" type="MarginContainer" parent="BasicSummary/VBoxContainer/ActionsBackground" unique_id=595431371]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_constants/margin_left = 5
@@ -68,48 +68,48 @@ theme_override_constants/margin_top = 2
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 2
 
-[node name="ActionsPreview" type="HBoxContainer" parent="BasicSummary/VBoxContainer/ActionsBackground/MarginContainer"]
+[node name="ActionsPreview" type="HBoxContainer" parent="BasicSummary/VBoxContainer/ActionsBackground/MarginContainer" unique_id=1280034306]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 
-[node name="Descriptor" type="Label" parent="BasicSummary/VBoxContainer/ActionsBackground/MarginContainer/ActionsPreview"]
+[node name="Descriptor" type="Label" parent="BasicSummary/VBoxContainer/ActionsBackground/MarginContainer/ActionsPreview" unique_id=1189741973]
 layout_mode = 2
 text = "Actions:"
 
-[node name="DieResult" parent="BasicSummary/VBoxContainer/ActionsBackground/MarginContainer/ActionsPreview" instance=ExtResource("5_mb6um")]
+[node name="DieResult" parent="BasicSummary/VBoxContainer/ActionsBackground/MarginContainer/ActionsPreview" unique_id=709878088 instance=ExtResource("5_mb6um")]
 layout_mode = 2
 theme = ExtResource("1_te1yn")
 
-[node name="DieResult2" parent="BasicSummary/VBoxContainer/ActionsBackground/MarginContainer/ActionsPreview" instance=ExtResource("5_mb6um")]
+[node name="DieResult2" parent="BasicSummary/VBoxContainer/ActionsBackground/MarginContainer/ActionsPreview" unique_id=2117635950 instance=ExtResource("5_mb6um")]
 layout_mode = 2
 theme = ExtResource("1_te1yn")
 
-[node name="DieResult3" parent="BasicSummary/VBoxContainer/ActionsBackground/MarginContainer/ActionsPreview" instance=ExtResource("5_mb6um")]
+[node name="DieResult3" parent="BasicSummary/VBoxContainer/ActionsBackground/MarginContainer/ActionsPreview" unique_id=176505886 instance=ExtResource("5_mb6um")]
 layout_mode = 2
 theme = ExtResource("1_te1yn")
 
-[node name="DieResult4" parent="BasicSummary/VBoxContainer/ActionsBackground/MarginContainer/ActionsPreview" instance=ExtResource("5_mb6um")]
+[node name="DieResult4" parent="BasicSummary/VBoxContainer/ActionsBackground/MarginContainer/ActionsPreview" unique_id=1418305926 instance=ExtResource("5_mb6um")]
 layout_mode = 2
 theme = ExtResource("1_te1yn")
 
-[node name="DieResult5" parent="BasicSummary/VBoxContainer/ActionsBackground/MarginContainer/ActionsPreview" instance=ExtResource("5_mb6um")]
+[node name="DieResult5" parent="BasicSummary/VBoxContainer/ActionsBackground/MarginContainer/ActionsPreview" unique_id=748708693 instance=ExtResource("5_mb6um")]
 layout_mode = 2
 theme = ExtResource("1_te1yn")
 
-[node name="DieResult6" parent="BasicSummary/VBoxContainer/ActionsBackground/MarginContainer/ActionsPreview" instance=ExtResource("5_mb6um")]
+[node name="DieResult6" parent="BasicSummary/VBoxContainer/ActionsBackground/MarginContainer/ActionsPreview" unique_id=1482752007 instance=ExtResource("5_mb6um")]
 layout_mode = 2
 theme = ExtResource("1_te1yn")
 
-[node name="DieResult7" parent="BasicSummary/VBoxContainer/ActionsBackground/MarginContainer/ActionsPreview" instance=ExtResource("5_mb6um")]
+[node name="DieResult7" parent="BasicSummary/VBoxContainer/ActionsBackground/MarginContainer/ActionsPreview" unique_id=1038804943 instance=ExtResource("5_mb6um")]
 layout_mode = 2
 theme = ExtResource("1_te1yn")
 
-[node name="DieResult8" parent="BasicSummary/VBoxContainer/ActionsBackground/MarginContainer/ActionsPreview" instance=ExtResource("5_mb6um")]
+[node name="DieResult8" parent="BasicSummary/VBoxContainer/ActionsBackground/MarginContainer/ActionsPreview" unique_id=1810629894 instance=ExtResource("5_mb6um")]
 layout_mode = 2
 theme = ExtResource("1_te1yn")
 
-[node name="UpgradeSelection" type="PanelContainer" parent="."]
+[node name="UpgradeSelection" type="PanelContainer" parent="." unique_id=1789093696]
 clip_contents = true
 layout_mode = 1
 anchors_preset = -1
@@ -119,38 +119,38 @@ anchor_right = 0.3
 anchor_bottom = 0.98
 script = ExtResource("6_1f48f")
 
-[node name="MarginContainer" type="MarginContainer" parent="UpgradeSelection"]
+[node name="MarginContainer" type="MarginContainer" parent="UpgradeSelection" unique_id=1503696581]
 layout_mode = 2
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UpgradeSelection/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UpgradeSelection/MarginContainer" unique_id=1411924852]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="UpgradeSelection/MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="UpgradeSelection/MarginContainer/VBoxContainer" unique_id=656526017]
 layout_mode = 2
 text = "UPGRADES"
 horizontal_alignment = 1
 
-[node name="UpgradeChoiceDisplay" parent="UpgradeSelection/MarginContainer/VBoxContainer" instance=ExtResource("4_vtj8y")]
+[node name="UpgradeChoiceDisplay" parent="UpgradeSelection/MarginContainer/VBoxContainer" unique_id=1814694549 instance=ExtResource("4_vtj8y")]
 layout_mode = 2
 
-[node name="UpgradeChoiceDisplay2" parent="UpgradeSelection/MarginContainer/VBoxContainer" instance=ExtResource("4_vtj8y")]
+[node name="UpgradeChoiceDisplay2" parent="UpgradeSelection/MarginContainer/VBoxContainer" unique_id=360566132 instance=ExtResource("4_vtj8y")]
 layout_mode = 2
 
-[node name="UpgradeChoiceDisplay3" parent="UpgradeSelection/MarginContainer/VBoxContainer" instance=ExtResource("4_vtj8y")]
+[node name="UpgradeChoiceDisplay3" parent="UpgradeSelection/MarginContainer/VBoxContainer" unique_id=1999527923 instance=ExtResource("4_vtj8y")]
 layout_mode = 2
 
-[node name="UpgradeChoiceDisplay4" parent="UpgradeSelection/MarginContainer/VBoxContainer" instance=ExtResource("4_vtj8y")]
+[node name="UpgradeChoiceDisplay4" parent="UpgradeSelection/MarginContainer/VBoxContainer" unique_id=1905399068 instance=ExtResource("4_vtj8y")]
 layout_mode = 2
 
-[node name="UpgradeChoiceDisplay5" parent="UpgradeSelection/MarginContainer/VBoxContainer" instance=ExtResource("4_vtj8y")]
+[node name="UpgradeChoiceDisplay5" parent="UpgradeSelection/MarginContainer/VBoxContainer" unique_id=1853177180 instance=ExtResource("4_vtj8y")]
 layout_mode = 2
 
-[node name="DynamicInfoPanel" parent="." instance=ExtResource("8_yjqcy")]
+[node name="DynamicInfoPanel" parent="." unique_id=654101613 instance=ExtResource("8_yjqcy")]
 layout_mode = 1
 
-[node name="IconAndCost" type="VBoxContainer" parent="."]
+[node name="IconAndCost" type="VBoxContainer" parent="." unique_id=1052428030]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.98
@@ -161,13 +161,13 @@ grow_horizontal = 0
 grow_vertical = 0
 theme_override_constants/separation = 25
 
-[node name="CharacterIcon" type="TextureRect" parent="IconAndCost"]
+[node name="CharacterIcon" type="TextureRect" parent="IconAndCost" unique_id=2119219022]
 layout_mode = 2
 texture = ExtResource("3_cs4wt")
 expand_mode = 5
 stretch_mode = 4
 
-[node name="ExitButton" type="Button" parent="."]
+[node name="ExitButton" type="Button" parent="." unique_id=226349461]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.98
@@ -179,7 +179,7 @@ offset_bottom = 32.0
 grow_horizontal = 0
 icon = ExtResource("4_vii54")
 
-[node name="OptionalHeader" type="Label" parent="."]
+[node name="OptionalHeader" type="Label" parent="." unique_id=640800942]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.3

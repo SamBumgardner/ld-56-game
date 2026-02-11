@@ -1,26 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://byvjel7rc8ms0"]
+[gd_scene format=3 uid="uid://byvjel7rc8ms0"]
 
 [ext_resource type="Script" uid="uid://brqsq4l78vj78" path="res://src/indoor_preparation/screen_displays/hire_detail/hire_prompt.gd" id="1_8agtl"]
 [ext_resource type="PackedScene" uid="uid://h1fowbxngb70" path="res://src/audio_manager/AudioManager.tscn" id="2_v3u4e"]
 [ext_resource type="Theme" uid="uid://diekd7pwnwl6n" path="res://assets/themes/green_button_theme_all_rounded.tres" id="3_rwf6l"]
 
-[node name="HirePrompt" type="PanelContainer"]
+[node name="HirePrompt" type="PanelContainer" unique_id=834508288]
 custom_minimum_size = Vector2(85, 0)
 script = ExtResource("1_8agtl")
 
-[node name="AudioManager" parent="." instance=ExtResource("2_v3u4e")]
+[node name="AudioManager" parent="." unique_id=1366234301 instance=ExtResource("2_v3u4e")]
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1946382469]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1679345340]
 layout_mode = 2
 
-[node name="CostDisplay" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+[node name="CostDisplay" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=2002997117]
 layout_mode = 2
 bbcode_enabled = true
 text = "[center]Hiring Cost:
@@ -29,7 +29,7 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 2
 
-[node name="PurchaseButton" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="PurchaseButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=992959337]
 layout_mode = 2
 theme = ExtResource("3_rwf6l")
 theme_override_font_sizes/font_size = 32

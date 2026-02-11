@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://cuo13c0h558v6"]
+[gd_resource type="Theme" format=3 uid="uid://cuo13c0h558v6"]
 
 [ext_resource type="StyleBox" uid="uid://dev07bl2pt8w8" path="res://assets/themes/style_boxes/orange_button_normal.tres" id="1_8wgm6"]
 

@@ -1,25 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://cksonu0m714vg"]
+[gd_scene format=3 uid="uid://cksonu0m714vg"]
 
 [ext_resource type="Script" uid="uid://dbvjhi3ghe3hr" path="res://src/game_over/postgame_stat_line.gd" id="1_io3k3"]
 
-[node name="PostgameStatLine" type="HBoxContainer"]
+[node name="PostgameStatLine" type="HBoxContainer" unique_id=1537560505]
 custom_minimum_size = Vector2(370, 0)
 size_flags_horizontal = 10
 script = ExtResource("1_io3k3")
 
-[node name="StatName" type="Label" parent="."]
+[node name="StatName" type="Label" parent="." unique_id=1223417990]
 layout_mode = 2
 size_flags_horizontal = 0
 text = "StatisticName"
 
-[node name="Ellipsis" type="Label" parent="."]
+[node name="Ellipsis" type="Label" parent="." unique_id=441744939]
 layout_mode = 2
 size_flags_horizontal = 3
 text = ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . "
 clip_text = true
 text_overrun_behavior = 1
 
-[node name="StatValue" type="Label" parent="."]
+[node name="StatValue" type="Label" parent="." unique_id=672700866]
 layout_mode = 2
 size_flags_horizontal = 8
 text = "30"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://vnu6f53bf3ur"]
+[gd_scene format=3 uid="uid://vnu6f53bf3ur"]
 
 [ext_resource type="Theme" uid="uid://dk5iv042psfw" path="res://assets/themes/Default.tres" id="1_e7u35"]
 [ext_resource type="Texture2D" uid="uid://bic3i142epdt3" path="res://assets/art/placeholder_threat.png" id="1_jchug"]
@@ -16,7 +16,7 @@ border_width_right = 5
 border_width_bottom = 5
 border_color = Color(0, 1, 0.866667, 0.392157)
 
-[node name="CharacterInfoPanel" type="PanelContainer" groups=["tutorial_triggers"]]
+[node name="CharacterInfoPanel" type="PanelContainer" unique_id=1465927984 groups=["tutorial_triggers"]]
 custom_minimum_size = Vector2(256, 248)
 anchors_preset = 8
 anchor_left = 0.5
@@ -32,122 +32,122 @@ grow_vertical = 2
 theme = ExtResource("1_e7u35")
 script = ExtResource("2_b64bf")
 
-[node name="AudioManager" parent="." instance=ExtResource("3_ygbom")]
+[node name="AudioManager" parent="." unique_id=1388347792 instance=ExtResource("3_ygbom")]
 
-[node name="MC" type="MarginContainer" parent="."]
+[node name="MC" type="MarginContainer" parent="." unique_id=772865216]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="VB" type="VBoxContainer" parent="MC"]
+[node name="VB" type="VBoxContainer" parent="MC" unique_id=923957381]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="Summary" type="HBoxContainer" parent="MC/VB"]
+[node name="Summary" type="HBoxContainer" parent="MC/VB" unique_id=922121897]
 layout_mode = 2
 
-[node name="Portrait" type="TextureRect" parent="MC/VB/Summary"]
+[node name="Portrait" type="TextureRect" parent="MC/VB/Summary" unique_id=838108949]
 layout_mode = 2
 texture = ExtResource("1_jchug")
 expand_mode = 3
 stretch_mode = 4
 
-[node name="VB" type="VBoxContainer" parent="MC/VB/Summary"]
+[node name="VB" type="VBoxContainer" parent="MC/VB/Summary" unique_id=853362678]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Name" type="Label" parent="MC/VB/Summary/VB"]
+[node name="Name" type="Label" parent="MC/VB/Summary/VB" unique_id=915503697]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Tumble"
 
-[node name="PC" type="PanelContainer" parent="MC/VB/Summary/VB"]
+[node name="PC" type="PanelContainer" parent="MC/VB/Summary/VB" unique_id=611388256]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="MC" type="MarginContainer" parent="MC/VB/Summary/VB/PC"]
+[node name="MC" type="MarginContainer" parent="MC/VB/Summary/VB/PC" unique_id=516334047]
 layout_mode = 2
 theme_override_constants/margin_left = 2
 theme_override_constants/margin_top = 2
 theme_override_constants/margin_right = 2
 theme_override_constants/margin_bottom = 2
 
-[node name="UpgradeLevel" type="Label" parent="MC/VB/Summary/VB/PC/MC"]
+[node name="UpgradeLevel" type="Label" parent="MC/VB/Summary/VB/PC/MC" unique_id=373549604]
 layout_mode = 2
 text = "Upgrades:
 2"
 horizontal_alignment = 1
 
-[node name="Actions" type="VBoxContainer" parent="MC/VB"]
+[node name="Actions" type="VBoxContainer" parent="MC/VB" unique_id=1532510381]
 layout_mode = 2
 
-[node name="ActionsHeader" type="Label" parent="MC/VB/Actions"]
+[node name="ActionsHeader" type="Label" parent="MC/VB/Actions" unique_id=35011188]
 layout_mode = 2
 text = "Actions:"
 
-[node name="ActionsContainer" type="GridContainer" parent="MC/VB/Actions"]
+[node name="ActionsContainer" type="GridContainer" parent="MC/VB/Actions" unique_id=1035860043]
 layout_mode = 2
 columns = 3
 
-[node name="DieResult" parent="MC/VB/Actions/ActionsContainer" instance=ExtResource("3_hsll6")]
+[node name="DieResult" parent="MC/VB/Actions/ActionsContainer" unique_id=2024909538 instance=ExtResource("3_hsll6")]
 layout_mode = 2
 
-[node name="DieResult2" parent="MC/VB/Actions/ActionsContainer" instance=ExtResource("3_hsll6")]
+[node name="DieResult2" parent="MC/VB/Actions/ActionsContainer" unique_id=1139154194 instance=ExtResource("3_hsll6")]
 layout_mode = 2
 
-[node name="DieResult3" parent="MC/VB/Actions/ActionsContainer" instance=ExtResource("3_hsll6")]
+[node name="DieResult3" parent="MC/VB/Actions/ActionsContainer" unique_id=205107495 instance=ExtResource("3_hsll6")]
 layout_mode = 2
 
-[node name="DieResult4" parent="MC/VB/Actions/ActionsContainer" instance=ExtResource("3_hsll6")]
+[node name="DieResult4" parent="MC/VB/Actions/ActionsContainer" unique_id=1595347222 instance=ExtResource("3_hsll6")]
 layout_mode = 2
 
-[node name="DieResult5" parent="MC/VB/Actions/ActionsContainer" instance=ExtResource("3_hsll6")]
+[node name="DieResult5" parent="MC/VB/Actions/ActionsContainer" unique_id=1047108468 instance=ExtResource("3_hsll6")]
 layout_mode = 2
 
-[node name="DieResult6" parent="MC/VB/Actions/ActionsContainer" instance=ExtResource("3_hsll6")]
+[node name="DieResult6" parent="MC/VB/Actions/ActionsContainer" unique_id=88415354 instance=ExtResource("3_hsll6")]
 layout_mode = 2
 
-[node name="DieResult7" parent="MC/VB/Actions/ActionsContainer" instance=ExtResource("3_hsll6")]
+[node name="DieResult7" parent="MC/VB/Actions/ActionsContainer" unique_id=547771159 instance=ExtResource("3_hsll6")]
 layout_mode = 2
 
-[node name="DieResult8" parent="MC/VB/Actions/ActionsContainer" instance=ExtResource("3_hsll6")]
+[node name="DieResult8" parent="MC/VB/Actions/ActionsContainer" unique_id=76356294 instance=ExtResource("3_hsll6")]
 layout_mode = 2
 
-[node name="DieResult9" parent="MC/VB/Actions/ActionsContainer" instance=ExtResource("3_hsll6")]
+[node name="DieResult9" parent="MC/VB/Actions/ActionsContainer" unique_id=1966741669 instance=ExtResource("3_hsll6")]
 layout_mode = 2
 
-[node name="Current" type="VBoxContainer" parent="MC/VB"]
+[node name="Current" type="VBoxContainer" parent="MC/VB" unique_id=1041426623]
 layout_mode = 2
 
-[node name="CurrentAction" type="PanelContainer" parent="MC/VB/Current"]
+[node name="CurrentAction" type="PanelContainer" parent="MC/VB/Current" unique_id=681561138]
 layout_mode = 2
 size_flags_vertical = 10
 
-[node name="MC" type="MarginContainer" parent="MC/VB/Current/CurrentAction"]
+[node name="MC" type="MarginContainer" parent="MC/VB/Current/CurrentAction" unique_id=1729605622]
 layout_mode = 2
 theme_override_constants/margin_left = 2
 theme_override_constants/margin_top = 2
 theme_override_constants/margin_right = 2
 theme_override_constants/margin_bottom = 2
 
-[node name="HB" type="HBoxContainer" parent="MC/VB/Current/CurrentAction/MC"]
+[node name="HB" type="HBoxContainer" parent="MC/VB/Current/CurrentAction/MC" unique_id=1694222337]
 layout_mode = 2
 
-[node name="CurrentHeader" type="Label" parent="MC/VB/Current/CurrentAction/MC/HB"]
+[node name="CurrentHeader" type="Label" parent="MC/VB/Current/CurrentAction/MC/HB" unique_id=852861855]
 layout_mode = 2
 text = "Current Action:"
 
-[node name="DieResult" parent="MC/VB/Current/CurrentAction/MC/HB" instance=ExtResource("3_hsll6")]
+[node name="DieResult" parent="MC/VB/Current/CurrentAction/MC/HB" unique_id=505711629 instance=ExtResource("3_hsll6")]
 layout_mode = 2
 
-[node name="LockedBorder" type="Panel" parent="MC/VB/Current/CurrentAction"]
+[node name="LockedBorder" type="Panel" parent="MC/VB/Current/CurrentAction" unique_id=1984323308]
 layout_mode = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_2ho2i")
 
-[node name="LockIcon" type="TextureRect" parent="MC/VB/Current/CurrentAction/LockedBorder"]
+[node name="LockIcon" type="TextureRect" parent="MC/VB/Current/CurrentAction/LockedBorder" unique_id=1014865516]
 custom_minimum_size = Vector2(24, 24)
 layout_mode = 1
 anchors_preset = -1
@@ -161,11 +161,11 @@ grow_vertical = 2
 texture = ExtResource("5_8swb4")
 expand_mode = 3
 
-[node name="LockButton" type="Button" parent="MC/VB/Current"]
+[node name="LockButton" type="Button" parent="MC/VB/Current" unique_id=602124193]
 layout_mode = 2
 text = "Lock Current Action"
 
-[node name="CloseButton" type="Button" parent="."]
+[node name="CloseButton" type="Button" parent="." unique_id=1382630099]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0

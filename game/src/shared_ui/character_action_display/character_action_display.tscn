@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dr7v1vu064ukv"]
+[gd_scene format=3 uid="uid://dr7v1vu064ukv"]
 
 [ext_resource type="Script" uid="uid://b38io1hj3cg2r" path="res://src/shared_ui/character_action_display/character_action_display.gd" id="2_11qdl"]
 [ext_resource type="PackedScene" uid="uid://lw7wcqkoqifj" path="res://src/shared_ui/die_result/DieResult.tscn" id="2_lvo8c"]
@@ -27,7 +27,7 @@ corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l3xg7"]
 
-[node name="CharacterActionDisplay" type="TextureRect"]
+[node name="CharacterActionDisplay" type="TextureRect" unique_id=685294768]
 self_modulate = Color(1, 1, 1, 0.588235)
 custom_minimum_size = Vector2(60, 60)
 anchors_preset = 8
@@ -41,9 +41,9 @@ texture = ExtResource("3_sibwu")
 expand_mode = 2
 script = ExtResource("2_11qdl")
 
-[node name="AudioManager" parent="." instance=ExtResource("3_un048")]
+[node name="AudioManager" parent="." unique_id=150510583 instance=ExtResource("3_un048")]
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=1384682375]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -53,7 +53,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ValueChangedParticles" type="CPUParticles2D" parent="Control"]
+[node name="ValueChangedParticles" type="CPUParticles2D" parent="Control" unique_id=437888566]
 emitting = false
 amount = 20
 one_shot = true
@@ -67,7 +67,7 @@ scale_amount_min = 2.0
 scale_amount_max = 6.0
 scale_amount_curve = SubResource("Curve_vcnhl")
 
-[node name="FrozenBackground" type="Panel" parent="."]
+[node name="FrozenBackground" type="Panel" parent="." unique_id=379778853]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -77,7 +77,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_xrpyl")
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="." unique_id=964643836]
 show_behind_parent = true
 layout_mode = 1
 anchors_preset = 15
@@ -92,10 +92,10 @@ theme_override_styles/hover_pressed = ExtResource("3_flghc")
 toggle_mode = true
 button_group = ExtResource("3_613ya")
 
-[node name="DieResult" parent="." instance=ExtResource("2_lvo8c")]
+[node name="DieResult" parent="." unique_id=379693992 instance=ExtResource("2_lvo8c")]
 layout_mode = 1
 
-[node name="FrozenIcon" type="TextureRect" parent="."]
+[node name="FrozenIcon" type="TextureRect" parent="." unique_id=1519088640]
 visible = false
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 1
