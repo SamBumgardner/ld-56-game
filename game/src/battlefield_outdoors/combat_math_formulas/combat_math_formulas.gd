@@ -25,11 +25,7 @@ func sum_dice_amounts(
 
 
 # Sum leftover dice results that do not match the target StatType.
-func total_dice_leftover(
-    character_die_slots: Array[CharacterDieSlot],
-    target_stat_type: Database.StatType,
-    matching_stat_type_multiplier: int
-) -> int:
+func total_dice_leftover() -> int:
     return (
         total_dice_with_matching_stat_type_multiplier(
             Database.current_character_die_slots,

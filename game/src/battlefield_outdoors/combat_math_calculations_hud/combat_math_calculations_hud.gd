@@ -37,11 +37,7 @@ func _on_barrier_changed(_new_barrier: BarrierData):
     refresh()
 
 func _get_subtotal_remaining_value() -> int:
-    return combat_math_formulas.total_dice_leftover(
-        Database.current_character_die_slots,
-        Database.current_barrier_stat_type_to_overcome,
-        Database.current_matching_stat_type_multiplier
-    )
+    return combat_math_formulas.total_dice_leftover()
 
 
 func _get_subtotal_stat_type_match() -> int:

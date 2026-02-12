@@ -1,7 +1,5 @@
 class_name BattlefieldOutdoorsWarTransport extends AnimatedSprite2D
 
-signal camera_focus_moving(distance: Vector2, duration: float)
-
 const HEALTH_LABEL_FORMAT: String = "%s / %s"
 
 @onready var power: Label = $Columns/Power
