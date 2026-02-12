@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="UpgradeChoice" load_steps=3 format=3 uid="uid://baexcdc02i8y8"]
+[gd_resource type="Resource" script_class="UpgradeChoice" format=3 uid="uid://baexcdc02i8y8"]
 
 [ext_resource type="Texture2D" uid="uid://dyjjpxofpi88e" path="res://assets/art/upgrade_icon_repair.png" id="1_mh3w5"]
 [ext_resource type="Script" uid="uid://bx3w5bf7rikpn" path="res://src/characters/UpgradeChoice.gd" id="2_ag2ge"]
@@ -9,15 +9,5 @@ name = "Repair"
 description = "Temporary Description"
 visual_summary = "[center]Restore 50% of maximum health"
 icon_ref = ExtResource("1_mh3w5")
-cost = 0
 upgrade_type = 8
-value_change_amount = 0
-number_of_times = 1
-remove_action_name = ""
-new_action_string = ""
-filter_criteria = -1
-invert_filter = false
-sort_criteria = -1
-number_of_actions_to_affect = 1
-change_to = -1
 restore_pct = 0.5

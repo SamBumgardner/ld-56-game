@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="UpgradeChoice" load_steps=3 format=3 uid="uid://babglt7qu642p"]
+[gd_resource type="Resource" script_class="UpgradeChoice" format=3 uid="uid://babglt7qu642p"]
 
 [ext_resource type="Script" uid="uid://bx3w5bf7rikpn" path="res://src/characters/UpgradeChoice.gd" id="1_ut18s"]
 [ext_resource type="Texture2D" uid="uid://c0b1w7ad66uoa" path="res://assets/art/upgrade_icon_wit.png" id="2_ejssb"]
@@ -10,15 +10,7 @@ description = "Temporary Description"
 visual_summary = "[center]Add: 
 (total of [img=30%]res://assets/art/HEAL_icon_64x64.png[/img] actions)[img=30%]res://assets/art/HEAL_icon_64x64.png[/img]"
 icon_ref = ExtResource("2_ejssb")
-cost = 0
 upgrade_type = 10
-value_change_amount = 0
-number_of_times = 1
-remove_action_name = ""
 new_action_string = "wit"
 filter_criteria = 1
-invert_filter = false
-sort_criteria = -1
 number_of_actions_to_affect = 256
-change_to = -1
-restore_pct = 0.0
