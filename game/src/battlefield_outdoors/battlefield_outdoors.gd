@@ -62,6 +62,9 @@ func request_grab_focus_charge_button():
 func request_grab_focus_reroll_button():
     battlefield_outdoors_hud.request_grab_focus_reroll_button()
 
+func request_grab_focus_status_first_crew_member():
+    battlefield_outdoors_hud.request_grab_focus_status_first_crew_member()
+
 func transition_in() -> void:
     Database.initialize_missing_die_slots()
     battlefield_outdoors_hud.crew_member_selector.refresh()

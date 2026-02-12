@@ -22,3 +22,5 @@ grow_horizontal = 1
 grow_vertical = 1
 script = ExtResource("3_t61gb")
 tutorial_sequence = ExtResource("4_iyh36")
+
+[connection signal="tutorial_grab_focus_without_continue_requested" from="OutdoorBattleMode/Tutorial" to="." method="_on_tutorial_tutorial_grab_focus_without_continue_requested"]

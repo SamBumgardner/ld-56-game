@@ -32,6 +32,7 @@ const REROLL_FAIL_DURATION = 2
 @onready var charge_button: Button = $BottomInfoDisplay/Center/CrewStatus/StatusSections/TotalPowerDisplay/PanelContainer/VBoxContainer/ChargeButton
 @onready var go_inside_button: Button = $GoInsideButton
 @onready var combat_results_summary: CombatResultsSummary = $CombatResultsSummary
+@onready var status_first_crew_member: CharacterActionDisplay = $BottomInfoDisplay/Center/CrewStatus/StatusSections/CrewActionsDisplay/PC/GC/CharacterActionDisplay
 @onready var top_right_location_display: MarginContainer = $TopRightLocation
 
 @onready var resource_displays: Array[ResourceDisplay] = [
@@ -68,6 +69,9 @@ func _ready():
 
 func request_grab_focus_charge_button():
     charge_button.grab_focus()
+
+func request_grab_focus_status_first_crew_member():
+    status_first_crew_member.child_button_grab_focus()
 
 func request_grab_focus_reroll_button():
     reroll_button.grab_focus()

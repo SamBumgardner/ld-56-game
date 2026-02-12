@@ -39,6 +39,9 @@ func refresh(trigger_particles: bool = false) -> void:
     else:
         hide()
 
+func child_button_grab_focus():
+    button.grab_focus()
+
 func set_character_die_slot(new_die_slot: CharacterDieSlot, display_particles: bool = false) -> void:
     character_die_slot = new_die_slot
     refresh(display_particles)

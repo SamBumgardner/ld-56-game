@@ -130,4 +130,7 @@ func _on_tutorial_basic_info_tutorial_grab_focus_without_continue_requested():
 func _on_tutorial_reroll_tutorial_grab_focus_without_continue_requested():
     outdoor_root.request_grab_focus_reroll_button()
 
+func _on_tutorial_tutorial_grab_focus_without_continue_requested():
+    outdoor_root.request_grab_focus_status_first_crew_member()
+
 #endregion Tutorial grab focus handlers
