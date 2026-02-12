@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Region" load_steps=2 format=3 uid="uid://dwhqixr01xgru"]
+[gd_resource type="Resource" script_class="Region" format=3 uid="uid://dwhqixr01xgru"]
 
 [ext_resource type="Script" uid="uid://bgeshwjpde4c1" path="res://src/scenario/region.gd" id="1_p2jy5"]
 
@@ -10,8 +10,5 @@ gameplay_description = "[color=cyan]- Danger
 [color=cyan]+ Coin rewards"
 barrier_linear_scaling_amount = 0.5
 barrier_variance = 0.5
-barrier_type_distribution = Array[int]([0, 1, 2])
 fuel_reward = 3
-fuel_variance = 1
 money_reward = 15
-money_variance = 3
