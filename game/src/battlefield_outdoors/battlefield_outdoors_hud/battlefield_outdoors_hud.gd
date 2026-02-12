@@ -66,6 +66,9 @@ func _ready():
     go_inside_button.grab_focus()
 
 
+func request_grab_focus_charge_button():
+    charge_button.grab_focus()
+
 func request_roll_preview_start() -> void:
     crew_actions_display.start_preview_reroll()
 

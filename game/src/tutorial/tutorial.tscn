@@ -18,3 +18,5 @@ layout_mode = 0
 
 [node name="TutorialArrow" parent="." unique_id=558101 instance=ExtResource("2_0kclp")]
 layout_mode = 1
+
+[connection signal="tutorial_grab_focus_without_continue_requested" from="TutorialDialogue" to="." method="_on_tutorial_dialogue_tutorial_grab_focus_without_continue_requested"]

@@ -16,3 +16,5 @@ offset_right = -1920.0
 offset_bottom = -1080.0
 script = ExtResource("3_i7yrx")
 tutorial_sequence = ExtResource("4_wiiy0")
+
+[connection signal="tutorial_grab_focus_without_continue_requested" from="OutdoorBattleMode/TutorialBasicInfo" to="." method="_on_tutorial_basic_info_tutorial_grab_focus_without_continue_requested"]

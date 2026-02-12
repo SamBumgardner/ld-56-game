@@ -56,6 +56,9 @@ func _connect_hud_charge_events() -> void:
     charge_cooldown.connect(battlefield_outdoors_hud._on_charge_cooldown)
     charge_finish.connect(battlefield_outdoors_hud._on_charge_finish)
 
+func request_grab_focus_charge_button():
+    battlefield_outdoors_hud.request_grab_focus_charge_button()
+
 func transition_in() -> void:
     Database.initialize_missing_die_slots()
     battlefield_outdoors_hud.crew_member_selector.refresh()

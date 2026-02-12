@@ -121,3 +121,7 @@ func _transition_to_victory_screen():
     var victory_scene: GameOver = load("res://src/game_over/victory_scene.tscn").instantiate()
     victory_scene.position = Vector2(-640, -360)
     outdoor_canvas.add_child(victory_scene)
+
+
+func _on_tutorial_basic_info_tutorial_grab_focus_without_continue_requested():
+    outdoor_root.request_grab_focus_charge_button()

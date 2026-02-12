@@ -2,6 +2,8 @@ class_name TutorialDialogue extends Control
 
 signal continue_button_pressed()
 
+signal tutorial_grab_focus_without_continue_requested()
+
 @onready var header: Label = $PanelContainer/MarginContainer/VBoxContainer/HeaderContainer/PanelContainer/MarginContainer/Header
 @onready var body: RichTextLabel = $PanelContainer/MarginContainer/VBoxContainer/BodyContainer/PanelContainer/MarginContainer/VBoxContainer/Body
 @onready var body_container: Container = $PanelContainer/MarginContainer/VBoxContainer/BodyContainer
@@ -22,6 +24,8 @@ func display_new_tutorial_step(new_position: Vector2, header_text: String, body_
 
     if show_continue_button:
         continue_button.grab_focus()
+    else:
+        tutorial_grab_focus_without_continue_requested.emit()
 
 func _jump_to_location(new_position: Vector2):
     position = new_position

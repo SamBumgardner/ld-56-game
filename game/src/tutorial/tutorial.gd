@@ -1,5 +1,7 @@
 class_name Tutorial extends Control
 
+signal tutorial_grab_focus_without_continue_requested()
+
 const TRIGGER_NODE_GROUP: String = "tutorial_triggers"
 
 @export var tutorial_sequence: TutorialSequence
@@ -55,3 +57,7 @@ func _on_trigger_received(trigger_name: String):
 ## Child classes override this to do other kinds of behavior when the tutorial's done.
 func _tutorial_finished():
     get_tree().change_scene_to_file("res://src/scenario_selection/tutorial_selection_menu.tscn")
+
+
+func _on_tutorial_dialogue_tutorial_grab_focus_without_continue_requested():
+    tutorial_grab_focus_without_continue_requested.emit()
