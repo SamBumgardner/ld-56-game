@@ -122,6 +122,12 @@ func _transition_to_victory_screen():
     victory_scene.position = Vector2(-640, -360)
     outdoor_canvas.add_child(victory_scene)
 
+#region Tutorial grab focus handlers
 
 func _on_tutorial_basic_info_tutorial_grab_focus_without_continue_requested():
     outdoor_root.request_grab_focus_charge_button()
+
+func _on_tutorial_reroll_tutorial_grab_focus_without_continue_requested():
+    outdoor_root.request_grab_focus_reroll_button()
+
+#endregion Tutorial grab focus handlers

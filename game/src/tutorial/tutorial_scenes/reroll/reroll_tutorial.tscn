@@ -15,3 +15,5 @@ offset_right = -1920.0
 offset_bottom = -1080.0
 script = ExtResource("3_8esyi")
 tutorial_sequence = ExtResource("4_1etnv")
+
+[connection signal="tutorial_grab_focus_without_continue_requested" from="OutdoorBattleMode/TutorialReroll" to="." method="_on_tutorial_reroll_tutorial_grab_focus_without_continue_requested"]
