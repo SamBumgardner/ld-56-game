@@ -133,4 +133,7 @@ func _on_tutorial_reroll_tutorial_grab_focus_without_continue_requested():
 func _on_tutorial_tutorial_grab_focus_without_continue_requested():
     outdoor_root.request_grab_focus_status_first_crew_member()
 
+func _on_upgrades_tutorial_outdoors_tutorial_grab_focus_without_continue_requested():
+    outdoor_root.request_grab_focus_charge_button()
+
 #endregion Tutorial grab focus handlers
