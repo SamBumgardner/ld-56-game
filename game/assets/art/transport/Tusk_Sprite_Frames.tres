@@ -61,7 +61,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6sghq")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }, {
@@ -84,7 +84,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_gtn2p")
 }],
-"loop": true,
+"loop": 1,
 "name": &"moving_bumpy",
 "speed": 5.0
 }, {
@@ -107,7 +107,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_v4lhq")
 }],
-"loop": true,
+"loop": 1,
 "name": &"moving_smooth",
 "speed": 5.0
 }]
