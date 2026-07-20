@@ -41,6 +41,7 @@ choices = Array[ExtResource("5_7u5t2")]([ExtResource("14_lqy05"), ExtResource("1
 [resource]
 script = ExtResource("3_osxgm")
 name = "Venom"
+job_name = "Trickshot"
 description = "Fearless to a fault, never hesitates to try something new -- permanently banned from cooking duty."
 portrait = ExtResource("2_uc5ga")
 icon = ExtResource("1_pttuv")

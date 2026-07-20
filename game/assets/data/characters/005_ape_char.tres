@@ -41,6 +41,7 @@ choices = Array[ExtResource("5_bw02d")]([ExtResource("14_l420h"), ExtResource("1
 [resource]
 script = ExtResource("3_riglx")
 name = "A.P.E."
+job_name = "Wild Card"
 description = "Tired of living by the rules, he trusts his life to the whims of fate."
 portrait = ExtResource("2_k3b2v")
 icon = ExtResource("1_758vp")

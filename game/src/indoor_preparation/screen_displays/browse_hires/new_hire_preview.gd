@@ -24,7 +24,7 @@ func _ready() -> void:
 func set_character_data(character: Character) -> void:
     portrait.texture = character.icon
     name_label.text = character.name
-    description.text = character.description
+    description.text = character.job_name
     cost_label.text = cost_format_string % character.hiring_cost
     _set_action_previews(character.actions.get_all())
     displayed_character = character

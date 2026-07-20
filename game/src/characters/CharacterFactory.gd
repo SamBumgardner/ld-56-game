@@ -1,6 +1,7 @@
 class_name CharacterFactory extends Resource
 
 @export var name: String
+@export var job_name: String
 @export_multiline var description: String
 @export var portrait: Texture2D
 @export var icon: Texture2D
@@ -15,6 +16,7 @@ func instantiate(hiring_cost: int = 10) -> Character:
     var action_selector = ActionSelector.new(starting_actions)
     return Character.new(
         name,
+        job_name,
         description,
         portrait,
         icon,

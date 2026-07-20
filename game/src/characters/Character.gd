@@ -3,6 +3,7 @@ class_name Character extends RefCounted
 const UPGRADE_HISTORY_UNSET: int = -1
 
 var name: String
+var job_name: String
 var description: String
 var portrait: Texture2D
 var icon: Texture2D
@@ -14,11 +15,12 @@ var upgrades: Array[UpgradeSelector]
 var upgrade_choice_history: Array[int]
 var hiring_cost: int
 
-func _init(_name: String, _description: String, _portrait: Texture2D,
+func _init(_name: String, _job_name: String, _description: String, _portrait: Texture2D,
         _icon: Texture2D, _actions: ActionSelector, _upgrade_level: int,
         _upgrades: Array[UpgradeSelector], _hiring_cost: int,
         _sfx_hello: AudioStream, _sfx_upgrade_gained: AudioStream) -> void:
     name = _name
+    job_name = _job_name
     description = _description
     portrait = _portrait
     icon = _icon
@@ -43,7 +45,7 @@ func deep_copy() -> Character:
         new_actions.append(Action._parse_action_string(action.name))
     var new_action_selector = ActionSelector.new(new_actions)
     
-    var copy: Character = Character.new(name, description, portrait, icon, new_action_selector,
+    var copy: Character = Character.new(name, job_name, description, portrait, icon, new_action_selector,
         upgrade_level, upgrades, hiring_cost, sfx_hello, sfx_upgrade_gained)
     
     copy.upgrade_choice_history = upgrade_choice_history.duplicate()

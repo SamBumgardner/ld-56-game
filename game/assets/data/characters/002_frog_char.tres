@@ -41,6 +41,7 @@ choices = Array[ExtResource("5_2eogc")]([ExtResource("14_bp6f7"), ExtResource("1
 [resource]
 script = ExtResource("3_ckivh")
 name = "Tumble"
+job_name = "Engineer"
 description = "Not much of an acrobat, but an excellent engineer.
  "
 portrait = ExtResource("2_tg2sd")

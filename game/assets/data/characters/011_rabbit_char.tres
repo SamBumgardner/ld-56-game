@@ -41,6 +41,7 @@ choices = Array[ExtResource("5_jpgdi")]([ExtResource("14_fys2i"), ExtResource("1
 [resource]
 script = ExtResource("3_tiyrw")
 name = "Thistle"
+job_name = "Survivalist"
 description = "A skilled survivalist, capable of supporting many even under harsh conditions."
 portrait = ExtResource("2_erovx")
 icon = ExtResource("1_aknx8")

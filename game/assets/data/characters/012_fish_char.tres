@@ -40,6 +40,7 @@ choices = Array[ExtResource("5_6d2jh")]([ExtResource("14_ctp6m"), ExtResource("1
 [resource]
 script = ExtResource("3_vhn86")
 name = "Karma"
+job_name = "Mechanic"
 description = "Chased from his home by water-thieves, he has a score to settle and a home to reclaim."
 portrait = ExtResource("2_gq46r")
 icon = ExtResource("1_r4aqy")

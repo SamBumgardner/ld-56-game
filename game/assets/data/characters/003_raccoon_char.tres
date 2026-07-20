@@ -41,6 +41,7 @@ choices = Array[ExtResource("5_nqnpf")]([ExtResource("14_gp7pk"), ExtResource("1
 [resource]
 script = ExtResource("3_cp6an")
 name = "Fiddler"
+job_name = "Hero"
 description = "Loyalty, bravery, and a touch of pyromania; there's no better ally in a pinch."
 portrait = ExtResource("2_1ghps")
 icon = ExtResource("1_f1shx")
